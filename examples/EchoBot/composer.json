@@ -1,0 +1,14 @@
+{
+  "license": "Apache License, Version 2.0",
+  "authors": [
+    {
+      "name": "moznion",
+      "email": "moznion@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "slim/slim": "^3.0",
+    "monolog/monolog": "^1.19.0"
+  }
+}

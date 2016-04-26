@@ -1,0 +1,7 @@
+/.idea/
+/vendor/
+/composer.lock
+/composer.phar
+/tests/Private
+/,/
+/docs/

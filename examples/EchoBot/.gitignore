@@ -1,0 +1,5 @@
+/vendor/
+/logs/*
+!/logs/.gitkeep
+composer.lock
+composer.phar
