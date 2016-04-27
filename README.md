@@ -19,7 +19,7 @@ composer require linecorp/line-bot-sdk
 Note
 --
 
-If you use __PHP 5.5 or lower__, please use this SDK with polyfill of [hash_equals()](http://php.net/manual/ja/function.hash-equals.php).
+If you use __PHP 5.5 or lower__, please use this SDK with polyfill of [hash_equals()](http://php.net/manual/function.hash-equals.php).
 
 e.g.
 
