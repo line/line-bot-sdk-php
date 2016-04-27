@@ -16,10 +16,13 @@
  */
 namespace LINE\Tests\LINEBot;
 
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Client;
+use GuzzleHttp\Event\Emitter;
+use GuzzleHttp\Message\Request;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Stream\Stream;
+use GuzzleHttp\Subscriber\History;
+use GuzzleHttp\Subscriber\Mock;
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient\GuzzleHTTPClient;
 use LINE\LINEBot\Message\RichMessage\Markup;
@@ -28,107 +31,38 @@ class RichMessageSendingTest extends \PHPUnit_Framework_TestCase
 {
     public function testRichMessage()
     {
-        $mock = new MockHandler([
-            function (Request $req) {
-                $this->assertEquals($req->getMethod(), 'POST');
-                $this->assertEquals($req->getUri(), 'https://trialbot-api.line.me/v1/events');
-
-                $data = json_decode($req->getBody(), true);
-                $this->assertEquals($data['eventType'], 138311608800106203);
-                $this->assertEquals($data['to'], ['DUMMY_MID']);
-                $this->assertEquals($data['content']['contentMetadata']['ALT_TEXT'], 'Alt text');
-                $this->assertEquals(
-                    $data['content']['contentMetadata']['DOWNLOAD_URL'],
-                    'http://example.com/image.jpg'
-                );
-
-                $json = $data['content']['contentMetadata']['MARKUP_JSON'];
-                $this->assertEquals(
-                    json_decode($json, true),
-                    [
-                        'scenes' => [
-                            'scene1' => [
-                                'listeners' => [
-                                    [
-                                        'params' => [
-                                            0,
-                                            0,
-                                            520,
-                                            520,
-                                        ],
-                                        'type' => 'touch',
-                                        'action' => 'SOMETHING',
-                                    ],
-                                ],
-                                'draws' => [
-                                    [
-                                        'image' => 'image1',
-                                        'x' => 0,
-                                        'y' => 0,
-                                        'w' => 1040,
-                                        'h' => 1040,
-                                    ],
-                                ],
-                            ],
-                        ],
-                        'images' => [
-                            'image1' => [
-                                'x' => 0,
-                                'y' => 0,
-                                'w' => 1040,
-                                'h' => 1040,
-                            ],
-                        ],
-                        'actions' => [
-                            'SOMETHING' => [
-                                'text' => 'something',
-                                'params' => [
-                                    'linkUri' => 'https://line.me',
-                                ],
-                                'type' => 'web',
-                            ],
-                        ],
-                        'canvas' => [
-                            'initialScene' => 'scene1',
-                            'width' => 1040,
-                            'height' => 1040,
-                        ],
-                    ]
-                );
-
-                $channelIdHeader = $req->getHeader('X-Line-ChannelID');
-                $this->assertEquals(sizeof($channelIdHeader), 1);
-                $this->assertEquals($channelIdHeader[0], '1000000000');
-
-                $channelSecretHeader = $req->getHeader('X-Line-ChannelSecret');
-                $this->assertEquals(sizeof($channelSecretHeader), 1);
-                $this->assertEquals($channelSecretHeader[0], 'testsecret');
-
-                $channelMidHeader = $req->getHeader('X-Line-Trusted-User-With-ACL');
-                $this->assertEquals(sizeof($channelMidHeader), 1);
-                $this->assertEquals($channelMidHeader[0], 'TEST_MID');
-
-                return new Response(
-                    200,
-                    [],
-                    '{"failed":[],"messageId":"1460867315795","timestamp":1460867315795,"version":1}'
-                );
-            },
-            new Response(400, [], '{"statusCode":"422","statusMessage":"invalid users"}'),
+        $mock = new Mock([
+            new Response(
+                200,
+                [],
+                Stream::factory('{"failed":[],"messageId":"1460867315795","timestamp":1460867315795,"version":1}')
+            ),
+            new Response(
+                400,
+                [],
+                Stream::factory('{"statusCode":"422","statusMessage":"invalid users"}')
+            ),
             new Response(
                 500,
                 [],
-                '{"statusCode":"500","statusMessage":"unexpected error found at call bot api sendMessage"}'
+                Stream::factory(
+                    '{"statusCode":"500","statusMessage":"unexpected error found at call bot api sendMessage"}'
+                )
             ),
         ]);
-        $mockHandler = HandlerStack::create($mock);
 
         $config = [
             'channelId' => '1000000000',
             'channelSecret' => 'testsecret',
             'channelMid' => 'TEST_MID',
         ];
-        $sdk = new LINEBot($config, new GuzzleHTTPClient(array_merge($config, ['handler' => $mockHandler])));
+
+        $histories = new History();
+        $emitter = new Emitter();
+        $emitter->attach($mock);
+        $emitter->attach($histories);
+
+        $sdk = new LINEBot($config, new GuzzleHTTPClient(array_merge($config, ['emitter' => $emitter])));
 
         $markup = (new Markup(1040))
             ->setAction('SOMETHING', 'something', 'https://line.me')
@@ -159,5 +93,87 @@ class RichMessageSendingTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(500, $res->getHTTPStatus());
         $this->assertEquals('500', $res->getStatusCode());
         $this->assertEquals('unexpected error found at call bot api sendMessage', $res->getStatusMessage());
+
+        $history = $histories->getIterator()[0];
+        /** @var Request $req */
+        $req = $history['request'];
+
+        $this->assertEquals($req->getMethod(), 'POST');
+        $this->assertEquals($req->getUrl(), 'https://trialbot-api.line.me/v1/events');
+
+        $data = json_decode($req->getBody(), true);
+        $this->assertEquals($data['eventType'], 138311608800106203);
+        $this->assertEquals($data['to'], ['DUMMY_MID']);
+        $this->assertEquals($data['content']['contentMetadata']['ALT_TEXT'], 'Alt text');
+        $this->assertEquals(
+            $data['content']['contentMetadata']['DOWNLOAD_URL'],
+            'http://example.com/image.jpg'
+        );
+
+        $json = $data['content']['contentMetadata']['MARKUP_JSON'];
+        $this->assertEquals(
+            json_decode($json, true),
+            [
+                'scenes' => [
+                    'scene1' => [
+                        'listeners' => [
+                            [
+                                'params' => [
+                                    0,
+                                    0,
+                                    520,
+                                    520,
+                                ],
+                                'type' => 'touch',
+                                'action' => 'SOMETHING',
+                            ],
+                        ],
+                        'draws' => [
+                            [
+                                'image' => 'image1',
+                                'x' => 0,
+                                'y' => 0,
+                                'w' => 1040,
+                                'h' => 1040,
+                            ],
+                        ],
+                    ],
+                ],
+                'images' => [
+                    'image1' => [
+                        'x' => 0,
+                        'y' => 0,
+                        'w' => 1040,
+                        'h' => 1040,
+                    ],
+                ],
+                'actions' => [
+                    'SOMETHING' => [
+                        'text' => 'something',
+                        'params' => [
+                            'linkUri' => 'https://line.me',
+                        ],
+                        'type' => 'web',
+                    ],
+                ],
+                'canvas' => [
+                    'initialScene' => 'scene1',
+                    'width' => 1040,
+                    'height' => 1040,
+                ],
+            ]
+        );
+
+        $channelIdHeader = $req->getHeaderAsArray('X-Line-ChannelID');
+        $this->assertEquals(sizeof($channelIdHeader), 1);
+        $this->assertEquals($channelIdHeader[0], '1000000000');
+
+        $channelSecretHeader = $req->getHeaderAsArray('X-Line-ChannelSecret');
+        $this->assertEquals(sizeof($channelSecretHeader), 1);
+        $this->assertEquals($channelSecretHeader[0], 'testsecret');
+
+        $channelMidHeader = $req->getHeaderAsArray('X-Line-Trusted-User-With-ACL');
+        $this->assertEquals(sizeof($channelMidHeader), 1);
+        $this->assertEquals($channelMidHeader[0], 'TEST_MID');
     }
 }

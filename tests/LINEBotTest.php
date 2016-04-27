@@ -16,9 +16,10 @@
  */
 namespace LINE\Tests;
 
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Event\Emitter;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Stream\Stream;
+use GuzzleHttp\Subscriber\Mock;
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient\GuzzleHTTPClient;
 
@@ -35,14 +36,16 @@ class LINEBotTest extends \PHPUnit_Framework_TestCase
      */
     public function testLINEBotAPIExceptionCausedByEmptyResponseBody()
     {
-        $mock = new MockHandler([
+        $mock = new Mock([
             new Response(200, []), // missing body
         ]);
-        $mockHandler = HandlerStack::create($mock);
+
+        $emitter = new Emitter();
+        $emitter->attach($mock);
 
         $sdk = new LINEBot(
             $this::$config,
-            new GuzzleHTTPClient(array_merge($this::$config, ['handler' => $mockHandler]))
+            new GuzzleHTTPClient(array_merge($this::$config, ['emitter' => $emitter]))
         );
 
         $sdk->sendText(['DUMMY_MID'], 'hello!');
@@ -53,14 +56,16 @@ class LINEBotTest extends \PHPUnit_Framework_TestCase
      */
     public function textLINEBotAPIExceptionCausedByInvalidResponseBody()
     {
-        $mock = new MockHandler([
-            new Response(200, [], 'I AM NOT A JSON'), // not JSON
+        $mock = new Mock([
+            new Response(200, [], Stream::factory('I AM NOT A JSON')), // not JSON
         ]);
-        $mockHandler = HandlerStack::create($mock);
+
+        $emitter = new Emitter();
+        $emitter->attach($mock);
 
         $sdk = new LINEBot(
             $this::$config,
-            new GuzzleHTTPClient(array_merge($this::$config, ['handler' => $mockHandler]))
+            new GuzzleHTTPClient(array_merge($this::$config, ['emitter' => $emitter]))
         );
 
         $sdk->sendText(['DUMMY_MID'], 'hello!');

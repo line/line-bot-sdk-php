@@ -18,6 +18,7 @@ namespace LINE\LINEBot\HTTPClient;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Stream\Stream;
 use LINE\LINEBot;
 use LINE\LINEBot\DownloadedContents;
 use LINE\LINEBot\Exception\ContentsDownloadingFailedException;
@@ -67,7 +68,7 @@ class GuzzleHTTPClient implements HTTPClient
     public function get($url)
     {
         try {
-            $res = $this->guzzle->request('GET', $url, ['headers' => $this->credentials()]);
+            $res = $this->guzzle->get($url, ['headers' => $this->credentials()]);
         } catch (BadResponseException $e) {
             $res = $e->getResponse();
         }
@@ -108,7 +109,7 @@ class GuzzleHTTPClient implements HTTPClient
         ]);
 
         try {
-            $res = $this->guzzle->request('POST', $url, [
+            $res = $this->guzzle->post($url, [
                 'headers' => $headers,
                 'body' => $json,
             ]);
@@ -145,11 +146,11 @@ class GuzzleHTTPClient implements HTTPClient
         if ($fileHandler === null) {
             $fileHandler = tmpfile();
         }
-        $stream = \GuzzleHttp\Psr7\stream_for($fileHandler);
+        $stream = Stream::factory($fileHandler);
 
         try {
-            $res = $this->guzzle->request('GET', $url, [
-                'sink' => $stream,
+            $res = $this->guzzle->get($url, [
+                'save_to' => $stream,
                 'headers' => $this->credentials(),
             ]);
         } catch (BadResponseException $e) {
