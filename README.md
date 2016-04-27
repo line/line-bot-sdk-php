@@ -9,7 +9,7 @@ Installation
 The LINE BOT API SDK can be installed with [Composer](https://getcomposer.org/).
 
 ```
-composer require line/line-bot-sdk
+composer require linecorp/line-bot-sdk
 ```
 
 Methods

@@ -1,5 +1,5 @@
 {
-  "name": "line/line-bot-sdk",
+  "name": "linecorp/line-bot-sdk",
   "description": "SDK of the LINE BOT API Trial for PHP",
   "keywords": [
     "LINE",
