@@ -1,6 +1,10 @@
 line-bot-sdk-php
 ==
 
+[![Build Status](https://travis-ci.org/line/line-bot-sdk-php.svg?branch=master)](https://travis-ci.org/line/line-bot-sdk-php)
+[![Latest Stable Version](https://poser.pugx.org/linecorp/line-bot-sdk/v/stable.svg)](https://packagist.org/packages/linecorp/line-bot-sdk)
+[![License](https://poser.pugx.org/linecorp/line-bot-sdk/license.svg)](https://packagist.org/packages/linecorp/line-bot-sdk)
+
 SDK of the LINE BOT API Trial for PHP.
 
 Installation
