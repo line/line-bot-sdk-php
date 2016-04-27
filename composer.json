@@ -17,8 +17,7 @@
   ],
   "require": {
     "php": ">=5.4",
-    "guzzlehttp/guzzle": "^5.3",
-    "indigophp/hash-compat": "^1.1"
+    "guzzlehttp/guzzle": "^5.3"
   },
   "require-dev": {
     "phpunit/phpunit": "^4.8.24",

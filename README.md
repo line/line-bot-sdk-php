@@ -16,6 +16,15 @@ The LINE BOT API SDK can be installed with [Composer](https://getcomposer.org/).
 composer require linecorp/line-bot-sdk
 ```
 
+Note
+--
+
+If you use __PHP 5.5 or lower__, please use this SDK with polyfill of [hash_equals()](http://php.net/manual/ja/function.hash-equals.php).
+
+e.g.
+
+- [indigophp/hash-compat](https://packagist.org/packages/indigophp/hash-compat)
+
 Methods
 --
 
