@@ -5,7 +5,7 @@ source projects you are aware of. It will be amazing if you could help us by doi
 
 - File an issue in [the issue tracker](https://github.com/line/line-bot-sdk-php/issues) to report bugs and propose new features and
   improvements.
-- Ask a question using [the issue tracker](https://github.com/line/line-bot-sdk-php/issues).
+- Ask a question using [the issue tracker](https://github.com/line/line-bot-sdk-php/issues) (__Please ask only about this SDK__).
 - Contribute your work by sending [a pull request](https://github.com/line/line-bot-sdk-php/pulls).
 
 ### Contributor license agreement
@@ -13,3 +13,4 @@ source projects you are aware of. It will be amazing if you could help us by doi
 If you are sending a pull request and it's a non-trivial change beyond fixing typos, please make sure to sign
 [the ICLA (individual contributor license agreement)](https://feedback.line.me/enquete/public/919-h9Yqmr1u). Please
 contact us if you need the CCLA (corporate contributor license agreement).
+
