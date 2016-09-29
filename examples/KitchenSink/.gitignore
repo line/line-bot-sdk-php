@@ -1,0 +1,4 @@
+!/logs/.gitkeep
+/logs/*
+!/public/static/tmpdir/.gitkeep
+/public/static/tmpdir/*

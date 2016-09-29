@@ -1,7 +1,8 @@
 line-echo-bot-sample
 ==
 
-A sample echo bot implementation of LINE BOT API Trial.
+A sample echo bot implementation of LINE Messaging API.
+
 This project is using [Slim framework](http://www.slimframework.com/).
 
 Getting Started
@@ -10,8 +11,8 @@ Getting Started
 ```
 $ (cd ../../ && composer install)
 $ composer install
-$ $EDITOR ./src/settings.php # <= edit your bot information
-$ php -S 0.0.0.0:8080 -t public ./public/index.php
+$ $EDITOR ./src/LINEBot/EchoBot/Setting.php # <= edit your bot information
+$ php -S 0.0.0.0:8080 -t public
 ```
 
 Hints
@@ -21,7 +22,7 @@ Hints
 
 Entry point of this application.
 
-### [src/routes.php](./src/routes.php)
+### [src/LINEBot/EchoBot/Route.php](./src/LINEBot/EchoBot/Route.php)
 
 Core logic of this application that uses LINE BOT API.
 
@@ -35,7 +36,7 @@ LINE Corporation licenses this file to you under the Apache License,
 version 2.0 (the "License"); you may not use this file except in compliance
 with the License. You may obtain a copy of the License at:
 
-  http://www.apache.org/licenses/LICENSE-2.0
+  https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
@@ -43,3 +44,4 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 ```
+

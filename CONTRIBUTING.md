@@ -3,10 +3,10 @@
 First of all, thank you so much for taking your time to contribute! LINE Bot SDK for PHP is not very different from any other open
 source projects you are aware of. It will be amazing if you could help us by doing any of the following:
 
-- File an issue in [the issue tracker](https://github.com/line/line-bot-sdk-php/issues) to report bugs and propose new features and
+- File an issue in [the issue tracker](https://github.com/line/line-bot-sdk-php-v2/issues) to report bugs and propose new features and
   improvements.
-- Ask a question using [the issue tracker](https://github.com/line/line-bot-sdk-php/issues) (__Please ask only about this SDK__).
-- Contribute your work by sending [a pull request](https://github.com/line/line-bot-sdk-php/pulls).
+- Ask a question using [the issue tracker](https://github.com/line/line-bot-sdk-php-v2/issues) (__Please ask only about this SDK__).
+- Contribute your work by sending [a pull request](https://github.com/line/line-bot-sdk-php-v2/pulls).
 
 ### Contributor license agreement
 

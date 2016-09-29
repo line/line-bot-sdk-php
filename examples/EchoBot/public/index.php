@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2016 LINE Corporation
  *
@@ -6,7 +7,7 @@
  * version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at:
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *   https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
@@ -14,14 +15,18 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-require_once __DIR__ . "/../../../vendor/autoload.php";
+
+use LINE\LINEBot\EchoBot\Dependency;
+use LINE\LINEBot\EchoBot\Route;
+use LINE\LINEBot\EchoBot\Setting;
+
+require_once __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$settings = require __DIR__ . '/../src/settings.php';
-$app = new \Slim\App($settings);
+$setting = Setting::getSetting();
+$app = new Slim\App($setting);
 
-require __DIR__ . '/../src/dependencies.php';
-
-require __DIR__ . '/../src/routes.php';
+(new Dependency())->register($app);
+(new Route())->register($app);
 
 $app->run();

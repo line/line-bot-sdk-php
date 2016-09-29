@@ -1,13 +1,13 @@
 {
   "name": "linecorp/line-bot-sdk",
-  "description": "SDK of the LINE BOT API Trial for PHP",
+  "description": "SDK of the LINE BOT API for PHP",
   "keywords": [
     "LINE",
     "bot",
     "sdk"
   ],
   "type": "library",
-  "homepage": "http://github.com/line/line-bot-sdk-php",
+  "homepage": "https://github.com/line/line-bot-sdk-php",
   "license": "Apache License Version 2.0",
   "authors": [
     {
@@ -16,8 +16,7 @@
     }
   ],
   "require": {
-    "php": ">=5.4",
-    "guzzlehttp/guzzle": "^5.3"
+    "php": ">=5.6"
   },
   "require-dev": {
     "phpunit/phpunit": "^4.8.24",
