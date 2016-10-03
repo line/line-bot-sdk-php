@@ -67,7 +67,10 @@ echo $response->getHTTPStatus . ' ' . $response->getBody();
 `LINEBot#replyMessage()` takes reply token and `MessageBuilder`.
 This method sends message that is built by `MessageBuilder` to the destination.
 
-#### MessageBuilder
+Components
+--
+
+### MessageBuilder
 
 Type of message depends on the type of instance of `MessageBuilder`.
 That means this method sends text message if you pass `TextMessageBuilder`,
@@ -77,7 +80,7 @@ If you want detail information of `MessageBuilder`, please refer `\LINE\LINEBot\
 
 Other methods that take `MessageBuilder` behave the same.
 
-#### Response
+### Response
 
 Methods that call API returns `Response`.  Response has three methods;
 
@@ -87,19 +90,36 @@ Methods that call API returns `Response`.  Response has three methods;
 
 You can use these method to check response status and take response body.
 
-##### `Response#isSucceeded()`
+#### `Response#isSucceeded()`
 
 This method returns the boolean value. Return value represents "request is succeeded or not".
 
-##### `Response#getHTTPStatus()`
+#### `Response#getHTTPStatus()`
 
 This method returns the HTTP status code of response.
 
-##### `Response#getBody()`
+#### `Response#getBody()`
 
 This method returns the body of response as string.
 
-### More information
+### Webhook
+
+LINE's server sends user action (message, image, location and etc.) to your bot server.
+Request of that contains event(s); event is action of the user.
+
+Flow of webhook handling is like following;
+
+1. Receive webhook from LINE's server.
+2. Parse request payload by `LINEBot#parseEventRequest($body, $signature)`.
+3. Iterate parsed events and some react as you like.
+
+We provides examples of this flow:
+
+- [EchoBot: Route.php](/examples/EchoBot/src/LINEBot/EchoBot/Route.php)
+- [KitchenSink: Route.php](/examples/KitchenSink/src/LINEBot/KitchenSink/Route.php)
+
+More information
+--
 
 Please check [official API documents](#about-line-messaging-api) and PHPDoc.
 If you first time to use this library, we recommend to see `examples` and PHPDoc of `\LINE\LINEBot`.
