@@ -16,7 +16,7 @@
  * under the License.
  */
 
-require('./LINEBotTiny.php');
+require_once('./LINEBotTiny.php');
 
 $channelAccessToken = getenv('LINEBOT_CHANNEL_TOKEN');
 if (!isset($channelAccessToken)) {
