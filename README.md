@@ -55,7 +55,7 @@ More advanced sample is below;
 ```php
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
 $response = $bot->replyMessage('<reply token>', $textMessageBuilder);
-if ($response->isSecceeded()) {
+if ($response->isSucceeded()) {
     echo 'Succeeded!';
     return;
 }
