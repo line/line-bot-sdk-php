@@ -19,6 +19,8 @@ Example
 
 See [echo_bot](./echo_bot.php).
 
+When you run this example, please never forget to set your channel access token and channel secret.
+
 Requirements
 --
 

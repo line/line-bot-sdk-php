@@ -18,17 +18,8 @@
 
 require_once('./LINEBotTiny.php');
 
-$channelAccessToken = getenv('LINEBOT_CHANNEL_TOKEN');
-if (!isset($channelAccessToken)) {
-    error_log('You must give environment variable "LINEBOT_CHANNEL_TOKEN"');
-    exit(1);
-}
-
-$channelSecret = getenv('LINEBOT_CHANNEL_SECRET');
-if (!isset($channelSecret)) {
-    error_log('You must give environment variable "LINEBOT_CHANNEL_SECRET"');
-    exit(1);
-}
+$channelAccessToken = '<your channel access token>';
+$channelSecret = '<your channel secret>';
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
