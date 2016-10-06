@@ -59,7 +59,7 @@ class LINEBotTiny
         $this->channelSecret = $channelSecret;
     }
 
-    public function handleWebhook($callback)
+    public function parseEvents()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             http_response_code(405);
@@ -82,9 +82,12 @@ class LINEBotTiny
         }
 
         $data = json_decode($entityBody, true);
-        foreach ($data['events'] as $event) {
-            $callback($event);
+        if (!isset($data['events'])) {
+            http_response_code(400);
+            error_log("Invalid request body: missing events property");
+            exit();
         }
+        return $data['events'];
     }
 
     public function replyMessage($message)

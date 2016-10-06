@@ -31,7 +31,7 @@ if (!isset($channelSecret)) {
 }
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
-$client->handleWebhook(function ($event) use ($client) {
+foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
             $message = $event['message'];
@@ -56,4 +56,4 @@ $client->handleWebhook(function ($event) use ($client) {
             error_log("Unsupporeted event type: " . $event['type']);
             break;
     }
-});
+};
