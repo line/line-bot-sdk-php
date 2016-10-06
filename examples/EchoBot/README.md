@@ -9,8 +9,8 @@ Getting Started
 --
 
 ```
-$ (cd ../../ && composer install)
-$ composer install
+$ curl -sS https://getcomposer.org/installer | php # Install composer.phar
+$ ./composer.phar install
 $ $EDITOR ./src/LINEBot/EchoBot/Setting.php # <= edit your bot information
 $ php -S 0.0.0.0:8080 -t public
 ```

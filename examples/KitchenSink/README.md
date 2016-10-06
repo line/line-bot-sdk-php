@@ -9,8 +9,8 @@ Getting Started
 --
 
 ```
-$ (cd ../../ && composer install)
-$ composer install
+$ curl -sS https://getcomposer.org/installer | php # Install composer.phar
+$ ./composer.phar install
 $ $EDITOR ./src/LINEBot/KitchenSink/Setting.php # <= edit your bot information
 $ ./run.sh 8080
 ```
