@@ -189,6 +189,14 @@ Please use `make phpmd`.
 
 `make`
 
+See Also
+--
+
+### [line-bot-sdk-tiny](./line-bot-sdk-tiny)
+
+Deadly simple SDK (subset) of the LINE Messaging API for PHP.
+line-bot-sdk-tiny provides simple interface and functions so it is useful to try and learn the LINE Messaging API.
+
 License
 --
 
