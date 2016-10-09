@@ -61,7 +61,7 @@ if ($response->isSucceeded()) {
 }
 
 // Failed
-echo $response->getHTTPStatus . ' ' . $response->getBody();
+echo $response->getHTTPStatus . ' ' . $response->getRawBody();
 ```
 
 `LINEBot#replyMessage()` takes reply token and `MessageBuilder`.
@@ -86,7 +86,8 @@ Methods that call API returns `Response`.  Response has three methods;
 
 - `Response#isSucceeded()`
 - `Response#getHTTPStatus()`
-- `Response#getBody()`
+- `Response#getRawBody()`
+- `Response#getJSONDecodedBody()`
 
 You can use these method to check response status and take response body.
 
@@ -98,9 +99,13 @@ This method returns the boolean value. Return value represents "request is succe
 
 This method returns the HTTP status code of response.
 
-#### `Response#getBody()`
+#### `Response#getRawBody()`
 
-This method returns the body of response as string.
+This method returns the body of response as raw (i.e. byte string).
+
+#### `Response#getJSONDecodedBody()`
+
+This method returns the body that is decoded as JSON. This body is an array.
 
 ### Webhook
 
