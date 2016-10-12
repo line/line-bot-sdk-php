@@ -105,11 +105,12 @@ class CurlHTTPClient implements HTTPClient
 
         $info = $curl->getinfo();
         $httpStatus = $info['http_code'];
+        $contentType = $info['content_type'];
 
         if ($curl->errno()) {
             throw new CurlExecutionException($curl->error());
         }
 
-        return new Response($httpStatus, $body);
+        return new Response($httpStatus, $body, $contentType);
     }
 }

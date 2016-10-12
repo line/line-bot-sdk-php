@@ -41,7 +41,7 @@ class DummyHttpClient implements HTTPClient
     public function get($url)
     {
         $ret = call_user_func($this->mock, $this->testRunner, 'GET', $url, []);
-        return new Response(200, json_encode($ret));
+        return new Response(200, json_encode($ret), null);
     }
 
     /**
@@ -52,6 +52,6 @@ class DummyHttpClient implements HTTPClient
     public function post($url, array $data)
     {
         $ret = call_user_func($this->mock, $this->testRunner, 'POST', $url, $data);
-        return new Response(200, json_encode($ret));
+        return new Response(200, json_encode($ret), null);
     }
 }

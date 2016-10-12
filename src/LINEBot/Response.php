@@ -27,19 +27,25 @@ class Response
 {
     /** @var int */
     private $httpStatus;
+
     /** @var string */
     private $body;
+
+    /** @var string */
+    private $contentType;
 
     /**
      * Response constructor.
      *
      * @param int $httpStatus HTTP status code of response.
      * @param string $body Request body.
+     * @param string $contentType The Content-Type header of the response
      */
-    public function __construct($httpStatus, $body)
+    public function __construct($httpStatus, $body, $contentType)
     {
         $this->httpStatus = $httpStatus;
         $this->body = $body;
+        $this->contentType = $contentType;
     }
 
     /**
@@ -50,6 +56,16 @@ class Response
     public function getHTTPStatus()
     {
         return $this->httpStatus;
+    }
+
+    /**
+     * Returns the Content-Type header of the response
+     *
+     * @return string The content type of the response, or null if not set
+     */
+    public function getContentType()
+    {
+        return $this->contentType;
     }
 
     /**
