@@ -29,17 +29,21 @@ class Response
     private $httpStatus;
     /** @var string */
     private $body;
+    /** @var array */
+    private $headers;
 
     /**
      * Response constructor.
      *
      * @param int $httpStatus HTTP status code of response.
      * @param string $body Request body.
+     * @param array $headers
      */
-    public function __construct($httpStatus, $body)
+    public function __construct($httpStatus, $body, $headers)
     {
         $this->httpStatus = $httpStatus;
         $this->body = $body;
+        $this->headers = $headers;
     }
 
     /**
@@ -63,7 +67,7 @@ class Response
     }
 
     /**
-     * Returns raw request body.
+     * Returns raw response body.
      *
      * @return string Raw request body.
      */
@@ -73,12 +77,22 @@ class Response
     }
 
     /**
-     * Returns request body as array (it means, returns JSON decoded body).
+     * Returns response body as array (it means, returns JSON decoded body).
      *
      * @return array Request body that is JSON decoded.
      */
     public function getJSONDecodedBody()
     {
         return json_decode($this->body, true);
+    }
+
+    /**
+     * Returns all of response headers.
+     *
+     * @return array
+     */
+    public function getHeaders()
+    {
+        return $this->headers;
     }
 }

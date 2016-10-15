@@ -22,7 +22,6 @@ use LINE\LINEBot\Constant\Meta;
 use LINE\LINEBot\Exception\CurlExecutionException;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\Response;
-use LINE\LINEBot\HTTPClient\Curl;
 
 /**
  * Class CurlHTTPClient.
@@ -93,6 +92,7 @@ class CurlHTTPClient implements HTTPClient
             CURLOPT_HEADER => false,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_BINARYTRANSFER => true,
+            CURLOPT_HEADER => true,
         ];
 
         if ($method === 'POST' && !empty($reqBody)) {
@@ -101,15 +101,28 @@ class CurlHTTPClient implements HTTPClient
 
         $curl->setoptArray($options);
 
-        $body = $curl->exec();
-
-        $info = $curl->getinfo();
-        $httpStatus = $info['http_code'];
+        $result = $curl->exec();
 
         if ($curl->errno()) {
             throw new CurlExecutionException($curl->error());
         }
 
-        return new Response($httpStatus, $body);
+        $info = $curl->getinfo();
+        $httpStatus = $info['http_code'];
+
+        $headerSize = $info['header_size'];
+
+        $headerStr = substr($result, 0, $headerSize);
+        $headers = [];
+        foreach (explode("\r\n", $headerStr) as $header) {
+            $kv = explode(':', $header, 2);
+            if (count($kv) === 2) {
+                $headers[$kv[0]] = $kv[1];
+            }
+        }
+
+        $body = substr($result, $headerSize);
+
+        return new Response($httpStatus, $body, $headers);
     }
 }
