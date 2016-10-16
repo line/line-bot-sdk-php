@@ -110,19 +110,19 @@ class CurlHTTPClient implements HTTPClient
         $info = $curl->getinfo();
         $httpStatus = $info['http_code'];
 
-        $headerSize = $info['header_size'];
+        $responseHeaderSize = $info['header_size'];
 
-        $headerStr = substr($result, 0, $headerSize);
-        $headers = [];
-        foreach (explode("\r\n", $headerStr) as $header) {
-            $kv = explode(':', $header, 2);
+        $responseHeaderStr = substr($result, 0, $responseHeaderSize);
+        $responseHeaders = [];
+        foreach (explode("\r\n", $responseHeaderStr) as $responseHeader) {
+            $kv = explode(':', $responseHeader, 2);
             if (count($kv) === 2) {
-                $headers[$kv[0]] = $kv[1];
+                $responseHeaders[$kv[0]] = $kv[1];
             }
         }
 
-        $body = substr($result, $headerSize);
+        $body = substr($result, $responseHeaderSize);
 
-        return new Response($httpStatus, $body, $headers);
+        return new Response($httpStatus, $body, $responseHeaders);
     }
 }
