@@ -29,7 +29,7 @@ class Response
     private $httpStatus;
     /** @var string */
     private $body;
-    /** @var array */
+    /** @var string[] */
     private $headers;
 
     /**
@@ -37,7 +37,7 @@ class Response
      *
      * @param int $httpStatus HTTP status code of response.
      * @param string $body Request body.
-     * @param array $headers
+     * @param string[] $headers
      */
     public function __construct($httpStatus, $body, $headers)
     {
@@ -87,9 +87,23 @@ class Response
     }
 
     /**
+     * Returns the value of the specified response header.
+     *
+     * @param string $name A String specifying the header name.
+     * @return string|null A response header string, or null if the response does not have a header of that name.
+     */
+    public function getHeader($name)
+    {
+        if (array_key_exists($name, $this->headers)) {
+            return $this->headers[$name];
+        }
+        return null;
+    }
+
+    /**
      * Returns all of response headers.
      *
-     * @return array
+     * @return string[] All of the response headers.
      */
     public function getHeaders()
     {
