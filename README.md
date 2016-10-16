@@ -88,6 +88,8 @@ Methods that call API returns `Response`.  Response has three methods;
 - `Response#getHTTPStatus()`
 - `Response#getRawBody()`
 - `Response#getJSONDecodedBody()`
+- `Response#getHeader($name)`
+- `Response#getHeaders()`
 
 You can use these method to check response status and take response body.
 
@@ -106,6 +108,14 @@ This method returns the body of response as raw (i.e. byte string).
 #### `Response#getJSONDecodedBody()`
 
 This method returns the body that is decoded as JSON. This body is an array.
+
+#### `Response#getHeader($name)`
+
+This method returns a response header string, or null if the response does not have a header of that name.
+
+#### `Response#getHeaders()`
+
+This method returns all of the response headers as string array.
 
 ### Webhook
 
