@@ -39,7 +39,7 @@ class Response
      * @param string $body Request body.
      * @param string[] $headers
      */
-    public function __construct($httpStatus, $body, $headers)
+    public function __construct($httpStatus, $body, $headers = [])
     {
         $this->httpStatus = $httpStatus;
         $this->body = $body;
