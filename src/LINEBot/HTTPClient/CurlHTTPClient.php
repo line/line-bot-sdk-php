@@ -117,7 +117,7 @@ class CurlHTTPClient implements HTTPClient
         foreach (explode("\r\n", $responseHeaderStr) as $responseHeader) {
             $kv = explode(':', $responseHeader, 2);
             if (count($kv) === 2) {
-                $responseHeaders[$kv[0]] = $kv[1];
+                $responseHeaders[$kv[0]] = trim($kv[1]);
             }
         }
 
