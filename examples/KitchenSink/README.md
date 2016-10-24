@@ -1,11 +1,11 @@
 line-bot-sample
 ==
 
-A full-stack LINE Messaging API sample implementation. This sample will show you practical usage of LINE Messaging API.
+A full-stack LINE Messaging API sample implementation. This sample shows you a practical use of the LINE Messaging API.
 
-This project is using [Slim framework](http://www.slimframework.com/).
+This project uses the [Slim framework](http://www.slimframework.com/).
 
-Getting Started
+Getting started
 --
 
 ```
@@ -24,7 +24,7 @@ Entry point of this application.
 
 ### [src/LINEBot/KitchenSink/Route.php](./src/LINEBot/KitchenSink/Route.php)
 
-Core logic of this application that uses LINE BOT API.
+Core logic of this application using the LINE Messaging API.
 
 ### [Event handlers](./src/LINEBot/KitchenSink/EventHandler)
 
@@ -35,17 +35,17 @@ Notes
 
 ### Temporary directory
 
-This application downloads multimedia files on `./public/static/tmpdir/`.
-`./run.sh` wrapper removes such contents on shutting down the PHP server.
+This application downloads multimedia files to `./public/static/tmpdir/`.
+The `./run.sh` wrapper removes this content on shut down of the PHP server.
 
 ### Base URL
 
 This application serves downloaded multimedia files.
 
-Default, this app constructs URL of such content with `\Slim\Http\Request->getUri()->getBaseUrl()` as base URL.
-Unfortunately this processing doesn't work correctly if this app runs on reverse-proxied environment.
+By default, this app constructs URLs for the content with `\Slim\Http\Request->getUri()->getBaseUrl()` as the base URL.
+Unfortunately this process doesn't work correctly if this app runs on a reverse-proxied environment.
 
-If you get such symptom, please configure base URL as you like => [UrlBuilder](./src/LINEBot/KitchenSink/EventHandler/MessageHandler/Util/UrlBuilder.php)
+If you encounter this problem, configure the base URL to whatever you like using [UrlBuilder](./src/LINEBot/KitchenSink/EventHandler/MessageHandler/Util/UrlBuilder.php)
 
 License
 --
@@ -65,4 +65,3 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 ```
-
