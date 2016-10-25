@@ -1,11 +1,11 @@
 line-echo-bot-sample
 ==
 
-A sample echo bot implementation of LINE Messaging API.
+A sample echo bot implementation of the LINE Messaging API.
 
-This project is using [Slim framework](http://www.slimframework.com/).
+This project uses the [Slim framework](http://www.slimframework.com/).
 
-Getting Started
+Getting started
 --
 
 ```
@@ -24,7 +24,7 @@ Entry point of this application.
 
 ### [src/LINEBot/EchoBot/Route.php](./src/LINEBot/EchoBot/Route.php)
 
-Core logic of this application that uses LINE BOT API.
+Core logic of this application that uses the LINE Messaging API.
 
 License
 --
@@ -44,4 +44,3 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 ```
-

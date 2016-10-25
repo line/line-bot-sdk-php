@@ -1,25 +1,24 @@
 line-bot-sdk-tiny
 ==
 
-Deadly simple SDK (subset) of the LINE Messaging API for PHP.
+A very simple SDK (subset) for the LINE Messaging API for PHP.
 
-Description (and Motivation)
+Description (and motivation)
 --
 
-[line-bot-sdk-php](https://github.com/line/line-bot-sdk-php) is a full-stack implementation of the LINE Messaging API SDK.
-That SDK uses serious OOP interface and functions. It provides API client, message builder, HTTP client, event parser and more useful components.
+[line-bot-sdk-php](https://github.com/line/line-bot-sdk-php) is a full-stack implementation of the LINE Messaging API SDK, which uses an OOP interface and functions. It provides an API client, a message builder, an HTTP client, an event parser and other useful components.
 
-On the other hand, line-bot-sdk-tiny provides simple interface and functions. This SDK contains a part of the API function (not full function).
+On the other hand, line-bot-sdk-tiny provides a simple interface and functions. It contains a part of the API functions (not full function).
 
-This SDK is provided by only one file, so it is easy to bring `LINEBotTiny.php` to your environment and require that from your script.
-And of course you can also copy & paste this SDK.
+This SDK contains only one file, so it is easy to add `LINEBotTiny.php` to your environment and require that from your script.
+And of course, you can also copy and paste this SDK.
 
 Example
 --
 
 See [echo_bot](./echo_bot.php).
 
-When you run this example, please never forget to set your channel access token and channel secret.
+When running this example, make sure that you have set your Channel access token and Channel secret.
 
 Requirements
 --
@@ -44,4 +43,3 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 ```
-
