@@ -39,7 +39,7 @@ class TextMessageBuilder implements MessageBuilder
      * @param string $text
      * @param string[] $extraTexts
      */
-    public function __construct($text, ...$extraTexts)
+    public function __construct($text, $extraTexts)
     {
         $this->texts = array_merge([$text], $extraTexts);
     }
