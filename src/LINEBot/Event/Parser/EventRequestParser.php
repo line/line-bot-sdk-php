@@ -24,7 +24,6 @@ use LINE\LINEBot\Exception\InvalidSignatureException;
 use LINE\LINEBot\Exception\UnknownEventTypeException;
 use LINE\LINEBot\Exception\UnknownMessageTypeException;
 use LINE\LINEBot\SignatureValidator;
-use ReflectionClass;
 
 class EventRequestParser
 {
@@ -85,8 +84,7 @@ class EventRequestParser
                 continue;
             }
 
-            $refClass = new ReflectionClass($eventClass);
-            $events[] = $refClass->newInstance($eventData);
+            $events[] = new $eventClass($eventData);
         }
 
         return $events;
@@ -104,7 +102,6 @@ class EventRequestParser
         if (!isset($messageClass)) {
             throw new UnknownMessageTypeException('Unknown message type has come: ' . $messageType);
         }
-        $refClass = new ReflectionClass($messageClass);
-        return $refClass->newInstance($eventData);
+        return new $messageClass($eventData);
     }
 }
