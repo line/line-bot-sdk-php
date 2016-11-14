@@ -134,7 +134,7 @@ The following examples show how webhooks are handled:
 More information
 --
 
-For more information, see the [official API documents](#about-line-messaging-api) and PHPDoc.
+For more information, see the [official API documents](#about-the-line-messaging-api) and PHPDoc.
 If it's your first time using this library, we recommend taking a look at `examples` and the PHPDoc of `\LINE\LINEBot`.
 
 Hints
@@ -164,7 +164,7 @@ The HTML files are generated in `docs/`.
 
 ### Official API documentation
 
-[Official API documents](#about-line-messaging-api) shows the detail of  Messaging API and fundamental usage of SDK.
+[Official API documents](#about-the-line-messaging-api) shows the detail of  Messaging API and fundamental usage of SDK.
 
 Notes
 --
