@@ -306,6 +306,7 @@ JSON;
             /** @var BeaconDetectionEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('bid', $event->getHwid());
+            $this->assertEquals('enter', $event->getBeaconEventType());
         }
     }
 }
