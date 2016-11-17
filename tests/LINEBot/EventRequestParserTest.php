@@ -200,6 +200,7 @@ JSON;
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertTrue($event->isUserEvent());
             $this->assertEquals('userid', $event->getUserId());
+            $this->assertEquals('userid', $event->getEventSourceId());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
             /** @var TextMessage $event */
@@ -213,6 +214,7 @@ JSON;
             $event = $events[1];
             $this->assertTrue($event->isGroupEvent());
             $this->assertEquals('groupid', $event->getGroupId());
+            $this->assertEquals('groupid', $event->getEventSourceId());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\ImageMessage', $event);
             /** @var ImageMessage $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -223,6 +225,7 @@ JSON;
             $event = $events[2];
             $this->assertTrue($event->isRoomEvent());
             $this->assertEquals('roomid', $event->getRoomId());
+            $this->assertEquals('roomid', $event->getEventSourceId());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\VideoMessage', $event);
             /** @var VideoMessage $event */
             $this->assertEquals('replytoken', $event->getReplyToken());

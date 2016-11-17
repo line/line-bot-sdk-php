@@ -150,4 +150,29 @@ class BaseEvent
             ? $this->event['source']['roomId']
             : null;
     }
+
+    /**
+     * Returns the identifier of the event source that associated with event source type
+     * (i.e. userId, groupId or roomId).
+     *
+     * @return null|string
+     *
+     * @throws InvalidEventSourceException Raise when event source type is invalid
+     */
+    public function getEventSourceId()
+    {
+        if ($this->isUserEvent()) {
+            return $this->getUserId();
+        }
+
+        if ($this->isGroupEvent()) {
+            return $this->getGroupId();
+        }
+
+        if ($this->isRoomEvent()) {
+            return $this->getRoomId();
+        }
+
+        throw new InvalidEventSourceException('Invalid event source type, neither `user`, `room` nor `group`');
+    }
 }
