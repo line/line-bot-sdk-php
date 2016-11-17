@@ -12,7 +12,7 @@ fi
 
 SCRIPT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
-mkrid -p $SCRIPT_DIR/public/static/tmpdir
+mkdir -p $SCRIPT_DIR/public/static/tmpdir
 php -S 0.0.0.0:${PORT} -t public
 rm $SCRIPT_DIR/public/static/tmpdir/*
 
