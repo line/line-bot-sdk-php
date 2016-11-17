@@ -44,4 +44,14 @@ class BeaconDetectionEvent extends BaseEvent
     {
         return $this->event['beacon']['hwid'];
     }
+
+    /**
+     * Returns type of beacon event.
+     *
+     * @return String
+     */
+    public function getBeaconEventType()
+    {
+        return $this->event['beacon']['type'];
+    }
 }
