@@ -41,3 +41,10 @@ $ git tag 1.2.3
 $ git push origin 1.2.3
 ```
 
+Testing of HTTP client
+--
+
+Test cases of HTTP client send HTTP request actually to [req_mirror](https://github.com/moznion/req_mirror). req_miror is an HTTP server that parrots received a request as a response.
+`make install-devtool` downloads an executable binary of req_mirror to your `devtool/` directory and test runner launches req_mirror server at `beforeClass` phase.
+After, each test case sends request to the launched server and verify the request.
+
