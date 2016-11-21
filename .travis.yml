@@ -2,7 +2,9 @@ language: php
 php:
   - '5.6'
   - '7.0'
-install: composer update
+install:
+  - ./devtool/download_req_mirror.sh
+  - composer update
 script: ./vendor/bin/phpunit ./tests
 sudo: false
 
