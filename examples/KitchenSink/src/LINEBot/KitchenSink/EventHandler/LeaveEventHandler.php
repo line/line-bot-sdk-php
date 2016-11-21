@@ -55,6 +55,6 @@ class LeaveEventHandler implements EventHandler
             return;
         }
 
-        $this->logger->info(sprintf('Leaved %s %s', $this->leaveEvent->getType(), $id));
+        $this->logger->info(sprintf('Left %s %s', $this->leaveEvent->getType(), $id));
     }
 }
