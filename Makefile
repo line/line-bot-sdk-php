@@ -1,6 +1,6 @@
 COMPOSER_BIN = ./vendor/bin
 
-.PHONY: default test doc phpcs phpmd check
+.PHONY: default test doc phpcs phpmd check install-devtool
 
 default: check
 
@@ -25,4 +25,7 @@ copyright:
 	bash ./devtool/check_copyright.sh
 
 check: test copyright phpcs phpmd
+
+install-devtool:
+	bash ./devtool/download_req_mirror.sh
 
