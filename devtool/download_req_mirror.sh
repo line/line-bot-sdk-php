@@ -2,11 +2,6 @@
 
 set -eu
 
-function die() {
-  echo 'Unsupported machine environment, please try go build your self: https://github.com/moznion/req_mirror'
-  exit 1
-}
-
 VER='0.0.1'
 OS="$(tr '[A-Z]' '[a-z]' <<<$(uname))"
 ARCH="$(tr '[A-Z]' '[a-z]' <<<$(arch))"
