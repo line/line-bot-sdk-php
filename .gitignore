@@ -5,3 +5,4 @@ composer.phar
 /docs/
 *.iml
 vendor/
+devtool/req_mirror
