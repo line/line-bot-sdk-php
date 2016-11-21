@@ -30,20 +30,25 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         if (file_exists(CurlHTTPClientTest::$reqMirrorPath)) {
-            $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-            socket_bind($sock, '127.0.0.1', 0);
-            socket_getsockname($sock, $address, CurlHTTPClientTest::$reqMirrorPort);
-            socket_close($sock);
+            if (empty(CurlHTTPClientTest::$reqMirrorPort)) {
+                $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+                socket_bind($sock, '127.0.0.1', 0);
+                socket_getsockname($sock, $address, CurlHTTPClientTest::$reqMirrorPort);
+                socket_close($sock);
+            }
 
-            $out = [];
-            $cmd = sprintf(
-                'nohup %s --port %d > /dev/null & echo $!',
-                CurlHTTPClientTest::$reqMirrorPath,
-                CurlHTTPClientTest::$reqMirrorPort
-            );
-            exec($cmd, $out);
-            CurlHTTPClientTest::$reqMirrorPID = $out[0];
-            sleep(1); // XXX
+            if (empty(CurlHTTPClientTest::$reqMirrorPID)) {
+                $out = [];
+                $cmd = sprintf(
+                    'nohup %s --port %d > /dev/null & echo $!',
+                    CurlHTTPClientTest::$reqMirrorPath,
+                    CurlHTTPClientTest::$reqMirrorPort
+                );
+                exec($cmd, $out);
+                CurlHTTPClientTest::$reqMirrorPID = $out[0];
+                sleep(1); // XXX
+            }
+
             return;
         }
 
