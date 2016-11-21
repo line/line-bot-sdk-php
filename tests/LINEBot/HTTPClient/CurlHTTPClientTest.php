@@ -52,10 +52,8 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
             return;
         }
 
-        echo <<<"EOS"
-\n[WARN] req_mirror does not exist. Please try to execute `make install-devtool`
-[WARN] Skip CurlHTTPClientTest\n
-EOS;
+        echo PHP_EOL, '[WARN] req_mirror does not exist. Please try to execute `make install-devtool`', PHP_EOL;
+        echo '[WARN] Skip CurlHTTPClientTest', PHP_EOL;
     }
 
     public static function tearDownAfterClass()
