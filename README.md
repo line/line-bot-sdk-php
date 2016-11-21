@@ -184,21 +184,7 @@ Requirements
 For SDK developers
 --
 
-### How to run tests
-
-Use `make test`.
-
-### How to execute [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
-
-Use `make phpcs`.
-
-### How to execute [PHPMD](https://phpmd.org/)
-
-Use `make phpmd`.
-
-### How to execute them all
-
-`make`
+Please refer [HACKING.md](/HACKING.md).
 
 See also
 --
