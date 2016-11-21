@@ -48,12 +48,7 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
                 CurlHTTPClientTest::$reqMirrorPID = $out[0];
                 sleep(1); // XXX
             }
-
-            return;
         }
-
-        echo PHP_EOL, '[WARN] req_mirror does not exist. Please try to execute `make install-devtool`', PHP_EOL;
-        echo '[WARN] Skip CurlHTTPClientTest', PHP_EOL;
     }
 
     public static function tearDownAfterClass()
@@ -66,7 +61,7 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         if (!file_exists(CurlHTTPClientTest::$reqMirrorPath) || empty(CurlHTTPClientTest::$reqMirrorPID)) {
-            $this->markTestSkipped('req_mirror is not available');
+            $this->fail('req_mirror server is not available. Please try to execute `make install-devtool`');
         }
     }
 
