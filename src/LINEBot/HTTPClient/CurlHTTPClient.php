@@ -98,7 +98,7 @@ class CurlHTTPClient implements HTTPClient
         if ($method === 'POST') {
             if (empty($reqBody)) {
                 // Rel: https://github.com/line/line-bot-sdk-php/issues/35
-                $option[CURLOPT_HTTPHEADER][] = 'Content-Length: 0';
+                $options[CURLOPT_HTTPHEADER][] = 'Content-Length: 0';
             } else {
                 $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
             }
