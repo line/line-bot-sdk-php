@@ -32,17 +32,21 @@ class PostbackTemplateActionBuilder implements TemplateActionBuilder
     private $label;
     /** @var string */
     private $data;
+    /** @var string|null */
+    private $text;
 
     /**
      * PostbackAction constructor.
      *
      * @param string $label Label of action.
      * @param string $data Data of postback.
+     * @param string|null $text The text which will be sent when action is executed (optional).
      */
-    public function __construct($label, $data)
+    public function __construct($label, $data, $text = null)
     {
         $this->label = $label;
         $this->data = $data;
+        $this->text = $text;
     }
 
     /**
@@ -52,10 +56,17 @@ class PostbackTemplateActionBuilder implements TemplateActionBuilder
      */
     public function buildTemplateAction()
     {
-        return [
+        $action = [
             'type' => ActionType::POSTBACK,
             'label' => $this->label,
             'data' => $this->data,
         ];
+
+        if (isset($this->text)) {
+            // If text is set, append extend field.
+            $action['text'] = $this->text;
+        }
+
+        return $action;
     }
 }
