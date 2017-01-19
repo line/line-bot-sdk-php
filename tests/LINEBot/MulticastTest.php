@@ -23,7 +23,7 @@ use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 
-class MulticastMessageTest extends \PHPUnit_Framework_TestCase
+class MulticastTest extends \PHPUnit_Framework_TestCase
 {
     public function testMulticast()
     {
@@ -40,7 +40,7 @@ class MulticastMessageTest extends \PHPUnit_Framework_TestCase
             return ['status' => 200];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->multicastMessage(
+        $res = $bot->multicast(
             ['DESTINATION1', 'DESTINATION2'],
             new TextMessageBuilder("test text")
         );

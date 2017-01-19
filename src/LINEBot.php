@@ -133,7 +133,7 @@ class LINEBot
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @return Response
      */
-    public function multicastMessage(array $tos, MessageBuilder $messageBuilder)
+    public function multicast(array $tos, MessageBuilder $messageBuilder)
     {
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
             'to' => $tos,
