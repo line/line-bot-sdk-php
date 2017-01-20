@@ -110,18 +110,22 @@ class SendTemplateTest extends \PHPUnit_Framework_TestCase
             $testRunner->assertEquals('https://example.com/thumbnail.jpg', $template['thumbnailImageUrl']);
 
             $actions = $template['actions'];
-            $testRunner->assertEquals(3, count($actions));
+            $testRunner->assertEquals(4, count($actions));
             $testRunner->assertEquals(ActionType::POSTBACK, $actions[0]['type']);
             $testRunner->assertEquals('postback label', $actions[0]['label']);
             $testRunner->assertEquals('post=back', $actions[0]['data']);
 
-            $testRunner->assertEquals(ActionType::MESSAGE, $actions[1]['type']);
-            $testRunner->assertEquals('message label', $actions[1]['label']);
-            $testRunner->assertEquals('test message', $actions[1]['text']);
+            $testRunner->assertEquals(ActionType::POSTBACK, $actions[1]['type']);
+            $testRunner->assertEquals('postback label2', $actions[1]['label']);
+            $testRunner->assertEquals('post=back2', $actions[1]['data']);
 
-            $testRunner->assertEquals(ActionType::URI, $actions[2]['type']);
-            $testRunner->assertEquals('uri label', $actions[2]['label']);
-            $testRunner->assertEquals('https://example.com', $actions[2]['uri']);
+            $testRunner->assertEquals(ActionType::MESSAGE, $actions[2]['type']);
+            $testRunner->assertEquals('message label', $actions[2]['label']);
+            $testRunner->assertEquals('test message', $actions[2]['text']);
+
+            $testRunner->assertEquals(ActionType::URI, $actions[3]['type']);
+            $testRunner->assertEquals('uri label', $actions[3]['label']);
+            $testRunner->assertEquals('https://example.com', $actions[3]['uri']);
 
             return ['status' => 200];
         };
@@ -136,53 +140,7 @@ class SendTemplateTest extends \PHPUnit_Framework_TestCase
                     'https://example.com/thumbnail.jpg',
                     [
                         new PostbackTemplateActionBuilder('postback label', 'post=back'),
-                        new MessageTemplateActionBuilder('message label', 'test message'),
-                        new UriTemplateActionBuilder('uri label', 'https://example.com'),
-                    ]
-                )
-            )
-        );
-
-        $this->assertEquals(200, $res->getHTTPStatus());
-        $this->assertTrue($res->isSucceeded());
-        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
-    }
-
-    public function testPushTemplateWithText()
-    {
-        // Support text field on postback template
-        // Ref: https://github.com/line/line-bot-sdk-php/issues/47
-        $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
-            $testRunner->assertEquals('POST', $httpMethod);
-            $testRunner->assertEquals('https://api.line.me/v2/bot/message/push', $url);
-
-            $testRunner->assertEquals('DESTINATION', $data['to']);
-            $testRunner->assertEquals(1, count($data['messages']));
-
-            $message = $data['messages'][0];
-            $template = $message['template'];
-            $actions = $template['actions'];
-
-            $testRunner->assertEquals(3, count($actions));
-            $testRunner->assertEquals(ActionType::POSTBACK, $actions[0]['type']);
-            $testRunner->assertEquals('postback label', $actions[0]['label']);
-            $testRunner->assertEquals('post=back', $actions[0]['data']);
-            $testRunner->assertEquals('extend text', $actions[0]['text']);
-
-            return ['status' => 200];
-        };
-        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->pushMessage(
-            'DESTINATION',
-            new LINEBot\MessageBuilder\TemplateMessageBuilder(
-                'alt test',
-                new ButtonTemplateBuilder(
-                    'button title',
-                    'button button',
-                    'https://example.com/thumbnail.jpg',
-                    [
-                        new PostbackTemplateActionBuilder('postback label', 'post=back', 'extend text'), // <= Test here
+                        new PostbackTemplateActionBuilder('postback label2', 'post=back2', 'extend text'),
                         new MessageTemplateActionBuilder('message label', 'test message'),
                         new UriTemplateActionBuilder('uri label', 'https://example.com'),
                     ]
