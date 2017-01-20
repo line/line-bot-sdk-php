@@ -127,6 +127,21 @@ class LINEBot
     }
 
     /**
+     * Sends arbitrary message to multi destinations.
+     *
+     * @param array $tos Identifiers of destination.
+     * @param MessageBuilder $messageBuilder Message builder to send.
+     * @return Response
+     */
+    public function multicast(array $tos, MessageBuilder $messageBuilder)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
+            'to' => $tos,
+            'messages' => $messageBuilder->buildMessage(),
+        ]);
+    }
+
+    /**
      * Leaves from group.
      *
      * @param string $groupId Identifier of group to leave.
