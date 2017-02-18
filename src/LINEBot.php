@@ -105,9 +105,13 @@ class LINEBot
      * @param string[] $extraTexts Extra text of message.
      * @return Response
      */
-    public function replyText($replyToken, $text, ...$extraTexts)
+    public function replyText($replyToken, $text)
     {
-        $textMessageBuilder = new TextMessageBuilder($text, ...$extraTexts);
+        $numargs = func_num_args();
+        for ($i = 2; $i < $numargs; $i++) {
+            $extraTexts[] = func_get_arg($i);
+        }
+        $textMessageBuilder = new TextMessageBuilder($text, $extraTexts);
         return $this->replyMessage($replyToken, $textMessageBuilder);
     }
 
