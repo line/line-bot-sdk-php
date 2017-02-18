@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class LINE\LINEBot\Event\BaseEvent | line-bot-sdk-php</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-LINE.html">
+						LINE<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-LINE.LINEBot.html">
+						LINEBot<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-LINE.LINEBot.Constant.html">
+						Constant					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-LINE.LINEBot.Event.html">
+						Event<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-LINE.LINEBot.Event.MessageEvent.html">
+						MessageEvent					</a>
+
+						</li>
+				<li>
+					<a href="namespace-LINE.LINEBot.Event.Parser.html">
+						Parser					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-LINE.LINEBot.Exception.html">
+						Exception					</a>
+
+						</li>
+				<li>
+					<a href="namespace-LINE.LINEBot.HTTPClient.html">
+						HTTPClient					</a>
+
+						</li>
+				<li>
+					<a href="namespace-LINE.LINEBot.ImagemapActionBuilder.html">
+						ImagemapActionBuilder					</a>
+
+						</li>
+				<li>
+					<a href="namespace-LINE.LINEBot.MessageBuilder.html">
+						MessageBuilder<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-LINE.LINEBot.MessageBuilder.Imagemap.html">
+						Imagemap					</a>
+
+						</li>
+				<li>
+					<a href="namespace-LINE.LINEBot.MessageBuilder.TemplateBuilder.html">
+						TemplateBuilder					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-LINE.LINEBot.TemplateActionBuilder.html">
+						TemplateActionBuilder					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-LINE.LINEBot.Event.BaseEvent.html">BaseEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.BeaconDetectionEvent.html">BeaconDetectionEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.FollowEvent.html">FollowEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.JoinEvent.html">JoinEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.LeaveEvent.html">LeaveEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.MessageEvent.html">MessageEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.PostbackEvent.html">PostbackEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.UnfollowEvent.html">UnfollowEvent</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-LINE.LINEBot.Event.html" title="Summary of LINE\LINEBot\Event"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class BaseEvent</h1>
+
+
+	<div class="description">
+	<p>Base class of each events.</p>
+
+<p>Don't instantiate this class individually.</p>
+	</div>
+
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-LINE.LINEBot.Event.BeaconDetectionEvent.html">LINE\LINEBot\Event\BeaconDetectionEvent</a>, 
+			<a href="class-LINE.LINEBot.Event.FollowEvent.html">LINE\LINEBot\Event\FollowEvent</a>, 
+			<a href="class-LINE.LINEBot.Event.JoinEvent.html">LINE\LINEBot\Event\JoinEvent</a>, 
+			<a href="class-LINE.LINEBot.Event.LeaveEvent.html">LINE\LINEBot\Event\LeaveEvent</a>, 
+			<a href="class-LINE.LINEBot.Event.MessageEvent.html">LINE\LINEBot\Event\MessageEvent</a>, 
+			<a href="class-LINE.LINEBot.Event.PostbackEvent.html">LINE\LINEBot\Event\PostbackEvent</a>, 
+			<a href="class-LINE.LINEBot.Event.UnfollowEvent.html">LINE\LINEBot\Event\UnfollowEvent</a>
+	</div>
+
+	<div>
+		<h4>Indirect known subclasses</h4>
+			<a href="class-LINE.LINEBot.Event.MessageEvent.AudioMessage.html">LINE\LINEBot\Event\MessageEvent\AudioMessage</a>, 
+			<a href="class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html">LINE\LINEBot\Event\MessageEvent\ImageMessage</a>, 
+			<a href="class-LINE.LINEBot.Event.MessageEvent.LocationMessage.html">LINE\LINEBot\Event\MessageEvent\LocationMessage</a>, 
+			<a href="class-LINE.LINEBot.Event.MessageEvent.StickerMessage.html">LINE\LINEBot\Event\MessageEvent\StickerMessage</a>, 
+			<a href="class-LINE.LINEBot.Event.MessageEvent.TextMessage.html">LINE\LINEBot\Event\MessageEvent\TextMessage</a>, 
+			<a href="class-LINE.LINEBot.Event.MessageEvent.VideoMessage.html">LINE\LINEBot\Event\MessageEvent\VideoMessage</a>
+	</div>
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-LINE.html">LINE</a>\<a href="namespace-LINE.LINEBot.html">LINEBot</a>\<a href="namespace-LINE.LINEBot.Event.html">Event</a><br>
+		<b>Package:</b> LINE\LINEBot\Event<br>
+
+			<b>Located at</b> <a href="source-class-LINE.LINEBot.Event.BaseEvent.html#24-178" title="Go to source code">LINEBot/Event/BaseEvent.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#36-44" title="Go to source code">__construct</a>( <span>array <var>$event</var></span> )</code>
+
+		<div class="description short">
+			<p>BaseEvent constructor.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>BaseEvent constructor.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$event</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getType" id="_getType">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getType">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#46-54" title="Go to source code">getType</a>( )</code>
+
+		<div class="description short">
+			<p>Returns event type.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns event type.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTimestamp" id="_getTimestamp">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTimestamp">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#56-64" title="Go to source code">getTimestamp</a>( )</code>
+
+		<div class="description short">
+			<p>Returns timestamp of the event.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns timestamp of the event.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getReplyToken" id="_getReplyToken">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getReplyToken">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#66-74" title="Go to source code">getReplyToken</a>( )</code>
+
+		<div class="description short">
+			<p>Returns reply token of the event.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns reply token of the event.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isUserEvent" id="_isUserEvent">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isUserEvent">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#76-84" title="Go to source code">isUserEvent</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the event is user's one or not.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the event is user's one or not.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isGroupEvent" id="_isGroupEvent">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isGroupEvent">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#86-94" title="Go to source code">isGroupEvent</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the event is group's one or not.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the event is group's one or not.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isRoomEvent" id="_isRoomEvent">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isRoomEvent">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#96-104" title="Go to source code">isRoomEvent</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the event is room's one or not.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the event is room's one or not.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUserId" id="_getUserId">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUserId">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#106-120" title="Go to source code">getUserId</a>( )</code>
+
+		<div class="description short">
+			<p>Returns user ID of the event.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns user ID of the event.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-LINE.LINEBot.Exception.InvalidEventSourceException.html">LINE\LINEBot\Exception\InvalidEventSourceException</a></code><br>Raise when called with non user type event.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getGroupId" id="_getGroupId">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getGroupId">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#122-136" title="Go to source code">getGroupId</a>( )</code>
+
+		<div class="description short">
+			<p>Returns group ID of the event.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns group ID of the event.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-LINE.LINEBot.Exception.InvalidEventSourceException.html">LINE\LINEBot\Exception\InvalidEventSourceException</a></code><br>Raise when called with non group type event.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRoomId" id="_getRoomId">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRoomId">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#138-152" title="Go to source code">getRoomId</a>( )</code>
+
+		<div class="description short">
+			<p>Returns room ID of the event.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns room ID of the event.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-LINE.LINEBot.Exception.InvalidEventSourceException.html">LINE\LINEBot\Exception\InvalidEventSourceException</a></code><br>Raise when called with non room type event.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getEventSourceId" id="_getEventSourceId">
+
+		<td class="attributes"><code>
+			 public 
+
+			null|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getEventSourceId">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.BaseEvent.html#154-177" title="Go to source code">getEventSourceId</a>( )</code>
+
+		<div class="description short">
+			<p>Returns the identifier of the event source that associated with event source type
+(i.e. userId, groupId or roomId).</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the identifier of the event source that associated with event source type
+(i.e. userId, groupId or roomId).</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					null|string
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-LINE.LINEBot.Exception.InvalidEventSourceException.html">LINE\LINEBot\Exception\InvalidEventSourceException</a></code><br>Raise when event source type is invalid
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="event" id="$event">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-LINE.LINEBot.Event.BaseEvent.html#33-34" title="Go to source code"><var>$event</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$event" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		line-bot-sdk-php API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
