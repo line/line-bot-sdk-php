@@ -154,6 +154,8 @@ A full-stack (and slightly complex) sample implementation. This application demo
 
 ### PHPDoc
 
+[https://line.github.io/line-bot-sdk-php/](https://line.github.io/line-bot-sdk-php/)
+
 This library provides PHPDoc to describe how to use the methods. You can generate the documentation using [apigen](http://www.apigen.org/) using the following command.
 
 ```
