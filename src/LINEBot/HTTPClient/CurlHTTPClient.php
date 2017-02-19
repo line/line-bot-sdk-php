@@ -35,7 +35,7 @@ class CurlHTTPClient implements HTTPClient
     /** @var array */
     private $authHeaders;
     /** @var array */
-    private $userAgentHeader = ['User-Agent: LINE-BotSDK-PHP/' . Meta::VERSION];
+    private $userAgentHeader;
 
     /**
      * CurlHTTPClient constructor.
@@ -46,6 +46,9 @@ class CurlHTTPClient implements HTTPClient
     {
         $this->authHeaders = [
             "Authorization: Bearer $channelToken",
+        ];
+        $this->userAgentHeader = [
+            'User-Agent: LINE-BotSDK-PHP/' . Meta::VERSION,
         ];
     }
 

@@ -24,6 +24,7 @@ use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\LINEBot\Response;
 use LINE\LINEBot\SignatureValidator;
+use ReflectionClass;
 
 /**
  * A client class of LINE Messaging API.
@@ -100,14 +101,27 @@ class LINEBot
      *
      * This method receives variable texts. It can send text(s) message as bulk.
      *
+     * Exact signature of this method is <code>replyText(string $replyToken, string $text, string[] $extraTexts)</code>.
+     *
+     * Means, this method can also receive multiple texts like so;
+     *
+     * <code>
+     * $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
+     * </code>
+     *
      * @param string $replyToken Identifier of destination.
      * @param string $text Text of message.
-     * @param string[] $extraTexts Extra text of message.
      * @return Response
      */
-    public function replyText($replyToken, $text, ...$extraTexts)
+    public function replyText($replyToken, $text)
     {
-        $textMessageBuilder = new TextMessageBuilder($text, ...$extraTexts);
+        $args = func_get_args();
+        $extraTexts = array_slice($args, 2);
+
+        /** @var TextMessageBuilder $textMessageBuilder */
+        $ref = new ReflectionClass('LINE\LINEBot\MessageBuilder\TextMessageBuilder');
+        $textMessageBuilder = $ref->newInstanceArgs(array_merge([$text], $extraTexts));
+
         return $this->replyMessage($replyToken, $textMessageBuilder);
     }
 
