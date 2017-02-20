@@ -45,12 +45,16 @@ class TextMessageBuilder implements MessageBuilder
      * </code>
      *
      * @param string $text
+     * @param string[]|null $extraTexts
      */
-    public function __construct($text)
+    public function __construct($text, $extraTexts = null)
     {
-        $args = func_get_args();
-        $extraTexts = array_slice($args, 1);
-        $this->texts = array_merge([$text], $extraTexts);
+        $extra = [];
+        if (!is_null($extraTexts)) {
+            $args = func_get_args();
+            $extra = array_slice($args, 1);
+        }
+        $this->texts = array_merge([$text], $extra);
     }
 
     /**

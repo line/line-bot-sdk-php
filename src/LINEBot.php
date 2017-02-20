@@ -111,16 +111,20 @@ class LINEBot
      *
      * @param string $replyToken Identifier of destination.
      * @param string $text Text of message.
+     * @param string[]|null $extraTexts Extra text of message.
      * @return Response
      */
-    public function replyText($replyToken, $text)
+    public function replyText($replyToken, $text, $extraTexts = null)
     {
-        $args = func_get_args();
-        $extraTexts = array_slice($args, 2);
+        $extra = [];
+        if (!is_null($extraTexts)) {
+            $args = func_get_args();
+            $extra = array_slice($args, 2);
+        }
 
         /** @var TextMessageBuilder $textMessageBuilder */
         $ref = new ReflectionClass('LINE\LINEBot\MessageBuilder\TextMessageBuilder');
-        $textMessageBuilder = $ref->newInstanceArgs(array_merge([$text], $extraTexts));
+        $textMessageBuilder = $ref->newInstanceArgs(array_merge([$text], $extra));
 
         return $this->replyMessage($replyToken, $textMessageBuilder);
     }
