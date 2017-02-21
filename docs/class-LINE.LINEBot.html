@@ -159,7 +159,7 @@
 		<b>Namespace:</b> <a href="namespace-LINE.html">LINE</a><br>
 		<b>Package:</b> LINE<br>
 
-			<b>Located at</b> <a href="source-class-LINE.LINEBot.html#28-189" title="Go to source code">LINEBot.php</a>
+			<b>Located at</b> <a href="source-class-LINE.LINEBot.html#29-207" title="Go to source code">LINEBot.php</a>
 		<br>
 	</div>
 
@@ -179,7 +179,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#44-59" title="Go to source code">__construct</a>( <span><code><a href="class-LINE.LINEBot.HTTPClient.html">LINE\LINEBot\HTTPClient</a></code> <var>$httpClient</var></span>, <span>array <var>$args</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#45-60" title="Go to source code">__construct</a>( <span><code><a href="class-LINE.LINEBot.HTTPClient.html">LINE\LINEBot\HTTPClient</a></code> <var>$httpClient</var></span>, <span>array <var>$args</var></span> )</code>
 
 		<div class="description short">
 			<p>LINEBot constructor.</p>
@@ -216,7 +216,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getProfile">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#61-70" title="Go to source code">getProfile</a>( <span>string <var>$userId</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#62-71" title="Go to source code">getProfile</a>( <span>string <var>$userId</var></span> )</code>
 
 		<div class="description short">
 			<p>Gets specified user's profile through API calling.</p>
@@ -255,7 +255,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getMessageContent">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#72-81" title="Go to source code">getMessageContent</a>( <span>string <var>$messageId</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#73-82" title="Go to source code">getMessageContent</a>( <span>string <var>$messageId</var></span> )</code>
 
 		<div class="description short">
 			<p>Gets message content which is associated with specified message ID.</p>
@@ -294,7 +294,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_replyMessage">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#83-96" title="Go to source code">replyMessage</a>( <span>string <var>$replyToken</var></span>, <span><code><a href="class-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a></code> <var>$messageBuilder</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#84-97" title="Go to source code">replyMessage</a>( <span>string <var>$replyToken</var></span>, <span><code><a href="class-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a></code> <var>$messageBuilder</var></span> )</code>
 
 		<div class="description short">
 			<p>Replies arbitrary message to destination which is associated with reply token.</p>
@@ -335,7 +335,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_replyText">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#98-112" title="Go to source code">replyText</a>( <span>string <var>$replyToken</var></span>, <span>string <var>$text</var></span>, <span>string[] <var>$extraTexts</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#99-130" title="Go to source code">replyText</a>( <span>string <var>$replyToken</var></span>, <span>string <var>$text</var></span>, <span>string[]|null <var>$extraTexts</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Replies text message(s) to destination which is associated with reply token.</p>
@@ -345,6 +345,16 @@
 			<p>Replies text message(s) to destination which is associated with reply token.</p>
 
 <p>This method receives variable texts. It can send text(s) message as bulk.</p>
+
+<p>Exact signature of this method is</p>
+
+<pre>replyText(string <span class="php-var">$replyToken</span>, string <span class="php-var">$text</span>, string[] <span class="php-var">$extraTexts</span>)</pre>
+
+<p>.</p>
+
+<p>Means, this method can also receive multiple texts like so;</p>
+
+<pre><span class="php-var">$bot</span>-&gt;replyText(<span class="php-quote">'reply-text'</span>, <span class="php-quote">'text'</span>, <span class="php-quote">'extra text1'</span>, <span class="php-quote">'extra text2'</span>, ...)</pre>
 
 
 				<h4>Parameters</h4>
@@ -380,7 +390,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_pushMessage">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#114-127" title="Go to source code">pushMessage</a>( <span>string <var>$to</var></span>, <span><code><a href="class-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a></code> <var>$messageBuilder</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#132-145" title="Go to source code">pushMessage</a>( <span>string <var>$to</var></span>, <span><code><a href="class-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a></code> <var>$messageBuilder</var></span> )</code>
 
 		<div class="description short">
 			<p>Sends arbitrary message to destination.</p>
@@ -421,7 +431,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_multicast">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#129-142" title="Go to source code">multicast</a>( <span>array <var>$tos</var></span>, <span><code><a href="class-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a></code> <var>$messageBuilder</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#147-160" title="Go to source code">multicast</a>( <span>array <var>$tos</var></span>, <span><code><a href="class-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a></code> <var>$messageBuilder</var></span> )</code>
 
 		<div class="description short">
 			<p>Sends arbitrary message to multi destinations.</p>
@@ -462,7 +472,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_leaveGroup">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#144-153" title="Go to source code">leaveGroup</a>( <span>string <var>$groupId</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#162-171" title="Go to source code">leaveGroup</a>( <span>string <var>$groupId</var></span> )</code>
 
 		<div class="description short">
 			<p>Leaves from group.</p>
@@ -501,7 +511,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_leaveRoom">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#155-164" title="Go to source code">leaveRoom</a>( <span>string <var>$roomId</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#173-182" title="Go to source code">leaveRoom</a>( <span>string <var>$roomId</var></span> )</code>
 
 		<div class="description short">
 			<p>Leaves from room.</p>
@@ -540,7 +550,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseEventRequest">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#166-176" title="Go to source code">parseEventRequest</a>( <span>string <var>$body</var></span>, <span>string <var>$signature</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#184-194" title="Go to source code">parseEventRequest</a>( <span>string <var>$body</var></span>, <span>string <var>$signature</var></span> )</code>
 
 		<div class="description short">
 			<p>Parse event request to Event objects.</p>
@@ -581,7 +591,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validateSignature">#</a>
-		<code><a href="source-class-LINE.LINEBot.html#178-188" title="Go to source code">validateSignature</a>( <span>string <var>$body</var></span>, <span>string <var>$signature</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.html#196-206" title="Go to source code">validateSignature</a>( <span>string <var>$body</var></span>, <span>string <var>$signature</var></span> )</code>
 
 		<div class="description short">
 			<p>Validate request with signature.</p>
@@ -626,7 +636,7 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-LINE.LINEBot.html#35" title="Go to source code"><b>DEFAULT_ENDPOINT_BASE</b></a>
+				<a href="source-class-LINE.LINEBot.html#36" title="Go to source code"><b>DEFAULT_ENDPOINT_BASE</b></a>
 			</code>
 
 			<div class="description short">
