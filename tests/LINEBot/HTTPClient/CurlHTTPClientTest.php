@@ -23,12 +23,14 @@ use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
 class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
 {
-    private static $reqMirrorPath = __DIR__ . '/../../../devtool/req_mirror';
+    private static $reqMirrorPath;
     private static $reqMirrorPort;
     private static $reqMirrorPID;
 
     public static function setUpBeforeClass()
     {
+        CurlHTTPClientTest::$reqMirrorPath = __DIR__ . '/../../../devtool/req_mirror';
+
         if (file_exists(CurlHTTPClientTest::$reqMirrorPath)) {
             if (empty(CurlHTTPClientTest::$reqMirrorPort)) {
                 $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
