@@ -179,7 +179,8 @@ class EventRequestParserTest extends \PHPUnit_Framework_TestCase
    "replyToken":"replytoken",
    "beacon":{
     "hwid":"bid",
-    "type":"enter"
+    "type":"enter",
+    "dm":"1234567890abcdef"
    }
   }
  ]
@@ -190,7 +191,7 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        $events = $bot->parseEventRequest($this::$json, 'Nq7AExtg27CQRfM3ngKtQxtVeIM/757ZTyDOrxQtWNg=');
+        $events = $bot->parseEventRequest($this::$json, '93uPt20VdWTN4NI8JDjrRCvRfY6Mf1/9J4J1yNk11sE=');
 
         $this->assertEquals(count($events), 12);
 
@@ -316,6 +317,7 @@ JSON;
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('bid', $event->getHwid());
             $this->assertEquals('enter', $event->getBeaconEventType());
+            $this->assertEquals("\x12\x34\x56\x78\x90\xab\xcd\xef", $event->getDeviceMessage());
         }
     }
 }
