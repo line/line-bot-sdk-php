@@ -31,6 +31,7 @@ use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LINE\LINEBot\Event\MessageEvent\VideoMessage;
 use LINE\LINEBot\Event\PostbackEvent;
 use LINE\LINEBot\Event\UnfollowEvent;
+use LINE\LINEBot\Exception\UnknownEventTypeException;
 use LINE\LINEBot\Exception\UnknownMessageTypeException;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 
@@ -208,6 +209,22 @@ private static $unknownMessageJson = <<<JSON
 }
 JSON;
 
+private static $unknownEventJson = <<<JSON
+{
+ "events":[
+  {
+   "type":"unknown",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"user",
+    "userId":"userid"
+   },
+   "replyToken":"replytoken"
+  }
+ ]
+}
+JSON;
+
     public function testParseEventRequest()
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
@@ -349,5 +366,14 @@ JSON;
       $bot = new LINEBot(new DummyHttpClient($this, function () {
       }), ['channelSecret' => 'testsecret']);
       $events = $bot->parseEventRequest($this::$unknownMessageJson, 'jEd5SjALGCDAVyLDXCiXRNzSFQOsbtfwW6AlfbE8P6M=');
+    }
+
+    public function testParseUnknownEventTypeFailure()
+    {
+      $this->setExpectedException(UnknownEventTypeException::class);
+
+      $bot = new LINEBot(new DummyHttpClient($this, function () {
+      }), ['channelSecret' => 'testsecret']);
+      $events = $bot->parseEventRequest($this::$unknownEventJson, 'Eiy4oXXXIQZAY7BKO7jMv/xUhN3d6C8tCftJweoBPJY=');
     }
 }

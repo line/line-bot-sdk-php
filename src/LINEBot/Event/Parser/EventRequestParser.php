@@ -74,10 +74,10 @@ class EventRequestParser
 
         foreach ($parsedReq['events'] as $eventData) {
             $eventType = $eventData['type'];
-            $eventClass = self::$eventType2class[$eventType];
-            if (!isset($eventClass)) {
+            if (!array_key_exists($eventType, self::$eventType2class)) {
                 throw new UnknownEventTypeException('Unknown event type has come: ' . $eventType);
             }
+            $eventClass = self::$eventType2class[$eventType];
 
             if ($eventType === 'message') {
                 $events[] = self::parseMessageEvent($eventData);
