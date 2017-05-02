@@ -31,8 +31,6 @@ use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LINE\LINEBot\Event\MessageEvent\VideoMessage;
 use LINE\LINEBot\Event\PostbackEvent;
 use LINE\LINEBot\Event\UnfollowEvent;
-use LINE\LINEBot\Exception\UnknownEventTypeException;
-use LINE\LINEBot\Exception\UnknownMessageTypeException;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 
 class EventRequestParserTest extends \PHPUnit_Framework_TestCase
@@ -361,7 +359,7 @@ JSON;
 
     public function testParseUnknownMessageTypeFailure()
     {
-      $this->setExpectedException(UnknownMessageTypeException::class);
+      $this->setExpectedException('LINE\LINEBot\Exception\UnknownMessageTypeException');
 
       $bot = new LINEBot(new DummyHttpClient($this, function () {
       }), ['channelSecret' => 'testsecret']);
@@ -370,7 +368,7 @@ JSON;
 
     public function testParseUnknownEventTypeFailure()
     {
-      $this->setExpectedException(UnknownEventTypeException::class);
+      $this->setExpectedException('LINE\LINEBot\Exception\UnknownEventTypeException');
 
       $bot = new LINEBot(new DummyHttpClient($this, function () {
       }), ['channelSecret' => 'testsecret']);
