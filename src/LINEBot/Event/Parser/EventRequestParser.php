@@ -98,10 +98,10 @@ class EventRequestParser
     private static function parseMessageEvent($eventData)
     {
         $messageType = $eventData['message']['type'];
-        $messageClass = self::$messageType2class[$messageType];
-        if (!isset($messageClass)) {
+        if (!array_key_exists($messageType, self::$messageType2class)) {
             throw new UnknownMessageTypeException('Unknown message type has come: ' . $messageType);
         }
+        $messageClass = self::$messageType2class[$messageType];
         return new $messageClass($eventData);
     }
 }
