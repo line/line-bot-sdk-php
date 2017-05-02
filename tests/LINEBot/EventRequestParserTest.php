@@ -187,6 +187,42 @@ class EventRequestParserTest extends \PHPUnit_Framework_TestCase
 }
 JSON;
 
+private static $unknownMessageJson = <<<JSON
+{
+ "events":[
+  {
+   "type":"message",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"user",
+    "userId":"userid"
+   },
+   "replyToken":"replytoken",
+   "message":{
+    "id":"contentid",
+    "type":"unknown"
+   }
+  }
+ ]
+}
+JSON;
+
+private static $unknownEventJson = <<<JSON
+{
+ "events":[
+  {
+   "type":"unknown",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"user",
+    "userId":"userid"
+   },
+   "replyToken":"replytoken"
+  }
+ ]
+}
+JSON;
+
     public function testParseEventRequest()
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
@@ -319,5 +355,23 @@ JSON;
             $this->assertEquals('enter', $event->getBeaconEventType());
             $this->assertEquals("\x12\x34\x56\x78\x90\xab\xcd\xef", $event->getDeviceMessage());
         }
+    }
+
+    public function testParseUnknownMessageTypeFailure()
+    {
+      $this->setExpectedException('LINE\LINEBot\Exception\UnknownMessageTypeException');
+
+      $bot = new LINEBot(new DummyHttpClient($this, function () {
+      }), ['channelSecret' => 'testsecret']);
+      $events = $bot->parseEventRequest($this::$unknownMessageJson, 'jEd5SjALGCDAVyLDXCiXRNzSFQOsbtfwW6AlfbE8P6M=');
+    }
+
+    public function testParseUnknownEventTypeFailure()
+    {
+      $this->setExpectedException('LINE\LINEBot\Exception\UnknownEventTypeException');
+
+      $bot = new LINEBot(new DummyHttpClient($this, function () {
+      }), ['channelSecret' => 'testsecret']);
+      $events = $bot->parseEventRequest($this::$unknownEventJson, 'Eiy4oXXXIQZAY7BKO7jMv/xUhN3d6C8tCftJweoBPJY=');
     }
 }
