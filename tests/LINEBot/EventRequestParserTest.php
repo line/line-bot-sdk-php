@@ -198,6 +198,19 @@ class EventRequestParserTest extends \PHPUnit_Framework_TestCase
    "source":{
     "type":"__unknown__"
    }
+  },
+  {
+   "type":"message",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"user",
+    "userId":"userid"
+   },
+   "replyToken":"replytoken",
+   "message":{
+    "id":"contentid",
+    "type":"__unknown__"
+   }
   }
  ]
 }
@@ -207,9 +220,9 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        $events = $bot->parseEventRequest($this::$json, 'a35HHn7w+63mv4JNdRHeptClFTBl7hAMxs4WRnhbjsk=');
+        $events = $bot->parseEventRequest($this::$json, 'nwhDFVDoPEfWyaXthI/KrL0HdTJWafDYqW6RHlgvi6M=');
 
-        $this->assertEquals(count($events), 14);
+        $this->assertEquals(count($events), 15);
 
         {
             // text
@@ -359,6 +372,13 @@ JSON;
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals(null, $event->getEventSourceId());
             $this->assertEquals(true, $event->isUnknownEvent());
+        }
+
+        {
+            // message event & unknown message event
+            $event = $events[14];
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\UnknownMessage', $event);
         }
     }
 }

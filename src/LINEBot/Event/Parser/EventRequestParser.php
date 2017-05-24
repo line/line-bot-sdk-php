@@ -19,10 +19,10 @@
 namespace LINE\LINEBot\Event\Parser;
 
 use LINE\LINEBot\Event\MessageEvent;
+use LINE\LINEBot\Event\MessageEvent\UnknownMessage;
 use LINE\LINEBot\Event\UnknownEvent;
 use LINE\LINEBot\Exception\InvalidEventRequestException;
 use LINE\LINEBot\Exception\InvalidSignatureException;
-use LINE\LINEBot\Exception\UnknownMessageTypeException;
 use LINE\LINEBot\SignatureValidator;
 
 class EventRequestParser
@@ -95,16 +95,16 @@ class EventRequestParser
 
     /**
      * @param array $eventData
-     * @return MessageEvent|object
-     * @throws UnknownMessageTypeException
+     * @return MessageEvent
      */
     private static function parseMessageEvent($eventData)
     {
         $messageType = $eventData['message']['type'];
-        $messageClass = self::$messageType2class[$messageType];
-        if (!isset($messageClass)) {
-            throw new UnknownMessageTypeException('Unknown message type has come: ' . $messageType);
+        if (!array_key_exists($messageType, self::$messageType2class)) {
+            return new UnknownMessage($eventData);
         }
+
+        $messageClass = self::$messageType2class[$messageType];
         return new $messageClass($eventData);
     }
 }
