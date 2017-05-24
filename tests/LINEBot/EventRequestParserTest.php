@@ -31,6 +31,7 @@ use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LINE\LINEBot\Event\MessageEvent\VideoMessage;
 use LINE\LINEBot\Event\PostbackEvent;
 use LINE\LINEBot\Event\UnfollowEvent;
+use LINE\LINEBot\Event\UnknownEvent;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 
 class EventRequestParserTest extends \PHPUnit_Framework_TestCase
@@ -182,6 +183,21 @@ class EventRequestParserTest extends \PHPUnit_Framework_TestCase
     "type":"enter",
     "dm":"1234567890abcdef"
    }
+  },
+  {
+   "type":"__unknown__",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"user",
+    "userId":"userid"
+   }
+  },
+  {
+   "type":"__unknown__",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"__unknown__"
+   }
   }
  ]
 }
@@ -191,9 +207,9 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        $events = $bot->parseEventRequest($this::$json, '93uPt20VdWTN4NI8JDjrRCvRfY6Mf1/9J4J1yNk11sE=');
+        $events = $bot->parseEventRequest($this::$json, 'a35HHn7w+63mv4JNdRHeptClFTBl7hAMxs4WRnhbjsk=');
 
-        $this->assertEquals(count($events), 12);
+        $this->assertEquals(count($events), 14);
 
         {
             // text
@@ -318,6 +334,31 @@ JSON;
             $this->assertEquals('bid', $event->getHwid());
             $this->assertEquals('enter', $event->getBeaconEventType());
             $this->assertEquals("\x12\x34\x56\x78\x90\xab\xcd\xef", $event->getDeviceMessage());
+        }
+
+        {
+            // unknown event (event source: user)
+            $event = $events[12];
+            $this->assertInstanceOf('LINE\LINEBot\Event\UnknownEvent', $event);
+            /** @var UnknownEvent $event */
+            $this->assertEquals('__unknown__', $event->getType());
+            $this->assertEquals(null, $event->getReplyToken());
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('userid', $event->getEventSourceId());
+            $this->assertEquals('userid', $event->getUserId());
+            $this->assertEquals(true, $event->isUserEvent());
+        }
+
+        {
+            // unknown event (event source: unknown)
+            $event = $events[13];
+            $this->assertInstanceOf('LINE\LINEBot\Event\UnknownEvent', $event);
+            /** @var UnknownEvent $event */
+            $this->assertEquals('__unknown__', $event->getType());
+            $this->assertEquals(null, $event->getReplyToken());
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals(null, $event->getEventSourceId());
+            $this->assertEquals(true, $event->isUnknownEvent());
         }
     }
 }

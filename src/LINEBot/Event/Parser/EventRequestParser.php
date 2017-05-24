@@ -19,9 +19,9 @@
 namespace LINE\LINEBot\Event\Parser;
 
 use LINE\LINEBot\Event\MessageEvent;
+use LINE\LINEBot\Event\UnknownEvent;
 use LINE\LINEBot\Exception\InvalidEventRequestException;
 use LINE\LINEBot\Exception\InvalidSignatureException;
-use LINE\LINEBot\Exception\UnknownEventTypeException;
 use LINE\LINEBot\Exception\UnknownMessageTypeException;
 use LINE\LINEBot\SignatureValidator;
 
@@ -53,7 +53,6 @@ class EventRequestParser
      * @return \LINE\LINEBot\Event\BaseEvent[] array
      * @throws InvalidEventRequestException
      * @throws InvalidSignatureException
-     * @throws UnknownEventTypeException
      */
     public static function parseEventRequest($body, $channelSecret, $signature)
     {
@@ -74,10 +73,14 @@ class EventRequestParser
 
         foreach ($parsedReq['events'] as $eventData) {
             $eventType = $eventData['type'];
-            $eventClass = self::$eventType2class[$eventType];
-            if (!isset($eventClass)) {
-                throw new UnknownEventTypeException('Unknown event type has come: ' . $eventType);
+
+            if (!array_key_exists($eventType, self::$eventType2class)) {
+                # Unknown event has come
+                $events[] = new UnknownEvent($eventData);
+                continue;
             }
+
+            $eventClass = self::$eventType2class[$eventType];
 
             if ($eventType === 'message') {
                 $events[] = self::parseMessageEvent($eventData);

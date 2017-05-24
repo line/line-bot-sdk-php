@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 LINE Corporation
+ * Copyright 2017 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -16,12 +16,24 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Constant;
+namespace LINE\LINEBot\Event;
 
-class EventSourceType
+/**
+ * A class that represents the unknown event.
+ *
+ * If the event is not supported by this SDK, the event will be instantiate to this.
+ *
+ * @package LINE\LINEBot\Event
+ */
+class UnknownEvent extends BaseEvent
 {
-    const USER = 'user';
-    const GROUP = 'group';
-    const ROOM = 'room';
-    const UNKNOWN = 'unknown';
+    /**
+     * UnknownEvent constructor.
+     *
+     * @param array $event
+     */
+    public function __construct($event)
+    {
+        parent::__construct($event);
+    }
 }
