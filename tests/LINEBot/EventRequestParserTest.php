@@ -28,6 +28,7 @@ use LINE\LINEBot\Event\MessageEvent\ImageMessage;
 use LINE\LINEBot\Event\MessageEvent\LocationMessage;
 use LINE\LINEBot\Event\MessageEvent\StickerMessage;
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
+use LINE\LINEBot\Event\MessageEvent\UnknownMessage;
 use LINE\LINEBot\Event\MessageEvent\VideoMessage;
 use LINE\LINEBot\Event\PostbackEvent;
 use LINE\LINEBot\Event\UnfollowEvent;
@@ -381,6 +382,8 @@ JSON;
             $event = $events[14];
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\UnknownMessage', $event);
+            /** @var UnknownMessage $event */
+            $this->assertEquals('__unknown__', $event->getMessageBody()['type']);
         }
     }
 }

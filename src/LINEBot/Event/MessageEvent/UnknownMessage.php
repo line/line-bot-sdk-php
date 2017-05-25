@@ -36,4 +36,16 @@ class UnknownMessage extends MessageEvent
     {
         parent::__construct($event);
     }
+
+    /**
+     * Returns unprocessed message body.
+     *
+     * You can handle the message with getting the message body through this even if the message type is unknown.
+     *
+     * @return array
+     */
+    public function getMessageBody()
+    {
+        return $this->message;
+    }
 }
