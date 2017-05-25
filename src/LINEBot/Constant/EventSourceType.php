@@ -23,5 +23,4 @@ class EventSourceType
     const USER = 'user';
     const GROUP = 'group';
     const ROOM = 'room';
-    const UNKNOWN = 'unknown';
 }
