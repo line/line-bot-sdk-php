@@ -355,6 +355,7 @@ JSON;
             $this->assertInstanceOf('LINE\LINEBot\Event\UnknownEvent', $event);
             /** @var UnknownEvent $event */
             $this->assertEquals('__unknown__', $event->getType());
+            $this->assertEquals('__unknown__', $event->getEventBody()['type']); // with unprocessed event body
             $this->assertEquals(null, $event->getReplyToken());
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('userid', $event->getEventSourceId());
@@ -368,6 +369,7 @@ JSON;
             $this->assertInstanceOf('LINE\LINEBot\Event\UnknownEvent', $event);
             /** @var UnknownEvent $event */
             $this->assertEquals('__unknown__', $event->getType());
+            $this->assertEquals('__unknown__', $event->getEventBody()['type']); // with unprocessed event body
             $this->assertEquals(null, $event->getReplyToken());
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals(null, $event->getEventSourceId());

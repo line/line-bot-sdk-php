@@ -36,4 +36,16 @@ class UnknownEvent extends BaseEvent
     {
         parent::__construct($event);
     }
+
+    /**
+     * Returns unprocessed event body.
+     *
+     * You can handle the event even if unknown with getting the event body through this.
+     *
+     * @return array
+     */
+    public function getEventBody()
+    {
+        return $this->event;
+    }
 }
