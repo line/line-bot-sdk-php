@@ -40,7 +40,7 @@ class UnknownEvent extends BaseEvent
     /**
      * Returns unprocessed event body.
      *
-     * You can handle the event even if unknown with getting the event body through this.
+     * You can handle the event with getting the event body through this even if the event type is unknown.
      *
      * @return array
      */
