@@ -93,11 +93,17 @@ class Route
                     } elseif ($event instanceof VideoMessage) {
                         $handler = new VideoMessageHandler($bot, $logger, $req, $event);
                     } elseif ($event instanceof UnknownMessage) {
-                        $logger->info(sprintf('Unknown message type has come [message type: %s]', $event->getMessageType()));
+                        $logger->info(sprintf(
+                            'Unknown message type has come [message type: %s]',
+                            $event->getMessageType()
+                        ));
                     } else {
                         // Unexpected behavior (just in case)
                         // something wrong if reach here
-                        $logger->info(sprintf('Unexpected message type has come, something wrong [class name: %s]', get_class($event)));
+                        $logger->info(sprintf(
+                            'Unexpected message type has come, something wrong [class name: %s]',
+                            get_class($event)
+                        ));
                         continue;
                     }
                 } elseif ($event instanceof UnfollowEvent) {
@@ -117,7 +123,10 @@ class Route
                 } else {
                     // Unexpected behavior (just in case)
                     // something wrong if reach here
-                    $logger->info(sprintf('Unexpected event type has come, something wrong [class name: %s]', get_class($event)));
+                    $logger->info(sprintf(
+                        'Unexpected event type has come, something wrong [class name: %s]',
+                        get_class($event)
+                    ));
                     continue;
                 }
 
