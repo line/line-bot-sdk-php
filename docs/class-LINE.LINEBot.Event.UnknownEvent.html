@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class LINE\LINEBot\Event\MessageEvent\ImageMessage | line-bot-sdk-php</title>
+	<title>Class LINE\LINEBot\Event\UnknownEvent | line-bot-sdk-php</title>
 
 	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
@@ -41,7 +41,7 @@
 					</a>
 
 						<ul>
-				<li class="active">
+				<li>
 					<a href="namespace-LINE.LINEBot.Event.MessageEvent.html">
 						MessageEvent					</a>
 
@@ -99,13 +99,15 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.AudioMessage.html">AudioMessage</a></li>
-				<li class="active"><a href="class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html">ImageMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.LocationMessage.html">LocationMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.StickerMessage.html">StickerMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.TextMessage.html">TextMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html">UnknownMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.VideoMessage.html">VideoMessage</a></li>
+				<li><a href="class-LINE.LINEBot.Event.BaseEvent.html">BaseEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.BeaconDetectionEvent.html">BeaconDetectionEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.FollowEvent.html">FollowEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.JoinEvent.html">JoinEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.LeaveEvent.html">LeaveEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.MessageEvent.html">MessageEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.PostbackEvent.html">PostbackEvent</a></li>
+				<li><a href="class-LINE.LINEBot.Event.UnfollowEvent.html">UnfollowEvent</a></li>
+				<li class="active"><a href="class-LINE.LINEBot.Event.UnknownEvent.html">UnknownEvent</a></li>
 			</ul>
 
 
@@ -132,7 +134,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-LINE.LINEBot.Event.MessageEvent.html" title="Summary of LINE\LINEBot\Event\MessageEvent"><span>Namespace</span></a>
+				<a href="namespace-LINE.LINEBot.Event.html" title="Summary of LINE\LINEBot\Event"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -144,11 +146,13 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class ImageMessage</h1>
+	<h1>Class UnknownEvent</h1>
 
 
 	<div class="description">
-	<p>A class that represents the message event of image.</p>
+	<p>A class that represents the unknown event.</p>
+
+<p>If the event is not supported by this SDK, the event will be instantiate to this.</p>
 	</div>
 
 	<dl class="tree">
@@ -160,14 +164,7 @@
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-			<a href="class-LINE.LINEBot.Event.MessageEvent.html"><span>LINE\LINEBot\Event\MessageEvent</span></a>
-			
-			
-			
-		</dd>
-		<dd style="padding-left:60px">
-			<img src="resources/inherit.png" alt="Extended by">
-<b><span>LINE\LINEBot\Event\MessageEvent\ImageMessage</span></b>			
+<b><span>LINE\LINEBot\Event\UnknownEvent</span></b>			
 			
 			
 		</dd>
@@ -183,10 +180,10 @@
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-LINE.html">LINE</a>\<a href="namespace-LINE.LINEBot.html">LINEBot</a>\<a href="namespace-LINE.LINEBot.Event.html">Event</a>\<a href="namespace-LINE.LINEBot.Event.MessageEvent.html">MessageEvent</a><br>
-		<b>Package:</b> LINE\LINEBot\Event\MessageEvent<br>
+		<b>Namespace:</b> <a href="namespace-LINE.html">LINE</a>\<a href="namespace-LINE.LINEBot.html">LINEBot</a>\<a href="namespace-LINE.LINEBot.Event.html">Event</a><br>
+		<b>Package:</b> LINE\LINEBot\Event<br>
 
-			<b>Located at</b> <a href="source-class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html#23-39" title="Go to source code">LINEBot/Event/MessageEvent/ImageMessage.php</a>
+			<b>Located at</b> <a href="source-class-LINE.LINEBot.Event.UnknownEvent.html#21-51" title="Go to source code">LINEBot/Event/UnknownEvent.php</a>
 		<br>
 	</div>
 
@@ -206,14 +203,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html#30-38" title="Go to source code">__construct</a>( <span>array <var>$event</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.Event.UnknownEvent.html#30-38" title="Go to source code">__construct</a>( <span>array <var>$event</var></span> )</code>
 
 		<div class="description short">
-			<p>ImageMessage constructor.</p>
+			<p>UnknownEvent constructor.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>ImageMessage constructor.</p>
+			<p>UnknownEvent constructor.</p>
 
 
 				<h4>Parameters</h4>
@@ -226,22 +223,49 @@
 
 
 				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-LINE.LINEBot.Event.MessageEvent.html#___construct">LINE\LINEBot\Event\MessageEvent::__construct()</a></code></div>
+				<div class="list"><code><a href="class-LINE.LINEBot.Event.BaseEvent.html#___construct">LINE\LINEBot\Event\BaseEvent::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getEventBody" id="_getEventBody">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getEventBody">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.UnknownEvent.html#40-50" title="Go to source code">getEventBody</a>( )</code>
+
+		<div class="description short">
+			<p>Returns unprocessed event body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns unprocessed event body.</p>
+
+<p>You can handle the event with getting the event body through this even if the event type is unknown.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
 
 		</div>
 		</div></td>
 	</tr>
 	</table>
 
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-LINE.LINEBot.Event.MessageEvent.html#methods">LINE\LINEBot\Event\MessageEvent</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-LINE.LINEBot.Event.MessageEvent.html#_getMessageId">getMessageId()</a>, 
-			<a href="class-LINE.LINEBot.Event.MessageEvent.html#_getMessageType">getMessageType()</a>
-		</code></td>
-	</tr>
-	</table>
 	<table class="summary inherited">
 	<caption>Methods inherited from <a href="class-LINE.LINEBot.Event.BaseEvent.html#methods">LINE\LINEBot\Event\BaseEvent</a></caption>
 	<tr>
@@ -272,14 +296,6 @@
 
 
 
-	<table class="summary inherited">
-	<caption>Properties inherited from <a href="class-LINE.LINEBot.Event.MessageEvent.html#properties">LINE\LINEBot\Event\MessageEvent</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-LINE.LINEBot.Event.MessageEvent.html#$message"><var>$message</var></a>
-		</code></td>
-	</tr>
-	</table>
 	<table class="summary inherited">
 	<caption>Properties inherited from <a href="class-LINE.LINEBot.Event.BaseEvent.html#properties">LINE\LINEBot\Event\BaseEvent</a></caption>
 	<tr>

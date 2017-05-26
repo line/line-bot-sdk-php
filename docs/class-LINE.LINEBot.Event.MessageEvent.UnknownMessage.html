@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class LINE\LINEBot\Event\MessageEvent\ImageMessage | line-bot-sdk-php</title>
+	<title>Class LINE\LINEBot\Event\MessageEvent\UnknownMessage | line-bot-sdk-php</title>
 
 	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
@@ -100,11 +100,11 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.AudioMessage.html">AudioMessage</a></li>
-				<li class="active"><a href="class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html">ImageMessage</a></li>
+				<li><a href="class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html">ImageMessage</a></li>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.LocationMessage.html">LocationMessage</a></li>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.StickerMessage.html">StickerMessage</a></li>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.TextMessage.html">TextMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html">UnknownMessage</a></li>
+				<li class="active"><a href="class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html">UnknownMessage</a></li>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.VideoMessage.html">VideoMessage</a></li>
 			</ul>
 
@@ -144,11 +144,11 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class ImageMessage</h1>
+	<h1>Class UnknownMessage</h1>
 
 
 	<div class="description">
-	<p>A class that represents the message event of image.</p>
+	<p>A class that represents the unknown message event.</p>
 	</div>
 
 	<dl class="tree">
@@ -167,7 +167,7 @@
 		</dd>
 		<dd style="padding-left:60px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>LINE\LINEBot\Event\MessageEvent\ImageMessage</span></b>			
+<b><span>LINE\LINEBot\Event\MessageEvent\UnknownMessage</span></b>			
 			
 			
 		</dd>
@@ -186,7 +186,7 @@
 		<b>Namespace:</b> <a href="namespace-LINE.html">LINE</a>\<a href="namespace-LINE.LINEBot.html">LINEBot</a>\<a href="namespace-LINE.LINEBot.Event.html">Event</a>\<a href="namespace-LINE.LINEBot.Event.MessageEvent.html">MessageEvent</a><br>
 		<b>Package:</b> LINE\LINEBot\Event\MessageEvent<br>
 
-			<b>Located at</b> <a href="source-class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html#23-39" title="Go to source code">LINEBot/Event/MessageEvent/ImageMessage.php</a>
+			<b>Located at</b> <a href="source-class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html#23-51" title="Go to source code">LINEBot/Event/MessageEvent/UnknownMessage.php</a>
 		<br>
 	</div>
 
@@ -206,14 +206,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html#30-38" title="Go to source code">__construct</a>( <span>array <var>$event</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html#30-38" title="Go to source code">__construct</a>( <span>array <var>$event</var></span> )</code>
 
 		<div class="description short">
-			<p>ImageMessage constructor.</p>
+			<p>UnknownMessage constructor.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>ImageMessage constructor.</p>
+			<p>UnknownMessage constructor.</p>
 
 
 				<h4>Parameters</h4>
@@ -227,6 +227,42 @@
 
 				<h4>Overrides</h4>
 				<div class="list"><code><a href="class-LINE.LINEBot.Event.MessageEvent.html#___construct">LINE\LINEBot\Event\MessageEvent::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMessageBody" id="_getMessageBody">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMessageBody">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html#40-50" title="Go to source code">getMessageBody</a>( )</code>
+
+		<div class="description short">
+			<p>Returns unprocessed message body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns unprocessed message body.</p>
+
+<p>You can handle the message with getting the message body through this even if the message type is unknown.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
 
 		</div>
 		</div></td>
