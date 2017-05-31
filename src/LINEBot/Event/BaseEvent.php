@@ -117,13 +117,9 @@ class BaseEvent
      * Returns user ID of the event.
      *
      * @return string|null
-     * @throws InvalidEventSourceException Raise when called with non user type event.
      */
     public function getUserId()
     {
-        if (!$this->isUserEvent()) {
-            throw new InvalidEventSourceException('This event source is not a user type');
-        }
         return array_key_exists('userId', $this->event['source'])
             ? $this->event['source']['userId']
             : null;
