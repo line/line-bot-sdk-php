@@ -82,6 +82,7 @@ class LINEBotTiny
         }
 
         $data = json_decode($entityBody, true);
+
         if (!isset($data['events'])) {
             http_response_code(400);
             error_log("Invalid request body: missing events property");
@@ -106,10 +107,59 @@ class LINEBotTiny
         ));
 
         $response = file_get_contents('https://api.line.me/v2/bot/message/reply', false, $context);
+        
         if (strpos($http_response_header[0], '200') === false) {
             http_response_code(500);
             error_log("Request failed: " . $response);
         }
+    }
+
+    public function pushMessage($message)
+    {
+        $header = array(
+            "Content-Type: application/json",
+            'Authorization: Bearer ' . $this->channelAccessToken,
+        );
+
+        $context = stream_context_create(array(
+            "http" => array(
+                "method" => "POST",
+                "header" => implode("\r\n", $header),
+                "content" => json_encode($message),
+            ),
+        ));
+
+        $response = file_get_contents('https://api.line.me/v2/bot/message/push', false, $context);
+        
+        if (strpos($http_response_header[0], '200') === false) {
+            http_response_code(500);
+            error_log("Request failed: " . $response);
+        }
+    }
+
+    public function getProfile($targetId)
+    {
+        $header = array(
+            'Authorization: Bearer ' . $this->channelAccessToken
+        );
+
+        $context = stream_context_create(array(
+            "http" => array(
+                "method" => "GET",
+                "header" => implode("\r\n", $header)
+            ),
+        ));
+
+        $targetProfile = "https://api.line.me/v2/bot/profile/" . $targetId ;
+
+        $response = file_get_contents($targetProfile, false, $context);
+        
+        if (strpos($http_response_header[0], '200') === false) {
+            http_response_code(500);
+            error_log("Request failed: " . $response);
+        }
+
+        return $response ;
     }
 
     private function sign($body)
