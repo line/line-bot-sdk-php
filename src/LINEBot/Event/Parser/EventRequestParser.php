@@ -42,6 +42,7 @@ class EventRequestParser
         'image' => 'LINE\LINEBot\Event\MessageEvent\ImageMessage',
         'video' => 'LINE\LINEBot\Event\MessageEvent\VideoMessage',
         'audio' => 'LINE\LINEBot\Event\MessageEvent\AudioMessage',
+        'file' => 'LINE\LINEBot\Event\MessageEvent\FileMessage',
         'location' => 'LINE\LINEBot\Event\MessageEvent\LocationMessage',
         'sticker' => 'LINE\LINEBot\Event\MessageEvent\StickerMessage',
     ];
