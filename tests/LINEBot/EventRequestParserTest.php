@@ -24,6 +24,7 @@ use LINE\LINEBot\Event\FollowEvent;
 use LINE\LINEBot\Event\JoinEvent;
 use LINE\LINEBot\Event\LeaveEvent;
 use LINE\LINEBot\Event\MessageEvent\AudioMessage;
+use LINE\LINEBot\Event\MessageEvent\FileMessage;
 use LINE\LINEBot\Event\MessageEvent\ImageMessage;
 use LINE\LINEBot\Event\MessageEvent\LocationMessage;
 use LINE\LINEBot\Event\MessageEvent\StickerMessage;
@@ -227,6 +228,21 @@ class EventRequestParserTest extends \PHPUnit_Framework_TestCase
     "id":"contentid",
     "type":"__unknown__"
    }
+  },
+  {
+   "replyToken": "replytoken",
+   "type": "message",
+   "timestamp": 1462629479859,
+   "source": {
+    "type": "user",
+    "userId": "userid"
+   },
+   "message": {
+    "id": "325708",
+    "type": "file",
+    "fileName": "file.txt",
+    "fileSize": 2138
+   }
   }
  ]
 }
@@ -236,9 +252,9 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        $events = $bot->parseEventRequest($this::$json, 'Cz7xWmZJizFKB+paG1imAwycGOSAq6IUMVw4slB3VpQ=');
+        $events = $bot->parseEventRequest($this::$json, '56hhe+3PxvEaYotu9e2ZXmYQ0RMc6/74/jNyKQ6w6U0=');
 
-        $this->assertEquals(count($events), 16);
+        $this->assertEquals(count($events), 17);
 
         {
             // text
@@ -418,6 +434,18 @@ JSON;
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\UnknownMessage', $event);
             /** @var UnknownMessage $event */
             $this->assertEquals('__unknown__', $event->getMessageBody()['type']);
+        }
+
+        {
+            // file message
+            $event = $events[16];
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\FileMessage', $event);
+            /** @var FileMessage $event */
+            $this->assertEquals('file.txt', $event->getFileName());
+            $this->assertEquals('2138', $event->getFileSize());
+            $this->assertEquals('325708', $event->getMessageId());
+            $this->assertEquals('file', $event->getMessageType());
         }
     }
 }
