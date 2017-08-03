@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class LINE\LINEBot\Event\MessageEvent\UnknownMessage | line-bot-sdk-php</title>
+	<title>Class LINE\LINEBot\Event\MessageEvent\FileMessage | line-bot-sdk-php</title>
 
 	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
@@ -100,12 +100,12 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.AudioMessage.html">AudioMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.FileMessage.html">FileMessage</a></li>
+				<li class="active"><a href="class-LINE.LINEBot.Event.MessageEvent.FileMessage.html">FileMessage</a></li>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html">ImageMessage</a></li>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.LocationMessage.html">LocationMessage</a></li>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.StickerMessage.html">StickerMessage</a></li>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.TextMessage.html">TextMessage</a></li>
-				<li class="active"><a href="class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html">UnknownMessage</a></li>
+				<li><a href="class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html">UnknownMessage</a></li>
 				<li><a href="class-LINE.LINEBot.Event.MessageEvent.VideoMessage.html">VideoMessage</a></li>
 			</ul>
 
@@ -145,11 +145,11 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class UnknownMessage</h1>
+	<h1>Class FileMessage</h1>
 
 
 	<div class="description">
-	<p>A class that represents the unknown message event.</p>
+	<p>A class that represents the message event of file.</p>
 	</div>
 
 	<dl class="tree">
@@ -168,7 +168,7 @@
 		</dd>
 		<dd style="padding-left:60px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>LINE\LINEBot\Event\MessageEvent\UnknownMessage</span></b>			
+<b><span>LINE\LINEBot\Event\MessageEvent\FileMessage</span></b>			
 			
 			
 		</dd>
@@ -187,7 +187,7 @@
 		<b>Namespace:</b> <a href="namespace-LINE.html">LINE</a>\<a href="namespace-LINE.LINEBot.html">LINEBot</a>\<a href="namespace-LINE.LINEBot.Event.html">Event</a>\<a href="namespace-LINE.LINEBot.Event.MessageEvent.html">MessageEvent</a><br>
 		<b>Package:</b> LINE\LINEBot\Event\MessageEvent<br>
 
-			<b>Located at</b> <a href="source-class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html#23-51" title="Go to source code">LINEBot/Event/MessageEvent/UnknownMessage.php</a>
+			<b>Located at</b> <a href="source-class-LINE.LINEBot.Event.MessageEvent.FileMessage.html#23-59" title="Go to source code">LINEBot/Event/MessageEvent/FileMessage.php</a>
 		<br>
 	</div>
 
@@ -207,14 +207,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html#30-38" title="Go to source code">__construct</a>( <span>array <var>$event</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.Event.MessageEvent.FileMessage.html#30-38" title="Go to source code">__construct</a>( <span>array <var>$event</var></span> )</code>
 
 		<div class="description short">
-			<p>UnknownMessage constructor.</p>
+			<p>FileMessage constructor.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>UnknownMessage constructor.</p>
+			<p>FileMessage constructor.</p>
 
 
 				<h4>Parameters</h4>
@@ -232,34 +232,66 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getMessageBody" id="_getMessageBody">
+	<tr data-order="getFileName" id="_getFileName">
 
 		<td class="attributes"><code>
 			 public 
 
-			array
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getMessageBody">#</a>
-		<code><a href="source-class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html#40-50" title="Go to source code">getMessageBody</a>( )</code>
+		<a class="anchor" href="#_getFileName">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.MessageEvent.FileMessage.html#40-48" title="Go to source code">getFileName</a>( )</code>
 
 		<div class="description short">
-			<p>Returns unprocessed message body.</p>
+			<p>Returns filename of the file message.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns unprocessed message body.</p>
-
-<p>You can handle the message with getting the message body through this even if the message type is unknown.</p>
+			<p>Returns filename of the file message.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					array
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFileSize" id="_getFileSize">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFileSize">#</a>
+		<code><a href="source-class-LINE.LINEBot.Event.MessageEvent.FileMessage.html#50-58" title="Go to source code">getFileSize</a>( )</code>
+
+		<div class="description short">
+			<p>Returns filesize of the file message.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns filesize of the file message.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
 				</div>
 
 
