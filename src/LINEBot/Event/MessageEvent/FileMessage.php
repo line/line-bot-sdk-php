@@ -56,5 +56,4 @@ class FileMessage extends MessageEvent
     {
         return $this->message['fileSize'];
     }
-
 }
