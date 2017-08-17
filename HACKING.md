@@ -26,19 +26,33 @@ How to execute them all
 
 `make`
 
+How to generate HTML phpdoc
+--
+
+Use `make doc`
+
+Pull request policy
+--
+
+- Please *DON'T* include the generated HTML phpdoc in pull request
+
 Release Flow
 --
 
-1. Make a git tag (this project uses semantic versioning)
+1. Generate HTML phpdoc
+1. Make a git tag (this project uses [semantic versioning](http://semver.org/))
 1. Push the tag to origin
+1. Edit [GitHub releases](https://github.com/line/line-bot-sdk-php/releases)
+
+You can execute steps 1-3 with `make release` command.
 
 That's all. It will be publish on [composer](https://packagist.org/packages/linecorp/line-bot-sdk) automatically.
 
 e.g.
 
 ```
-$ git tag 1.2.3
-$ git push origin 1.2.3
+$ make release VERSION=1.2.3
+# Then, edit GitHub releases
 ```
 
 Testing of HTTP client
