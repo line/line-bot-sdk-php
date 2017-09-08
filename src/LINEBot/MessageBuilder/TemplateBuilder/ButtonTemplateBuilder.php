@@ -75,11 +75,21 @@ class ButtonTemplateBuilder implements TemplateBuilder
 
         $this->template = [
             'type' => TemplateType::BUTTONS,
-            'thumbnailImageUrl' => $this->thumbnailImageUrl,
-            'title' => $this->title,
             'text' => $this->text,
             'actions' => $actions,
         ];
+
+        if ($this->thumbnailImageUrl) {
+            $this->template = array_merge($this->template, [
+                'thumbnailImageUrl' => $this->thumbnailImageUrl,
+            ]);
+        }
+
+        if ($this->title) {
+            $this->template = array_merge($this->template, [
+                'title' => $this->title,
+            ]);
+        }
 
         return $this->template;
     }
