@@ -28,6 +28,7 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuild
 use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 
 class SendTemplateTest extends \PHPUnit_Framework_TestCase
@@ -176,24 +177,34 @@ class SendTemplateTest extends \PHPUnit_Framework_TestCase
             $columns = $template['columns'];
             $testRunner->assertEquals(4, count($columns));
             $testRunner->assertEquals('https://example.com/image1.png', $columns[0]['imageUrl']);
-            $testRunner->assertEquals(ActionType::POSTBACK, $columns[0]['action']['type']);
-            $testRunner->assertEquals('postback label', $columns[0]['action']['label']);
-            $testRunner->assertEquals('post=back', $columns[0]['action']['data']);
+            $testRunner->assertEquals(ActionType::DATETIME_PICKER, $columns[0]['action']['type']);
+            $testRunner->assertEquals('datetime picker date', $columns[0]['action']['label']);
+            $testRunner->assertEquals('action=sell&itemid=2&mode=date', $columns[0]['action']['data']);
+            $testRunner->assertEquals('date', $columns[0]['action']['mode']);
+            $testRunner->assertEquals('2013-04-01', $columns[0]['action']['initial']);
+            $testRunner->assertEquals('2011-06-23', $columns[0]['action']['max']);
+            $testRunner->assertEquals('2017-09-08', $columns[0]['action']['min']);
 
             $testRunner->assertEquals('https://example.com/image2.png', $columns[1]['imageUrl']);
-            $testRunner->assertEquals(ActionType::POSTBACK, $columns[1]['action']['type']);
-            $testRunner->assertEquals('postback label2', $columns[1]['action']['label']);
-            $testRunner->assertEquals('post=back2', $columns[1]['action']['data']);
+            $testRunner->assertEquals(ActionType::DATETIME_PICKER, $columns[1]['action']['type']);
+            $testRunner->assertEquals('datetime picker time', $columns[1]['action']['label']);
+            $testRunner->assertEquals('action=sell&itemid=2&mode=time', $columns[1]['action']['data']);
+            $testRunner->assertEquals('time', $columns[1]['action']['mode']);
+            $testRunner->assertEquals('10:00', $columns[1]['action']['initial']);
+            $testRunner->assertEquals('00:00', $columns[1]['action']['max']);
+            $testRunner->assertEquals('23:59', $columns[1]['action']['min']);
 
             $testRunner->assertEquals('https://example.com/image3.png', $columns[2]['imageUrl']);
-            $testRunner->assertEquals(ActionType::MESSAGE, $columns[2]['action']['type']);
-            $testRunner->assertEquals('message label', $columns[2]['action']['label']);
-            $testRunner->assertEquals('test message', $columns[2]['action']['text']);
+            $testRunner->assertEquals(ActionType::DATETIME_PICKER, $columns[2]['action']['type']);
+            $testRunner->assertEquals('datetime picker date', $columns[2]['action']['label']);
+            $testRunner->assertEquals('action=sell&itemid=2&mode=date', $columns[2]['action']['data']);
+            $testRunner->assertEquals('date', $columns[2]['action']['mode']);
 
             $testRunner->assertEquals('https://example.com/image4.png', $columns[3]['imageUrl']);
-            $testRunner->assertEquals(ActionType::URI, $columns[3]['action']['type']);
-            $testRunner->assertEquals('uri label', $columns[3]['action']['label']);
-            $testRunner->assertEquals('https://example.com', $columns[3]['action']['uri']);
+            $testRunner->assertEquals(ActionType::DATETIME_PICKER, $columns[3]['action']['type']);
+            $testRunner->assertEquals('datetime picker time', $columns[3]['action']['label']);
+            $testRunner->assertEquals('action=sell&itemid=2&mode=time', $columns[3]['action']['data']);
+            $testRunner->assertEquals('time', $columns[3]['action']['mode']);
 
             return ['status' => 200];
         };
@@ -206,19 +217,41 @@ class SendTemplateTest extends \PHPUnit_Framework_TestCase
                     [
                         new ImageCarouselColumnTemplateBuilder(
                             'https://example.com/image1.png',
-                            new PostbackTemplateActionBuilder('postback label', 'post=back')
+                            new DatetimePickerTemplateActionBuilder(
+                                'datetime picker date',
+                                'action=sell&itemid=2&mode=date',
+                                'date',
+                                '2013-04-01',
+                                '2011-06-23',
+                                '2017-09-08'
+                            )
                         ),
                         new ImageCarouselColumnTemplateBuilder(
                             'https://example.com/image2.png',
-                            new PostbackTemplateActionBuilder('postback label2', 'post=back2', 'extend text')
+                            new DatetimePickerTemplateActionBuilder(
+                                'datetime picker time',
+                                'action=sell&itemid=2&mode=time',
+                                'time',
+                                '10:00',
+                                '00:00',
+                                '23:59'
+                            )
                         ),
                         new ImageCarouselColumnTemplateBuilder(
                             'https://example.com/image3.png',
-                            new MessageTemplateActionBuilder('message label', 'test message')
+                            new DatetimePickerTemplateActionBuilder(
+                                'datetime picker date',
+                                'action=sell&itemid=2&mode=date',
+                                'date'
+                            )
                         ),
                         new ImageCarouselColumnTemplateBuilder(
                             'https://example.com/image4.png',
-                            new UriTemplateActionBuilder('uri label', 'https://example.com')
+                            new DatetimePickerTemplateActionBuilder(
+                                'datetime picker time',
+                                'action=sell&itemid=2&mode=time',
+                                'time'
+                            )
                         ),
                     ]
                 )
