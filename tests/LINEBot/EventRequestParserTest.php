@@ -501,7 +501,7 @@ JSON;
             /** @var PostbackEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('postback', $event->getPostbackData());
-            $this->assertEquals(array("date" => "2013-04-01"), $event->getPostbackParams());
+            $this->assertEquals(["date" => "2013-04-01"], $event->getPostbackParams());
         }
 
         {
@@ -511,7 +511,7 @@ JSON;
             /** @var PostbackEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('postback', $event->getPostbackData());
-            $this->assertEquals(array("time" => "10:00"), $event->getPostbackParams());
+            $this->assertEquals(["time" => "10:00"], $event->getPostbackParams());
         }
 
         {
@@ -521,7 +521,7 @@ JSON;
             /** @var PostbackEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('postback', $event->getPostbackData());
-            $this->assertEquals(array("datetime" => "2013-04-01T10:00"), $event->getPostbackParams());
+            $this->assertEquals(["datetime" => "2013-04-01T10:00"], $event->getPostbackParams());
         }
     }
 }
