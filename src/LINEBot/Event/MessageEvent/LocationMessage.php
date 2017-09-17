@@ -54,7 +54,9 @@ class LocationMessage extends MessageEvent
      */
     public function getAddress()
     {
-        return $this->message['address'];
+        return array_key_exists('address', $this->message)
+            ? $this->message['address']
+            : null;
     }
 
     /**
