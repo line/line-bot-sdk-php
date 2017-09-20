@@ -204,4 +204,116 @@ class LINEBot
     {
         return SignatureValidator::validateSignature($body, $this->channelSecret, $signature);
     }
+
+    /**
+     * Gets the user profile of a member of a group that the bot is in.
+     * This can be the user ID of a user who has not added the bot as a friend or has blocked the bot.
+     *
+     * @param string $groupId Identifier of the group
+     * @param string $userId Identifier of the user
+     * @return Response
+     */
+    public function getGroupMemberProfile($groupId, $userId)
+    {
+        $url = sprintf('%s/v2/bot/group/%s/member/%s', $this->endpointBase, urlencode($groupId), urlencode($userId));
+        return $this->httpClient->get($url, []);
+    }
+
+    /**
+     * Gets the user profile of a member of a room that the bot is in.
+     * This can be the user ID of a user who has not added the bot as a friend or has blocked the bot.
+     *
+     * @param string $roomId Identifier of the room
+     * @param string $userId Identifier of the user
+     * @return Response
+     */
+    public function getRoomMemberProfile($roomId, $userId)
+    {
+        $url = sprintf('%s/v2/bot/room/%s/member/%s', $this->endpointBase, urlencode($roomId), urlencode($userId));
+        return $this->httpClient->get($url, []);
+    }
+
+    /**
+     * Gets the user IDs of the members of a group that the bot is in.
+     * This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.
+     *
+     * This feature is only available for LINE@ Approved accounts or official accounts.
+     *
+     * @param string $groupId Identifier of the group
+     * @param string $start continuationToken
+     * @return Response
+     */
+    public function getGroupMemberIds($groupId, $start = null)
+    {
+        $url = sprintf('%s/v2/bot/group/%s/members/ids', $this->endpointBase, urlencode($groupId));
+        $params = is_null($start) ? [] : ['start' => $start];
+        return $this->httpClient->get($url, $params);
+    }
+
+    /**
+     * Gets the user IDs of the members of a room that the bot is in.
+     * This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.
+     *
+     * This feature is only available for LINE@ Approved accounts or official accounts.
+     *
+     * @param string $roomId Identifier of the room
+     * @param string $start continuationToken
+     * @return Response
+     */
+    public function getRoomMemberIds($roomId, $start = null)
+    {
+        $url = sprintf('%s/v2/bot/room/%s/members/ids', $this->endpointBase, urlencode($roomId));
+        $params = is_null($start) ? [] : ['start' => $start];
+        return $this->httpClient->get($url, $params);
+    }
+
+    /**
+     * Gets the user IDs of the members of a group that the bot is in.
+     * This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.
+     * This method gets all of the members by calling getGroupMemberIds() continually using token
+     *
+     * This feature is only available for LINE@ Approved accounts or official accounts.
+     *
+     * @param string $groupId Identifier of the group
+     * @return array memberIds
+     * @see LINE\LINEBot\getGroupMemberIds()
+     */
+    public function getAllGroupMemberIds($groupId)
+    {
+        $memberIds = [];
+        $continuationToken = null;
+        do {
+            $response = $this->getGroupMemberIds($groupId, $continuationToken);
+            $data = $response->getJSONDecodedBody();
+            $memberIds = array_merge($memberIds, $data['memberIds']);
+            $continuationToken = isset($data['next']) ? $data['next'] : null;
+        } while ($continuationToken);
+
+        return $memberIds;
+    }
+
+    /**
+     * Gets the user IDs of the members of a room that the bot is in.
+     * This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.
+     * This method gets all of the members by calling getRoomMemberIds() continually using token
+     *
+     * This feature is only available for LINE@ Approved accounts or official accounts.
+     *
+     * @param string $roomId Identifier of the room
+     * @return array memberIds
+     * @see LINE\LINEBot\getRoomMemberIds()
+     */
+    public function getAllRoomMemberIds($roomId)
+    {
+        $memberIds = [];
+        $continuationToken = null;
+        do {
+            $response = $this->getRoomMemberIds($roomId, $continuationToken);
+            $data = $response->getJSONDecodedBody();
+            $memberIds = array_merge($memberIds, $data['memberIds']);
+            $continuationToken = isset($data['next']) ? $data['next'] : null;
+        } while ($continuationToken);
+
+        return $memberIds;
+    }
 }
