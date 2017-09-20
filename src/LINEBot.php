@@ -240,13 +240,13 @@ class LINEBot
      * This feature is only available for LINE@ Approved accounts or official accounts.
      *
      * @param string $groupId Identifier of the group
-     * @param string $continuationToken continuationToken
+     * @param string $start continuationToken
      * @return Response
      */
-    public function getGroupMemberIds($groupId, $continuationToken = null)
+    public function getGroupMemberIds($groupId, $start = null)
     {
         $url = sprintf('%s/v2/bot/group/%s/members/ids', $this->endpointBase, urlencode($groupId));
-        $params = is_null($continuationToken) ? [] : ['start' => $continuationToken];
+        $params = is_null($start) ? [] : ['start' => $start];
         return $this->httpClient->get($url, $params);
     }
 
@@ -257,13 +257,13 @@ class LINEBot
      * This feature is only available for LINE@ Approved accounts or official accounts.
      *
      * @param string $roomId Identifier of the room
-     * @param string $continuationToken continuationToken
+     * @param string $start continuationToken
      * @return Response
      */
-    public function getRoomMemberIds($roomId, $continuationToken = null)
+    public function getRoomMemberIds($roomId, $start = null)
     {
         $url = sprintf('%s/v2/bot/room/%s/members/ids', $this->endpointBase, urlencode($roomId));
-        $params = is_null($continuationToken) ? [] : ['start' => $continuationToken];
+        $params = is_null($start) ? [] : ['start' => $start];
         return $this->httpClient->get($url, $params);
     }
 
