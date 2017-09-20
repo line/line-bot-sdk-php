@@ -23,4 +23,5 @@ class TemplateType
     const CONFIRM = 'confirm';
     const BUTTONS = 'buttons';
     const CAROUSEL = 'carousel';
+    const IMAGE_CAROUSEL = 'image_carousel';
 }
