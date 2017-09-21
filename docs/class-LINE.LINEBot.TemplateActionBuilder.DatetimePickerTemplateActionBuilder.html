@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder | line-bot-sdk-php</title>
+	<title>Class LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder | line-bot-sdk-php</title>
 
 	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
@@ -99,10 +99,10 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-LINE.LINEBot.TemplateActionBuilder.DatetimePickerTemplateActionBuilder.html">DatetimePickerTemplateActionBuilder</a></li>
+				<li class="active"><a href="class-LINE.LINEBot.TemplateActionBuilder.DatetimePickerTemplateActionBuilder.html">DatetimePickerTemplateActionBuilder</a></li>
 				<li><a href="class-LINE.LINEBot.TemplateActionBuilder.MessageTemplateActionBuilder.html">MessageTemplateActionBuilder</a></li>
 				<li><a href="class-LINE.LINEBot.TemplateActionBuilder.PostbackTemplateActionBuilder.html">PostbackTemplateActionBuilder</a></li>
-				<li class="active"><a href="class-LINE.LINEBot.TemplateActionBuilder.UriTemplateActionBuilder.html">UriTemplateActionBuilder</a></li>
+				<li><a href="class-LINE.LINEBot.TemplateActionBuilder.UriTemplateActionBuilder.html">UriTemplateActionBuilder</a></li>
 			</ul>
 
 
@@ -141,16 +141,18 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class UriTemplateActionBuilder</h1>
+	<h1>Class DatetimePickerTemplateActionBuilder</h1>
 
 
 	<div class="description">
-	<p>A builder class for URI action.</p>
+	<p>A builder class for datetime picker action.</p>
+
+<p>When this action is tapped, a postback event is returned via webhook with the date and time selected by the user from the date and time selection dialog.</p>
 	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-<b><span>LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder</span></b>			
+<b><span>LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder</span></b>			
 			 implements 
 				<a href="class-LINE.LINEBot.TemplateActionBuilder.html"><span>LINE\LINEBot\TemplateActionBuilder</span></a>
 			
@@ -171,7 +173,7 @@
 		<b>Namespace:</b> <a href="namespace-LINE.html">LINE</a>\<a href="namespace-LINE.LINEBot.html">LINEBot</a>\<a href="namespace-LINE.LINEBot.TemplateActionBuilder.html">TemplateActionBuilder</a><br>
 		<b>Package:</b> LINE\LINEBot\TemplateActionBuilder<br>
 
-			<b>Located at</b> <a href="source-class-LINE.LINEBot.TemplateActionBuilder.UriTemplateActionBuilder.html#24-61" title="Go to source code">LINEBot/TemplateActionBuilder/UriTemplateActionBuilder.php</a>
+			<b>Located at</b> <a href="source-class-LINE.LINEBot.TemplateActionBuilder.DatetimePickerTemplateActionBuilder.html#24-92" title="Go to source code">LINEBot/TemplateActionBuilder/DatetimePickerTemplateActionBuilder.php</a>
 		<br>
 	</div>
 
@@ -191,22 +193,38 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-LINE.LINEBot.TemplateActionBuilder.UriTemplateActionBuilder.html#36-46" title="Go to source code">__construct</a>( <span>string <var>$label</var></span>, <span>string <var>$uri</var></span> )</code>
+		<code><a href="source-class-LINE.LINEBot.TemplateActionBuilder.DatetimePickerTemplateActionBuilder.html#47-73" title="Go to source code">__construct</a>( <span>string <var>$label</var></span>, <span>string <var>$data</var></span>, <span>string <var>$mode</var></span>, <span>string <var>$initial</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$max</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$min</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			<p>UriAction constructor.</p>
+			<p>DatetimePickerAction constructor.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>UriAction constructor.</p>
+			<p>DatetimePickerAction constructor.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$label</var></dt>
-					<dd>Label of action.</dd>
-					<dt><var>$uri</var></dt>
-					<dd>URI of the link.</dd>
+					<dd><p>Label for the action
+Required for templates other than image carousel. Max: 20 characters
+Optional for image carousel templates. Max: 12 characters.</p></dd>
+					<dt><var>$data</var></dt>
+					<dd><p>String returned via webhook in the postback.data property of the postback event
+Max: 300 characters</p></dd>
+					<dt><var>$mode</var></dt>
+					<dd><p>Action mode
+date: Pick date
+time: Pick time
+datetime: Pick date and time</p></dd>
+					<dt><var>$initial</var></dt>
+					<dd>Initial value of date or time</dd>
+					<dt><var>$max</var></dt>
+					<dd><p>Largest date or time value that can be selected.
+Must be greater than the min value.</p></dd>
+					<dt><var>$min</var></dt>
+					<dd><p>Smallest date or time value that can be selected.
+Must be less than the max value.</p></dd>
 				</dl></div>
 
 
@@ -228,20 +246,20 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_buildTemplateAction">#</a>
-		<code><a href="source-class-LINE.LINEBot.TemplateActionBuilder.UriTemplateActionBuilder.html#48-60" title="Go to source code">buildTemplateAction</a>( )</code>
+		<code><a href="source-class-LINE.LINEBot.TemplateActionBuilder.DatetimePickerTemplateActionBuilder.html#75-91" title="Go to source code">buildTemplateAction</a>( )</code>
 
 		<div class="description short">
-			<p>Builds URI action structure.</p>
+			<p>Builds datetime picker action structure.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Builds URI action structure.</p>
+			<p>Builds datetime picker action structure.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					array<br>Built URI action structure.
+					array<br>Built datetime picker action structure.
 				</div>
 
 
