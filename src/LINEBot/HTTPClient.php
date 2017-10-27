@@ -43,4 +43,12 @@ interface HTTPClient
      * @return Response Response of API request.
      */
     public function post($url, array $data);
+    
+    /**
+     * Sends DELETE request to LINE Messaging API.
+     *
+     * @param string $url Request URL.
+     * @return Response Response of API request.
+     */
+    public function delete($url);
 }

@@ -24,6 +24,7 @@ use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\LINEBot\Response;
 use LINE\LINEBot\SignatureValidator;
+use LINE\LINEBot\RichMenuBuilder;
 use ReflectionClass;
 
 /**
@@ -316,4 +317,90 @@ class LINEBot
 
         return $memberIds;
     }
+
+    /**
+     * Get rich menu.
+     *
+     * @param string $menuId
+     * @return Response
+     */
+    public function getRichMenu($menuId)
+    {
+        $url = sprintf('%s/v2/bot/richmenu/%s', $this->endpointBase, $menuId);
+        return $this->httpClient->get($url, []);
+    }
+
+    /**
+     * Create rich menu.
+     *
+     * @param RichMenuBuilder $richMenuBuilder
+     * @return Response
+     */
+    public function createRichMenu($richMenuBuilder)
+    {
+        $url = sprintf('%s/v2/bot/richmenu', $this->endpointBase);
+        return $this->httpClient->post($url, $richMenuBuilder->buildRichMenu());
+    }
+
+     /**
+     * Delete rich menu.
+     *
+     * @param string $menuId
+     * @return Response
+     */
+    public function deleteRichMenu($menuId)
+    {
+        $url = sprintf('%s/v2/bot/richmenu/%s', $this->endpointBase, $menuId);
+        return $this->httpClient->delete($url);
+    }
+
+    /**
+     * Get rich menu ID linked to specific user.
+     *
+     * @param string $userId
+     * @return Response
+     */
+    public function getLinkedRichMenu($userId)
+    {
+        $url = sprintf('%s/v2/bot/user/%s/richmenu', $this->endpointBase, $userId);
+        return $this->httpClient->get($url, []);
+    }
+
+    /**
+     * Link specific rich menu and user.
+     *
+     * @param string $userId
+     * @param string $menuId
+     * @return Response
+     */
+    public function linkRichMenuAndUser($userId, $menuId)
+    {
+        $url = sprintf('%s/v2/bot/user/%s/richmenu/%s', $this->endpointBase, $userId, $menuId);
+        return $this->httpClient->post($url, []);
+    }
+
+    /**
+     * Unlink user and rich menu.
+     *
+     * @param string $menuId
+     * @param string $userId
+     * @return Response
+     */
+     public function unlinkRichMenuAndUser($userId)
+     {
+         $url = sprintf('%s/v2/bot/user/%s/richmenu', $this->endpointBase, $userId);
+         return $this->httpClient->delete($url);
+     }
+
+     /**
+     * Get all uploaded rich menu list.
+     *
+     * @return Response
+     */
+    public function getRichMenuList()
+    {
+        $url = sprintf('%s/v2/bot/richmenu/list', $this->endpointBase);
+        return $this->httpClient->get($url, []);
+    }
+
 }

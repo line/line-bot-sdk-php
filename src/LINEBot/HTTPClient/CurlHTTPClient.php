@@ -64,6 +64,17 @@ class CurlHTTPClient implements HTTPClient
     }
 
     /**
+     * Sends DELETE request to LINE Messaging API.
+     *
+     * @param string $url Request URL.
+     * @return Response Response of API request.
+     */
+    public function delete($url)
+    {
+        return $this->sendRequest('DELETE', $url, [], []);
+    }
+ 
+    /**
      * Sends POST request to LINE Messaging API.
      *
      * @param string $url Request URL.
