@@ -47,29 +47,29 @@ class DatetimePickerTemplateActionBuilder implements TemplateActionBuilder
     /**
      * DatetimePickerAction constructor.
      *
-     * @param string $label Label for the action
-     * Required for templates other than image carousel. Max: 20 characters
-     * Optional for image carousel templates. Max: 12 characters.
-     * @param string $data String returned via webhook in the postback.data property of the postback event
-     * Max: 300 characters
-     * @param string $mode Action mode
-     * date: Pick date
-     * time: Pick time
-     * datetime: Pick date and time
-     * @param string initial Initial value of date or time
-     * @param string max Largest date or time value that can be selected.
-     * Must be greater than the min value.
-     * @param string min Smallest date or time value that can be selected.
-     * Must be less than the max value.
+     * @param string $label   Label for the action
+     *                        Required for templates other than image carousel. Max: 20 characters
+     *                        Optional for image carousel templates. Max: 12 characters.
+     * @param string $data    String returned via webhook in the postback.data property of the postback event
+     *                        Max: 300 characters
+     * @param string $mode    Action mode
+     *                        date: Pick date
+     *                        time: Pick time
+     *                        datetime: Pick date and time
+     * @param string $initial Initial value of date or time
+     * @param string $max     Largest date or time value that can be selected.
+     *                        Must be greater than the min value.
+     * @param string $min     Smallest date or time value that can be selected.
+     *                        Must be less than the max value.
      */
     public function __construct($label, $data, $mode, $initial = null, $max = null, $min = null)
     {
-        $this->label = $label;
-        $this->data = $data;
-        $this->mode = $mode;
+        $this->label   = $label;
+        $this->data    = $data;
+        $this->mode    = $mode;
         $this->initial = $initial;
-        $this->max = $max;
-        $this->min = $min;
+        $this->max     = $max;
+        $this->min     = $min;
     }
 
     /**
@@ -80,13 +80,13 @@ class DatetimePickerTemplateActionBuilder implements TemplateActionBuilder
     public function buildTemplateAction()
     {
         return [
-            'type' => ActionType::DATETIME_PICKER,
-            'label' => $this->label,
-            'data' => $this->data,
-            'mode' => $this->mode,
+            'type'    => ActionType::DATETIME_PICKER,
+            'label'   => $this->label,
+            'data'    => $this->data,
+            'mode'    => $this->mode,
             'initial' => $this->initial,
-            'max' => $this->max,
-            'min' => $this->min,
+            'max'     => $this->max,
+            'min'     => $this->min,
         ];
     }
 }
