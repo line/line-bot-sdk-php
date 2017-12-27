@@ -1,11 +1,6 @@
 Hacking guide for SDK developers
 ==
 
-First of all
---
-
-Please execute `make install-devtool`.
-
 How to run tests
 --
 
