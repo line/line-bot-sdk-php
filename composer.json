@@ -38,5 +38,11 @@
     "psr-4": {
       "LINE\\Tests\\": "tests/"
     }
+  },
+  "scripts": {
+    "test": "phpunit tests",
+    "doc": "apigen generate --source=src --destination=docs --title line-bot-sdk-php",
+    "cs": "phpcs --standard=PSR2 src tests examples/EchoBot/src examples/EchoBot/public examples/KitchenSink/src examples/KitchenSink/public",
+    "md": "phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml"
   }
 }
