@@ -28,6 +28,10 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
+        if (defined('PHP_WINDOWS_VERSION_MAJOR')) {
+            return;
+        }
+
         if (empty(CurlHTTPClientTest::$reqMirrorPort)) {
             $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
             socket_bind($sock, '127.0.0.1', 0);
@@ -58,6 +62,10 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
+        if (defined('PHP_WINDOWS_VERSION_MAJOR')) {
+            $this->markTestSkipped("These tests don't support Windows environment for now.");
+        }
+
         if (empty(CurlHTTPClientTest::$reqMirrorPID)) {
             $this->fail('Mirror server looks dead');
         }
