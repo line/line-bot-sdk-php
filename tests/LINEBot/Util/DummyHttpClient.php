@@ -54,4 +54,14 @@ class DummyHttpClient implements HTTPClient
         $ret = call_user_func($this->mock, $this->testRunner, 'POST', $url, $data);
         return new Response(200, json_encode($ret));
     }
+
+    /**
+     * @param string $url
+     * @return Response
+     */
+    public function delete($url, $data = null)
+    {
+        $ret = call_user_func($this->mock, $this->testRunner, 'DELETE', $url, $data);
+        return new Response(200, json_encode($ret));
+    }
 }

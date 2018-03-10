@@ -105,4 +105,17 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Bearer channel-token', $body['Header']['Authorization'][0]);
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['Header']['User-Agent'][0]);
     }
+
+    public function testDelete()
+    {
+        $curl = new CurlHTTPClient("channel-token");
+        $res = $curl->delete('127.0.0.1:' . CurlHTTPClientTest::$reqMirrorPort . '/foo/bar?buz=qux');
+        $body = $res->getJSONDecodedBody();
+
+        $this->assertEquals('DELETE', $body['Method']);
+        $this->assertEquals('/foo/bar', $body['URL']['Path']);
+        $this->assertEquals('buz=qux', $body['URL']['RawQuery']);
+        $this->assertEquals('Bearer channel-token', $body['Header']['Authorization'][0]);
+        $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['Header']['User-Agent'][0]);
+    }
 }
