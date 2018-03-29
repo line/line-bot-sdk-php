@@ -25,7 +25,7 @@ use LINE\LINEBot\TemplateActionBuilder;
  *
  * @package LINE\LINEBot\RichMenuBuilder
  */
-class AreaBuilder
+class RichMenuAreaBuilder
 {
     /** @var int */
     private $x;
@@ -35,25 +35,21 @@ class AreaBuilder
     private $width;
     /** @var int */
     private $height;
-    /** @var TemplateActionBuilder */
-    private $action;
 
     /**
      * AreaBuilder constructor.
      *
-     * @param int $x Position of x-axis.
-     * @param int $y Position of y-axis.
-     * @param int $width Width of area.
-     * @param int $height Height of area.
-     * @param TemplateActionBuilder $action
+     * @param int $x Horizontal position relative to the top-left corner of the area.
+     * @param int $y Vertical position relative to the top-left corner of the area.
+     * @param int $width Width of the area.
+     * @param int $height Height of the area.
      */
-    public function __construct($x, $y, $width, $height, $action)
+    public function __construct($x, $y, $width, $height, $actionBuilder)
     {
         $this->x = $x;
         $this->y = $y;
         $this->width = $width;
         $this->height = $height;
-        $this->action = $action;
     }
 
     /**
@@ -61,16 +57,13 @@ class AreaBuilder
      *
      * @return array Built area structure.
      */
-    public function buildArea()
+    public function build()
     {
         return [
-            'bounds' => [
-                'x' => $this->x,
-                'y' => $this->y,
-                'width' => $this->width,
-                'height' => $this->height,
-            ],
-            'action' => $this->action->buildTemplateAction(),
+            'x' => $this->x,
+            'y' => $this->y,
+            'width' => $this->width,
+            'height' => $this->height,
         ];
     }
 }

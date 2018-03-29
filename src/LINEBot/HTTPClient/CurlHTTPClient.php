@@ -22,6 +22,7 @@ use LINE\LINEBot\Constant\Meta;
 use LINE\LINEBot\Exception\CurlExecutionException;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\Response;
+use CURLFile;
 
 /**
  * Class CurlHTTPClient.
@@ -64,6 +65,20 @@ class CurlHTTPClient implements HTTPClient
     }
 
     /**
+     * Sends POST request to LINE Messaging API.
+     *
+     * @param string $url Request URL.
+     * @param array $data Request body or resource path.
+     * @param array|null $headers Request headers.
+     * @return Response Response of API request.
+     */
+    public function post($url, array $data, array $headers = null)
+    {
+        $headers = is_null($headers) ? ['Content-Type: application/json; charset=utf-8'] : $headers;
+        return $this->sendRequest('POST', $url, $headers, $data);
+    }
+
+    /**
      * Sends DELETE request to LINE Messaging API.
      *
      * @param string $url Request URL.
@@ -73,33 +88,29 @@ class CurlHTTPClient implements HTTPClient
     {
         return $this->sendRequest('DELETE', $url, [], []);
     }
- 
+
     /**
-     * Sends POST request to LINE Messaging API.
-     *
-     * @param string $url Request URL.
-     * @param array $data Request body.
-     * @return Response Response of API request.
+     * @param string $reqBody
+     * @return string|CURLFile request body for CURLOPT_POSTFIELDS
      */
-    public function post($url, array $data)
+    private function polyfillRequestBody($reqBody)
     {
-        return $this->sendRequest('POST', $url, ['Content-Type: application/json; charset=utf-8'], $data);
+        if (isset($reqBody['__file']) && isset($reqBody['__type'])) {
+            $reqBody = new CURLFile($reqBody['__file'], $reqBody['__type']);
+        } elseif (!empty($reqBody)) {
+            $reqBody = json_encode($reqBody);
+        }
+        return $reqBody;
     }
 
     /**
      * @param string $method
-     * @param string $url
-     * @param array $additionalHeader
-     * @param array $reqBody
-     * @return Response
-     * @throws CurlExecutionException
+     * @param array $headers
+     * @param string|null $reqBody
+     * @return array cUrl options
      */
-    private function sendRequest($method, $url, array $additionalHeader, array $reqBody)
+    private function getOptions($method, $headers, $reqBody)
     {
-        $curl = new Curl($url);
-
-        $headers = array_merge($this->authHeaders, $this->userAgentHeader, $additionalHeader);
-
         $options = [
             CURLOPT_CUSTOMREQUEST => $method,
             CURLOPT_HTTPHEADER => $headers,
@@ -107,17 +118,33 @@ class CurlHTTPClient implements HTTPClient
             CURLOPT_BINARYTRANSFER => true,
             CURLOPT_HEADER => true,
         ];
-
         if ($method === 'POST') {
-            if (empty($reqBody)) {
+            if (is_null($reqBody)) {
                 // Rel: https://github.com/line/line-bot-sdk-php/issues/35
                 $options[CURLOPT_HTTPHEADER][] = 'Content-Length: 0';
             } else {
-                $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
+                $options[CURLOPT_POST] = true;
+                $options[CURLOPT_POSTFIELDS] = $this->polyfillRequestBody($reqBody);
             }
         }
+        return $options;
+    }
 
-        $curl->setoptArray($options);
+    /**
+     * @param string $method
+     * @param string $url
+     * @param array $additionalHeader
+     * @param string|null $reqBody
+     * @return Response
+     * @throws CurlExecutionException
+     */
+    private function sendRequest($method, $url, array $additionalHeader, $reqBody = null)
+    {
+        $curl = new Curl($url);
+
+        $headers = array_merge($this->authHeaders, $this->userAgentHeader, $additionalHeader);
+
+        $curl->setoptArray($this->getOptions($method, $headers, $reqBody));
 
         $result = $curl->exec();
 

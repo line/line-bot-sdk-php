@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 LINE Corporation
+ * Copyright 2018 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -18,8 +18,6 @@
 
 namespace LINE\LINEBot;
 
-use LINE\LINEBot\RichMenuBuilder\AreaBuilder;
-
 /**
  * A builder class for rich menu.
  *
@@ -27,31 +25,31 @@ use LINE\LINEBot\RichMenuBuilder\AreaBuilder;
  */
 class RichMenuBuilder
 {
-    /** @var int */
-    private $width;
-    /** @var int */
-    private $height;
+    /** @var RichMenuSizeBuilder */
+    private $sizeBuilder;
     /** @var boolean */
     private $selected;
     /** @var string */
     private $name;
     /** @var string */
     private $chartBarText;
-    /** @var AreaBuilder[] */
+    /** @var RichMenuAreaBuilder[] */
     private $areaBuilders = [];
     
     /**
-     * RichMenuBuilder constructor.
-     * @param boolean $isThinMenu
-     * @param boolean $selected
-     * @param string $name
-     * @param string $chartBarText
-     * @param AreaBuilder[] $areaBuilders
+     * RichMenu constructor.
+     *
+     * @param RichMenuSizeBuilder $sizeBuilder size object which contains the width and height of the rich menu
+     *                                         displayed in the chat.
+     * @param boolean $selected true to display the rich menu by default. Otherwise, false.
+     * @param string $name Name of the rich menu. This value can be used to help manage your rich menus and
+     *                     is not displayed to users.
+     * @param string $chatBarText Text displayed in the chat bar.
+     * @param RichMenuAreaBuilder[] $areaBuilders
      */
-    public function __construct($isThinMenu, $selected, $name, $chartBarText, $areaBuilders)
+    public function __construct($sizeBuilder, $selected, $name, $chartBarText, $areaBuilders)
     {
-        $this->width = 2500;
-        $this->height = ($isThinMenu) ? 843 : 1686;
+        $this->sizeBuilder = $sizeBuilder;
         $this->selected = $selected;
         $this->name = $name;
         $this->chartBarText = $chartBarText;
@@ -64,20 +62,17 @@ class RichMenuBuilder
      * @return array Built message structure.
      */
     public function buildRichMenu() {
-        $actions = [];
+        $areas = [];
         foreach ($this->areaBuilders as $areaBuilder) {
-            $actions[] = $areaBuilder->buildArea();
+            $areas[] = $areaBuilder->buildArea();
         }
 
         return [
-            'size' => [
-                'width' => $this->width,
-                'height' => $this->height,
-            ],
+            'size' => $this->sizeBuilder->build(),
             'selected' => $this->selected,
             'name' => $this->name,
             'chatBarText' => $this->chartBarText,
-            'areas' => $actions,
+            'areas' => $areas,
         ];
     }
 }
