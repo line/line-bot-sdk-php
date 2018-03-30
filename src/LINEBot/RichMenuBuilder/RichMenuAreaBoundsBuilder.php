@@ -25,7 +25,7 @@ use LINE\LINEBot\TemplateActionBuilder;
  *
  * @package LINE\LINEBot\RichMenuBuilder
  */
-class RichMenuAreaBuilder
+class RichMenuAreaBoundsBuilder
 {
     /** @var int */
     private $x;
@@ -44,7 +44,7 @@ class RichMenuAreaBuilder
      * @param int $width Width of the area.
      * @param int $height Height of the area.
      */
-    public function __construct($x, $y, $width, $height, $actionBuilder)
+    public function __construct($x, $y, $width, $height)
     {
         $this->x = $x;
         $this->y = $y;

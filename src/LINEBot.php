@@ -374,7 +374,7 @@ class LINEBot
      * @param string $richMenuId ID of an uploaded rich menu
      * @return Response
      */
-    public function linkRichMenu($userId, $menuId)
+    public function linkRichMenu($userId, $richMenuId)
     {
         $url = sprintf(
             '%s/v2/bot/user/%s/richmenu/%s',
@@ -407,7 +407,6 @@ class LINEBot
     {
         $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->endpointBase, urlencode($richMenuId));
         return $this->httpClient->get($url);
-        # TODO check can get content
     }
 
     /**
