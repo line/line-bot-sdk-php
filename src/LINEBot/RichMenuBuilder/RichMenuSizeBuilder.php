@@ -47,7 +47,7 @@ class RichMenuSizeBuilder
      *
      * @return RichMenuSizeBuilder instance with full size
      */
-    public function getFull()
+    public static function getFull()
     {
         return new self(1686, 2500);
     }
@@ -57,7 +57,7 @@ class RichMenuSizeBuilder
      *
      * @return RichMenuSizeBuilder instance with half size
      */
-    public function getHalf()
+    public static function getHalf()
     {
         return new self(843, 2500);
     }
