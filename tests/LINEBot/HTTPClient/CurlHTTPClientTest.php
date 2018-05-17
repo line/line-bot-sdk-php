@@ -79,6 +79,7 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($body);
         $this->assertEquals('GET', $body['_SERVER']['REQUEST_METHOD']);
         $this->assertEquals('/foo/bar', $body['_SERVER']['SCRIPT_NAME']);
+        $this->assertEquals('', $body['Body']);
         $this->assertEquals('buz=qux', $body['_SERVER']['QUERY_STRING']);
         $this->assertEquals('Bearer channel-token', $body['_SERVER']['HTTP_AUTHORIZATION']);
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
@@ -98,6 +99,19 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
     }
 
+    public function testDelete()
+    {
+        $curl = new CurlHTTPClient("channel-token");
+        $res = $curl->delete('127.0.0.1:' . CurlHTTPClientTest::$reqMirrorPort);
+        $body = $res->getJSONDecodedBody();
+        $this->assertNotNull($body);
+        $this->assertEquals('DELETE', $body['_SERVER']['REQUEST_METHOD']);
+        $this->assertEquals('/', $body['_SERVER']['SCRIPT_NAME']);
+        $this->assertEquals('', $body['Body']);
+        $this->assertEquals('Bearer channel-token', $body['_SERVER']['HTTP_AUTHORIZATION']);
+        $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
+    }
+
     public function testPostWithEmptyBody()
     {
         $curl = new CurlHTTPClient("channel-token");
@@ -110,5 +124,32 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, $body['_SERVER']['HTTP_CONTENT_LENGTH']);
         $this->assertEquals('Bearer channel-token', $body['_SERVER']['HTTP_AUTHORIZATION']);
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
+    }
+
+    public function testPostImage()
+    {
+        $base64DecodedImage = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX/TQBcNTh/AAAAAXRSTlPM0jRW/QAAAApJREFUeJxjYgAAAAYAAzY3fKgAAAAASUVORK5CYII=';
+        $tmpfile = tmpfile();
+        $metaData = stream_get_meta_data($tmpfile);
+        fwrite($tmpfile, base64_decode($base64DecodedImage));
+        $curl = new CurlHTTPClient("channel-token");
+        $res = $curl->post(
+            '127.0.0.1:' . CurlHTTPClientTest::$reqMirrorPort,
+            [
+                '__file' => $metaData['uri'],
+                '__type' => 'image/png'
+            ],
+            [ 'Content-Type: image/png' ]
+        );
+        $body = $res->getJSONDecodedBody();
+        $this->assertNotNull($body);
+        $this->assertEquals('POST', $body['_SERVER']['REQUEST_METHOD']);
+        $this->assertEquals('/', $body['_SERVER']['SCRIPT_NAME']);
+        // TODO data transfered as form-data
+        // $this->assertEquals($base64DecodedImage, $body['Body']);
+        // $this->assertEquals(0, $body['_SERVER']['HTTP_CONTENT_LENGTH']);
+        $this->assertEquals('Bearer channel-token', $body['_SERVER']['HTTP_AUTHORIZATION']);
+        $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
+        fclose($tmpfile);
     }
 }
