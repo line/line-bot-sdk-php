@@ -16,8 +16,9 @@
  * under the License.
  */
 
+$body = file_get_contents('php://input');
 header('Content-Type: application/json');
 echo json_encode(array(
-    'Body'    => file_get_contents('php://input'),
+    'Body'    => isset($_SERVER['HTTP_CONTENT_TYPE']) && strpos($_SERVER['HTTP_CONTENT_TYPE'], 'image/') === 0 ? base64_encode($body) : $body,
     '_SERVER' => $_SERVER,
 ));

@@ -181,7 +181,7 @@ Please refer [CurlHTTPClient](/src/LINEBot/HTTPClient/CurlHTTPClient.php) that i
 Requirements
 --
 
-- PHP 5.4 or later
+- PHP 5.5 or later
 
 For SDK developers
 --
