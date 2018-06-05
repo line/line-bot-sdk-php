@@ -36,6 +36,10 @@ class CarouselColumnTemplateBuilder implements TemplateBuilder
     private $thumbnailImageUrl;
     /** @var TemplateActionBuilder[] */
     private $actionBuilders;
+    /** @var string|null */
+    private $imageBackgroundColor;
+    /** @var TemplateActionBuilder|null */
+    private $defaultActionBuilder;
 
     /** @var array */
     private $template;
@@ -48,12 +52,18 @@ class CarouselColumnTemplateBuilder implements TemplateBuilder
      * @param string $thumbnailImageUrl
      * @param TemplateActionBuilder[] $actionBuilders
      */
-    public function __construct($title, $text, $thumbnailImageUrl, array $actionBuilders)
+    public function __construct($title, $text, $thumbnailImageUrl, array $actionBuilders,array $options=[])
     {
         $this->title = $title;
         $this->text = $text;
         $this->thumbnailImageUrl = $thumbnailImageUrl;
         $this->actionBuilders = $actionBuilders;
+        if(isset($options["imageBackgroundColor"])){
+            $this->imageBackgroundColor=$options["imageBackgroundColor"];
+        }
+        if(isset($options["defaultActionBuilder"])&&($options["defaultActionBuilder"] instanceof TemplateActionBuilder)){
+            $this->defaultActionBuilder=$options["defaultActionBuilder"];
+        }
     }
 
     /**
@@ -72,12 +82,20 @@ class CarouselColumnTemplateBuilder implements TemplateBuilder
             $actions[] = $actionBuilder->buildTemplateAction();
         }
 
-        $this->template = [
+        $template = [
             'thumbnailImageUrl' => $this->thumbnailImageUrl,
             'title' => $this->title,
             'text' => $this->text,
             'actions' => $actions,
         ];
+        if(isset($this->imageBackgroundColor)){
+            $template["imageBackgroundColor"]=$this->imageBackgroundColor;
+        }
+        if(isset($this->defaultActionBuilder)){
+            $template["defaultAction"]=$this->defaultActionBuilder->buildTemplateAction();
+        }
+
+        $this->template = $template;
 
         return $this->template;
     }

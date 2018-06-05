@@ -30,18 +30,31 @@ class CarouselTemplateBuilder implements TemplateBuilder
 {
     /** @var CarouselColumnTemplateBuilder[] */
     private $columnTemplateBuilders;
+    /** @var string|null */
+    private $imageAspectRatio;
+    /** @var string|null */
+    private $imageSize;
+
 
     /** @var array */
     private $template;
+
+
 
     /**
      * CarouselTemplateBuilder constructor.
      *
      * @param CarouselColumnTemplateBuilder[] $columnTemplateBuilders
      */
-    public function __construct(array $columnTemplateBuilders)
+    public function __construct(array $columnTemplateBuilders,array $options=[])
     {
         $this->columnTemplateBuilders = $columnTemplateBuilders;
+        if(isset($options["imageAspectRatio"])){
+            $this->imageAspectRatio=$options["imageAspectRatio"];
+        }
+        if(isset($options["imageSize"])){
+            $this->imageSize=$options["imageSize"];
+        }
     }
 
     /**
@@ -60,10 +73,18 @@ class CarouselTemplateBuilder implements TemplateBuilder
             $columns[] = $columnTemplateBuilder->buildTemplate();
         }
 
-        $this->template = [
+        $template=[
             'type' => TemplateType::CAROUSEL,
             'columns' => $columns,
         ];
+        if(isset($this->imageAspectRatio)){
+            $template["imageAspectRatio"]=$this->imageAspectRatio;
+        }
+        if(isset($this->imageSize)){
+            $template["imageSize"]=$this->imageSize;
+        }
+
+        $this->template = $template;
 
         return $this->template;
     }

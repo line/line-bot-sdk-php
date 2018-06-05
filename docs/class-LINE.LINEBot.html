@@ -159,7 +159,7 @@
 		<b>Namespace:</b> <a href="namespace-LINE.html">LINE</a><br>
 		<b>Package:</b> LINE<br>
 
-			<b>Located at</b> <a href="source-class-LINE.LINEBot.html#29-207" title="Go to source code">LINEBot.php</a>
+			<b>Located at</b> <a href="source-class-LINE.LINEBot.html#29-319" title="Go to source code">LINEBot.php</a>
 		<br>
 	</div>
 
@@ -615,6 +615,280 @@
 				</div>
 
 
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getGroupMemberProfile" id="_getGroupMemberProfile">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-LINE.LINEBot.Response.html">LINE\LINEBot\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getGroupMemberProfile">#</a>
+		<code><a href="source-class-LINE.LINEBot.html#208-220" title="Go to source code">getGroupMemberProfile</a>( <span>string <var>$groupId</var></span>, <span>string <var>$userId</var></span> )</code>
+
+		<div class="description short">
+			<p>Gets the user profile of a member of a group that the bot is in.
+This can be the user ID of a user who has not added the bot as a friend or has blocked the bot.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets the user profile of a member of a group that the bot is in.
+This can be the user ID of a user who has not added the bot as a friend or has blocked the bot.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$groupId</var></dt>
+					<dd>Identifier of the group</dd>
+					<dt><var>$userId</var></dt>
+					<dd>Identifier of the user</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-LINE.LINEBot.Response.html">LINE\LINEBot\Response</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRoomMemberProfile" id="_getRoomMemberProfile">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-LINE.LINEBot.Response.html">LINE\LINEBot\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRoomMemberProfile">#</a>
+		<code><a href="source-class-LINE.LINEBot.html#222-234" title="Go to source code">getRoomMemberProfile</a>( <span>string <var>$roomId</var></span>, <span>string <var>$userId</var></span> )</code>
+
+		<div class="description short">
+			<p>Gets the user profile of a member of a room that the bot is in.
+This can be the user ID of a user who has not added the bot as a friend or has blocked the bot.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets the user profile of a member of a room that the bot is in.
+This can be the user ID of a user who has not added the bot as a friend or has blocked the bot.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$roomId</var></dt>
+					<dd>Identifier of the room</dd>
+					<dt><var>$userId</var></dt>
+					<dd>Identifier of the user</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-LINE.LINEBot.Response.html">LINE\LINEBot\Response</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getGroupMemberIds" id="_getGroupMemberIds">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-LINE.LINEBot.Response.html">LINE\LINEBot\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getGroupMemberIds">#</a>
+		<code><a href="source-class-LINE.LINEBot.html#236-251" title="Go to source code">getGroupMemberIds</a>( <span>string <var>$groupId</var></span>, <span>string <var>$start</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Gets the user IDs of the members of a group that the bot is in.
+This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets the user IDs of the members of a group that the bot is in.
+This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.</p>
+
+<p>This feature is only available for LINE@ Approved accounts or official accounts.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$groupId</var></dt>
+					<dd>Identifier of the group</dd>
+					<dt><var>$start</var></dt>
+					<dd>continuationToken</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-LINE.LINEBot.Response.html">LINE\LINEBot\Response</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRoomMemberIds" id="_getRoomMemberIds">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-LINE.LINEBot.Response.html">LINE\LINEBot\Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRoomMemberIds">#</a>
+		<code><a href="source-class-LINE.LINEBot.html#253-268" title="Go to source code">getRoomMemberIds</a>( <span>string <var>$roomId</var></span>, <span>string <var>$start</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Gets the user IDs of the members of a room that the bot is in.
+This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets the user IDs of the members of a room that the bot is in.
+This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.</p>
+
+<p>This feature is only available for LINE@ Approved accounts or official accounts.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$roomId</var></dt>
+					<dd>Identifier of the room</dd>
+					<dt><var>$start</var></dt>
+					<dd>continuationToken</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-LINE.LINEBot.Response.html">LINE\LINEBot\Response</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAllGroupMemberIds" id="_getAllGroupMemberIds">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAllGroupMemberIds">#</a>
+		<code><a href="source-class-LINE.LINEBot.html#270-293" title="Go to source code">getAllGroupMemberIds</a>( <span>string <var>$groupId</var></span> )</code>
+
+		<div class="description short">
+			<p>Gets the user IDs of the members of a group that the bot is in.
+This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.
+This method gets all of the members by calling getGroupMemberIds() continually using token</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets the user IDs of the members of a group that the bot is in.
+This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.
+This method gets all of the members by calling getGroupMemberIds() continually using token</p>
+
+<p>This feature is only available for LINE@ Approved accounts or official accounts.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$groupId</var></dt>
+					<dd>Identifier of the group</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>memberIds
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						LINE\LINEBot\getGroupMemberIds()<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAllRoomMemberIds" id="_getAllRoomMemberIds">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAllRoomMemberIds">#</a>
+		<code><a href="source-class-LINE.LINEBot.html#295-318" title="Go to source code">getAllRoomMemberIds</a>( <span>string <var>$roomId</var></span> )</code>
+
+		<div class="description short">
+			<p>Gets the user IDs of the members of a room that the bot is in.
+This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.
+This method gets all of the members by calling getRoomMemberIds() continually using token</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets the user IDs of the members of a room that the bot is in.
+This includes the user IDs of users who have not added the bot as a friend or has blocked the bot.
+This method gets all of the members by calling getRoomMemberIds() continually using token</p>
+
+<p>This feature is only available for LINE@ Approved accounts or official accounts.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$roomId</var></dt>
+					<dd>Identifier of the room</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>memberIds
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						LINE\LINEBot\getRoomMemberIds()<br>
+				</div>
 
 
 		</div>

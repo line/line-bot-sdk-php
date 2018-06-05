@@ -33,6 +33,8 @@ class PostbackTemplateActionBuilder implements TemplateActionBuilder
     /** @var string */
     private $data;
     /** @var string|null */
+    private $displayText;
+    /** @var string|null */
     private $text;
 
     /**
@@ -42,11 +44,15 @@ class PostbackTemplateActionBuilder implements TemplateActionBuilder
      * @param string $data Data of postback.
      * @param string|null $text The text which will be sent when action is executed (optional).
      */
-    public function __construct($label, $data, $text = null)
+    public function __construct($label, $data, $displayText = null,array $options=[])
     {
         $this->label = $label;
         $this->data = $data;
-        $this->text = $text;
+        if(isset($options["useText"])&&$options["useText"]==true){
+            $this->text = $displayText;
+        }else{
+            $this->displayText = $displayText;
+        }
     }
 
     /**
@@ -62,7 +68,10 @@ class PostbackTemplateActionBuilder implements TemplateActionBuilder
             'data' => $this->data,
         ];
 
-        if (isset($this->text)) {
+        if (isset($this->displayText)) {
+            // If text is set, append extend field.
+            $action['displayText'] = $this->displayText;
+        }elseif (isset($this->text)) {
             // If text is set, append extend field.
             $action['text'] = $this->text;
         }

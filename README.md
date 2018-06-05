@@ -10,8 +10,8 @@ About the LINE Messaging API
 
 See the official API documentation for more information.
 
-English: [https://devdocs.line.me/en/](https://devdocs.line.me/en/)<br>
-Japanese: [https://devdocs.line.me/ja/](https://devdocs.line.me/ja/)
+English: [https://developers.line.me/en/docs/](https://developers.line.me/en/docs/)<br>
+Japanese: [https://developers.line.me/ja/docs/](https://developers.line.me/ja/docs/)
 
 Installation
 --
@@ -80,7 +80,7 @@ Other methods that take `MessageBuilder` behave in the same way.
 
 ### Response
 
-Methods that call API returns `Response`. Response has three methods;
+Methods that call API returns `Response`. A `Response` instance has following methods:
 
 - `Response#isSucceeded()`
 - `Response#getHTTPStatus()`
@@ -181,7 +181,7 @@ Please refer [CurlHTTPClient](/src/LINEBot/HTTPClient/CurlHTTPClient.php) that i
 Requirements
 --
 
-- PHP 5.4 or later
+- PHP 5.5 or later
 
 For SDK developers
 --

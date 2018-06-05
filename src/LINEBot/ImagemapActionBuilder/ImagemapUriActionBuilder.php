@@ -28,8 +28,11 @@ use LINE\LINEBot\ImagemapActionBuilder;
  */
 class ImagemapUriActionBuilder implements ImagemapActionBuilder
 {
+
     private $linkUri;
     private $areaBuilder;
+    /** @var string */
+    private $label;
 
     /**
      * ImagemapUriActionBuilder constructor.
@@ -37,10 +40,11 @@ class ImagemapUriActionBuilder implements ImagemapActionBuilder
      * @param string $linkUri URI of the link.
      * @param AreaBuilder $areaBuilder Builder of area.
      */
-    public function __construct($linkUri, AreaBuilder $areaBuilder)
+    public function __construct($linkUri, AreaBuilder $areaBuilder,$label=null)
     {
         $this->linkUri = $linkUri;
         $this->areaBuilder = $areaBuilder;
+        $this->label = $label;
     }
 
     /**
@@ -54,6 +58,7 @@ class ImagemapUriActionBuilder implements ImagemapActionBuilder
             'type' => ActionType::URI,
             'linkUri' => $this->linkUri,
             'area' => $this->areaBuilder->build(),
+            'label' => $this->label,
         ];
     }
 }

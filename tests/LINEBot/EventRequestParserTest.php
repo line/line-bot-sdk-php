@@ -243,6 +243,51 @@ class EventRequestParserTest extends \PHPUnit_Framework_TestCase
     "fileName": "file.txt",
     "fileSize": 2138
    }
+  },
+  {
+   "replyToken": "replytoken",
+   "type": "postback",
+   "timestamp": 1501234567890,
+   "source": {
+    "type": "user",
+    "userId": "userid"
+   },
+   "postback": {
+    "data":"postback",
+    "params": {
+      "date": "2013-04-01"
+    }
+   }
+  },
+  {
+   "replyToken": "replytoken",
+   "type": "postback",
+   "timestamp": 1501234567890,
+   "source": {
+    "type": "user",
+    "userId": "userid"
+   },
+   "postback": {
+    "data":"postback",
+    "params": {
+      "time": "10:00"
+    }
+   }
+  },
+  {
+   "replyToken": "replytoken",
+   "type": "postback",
+   "timestamp": 1501234567890,
+   "source": {
+    "type": "user",
+    "userId": "userid"
+   },
+   "postback": {
+    "data":"postback",
+    "params": {
+      "datetime": "2013-04-01T10:00"
+    }
+   }
   }
  ]
 }
@@ -252,9 +297,9 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        $events = $bot->parseEventRequest($this::$json, '56hhe+3PxvEaYotu9e2ZXmYQ0RMc6/74/jNyKQ6w6U0=');
+        $events = $bot->parseEventRequest($this::$json, 'a4mKmptGCa6Kx/5PU6Ug3zC2SyLzzf9whz9/FbaR4HQ=');
 
-        $this->assertEquals(count($events), 17);
+        $this->assertEquals(count($events), 20);
 
         {
             // text
@@ -387,6 +432,7 @@ JSON;
             /** @var PostbackEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('postback', $event->getPostbackData());
+            $this->assertEquals(null, $event->getPostbackParams());
         }
 
         {
@@ -446,6 +492,36 @@ JSON;
             $this->assertEquals('2138', $event->getFileSize());
             $this->assertEquals('325708', $event->getMessageId());
             $this->assertEquals('file', $event->getMessageType());
+        }
+
+        {
+            // postback date
+            $event = $events[17];
+            $this->assertInstanceOf('LINE\LINEBot\Event\PostbackEvent', $event);
+            /** @var PostbackEvent $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals('postback', $event->getPostbackData());
+            $this->assertEquals(["date" => "2013-04-01"], $event->getPostbackParams());
+        }
+
+        {
+            // postback time
+            $event = $events[18];
+            $this->assertInstanceOf('LINE\LINEBot\Event\PostbackEvent', $event);
+            /** @var PostbackEvent $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals('postback', $event->getPostbackData());
+            $this->assertEquals(["time" => "10:00"], $event->getPostbackParams());
+        }
+
+        {
+            // postback datetime
+            $event = $events[19];
+            $this->assertInstanceOf('LINE\LINEBot\Event\PostbackEvent', $event);
+            /** @var PostbackEvent $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals('postback', $event->getPostbackData());
+            $this->assertEquals(["datetime" => "2013-04-01T10:00"], $event->getPostbackParams());
         }
     }
 }
