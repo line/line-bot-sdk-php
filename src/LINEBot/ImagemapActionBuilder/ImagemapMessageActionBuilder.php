@@ -28,10 +28,13 @@ use LINE\LINEBot\ImagemapActionBuilder;
  */
 class ImagemapMessageActionBuilder implements ImagemapActionBuilder
 {
+
     /** @var string */
     private $text;
     /** @var AreaBuilder */
     private $areaBuilder;
+    /** @var string */
+    private $label;
 
     /**
      * ImagemapMessageActionBuilder constructor.
@@ -39,10 +42,11 @@ class ImagemapMessageActionBuilder implements ImagemapActionBuilder
      * @param string $text Message text.
      * @param AreaBuilder $areaBuilder Builder of area.
      */
-    public function __construct($text, AreaBuilder $areaBuilder)
+    public function __construct($text, AreaBuilder $areaBuilder,$label=null)
     {
         $this->text = $text;
         $this->areaBuilder = $areaBuilder;
+        $this->label = $label;
     }
 
     /**
@@ -56,6 +60,7 @@ class ImagemapMessageActionBuilder implements ImagemapActionBuilder
             'type' => ActionType::MESSAGE,
             'text' => $this->text,
             'area' => $this->areaBuilder->build(),
+            'label' => $this->label,
         ];
     }
 }

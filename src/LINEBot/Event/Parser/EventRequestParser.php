@@ -35,6 +35,7 @@ class EventRequestParser
         'leave' => 'LINE\LINEBot\Event\LeaveEvent',
         'postback' => 'LINE\LINEBot\Event\PostbackEvent',
         'beacon' => 'LINE\LINEBot\Event\BeaconDetectionEvent',
+        'accountLink' => 'LINE\LINEBot\Event\AccountLinkEvent'
     ];
 
     private static $messageType2class = [
