@@ -75,12 +75,16 @@ class ButtonTemplateBuilder implements TemplateBuilder
 
         $this->template = [
             'type' => TemplateType::BUTTONS,
-            'thumbnailImageUrl' => $this->thumbnailImageUrl,
             'title' => $this->title,
             'text' => $this->text,
             'actions' => $actions,
         ];
-
+        
+        /* Make thumbnailImageUrl optional */
+        if(!empty($this->thumbnailImageUrl)){
+            $this->template['thumbnailImageUrl'] = $this->thumbnailImageUrl;
+        }
+        
         return $this->template;
     }
 }
