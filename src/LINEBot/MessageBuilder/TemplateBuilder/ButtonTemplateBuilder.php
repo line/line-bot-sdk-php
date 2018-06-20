@@ -75,7 +75,6 @@ class ButtonTemplateBuilder implements TemplateBuilder
 
         $this->template = [
             'type' => TemplateType::BUTTONS,
-            'title' => $this->title,
             'text' => $this->text,
             'actions' => $actions,
         ];
