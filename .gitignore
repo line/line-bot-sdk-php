@@ -4,4 +4,3 @@ composer.phar
 /tests/Private
 *.iml
 vendor/
-devtool/req_mirror

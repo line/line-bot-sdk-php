@@ -55,9 +55,6 @@ copyright:
 
 check: test copyright phpcs phpmd
 
-install-devtool:
-	bash ./devtool/download_req_mirror.sh
-
 release:
 ifndef VERSION
 	@tput setaf 1
