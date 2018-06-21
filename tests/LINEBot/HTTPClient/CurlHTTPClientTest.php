@@ -56,7 +56,7 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
     public static function tearDownAfterClass()
     {
         if (!empty(CurlHTTPClientTest::$reqMirrorPID)) {
-            posix_kill(CurlHTTPClientTest::$reqMirrorPID, SIGKILL);
+            posix_kill(CurlHTTPClientTest::$reqMirrorPID, 9);
         }
     }
 
