@@ -23,7 +23,7 @@
     "php": ">=5.5"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.7.27",
+    "phpunit/phpunit": "^4.8.24||^5",
     "phpmd/phpmd": "~2.4",
     "squizlabs/php_codesniffer": "~2.6",
     "apigen/apigen": "~4.1",
