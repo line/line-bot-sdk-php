@@ -6,6 +6,5 @@ php:
   - '7.1'
 install:
   - composer update
-script: ./vendor/bin/phpunit ./tests
+script: composer test
 sudo: false
-
