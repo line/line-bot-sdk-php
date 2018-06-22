@@ -139,7 +139,8 @@ class CurlHTTPClient implements HTTPClient
 
         $headers = array_merge($this->authHeaders, $this->userAgentHeader, $additionalHeader);
 
-        $curl->setoptArray($this->getOptions($method, $headers, $reqBody));
+        $options = $this->getOptions($method, $headers, $reqBody);
+        $curl->setoptArray($options);
 
         $result = $curl->exec();
 
@@ -162,6 +163,10 @@ class CurlHTTPClient implements HTTPClient
         }
 
         $body = substr($result, $responseHeaderSize);
+
+        if (isset($options[CURLOPT_INFILE])) {
+            fclose($options[CURLOPT_INFILE]);
+        }
 
         return new Response($httpStatus, $body, $responseHeaders);
     }
