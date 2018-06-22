@@ -22,8 +22,9 @@ use LINE\LINEBot;
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\VideoMessageBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class SendVideoTest extends \PHPUnit_Framework_TestCase
+class SendVideoTest extends TestCase
 {
     public function testReplyVideo()
     {

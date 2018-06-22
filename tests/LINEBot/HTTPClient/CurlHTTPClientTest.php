@@ -20,8 +20,9 @@ namespace LINE\Tests\LINEBot\HTTPClient;
 
 use LINE\LINEBot\Constant\Meta;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use PHPUnit\Framework\TestCase;
 
-class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
+class CurlHTTPClientTest extends TestCase
 {
     private static $reqMirrorPort;
     private static $reqMirrorPID;

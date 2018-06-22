@@ -26,8 +26,9 @@ use LINE\LINEBot\RichMenuBuilder\RichMenuAreaBuilder;
 use LINE\LINEBot\RichMenuBuilder\RichMenuAreaBoundsBuilder;
 use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class RichMenuTest extends \PHPUnit_Framework_TestCase
+class RichMenuTest extends TestCase
 {
     public function testGetRichMenu()
     {

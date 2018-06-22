@@ -20,6 +20,7 @@ namespace LINE\Tests\LINEBot\Util;
 
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\Response;
+use PHPUnit\Framework\TestCase;
 
 class DummyHttpClient implements HTTPClient
 {
@@ -28,7 +29,7 @@ class DummyHttpClient implements HTTPClient
     /** @var \Closure */
     private $mock;
 
-    public function __construct(\PHPUnit_Framework_TestCase $testRunner, \Closure $mock)
+    public function __construct(TestCase $testRunner, \Closure $mock)
     {
         $this->testRunner = $testRunner;
         $this->mock = $mock;

@@ -22,8 +22,9 @@ use LINE\LINEBot;
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class SendStickerTest extends \PHPUnit_Framework_TestCase
+class SendStickerTest extends TestCase
 {
     public function testReplySticker()
     {
