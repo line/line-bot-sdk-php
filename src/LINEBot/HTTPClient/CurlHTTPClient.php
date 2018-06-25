@@ -109,15 +109,16 @@ class CurlHTTPClient implements HTTPClient
                 // Rel: https://github.com/line/line-bot-sdk-php/issues/35
                 $options[CURLOPT_HTTPHEADER][] = 'Content-Length: 0';
             } else {
-                $options[CURLOPT_POST] = true;
                 if (isset($reqBody['__file']) && isset($reqBody['__type'])) {
                     $options[CURLOPT_CUSTOMREQUEST] = 'POST';
                     $options[CURLOPT_PUT] = true;
                     $options[CURLOPT_INFILE] = fopen($reqBody['__file'], 'r');
                     $options[CURLOPT_INFILESIZE] = filesize($reqBody['__file']);
                 } elseif (!empty($reqBody)) {
+                    $options[CURLOPT_POST] = true;
                     $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
                 } else {
+                    $options[CURLOPT_POST] = true;
                     $options[CURLOPT_POSTFIELDS] = $reqBody;
                 }
             }
