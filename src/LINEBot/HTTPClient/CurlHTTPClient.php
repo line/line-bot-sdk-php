@@ -110,7 +110,6 @@ class CurlHTTPClient implements HTTPClient
                 $options[CURLOPT_HTTPHEADER][] = 'Content-Length: 0';
             } else {
                 if (isset($reqBody['__file']) && isset($reqBody['__type'])) {
-                    $options[CURLOPT_CUSTOMREQUEST] = 'POST';
                     $options[CURLOPT_PUT] = true;
                     $options[CURLOPT_INFILE] = fopen($reqBody['__file'], 'r');
                     $options[CURLOPT_INFILESIZE] = filesize($reqBody['__file']);

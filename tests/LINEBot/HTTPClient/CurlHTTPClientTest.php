@@ -145,9 +145,6 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($body);
         $this->assertEquals('POST', $body['_SERVER']['REQUEST_METHOD']);
         $this->assertEquals('/', $body['_SERVER']['SCRIPT_NAME']);
-        // TODO data transfered as form-data
-        // $this->assertEquals($base64EncodedImage, $body['Body']);
-        // $this->assertEquals(0, $body['_SERVER']['HTTP_CONTENT_LENGTH']);
         $this->assertEquals('Bearer channel-token', $body['_SERVER']['HTTP_AUTHORIZATION']);
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
         fclose($tmpfile);
