@@ -90,20 +90,6 @@ class CurlHTTPClient implements HTTPClient
     }
 
     /**
-     * @param string $reqBody
-     * @return string|CURLFile request body for CURLOPT_POSTFIELDS
-     */
-    private function polyfillRequestBody($reqBody)
-    {
-        if (isset($reqBody['__file']) && isset($reqBody['__type'])) {
-            $reqBody = new CURLFile($reqBody['__file'], $reqBody['__type']);
-        } elseif (!empty($reqBody)) {
-            $reqBody = json_encode($reqBody);
-        }
-        return $reqBody;
-    }
-
-    /**
      * @param string $method
      * @param array $headers
      * @param string|null $reqBody
@@ -123,8 +109,17 @@ class CurlHTTPClient implements HTTPClient
                 // Rel: https://github.com/line/line-bot-sdk-php/issues/35
                 $options[CURLOPT_HTTPHEADER][] = 'Content-Length: 0';
             } else {
-                $options[CURLOPT_POST] = true;
-                $options[CURLOPT_POSTFIELDS] = $this->polyfillRequestBody($reqBody);
+                if (isset($reqBody['__file']) && isset($reqBody['__type'])) {
+                    $options[CURLOPT_PUT] = true;
+                    $options[CURLOPT_INFILE] = fopen($reqBody['__file'], 'r');
+                    $options[CURLOPT_INFILESIZE] = filesize($reqBody['__file']);
+                } elseif (!empty($reqBody)) {
+                    $options[CURLOPT_POST] = true;
+                    $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
+                } else {
+                    $options[CURLOPT_POST] = true;
+                    $options[CURLOPT_POSTFIELDS] = $reqBody;
+                }
             }
         }
         return $options;
@@ -144,7 +139,8 @@ class CurlHTTPClient implements HTTPClient
 
         $headers = array_merge($this->authHeaders, $this->userAgentHeader, $additionalHeader);
 
-        $curl->setoptArray($this->getOptions($method, $headers, $reqBody));
+        $options = $this->getOptions($method, $headers, $reqBody);
+        $curl->setoptArray($options);
 
         $result = $curl->exec();
 
@@ -167,6 +163,10 @@ class CurlHTTPClient implements HTTPClient
         }
 
         $body = substr($result, $responseHeaderSize);
+
+        if (isset($options[CURLOPT_INFILE])) {
+            fclose($options[CURLOPT_INFILE]);
+        }
 
         return new Response($httpStatus, $body, $responseHeaders);
     }
