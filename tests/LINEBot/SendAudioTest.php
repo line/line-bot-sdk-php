@@ -22,8 +22,9 @@ use LINE\LINEBot;
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class SendAudioTest extends \PHPUnit_Framework_TestCase
+class SendAudioTest extends TestCase
 {
     public function testReplyAudio()
     {

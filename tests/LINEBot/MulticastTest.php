@@ -22,8 +22,9 @@ use LINE\LINEBot;
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class MulticastTest extends \PHPUnit_Framework_TestCase
+class MulticastTest extends TestCase
 {
     public function testMulticast()
     {

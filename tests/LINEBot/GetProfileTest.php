@@ -20,8 +20,9 @@ namespace LINE\Tests\LINEBot;
 
 use LINE\LINEBot;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class GetProfileTest extends \PHPUnit_Framework_TestCase
+class GetProfileTest extends TestCase
 {
     public function testGetProfile()
     {

@@ -22,8 +22,9 @@ use LINE\LINEBot;
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class SendTextTest extends \PHPUnit_Framework_TestCase
+class SendTextTest extends TestCase
 {
     public function testReplySingleText()
     {

@@ -22,8 +22,9 @@ use LINE\LINEBot;
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class SendImageTest extends \PHPUnit_Framework_TestCase
+class SendImageTest extends TestCase
 {
     public function testReplyImage()
     {
