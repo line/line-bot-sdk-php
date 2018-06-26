@@ -61,7 +61,8 @@ class RichMenuBuilder
      *
      * @return array Built message structure.
      */
-    public function build() {
+    public function build()
+    {
         $areas = [];
         foreach ($this->areaBuilders as $areaBuilder) {
             $areas[] = $areaBuilder->build();

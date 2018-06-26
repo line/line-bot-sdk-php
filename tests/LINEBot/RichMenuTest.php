@@ -95,7 +95,7 @@ class RichMenuTest extends TestCase
                         new RichMenuAreaBoundsBuilder(1250, 0, 1240, 1686),
                         new MessageTemplateActionBuilder('message label 2', 'test message 2')
                     )
-               ]
+                ]
             )
         );
 

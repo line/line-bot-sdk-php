@@ -129,7 +129,8 @@ class CurlHTTPClientTest extends TestCase
 
     public function testPostImage()
     {
-        $base64EncodedImage = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX/TQBcNTh/AAAAAXRSTlPM0jRW/QAAAApJREFUeJxjYgAAAAYAAzY3fKgAAAAASUVORK5CYII=';
+        $base64EncodedImage = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX/TQBcNTh/AAAAAXRSTlPM0';
+        $base64EncodedImage .= 'jRW/QAAAApJREFUeJxjYgAAAAYAAzY3fKgAAAAASUVORK5CYII=';
         $tmpfile = tmpfile();
         $metaData = stream_get_meta_data($tmpfile);
         fwrite($tmpfile, base64_decode($base64EncodedImage));
