@@ -26,7 +26,8 @@
     "phpunit/phpunit": "^4.8.24||^5||^6",
     "phpmd/phpmd": "~2.4",
     "squizlabs/php_codesniffer": "~2.6",
-    "apigen/apigen": "~4.1",
+    "apigen/apigen": "dev-master",
+    "roave/better-reflection": "dev-master",
     "indigophp/hash-compat": "~1.1.0"
   },
   "autoload": {
@@ -41,7 +42,7 @@
   },
   "scripts": {
     "test": "phpunit --debug tests",
-    "doc": "apigen generate --source=src --destination=docs --title line-bot-sdk-php",
+    "doc": "apigen generate src --destination docs",
     "cs": "phpcs --standard=PSR2 src tests examples/EchoBot/src examples/EchoBot/public examples/KitchenSink/src examples/KitchenSink/public",
     "md": "phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml"
   }
