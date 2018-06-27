@@ -25,7 +25,7 @@
   "require-dev": {
     "phpunit/phpunit": "^4.8.24||^5||^6",
     "phpmd/phpmd": "~2.4",
-    "squizlabs/php_codesniffer": "~2.6",
+    "squizlabs/php_codesniffer": "~2.6||^3",
     "apigen/apigen": "dev-master",
     "roave/better-reflection": "dev-master",
     "indigophp/hash-compat": "~1.1.0"
