@@ -26,9 +26,13 @@
     "phpunit/phpunit": "^4.8.24||^5||^6",
     "phpmd/phpmd": "~2.4",
     "squizlabs/php_codesniffer": "~2.6||^3",
-    "apigen/apigen": "dev-master",
-    "roave/better-reflection": "dev-master",
-    "indigophp/hash-compat": "~1.1.0"
+    "indigophp/hash-compat": "~1.1.0",
+    "symfony/config": "^3.3",
+    "symfony/dependency-injection": "^3.3"
+  },
+  "suggest": {
+    "apigen/apigen": "Install with roave/better-reflection:dev-master to generate docs",
+    "roave/better-reflection": "Required by apigen/apigen:dev-master"
   },
   "autoload": {
     "psr-4": {
