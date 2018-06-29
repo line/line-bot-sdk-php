@@ -49,7 +49,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
      * @param string $thumbnailImageUrl
      * @param TemplateActionBuilder[] $actionBuilders
      */
-    public function __construct($title, $text, $thumbnailImageUrl, array $actionBuilders)
+    public function __construct($title=null, $text, $thumbnailImageUrl=null, array $actionBuilders)
     {
         $this->title = $title;
         $this->text = $text;
@@ -75,12 +75,20 @@ class ButtonTemplateBuilder implements TemplateBuilder
 
         $this->template = [
             'type' => TemplateType::BUTTONS,
-            'thumbnailImageUrl' => $this->thumbnailImageUrl,
-            'title' => $this->title,
             'text' => $this->text,
             'actions' => $actions,
         ];
-
+        
+        /* Make title optional */
+        if($this->title){
+            $this->template['title'] = $this->title;
+        }
+        
+        /* Make thumbnailImageUrl optional */
+        if($this->thumbnailImageUrl){
+            $this->template['thumbnailImageUrl'] = $this->thumbnailImageUrl;
+        }
+        
         return $this->template;
     }
 }
