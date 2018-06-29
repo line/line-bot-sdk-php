@@ -20,8 +20,9 @@ namespace LINE\Tests\LINEBot\HTTPClient;
 
 use LINE\LINEBot\Constant\Meta;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use PHPUnit\Framework\TestCase;
 
-class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
+class CurlHTTPClientTest extends TestCase
 {
     private static $reqMirrorPort;
     private static $reqMirrorPID;
@@ -56,7 +57,7 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
     public static function tearDownAfterClass()
     {
         if (!empty(CurlHTTPClientTest::$reqMirrorPID)) {
-            posix_kill(CurlHTTPClientTest::$reqMirrorPID, SIGKILL);
+            posix_kill(CurlHTTPClientTest::$reqMirrorPID, 9);
         }
     }
 
@@ -128,10 +129,11 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
 
     public function testPostImage()
     {
-        $base64DecodedImage = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX/TQBcNTh/AAAAAXRSTlPM0jRW/QAAAApJREFUeJxjYgAAAAYAAzY3fKgAAAAASUVORK5CYII=';
+        $base64EncodedImage = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX/TQBcNTh/AAAAAXRSTlPM0';
+        $base64EncodedImage .= 'jRW/QAAAApJREFUeJxjYgAAAAYAAzY3fKgAAAAASUVORK5CYII=';
         $tmpfile = tmpfile();
         $metaData = stream_get_meta_data($tmpfile);
-        fwrite($tmpfile, base64_decode($base64DecodedImage));
+        fwrite($tmpfile, base64_decode($base64EncodedImage));
         $curl = new CurlHTTPClient("channel-token");
         $res = $curl->post(
             '127.0.0.1:' . CurlHTTPClientTest::$reqMirrorPort,
@@ -145,9 +147,8 @@ class CurlHTTPClientTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($body);
         $this->assertEquals('POST', $body['_SERVER']['REQUEST_METHOD']);
         $this->assertEquals('/', $body['_SERVER']['SCRIPT_NAME']);
-        // TODO data transfered as form-data
-        // $this->assertEquals($base64DecodedImage, $body['Body']);
-        // $this->assertEquals(0, $body['_SERVER']['HTTP_CONTENT_LENGTH']);
+        $this->assertEquals($base64EncodedImage, $body['Body']);
+        $this->assertEquals(95, $body['_SERVER']['HTTP_CONTENT_LENGTH']);
         $this->assertEquals('Bearer channel-token', $body['_SERVER']['HTTP_AUTHORIZATION']);
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
         fclose($tmpfile);

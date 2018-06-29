@@ -334,7 +334,7 @@ class LINEBot
      * Creates a rich menu.
      *
      * You must upload a rich menu image and link the rich menu to a user for the rich menu to be displayed.
-     * 
+     *
      * @param RichMenuBuilder $richMenuBuilder
      * @return Response
      */
@@ -391,11 +391,11 @@ class LINEBot
      * @param string $userId User ID. Found in the source object of webhook event objects.
      * @return Response
      */
-     public function unlinkRichMenu($userId)
-     {
-         $url = sprintf('%s/v2/bot/user/%s/richmenu', $this->endpointBase, urlencode($userId));
-         return $this->httpClient->delete($url);
-     }
+    public function unlinkRichMenu($userId)
+    {
+        $url = sprintf('%s/v2/bot/user/%s/richmenu', $this->endpointBase, urlencode($userId));
+        return $this->httpClient->delete($url);
+    }
 
     /**
      * Downloads an image associated with a rich menu.

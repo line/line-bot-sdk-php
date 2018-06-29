@@ -20,8 +20,9 @@ namespace LINE\Tests\LINEBot;
 
 use LINE\LINEBot;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class GetMemberProfileTest extends \PHPUnit_Framework_TestCase
+class GetMemberProfileTest extends TestCase
 {
     public function testGetGroupMemberIds()
     {
