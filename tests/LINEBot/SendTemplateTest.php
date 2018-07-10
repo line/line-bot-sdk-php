@@ -131,6 +131,10 @@ class SendTemplateTest extends TestCase
             $testRunner->assertEquals('uri label', $actions[3]['label']);
             $testRunner->assertEquals('https://example.com', $actions[3]['uri']);
 
+            $testRunner->assertEquals('rectangle', $template['imageAspectRatio']);
+            $testRunner->assertEquals('cover', $template['imageSize']);
+            $testRunner->assertEquals('#FFFFFF', $template['imageBackgroundColor']);
+
             return ['status' => 200];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
@@ -147,7 +151,10 @@ class SendTemplateTest extends TestCase
                         new PostbackTemplateActionBuilder('postback label2', 'post=back2', 'extend text'),
                         new MessageTemplateActionBuilder('message label', 'test message'),
                         new UriTemplateActionBuilder('uri label', 'https://example.com'),
-                    ]
+                    ],
+                    'rectangle',
+                    'cover',
+                    '#FFFFFF'
                 )
             )
         );
