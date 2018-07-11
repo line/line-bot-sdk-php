@@ -58,8 +58,15 @@ class ButtonTemplateBuilder implements TemplateBuilder
      * @param string|null $imageSize
      * @param string|null $imageBackgroundColor
      */
-    public function __construct($title, $text, $thumbnailImageUrl, array $actionBuilders, $imageAspectRatio = null, $imageSize = null, $imageBackgroundColor = null)
-    {
+    public function __construct(
+        $title,
+        $text,
+        $thumbnailImageUrl,
+        array $actionBuilders,
+        $imageAspectRatio = null,
+        $imageSize = null,
+        $imageBackgroundColor = null
+    ) {
         $this->title = $title;
         $this->text = $text;
         $this->thumbnailImageUrl = $thumbnailImageUrl;

@@ -26,7 +26,7 @@ use PHPUnit\Framework\TestCase;
 class ButtonTemplateBuilderTest extends TestCase
 {
 
-    var $tests = [
+    private static $tests = [
         [
             'param' => ['aaa', 'bbb', 'ccc', ['postback', 'message', 'uri']],
             'json' => <<<JSON
@@ -114,18 +114,21 @@ JSON
         $messageTemplateActionBuilder = new MessageTemplateActionBuilder('CCC', 'DDD');
         $uriTemplateActionBuilder = new UriTemplateActionBuilder('EEE', 'FFF');
 
-        foreach ($this->tests as $t) {
+        foreach (self::$tests as $t) {
             $title = $t['param'][0];
             $text = $t['param'][1];
             $thumbnailImageUrl = $t['param'][2];
             if (is_array($t['param'][3])) {
                 $actionBuilders = [];
-                if (in_array('postback', $t['param'][3]))
+                if (in_array('postback', $t['param'][3])) {
                     $actionBuilders[] = $postbackActionBuilder;
-                if (in_array('message', $t['param'][3]))
+                }
+                if (in_array('message', $t['param'][3])) {
                     $actionBuilders[] = $messageTemplateActionBuilder;
-                if (in_array('uri', $t['param'][3]))
+                }
+                if (in_array('uri', $t['param'][3])) {
                     $actionBuilders[] = $uriTemplateActionBuilder;
+                }
             } else {
                 $actionBuilders = null;
             }
@@ -133,14 +136,40 @@ JSON
             $imageSize = isset($t['param'][5]) ? $t['param'][5] : null;
             $imageBackgroundColor = isset($t['param'][6]) ? $t['param'][6] : null;
 
-            if(count($t['param']) == 7) {
-                $templateBuilder = new ButtonTemplateBuilder($title, $text, $thumbnailImageUrl, $actionBuilders, $imageAspectRatio, $imageSize, $imageBackgroundColor);
-            } elseif(count($t['param']) == 6) {
-                $templateBuilder = new ButtonTemplateBuilder($title, $text, $thumbnailImageUrl, $actionBuilders, $imageAspectRatio, $imageSize);
-            } elseif(count($t['param']) == 5) {
-                $templateBuilder = new ButtonTemplateBuilder($title, $text, $thumbnailImageUrl, $actionBuilders, $imageAspectRatio);
+            if (count($t['param']) == 7) {
+                $templateBuilder = new ButtonTemplateBuilder(
+                    $title,
+                    $text,
+                    $thumbnailImageUrl,
+                    $actionBuilders,
+                    $imageAspectRatio,
+                    $imageSize,
+                    $imageBackgroundColor
+                );
+            } elseif (count($t['param']) == 6) {
+                $templateBuilder = new ButtonTemplateBuilder(
+                    $title,
+                    $text,
+                    $thumbnailImageUrl,
+                    $actionBuilders,
+                    $imageAspectRatio,
+                    $imageSize
+                );
+            } elseif (count($t['param']) == 5) {
+                $templateBuilder = new ButtonTemplateBuilder(
+                    $title,
+                    $text,
+                    $thumbnailImageUrl,
+                    $actionBuilders,
+                    $imageAspectRatio
+                );
             } else {
-                $templateBuilder = new ButtonTemplateBuilder($title, $text, $thumbnailImageUrl, $actionBuilders);
+                $templateBuilder = new ButtonTemplateBuilder(
+                    $title,
+                    $text,
+                    $thumbnailImageUrl,
+                    $actionBuilders
+                );
             }
 
             $this->assertEquals($templateBuilder->buildTemplate(), json_decode($t['json'], true));

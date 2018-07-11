@@ -27,16 +27,16 @@ use PHPUnit\Framework\TestCase;
 class CarouselTemplateBuilderTest extends TestCase
 {
 
-    var $tests = [
+    private static $tests = [
         [
             'param' => [['postback', 'message', 'uri']],
             'json' => <<<JSON
 {
   "type":"carousel",
-  "columns": [
-    {"thumbnailImageUrl":"ccc", "title":"aaa", "text":"bbb", "actions":[{"type":"postback", "label":"AAA", "data":"BBB"}]},
-    {"thumbnailImageUrl":"ccc", "title":"aaa", "text":"bbb", "actions":[{"type":"message", "label":"CCC", "text":"DDD"}]},
-    {"thumbnailImageUrl":"ccc", "title":"aaa", "text":"bbb", "actions":[{"type":"uri", "label":"EEE", "uri":"FFF"}]}
+  "columns":[
+    {"thumbnailImageUrl":"ccc","title":"aaa","text":"bbb","actions":[{"type":"postback","label":"AAA","data":"BBB"}]},
+    {"thumbnailImageUrl":"ccc","title":"aaa","text":"bbb","actions":[{"type":"message","label":"CCC","text":"DDD"}]},
+    {"thumbnailImageUrl":"ccc","title":"aaa","text":"bbb","actions":[{"type":"uri","label":"EEE","uri":"FFF"}]}
   ]
 }
 JSON
@@ -46,9 +46,9 @@ JSON
             'json' => <<<JSON
 {
   "type":"carousel",
-  "columns": [
-    {"thumbnailImageUrl":"ccc", "title":"aaa", "text":"bbb", "actions":[{"type":"message", "label":"CCC", "text":"DDD"}]},
-    {"thumbnailImageUrl":"ccc", "title":"aaa", "text":"bbb", "actions":[{"type":"uri", "label":"EEE", "uri":"FFF"}]}
+  "columns":[
+    {"thumbnailImageUrl":"ccc","title":"aaa","text":"bbb","actions":[{"type":"message","label":"CCC","text":"DDD"}]},
+    {"thumbnailImageUrl":"ccc","title":"aaa","text":"bbb","actions":[{"type":"uri","label":"EEE","uri":"FFF"}]}
   ]
 }
 JSON
@@ -58,8 +58,8 @@ JSON
             'json' => <<<JSON
 {
   "type":"carousel",
-  "columns": [
-    {"thumbnailImageUrl":"ccc", "title":"aaa", "text":"bbb", "actions":[{"type":"postback", "label":"AAA", "data":"BBB"}]}
+  "columns":[
+    {"thumbnailImageUrl":"ccc","title":"aaa","text":"bbb","actions":[{"type":"postback","label":"AAA","data":"BBB"}]}
   ],
   "imageAspectRatio":"ddd"
 }
@@ -71,7 +71,7 @@ JSON
 {
   "type":"carousel",
   "columns":[
-    {"thumbnailImageUrl":"ccc", "title":"aaa", "text":"bbb", "actions":[{"type":"message", "label":"CCC", "text":"DDD"}]}
+    {"thumbnailImageUrl":"ccc","title":"aaa","text":"bbb","actions":[{"type":"message","label":"CCC","text":"DDD"}]}
   ],
   "imageAspectRatio":"ddd",
   "imageSize":"eee"
@@ -91,24 +91,27 @@ JSON
         $messageTemplateActionBuilder = $this->carouselTemplateBuilder(new MessageTemplateActionBuilder('CCC', 'DDD'));
         $uriTemplateActionBuilder = $this->carouselTemplateBuilder(new UriTemplateActionBuilder('EEE', 'FFF'));
 
-        foreach ($this->tests as $t) {
+        foreach (self::$tests as $t) {
             if (is_array($t['param'][0])) {
                 $columnTemplateBuilders= [];
-                if (in_array('postback', $t['param'][0]))
+                if (in_array('postback', $t['param'][0])) {
                     $columnTemplateBuilders[] = $postbackActionBuilder;
-                if (in_array('message', $t['param'][0]))
+                }
+                if (in_array('message', $t['param'][0])) {
                     $columnTemplateBuilders[] = $messageTemplateActionBuilder;
-                if (in_array('uri', $t['param'][0]))
+                }
+                if (in_array('uri', $t['param'][0])) {
                     $columnTemplateBuilders[] = $uriTemplateActionBuilder;
+                }
             } else {
                 $columnTemplateBuilders= null;
             }
             $imageAspectRatio = isset($t['param'][1]) ? $t['param'][1] : null;
             $imageSize = isset($t['param'][2]) ? $t['param'][2] : null;
 
-            if(count($t['param']) == 3) {
+            if (count($t['param']) == 3) {
                 $templateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders, $imageAspectRatio, $imageSize);
-            } elseif(count($t['param']) == 2) {
+            } elseif (count($t['param']) == 2) {
                 $templateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders, $imageAspectRatio);
             } else {
                 $templateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders);

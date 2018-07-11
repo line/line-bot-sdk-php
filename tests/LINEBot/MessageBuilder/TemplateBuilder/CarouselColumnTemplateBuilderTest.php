@@ -26,7 +26,7 @@ use PHPUnit\Framework\TestCase;
 class CarouselColumnTemplateBuilderTest extends TestCase
 {
 
-    var $tests = [
+    private static $tests = [
         [
             'param' => ['aaa', 'bbb', 'ccc', ['postback', 'message', 'uri']],
             'json' => <<<JSON
@@ -35,12 +35,13 @@ class CarouselColumnTemplateBuilderTest extends TestCase
   "title":"aaa",
   "text":"bbb",
   "actions":[
-    {"type":"postback", "label":"AAA", "data":"BBB"},
-    {"type":"message", "label":"CCC", "text":"DDD"},
-    {"type":"uri", "label":"EEE", "uri":"FFF"}
+    {"type":"postback","label":"AAA","data":"BBB"},
+    {"type":"message","label":"CCC","text":"DDD"},
+    {"type":"uri","label":"EEE","uri":"FFF"}
   ]
 }
 JSON
+
         ],
         [
             'param' => ['aaa', 'bbb', 'ccc', ['message', 'uri'], null],
@@ -50,11 +51,12 @@ JSON
   "title":"aaa",
   "text":"bbb",
   "actions":[
-    {"type":"message", "label":"CCC", "text":"DDD"},
-    {"type":"uri", "label":"EEE", "uri":"FFF"}
+    {"type":"message","label":"CCC","text":"DDD"},
+    {"type":"uri","label":"EEE","uri":"FFF"}
   ]
 }
 JSON
+
         ],
         [
             'param' => ['aaa', 'bbb', 'ccc', ['postback'], 'ddd'],
@@ -78,27 +80,41 @@ JSON
         $messageTemplateActionBuilder = new MessageTemplateActionBuilder('CCC', 'DDD');
         $uriTemplateActionBuilder = new UriTemplateActionBuilder('EEE', 'FFF');
 
-        foreach ($this->tests as $t) {
+        foreach (self::$tests as $t) {
             $title = $t['param'][0];
             $text = $t['param'][1];
             $thumbnailImageUrl = $t['param'][2];
             if (is_array($t['param'][3])) {
                 $actionBuilders = [];
-                if (in_array('postback', $t['param'][3]))
+                if (in_array('postback', $t['param'][3])) {
                     $actionBuilders[] = $postbackActionBuilder;
-                if (in_array('message', $t['param'][3]))
+                }
+                if (in_array('message', $t['param'][3])) {
                     $actionBuilders[] = $messageTemplateActionBuilder;
-                if (in_array('uri', $t['param'][3]))
+                }
+                if (in_array('uri', $t['param'][3])) {
                     $actionBuilders[] = $uriTemplateActionBuilder;
+                }
             } else {
                 $actionBuilders = null;
             }
             $imageBackgroundColor = isset($t['param'][4]) ? $t['param'][4] : null;
 
-            if(count($t['param']) == 5) {
-                $builder = new CarouselColumnTemplateBuilder($title, $text, $thumbnailImageUrl, $actionBuilders, $imageBackgroundColor);
+            if (count($t['param']) == 5) {
+                $builder = new CarouselColumnTemplateBuilder(
+                    $title,
+                    $text,
+                    $thumbnailImageUrl,
+                    $actionBuilders,
+                    $imageBackgroundColor
+                );
             } else {
-                $builder = new CarouselColumnTemplateBuilder($title, $text, $thumbnailImageUrl, $actionBuilders);
+                $builder = new CarouselColumnTemplateBuilder(
+                    $title,
+                    $text,
+                    $thumbnailImageUrl,
+                    $actionBuilders
+                );
             }
 
             $this->assertEquals($builder->buildTemplate(), json_decode($t['json'], true));
