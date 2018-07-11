@@ -104,7 +104,7 @@ JSON
                     $columnTemplateBuilders[] = $uriTemplateActionBuilder;
                 }
             } else {
-                $columnTemplateBuilders= null;
+                $columnTemplateBuilders = null;
             }
             $imageAspectRatio = isset($t['param'][1]) ? $t['param'][1] : null;
             $imageSize = isset($t['param'][2]) ? $t['param'][2] : null;
