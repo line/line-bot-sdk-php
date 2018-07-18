@@ -28,7 +28,6 @@ ifndef VERSION
 	@tput sgr0
 	@exit 255
 endif
-	make doc
 	git tag $(VERSION)
 	git push origin $(VERSION)
 
