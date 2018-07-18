@@ -36,8 +36,6 @@ Install `apigen` before releasing new version.
 1. Push the tag to origin
 1. Edit [GitHub releases](https://github.com/line/line-bot-sdk-php/releases)
 
-You can execute steps 1-3 with `make release` command.
-
 That's all. It will be publish on [composer](https://packagist.org/packages/linecorp/line-bot-sdk) automatically.
 
 e.g.
