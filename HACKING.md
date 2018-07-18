@@ -37,10 +37,3 @@ Install `apigen` before releasing new version.
 1. Edit [GitHub releases](https://github.com/line/line-bot-sdk-php/releases)
 
 That's all. It will be publish on [composer](https://packagist.org/packages/linecorp/line-bot-sdk) automatically.
-
-e.g.
-
-```
-$ make release VERSION=1.2.3
-# Then, edit GitHub releases
-```
