@@ -7,12 +7,10 @@
 namespace LINE\LINEBot\Event;
 
 
+use LINE\LINEBot\Constant\ResultType;
+
 class AccountLinkEvent extends BaseEvent
 {
-
-    const RESULT_OK = "ok";
-
-    const RESULT_FAILED = "failed";
 
     /**
      * AccountLinkEvent constructor.
@@ -51,7 +49,7 @@ class AccountLinkEvent extends BaseEvent
      */
     public function isSuccess()
     {
-        return $this->getResult() == self::RESULT_OK;
+        return $this->getResult() == ResultType::OK;
     }
 
     /**
@@ -61,6 +59,6 @@ class AccountLinkEvent extends BaseEvent
      */
     public function isFailed()
     {
-        return $this->getResult() == self::RESULT_FAILED;
+        return $this->getResult() == ResultType::FAILED;
     }
 }
