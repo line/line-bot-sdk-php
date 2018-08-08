@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 LINE Corporation
+ * Copyright 2018 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -16,17 +16,18 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Constant;
+namespace LINE\LINEBot\Constant\Flex;
 
-class MessageType
+class ComponentFontSize
 {
-    const TEXT = 'text';
-    const TEMPLATE = 'template';
-    const IMAGEMAP = 'imagemap';
-    const STICKER = 'sticker';
-    const LOCATION = 'location';
-    const IMAGE = 'image';
-    const AUDIO = 'audio';
-    const VIDEO = 'video';
-    const FLEX = 'flex';
+    const XXS = 'xxs';
+    const XS = 'xs';
+    const SM = 'sm';
+    const MD = 'md';
+    const LG = 'lg';
+    const XL = 'xl';
+    const XXL = 'xxl';
+    const XXXL = '3xl';
+    const XXXXL = '4xl';
+    const XXXXXL = '5xl';
 }

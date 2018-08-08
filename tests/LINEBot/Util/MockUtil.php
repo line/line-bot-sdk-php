@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 LINE Corporation
+ * Copyright 2018 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -16,17 +16,18 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Constant;
+namespace LINE\Tests\LINEBot\Util;
 
-class MessageType
+use PHPUnit\Framework\TestCase;
+
+class MockUtil
 {
-    const TEXT = 'text';
-    const TEMPLATE = 'template';
-    const IMAGEMAP = 'imagemap';
-    const STICKER = 'sticker';
-    const LOCATION = 'location';
-    const IMAGE = 'image';
-    const AUDIO = 'audio';
-    const VIDEO = 'video';
-    const FLEX = 'flex';
+    public static function builder(TestCase $testRunner, $class, $postfix, $method = 'build')
+    {
+        $builder = $testRunner->getMockBuilder($class)->disableOriginalConstructor()->getMock();
+        $refrection = new \ReflectionClass($class);
+        $className = $refrection->getShortName().':'.$postfix;
+        $builder->method($method)->will($testRunner->returnValue(['build_result_of' => $className]));
+        return $builder;
+    }
 }
