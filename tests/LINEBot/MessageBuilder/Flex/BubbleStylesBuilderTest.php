@@ -15,7 +15,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-namespace LINE\Tests\LINEBot\MessageBuilder\TemplateBuilder;
+namespace LINE\Tests\LINEBot\MessageBuilder\Flex;
 
 use LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder;
