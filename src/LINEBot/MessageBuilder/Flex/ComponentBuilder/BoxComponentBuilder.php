@@ -82,7 +82,7 @@ class BoxComponentBuilder implements ComponentBuilder
      */
     public static function builder()
     {
-        return new BoxComponentBuilder(null, null);
+        return new self(null, null);
     }
 
     /**

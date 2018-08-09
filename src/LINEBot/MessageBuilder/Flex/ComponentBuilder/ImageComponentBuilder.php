@@ -105,7 +105,7 @@ class ImageComponentBuilder implements ComponentBuilder
      */
     public static function builder()
     {
-        return new ImageComponentBuilder(null);
+        return new self(null);
     }
 
     /**

@@ -67,7 +67,7 @@ class IconComponentBuilder implements ComponentBuilder
      */
     public static function builder()
     {
-        return new IconComponentBuilder(null);
+        return new self(null);
     }
 
     /**

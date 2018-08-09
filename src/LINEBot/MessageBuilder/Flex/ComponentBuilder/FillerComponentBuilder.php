@@ -35,7 +35,7 @@ class FillerComponentBuilder implements ComponentBuilder
      */
     public static function builder()
     {
-        return new FillerComponentBuilder();
+        return new self();
     }
 
     /**

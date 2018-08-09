@@ -53,7 +53,7 @@ class SpacerComponentBuilder implements ComponentBuilder
      */
     public static function builder()
     {
-        return new SpacerComponentBuilder(null);
+        return new self(null);
     }
 
     /**

@@ -66,7 +66,7 @@ class BubbleStylesBuilder
      */
     public static function builder()
     {
-        return new BubbleStylesBuilder();
+        return new self();
     }
 
     /**

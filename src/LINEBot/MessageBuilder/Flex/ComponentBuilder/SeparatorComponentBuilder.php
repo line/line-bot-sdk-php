@@ -57,7 +57,7 @@ class SeparatorComponentBuilder implements ComponentBuilder
      */
     public static function builder()
     {
-        return new SeparatorComponentBuilder();
+        return new self();
     }
 
     /**

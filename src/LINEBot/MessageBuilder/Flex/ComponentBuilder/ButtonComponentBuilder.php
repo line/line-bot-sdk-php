@@ -88,7 +88,7 @@ class ButtonComponentBuilder implements ComponentBuilder
      */
     public static function builder()
     {
-        return new ButtonComponentBuilder(null);
+        return new self(null);
     }
 
     /**

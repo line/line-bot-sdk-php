@@ -56,7 +56,7 @@ class FlexMessageBuilder implements MessageBuilder
      */
     public static function builder()
     {
-        return new FlexMessageBuilder(null, null);
+        return new self(null, null);
     }
 
     /**

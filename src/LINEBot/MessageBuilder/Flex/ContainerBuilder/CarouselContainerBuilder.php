@@ -51,7 +51,7 @@ class CarouselContainerBuilder implements ContainerBuilder
      */
     public static function builder()
     {
-        return new CarouselContainerBuilder(null);
+        return new self(null);
     }
 
     /**

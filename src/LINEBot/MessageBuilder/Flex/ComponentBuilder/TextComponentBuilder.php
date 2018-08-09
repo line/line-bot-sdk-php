@@ -109,7 +109,7 @@ class TextComponentBuilder implements ComponentBuilder
      */
     public static function builder()
     {
-        return new TextComponentBuilder(null);
+        return new self(null);
     }
 
     /**

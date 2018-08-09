@@ -82,7 +82,7 @@ class BubbleContainerBuilder implements ContainerBuilder
      */
     public static function builder()
     {
-        return new BubbleContainerBuilder();
+        return new self();
     }
 
     /**

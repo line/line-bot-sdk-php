@@ -58,7 +58,7 @@ class BlockStyleBuilder
      */
     public static function builder()
     {
-        return new BlockStyleBuilder();
+        return new self();
     }
 
     /**
