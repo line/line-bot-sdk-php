@@ -47,8 +47,6 @@ use LINE\LINEBot\Constant\Flex\ComponentGravity;
 
 class SendFlexTest extends TestCase
 {
-    private static $imgurl = 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/';
-
     public function testReplyFlex()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
@@ -129,13 +127,13 @@ JSON;
     "type": "bubble",
     "hero": {
       "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+      "url": "https://example.com/cafe.png",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover",
       "action": {
         "type": "uri",
-        "uri": "http://linecorp.com/"
+        "uri": "https://example.com"
       }
     },
     "body": {
@@ -156,27 +154,27 @@ JSON;
             {
               "type": "icon",
               "size": "sm",
-              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              "url": "https://example.com/gold_star.png"
             },
             {
               "type": "icon",
               "size": "sm",
-              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              "url": "https://example.com/gold_star.png"
             },
             {
               "type": "icon",
               "size": "sm",
-              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              "url": "https://example.com/gold_star.png"
             },
             {
               "type": "icon",
               "size": "sm",
-              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              "url": "https://example.com/gold_star.png"
             },
             {
               "type": "icon",
               "size": "sm",
-              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+              "url": "https://example.com/gray_star.png"
             },
             {
               "type": "text",
@@ -254,7 +252,7 @@ JSON;
           "action": {
             "type": "uri",
             "label": "CALL",
-            "uri": "https://linecorp.com"
+            "uri": "https://example.com"
           }
         },
         {
@@ -264,7 +262,7 @@ JSON;
           "action": {
             "type": "uri",
             "label": "WEBSITE",
-            "uri": "https://linecorp.com"
+            "uri": "https://example.com"
           }
         },
         {
@@ -284,10 +282,10 @@ JSON;
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
         $goldStar = IconComponentBuilder::builder()
             ->setSize(ComponentIconSize::SM)
-            ->setUrl(self::$imgurl.'review_gold_star_28.png');
+            ->setUrl('https://example.com/gold_star.png');
         $grayStar = IconComponentBuilder::builder()
             ->setSize(ComponentIconSize::SM)
-            ->setUrl(self::$imgurl.'review_gray_star_28.png');
+            ->setUrl('https://example.com/gray_star.png');
         $res = $bot->pushMessage(
             'DESTINATION',
             FlexMessageBuilder::builder()
@@ -296,11 +294,11 @@ JSON;
                     BubbleContainerBuilder::builder()
                         ->setHero(
                             ImageComponentBuilder::builder()
-                                ->setUrl(self::$imgurl.'01_1_cafe.png')
+                                ->setUrl('https://example.com/cafe.png')
                                 ->setSize(ComponentImageSize::FULL)
                                 ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
                                 ->setAspectMode(ComponentImageAspectMode::COVER)
-                                ->setAction(new UriTemplateActionBuilder(null, 'http://linecorp.com/'))
+                                ->setAction(new UriTemplateActionBuilder(null, 'https://example.com'))
                         )
                         ->setBody(
                             BoxComponentBuilder::builder()
@@ -379,7 +377,7 @@ JSON;
                                         ->setAction(
                                             new UriTemplateActionBuilder(
                                                 'CALL',
-                                                'https://linecorp.com'
+                                                'https://example.com'
                                             )
                                         ),
                                     ButtonComponentBuilder::builder()
@@ -388,7 +386,7 @@ JSON;
                                         ->setAction(
                                             new UriTemplateActionBuilder(
                                                 'WEBSITE',
-                                                'https://linecorp.com'
+                                                'https://example.com'
                                             )
                                         ),
                                     SpacerComponentBuilder::builder()
@@ -428,7 +426,7 @@ JSON;
           "size": "full",
           "aspectRatio": "20:13",
           "aspectMode": "cover",
-          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png"
+          "url": "https://example.com/photo1.png"
         },
         "body": {
           "type": "box",
@@ -477,7 +475,7 @@ JSON;
               "action": {
                 "type": "uri",
                 "label": "Add to Cart",
-                "uri": "https://linecorp.com"
+                "uri": "https://example.com"
               }
             },
             {
@@ -485,7 +483,7 @@ JSON;
               "action": {
                 "type": "uri",
                 "label": "Add to wishlist",
-                "uri": "https://linecorp.com"
+                "uri": "https://example.com"
               }
             }
           ]
@@ -498,7 +496,7 @@ JSON;
           "size": "full",
           "aspectRatio": "20:13",
           "aspectMode": "cover",
-          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png"
+          "url": "https://example.com/photo2.png"
         },
         "body": {
           "type": "box",
@@ -515,7 +513,6 @@ JSON;
             {
               "type": "box",
               "layout": "baseline",
-              "flex": 1,
               "contents": [
                 {
                   "type": "text",
@@ -553,21 +550,20 @@ JSON;
           "contents": [
             {
               "type": "button",
-              "flex": 2,
               "style": "primary",
               "color": "#aaaaaa",
               "action": {
                 "type": "uri",
                 "label": "Add to Cart",
-                "uri": "https://linecorp.com"
+                "uri": "https://example.com"
               }
             },
             {
               "type": "button",
               "action": {
                 "type": "uri",
-                "label": "Add to wish list",
-                "uri": "https://linecorp.com"
+                "label": "Add to wishlist",
+                "uri": "https://example.com"
               }
             }
           ]
@@ -587,7 +583,7 @@ JSON;
               "action": {
                 "type": "uri",
                 "label": "See more",
-                "uri": "https://linecorp.com"
+                "uri": "https://example.com"
               }
             }
           ]
@@ -615,7 +611,7 @@ JSON;
                                         ->setSize(ComponentImageSize::FULL)
                                         ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
                                         ->setAspectMode(ComponentImageAspectMode::COVER)
-                                        ->setUrl(self::$imgurl.'01_5_carousel.png')
+                                        ->setUrl('https://example.com/photo1.png')
                                 )
                                 ->setBody(
                                     BoxComponentBuilder::builder()
@@ -655,14 +651,14 @@ JSON;
                                                 ->setAction(
                                                     new UriTemplateActionBuilder(
                                                         'Add to Cart',
-                                                        'https://linecorp.com'
+                                                        'https://example.com'
                                                     )
                                                 ),
                                             ButtonComponentBuilder::builder()
                                                 ->setAction(
                                                     new UriTemplateActionBuilder(
                                                         'Add to wishlist',
-                                                        'https://linecorp.com'
+                                                        'https://example.com'
                                                     )
                                                 )
                                         ])
@@ -673,7 +669,7 @@ JSON;
                                         ->setSize(ComponentImageSize::FULL)
                                         ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
                                         ->setAspectMode(ComponentImageAspectMode::COVER)
-                                        ->setUrl(self::$imgurl.'01_6_carousel.png')
+                                        ->setUrl('https://example.com/photo2.png')
                                 )
                                 ->setBody(
                                     BoxComponentBuilder::builder()
@@ -687,7 +683,6 @@ JSON;
                                                 ->setSize(ComponentFontSize::XL),
                                             BoxComponentBuilder::builder()
                                                 ->setLayout(ComponentLayout::BASELINE)
-                                                ->setFlex(1)
                                                 ->setContents([
                                                     TextComponentBuilder::builder()
                                                         ->setText('$11')
@@ -717,20 +712,19 @@ JSON;
                                         ->setSpacing(ComponentSpacing::SM)
                                         ->setContents([
                                             ButtonComponentBuilder::builder()
-                                                ->setFlex(2)
                                                 ->setStyle(ComponentButtonStyle::PRIMARY)
                                                 ->setColor('#aaaaaa')
                                                 ->setAction(
                                                     new UriTemplateActionBuilder(
                                                         'Add to Cart',
-                                                        'https://linecorp.com'
+                                                        'https://example.com'
                                                     )
                                                 ),
                                             ButtonComponentBuilder::builder()
                                                 ->setAction(
                                                     new UriTemplateActionBuilder(
-                                                        'Add to wish list',
-                                                        'https://linecorp.com'
+                                                        'Add to wishlist',
+                                                        'https://example.com'
                                                     )
                                                 )
                                         ])
@@ -747,7 +741,7 @@ JSON;
                                                 ->setAction(
                                                     new UriTemplateActionBuilder(
                                                         'See more',
-                                                        'https://linecorp.com'
+                                                        'https://example.com'
                                                     )
                                                 )
                                         ])
