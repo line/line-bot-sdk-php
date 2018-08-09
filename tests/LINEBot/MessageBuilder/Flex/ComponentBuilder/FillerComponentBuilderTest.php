@@ -17,8 +17,6 @@
  */
 namespace LINE\Tests\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ButtonComponentBuilder;
-use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\FillerComponentBuilder;
 

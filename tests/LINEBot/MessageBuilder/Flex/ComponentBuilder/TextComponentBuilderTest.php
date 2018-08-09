@@ -18,14 +18,14 @@
 namespace LINE\Tests\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
-use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
-use LINE\Tests\LINEBot\Util\MockUtil;
+use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentFontSize;
 use LINE\LINEBot\Constant\Flex\ComponentAlign;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentFontWeight;
+use LINE\Tests\LINEBot\Util\TestUtil;
 
 class TextComponentBuilderTest extends TestCase
 {
@@ -43,7 +43,7 @@ class TextComponentBuilderTest extends TestCase
                 0,
                 ComponentFontWeight::BOLD,
                 '#111111',
-                MessageTemplateActionBuilder::class
+                [UriTemplateActionBuilder::class, ['OK', 'http://linecorp.com/']]
             ],
             'json' => <<<JSON
 {
@@ -58,7 +58,7 @@ class TextComponentBuilderTest extends TestCase
   "maxLines":0,
   "weight":"bold",
   "color":"#111111",
-  "action":{"build_result_of":"MessageTemplateActionBuilder:action"}
+  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"}
 }
 JSON
         ],
@@ -86,8 +86,7 @@ JSON
             $maxLines = isset($t['param'][7]) ? $t['param'][7] : null;
             $weight = isset($t['param'][8]) ? $t['param'][8] : null;
             $color = isset($t['param'][9]) ? $t['param'][9] : null;
-            $actionBuilder = isset($t['param'][10]) ?
-                MockUtil::builder($this, $t['param'][10], 'action', 'buildTemplateAction') : null;
+            $actionBuilder = isset($t['param'][10]) ? TestUtil::createBuilder($t['param'][10]) : null;
 
             $componentBuilder = new TextComponentBuilder(
                 $text,

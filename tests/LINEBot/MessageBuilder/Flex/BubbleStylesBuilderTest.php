@@ -19,8 +19,8 @@ namespace LINE\Tests\LINEBot\MessageBuilder\Flex;
 
 use LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder;
-use LINE\Tests\LINEBot\Util\MockUtil;
 use PHPUnit\Framework\TestCase;
+use LINE\Tests\LINEBot\Util\TestUtil;
 
 class BubbleStylesBuilderTest extends TestCase
 {
@@ -28,17 +28,28 @@ class BubbleStylesBuilderTest extends TestCase
     private static $tests = [
         [
             'param' => [
-                BlockStyleBuilder::class,
-                BlockStyleBuilder::class,
-                BlockStyleBuilder::class,
-                BlockStyleBuilder::class
+                [BlockStyleBuilder::class, ['#00ffff']],
+                [BlockStyleBuilder::class, [null, true, '#000000']],
+                [BlockStyleBuilder::class, ['#ffffff']],
+                [BlockStyleBuilder::class, ['#00ffff', true, '#000000']]
             ],
             'json' => <<<JSON
 {
-  "header":{"build_result_of":"BlockStyleBuilder:header"},
-  "hero":{"build_result_of":"BlockStyleBuilder:hero"},
-  "body":{"build_result_of":"BlockStyleBuilder:body"},
-  "footer":{"build_result_of":"BlockStyleBuilder:footer"}
+  "header":{
+    "backgroundColor":"#00ffff"
+  },
+  "hero":{
+    "separator": true,
+    "separatorColor": "#000000"
+  },
+  "body":{
+    "backgroundColor":"#ffffff"
+  },
+  "footer":{
+    "backgroundColor": "#00ffff",
+    "separator": true,
+    "separatorColor": "#000000"
+  }
 }
 JSON
         ],
@@ -54,10 +65,10 @@ JSON
     public function test()
     {
         foreach (self::$tests as $t) {
-            $headerBuilder = isset($t['param'][0]) ? MockUtil::builder($this, $t['param'][0], 'header') : null;
-            $heroBuilder = isset($t['param'][1]) ? MockUtil::builder($this, $t['param'][1], 'hero') : null;
-            $bodyBuilder = isset($t['param'][2]) ? MockUtil::builder($this, $t['param'][2], 'body') : null;
-            $footerBuilder = isset($t['param'][3]) ? MockUtil::builder($this, $t['param'][3], 'footer') : null;
+            $headerBuilder = isset($t['param'][0]) ? TestUtil::createBuilder($t['param'][0]) : null;
+            $heroBuilder = isset($t['param'][1]) ? TestUtil::createBuilder($t['param'][1]) : null;
+            $bodyBuilder = isset($t['param'][2]) ? TestUtil::createBuilder($t['param'][2]) : null;
+            $footerBuilder = isset($t['param'][3]) ? TestUtil::createBuilder($t['param'][3]) : null;
 
             $builder = new BubbleStylesBuilder(
                 $headerBuilder,

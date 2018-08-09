@@ -59,7 +59,12 @@ JSON
                 $separator,
                 $separatorColor
             );
+            $this->assertEquals(json_decode($t['json'], true), $styleBuilder->build());
 
+            $styleBuilder = BlockStyleBuilder::builder()
+                ->setBackgroundColor($backgroundColor)
+                ->setSeparator($separator)
+                ->setSeparatorColor($separatorColor);
             $this->assertEquals(json_decode($t['json'], true), $styleBuilder->build());
         }
     }

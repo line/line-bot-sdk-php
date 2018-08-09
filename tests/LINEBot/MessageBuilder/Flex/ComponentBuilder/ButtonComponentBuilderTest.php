@@ -18,13 +18,13 @@
 namespace LINE\Tests\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ButtonComponentBuilder;
-use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
-use LINE\Tests\LINEBot\Util\MockUtil;
+use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\Constant\Flex\ComponentButtonHeight;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentButtonStyle;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
+use LINE\Tests\LINEBot\Util\TestUtil;
 
 class ButtonComponentBuilderTest extends TestCase
 {
@@ -32,7 +32,7 @@ class ButtonComponentBuilderTest extends TestCase
     private static $tests = [
         [
             'param' => [
-                MessageTemplateActionBuilder::class,
+                [UriTemplateActionBuilder::class, ['OK', 'http://linecorp.com/']],
                 2,
                 ComponentMargin::LG,
                 ComponentButtonHeight::SM,
@@ -43,7 +43,7 @@ class ButtonComponentBuilderTest extends TestCase
             'json' => <<<JSON
 {
   "type":"button",
-  "action":{"build_result_of":"MessageTemplateActionBuilder:action"},
+  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"},
   "flex":2,
   "margin":"lg",
   "height":"sm",
@@ -55,12 +55,12 @@ JSON
         ],
         [
             'param' => [
-                MessageTemplateActionBuilder::class
+                [UriTemplateActionBuilder::class, ['OK', 'http://linecorp.com/']],
             ],
             'json' => <<<JSON
 {
   "type":"button",
-  "action":{"build_result_of":"MessageTemplateActionBuilder:action"}
+  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"}
 }
 JSON
         ],
@@ -69,7 +69,7 @@ JSON
     public function test()
     {
         foreach (self::$tests as $t) {
-            $actionBuilder = MockUtil::builder($this, $t['param'][0], 'action', 'buildTemplateAction');
+            $actionBuilder = TestUtil::createBuilder($t['param'][0]);
             $flex = isset($t['param'][1]) ? $t['param'][1] : null;
             $margin = isset($t['param'][2]) ? $t['param'][2] : null;
             $height = isset($t['param'][3]) ? $t['param'][3] : null;

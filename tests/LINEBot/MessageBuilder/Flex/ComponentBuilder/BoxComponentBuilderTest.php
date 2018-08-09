@@ -21,7 +21,7 @@ use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
 use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
-use LINE\Tests\LINEBot\Util\MockUtil;
+use LINE\Tests\LINEBot\Util\TestUtil;
 use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\Constant\Flex\ComponentSpacing;
@@ -35,26 +35,26 @@ class BoxComponentBuilderTest extends TestCase
             'param' => [
                 ComponentLayout::VERTICAL,
                 [
-                    TextComponentBuilder::class,
-                    ImageComponentBuilder::class
+                    [TextComponentBuilder::class, ['Hello, World!']],
+                    [ImageComponentBuilder::class, ['https://example.com/image.png']]
                 ],
                 3,
                 ComponentSpacing::SM,
                 ComponentMargin::XS,
-                MessageTemplateActionBuilder::class
+                [MessageTemplateActionBuilder::class, ['ok', 'OK']]
             ],
             'json' => <<<JSON
 {
   "type":"box",
   "layout":"vertical",
   "contents":[
-    {"build_result_of":"TextComponentBuilder:0"},
-    {"build_result_of":"ImageComponentBuilder:1"}
+    {"type":"text", "text":"Hello, World!"},
+    {"type":"image", "url":"https://example.com/image.png"}
   ],
   "flex":3,
   "spacing":"sm",
   "margin":"xs",
-  "action":{"build_result_of":"MessageTemplateActionBuilder:action"}
+  "action":{"type":"message", "label":"ok", "text":"OK"}
 }
 JSON
         ],
@@ -62,7 +62,7 @@ JSON
             'param' => [
                 ComponentLayout::HORIZONTAL,
                 [
-                    TextComponentBuilder::class
+                    [TextComponentBuilder::class, ['Hello, World!']]
                 ]
             ],
             'json' => <<<JSON
@@ -70,7 +70,7 @@ JSON
   "type":"box",
   "layout":"horizontal",
   "contents":[
-    {"build_result_of":"TextComponentBuilder:0"}
+    {"type":"text", "text":"Hello, World!"}
   ]
 }
 JSON
@@ -82,14 +82,13 @@ JSON
         foreach (self::$tests as $t) {
             $layout = $t['param'][0];
             $componentBuilders = [];
-            foreach ($t['param'][1] as $index => $class) {
-                $componentBuilders[] = MockUtil::builder($this, $class, $index);
+            foreach ($t['param'][1] as $args) {
+                $componentBuilders[] = TestUtil::createBuilder($args);
             }
             $flex = isset($t['param'][2]) ? $t['param'][2] : null;
             $spacing = isset($t['param'][3]) ? $t['param'][3] : null;
             $margin = isset($t['param'][4]) ? $t['param'][4] : null;
-            $actionBuilder = isset($t['param'][5]) ?
-                MockUtil::builder($this, $t['param'][5], 'action', 'buildTemplateAction') : null;
+            $actionBuilder = isset($t['param'][5]) ? TestUtil::createBuilder($t['param'][5]) : null;
 
             $conponentBuilder = new BoxComponentBuilder(
                 $layout,

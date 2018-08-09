@@ -17,13 +17,16 @@
  */
 namespace LINE\Tests\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 
+use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\Constant\Flex\ContainerDirection;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\BubbleContainerBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
+use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
+use LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder;
 use PHPUnit\Framework\TestCase;
-use LINE\Tests\LINEBot\Util\MockUtil;
+use LINE\Tests\LINEBot\Util\TestUtil;
 
 class BubbleContainerBuilderTest extends TestCase
 {
@@ -32,21 +35,71 @@ class BubbleContainerBuilderTest extends TestCase
         [
             'param' => [
                 ContainerDirection::LTR,
-                BoxComponentBuilder::class,
-                ImageComponentBuilder::class,
-                BoxComponentBuilder::class,
-                BoxComponentBuilder::class,
-                BubbleStylesBuilder::class
+                [
+                    BoxComponentBuilder::class, [
+                        ComponentLayout::VERTICAL, [
+                            [TextComponentBuilder::class, ['header']]
+                        ]
+                    ]
+                ],
+                [ImageComponentBuilder::class, ['https://example.com/hero.png']],
+                [
+                    BoxComponentBuilder::class, [
+                        ComponentLayout::VERTICAL, [
+                            [TextComponentBuilder::class, ['body']]
+                        ]
+                    ]
+                ],
+                [
+                    BoxComponentBuilder::class, [
+                        ComponentLayout::VERTICAL, [
+                            [TextComponentBuilder::class, ['footer']]
+                        ]
+                    ]
+                ],
+                [
+                    BubbleStylesBuilder::class, [
+                        null,
+                        null,
+                        [BlockStyleBuilder::class, [null, true, '#000000']],
+                    ]
+                ]
             ],
             'json' => <<<JSON
 {
   "type":"bubble",
   "direction":"ltr",
-  "header":{"build_result_of":"BoxComponentBuilder:header"},
-  "hero":{"build_result_of":"ImageComponentBuilder:hero"},
-  "body":{"build_result_of":"BoxComponentBuilder:body"},
-  "footer":{"build_result_of":"BoxComponentBuilder:footer"},
-  "styles":{"build_result_of":"BubbleStylesBuilder:styles"}
+  "header":{
+    "type":"box",
+    "layout":"vertical",
+    "contents":[
+      {"type":"text", "text":"header"}
+    ]
+  },
+  "hero":{
+    "type":"image",
+    "url":"https://example.com/hero.png"
+  },
+  "body":{
+    "type":"box",
+    "layout":"vertical",
+    "contents":[
+      {"type":"text", "text":"body"}
+    ]
+  },
+  "footer":{
+    "type":"box",
+    "layout":"vertical",
+    "contents":[
+      {"type":"text", "text":"footer"}
+    ]
+  },
+  "styles":{
+    "body":{
+      "separator": true,
+      "separatorColor": "#000000"
+    }
+  }
 }
 JSON
         ],
@@ -64,11 +117,11 @@ JSON
     {
         foreach (self::$tests as $t) {
             $direction = isset($t['param'][0]) ? $t['param'][0] : null;
-            $headerBuilder = isset($t['param'][1]) ? MockUtil::builder($this, $t['param'][1], 'header') : null;
-            $heroBuilder = isset($t['param'][2]) ? MockUtil::builder($this, $t['param'][2], 'hero') : null;
-            $bodyBuilder = isset($t['param'][3]) ? MockUtil::builder($this, $t['param'][3], 'body') : null;
-            $footerBuilder = isset($t['param'][4]) ? MockUtil::builder($this, $t['param'][4], 'footer') : null;
-            $stylesBuilder = isset($t['param'][5]) ? MockUtil::builder($this, $t['param'][5], 'styles') : null;
+            $headerBuilder = isset($t['param'][1]) ? TestUtil::createBuilder($t['param'][1]) : null;
+            $heroBuilder = isset($t['param'][2]) ? TestUtil::createBuilder($t['param'][2]) : null;
+            $bodyBuilder = isset($t['param'][3]) ? TestUtil::createBuilder($t['param'][3]) : null;
+            $footerBuilder = isset($t['param'][4]) ? TestUtil::createBuilder($t['param'][4]) : null;
+            $stylesBuilder = isset($t['param'][5]) ? TestUtil::createBuilder($t['param'][5]) : null;
 
             $builder = new BubbleContainerBuilder(
                 $direction,

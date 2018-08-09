@@ -19,8 +19,11 @@ namespace LINE\Tests\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\CarouselContainerBuilder;
 use PHPUnit\Framework\TestCase;
-use LINE\Tests\LINEBot\Util\MockUtil;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\BubbleContainerBuilder;
+use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
+use LINE\LINEBot\Constant\Flex\ComponentLayout;
+use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
+use LINE\Tests\LINEBot\Util\TestUtil;
 
 class CarouselContainerBuilderTest extends TestCase
 {
@@ -29,16 +32,60 @@ class CarouselContainerBuilderTest extends TestCase
         [
             'param' => [
                 [
-                    BubbleContainerBuilder::class,
-                    BubbleContainerBuilder::class
+                    [
+                        BubbleContainerBuilder::class, [
+                            null,
+                            null,
+                            null,
+                            [
+                                BoxComponentBuilder::class, [
+                                    ComponentLayout::VERTICAL, [
+                                        [TextComponentBuilder::class, ['Hellow,']]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    [
+                        BubbleContainerBuilder::class, [
+                            null,
+                            null,
+                            null,
+                            [
+                                BoxComponentBuilder::class, [
+                                    ComponentLayout::VERTICAL, [
+                                        [TextComponentBuilder::class, ['World!']]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
                 ]
             ],
             'json' => <<<JSON
 {
   "type":"carousel",
   "contents":[
-    {"build_result_of":"BubbleContainerBuilder:0"},
-    {"build_result_of":"BubbleContainerBuilder:1"}
+    {
+      "type":"bubble",
+      "body":{
+        "type":"box",
+        "layout":"vertical",
+        "contents":[
+          {"type":"text", "text":"Hellow,"}
+        ]
+      }
+    },
+    {
+      "type":"bubble",
+      "body":{
+        "type":"box",
+        "layout":"vertical",
+        "contents":[
+          {"type":"text", "text":"World!"}
+        ]
+      }
+    }
   ]
 }
 JSON
@@ -49,8 +96,8 @@ JSON
     {
         foreach (self::$tests as $t) {
             $containerBuilders = [];
-            foreach ($t['param'][0] as $index => $class) {
-                $containerBuilders[] = MockUtil::builder($this, $class, $index);
+            foreach ($t['param'][0] as $params) {
+                $containerBuilders[] = TestUtil::createBuilder($params);
             }
 
             $builder = new CarouselContainerBuilder(

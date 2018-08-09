@@ -18,8 +18,7 @@
 namespace LINE\Tests\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
-use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
-use LINE\Tests\LINEBot\Util\MockUtil;
+use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentAlign;
@@ -27,6 +26,7 @@ use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentImageSize;
 use LINE\LINEBot\Constant\Flex\ComponentImageAspectRatio;
 use LINE\LINEBot\Constant\Flex\ComponentImageAspectMode;
+use LINE\Tests\LINEBot\Util\TestUtil;
 
 class ImageComponentBuilderTest extends TestCase
 {
@@ -43,7 +43,7 @@ class ImageComponentBuilderTest extends TestCase
                 ComponentImageAspectRatio::R16TO9,
                 ComponentImageAspectMode::COVER,
                 '#000000',
-                MessageTemplateActionBuilder::class
+                [UriTemplateActionBuilder::class, ['OK', 'http://linecorp.com/']]
             ],
             'json' => <<<JSON
 {
@@ -57,7 +57,7 @@ class ImageComponentBuilderTest extends TestCase
   "aspectRatio":"16:9",
   "aspectMode":"cover",
   "backgroundColor":"#000000",
-  "action":{"build_result_of":"MessageTemplateActionBuilder:action"}
+  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"}
 }
 JSON
         ],
@@ -86,8 +86,7 @@ JSON
             $aspectRatio = isset($t['param'][6]) ? $t['param'][6] : null;
             $aspectMode = isset($t['param'][7]) ? $t['param'][7] : null;
             $backgroundColor = isset($t['param'][8]) ? $t['param'][8] : null;
-            $actionBuilder = isset($t['param'][9]) ?
-                MockUtil::builder($this, $t['param'][9], 'action', 'buildTemplateAction') : null;
+            $actionBuilder = isset($t['param'][9]) ? TestUtil::createBuilder($t['param'][9]) : null;
 
             $componentBuilder = new ImageComponentBuilder(
                 $url,
