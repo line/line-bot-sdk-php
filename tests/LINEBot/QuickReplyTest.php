@@ -50,7 +50,8 @@ class QuickReplyTest extends TestCase
 
         $messageTemplate = new TextMessageBuilder('test text1', 'test text2', $quickReply);
 
-        $this->assertEquals([
+        $this->assertEquals(
+            [
             [
                 'type' => 'text',
                 'text' => 'test text1',
@@ -70,8 +71,9 @@ class QuickReplyTest extends TestCase
                     ],
                 ],
             ],
-        ],
-            $messageTemplate->buildMessage());
+            ],
+            $messageTemplate->buildMessage()
+        );
     }
 
     public function testStickerMessageWithQuickReply()
@@ -82,7 +84,8 @@ class QuickReplyTest extends TestCase
 
         $messageTemplate = new StickerMessageBuilder('1', '1', $quickReply);
 
-        $this->assertEquals([
+        $this->assertEquals(
+            [
             [
                 "type" => "sticker",
                 "packageId" => "1",
@@ -99,8 +102,9 @@ class QuickReplyTest extends TestCase
                     ],
                 ],
             ],
-        ],
-            $messageTemplate->buildMessage());
+            ],
+            $messageTemplate->buildMessage()
+        );
     }
 
     public function testImageMessageWithQuickReply()
@@ -109,11 +113,14 @@ class QuickReplyTest extends TestCase
             new QuickReplyButtonBuilder(new CameraRollTemplateActionBuilder('Camera roll')),
         ]);
 
-        $messageTemplate = new ImageMessageBuilder('https://example.com/original.jpg',
+        $messageTemplate = new ImageMessageBuilder(
+            'https://example.com/original.jpg',
             'https://example.com/preview.jpg',
-            $quickReply);
+            $quickReply
+        );
 
-        $this->assertEquals([
+        $this->assertEquals(
+            [
             [
                 "type" => "image",
                 "originalContentUrl" => "https://example.com/original.jpg",
@@ -130,8 +137,9 @@ class QuickReplyTest extends TestCase
                     ],
                 ],
             ],
-        ],
-            $messageTemplate->buildMessage());
+            ],
+            $messageTemplate->buildMessage()
+        );
     }
 
     public function testVideoMessageWithQuickReply()
@@ -140,11 +148,14 @@ class QuickReplyTest extends TestCase
             new QuickReplyButtonBuilder(new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=111', 'Buy')),
         ]);
 
-        $messageTemplate = new VideoMessageBuilder('https://example.com/original.mp4',
+        $messageTemplate = new VideoMessageBuilder(
+            'https://example.com/original.mp4',
             'https://example.com/preview.jpg',
-            $quickReply);
+            $quickReply
+        );
 
-        $this->assertEquals([
+        $this->assertEquals(
+            [
             [
                 "type" => "video",
                 "originalContentUrl" => "https://example.com/original.mp4",
@@ -163,24 +174,28 @@ class QuickReplyTest extends TestCase
                     ],
                 ],
             ],
-        ],
-            $messageTemplate->buildMessage());
+            ],
+            $messageTemplate->buildMessage()
+        );
     }
 
     public function testAudioMessageWithQuickReply()
     {
         $quickReply = new QuickReplyMessageBuilder([
-            new QuickReplyButtonBuilder(new DatetimePickerTemplateActionBuilder('Select date',
+            new QuickReplyButtonBuilder(new DatetimePickerTemplateActionBuilder(
+                'Select date',
                 'storeId=12345',
                 'datetime',
                 '2017-12-25t00:00',
                 '2018-01-24t23:59',
-                '2017-12-25t00:00')),
+                '2017-12-25t00:00'
+            )),
         ]);
 
         $messageTemplate = new AudioMessageBuilder('https://example.com/original.m4a', '60000', $quickReply);
 
-        $this->assertEquals([
+        $this->assertEquals(
+            [
             [
                 "type" => "audio",
                 "originalContentUrl" => "https://example.com/original.m4a",
@@ -202,29 +217,35 @@ class QuickReplyTest extends TestCase
                     ],
                 ],
             ],
-        ],
-            $messageTemplate->buildMessage());
+            ],
+            $messageTemplate->buildMessage()
+        );
     }
 
     public function testLocationMessageWithQuickReply()
     {
         $quickReply = new QuickReplyMessageBuilder([
-            new QuickReplyButtonBuilder(new DatetimePickerTemplateActionBuilder('Select date',
+            new QuickReplyButtonBuilder(new DatetimePickerTemplateActionBuilder(
+                'Select date',
                 'storeId=12345',
                 'datetime',
                 '2017-12-25t00:00',
                 '2018-01-24t23:59',
-                '2017-12-25t00:00')),
+                '2017-12-25t00:00'
+            )),
             new QuickReplyButtonBuilder(new LocationTemplateActionBuilder('Location')),
         ]);
 
-        $messageTemplate = new LocationMessageBuilder('my location',
+        $messageTemplate = new LocationMessageBuilder(
+            'my location',
             '〒150-0002 東京都渋谷区渋谷２丁目２１−１',
             35.65910807942215,
             139.70372892916203,
-            $quickReply);
+            $quickReply
+        );
 
-        $this->assertEquals([
+        $this->assertEquals(
+            [
             [
                 "type" => "location",
                 "title" => "my location",
@@ -255,8 +276,9 @@ class QuickReplyTest extends TestCase
                     ],
                 ],
             ],
-        ],
-            $messageTemplate->buildMessage());
+            ],
+            $messageTemplate->buildMessage()
+        );
     }
 
     public function testImagemapMessageWithQuickReply()
@@ -266,16 +288,19 @@ class QuickReplyTest extends TestCase
             new QuickReplyButtonBuilder(new CameraTemplateActionBuilder('Camera')),
         ]);
 
-        $messageTemplate = new ImagemapMessageBuilder('https://example.com/bot/images/rm001',
+        $messageTemplate = new ImagemapMessageBuilder(
+            'https://example.com/bot/images/rm001',
             'This is an imagemap',
             new BaseSizeBuilder(1040, 1040),
             [
                 new ImagemapUriActionBuilder('https://example.com/', new AreaBuilder(0, 0, 520, 1040)),
                 new ImagemapMessageActionBuilder('Hello', new AreaBuilder(520, 0, 520, 1040)),
             ],
-            $quickReply);
+            $quickReply
+        );
 
-        $this->assertEquals([
+        $this->assertEquals(
+            [
             [
                 "type" => "imagemap",
                 "baseUrl" => "https://example.com/bot/images/rm001",
@@ -325,8 +350,9 @@ class QuickReplyTest extends TestCase
                     ],
                 ],
             ],
-        ],
-            $messageTemplate->buildMessage());
+            ],
+            $messageTemplate->buildMessage()
+        );
     }
 
     public function testTemplateMessageWithQuickReply()
@@ -336,8 +362,10 @@ class QuickReplyTest extends TestCase
             new QuickReplyButtonBuilder(new CameraRollTemplateActionBuilder('Camera roll')),
         ]);
 
-        $messageTemplate = new TemplateMessageBuilder('This is a buttons template',
-            new ButtonTemplateBuilder('Menu',
+        $messageTemplate = new TemplateMessageBuilder(
+            'This is a buttons template',
+            new ButtonTemplateBuilder(
+                'Menu',
                 'Please select',
                 'https://example.com/bot/images/image.jpg',
                 [
@@ -348,10 +376,13 @@ class QuickReplyTest extends TestCase
                 'rectangle',
                 'cover',
                 '#FFFFFF',
-                new UriTemplateActionBuilder('View detail', 'http://example.com/page/123')),
-            $quickReply);
+                new UriTemplateActionBuilder('View detail', 'http://example.com/page/123')
+            ),
+            $quickReply
+        );
 
-        $this->assertEquals([
+        $this->assertEquals(
+            [
             [
                 "type" => "template",
                 "altText" => "This is a buttons template",
@@ -405,7 +436,8 @@ class QuickReplyTest extends TestCase
                     ],
                 ],
             ],
-        ],
-            $messageTemplate->buildMessage());
+            ],
+            $messageTemplate->buildMessage()
+        );
     }
 }
