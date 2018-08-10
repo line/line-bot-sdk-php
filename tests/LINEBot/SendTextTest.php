@@ -143,7 +143,6 @@ class SendTextTest extends TestCase
             $testRunner->assertEquals(MessageType::TEXT, $data['messages'][2]['type']);
             $testRunner->assertEquals('test text3', $data['messages'][2]['text']);
 
-
             return ['status' => 200];
         };
 
@@ -163,13 +162,11 @@ class SendTextTest extends TestCase
             $testRunner->assertEquals('https://api.line.me/v2/bot/message/push', $url);
 
             $testRunner->assertEquals('DESTINATION', $data['to']);
-            $testRunner->assertEquals(3, count($data['messages']));
+            $testRunner->assertEquals(2, count($data['messages']));
             $testRunner->assertEquals(MessageType::TEXT, $data['messages'][0]['type']);
             $testRunner->assertEquals('test text1', $data['messages'][0]['text']);
             $testRunner->assertEquals(MessageType::TEXT, $data['messages'][1]['type']);
             $testRunner->assertEquals('test text2', $data['messages'][1]['text']);
-            $testRunner->assertEquals(MessageType::TEXT, $data['messages'][2]['type']);
-            $testRunner->assertEquals('test text3', $data['messages'][2]['text']);
             $testRunner->assertEquals([
                 'items' => [
                     [
@@ -178,15 +175,17 @@ class SendTextTest extends TestCase
                         'action' => ['type' => 'message', 'label' => 'LabelText', 'text' => 'Text66'],
                     ],
                 ],
-            ], $data['messages'][2]['quickReply']);
+            ], $data['messages'][1]['quickReply']);
 
             return ['status' => 200];
         };
 
-        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->pushMessage('DESTINATION', new TextMessageBuilder('test text1', 'test text2', 'test text3', new QuickReplyMessageBuilder([
+        $quickReply = new QuickReplyMessageBuilder([
             new QuickReplyButtonBuilder(new MessageTemplateActionBuilder('LabelText', 'Text66'), 'https://foo.bar'),
-        ])));
+        ]);
+
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->pushMessage('DESTINATION', new TextMessageBuilder('test text1', 'test text2', $quickReply));
 
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());

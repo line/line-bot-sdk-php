@@ -92,7 +92,8 @@ class TextMessageBuilder implements MessageBuilder
         if ($this->quickReply) {
             $lastKey = count($this->message) - 1;
 
-            //If the user receives multiple message objects, the quickReply property of the last message object is displayed.
+            //If the user receives multiple message objects.
+            //The quickReply property of the last message object is displayed.
             $this->message[$lastKey]['quickReply'] = $this->quickReply->buildQuickReply();
         }
 
