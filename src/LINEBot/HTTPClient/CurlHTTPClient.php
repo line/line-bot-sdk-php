@@ -22,7 +22,6 @@ use LINE\LINEBot\Constant\Meta;
 use LINE\LINEBot\Exception\CurlExecutionException;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\Response;
-use CURLFile;
 
 /**
  * Class CurlHTTPClient.
@@ -57,11 +56,14 @@ class CurlHTTPClient implements HTTPClient
      * Sends GET request to LINE Messaging API.
      *
      * @param string $url Request URL.
+     * @param array $data Request body
+     * @param array $headers Request headers.
      * @return Response Response of API request.
+     * @throws CurlExecutionException
      */
-    public function get($url)
+    public function get($url, array $data = [], array $headers = [])
     {
-        return $this->sendRequest('GET', $url, [], []);
+        return $this->sendRequest('GET', $url, $headers, $data);
     }
 
     /**
