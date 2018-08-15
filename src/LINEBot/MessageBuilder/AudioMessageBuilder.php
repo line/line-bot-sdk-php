@@ -20,6 +20,7 @@ namespace LINE\LINEBot\MessageBuilder;
 
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
+use LINE\LINEBot\QuickReplyBuilder;
 
 /**
  * A builder class for audio message.
@@ -30,33 +31,53 @@ class AudioMessageBuilder implements MessageBuilder
 {
     /** @var string */
     private $originalContentUrl;
+
     /** @var int */
     private $duration;
+
+    /** @var array */
+    private $message = [];
+
+    /** @var QuickReplyBuilder|null */
+    private $quickReply;
 
     /**
      * AudioMessageBuilder constructor.
      *
      * @param string $originalContentUrl URL that serves audio file.
      * @param int $duration Duration of audio file (milli seconds)
+     * @param QuickReplyBuilder|null $quickReply
      */
-    public function __construct($originalContentUrl, $duration)
+    public function __construct($originalContentUrl, $duration, QuickReplyBuilder $quickReply = null)
     {
         $this->originalContentUrl = $originalContentUrl;
         $this->duration = $duration;
+        $this->quickReply = $quickReply;
     }
 
     /**
-     * Builds
+     * Build audio message structure.
+     *
      * @return array
      */
     public function buildMessage()
     {
-        return [
-            [
-                'type' => MessageType::AUDIO,
-                'originalContentUrl' => $this->originalContentUrl,
-                'duration' => $this->duration,
-            ]
+        if (! empty($this->message)) {
+            return $this->message;
+        }
+
+        $audioMessage = [
+            'type' => MessageType::AUDIO,
+            'originalContentUrl' => $this->originalContentUrl,
+            'duration' => $this->duration,
         ];
+
+        if ($this->quickReply) {
+            $audioMessage['quickReply'] = $this->quickReply->buildQuickReply();
+        }
+
+        $this->message[] = $audioMessage;
+
+        return $this->message;
     }
 }

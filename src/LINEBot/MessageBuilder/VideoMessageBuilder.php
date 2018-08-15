@@ -20,6 +20,7 @@ namespace LINE\LINEBot\MessageBuilder;
 
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
+use LINE\LINEBot\QuickReplyBuilder;
 
 /**
  * A builder class for video message.
@@ -30,19 +31,28 @@ class VideoMessageBuilder implements MessageBuilder
 {
     /** @var string */
     private $originalContentUrl;
+
     /** @var string */
     private $previewImageUrl;
+
+    /** @var QuickReplyBuilder|null */
+    private $quickReply;
+
+    /** @var array */
+    private $message = [];
 
     /**
      * VideoMessageBuilder constructor.
      *
      * @param string $originalContentUrl
      * @param string $previewImageUrl
+     * @param QuickReplyBuilder|null $quickReply
      */
-    public function __construct($originalContentUrl, $previewImageUrl)
+    public function __construct($originalContentUrl, $previewImageUrl, QuickReplyBuilder $quickReply = null)
     {
         $this->originalContentUrl = $originalContentUrl;
         $this->previewImageUrl = $previewImageUrl;
+        $this->quickReply = $quickReply;
     }
 
     /**
@@ -52,12 +62,22 @@ class VideoMessageBuilder implements MessageBuilder
      */
     public function buildMessage()
     {
-        return [
-            [
-                'type' => MessageType::VIDEO,
-                'originalContentUrl' => $this->originalContentUrl,
-                'previewImageUrl' => $this->previewImageUrl,
-            ]
+        if (! empty($this->message)) {
+            return $this->message;
+        }
+
+        $video = [
+            'type' => MessageType::VIDEO,
+            'originalContentUrl' => $this->originalContentUrl,
+            'previewImageUrl' => $this->previewImageUrl,
         ];
+
+        if ($this->quickReply) {
+            $video['quickReply'] = $this->quickReply->buildQuickReply();
+        }
+
+        $this->message[] = $video;
+
+        return $this->message;
     }
 }

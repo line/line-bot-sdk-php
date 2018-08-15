@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright 2016 LINE Corporation
+ * Copyright 2018 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -21,52 +20,32 @@ namespace LINE\LINEBot\TemplateActionBuilder;
 use LINE\LINEBot\Constant\ActionType;
 use LINE\LINEBot\TemplateActionBuilder;
 
-/**
- * A builder class for postback action.
- *
- * @package LINE\LINEBot\TemplateActionBuilder
- */
-class PostbackTemplateActionBuilder implements TemplateActionBuilder
+class CameraTemplateActionBuilder implements TemplateActionBuilder
 {
     /** @var string */
     private $label;
-    /** @var string */
-    private $data;
-    /** @var string|null */
-    private $displayText;
 
     /**
-     * PostbackAction constructor.
+     * CameraAction constructor.
+     * This action can be configured only with quick reply buttons.
      *
      * @param string $label Label of action.
-     * @param string $data Data of postback.
-     * @param string|null $displayText The text which will be sent when action is executed (optional).
      */
-    public function __construct($label, $data, $displayText = null)
+    public function __construct($label)
     {
         $this->label = $label;
-        $this->data = $data;
-        $this->displayText = $displayText;
     }
 
     /**
-     * Builds postback action structure.
+     * Builds camera action structure.
      *
-     * @return array Built postback action structure.
+     * @return array Built camera action structure.
      */
     public function buildTemplateAction()
     {
-        $action = [
-            'type' => ActionType::POSTBACK,
+        return [
+            'type' => ActionType::CAMERA,
             'label' => $this->label,
-            'data' => $this->data,
         ];
-
-        if (isset($this->displayText)) {
-            // If text is set, append extend field.
-            $action['displayText'] = $this->displayText;
-        }
-
-        return $action;
     }
 }
