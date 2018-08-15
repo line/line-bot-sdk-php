@@ -73,6 +73,7 @@ class CurlHTTPClient implements HTTPClient
      * @param array $data Request body or resource path.
      * @param array|null $headers Request headers.
      * @return Response Response of API request.
+     * @throws CurlExecutionException
      */
     public function post($url, array $data, array $headers = null)
     {
@@ -85,6 +86,7 @@ class CurlHTTPClient implements HTTPClient
      *
      * @param string $url Request URL.
      * @return Response Response of API request.
+     * @throws CurlExecutionException
      */
     public function delete($url)
     {
