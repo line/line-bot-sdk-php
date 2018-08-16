@@ -20,7 +20,9 @@ namespace LINE\LINEBot\MessageBuilder;
 
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
+use LINE\LINEBot\QuickReplyBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
+use LINE\LINEBot\Util\BuildUtil;
 
 /**
  * A builder class for flex message.
@@ -34,6 +36,9 @@ class FlexMessageBuilder implements MessageBuilder
     /** @var ContainerBuilder */
     private $containerBuilder;
 
+    /** @var QuickReplyBuilder|null */
+    private $quickReply;
+
     /** @var array */
     private $message;
 
@@ -42,11 +47,13 @@ class FlexMessageBuilder implements MessageBuilder
      *
      * @param string $altText
      * @param ContainerBuilder $containerBuilder
+     * @param QuickReplyBuilder|null $quickReply
      */
-    public function __construct($altText, $containerBuilder)
+    public function __construct($altText, $containerBuilder, QuickReplyBuilder $quickReply = null)
     {
         $this->altText = $altText;
         $this->containerBuilder = $containerBuilder;
+        $this->quickReply = $quickReply;
     }
 
     /**
@@ -84,6 +91,18 @@ class FlexMessageBuilder implements MessageBuilder
     }
 
     /**
+     * Set quickReply.
+     *
+     * @param QuickReplyBuilder|null $quickReply
+     * @return FlexMessageBuilder
+     */
+    public function setQuickReply(QuickReplyBuilder $quickReply = null)
+    {
+        $this->quickReply = $quickReply;
+        return $this;
+    }
+
+    /**
      * Builds flex message structure.
      *
      * @return array
@@ -95,11 +114,12 @@ class FlexMessageBuilder implements MessageBuilder
         }
 
         $this->message = [
-            [
+            BuildUtil::removeNullElements([
                 'type' => MessageType::FLEX,
                 'altText' => $this->altText,
                 'contents' => $this->containerBuilder->build(),
-            ]
+                'quickReply' => BuildUtil::build($this->quickReply, 'buildQuickReply'),
+            ])
         ];
 
         return $this->message;

@@ -44,6 +44,9 @@ use LINE\LINEBot\Constant\Flex\ComponentButtonHeight;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpacerComponentBuilder;
 use LINE\LINEBot\Constant\Flex\ComponentSpaceSize;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
+use LINE\LINEBot\QuickReplyBuilder\ButtonBuilder\QuickReplyButtonBuilder;
+use LINE\LINEBot\QuickReplyBuilder\QuickReplyMessageBuilder;
+use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 
 class SendFlexTest extends TestCase
 {
@@ -78,6 +81,26 @@ class SendFlexTest extends TestCase
         }
       ]
     }
+  },
+  "quickReply": {
+    "items": [
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "reply1",
+          "text": "Reply1"
+        }
+      },
+      {
+        "type": "action",
+        "action": {
+          "type": "message",
+          "label": "reply2",
+          "text": "Reply2"
+        }
+      }
+    ]
   }
 }
 JSON;
@@ -100,6 +123,16 @@ JSON;
                                     new TextComponentBuilder('World!')
                                 ])
                         )
+                )
+                ->setQuickReply(
+                    new QuickReplyMessageBuilder([
+                        new QuickReplyButtonBuilder(
+                            new MessageTemplateActionBuilder('reply1', 'Reply1')
+                        ),
+                        new QuickReplyButtonBuilder(
+                            new MessageTemplateActionBuilder('reply2', 'Reply2')
+                        )
+                    ])
                 )
         );
 
