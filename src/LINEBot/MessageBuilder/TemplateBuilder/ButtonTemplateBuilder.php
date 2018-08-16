@@ -31,21 +31,32 @@ class ButtonTemplateBuilder implements TemplateBuilder
 {
     /** @var string */
     private $title;
+
     /** @var string */
     private $text;
+
     /** @var string */
     private $thumbnailImageUrl;
+
     /** @var string */
     private $imageAspectRatio;
+
     /** @var string */
     private $imageSize;
+
     /** @var string */
     private $imageBackgroundColor;
+
     /** @var TemplateActionBuilder[] */
     private $actionBuilders;
 
     /** @var array */
     private $template;
+
+    /**
+     * @var TemplateActionBuilder
+     */
+    private $defaultAction;
 
     /**
      * ButtonTemplateBuilder constructor.
@@ -57,6 +68,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
      * @param string|null $imageAspectRatio
      * @param string|null $imageSize
      * @param string|null $imageBackgroundColor
+     * @param TemplateActionBuilder|null $defaultAction
      */
     public function __construct(
         $title,
@@ -65,7 +77,8 @@ class ButtonTemplateBuilder implements TemplateBuilder
         array $actionBuilders,
         $imageAspectRatio = null,
         $imageSize = null,
-        $imageBackgroundColor = null
+        $imageBackgroundColor = null,
+        TemplateActionBuilder $defaultAction = null
     ) {
         $this->title = $title;
         $this->text = $text;
@@ -74,6 +87,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
         $this->imageAspectRatio = $imageAspectRatio;
         $this->imageSize = $imageSize;
         $this->imageBackgroundColor = $imageBackgroundColor;
+        $this->defaultAction = $defaultAction;
     }
 
     /**
@@ -83,7 +97,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
      */
     public function buildTemplate()
     {
-        if (!empty($this->template)) {
+        if (! empty($this->template)) {
             return $this->template;
         }
 
@@ -110,6 +124,10 @@ class ButtonTemplateBuilder implements TemplateBuilder
 
         if ($this->imageBackgroundColor) {
             $this->template['imageBackgroundColor'] = $this->imageBackgroundColor;
+        }
+
+        if ($this->defaultAction) {
+            $this->template['defaultAction'] = $this->defaultAction->buildTemplateAction();
         }
 
         return $this->template;
