@@ -24,43 +24,25 @@ use LINE\LINEBot\Constant\Flex\ComponentMargin;
 class SeparatorComponentBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => [ComponentMargin::MD, '#000000'],
-            'json' => <<<JSON
+    public function test()
+    {
+        $json = <<<JSON
 {
   "type":"separator",
   "margin":"md",
   "color":"#000000"
 }
-JSON
-        ],
-        [
-            'param' => [],
-            'json' => <<<JSON
-{
-  "type":"separator"
-}
-JSON
-        ],
-    ];
+JSON;
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $margin = isset($t['param'][0]) ? $t['param'][0] : null;
-            $color = isset($t['param'][1]) ? $t['param'][1] : null;
+        $componentBuilder = new SeparatorComponentBuilder(
+            ComponentMargin::MD,
+            '#000000'
+        );
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
-            $componentBuilder = new SeparatorComponentBuilder(
-                $margin,
-                $color
-            );
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-
-            $componentBuilder = SeparatorComponentBuilder::builder()
-                ->setMargin($margin)
-                ->setColor($color);
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-        }
+        $componentBuilder = SeparatorComponentBuilder::builder()
+            ->setMargin(ComponentMargin::MD)
+            ->setColor('#000000');
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }

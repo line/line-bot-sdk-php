@@ -24,31 +24,22 @@ use LINE\LINEBot\Constant\Flex\ComponentSpaceSize;
 class SpacerComponentBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => [ComponentSpaceSize::XS],
-            'json' => <<<JSON
+    public function test()
+    {
+        $json = <<<JSON
 {
   "type":"spacer",
   "size":"xs"
 }
-JSON
-        ],
-    ];
+JSON;
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $size = $t['param'][0];
+        $componentBuilder = new SpacerComponentBuilder(
+            ComponentSpaceSize::XS
+        );
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
-            $componentBuilder = new SpacerComponentBuilder(
-                $size
-            );
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-
-            $componentBuilder = SpacerComponentBuilder::builder()
-                ->setSize($size);
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-        }
+        $componentBuilder = SpacerComponentBuilder::builder()
+            ->setSize(ComponentSpaceSize::XS);
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }

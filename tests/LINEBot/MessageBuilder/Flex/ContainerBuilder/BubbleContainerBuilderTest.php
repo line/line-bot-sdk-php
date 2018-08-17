@@ -26,46 +26,13 @@ use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder;
 use PHPUnit\Framework\TestCase;
-use LINE\Tests\LINEBot\Util\TestUtil;
 
 class BubbleContainerBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => [
-                ContainerDirection::LTR,
-                [
-                    BoxComponentBuilder::class, [
-                        ComponentLayout::VERTICAL, [
-                            [TextComponentBuilder::class, ['header']]
-                        ]
-                    ]
-                ],
-                [ImageComponentBuilder::class, ['https://example.com/hero.png']],
-                [
-                    BoxComponentBuilder::class, [
-                        ComponentLayout::VERTICAL, [
-                            [TextComponentBuilder::class, ['body']]
-                        ]
-                    ]
-                ],
-                [
-                    BoxComponentBuilder::class, [
-                        ComponentLayout::VERTICAL, [
-                            [TextComponentBuilder::class, ['footer']]
-                        ]
-                    ]
-                ],
-                [
-                    BubbleStylesBuilder::class, [
-                        null,
-                        null,
-                        [BlockStyleBuilder::class, [null, true, '#000000']],
-                    ]
-                ]
-            ],
-            'json' => <<<JSON
+    public function test()
+    {
+        $json = <<<JSON
 {
   "type":"bubble",
   "direction":"ltr",
@@ -101,46 +68,25 @@ class BubbleContainerBuilderTest extends TestCase
     }
   }
 }
-JSON
-        ],
-        [
-            'param' => [],
-            'json' => <<<JSON
-{
-  "type":"bubble"
-}
-JSON
-        ],
-    ];
+JSON;
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $direction = isset($t['param'][0]) ? $t['param'][0] : null;
-            $headerBuilder = isset($t['param'][1]) ? TestUtil::createBuilder($t['param'][1]) : null;
-            $heroBuilder = isset($t['param'][2]) ? TestUtil::createBuilder($t['param'][2]) : null;
-            $bodyBuilder = isset($t['param'][3]) ? TestUtil::createBuilder($t['param'][3]) : null;
-            $footerBuilder = isset($t['param'][4]) ? TestUtil::createBuilder($t['param'][4]) : null;
-            $stylesBuilder = isset($t['param'][5]) ? TestUtil::createBuilder($t['param'][5]) : null;
+        $builder = new BubbleContainerBuilder(
+            ContainerDirection::LTR,
+            new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('header')]),
+            new ImageComponentBuilder('https://example.com/hero.png'),
+            new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('body')]),
+            new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('footer')]),
+            BubbleStylesBuilder::builder()->setBody(new BlockStyleBuilder(null, true, '#000000'))
+        );
+        $this->assertEquals(json_decode($json, true), $builder->build());
 
-            $builder = new BubbleContainerBuilder(
-                $direction,
-                $headerBuilder,
-                $heroBuilder,
-                $bodyBuilder,
-                $footerBuilder,
-                $stylesBuilder
-            );
-            $this->assertEquals(json_decode($t['json'], true), $builder->build());
-
-            $builder = BubbleContainerBuilder::builder()
-                ->setDirection($direction)
-                ->setHeader($headerBuilder)
-                ->setHero($heroBuilder)
-                ->setBody($bodyBuilder)
-                ->setFooter($footerBuilder)
-                ->setStyles($stylesBuilder);
-            $this->assertEquals(json_decode($t['json'], true), $builder->build());
-        }
+        $builder = BubbleContainerBuilder::builder()
+            ->setDirection(ContainerDirection::LTR)
+            ->setHeader(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('header')]))
+            ->setHero(new ImageComponentBuilder('https://example.com/hero.png'))
+            ->setBody(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('body')]))
+            ->setFooter(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('footer')]))
+            ->setStyles(BubbleStylesBuilder::builder()->setBody(new BlockStyleBuilder(null, true, '#000000')));
+        $this->assertEquals(json_decode($json, true), $builder->build());
     }
 }

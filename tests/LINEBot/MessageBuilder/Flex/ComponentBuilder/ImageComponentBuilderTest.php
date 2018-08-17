@@ -26,26 +26,13 @@ use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentImageSize;
 use LINE\LINEBot\Constant\Flex\ComponentImageAspectRatio;
 use LINE\LINEBot\Constant\Flex\ComponentImageAspectMode;
-use LINE\Tests\LINEBot\Util\TestUtil;
 
 class ImageComponentBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => [
-                'http://example.com',
-                2,
-                ComponentMargin::XXL,
-                ComponentAlign::START,
-                ComponentGravity::BOTTOM,
-                ComponentImageSize::FULL,
-                ComponentImageAspectRatio::R16TO9,
-                ComponentImageAspectMode::COVER,
-                '#000000',
-                [UriTemplateActionBuilder::class, ['OK', 'http://linecorp.com/']]
-            ],
-            'json' => <<<JSON
+    public function test()
+    {
+        $json = <<<JSON
 {
   "type":"image",
   "url":"http://example.com",
@@ -59,61 +46,33 @@ class ImageComponentBuilderTest extends TestCase
   "backgroundColor":"#000000",
   "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"}
 }
-JSON
-        ],
-        [
-            'param' => [
-                'http://example.com'
-            ],
-            'json' => <<<JSON
-{
-  "type":"image",
-  "url":"http://example.com"
-}
-JSON
-        ],
-    ];
+JSON;
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $url = $t['param'][0];
-            $flex = isset($t['param'][1]) ? $t['param'][1] : null;
-            $margin = isset($t['param'][2]) ? $t['param'][2] : null;
-            $align = isset($t['param'][3]) ? $t['param'][3] : null;
-            $gravity = isset($t['param'][4]) ? $t['param'][4] : null;
-            $size = isset($t['param'][5]) ? $t['param'][5] : null;
-            $aspectRatio = isset($t['param'][6]) ? $t['param'][6] : null;
-            $aspectMode = isset($t['param'][7]) ? $t['param'][7] : null;
-            $backgroundColor = isset($t['param'][8]) ? $t['param'][8] : null;
-            $actionBuilder = isset($t['param'][9]) ? TestUtil::createBuilder($t['param'][9]) : null;
+        $componentBuilder = new ImageComponentBuilder(
+            'http://example.com',
+            2,
+            ComponentMargin::XXL,
+            ComponentAlign::START,
+            ComponentGravity::BOTTOM,
+            ComponentImageSize::FULL,
+            ComponentImageAspectRatio::R16TO9,
+            ComponentImageAspectMode::COVER,
+            '#000000',
+            new UriTemplateActionBuilder('OK', 'http://linecorp.com/')
+        );
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
-            $componentBuilder = new ImageComponentBuilder(
-                $url,
-                $flex,
-                $margin,
-                $align,
-                $gravity,
-                $size,
-                $aspectRatio,
-                $aspectMode,
-                $backgroundColor,
-                $actionBuilder
-            );
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-
-            $componentBuilder = ImageComponentBuilder::builder()
-                ->setUrl($url)
-                ->setFlex($flex)
-                ->setMargin($margin)
-                ->setAlign($align)
-                ->setGravity($gravity)
-                ->setSize($size)
-                ->setAspectRatio($aspectRatio)
-                ->setAspectMode($aspectMode)
-                ->setBackgroundColor($backgroundColor)
-                ->setAction($actionBuilder);
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-        }
+        $componentBuilder = ImageComponentBuilder::builder()
+            ->setUrl('http://example.com')
+            ->setFlex(2)
+            ->setMargin(ComponentMargin::XXL)
+            ->setAlign(ComponentAlign::START)
+            ->setGravity(ComponentGravity::BOTTOM)
+            ->setSize(ComponentImageSize::FULL)
+            ->setAspectRatio(ComponentImageAspectRatio::R16TO9)
+            ->setAspectMode(ComponentImageAspectMode::COVER)
+            ->setBackgroundColor('#000000')
+            ->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'));
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }

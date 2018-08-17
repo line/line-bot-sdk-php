@@ -25,27 +25,13 @@ use LINE\LINEBot\Constant\Flex\ComponentFontSize;
 use LINE\LINEBot\Constant\Flex\ComponentAlign;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentFontWeight;
-use LINE\Tests\LINEBot\Util\TestUtil;
 
 class TextComponentBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => [
-                'Hello, World!',
-                2,
-                ComponentMargin::LG,
-                ComponentFontSize::XXXXXL,
-                ComponentAlign::END,
-                ComponentGravity::TOP,
-                true,
-                0,
-                ComponentFontWeight::BOLD,
-                '#111111',
-                [UriTemplateActionBuilder::class, ['OK', 'http://linecorp.com/']]
-            ],
-            'json' => <<<JSON
+    public function test()
+    {
+        $json = <<<JSON
 {
   "type":"text",
   "text":"Hello, World!",
@@ -60,62 +46,35 @@ class TextComponentBuilderTest extends TestCase
   "color":"#111111",
   "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"}
 }
-JSON
-        ],
-        [
-            'param' => ['Hello, World!'],
-            'json' => <<<JSON
-{
-  "type":"text",
-  "text":"Hello, World!"
-}
-JSON
-        ],
-    ];
+JSON;
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $text = $t['param'][0];
-            $flex = isset($t['param'][1]) ? $t['param'][1] : null;
-            $margin = isset($t['param'][2]) ? $t['param'][2] : null;
-            $size = isset($t['param'][3]) ? $t['param'][3] : null;
-            $align = isset($t['param'][4]) ? $t['param'][4] : null;
-            $gravity = isset($t['param'][5]) ? $t['param'][5] : null;
-            $wrap = isset($t['param'][6]) ? $t['param'][6] : null;
-            $maxLines = isset($t['param'][7]) ? $t['param'][7] : null;
-            $weight = isset($t['param'][8]) ? $t['param'][8] : null;
-            $color = isset($t['param'][9]) ? $t['param'][9] : null;
-            $actionBuilder = isset($t['param'][10]) ? TestUtil::createBuilder($t['param'][10]) : null;
+        $componentBuilder = new TextComponentBuilder(
+            'Hello, World!',
+            2,
+            ComponentMargin::LG,
+            ComponentFontSize::XXXXXL,
+            ComponentAlign::END,
+            ComponentGravity::TOP,
+            true,
+            0,
+            ComponentFontWeight::BOLD,
+            '#111111',
+            new UriTemplateActionBuilder('OK', 'http://linecorp.com/')
+        );
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
-            $componentBuilder = new TextComponentBuilder(
-                $text,
-                $flex,
-                $margin,
-                $size,
-                $align,
-                $gravity,
-                $wrap,
-                $maxLines,
-                $weight,
-                $color,
-                $actionBuilder
-            );
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-
-            $componentBuilder = TextComponentBuilder::builder()
-                ->setText($text)
-                ->setFlex($flex)
-                ->setMargin($margin)
-                ->setSize($size)
-                ->setAlign($align)
-                ->setGravity($gravity)
-                ->setWrap($wrap)
-                ->setMaxLines($maxLines)
-                ->setWeight($weight)
-                ->setColor($color)
-                ->setAction($actionBuilder);
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-        }
+        $componentBuilder = TextComponentBuilder::builder()
+            ->setText('Hello, World!')
+            ->setFlex(2)
+            ->setMargin(ComponentMargin::LG)
+            ->setSize(ComponentFontSize::XXXXXL)
+            ->setAlign(ComponentAlign::END)
+            ->setGravity(ComponentGravity::TOP)
+            ->setWrap(true)
+            ->setMaxLines(0)
+            ->setWeight(ComponentFontWeight::BOLD)
+            ->setColor('#111111')
+            ->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'));
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }

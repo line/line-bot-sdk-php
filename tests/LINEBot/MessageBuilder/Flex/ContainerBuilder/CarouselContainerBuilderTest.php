@@ -23,46 +23,13 @@ use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\BubbleContainerBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
-use LINE\Tests\LINEBot\Util\TestUtil;
 
 class CarouselContainerBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => [
-                [
-                    [
-                        BubbleContainerBuilder::class, [
-                            null,
-                            null,
-                            null,
-                            [
-                                BoxComponentBuilder::class, [
-                                    ComponentLayout::VERTICAL, [
-                                        [TextComponentBuilder::class, ['Hellow,']]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    [
-                        BubbleContainerBuilder::class, [
-                            null,
-                            null,
-                            null,
-                            [
-                                BoxComponentBuilder::class, [
-                                    ComponentLayout::VERTICAL, [
-                                        [TextComponentBuilder::class, ['World!']]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ],
-            'json' => <<<JSON
+    public function test()
+    {
+        $json = <<<JSON
 {
   "type":"carousel",
   "contents":[
@@ -88,26 +55,27 @@ class CarouselContainerBuilderTest extends TestCase
     }
   ]
 }
-JSON
-        ],
-    ];
+JSON;
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $containerBuilders = [];
-            foreach ($t['param'][0] as $params) {
-                $containerBuilders[] = TestUtil::createBuilder($params);
-            }
+        $builder = new CarouselContainerBuilder([
+            BubbleContainerBuilder::builder()->setBody(
+                new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('Hellow,')])
+            ),
+            BubbleContainerBuilder::builder()->setBody(
+                new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('World!')])
+            )
+        ]);
+        $this->assertEquals(json_decode($json, true), $builder->build());
 
-            $builder = new CarouselContainerBuilder(
-                $containerBuilders
-            );
-            $this->assertEquals(json_decode($t['json'], true), $builder->build());
-
-            $builder = CarouselContainerBuilder::builder()
-                ->setContents($containerBuilders);
-            $this->assertEquals(json_decode($t['json'], true), $builder->build());
-        }
+        $builder = CarouselContainerBuilder::builder()
+            ->setContents([
+                BubbleContainerBuilder::builder()->setBody(
+                    new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('Hellow,')])
+                ),
+                BubbleContainerBuilder::builder()->setBody(
+                    new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('World!')])
+                )
+            ]);
+        $this->assertEquals(json_decode($json, true), $builder->build());
     }
 }

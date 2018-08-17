@@ -21,7 +21,6 @@ use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
 use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
-use LINE\Tests\LINEBot\Util\TestUtil;
 use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\Constant\Flex\ComponentSpacing;
@@ -30,20 +29,9 @@ use LINE\LINEBot\Constant\Flex\ComponentMargin;
 class BoxComponentBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => [
-                ComponentLayout::VERTICAL,
-                [
-                    [TextComponentBuilder::class, ['Hello, World!']],
-                    [ImageComponentBuilder::class, ['https://example.com/image.png']]
-                ],
-                3,
-                ComponentSpacing::SM,
-                ComponentMargin::XS,
-                [MessageTemplateActionBuilder::class, ['ok', 'OK']]
-            ],
-            'json' => <<<JSON
+    public function test()
+    {
+        $result = json_decode(<<<JSON
 {
   "type":"box",
   "layout":"vertical",
@@ -57,57 +45,31 @@ class BoxComponentBuilderTest extends TestCase
   "action":{"type":"message", "label":"ok", "text":"OK"}
 }
 JSON
-        ],
-        [
-            'param' => [
-                ComponentLayout::HORIZONTAL,
-                [
-                    [TextComponentBuilder::class, ['Hello, World!']]
-                ]
+            , true);
+
+        $conponentBuilder = new BoxComponentBuilder(
+            ComponentLayout::VERTICAL,
+            [
+                new TextComponentBuilder('Hello, World!'),
+                new ImageComponentBuilder('https://example.com/image.png')
             ],
-            'json' => <<<JSON
-{
-  "type":"box",
-  "layout":"horizontal",
-  "contents":[
-    {"type":"text", "text":"Hello, World!"}
-  ]
-}
-JSON
-        ],
-    ];
+            3,
+            ComponentSpacing::SM,
+            ComponentMargin::XS,
+            new MessageTemplateActionBuilder('ok', 'OK')
+        );
+        $this->assertEquals($result, $conponentBuilder->build());
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $layout = $t['param'][0];
-            $componentBuilders = [];
-            foreach ($t['param'][1] as $args) {
-                $componentBuilders[] = TestUtil::createBuilder($args);
-            }
-            $flex = isset($t['param'][2]) ? $t['param'][2] : null;
-            $spacing = isset($t['param'][3]) ? $t['param'][3] : null;
-            $margin = isset($t['param'][4]) ? $t['param'][4] : null;
-            $actionBuilder = isset($t['param'][5]) ? TestUtil::createBuilder($t['param'][5]) : null;
-
-            $conponentBuilder = new BoxComponentBuilder(
-                $layout,
-                $componentBuilders,
-                $flex,
-                $spacing,
-                $margin,
-                $actionBuilder
-            );
-            $this->assertEquals(json_decode($t['json'], true), $conponentBuilder->build());
-
-            $conponentBuilder = BoxComponentBuilder::builder()
-                ->setLayout($layout)
-                ->setContents($componentBuilders)
-                ->setFlex($flex)
-                ->setSpacing($spacing)
-                ->setMargin($margin)
-                ->setAction($actionBuilder);
-            $this->assertEquals(json_decode($t['json'], true), $conponentBuilder->build());
-        }
+        $conponentBuilder = BoxComponentBuilder::builder()
+            ->setLayout(ComponentLayout::VERTICAL)
+            ->setContents([
+                new TextComponentBuilder('Hello, World!'),
+                new ImageComponentBuilder('https://example.com/image.png')
+            ])
+            ->setFlex(3)
+            ->setSpacing(ComponentSpacing::SM)
+            ->setMargin(ComponentMargin::XS)
+            ->setAction(new MessageTemplateActionBuilder('ok', 'OK'));
+        $this->assertEquals($result, $conponentBuilder->build());
     }
 }

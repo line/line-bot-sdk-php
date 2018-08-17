@@ -23,25 +23,18 @@ use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\FillerComponentBuilder;
 class FillerComponentBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => null,
-            'json' => <<<JSON
+    public function test()
+    {
+        $json = <<<JSON
 {
   "type":"filler"
 }
-JSON
-        ],
-    ];
+JSON;
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $componentBuilder = new FillerComponentBuilder();
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
+        $componentBuilder = new FillerComponentBuilder();
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
-            $componentBuilder = FillerComponentBuilder::builder();
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-        }
+        $componentBuilder = FillerComponentBuilder::builder();
+        $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }

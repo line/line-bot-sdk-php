@@ -24,23 +24,13 @@ use LINE\LINEBot\Constant\Flex\ComponentButtonHeight;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentButtonStyle;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
-use LINE\Tests\LINEBot\Util\TestUtil;
 
 class ButtonComponentBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => [
-                [UriTemplateActionBuilder::class, ['OK', 'http://linecorp.com/']],
-                2,
-                ComponentMargin::LG,
-                ComponentButtonHeight::SM,
-                ComponentButtonStyle::LINK,
-                '#FF0000',
-                ComponentGravity::CENTER
-            ],
-            'json' => <<<JSON
+    public function test()
+    {
+        $result = <<<JSON
 {
   "type":"button",
   "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"},
@@ -51,52 +41,27 @@ class ButtonComponentBuilderTest extends TestCase
   "color":"#FF0000",
   "gravity":"center"
 }
-JSON
-        ],
-        [
-            'param' => [
-                [UriTemplateActionBuilder::class, ['OK', 'http://linecorp.com/']],
-            ],
-            'json' => <<<JSON
-{
-  "type":"button",
-  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"}
-}
-JSON
-        ],
-    ];
+JSON;
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $actionBuilder = TestUtil::createBuilder($t['param'][0]);
-            $flex = isset($t['param'][1]) ? $t['param'][1] : null;
-            $margin = isset($t['param'][2]) ? $t['param'][2] : null;
-            $height = isset($t['param'][3]) ? $t['param'][3] : null;
-            $style = isset($t['param'][4]) ? $t['param'][4] : null;
-            $color = isset($t['param'][5]) ? $t['param'][5] : null;
-            $gravity = isset($t['param'][6]) ? $t['param'][6] : null;
+        $componentBuilder = new ButtonComponentBuilder(
+            new UriTemplateActionBuilder('OK', 'http://linecorp.com/'),
+            2,
+            ComponentMargin::LG,
+            ComponentButtonHeight::SM,
+            ComponentButtonStyle::LINK,
+            '#FF0000',
+            ComponentGravity::CENTER
+        );
+        $this->assertEquals(json_decode($result, true), $componentBuilder->build());
 
-            $componentBuilder = new ButtonComponentBuilder(
-                $actionBuilder,
-                $flex,
-                $margin,
-                $height,
-                $style,
-                $color,
-                $gravity
-            );
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-
-            $componentBuilder = ButtonComponentBuilder::builder()
-                ->setAction($actionBuilder)
-                ->setFlex($flex)
-                ->setMargin($margin)
-                ->setHeight($height)
-                ->setStyle($style)
-                ->setColor($color)
-                ->setGravity($gravity);
-            $this->assertEquals(json_decode($t['json'], true), $componentBuilder->build());
-        }
+        $componentBuilder = ButtonComponentBuilder::builder()
+            ->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'))
+            ->setFlex(2)
+            ->setMargin(ComponentMargin::LG)
+            ->setHeight(ComponentButtonHeight::SM)
+            ->setStyle(ComponentButtonStyle::LINK)
+            ->setColor('#FF0000')
+            ->setGravity(ComponentGravity::CENTER);
+        $this->assertEquals(json_decode($result, true), $componentBuilder->build());
     }
 }

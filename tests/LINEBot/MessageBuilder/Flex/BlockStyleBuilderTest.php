@@ -23,49 +23,27 @@ use PHPUnit\Framework\TestCase;
 class BlockStyleBuilderTest extends TestCase
 {
 
-    private static $tests = [
-        [
-            'param' => [
-                '#FFFFFF',
-                true,
-                '#CCCCCC'
-            ],
-            'json' => <<<JSON
+    public function test()
+    {
+        $json = <<<JSON
 {
   "backgroundColor":"#FFFFFF",
   "separator":true,
   "separatorColor":"#CCCCCC"
 }
-JSON
-        ],
-        [
-            'param' => [],
-            'json' => <<<JSON
-{
-}
-JSON
-        ],
-    ];
+JSON;
 
-    public function test()
-    {
-        foreach (self::$tests as $t) {
-            $backgroundColor = isset($t['param'][0]) ? $t['param'][0] : null;
-            $separator = isset($t['param'][1]) ? $t['param'][1] : null;
-            $separatorColor = isset($t['param'][2]) ? $t['param'][2] : null;
+        $styleBuilder = new BlockStyleBuilder(
+            '#FFFFFF',
+            true,
+            '#CCCCCC'
+        );
+        $this->assertEquals(json_decode($json, true), $styleBuilder->build());
 
-            $styleBuilder = new BlockStyleBuilder(
-                $backgroundColor,
-                $separator,
-                $separatorColor
-            );
-            $this->assertEquals(json_decode($t['json'], true), $styleBuilder->build());
-
-            $styleBuilder = BlockStyleBuilder::builder()
-                ->setBackgroundColor($backgroundColor)
-                ->setSeparator($separator)
-                ->setSeparatorColor($separatorColor);
-            $this->assertEquals(json_decode($t['json'], true), $styleBuilder->build());
-        }
+        $styleBuilder = BlockStyleBuilder::builder()
+            ->setBackgroundColor('#FFFFFF')
+            ->setSeparator(true)
+            ->setSeparatorColor('#CCCCCC');
+        $this->assertEquals(json_decode($json, true), $styleBuilder->build());
     }
 }
