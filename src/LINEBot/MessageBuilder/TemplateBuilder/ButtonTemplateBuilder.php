@@ -61,9 +61,9 @@ class ButtonTemplateBuilder implements TemplateBuilder
     /**
      * ButtonTemplateBuilder constructor.
      *
-     * @param string $title
+     * @param string|null $title
      * @param string $text
-     * @param string $thumbnailImageUrl
+     * @param string|null $thumbnailImageUrl
      * @param TemplateActionBuilder[] $actionBuilders
      * @param string|null $imageAspectRatio
      * @param string|null $imageSize
@@ -71,9 +71,9 @@ class ButtonTemplateBuilder implements TemplateBuilder
      * @param TemplateActionBuilder|null $defaultAction
      */
     public function __construct(
-        $title,
+        $title = null,
         $text,
-        $thumbnailImageUrl,
+        $thumbnailImageUrl = null,
         array $actionBuilders,
         $imageAspectRatio = null,
         $imageSize = null,
@@ -97,7 +97,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
      */
     public function buildTemplate()
     {
-        if (! empty($this->template)) {
+        if (!empty($this->template)) {
             return $this->template;
         }
 
@@ -108,11 +108,17 @@ class ButtonTemplateBuilder implements TemplateBuilder
 
         $this->template = [
             'type' => TemplateType::BUTTONS,
-            'thumbnailImageUrl' => $this->thumbnailImageUrl,
-            'title' => $this->title,
             'text' => $this->text,
             'actions' => $actions,
         ];
+
+        if ($this->title) {
+            $this->template['title'] = $this->title;
+        }
+
+        if ($this->thumbnailImageUrl)  {
+            $this->template['thumbnailImageUrl'] = $this->thumbnailImageUrl;
+        }
 
         if ($this->imageAspectRatio) {
             $this->template['imageAspectRatio'] = $this->imageAspectRatio;
