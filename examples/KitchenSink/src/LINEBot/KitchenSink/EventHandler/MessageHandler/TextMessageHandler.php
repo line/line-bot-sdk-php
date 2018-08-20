@@ -34,6 +34,8 @@ use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LINE\LINEBot\KitchenSink\EventHandler;
+use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleRestaurant;
+use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleShopping;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
 use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
 use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
@@ -162,6 +164,14 @@ class TextMessageHandler implements EventHandler
                     ]
                 );
                 $this->bot->replyMessage($replyToken, $imagemapMessageBuilder);
+                break;
+            case 'restaurant':
+                $flexMessageBuilder = FlexSampleRestaurant::get();
+                $this->bot->replyMessage($replyToken, $flexMessageBuilder);
+                break;
+            case 'shopping':
+                $flexMessageBuilder = FlexSampleShopping::get();
+                $this->bot->replyMessage($replyToken, $flexMessageBuilder);
                 break;
             case 'quickReply':
                 $postback = new PostbackTemplateActionBuilder('Buy', 'action=quickBuy&itemid=222', 'Buy');
