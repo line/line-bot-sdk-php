@@ -1,261 +1,189 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
 
-	<title>line-bot-sdk-php</title>
+        <link rel="stylesheet" href="resources/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/style.css">
 
-	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+        <title>
+            Overview
+        </title>
+    </head>
 
-</head>
+    <body>
+<div id="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.html" class="active">
+                                Overview
+                            </a>
+                        </li>
 
-<body>
-<div id="left">
-	<div id="menu">
-<span>Overview</span>
+                            <li>
+                                <a href="classes.html">Classes</a>
+                            </li>
 
-		<div id="groups">
-				<h3>Namespaces</h3>
-			<ul>
-				<li>
-					<a href="namespace-LINE.html">
-						LINE<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-LINE.LINEBot.html">
-						LINEBot<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-LINE.LINEBot.Constant.html">
-						Constant					</a>
-
-						</li>
-				<li>
-					<a href="namespace-LINE.LINEBot.Event.html">
-						Event<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-LINE.LINEBot.Event.MessageEvent.html">
-						MessageEvent					</a>
-
-						</li>
-				<li>
-					<a href="namespace-LINE.LINEBot.Event.Parser.html">
-						Parser					</a>
-
-						</li>
-							</ul></li>
-				<li>
-					<a href="namespace-LINE.LINEBot.Exception.html">
-						Exception					</a>
-
-						</li>
-				<li>
-					<a href="namespace-LINE.LINEBot.HTTPClient.html">
-						HTTPClient					</a>
-
-						</li>
-				<li>
-					<a href="namespace-LINE.LINEBot.ImagemapActionBuilder.html">
-						ImagemapActionBuilder					</a>
-
-						</li>
-				<li>
-					<a href="namespace-LINE.LINEBot.MessageBuilder.html">
-						MessageBuilder<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-LINE.LINEBot.MessageBuilder.Imagemap.html">
-						Imagemap					</a>
-
-						</li>
-				<li>
-					<a href="namespace-LINE.LINEBot.MessageBuilder.TemplateBuilder.html">
-						TemplateBuilder					</a>
-
-						</li>
-							</ul></li>
-				<li>
-					<a href="namespace-LINE.LINEBot.TemplateActionBuilder.html">
-						TemplateActionBuilder					</a>
-
-						</li>
-							</ul></li></ul></li>
-			</ul>
-		</div>
-
-		<hr>
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
 
 
-		<div id="elements">
-			<h3>Classes</h3>
-			<ul>
-				<li><a href="class-LINE.LINEBot.html">LINE\LINEBot</a></li>
-				<li><a href="class-LINE.LINEBot.Constant.ActionType.html">LINE\LINEBot\Constant\ActionType</a></li>
-				<li><a href="class-LINE.LINEBot.Constant.EventSourceType.html">LINE\LINEBot\Constant\EventSourceType</a></li>
-				<li><a href="class-LINE.LINEBot.Constant.HTTPHeader.html">LINE\LINEBot\Constant\HTTPHeader</a></li>
-				<li><a href="class-LINE.LINEBot.Constant.MessageType.html">LINE\LINEBot\Constant\MessageType</a></li>
-				<li><a href="class-LINE.LINEBot.Constant.Meta.html">LINE\LINEBot\Constant\Meta</a></li>
-				<li><a href="class-LINE.LINEBot.Constant.TemplateType.html">LINE\LINEBot\Constant\TemplateType</a></li>
-				<li><a href="class-LINE.LINEBot.Event.BaseEvent.html">LINE\LINEBot\Event\BaseEvent</a></li>
-				<li><a href="class-LINE.LINEBot.Event.BeaconDetectionEvent.html">LINE\LINEBot\Event\BeaconDetectionEvent</a></li>
-				<li><a href="class-LINE.LINEBot.Event.FollowEvent.html">LINE\LINEBot\Event\FollowEvent</a></li>
-				<li><a href="class-LINE.LINEBot.Event.JoinEvent.html">LINE\LINEBot\Event\JoinEvent</a></li>
-				<li><a href="class-LINE.LINEBot.Event.LeaveEvent.html">LINE\LINEBot\Event\LeaveEvent</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.html">LINE\LINEBot\Event\MessageEvent</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.AudioMessage.html">LINE\LINEBot\Event\MessageEvent\AudioMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.FileMessage.html">LINE\LINEBot\Event\MessageEvent\FileMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.ImageMessage.html">LINE\LINEBot\Event\MessageEvent\ImageMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.LocationMessage.html">LINE\LINEBot\Event\MessageEvent\LocationMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.StickerMessage.html">LINE\LINEBot\Event\MessageEvent\StickerMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.TextMessage.html">LINE\LINEBot\Event\MessageEvent\TextMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.UnknownMessage.html">LINE\LINEBot\Event\MessageEvent\UnknownMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.MessageEvent.VideoMessage.html">LINE\LINEBot\Event\MessageEvent\VideoMessage</a></li>
-				<li><a href="class-LINE.LINEBot.Event.Parser.EventRequestParser.html">LINE\LINEBot\Event\Parser\EventRequestParser</a></li>
-				<li><a href="class-LINE.LINEBot.Event.PostbackEvent.html">LINE\LINEBot\Event\PostbackEvent</a></li>
-				<li><a href="class-LINE.LINEBot.Event.UnfollowEvent.html">LINE\LINEBot\Event\UnfollowEvent</a></li>
-				<li><a href="class-LINE.LINEBot.Event.UnknownEvent.html">LINE\LINEBot\Event\UnknownEvent</a></li>
-				<li><a href="class-LINE.LINEBot.HTTPClient.Curl.html">LINE\LINEBot\HTTPClient\Curl</a></li>
-				<li><a href="class-LINE.LINEBot.HTTPClient.CurlHTTPClient.html">LINE\LINEBot\HTTPClient\CurlHTTPClient</a></li>
-				<li><a href="class-LINE.LINEBot.ImagemapActionBuilder.AreaBuilder.html">LINE\LINEBot\ImagemapActionBuilder\AreaBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.ImagemapActionBuilder.ImagemapMessageActionBuilder.html">LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.ImagemapActionBuilder.ImagemapUriActionBuilder.html">LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.AudioMessageBuilder.html">LINE\LINEBot\MessageBuilder\AudioMessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.Imagemap.BaseSizeBuilder.html">LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.ImagemapMessageBuilder.html">LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.ImageMessageBuilder.html">LINE\LINEBot\MessageBuilder\ImageMessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.LocationMessageBuilder.html">LINE\LINEBot\MessageBuilder\LocationMessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.MultiMessageBuilder.html">LINE\LINEBot\MessageBuilder\MultiMessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.StickerMessageBuilder.html">LINE\LINEBot\MessageBuilder\StickerMessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.TemplateBuilder.ButtonTemplateBuilder.html">LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.TemplateBuilder.CarouselColumnTemplateBuilder.html">LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.TemplateBuilder.CarouselTemplateBuilder.html">LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.TemplateBuilder.ConfirmTemplateBuilder.html">LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.TemplateBuilder.ImageCarouselColumnTemplateBuilder.html">LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.TemplateBuilder.ImageCarouselTemplateBuilder.html">LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.TemplateMessageBuilder.html">LINE\LINEBot\MessageBuilder\TemplateMessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.TextMessageBuilder.html">LINE\LINEBot\MessageBuilder\TextMessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.VideoMessageBuilder.html">LINE\LINEBot\MessageBuilder\VideoMessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.Response.html">LINE\LINEBot\Response</a></li>
-				<li><a href="class-LINE.LINEBot.SignatureValidator.html">LINE\LINEBot\SignatureValidator</a></li>
-				<li><a href="class-LINE.LINEBot.TemplateActionBuilder.DatetimePickerTemplateActionBuilder.html">LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.TemplateActionBuilder.MessageTemplateActionBuilder.html">LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.TemplateActionBuilder.PostbackTemplateActionBuilder.html">LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.TemplateActionBuilder.UriTemplateActionBuilder.html">LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder</a></li>
-			</ul>
 
-			<h3>Interfaces</h3>
-			<ul>
-				<li><a href="class-LINE.LINEBot.HTTPClient.html">LINE\LINEBot\HTTPClient</a></li>
-				<li><a href="class-LINE.LINEBot.ImagemapActionBuilder.html">LINE\LINEBot\ImagemapActionBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.MessageBuilder.TemplateBuilder.html">LINE\LINEBot\MessageBuilder\TemplateBuilder</a></li>
-				<li><a href="class-LINE.LINEBot.TemplateActionBuilder.html">LINE\LINEBot\TemplateActionBuilder</a></li>
-			</ul>
+                            <li>
+                                <a href="exceptions.html">Exceptions</a>
+                            </li>
 
+                    </ul>
 
-			<h3>Exceptions</h3>
-			<ul>
-				<li><a href="class-LINE.LINEBot.Exception.CurlExecutionException.html">LINE\LINEBot\Exception\CurlExecutionException</a></li>
-				<li><a href="class-LINE.LINEBot.Exception.InvalidEventRequestException.html">LINE\LINEBot\Exception\InvalidEventRequestException</a></li>
-				<li><a href="class-LINE.LINEBot.Exception.InvalidEventSourceException.html">LINE\LINEBot\Exception\InvalidEventSourceException</a></li>
-				<li><a href="class-LINE.LINEBot.Exception.InvalidSignatureException.html">LINE\LINEBot\Exception\InvalidSignatureException</a></li>
-			</ul>
-
-
-		</div>
-	</div>
+                    <form id="search" class="pull-right">
+                        <input type="text" name="q" class="form-control text" placeholder="Search class, function or namespace" autofocus>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="splitter"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+    <h1>Overview</h1>
 
-<div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="">
-		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text" placeholder="Search" autofocus>
-	</form>
+        <table class="table table-responsive table-bordered table-striped" id="namespaces">
+            <tr><th>Namespaces Summary</th></tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.html">LINE</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.html">LINE\LINEBot</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.Constant.html">LINE\LINEBot\Constant</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.Constant.Flex.html">LINE\LINEBot\Constant\Flex</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.Event.html">LINE\LINEBot\Event</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.Event.MessageEvent.html">LINE\LINEBot\Event\MessageEvent</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.Event.Parser.html">LINE\LINEBot\Event\Parser</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.Exception.html">LINE\LINEBot\Exception</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.HTTPClient.html">LINE\LINEBot\HTTPClient</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.ImagemapActionBuilder.html">LINE\LINEBot\ImagemapActionBuilder</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.MessageBuilder.Flex.html">LINE\LINEBot\MessageBuilder\Flex</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.html">LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.MessageBuilder.Flex.ContainerBuilder.html">LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.MessageBuilder.Imagemap.html">LINE\LINEBot\MessageBuilder\Imagemap</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.MessageBuilder.TemplateBuilder.html">LINE\LINEBot\MessageBuilder\TemplateBuilder</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.QuickReplyBuilder.html">LINE\LINEBot\QuickReplyBuilder</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.QuickReplyBuilder.ButtonBuilder.html">LINE\LINEBot\QuickReplyBuilder\ButtonBuilder</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.RichMenuBuilder.html">LINE\LINEBot\RichMenuBuilder</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.TemplateActionBuilder.html">LINE\LINEBot\TemplateActionBuilder</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-LINE.LINEBot.Util.html">LINE\LINEBot\Util</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="namespace-none.html">none</a>
+                </td>
+            </tr>
+        </table>
 
-	<div id="navigation">
-		<ul>
-			<li class="active">
-<span>Overview</span>			</li>
-			<li>
-<span>Namespace</span>			</li>
-			<li>
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-		</ul>
-		<ul>
-		</ul>
-	</div>
+    <div id="footer">
+        Generated by <a href="https://github.com/apigen/apigen">ApiGen</a>
+    </div>
+                </div>
+            </div>
+        </div>
 
-<div id="content">
-	<h1>line-bot-sdk-php</h1>
+        <script src="resources/jquery-3.2.1.min.js"></script>
+        <script src="resources/jquery-ui-1.12.1.min.js"></script>
 
-
-	<table class="summary" id="namespaces">
-		<caption>Namespaces summary</caption>
-			<tr>
-				<td class="name"><a href="namespace-LINE.html">LINE</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.html">LINE\LINEBot</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.Constant.html">LINE\LINEBot\Constant</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.Event.html">LINE\LINEBot\Event</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.Event.MessageEvent.html">LINE\LINEBot\Event\MessageEvent</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.Event.Parser.html">LINE\LINEBot\Event\Parser</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.Exception.html">LINE\LINEBot\Exception</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.HTTPClient.html">LINE\LINEBot\HTTPClient</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.ImagemapActionBuilder.html">LINE\LINEBot\ImagemapActionBuilder</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.MessageBuilder.Imagemap.html">LINE\LINEBot\MessageBuilder\Imagemap</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.MessageBuilder.TemplateBuilder.html">LINE\LINEBot\MessageBuilder\TemplateBuilder</a></td>
-			</tr>
-			<tr>
-				<td class="name"><a href="namespace-LINE.LINEBot.TemplateActionBuilder.html">LINE\LINEBot\TemplateActionBuilder</a></td>
-			</tr>
-	</table>
-
-
-</div>
-
-	<div id="footer">
-		line-bot-sdk-php API documentation generated by <a href="http://apigen.org">ApiGen</a>
-	</div>
-</div>
-</div>
-<script src="resources/combined.js?716897fdd0ca1e5f52318e55b1fbc3254d25467b"></script>
-<script src="elementlist.js?0c5179b8918e7543e2719426afae4ddf782f6148"></script>
-</body>
+        <script src="elementlist.js"></script>
+        <script src="resources/main.js"></script>
+    </body>
 </html>
+
+

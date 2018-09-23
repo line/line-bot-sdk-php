@@ -22,11 +22,20 @@ use LINE\LINEBot;
 use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
 use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
 use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
+use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use LINE\LINEBot\QuickReplyBuilder\ButtonBuilder\QuickReplyButtonBuilder;
+use LINE\LINEBot\QuickReplyBuilder\QuickReplyMessageBuilder;
+use LINE\LINEBot\TemplateActionBuilder\CameraRollTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\CameraTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\LocationTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LINE\LINEBot\KitchenSink\EventHandler;
+use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleRestaurant;
+use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleShopping;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
 use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
 use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
@@ -155,6 +164,36 @@ class TextMessageHandler implements EventHandler
                     ]
                 );
                 $this->bot->replyMessage($replyToken, $imagemapMessageBuilder);
+                break;
+            case 'restaurant':
+                $flexMessageBuilder = FlexSampleRestaurant::get();
+                $this->bot->replyMessage($replyToken, $flexMessageBuilder);
+                break;
+            case 'shopping':
+                $flexMessageBuilder = FlexSampleShopping::get();
+                $this->bot->replyMessage($replyToken, $flexMessageBuilder);
+                break;
+            case 'quickReply':
+                $postback = new PostbackTemplateActionBuilder('Buy', 'action=quickBuy&itemid=222', 'Buy');
+                $datetimePicker = new DatetimePickerTemplateActionBuilder(
+                    'Select date',
+                    'storeId=12345',
+                    'datetime',
+                    '2017-12-25t00:00',
+                    '2018-01-24t23:59',
+                    '2017-12-25t00:00'
+                );
+
+                $quickReply = new QuickReplyMessageBuilder([
+                    new QuickReplyButtonBuilder(new LocationTemplateActionBuilder('Location')),
+                    new QuickReplyButtonBuilder(new CameraTemplateActionBuilder('Camera')),
+                    new QuickReplyButtonBuilder(new CameraRollTemplateActionBuilder('Camera roll')),
+                    new QuickReplyButtonBuilder($postback),
+                    new QuickReplyButtonBuilder($datetimePicker),
+                ]);
+
+                $messageTemplate = new TextMessageBuilder('Text with quickReply buttons', $quickReply);
+                $this->bot->replyMessage($replyToken, $messageTemplate);
                 break;
             default:
                 $this->echoBack($replyToken, $text);

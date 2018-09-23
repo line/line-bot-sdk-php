@@ -20,6 +20,7 @@ namespace LINE\LINEBot\MessageBuilder;
 
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
+use LINE\LINEBot\QuickReplyBuilder;
 
 /**
  * A builder class for location message.
@@ -30,12 +31,21 @@ class LocationMessageBuilder implements MessageBuilder
 {
     /** @var string */
     private $title;
+
     /** @var string */
     private $address;
+
     /** @var double */
     private $latitude;
+
     /** @var double */
     private $longitude;
+
+    /** @var array */
+    private $message = [];
+
+    /** @var QuickReplyBuilder|null */
+    private $quickReply;
 
     /**
      * LocationMessageBuilder constructor.
@@ -44,13 +54,15 @@ class LocationMessageBuilder implements MessageBuilder
      * @param string $address
      * @param double $latitude
      * @param double $longitude
+     * @param QuickReplyBuilder|null $quickReply
      */
-    public function __construct($title, $address, $latitude, $longitude)
+    public function __construct($title, $address, $latitude, $longitude, QuickReplyBuilder $quickReply = null)
     {
         $this->title = $title;
         $this->address = $address;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
+        $this->quickReply = $quickReply;
     }
 
     /**
@@ -60,14 +72,24 @@ class LocationMessageBuilder implements MessageBuilder
      */
     public function buildMessage()
     {
-        return [
-            [
-                'type' => MessageType::LOCATION,
-                'title' => $this->title,
-                'address' => $this->address,
-                'latitude' => $this->latitude,
-                'longitude' => $this->longitude,
-            ]
+        if (! empty($this->message)) {
+            return $this->message;
+        }
+
+        $locationMessage = [
+            'type' => MessageType::LOCATION,
+            'title' => $this->title,
+            'address' => $this->address,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
         ];
+
+        if ($this->quickReply) {
+            $locationMessage['quickReply'] = $this->quickReply->buildQuickReply();
+        }
+
+        $this->message[] = $locationMessage;
+
+        return $this->message;
     }
 }

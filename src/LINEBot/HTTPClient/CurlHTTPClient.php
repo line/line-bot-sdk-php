@@ -56,39 +56,51 @@ class CurlHTTPClient implements HTTPClient
      * Sends GET request to LINE Messaging API.
      *
      * @param string $url Request URL.
+     * @param array $data Request body
+     * @param array $headers Request headers.
      * @return Response Response of API request.
+     * @throws CurlExecutionException
      */
-    public function get($url)
+    public function get($url, array $data = [], array $headers = [])
     {
-        return $this->sendRequest('GET', $url, [], []);
+        return $this->sendRequest('GET', $url, $headers, $data);
     }
 
     /**
      * Sends POST request to LINE Messaging API.
      *
      * @param string $url Request URL.
-     * @param array $data Request body.
+     * @param array $data Request body or resource path.
+     * @param array|null $headers Request headers.
      * @return Response Response of API request.
+     * @throws CurlExecutionException
      */
-    public function post($url, array $data)
+    public function post($url, array $data, array $headers = null)
     {
-        return $this->sendRequest('POST', $url, ['Content-Type: application/json; charset=utf-8'], $data);
+        $headers = is_null($headers) ? ['Content-Type: application/json; charset=utf-8'] : $headers;
+        return $this->sendRequest('POST', $url, $headers, $data);
+    }
+
+    /**
+     * Sends DELETE request to LINE Messaging API.
+     *
+     * @param string $url Request URL.
+     * @return Response Response of API request.
+     * @throws CurlExecutionException
+     */
+    public function delete($url)
+    {
+        return $this->sendRequest('DELETE', $url, [], []);
     }
 
     /**
      * @param string $method
-     * @param string $url
-     * @param array $additionalHeader
-     * @param array $reqBody
-     * @return Response
-     * @throws CurlExecutionException
+     * @param array $headers
+     * @param string|null $reqBody
+     * @return array cUrl options
      */
-    private function sendRequest($method, $url, array $additionalHeader, array $reqBody)
+    private function getOptions($method, $headers, $reqBody)
     {
-        $curl = new Curl($url);
-
-        $headers = array_merge($this->authHeaders, $this->userAgentHeader, $additionalHeader);
-
         $options = [
             CURLOPT_CUSTOMREQUEST => $method,
             CURLOPT_HTTPHEADER => $headers,
@@ -96,16 +108,42 @@ class CurlHTTPClient implements HTTPClient
             CURLOPT_BINARYTRANSFER => true,
             CURLOPT_HEADER => true,
         ];
-
         if ($method === 'POST') {
-            if (empty($reqBody)) {
+            if (is_null($reqBody)) {
                 // Rel: https://github.com/line/line-bot-sdk-php/issues/35
                 $options[CURLOPT_HTTPHEADER][] = 'Content-Length: 0';
             } else {
-                $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
+                if (isset($reqBody['__file']) && isset($reqBody['__type'])) {
+                    $options[CURLOPT_PUT] = true;
+                    $options[CURLOPT_INFILE] = fopen($reqBody['__file'], 'r');
+                    $options[CURLOPT_INFILESIZE] = filesize($reqBody['__file']);
+                } elseif (!empty($reqBody)) {
+                    $options[CURLOPT_POST] = true;
+                    $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
+                } else {
+                    $options[CURLOPT_POST] = true;
+                    $options[CURLOPT_POSTFIELDS] = $reqBody;
+                }
             }
         }
+        return $options;
+    }
 
+    /**
+     * @param string $method
+     * @param string $url
+     * @param array $additionalHeader
+     * @param string|null $reqBody
+     * @return Response
+     * @throws CurlExecutionException
+     */
+    private function sendRequest($method, $url, array $additionalHeader, $reqBody = null)
+    {
+        $curl = new Curl($url);
+
+        $headers = array_merge($this->authHeaders, $this->userAgentHeader, $additionalHeader);
+
+        $options = $this->getOptions($method, $headers, $reqBody);
         $curl->setoptArray($options);
 
         $result = $curl->exec();
@@ -129,6 +167,10 @@ class CurlHTTPClient implements HTTPClient
         }
 
         $body = substr($result, $responseHeaderSize);
+
+        if (isset($options[CURLOPT_INFILE])) {
+            fclose($options[CURLOPT_INFILE]);
+        }
 
         return new Response($httpStatus, $body, $responseHeaders);
     }

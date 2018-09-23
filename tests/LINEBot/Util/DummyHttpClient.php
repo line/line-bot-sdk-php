@@ -20,6 +20,7 @@ namespace LINE\Tests\LINEBot\Util;
 
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\Response;
+use PHPUnit\Framework\TestCase;
 
 class DummyHttpClient implements HTTPClient
 {
@@ -28,7 +29,7 @@ class DummyHttpClient implements HTTPClient
     /** @var \Closure */
     private $mock;
 
-    public function __construct(\PHPUnit_Framework_TestCase $testRunner, \Closure $mock)
+    public function __construct(TestCase $testRunner, \Closure $mock)
     {
         $this->testRunner = $testRunner;
         $this->mock = $mock;
@@ -36,9 +37,11 @@ class DummyHttpClient implements HTTPClient
 
     /**
      * @param string $url
+     * @param array $data Optional
+     * @param array $headers
      * @return Response
      */
-    public function get($url, $data = null)
+    public function get($url, array $data = [], array $headers = [])
     {
         $ret = call_user_func($this->mock, $this->testRunner, 'GET', $url, is_null($data) ? [] : $data);
         return new Response(200, json_encode($ret));
@@ -47,11 +50,22 @@ class DummyHttpClient implements HTTPClient
     /**
      * @param string $url
      * @param array $data
+     * @param array $headers Optional
      * @return Response
      */
-    public function post($url, array $data)
+    public function post($url, array $data, array $headers = null)
     {
-        $ret = call_user_func($this->mock, $this->testRunner, 'POST', $url, $data);
+        $ret = call_user_func($this->mock, $this->testRunner, 'POST', $url, $data, $headers);
+        return new Response(200, json_encode($ret));
+    }
+
+    /**
+     * @param string $url
+     * @return Response
+     */
+    public function delete($url, $data = null)
+    {
+        $ret = call_user_func($this->mock, $this->testRunner, 'DELETE', $url, is_null($data) ? [] : $data);
         return new Response(200, json_encode($ret));
     }
 }

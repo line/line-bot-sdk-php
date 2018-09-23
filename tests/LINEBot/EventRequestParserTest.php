@@ -35,8 +35,9 @@ use LINE\LINEBot\Event\PostbackEvent;
 use LINE\LINEBot\Event\UnfollowEvent;
 use LINE\LINEBot\Event\UnknownEvent;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class EventRequestParserTest extends \PHPUnit_Framework_TestCase
+class EventRequestParserTest extends TestCase
 {
     private static $json = <<<JSON
 {

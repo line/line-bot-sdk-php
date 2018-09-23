@@ -21,9 +21,13 @@ namespace LINE\Tests\LINEBot;
 use LINE\LINEBot;
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use LINE\LINEBot\QuickReplyBuilder\ButtonBuilder\QuickReplyButtonBuilder;
+use LINE\LINEBot\QuickReplyBuilder\QuickReplyMessageBuilder;
+use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
+use PHPUnit\Framework\TestCase;
 
-class SendTextTest extends \PHPUnit_Framework_TestCase
+class SendTextTest extends TestCase
 {
     public function testReplySingleText()
     {
@@ -144,6 +148,44 @@ class SendTextTest extends \PHPUnit_Framework_TestCase
 
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
         $res = $bot->pushMessage('DESTINATION', new TextMessageBuilder('test text1', 'test text2', 'test text3'));
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+    }
+
+    public function testTextMessageWithQuickReply()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            $testRunner->assertEquals('POST', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/message/push', $url);
+
+            $testRunner->assertEquals('DESTINATION', $data['to']);
+            $testRunner->assertEquals(2, count($data['messages']));
+            $testRunner->assertEquals(MessageType::TEXT, $data['messages'][0]['type']);
+            $testRunner->assertEquals('test text1', $data['messages'][0]['text']);
+            $testRunner->assertEquals(MessageType::TEXT, $data['messages'][1]['type']);
+            $testRunner->assertEquals('test text2', $data['messages'][1]['text']);
+            $testRunner->assertEquals([
+                'items' => [
+                    [
+                        'type' => 'action',
+                        'imageUrl' => 'https://foo.bar',
+                        'action' => ['type' => 'message', 'label' => 'LabelText', 'text' => 'Text66'],
+                    ],
+                ],
+            ], $data['messages'][1]['quickReply']);
+
+            return ['status' => 200];
+        };
+
+        $quickReply = new QuickReplyMessageBuilder([
+            new QuickReplyButtonBuilder(new MessageTemplateActionBuilder('LabelText', 'Text66'), 'https://foo.bar'),
+        ]);
+
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->pushMessage('DESTINATION', new TextMessageBuilder('test text1', 'test text2', $quickReply));
 
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());

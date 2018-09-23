@@ -80,7 +80,7 @@ Other methods that take `MessageBuilder` behave in the same way.
 
 ### Response
 
-Methods that call API returns `Response`. Response has three methods;
+Methods that call API returns `Response`. A `Response` instance has following methods:
 
 - `Response#isSucceeded()`
 - `Response#getHTTPStatus()`
@@ -181,7 +181,7 @@ Please refer [CurlHTTPClient](/src/LINEBot/HTTPClient/CurlHTTPClient.php) that i
 Requirements
 --
 
-- PHP 5.4 or later
+- PHP 5.5 or later
 
 For SDK developers
 --

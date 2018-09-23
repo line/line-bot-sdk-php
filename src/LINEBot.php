@@ -24,6 +24,7 @@ use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\LINEBot\Response;
 use LINE\LINEBot\SignatureValidator;
+use LINE\LINEBot\RichMenuBuilder;
 use ReflectionClass;
 
 /**
@@ -113,6 +114,7 @@ class LINEBot
      * @param string $text Text of message.
      * @param string[]|null $extraTexts Extra text of message.
      * @return Response
+     * @throws \ReflectionException
      */
     public function replyText($replyToken, $text, $extraTexts = null)
     {
@@ -187,6 +189,8 @@ class LINEBot
      * @param string $body Request body.
      * @param string $signature Signature of request.
      * @return LINEBot\Event\BaseEvent[]
+     * @throws LINEBot\Exception\InvalidEventRequestException
+     * @throws LINEBot\Exception\InvalidSignatureException
      */
     public function parseEventRequest($body, $signature)
     {
@@ -199,6 +203,7 @@ class LINEBot
      * @param string $body Request body.
      * @param string $signature Signature of request.
      * @return bool Request is valid or not.
+     * @throws LINEBot\Exception\InvalidSignatureException
      */
     public function validateSignature($body, $signature)
     {
@@ -276,7 +281,7 @@ class LINEBot
      *
      * @param string $groupId Identifier of the group
      * @return array memberIds
-     * @see LINE\LINEBot\getGroupMemberIds()
+     * @see \LINE\LINEBot::getGroupMemberIds()
      */
     public function getAllGroupMemberIds($groupId)
     {
@@ -301,7 +306,7 @@ class LINEBot
      *
      * @param string $roomId Identifier of the room
      * @return array memberIds
-     * @see LINE\LINEBot\getRoomMemberIds()
+     * @see \LINE\LINEBot::getRoomMemberIds()
      */
     public function getAllRoomMemberIds($roomId)
     {
@@ -315,5 +320,132 @@ class LINEBot
         } while ($continuationToken);
 
         return $memberIds;
+    }
+
+    /**
+     * Gets a rich menu via a rich menu ID.
+     *
+     * @param string $richMenuId ID of an uploaded rich menu
+     * @return Response
+     */
+    public function getRichMenu($richMenuId)
+    {
+        $url = sprintf('%s/v2/bot/richmenu/%s', $this->endpointBase, urlencode($richMenuId));
+        return $this->httpClient->get($url, []);
+    }
+
+    /**
+     * Creates a rich menu.
+     *
+     * You must upload a rich menu image and link the rich menu to a user for the rich menu to be displayed.
+     *
+     * @param RichMenuBuilder $richMenuBuilder
+     * @return Response
+     */
+    public function createRichMenu($richMenuBuilder)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/richmenu', $richMenuBuilder->build());
+    }
+
+     /**
+     * Deletes a rich menu.
+     *
+     * @param string $richMenuId ID of an uploaded rich menu
+     * @return Response
+     */
+    public function deleteRichMenu($richMenuId)
+    {
+        $url = sprintf('%s/v2/bot/richmenu/%s', $this->endpointBase, urlencode($richMenuId));
+        return $this->httpClient->delete($url);
+    }
+
+    /**
+     * Gets the ID of the rich menu linked to a user.
+     *
+     * @param string $userId User ID. Found in the source object of webhook event objects.
+     * @return Response
+     */
+    public function getRichMenuId($userId)
+    {
+        $url = sprintf('%s/v2/bot/user/%s/richmenu', $this->endpointBase, urlencode($userId));
+        return $this->httpClient->get($url, []);
+    }
+
+    /**
+     * Links a rich menu to a user. Only one rich menu can be linked to a user at one time.
+     *
+     * @param string $userId User ID. Found in the source object of webhook event objects.
+     * @param string $richMenuId ID of an uploaded rich menu
+     * @return Response
+     */
+    public function linkRichMenu($userId, $richMenuId)
+    {
+        $url = sprintf(
+            '%s/v2/bot/user/%s/richmenu/%s',
+            $this->endpointBase,
+            urlencode($userId),
+            urlencode($richMenuId)
+        );
+        return $this->httpClient->post($url, []);
+    }
+
+    /**
+     * Unlinks a rich menu from a user.
+     *
+     * @param string $userId User ID. Found in the source object of webhook event objects.
+     * @return Response
+     */
+    public function unlinkRichMenu($userId)
+    {
+        $url = sprintf('%s/v2/bot/user/%s/richmenu', $this->endpointBase, urlencode($userId));
+        return $this->httpClient->delete($url);
+    }
+
+    /**
+     * Downloads an image associated with a rich menu.
+     *
+     * @param string $richMenuId ID of an uploaded rich menu
+     * @return Response
+     */
+    public function downloadRichMenuImage($richMenuId)
+    {
+        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->endpointBase, urlencode($richMenuId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Uploads and attaches an image to a rich menu.
+     *
+     * Notes:
+     * <ul><li>Images must have one of the following resolutions: 2500x1686 or 2500x843 pixels.</li>
+     * <li>You cannot replace an image attached to a rich menu. To update your rich menu image,
+     * create a new rich menu object and upload another image.</li></ul>
+     *
+     * @param string $richMenuId ID of an uploaded rich menu
+     * @param string $imagePath Path to the image
+     * @param string $contentType image/jpeg or image/png
+     * @return Response
+     */
+    public function uploadRichMenuImage($richMenuId, $imagePath, $contentType)
+    {
+        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->endpointBase, urlencode($richMenuId));
+        return $this->httpClient->post(
+            $url,
+            [
+                '__file' => $imagePath,
+                '__type' => $contentType,
+            ],
+            [ "Content-Type: $contentType" ]
+        );
+    }
+
+    /**
+     * Gets a list of all uploaded rich menus.
+     *
+     * @return Response
+     */
+    public function getRichMenuList()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/richmenu/list');
     }
 }
