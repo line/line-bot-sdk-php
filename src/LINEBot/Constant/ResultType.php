@@ -20,9 +20,6 @@ namespace LINE\LINEBot\Constant;
 
 class ResultType
 {
-
     const OK = "ok";
-
     const FAILED = "failed";
-
 }
