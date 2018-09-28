@@ -114,6 +114,7 @@ class LINEBot
      * @param string $text Text of message.
      * @param string[]|null $extraTexts Extra text of message.
      * @return Response
+     * @throws \ReflectionException
      */
     public function replyText($replyToken, $text, $extraTexts = null)
     {
@@ -188,6 +189,8 @@ class LINEBot
      * @param string $body Request body.
      * @param string $signature Signature of request.
      * @return LINEBot\Event\BaseEvent[]
+     * @throws LINEBot\Exception\InvalidEventRequestException
+     * @throws LINEBot\Exception\InvalidSignatureException
      */
     public function parseEventRequest($body, $signature)
     {
@@ -200,6 +203,7 @@ class LINEBot
      * @param string $body Request body.
      * @param string $signature Signature of request.
      * @return bool Request is valid or not.
+     * @throws LINEBot\Exception\InvalidSignatureException
      */
     public function validateSignature($body, $signature)
     {
@@ -277,7 +281,7 @@ class LINEBot
      *
      * @param string $groupId Identifier of the group
      * @return array memberIds
-     * @see LINE\LINEBot\getGroupMemberIds()
+     * @see \LINE\LINEBot::getGroupMemberIds()
      */
     public function getAllGroupMemberIds($groupId)
     {
@@ -302,7 +306,7 @@ class LINEBot
      *
      * @param string $roomId Identifier of the room
      * @return array memberIds
-     * @see LINE\LINEBot\getRoomMemberIds()
+     * @see \LINE\LINEBot::getRoomMemberIds()
      */
     public function getAllRoomMemberIds($roomId)
     {

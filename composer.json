@@ -12,15 +12,24 @@
   "authors": [
     {
       "name": "moznion",
-      "email": "moznion@gmail.com"
+      "email": "moznion@gmail.com",
+	  "role": "Retired"
     },
     {
       "name": "Satoru Yoshihara",
-      "email": "vaduz0@gmail.com"
+      "email": "vaduz0@gmail.com",
+	  "role": "Maintainer"
+    },
+    {
+      "name": "Satoshi Shibuya",
+      "email": "satosby@gmail.com",
+	  "role": "Maintainer"
     }
   ],
   "require": {
-    "php": ">=5.5"
+    "php": ">=5.5",
+    "ext-curl": "*",
+    "ext-json": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^4.8.24||^5||^6",
