@@ -18,7 +18,6 @@
 
 namespace LINE\LINEBot\Constant;
 
-
 class ResultType
 {
 

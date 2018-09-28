@@ -18,7 +18,6 @@
 
 namespace LINE\LINEBot\Event;
 
-
 use LINE\LINEBot\Constant\ResultType;
 
 class AccountLinkEvent extends BaseEvent
