@@ -252,7 +252,10 @@ class LINEBot
     {
         $url = sprintf('%s/v2/bot/group/%s/members/ids', $this->endpointBase, urlencode($groupId));
         $params = is_null($start) ? [] : ['start' => $start];
-        return $this->httpClient->get($url, $params);
+        if ($params) {
+            $url .= '?' . http_build_query($params);
+        }
+        return $this->httpClient->get($url);
     }
 
     /**
@@ -269,7 +272,10 @@ class LINEBot
     {
         $url = sprintf('%s/v2/bot/room/%s/members/ids', $this->endpointBase, urlencode($roomId));
         $params = is_null($start) ? [] : ['start' => $start];
-        return $this->httpClient->get($url, $params);
+        if ($params) {
+            $url .= '?' . http_build_query($params);
+        }
+        return $this->httpClient->get($url);
     }
 
     /**
