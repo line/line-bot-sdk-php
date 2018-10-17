@@ -72,7 +72,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
      */
     public function __construct(
         $title = null,
-        $text,
+        $text, // phpcs:ignore
         $thumbnailImageUrl = null,
         array $actionBuilders,
         $imageAspectRatio = null,
@@ -116,7 +116,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
             $this->template['title'] = $this->title;
         }
 
-        if ($this->thumbnailImageUrl)  {
+        if ($this->thumbnailImageUrl) {
             $this->template['thumbnailImageUrl'] = $this->thumbnailImageUrl;
         }
 
