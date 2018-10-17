@@ -28,4 +28,5 @@ class MessageType
     const IMAGE = 'image';
     const AUDIO = 'audio';
     const VIDEO = 'video';
+    const FLEX = 'flex';
 }
