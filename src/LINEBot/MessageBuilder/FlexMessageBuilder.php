@@ -103,6 +103,18 @@ class FlexMessageBuilder implements MessageBuilder
     }
 
     /**
+     * Set built message.
+     *
+     * @param array $message
+     * @return FlexMessageBuilder
+     */
+    public function setMessage(array $message)
+    {
+        $this->message[] = $message;
+        return $this;
+    }
+
+    /**
      * Builds flex message structure.
      *
      * @return array
