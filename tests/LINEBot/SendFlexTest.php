@@ -20,6 +20,7 @@ namespace LINE\Tests\LINEBot;
 
 use LINE\LINEBot;
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
+use LINE\LINEBot\MessageBuilder\RawMessageBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 use PHPUnit\Framework\TestCase;
@@ -142,8 +143,8 @@ JSON;
 
         $res = $bot->replyMessage(
             'REPLY-TOKEN',
-            FlexMessageBuilder::builder()
-                ->setMessage([
+            new RawMessageBuilder(
+                [
                     'type' => 'flex',
                     'altText' => 'alt test',
                     'contents' => [
@@ -183,7 +184,8 @@ JSON;
                             ]
                         ]
                     ]
-                ])
+                ]
+            )
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());
@@ -485,8 +487,8 @@ JSON;
 
         $res = $bot->pushMessage(
             'DESTINATION',
-            FlexMessageBuilder::builder()
-                ->setMessage([
+            new RawMessageBuilder(
+                [
                     'type' => 'flex',
                     'altText' => 'Restaurant',
                     'contents' => [
@@ -639,7 +641,8 @@ JSON;
                             'flex' => 0
                         ]
                     ]
-                ])
+                ]
+            )
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());
@@ -1002,8 +1005,8 @@ JSON;
 
         $res = $bot->pushMessage(
             'DESTINATION',
-            FlexMessageBuilder::builder()
-                ->setMessage([
+            new RawMessageBuilder(
+                [
                     'type' => 'flex',
                     'altText' => 'Shopping',
                     'contents' => [
@@ -1181,7 +1184,8 @@ JSON;
                             ]
                         ]
                     ]
-                ])
+                ]
+            )
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());
