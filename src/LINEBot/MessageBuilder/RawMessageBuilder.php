@@ -28,7 +28,7 @@ use LINE\LINEBot\MessageBuilder;
 class RawMessageBuilder implements MessageBuilder
 {
     /** @var array */
-    private $message;
+    private $message = [];
 
     /**
      * RawMessageBuilder constructor.
@@ -41,7 +41,7 @@ class RawMessageBuilder implements MessageBuilder
     }
 
     /**
-     * Builds message structure.
+     * Returns raw message.
      *
      * @return array Built message structure.
      */
