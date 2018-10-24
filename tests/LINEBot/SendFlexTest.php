@@ -20,6 +20,7 @@ namespace LINE\Tests\LINEBot;
 
 use LINE\LINEBot;
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
+use LINE\LINEBot\MessageBuilder\RawMessageBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 use PHPUnit\Framework\TestCase;
@@ -134,6 +135,57 @@ JSON;
                         )
                     ])
                 )
+        );
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+
+        $res = $bot->replyMessage(
+            'REPLY-TOKEN',
+            new RawMessageBuilder(
+                [
+                    'type' => 'flex',
+                    'altText' => 'alt test',
+                    'contents' => [
+                        'type' => 'bubble',
+                        'body' => [
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => 'Hello,'
+                                ],
+                                [
+                                    'type' => 'text',
+                                    'text' => 'World!'
+                                ]
+                            ]
+                        ]
+                    ],
+                    'quickReply' => [
+                        'items' => [
+                            [
+                                'type' => 'action',
+                                'action' => [
+                                    'type' => 'message',
+                                    'label' => 'reply1',
+                                    'text' => 'Reply1'
+                                ]
+                            ],
+                            [
+                                'type' => 'action',
+                                'action' => [
+                                    'type' => 'message',
+                                    'label' => 'reply2',
+                                    'text' => 'Reply2'
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            )
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());
@@ -427,6 +479,170 @@ JSON;
                                 ])
                         )
                 )
+        );
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+
+        $res = $bot->pushMessage(
+            'DESTINATION',
+            new RawMessageBuilder(
+                [
+                    'type' => 'flex',
+                    'altText' => 'Restaurant',
+                    'contents' => [
+                        'type' => 'bubble',
+                        'hero' => [
+                            'type' => 'image',
+                            'url' => 'https://example.com/cafe.png',
+                            'size' => 'full',
+                            'aspectRatio' => '20:13',
+                            'aspectMode' => 'cover',
+                            'action' => [
+                                'type' => 'uri',
+                                'uri' => 'https://example.com'
+                            ]
+                        ],
+                        'body' => [
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => 'Brown Cafe',
+                                    'weight' => 'bold',
+                                    'size' => 'xl'
+                                ],
+                                [
+                                    'type' => 'box',
+                                    'layout' => 'baseline',
+                                    'margin' => 'md',
+                                    'contents' => [
+                                        [
+                                            'type' => 'icon',
+                                            'size' => 'sm',
+                                            'url' => 'https://example.com/gold_star.png'
+                                        ],
+                                        [
+                                            'type' => 'icon',
+                                            'size' => 'sm',
+                                            'url' => 'https://example.com/gold_star.png'
+                                        ],
+                                        [
+                                            'type' => 'icon',
+                                            'size' => 'sm',
+                                            'url' => 'https://example.com/gold_star.png'
+                                        ],
+                                        [
+                                            'type' => 'icon',
+                                            'size' => 'sm',
+                                            'url' => 'https://example.com/gold_star.png'
+                                        ],
+                                        [
+                                            'type' => 'icon',
+                                            'size' => 'sm',
+                                            'url' => 'https://example.com/gray_star.png'
+                                        ],
+                                        [
+                                            'type' => 'text',
+                                            'text' => '4.0',
+                                            'size' => 'sm',
+                                            'color' => '#999999',
+                                            'margin' => 'md',
+                                            'flex' => 0
+                                        ]
+                                    ]
+                                ],
+                                [
+                                    'type' => 'box',
+                                    'layout' => 'vertical',
+                                    'margin' => 'lg',
+                                    'spacing' => 'sm',
+                                    'contents' => [
+                                        [
+                                            'type' => 'box',
+                                            'layout' => 'baseline',
+                                            'spacing' => 'sm',
+                                            'contents' => [
+                                                [
+                                                    'type' => 'text',
+                                                    'text' => 'Place',
+                                                    'color' => '#aaaaaa',
+                                                    'size' => 'sm',
+                                                    'flex' => 1
+                                                ],
+                                                [
+                                                    'type' => 'text',
+                                                    'text' => 'Miraina Tower, 4-1-6 Shinjuku, Tokyo',
+                                                    'wrap' => true,
+                                                    'color' => '#666666',
+                                                    'size' => 'sm',
+                                                    'flex' => 5
+                                                ]
+                                            ]
+                                        ],
+                                        [
+                                            'type' => 'box',
+                                            'layout' => 'baseline',
+                                            'spacing' => 'sm',
+                                            'contents' => [
+                                                [
+                                                    'type' => 'text',
+                                                    'text' => 'Time',
+                                                    'color' => '#aaaaaa',
+                                                    'size' => 'sm',
+                                                    'flex' => 1
+                                                ],
+                                                [
+                                                    'type' => 'text',
+                                                    'text' => '10:00 - 23:00',
+                                                    'wrap' => true,
+                                                    'color' => '#666666',
+                                                    'size' => 'sm',
+                                                    'flex' => 5
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ],
+                        'footer' => [
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'spacing' => 'sm',
+                            'contents' => [
+                                [
+                                    'type' => 'button',
+                                    'style' => 'link',
+                                    'height' => 'sm',
+                                    'action' => [
+                                        'type' => 'uri',
+                                        'label' => 'CALL',
+                                        'uri' => 'https://example.com'
+                                    ]
+                                ],
+                                [
+                                    'type' => 'button',
+                                    'style' => 'link',
+                                    'height' => 'sm',
+                                    'action' => [
+                                        'type' => 'uri',
+                                        'label' => 'WEBSITE',
+                                        'uri' => 'https://example.com'
+                                    ]
+                                ],
+                                [
+                                    'type' => 'spacer',
+                                    'size' => 'sm'
+                                ]
+                            ],
+                            'flex' => 0
+                        ]
+                    ]
+                ]
+            )
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());
@@ -781,6 +997,195 @@ JSON;
                                 )
                         ])
                 )
+        );
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+
+        $res = $bot->pushMessage(
+            'DESTINATION',
+            new RawMessageBuilder(
+                [
+                    'type' => 'flex',
+                    'altText' => 'Shopping',
+                    'contents' => [
+                        'type' => 'carousel',
+                        'contents' => [
+                            [
+                                'type' => 'bubble',
+                                'hero' => [
+                                    'type' => 'image',
+                                    'size' => 'full',
+                                    'aspectRatio' => '20:13',
+                                    'aspectMode' => 'cover',
+                                    'url' => 'https://example.com/photo1.png'
+                                ],
+                                'body' => [
+                                    'type' => 'box',
+                                    'layout' => 'vertical',
+                                    'spacing' => 'sm',
+                                    'contents' => [
+                                        [
+                                            'type' => 'text',
+                                            'text' => 'Arm Chair, White',
+                                            'wrap' => true,
+                                            'weight' => 'bold',
+                                            'size' => 'xl'
+                                        ],
+                                        [
+                                            'type' => 'box',
+                                            'layout' => 'baseline',
+                                            'contents' => [
+                                                [
+                                                    'type' => 'text',
+                                                    'text' => '$49',
+                                                    'wrap' => true,
+                                                    'weight' => 'bold',
+                                                    'size' => 'xl',
+                                                    'flex' => 0
+                                                ],
+                                                [
+                                                    'type' => 'text',
+                                                    'text' => '.99',
+                                                    'wrap' => true,
+                                                    'weight' => 'bold',
+                                                    'size' => 'sm',
+                                                    'flex' => 0
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ],
+                                'footer' => [
+                                    'type' => 'box',
+                                    'layout' => 'vertical',
+                                    'spacing' => 'sm',
+                                    'contents' => [
+                                        [
+                                            'type' => 'button',
+                                            'style' => 'primary',
+                                            'action' => [
+                                                'type' => 'uri',
+                                                'label' => 'Add to Cart',
+                                                'uri' => 'https://example.com'
+                                            ]
+                                        ],
+                                        [
+                                            'type' => 'button',
+                                            'action' => [
+                                                'type' => 'uri',
+                                                'label' => 'Add to wishlist',
+                                                'uri' => 'https://example.com'
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            [
+                                'type' => 'bubble',
+                                'hero' => [
+                                    'type' => 'image',
+                                    'size' => 'full',
+                                    'aspectRatio' => '20:13',
+                                    'aspectMode' => 'cover',
+                                    'url' => 'https://example.com/photo2.png'
+                                ],
+                                'body' => [
+                                    'type' => 'box',
+                                    'layout' => 'vertical',
+                                    'spacing' => 'sm',
+                                    'contents' => [
+                                        [
+                                            'type' => 'text',
+                                            'text' => 'Metal Desk Lamp',
+                                            'wrap' => true,
+                                            'weight' => 'bold',
+                                            'size' => 'xl'
+                                        ],
+                                        [
+                                            'type' => 'box',
+                                            'layout' => 'baseline',
+                                            'contents' => [
+                                                [
+                                                    'type' => 'text',
+                                                    'text' => '$11',
+                                                    'wrap' => true,
+                                                    'weight' => 'bold',
+                                                    'size' => 'xl',
+                                                    'flex' => 0
+                                                ],
+                                                [
+                                                    'type' => 'text',
+                                                    'text' => '.99',
+                                                    'wrap' => true,
+                                                    'weight' => 'bold',
+                                                    'size' => 'sm',
+                                                    'flex' => 0
+                                                ]
+                                            ]
+                                        ],
+                                        [
+                                            'type' => 'text',
+                                            'text' => 'Temporarily out of stock',
+                                            'wrap' => true,
+                                            'size' => 'xxs',
+                                            'margin' => 'md',
+                                            'color' => '#ff5551',
+                                            'flex' => 0
+                                        ]
+                                    ]
+                                ],
+                                'footer' => [
+                                    'type' => 'box',
+                                    'layout' => 'vertical',
+                                    'spacing' => 'sm',
+                                    'contents' => [
+                                        [
+                                            'type' => 'button',
+                                            'style' => 'primary',
+                                            'color' => '#aaaaaa',
+                                            'action' => [
+                                                'type' => 'uri',
+                                                'label' => 'Add to Cart',
+                                                'uri' => 'https://example.com'
+                                            ]
+                                        ],
+                                        [
+                                            'type' => 'button',
+                                            'action' => [
+                                                'type' => 'uri',
+                                                'label' => 'Add to wishlist',
+                                                'uri' => 'https://example.com'
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            [
+                                'type' => 'bubble',
+                                'body' => [
+                                    'type' => 'box',
+                                    'layout' => 'vertical',
+                                    'spacing' => 'sm',
+                                    'contents' => [
+                                        [
+                                            'type' => 'button',
+                                            'flex' => 1,
+                                            'gravity' => 'center',
+                                            'action' => [
+                                                'type' => 'uri',
+                                                'label' => 'See more',
+                                                'uri' => 'https://example.com'
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            )
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());

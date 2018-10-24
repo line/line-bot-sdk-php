@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="resources/style.css">
 
         <title>
-            Class LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder
+            Class LINE\LINEBot\MessageBuilder\RawMessageBuilder
         </title>
     </head>
 
@@ -73,13 +73,9 @@
         <li>
             <a href="namespace-LINE.LINEBot.MessageBuilder.html">MessageBuilder</a>
         </li>
-            <li class="backslash">\</li>
-        <li>
-            <a href="namespace-LINE.LINEBot.MessageBuilder.TemplateBuilder.html">TemplateBuilder</a>
-        </li>
 
         <li class="backslash">\</li>
-        <li class="active">ButtonTemplateBuilder</li>
+        <li class="active">RawMessageBuilder</li>
 </ol>
                         </div>
                     </div>
@@ -89,11 +85,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-    <h1>ButtonTemplateBuilder</h1>
+    <h1>RawMessageBuilder</h1>
 
         <div class="panel panel-default">
             <div class="panel-body">
-                A builder class for button template message.
+                A builder class for raw message.
             </div>
         </div>
 
@@ -101,8 +97,8 @@
             <dd>
 
                     implements
-                        <a href="interface-LINE.LINEBot.MessageBuilder.TemplateBuilder.html">
-                            LINE\LINEBot\MessageBuilder\TemplateBuilder
+                        <a href="interface-LINE.LINEBot.MessageBuilder.html">
+                            LINE\LINEBot\MessageBuilder
                         </a>
 
             </dd>
@@ -114,7 +110,7 @@
         
 
             <br>
-            <a href="source-class-LINE.LINEBot.MessageBuilder.TemplateBuilder.ButtonTemplateBuilder.html" class="open-source-code">Open source code</a>
+            <a href="source-class-LINE.LINEBot.MessageBuilder.RawMessageBuilder.html" class="open-source-code">Open source code</a>
         <br>
     </div>
 
@@ -136,10 +132,10 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#___construct">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.TemplateBuilder.ButtonTemplateBuilder.html#73-91">__construct</a>( <span> string|null <span class="property-name">$title</span> = <span class="php-keyword1">NULL</span></span>, <span> string <span class="property-name">$text</span> </span>, <span> string|null <span class="property-name">$thumbnailImageUrl</span> = <span class="php-keyword1">NULL</span></span>, <span> array <span class="property-name">$actionBuilders</span> </span>, <span> string|null <span class="property-name">$imageAspectRatio</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$imageSize</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$imageBackgroundColor</span> = <span class="php-keyword1">NULL</span></span>, <span> <a href="interface-LINE.LINEBot.TemplateActionBuilder.html">LINE\LINEBot\TemplateActionBuilder</a> <span class="property-name">$defaultAction</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.RawMessageBuilder.html#38-41">__construct</a>( <span> array <span class="property-name">$message</span> </span> )</code>
 
             <div class="description">
-                ButtonTemplateBuilder constructor.
+                RawMessageBuilder constructor.
 
 
 
@@ -155,7 +151,7 @@
 
 
 
-<tr id="_buildTemplate">
+<tr id="_buildMessage">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -167,11 +163,11 @@
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_buildTemplate">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.TemplateBuilder.ButtonTemplateBuilder.html#98-140">buildTemplate</a>( )</code>
+            <a class="anchor pull-right" href="#_buildMessage">#</a>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.RawMessageBuilder.html#48-51">buildMessage</a>( )</code>
 
             <div class="description">
-                Builds button template message structure.
+                Returns raw message.
 
 
 
@@ -183,8 +179,8 @@
                         <h2>Implementation of</h2>
                         <div>
                             <code>
-                                <a href="interface-LINE.LINEBot.MessageBuilder.TemplateBuilder.html#_buildTemplate">
-                                    LINE\LINEBot\MessageBuilder\TemplateBuilder::buildTemplate()
+                                <a href="interface-LINE.LINEBot.MessageBuilder.html#_buildMessage">
+                                    LINE\LINEBot\MessageBuilder::buildMessage()
                                 </a>
                             </code>
                         </div>
