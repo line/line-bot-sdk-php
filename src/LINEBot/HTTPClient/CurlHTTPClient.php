@@ -63,7 +63,10 @@ class CurlHTTPClient implements HTTPClient
      */
     public function get($url, array $data = [], array $headers = [])
     {
-        return $this->sendRequest('GET', $url, $headers, $data);
+        if ($data) {
+            $url .= '?' . http_build_query($data);
+        }
+        return $this->sendRequest('GET', $url, $headers);
     }
 
     /**
