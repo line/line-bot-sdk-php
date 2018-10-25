@@ -99,21 +99,21 @@
 </span><span class="l" id="line-40">    <span class="php-comment">/**
 </span></span><span class="l" id="line-41"><span class="php-comment">     * Returns title of the location message.
 </span></span><span class="l" id="line-42"><span class="php-comment">     *
-</span></span><span class="l" id="line-43"><span class="php-comment">     * @return string
+</span></span><span class="l" id="line-43"><span class="php-comment">     * @return string|null
 </span></span><span class="l" id="line-44"><span class="php-comment">     */</span>
 </span><span class="l" id="line-45">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getTitle()
 </span><span class="l" id="line-46">    {
-</span><span class="l" id="line-47">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;message[<span class="php-quote">'title'</span>];
+</span><span class="l" id="line-47">        <span class="php-keyword1">return</span> <span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'title'</span>, <span class="php-var">$this</span>-&gt;message) ? <span class="php-var">$this</span>-&gt;message[<span class="php-quote">'title'</span>] : <span class="php-keyword1">null</span>;
 </span><span class="l" id="line-48">    }
 </span><span class="l" id="line-49">
 </span><span class="l" id="line-50">    <span class="php-comment">/**
 </span></span><span class="l" id="line-51"><span class="php-comment">     * Returns address of the location message.
 </span></span><span class="l" id="line-52"><span class="php-comment">     *
-</span></span><span class="l" id="line-53"><span class="php-comment">     * @return string
+</span></span><span class="l" id="line-53"><span class="php-comment">     * @return string|null
 </span></span><span class="l" id="line-54"><span class="php-comment">     */</span>
 </span><span class="l" id="line-55">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getAddress()
 </span><span class="l" id="line-56">    {
-</span><span class="l" id="line-57">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;message[<span class="php-quote">'address'</span>];
+</span><span class="l" id="line-57">        <span class="php-keyword1">return</span> <span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'address'</span>, <span class="php-var">$this</span>-&gt;message) ? <span class="php-var">$this</span>-&gt;message[<span class="php-quote">'address'</span>] : <span class="php-keyword1">null</span>;
 </span><span class="l" id="line-58">    }
 </span><span class="l" id="line-59">
 </span><span class="l" id="line-60">    <span class="php-comment">/**
