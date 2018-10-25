@@ -20,6 +20,7 @@ namespace LINE\LINEBot\KitchenSink;
 
 use LINE\LINEBot;
 use LINE\LINEBot\Constant\HTTPHeader;
+use LINE\LINEBot\Event\AccountLinkEvent;
 use LINE\LINEBot\Event\BeaconDetectionEvent;
 use LINE\LINEBot\Event\FollowEvent;
 use LINE\LINEBot\Event\JoinEvent;
@@ -118,6 +119,8 @@ class Route
                     $handler = new PostbackEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof BeaconDetectionEvent) {
                     $handler = new BeaconEventHandler($bot, $logger, $event);
+                } elseif ($event instanceof AccountLinkEvent) {
+                    $handler = new AccountLinkEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof UnknownEvent) {
                     $logger->info(sprintf('Unknown message type has come [type: %s]', $event->getType()));
                 } else {

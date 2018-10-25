@@ -19,6 +19,7 @@
 namespace LINE\Tests\LINEBot;
 
 use LINE\LINEBot;
+use LINE\LINEBot\Event\AccountLinkEvent;
 use LINE\LINEBot\Event\BeaconDetectionEvent;
 use LINE\LINEBot\Event\FollowEvent;
 use LINE\LINEBot\Event\JoinEvent;
@@ -289,6 +290,32 @@ class EventRequestParserTest extends TestCase
       "datetime": "2013-04-01T10:00"
     }
    }
+  },
+  {
+   "replyToken": "replytoken",
+   "type": "accountLink",
+   "timestamp": 1501234567890,
+   "source": {
+    "type": "user",
+    "userId": "userid"
+   },
+   "link": {
+    "result": "ok",
+    "nonce": "1234567890abcdefghijklmnopqrstuvwxyz"
+   }
+  },
+  {
+   "replyToken": "replytoken",
+   "type": "accountLink",
+   "timestamp": 1501234567890,
+   "source": {
+    "type": "user",
+    "userId": "userid"
+   },
+   "link": {
+    "result": "failed",
+    "nonce": "1234567890abcdefghijklmnopqrstuvwxyz"
+   }
   }
  ]
 }
@@ -298,9 +325,9 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        $events = $bot->parseEventRequest($this::$json, 'a4mKmptGCa6Kx/5PU6Ug3zC2SyLzzf9whz9/FbaR4HQ=');
+        $events = $bot->parseEventRequest($this::$json, 'TzozAlLo8tij3Jl5RroRwllZvbNAQcLUnLfHojDHtUw=');
 
-        $this->assertEquals(count($events), 20);
+        $this->assertEquals(count($events), 22);
 
         {
             // text
@@ -523,6 +550,32 @@ JSON;
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('postback', $event->getPostbackData());
             $this->assertEquals(["datetime" => "2013-04-01T10:00"], $event->getPostbackParams());
+        }
+
+        {
+            // account link - success
+            $event = $events[20];
+            $this->assertInstanceOf('LINE\LINEBot\Event\AccountLinkEvent', $event);
+            /** @var AccountLinkEvent $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals(1501234567890, $event->getTimestamp());
+            $this->assertEquals("ok", $event->getResult());
+            $this->assertEquals(true, $event->isSuccess());
+            $this->assertEquals(false, $event->isFailed());
+            $this->assertEquals("1234567890abcdefghijklmnopqrstuvwxyz", $event->getNonce());
+        }
+
+        {
+            // account link - failed
+            $event = $events[21];
+            $this->assertInstanceOf('LINE\LINEBot\Event\AccountLinkEvent', $event);
+            /** @var AccountLinkEvent $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals(1501234567890, $event->getTimestamp());
+            $this->assertEquals("failed", $event->getResult());
+            $this->assertEquals(false, $event->isSuccess());
+            $this->assertEquals(true, $event->isFailed());
+            $this->assertEquals("1234567890abcdefghijklmnopqrstuvwxyz", $event->getNonce());
         }
     }
 }
