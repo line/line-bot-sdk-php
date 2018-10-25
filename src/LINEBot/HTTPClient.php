@@ -31,7 +31,7 @@ interface HTTPClient
      * Sends GET request to LINE Messaging API.
      *
      * @param string $url Request URL.
-     * @param array $data Request body.
+     * @param array $data URL parameters.
      * @param array $headers
      * @return Response Response of API request.
      */
