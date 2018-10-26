@@ -20,7 +20,6 @@ namespace LINE\LINEBot\QuickReplyBuilder\ButtonBuilder;
 use \LINE\LINEBot\QuickReplyBuilder\QuickReplyButtonBuilder as IQuickReplyButtonBuilder;
 use LINE\LINEBot\TemplateActionBuilder;
 
-
 /**
  * A builder class for quick reply button.
  *

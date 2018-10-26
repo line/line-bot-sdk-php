@@ -33,6 +33,7 @@ use LINE\LINEBot\Util\BuildUtil;
  * A builder class for image component.
  *
  * @package LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder
+ * @SuppressWarnings(PHPMD.ExcessiveParameterList)
  */
 class ImageComponentBuilder implements ComponentBuilder
 {

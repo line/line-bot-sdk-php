@@ -31,6 +31,7 @@ use ReflectionClass;
  * A client class of LINE Messaging API.
  *
  * @package LINE
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 class LINEBot
 {

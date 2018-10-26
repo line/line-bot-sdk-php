@@ -32,6 +32,7 @@ use LINE\LINEBot\Util\BuildUtil;
  * A builder class for text component.
  *
  * @package LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder
+ * @SuppressWarnings(PHPMD.ExcessiveParameterList)
  */
 class TextComponentBuilder implements ComponentBuilder
 {
