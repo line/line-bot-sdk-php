@@ -175,6 +175,9 @@ class SignatureValidatorTest extends TestCase
 }
 JSON;
 
+    /**
+     * @throws \LINE\LINEBot\Exception\InvalidSignatureException
+     */
     public function testValidateSignature()
     {
         $this->assertTrue(SignatureValidator::validateSignature(

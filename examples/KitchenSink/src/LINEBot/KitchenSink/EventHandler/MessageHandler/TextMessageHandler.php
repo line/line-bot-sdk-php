@@ -45,6 +45,11 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+ * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+ */
 class TextMessageHandler implements EventHandler
 {
     /** @var LINEBot $bot */
@@ -71,6 +76,10 @@ class TextMessageHandler implements EventHandler
         $this->textMessage = $textMessage;
     }
 
+    /**
+     * @throws LINEBot\Exception\InvalidEventSourceException
+     * @throws \ReflectionException
+     */
     public function handle()
     {
         $text = $this->textMessage->getText();
@@ -204,6 +213,7 @@ class TextMessageHandler implements EventHandler
     /**
      * @param string $replyToken
      * @param string $text
+     * @throws \ReflectionException
      */
     private function echoBack($replyToken, $text)
     {
@@ -211,6 +221,11 @@ class TextMessageHandler implements EventHandler
         $this->bot->replyText($replyToken, $text);
     }
 
+    /**
+     * @param $replyToken
+     * @param $userId
+     * @throws \ReflectionException
+     */
     private function sendProfile($replyToken, $userId)
     {
         if (!isset($userId)) {

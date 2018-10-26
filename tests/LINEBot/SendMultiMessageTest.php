@@ -30,7 +30,7 @@ class SendMultiMessageTest extends TestCase
     public function testReplyMultiMessage()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/message/reply', $url);
 
@@ -60,7 +60,7 @@ class SendMultiMessageTest extends TestCase
     public function testPushMultiMessage()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/message/push', $url);
 

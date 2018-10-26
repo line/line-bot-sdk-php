@@ -44,6 +44,9 @@ class FollowEventHandler implements EventHandler
         $this->followEvent = $followEvent;
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     public function handle()
     {
         $this->bot->replyText($this->followEvent->getReplyToken(), 'Got followed event');

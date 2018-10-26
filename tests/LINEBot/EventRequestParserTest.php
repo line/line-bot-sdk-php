@@ -353,6 +353,11 @@ class EventRequestParserTest extends TestCase
 }
 JSON;
 
+    /**
+     * @throws LINEBot\Exception\InvalidEventRequestException
+     * @throws LINEBot\Exception\InvalidEventSourceException
+     * @throws LINEBot\Exception\InvalidSignatureException
+     */
     public function testParseEventRequest()
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {

@@ -39,7 +39,7 @@ class SpacerComponentBuilder implements ComponentBuilder
     /**
      * SpacerComponentBuilder constructor.
      *
-     * @param ComponentSpaceSize $size
+     * @param ComponentSpaceSize|string $size
      */
     public function __construct($size)
     {
@@ -59,7 +59,7 @@ class SpacerComponentBuilder implements ComponentBuilder
     /**
      * Set size.
      *
-     * @param ComponentSpaceSize $size
+     * @param ComponentSpaceSize|string $size
      * @return SpacerComponentBuilder
      */
     public function setSize($size)

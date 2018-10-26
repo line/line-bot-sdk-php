@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 
 class DummyHttpClient implements HTTPClient
 {
-    /** @var \PHPUnit_Framework_TestCase */
+    /** @var \PHPUnit\Framework\TestCase */
     private $testRunner;
     /** @var \Closure */
     private $mock;
@@ -61,6 +61,7 @@ class DummyHttpClient implements HTTPClient
 
     /**
      * @param string $url
+     * @param array|null $data
      * @return Response
      */
     public function delete($url, $data = null)

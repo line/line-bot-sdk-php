@@ -53,6 +53,9 @@ if (!function_exists('hash_equals')) {
 
 class LINEBotTiny
 {
+    private $channelAccessToken;
+    private $channelSecret;
+
     public function __construct($channelAccessToken, $channelSecret)
     {
         $this->channelAccessToken = $channelAccessToken;
@@ -63,7 +66,7 @@ class LINEBotTiny
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             http_response_code(405);
-            error_log("Method not allowed");
+            error_log('Method not allowed');
             exit();
         }
 
@@ -71,20 +74,20 @@ class LINEBotTiny
 
         if (strlen($entityBody) === 0) {
             http_response_code(400);
-            error_log("Missing request body");
+            error_log('Missing request body');
             exit();
         }
 
         if (!hash_equals($this->sign($entityBody), $_SERVER['HTTP_X_LINE_SIGNATURE'])) {
             http_response_code(400);
-            error_log("Invalid signature value");
+            error_log('Invalid signature value');
             exit();
         }
 
         $data = json_decode($entityBody, true);
         if (!isset($data['events'])) {
             http_response_code(400);
-            error_log("Invalid request body: missing events property");
+            error_log('Invalid request body: missing events property');
             exit();
         }
         return $data['events'];
@@ -93,22 +96,22 @@ class LINEBotTiny
     public function replyMessage($message)
     {
         $header = array(
-            "Content-Type: application/json",
+            'Content-Type: application/json',
             'Authorization: Bearer ' . $this->channelAccessToken,
         );
 
-        $context = stream_context_create(array(
-            "http" => array(
-                "method" => "POST",
-                "header" => implode("\r\n", $header),
-                "content" => json_encode($message),
-            ),
-        ));
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => implode("\r\n", $header),
+                'content' => json_encode($message),
+            ],
+        ]);
 
         $response = file_get_contents('https://api.line.me/v2/bot/message/reply', false, $context);
         if (strpos($http_response_header[0], '200') === false) {
             http_response_code(500);
-            error_log("Request failed: " . $response);
+            error_log('Request failed: ' . $response);
         }
     }
 

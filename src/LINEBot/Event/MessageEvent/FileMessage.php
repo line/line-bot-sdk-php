@@ -48,7 +48,7 @@ class FileMessage extends MessageEvent
     }
 
     /**
-     * Returns filesize of the file message.
+     * Returns file size of the file message.
      *
      * @return string
      */

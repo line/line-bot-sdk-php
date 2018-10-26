@@ -55,7 +55,7 @@ class TextMessageBuilder implements MessageBuilder
     public function __construct($text, $extraTexts = null)
     {
         $extras = [];
-        if (! is_null($extraTexts)) {
+        if (!is_null($extraTexts)) {
             $args = func_get_args();
             $extras = array_slice($args, 1);
 
@@ -78,7 +78,7 @@ class TextMessageBuilder implements MessageBuilder
      */
     public function buildMessage()
     {
-        if (! empty($this->message)) {
+        if (!empty($this->message)) {
             return $this->message;
         }
 
@@ -92,8 +92,8 @@ class TextMessageBuilder implements MessageBuilder
         if ($this->quickReply) {
             $lastKey = count($this->message) - 1;
 
-            //If the user receives multiple message objects.
-            //The quickReply property of the last message object is displayed.
+            // If the user receives multiple message objects.
+            // The quickReply property of the last message object is displayed.
             $this->message[$lastKey]['quickReply'] = $this->quickReply->buildQuickReply();
         }
 

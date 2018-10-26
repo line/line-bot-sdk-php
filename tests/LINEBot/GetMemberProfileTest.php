@@ -27,7 +27,7 @@ class GetMemberProfileTest extends TestCase
     public function testGetGroupMemberIds()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/group/GROUP_ID/member/MEMBER_ID', $url);
             return [
@@ -52,7 +52,7 @@ class GetMemberProfileTest extends TestCase
     public function testGetRoomMemberIds()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/room/ROOM_ID/member/MEMBER_ID', $url);
             return [
