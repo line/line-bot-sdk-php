@@ -85,7 +85,7 @@ class IconComponentBuilder implements ComponentBuilder
     /**
      * Set margin.
      *
-     * @param ComponentMargin|null $margin
+     * @param ComponentMargin|string|null $margin
      * @return IconComponentBuilder
      */
     public function setMargin($margin)
@@ -97,7 +97,7 @@ class IconComponentBuilder implements ComponentBuilder
     /**
      * Set size.
      *
-     * @param ComponentIconSize|null $size
+     * @param ComponentIconSize|string|null $size
      * @return IconComponentBuilder
      */
     public function setSize($size)
@@ -109,7 +109,7 @@ class IconComponentBuilder implements ComponentBuilder
     /**
      * Set aspectRatio.
      *
-     * @param ComponentIconAspectRatio|null $aspectRatio
+     * @param ComponentIconAspectRatio|string|null $aspectRatio
      * @return IconComponentBuilder
      */
     public function setAspectRatio($aspectRatio)

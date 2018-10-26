@@ -23,7 +23,7 @@ When running this example, make sure that you have set your Channel access token
 Requirements
 --
 
-PHP 5.4 or later
+PHP 5.5 or later
 
 License
 --

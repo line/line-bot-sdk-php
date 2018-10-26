@@ -135,7 +135,7 @@ class ImageComponentBuilder implements ComponentBuilder
     /**
      * Set margin.
      *
-     * @param ComponentMargin|null $margin
+     * @param ComponentMargin|string|null $margin
      * @return ImageComponentBuilder
      */
     public function setMargin($margin)
@@ -147,7 +147,7 @@ class ImageComponentBuilder implements ComponentBuilder
     /**
      * Set align.
      *
-     * @param ComponentAlign|null $align
+     * @param ComponentAlign|string|null $align
      * @return ImageComponentBuilder
      */
     public function setAlign($align)
@@ -159,7 +159,7 @@ class ImageComponentBuilder implements ComponentBuilder
     /**
      * Set gravity.
      *
-     * @param ComponentGravity|null $gravity
+     * @param ComponentGravity|string|null $gravity
      * @return ImageComponentBuilder
      */
     public function setGravity($gravity)
@@ -171,7 +171,7 @@ class ImageComponentBuilder implements ComponentBuilder
     /**
      * Set size.
      *
-     * @param ComponentImageSize|null $size
+     * @param ComponentImageSize|string|null $size
      * @return ImageComponentBuilder
      */
     public function setSize($size)
@@ -183,7 +183,7 @@ class ImageComponentBuilder implements ComponentBuilder
     /**
      * Set aspectRatio.
      *
-     * @param ComponentImageAspectRatio|null $aspectRatio
+     * @param ComponentImageAspectRatio|string|null $aspectRatio
      * @return ImageComponentBuilder
      */
     public function setAspectRatio($aspectRatio)
@@ -195,7 +195,7 @@ class ImageComponentBuilder implements ComponentBuilder
     /**
      * Set aspectMode.
      *
-     * @param ComponentImageAspectMode|null $aspectMode
+     * @param ComponentImageAspectMode|string|null $aspectMode
      * @return ImageComponentBuilder
      */
     public function setAspectMode($aspectMode)

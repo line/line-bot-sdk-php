@@ -55,9 +55,9 @@ class ImageMessageHandler implements EventHandler
         $contentId = $this->imageMessage->getMessageId();
         $image = $this->bot->getMessageContent($contentId)->getRawBody();
 
-        $tmpfilePath = tempnam($_SERVER['DOCUMENT_ROOT'] . '/static/tmpdir', 'image-');
-        unlink($tmpfilePath);
-        $filePath = $tmpfilePath . '.jpg';
+        $tempFilePath = tempnam($_SERVER['DOCUMENT_ROOT'] . '/static/tmpdir', 'image-');
+        unlink($tempFilePath);
+        $filePath = $tempFilePath . '.jpg';
         $filename = basename($filePath);
 
         $fh = fopen($filePath, 'x');

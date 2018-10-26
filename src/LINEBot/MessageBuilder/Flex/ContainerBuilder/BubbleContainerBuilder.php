@@ -88,7 +88,7 @@ class BubbleContainerBuilder implements ContainerBuilder
     /**
      * Set direction.
      *
-     * @param ContainerDirection|null $direction
+     * @param ContainerDirection|string|null $direction
      * @return BubbleContainerBuilder
      */
     public function setDirection($direction)

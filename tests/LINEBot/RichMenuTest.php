@@ -33,7 +33,7 @@ class RichMenuTest extends TestCase
     public function testGetRichMenu()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu/123', $url);
             $testRunner->assertEquals([], $data);
@@ -50,7 +50,7 @@ class RichMenuTest extends TestCase
     public function testCreateRichMenu()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu', $url);
 
@@ -107,7 +107,7 @@ class RichMenuTest extends TestCase
     public function testDeleteRichMenu()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('DELETE', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu/123', $url);
             $testRunner->assertEquals([], $data);
@@ -124,7 +124,7 @@ class RichMenuTest extends TestCase
     public function testGetRichMenuId()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/user/123/richmenu', $url);
             $testRunner->assertEquals([], $data);
@@ -141,7 +141,7 @@ class RichMenuTest extends TestCase
     public function testLinkRichMenu()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/user/123/richmenu/567', $url);
             $testRunner->assertEquals([], $data);
@@ -158,7 +158,7 @@ class RichMenuTest extends TestCase
     public function testUnlinkRichMenu()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('DELETE', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/user/123/richmenu', $url);
             $testRunner->assertEquals([], $data);
@@ -175,7 +175,7 @@ class RichMenuTest extends TestCase
     public function testDownloadRichMenuImage()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu/123/content', $url);
             $testRunner->assertEquals([], $data);
@@ -192,7 +192,7 @@ class RichMenuTest extends TestCase
     public function testUploadRichMenuImage()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data, $headers) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu/123/content', $url);
 
@@ -214,7 +214,7 @@ class RichMenuTest extends TestCase
     public function testGetRichMenuList()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
-            /** @var \PHPUnit_Framework_TestCase $testRunner */
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu/list', $url);
             $testRunner->assertEquals([], $data);

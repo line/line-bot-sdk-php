@@ -118,7 +118,7 @@ class ButtonComponentBuilder implements ComponentBuilder
     /**
      * Set margin.
      *
-     * @param ComponentMargin|null $margin
+     * @param ComponentMargin|string|null $margin
      * @return ButtonComponentBuilder
      */
     public function setMargin($margin)
@@ -130,7 +130,7 @@ class ButtonComponentBuilder implements ComponentBuilder
     /**
      * Set height.
      *
-     * @param ComponentButtonHeight|null $height
+     * @param ComponentButtonHeight|string|null $height
      * @return ButtonComponentBuilder
      */
     public function setHeight($height)
@@ -142,7 +142,7 @@ class ButtonComponentBuilder implements ComponentBuilder
     /**
      * Set style.
      *
-     * @param ComponentButtonStyle|null $style
+     * @param ComponentButtonStyle|string|null $style
      * @return ButtonComponentBuilder
      */
     public function setStyle($style)
@@ -166,7 +166,7 @@ class ButtonComponentBuilder implements ComponentBuilder
     /**
      * Set gravity.
      *
-     * @param ComponentGravity|null $gravity
+     * @param ComponentGravity|string|null $gravity
      * @return ButtonComponentBuilder
      */
     public function setGravity($gravity)

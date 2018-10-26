@@ -54,7 +54,7 @@ class AccountLinkEvent extends BaseEvent
      */
     public function getResult()
     {
-        return $this->event["link"]["result"];
+        return $this->event['link']['result'];
     }
 
     /**
@@ -64,7 +64,7 @@ class AccountLinkEvent extends BaseEvent
      */
     public function getNonce()
     {
-        return $this->event["link"]["nonce"];
+        return $this->event['link']['nonce'];
     }
 
     /**

@@ -72,6 +72,9 @@ class CurlHTTPClientTest extends TestCase
         }
     }
 
+    /**
+     * @throws \LINE\LINEBot\Exception\CurlExecutionException
+     */
     public function testGet()
     {
         $curl = new CurlHTTPClient("channel-token");
@@ -85,6 +88,9 @@ class CurlHTTPClientTest extends TestCase
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
     }
 
+    /**
+     * @throws \LINE\LINEBot\Exception\CurlExecutionException
+     */
     public function testGetWithParams()
     {
         $curl = new CurlHTTPClient("channel-token");
@@ -99,6 +105,9 @@ class CurlHTTPClientTest extends TestCase
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
     }
 
+    /**
+     * @throws \LINE\LINEBot\Exception\CurlExecutionException
+     */
     public function testPost()
     {
         $curl = new CurlHTTPClient("channel-token");
@@ -113,6 +122,9 @@ class CurlHTTPClientTest extends TestCase
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
     }
 
+    /**
+     * @throws \LINE\LINEBot\Exception\CurlExecutionException
+     */
     public function testDelete()
     {
         $curl = new CurlHTTPClient("channel-token");
@@ -140,6 +152,9 @@ class CurlHTTPClientTest extends TestCase
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
     }
 
+    /**
+     * @throws \LINE\LINEBot\Exception\CurlExecutionException
+     */
     public function testPostImage()
     {
         $base64EncodedImage = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX/TQBcNTh/AAAAAXRSTlPM0';

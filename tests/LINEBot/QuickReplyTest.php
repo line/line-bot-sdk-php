@@ -301,55 +301,55 @@ class QuickReplyTest extends TestCase
 
         $this->assertEquals(
             [
-            [
-                "type" => "imagemap",
-                "baseUrl" => "https://example.com/bot/images/rm001",
-                "altText" => "This is an imagemap",
-                "baseSize" => [
-                    "height" => 1040,
-                    "width" => 1040,
-                ],
-                "actions" => [
-                    [
-                        "type" => "uri",
-                        "linkUri" => "https://example.com/",
-                        "area" => [
-                            "x" => 0,
-                            "y" => 0,
-                            "width" => 520,
-                            "height" => 1040,
-                        ],
+                [
+                    "type" => "imagemap",
+                    "baseUrl" => "https://example.com/bot/images/rm001",
+                    "altText" => "This is an imagemap",
+                    "baseSize" => [
+                        "height" => 1040,
+                        "width" => 1040,
                     ],
-                    [
-                        "type" => "message",
-                        "text" => "Hello",
-                        "area" => [
-                            "x" => 520,
-                            "y" => 0,
-                            "width" => 520,
-                            "height" => 1040,
-                        ],
-                    ],
-                ],
-                'quickReply' => [
-                    'items' => [
+                    "actions" => [
                         [
-                            'type' => 'action',
-                            'action' => [
-                                "type" => "location",
-                                "label" => "Location",
+                            "type" => "uri",
+                            "linkUri" => "https://example.com/",
+                            "area" => [
+                                "x" => 0,
+                                "y" => 0,
+                                "width" => 520,
+                                "height" => 1040,
                             ],
                         ],
                         [
-                            'type' => 'action',
-                            'action' => [
-                                "type" => "camera",
-                                "label" => "Camera",
+                            "type" => "message",
+                            "text" => "Hello",
+                            "area" => [
+                                "x" => 520,
+                                "y" => 0,
+                                "width" => 520,
+                                "height" => 1040,
+                            ],
+                        ],
+                    ],
+                    'quickReply' => [
+                        'items' => [
+                            [
+                                'type' => 'action',
+                                'action' => [
+                                    "type" => "location",
+                                    "label" => "Location",
+                                ],
+                            ],
+                            [
+                                'type' => 'action',
+                                'action' => [
+                                    "type" => "camera",
+                                    "label" => "Camera",
+                                ],
                             ],
                         ],
                     ],
                 ],
-            ],
             ],
             $messageTemplate->buildMessage()
         );
@@ -383,59 +383,59 @@ class QuickReplyTest extends TestCase
 
         $this->assertEquals(
             [
-            [
-                "type" => "template",
-                "altText" => "This is a buttons template",
-                "template" => [
-                    "type" => "buttons",
-                    "thumbnailImageUrl" => "https://example.com/bot/images/image.jpg",
-                    "imageAspectRatio" => "rectangle",
-                    "imageSize" => "cover",
-                    "imageBackgroundColor" => "#FFFFFF",
-                    "title" => "Menu",
-                    "text" => "Please select",
-                    "defaultAction" => [
-                        "type" => "uri",
-                        "label" => "View detail",
-                        "uri" => "http://example.com/page/123",
-                    ],
-                    "actions" => [
-                        [
-                            "type" => "postback",
-                            "label" => "Buy",
-                            "data" => "action=buy&itemid=123",
-                        ],
-                        [
-                            "type" => "postback",
-                            "label" => "Add to cart",
-                            "data" => "action=add&itemid=123",
-                        ],
-                        [
+                [
+                    "type" => "template",
+                    "altText" => "This is a buttons template",
+                    "template" => [
+                        "type" => "buttons",
+                        "thumbnailImageUrl" => "https://example.com/bot/images/image.jpg",
+                        "imageAspectRatio" => "rectangle",
+                        "imageSize" => "cover",
+                        "imageBackgroundColor" => "#FFFFFF",
+                        "title" => "Menu",
+                        "text" => "Please select",
+                        "defaultAction" => [
                             "type" => "uri",
                             "label" => "View detail",
                             "uri" => "http://example.com/page/123",
                         ],
-                    ],
-                ],
-                'quickReply' => [
-                    'items' => [
-                        [
-                            'type' => 'action',
-                            'action' => [
-                                "type" => "camera",
-                                "label" => "Camera",
+                        "actions" => [
+                            [
+                                "type" => "postback",
+                                "label" => "Buy",
+                                "data" => "action=buy&itemid=123",
+                            ],
+                            [
+                                "type" => "postback",
+                                "label" => "Add to cart",
+                                "data" => "action=add&itemid=123",
+                            ],
+                            [
+                                "type" => "uri",
+                                "label" => "View detail",
+                                "uri" => "http://example.com/page/123",
                             ],
                         ],
-                        [
-                            'type' => 'action',
-                            'action' => [
-                                "type" => "cameraRoll",
-                                "label" => "Camera roll",
+                    ],
+                    'quickReply' => [
+                        'items' => [
+                            [
+                                'type' => 'action',
+                                'action' => [
+                                    "type" => "camera",
+                                    "label" => "Camera",
+                                ],
+                            ],
+                            [
+                                'type' => 'action',
+                                'action' => [
+                                    "type" => "cameraRoll",
+                                    "label" => "Camera roll",
+                                ],
                             ],
                         ],
                     ],
                 ],
-            ],
             ],
             $messageTemplate->buildMessage()
         );

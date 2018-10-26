@@ -32,6 +32,7 @@ class AccountLinkEventHandler
 
     /**
      * BeaconEventHandler constructor.
+     *
      * @param LINEBot $bot
      * @param \Monolog\Logger $logger
      * @param AccountLinkEvent $accountLinkEvent
@@ -43,6 +44,9 @@ class AccountLinkEventHandler
         $this->accountLinkEvent = $accountLinkEvent;
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     public function handle()
     {
         $this->bot->replyText(

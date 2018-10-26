@@ -20,6 +20,11 @@ namespace LINE\LINEBot\TemplateActionBuilder;
 use LINE\LINEBot\Constant\ActionType;
 use LINE\LINEBot\TemplateActionBuilder;
 
+/**
+ * A builder class for location action.
+ *
+ * @package LINE\LINEBot\TemplateActionBuilder
+ */
 class LocationTemplateActionBuilder implements TemplateActionBuilder
 {
     /** @var string */

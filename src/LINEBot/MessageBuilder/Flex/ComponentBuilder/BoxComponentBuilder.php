@@ -52,10 +52,10 @@ class BoxComponentBuilder implements ComponentBuilder
     /**
      * BoxComponentBuilder constructor.
      *
-     * @param ComponentLayout $layout
+     * @param ComponentLayout|string $layout
      * @param ComponentBuilder[] $componentBuilders
      * @param int|null $flex
-     * @param ComponentSpacing|null $spacing
+     * @param ComponentSpacing|string|null $spacing
      * @param ComponentMargin|null $margin
      * @param TemplateActionBuilder|null $actionBuilder
      */
@@ -88,7 +88,7 @@ class BoxComponentBuilder implements ComponentBuilder
     /**
      * Set laytout.
      *
-     * @param ComponentLayout $layout
+     * @param ComponentLayout|string $layout
      * @return $this
      */
     public function setLayout($layout)
@@ -124,7 +124,7 @@ class BoxComponentBuilder implements ComponentBuilder
     /**
      * Set spacing.
      *
-     * @param ComponentSpacing|null $spacing
+     * @param ComponentSpacing|string|null $spacing
      * @return $this
      */
     public function setSpacing($spacing)
@@ -136,7 +136,7 @@ class BoxComponentBuilder implements ComponentBuilder
     /**
      * Set margin.
      *
-     * @param ComponentMargin|null $margin
+     * @param ComponentMargin|string|null $margin
      * @return $this
      */
     public function setMargin($margin)
@@ -169,6 +169,7 @@ class BoxComponentBuilder implements ComponentBuilder
         }
 
         $contents = array_map(function ($componentBuilder) {
+            /** @var ComponentBuilder $componentBuilder */
             return $componentBuilder->build();
         }, $this->componentBuilders);
 

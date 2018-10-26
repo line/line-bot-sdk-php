@@ -47,7 +47,7 @@ class BoxComponentBuilderTest extends TestCase
 JSON
             , true);
 
-        $conponentBuilder = new BoxComponentBuilder(
+        $componentBuilder = new BoxComponentBuilder(
             ComponentLayout::VERTICAL,
             [
                 new TextComponentBuilder('Hello, World!'),
@@ -58,9 +58,9 @@ JSON
             ComponentMargin::XS,
             new MessageTemplateActionBuilder('ok', 'OK')
         );
-        $this->assertEquals($result, $conponentBuilder->build());
+        $this->assertEquals($result, $componentBuilder->build());
 
-        $conponentBuilder = BoxComponentBuilder::builder()
+        $componentBuilder = BoxComponentBuilder::builder()
             ->setLayout(ComponentLayout::VERTICAL)
             ->setContents([
                 new TextComponentBuilder('Hello, World!'),
@@ -70,6 +70,6 @@ JSON
             ->setSpacing(ComponentSpacing::SM)
             ->setMargin(ComponentMargin::XS)
             ->setAction(new MessageTemplateActionBuilder('ok', 'OK'));
-        $this->assertEquals($result, $conponentBuilder->build());
+        $this->assertEquals($result, $componentBuilder->build());
     }
 }

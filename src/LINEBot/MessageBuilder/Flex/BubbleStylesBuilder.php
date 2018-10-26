@@ -84,7 +84,7 @@ class BubbleStylesBuilder
     /**
      * Set hero.
      *
-     * @param BlockStyleBuilder|null $headerStyleBuilder
+     * @param BlockStyleBuilder|null $heroStyleBuilder
      * @return BubbleStylesBuilder
      */
     public function setHero($heroStyleBuilder)
@@ -96,7 +96,7 @@ class BubbleStylesBuilder
     /**
      * Set body.
      *
-     * @param BlockStyleBuilder|null $headerStyleBuilder
+     * @param BlockStyleBuilder|null $bodyStyleBuilder
      * @return BubbleStylesBuilder
      */
     public function setBody($bodyStyleBuilder)
@@ -108,7 +108,7 @@ class BubbleStylesBuilder
     /**
      * Set footer.
      *
-     * @param BlockStyleBuilder|null $headerStyleBuilder
+     * @param BlockStyleBuilder|null $footerStyleBuilder
      * @return BubbleStylesBuilder
      */
     public function setFooter($footerStyleBuilder)

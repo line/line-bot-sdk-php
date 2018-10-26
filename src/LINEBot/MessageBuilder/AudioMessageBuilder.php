@@ -62,7 +62,7 @@ class AudioMessageBuilder implements MessageBuilder
      */
     public function buildMessage()
     {
-        if (! empty($this->message)) {
+        if (!empty($this->message)) {
             return $this->message;
         }
 

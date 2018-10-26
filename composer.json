@@ -29,7 +29,9 @@
   "require": {
     "php": ">=5.5",
     "ext-curl": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-sockets": "*",
+    "ext-posix": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^4.8.24||^5||^6",

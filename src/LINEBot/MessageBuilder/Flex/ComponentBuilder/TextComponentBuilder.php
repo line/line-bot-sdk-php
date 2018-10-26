@@ -139,7 +139,7 @@ class TextComponentBuilder implements ComponentBuilder
     /**
      * Set margin.
      *
-     * @param ComponentMargin|null $margin
+     * @param ComponentMargin|string|null $margin
      * @return TextComponentBuilder
      */
     public function setMargin($margin)
@@ -151,7 +151,7 @@ class TextComponentBuilder implements ComponentBuilder
     /**
      * Set size.
      *
-     * @param ComponentFontSize|null $size
+     * @param ComponentFontSize|string|null $size
      * @return TextComponentBuilder
      */
     public function setSize($size)
@@ -163,7 +163,7 @@ class TextComponentBuilder implements ComponentBuilder
     /**
      * Set align.
      *
-     * @param ComponentAlign|null $align
+     * @param ComponentAlign|string|null $align
      * @return TextComponentBuilder
      */
     public function setAlign($align)
@@ -175,7 +175,7 @@ class TextComponentBuilder implements ComponentBuilder
     /**
      * Set gravity.
      *
-     * @param ComponentGravity|null $gravity
+     * @param ComponentGravity|string|null $gravity
      * @return TextComponentBuilder
      */
     public function setGravity($gravity)
@@ -211,7 +211,7 @@ class TextComponentBuilder implements ComponentBuilder
     /**
      * Set weight.
      *
-     * @param ComponentFontWeight|null $weight
+     * @param ComponentFontWeight|string|null $weight
      * @return TextComponentBuilder
      */
     public function setWeight($weight)
