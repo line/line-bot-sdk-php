@@ -92,6 +92,7 @@
         
 
             <br>
+            <br>
             <a href="source-class-LINE.LINEBot.html" class="open-source-code">Open source code</a>
         <br>
     </div>
@@ -114,7 +115,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#___construct">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#52-61">__construct</a>( <span> <a href="interface-LINE.LINEBot.HTTPClient.html">LINE\LINEBot\HTTPClient</a> <span class="property-name">$httpClient</span> </span>, <span> array <span class="property-name">$args</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#53-62">__construct</a>( <span> <a href="interface-LINE.LINEBot.HTTPClient.html">LINE\LINEBot\HTTPClient</a> <span class="property-name">$httpClient</span> </span>, <span> array <span class="property-name">$args</span> </span> )</code>
 
             <div class="description">
                 LINEBot constructor.
@@ -146,7 +147,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getProfile">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#69-72">getProfile</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#70-73">getProfile</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
 
             <div class="description">
                 Gets specified user's profile through API calling.
@@ -178,7 +179,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getMessageContent">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#80-83">getMessageContent</a>( <span> string <span class="property-name">$messageId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#81-84">getMessageContent</a>( <span> string <span class="property-name">$messageId</span> </span> )</code>
 
             <div class="description">
                 Gets message content which is associated with specified message ID.
@@ -210,7 +211,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_replyMessage">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#92-98">replyMessage</a>( <span> string <span class="property-name">$replyToken</span> </span>, <span> <a href="interface-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a> <span class="property-name">$messageBuilder</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#93-99">replyMessage</a>( <span> string <span class="property-name">$replyToken</span> </span>, <span> <a href="interface-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a> <span class="property-name">$messageBuilder</span> </span> )</code>
 
             <div class="description">
                 Replies arbitrary message to destination which is associated with reply token.
@@ -242,7 +243,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_replyText">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#119-132">replyText</a>( <span> string <span class="property-name">$replyToken</span> </span>, <span> string <span class="property-name">$text</span> </span>, <span> string[]|null <span class="property-name">$extraTexts</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#120-133">replyText</a>( <span> string <span class="property-name">$replyToken</span> </span>, <span> string <span class="property-name">$text</span> </span>, <span> string[]|null <span class="property-name">$extraTexts</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Replies text message(s) to destination which is associated with reply token.
@@ -284,7 +285,7 @@ $bot-&gt;replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_pushMessage">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#141-147">pushMessage</a>( <span> string <span class="property-name">$to</span> </span>, <span> <a href="interface-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a> <span class="property-name">$messageBuilder</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#142-148">pushMessage</a>( <span> string <span class="property-name">$to</span> </span>, <span> <a href="interface-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a> <span class="property-name">$messageBuilder</span> </span> )</code>
 
             <div class="description">
                 Sends arbitrary message to destination.
@@ -316,7 +317,7 @@ $bot-&gt;replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_multicast">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#156-162">multicast</a>( <span> array <span class="property-name">$tos</span> </span>, <span> <a href="interface-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a> <span class="property-name">$messageBuilder</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#157-163">multicast</a>( <span> array <span class="property-name">$tos</span> </span>, <span> <a href="interface-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a> <span class="property-name">$messageBuilder</span> </span> )</code>
 
             <div class="description">
                 Sends arbitrary message to multi destinations.
@@ -348,7 +349,7 @@ $bot-&gt;replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_leaveGroup">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#170-173">leaveGroup</a>( <span> string <span class="property-name">$groupId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#171-174">leaveGroup</a>( <span> string <span class="property-name">$groupId</span> </span> )</code>
 
             <div class="description">
                 Leaves from group.
@@ -380,7 +381,7 @@ $bot-&gt;replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_leaveRoom">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#181-184">leaveRoom</a>( <span> string <span class="property-name">$roomId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#182-185">leaveRoom</a>( <span> string <span class="property-name">$roomId</span> </span> )</code>
 
             <div class="description">
                 Leaves from room.
@@ -412,7 +413,7 @@ $bot-&gt;replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_parseEventRequest">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#195-198">parseEventRequest</a>( <span> string <span class="property-name">$body</span> </span>, <span> string <span class="property-name">$signature</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#196-199">parseEventRequest</a>( <span> string <span class="property-name">$body</span> </span>, <span> string <span class="property-name">$signature</span> </span> )</code>
 
             <div class="description">
                 Parse event request to Event objects.
@@ -444,7 +445,7 @@ $bot-&gt;replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_validateSignature">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#208-211">validateSignature</a>( <span> string <span class="property-name">$body</span> </span>, <span> string <span class="property-name">$signature</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#209-212">validateSignature</a>( <span> string <span class="property-name">$body</span> </span>, <span> string <span class="property-name">$signature</span> </span> )</code>
 
             <div class="description">
                 Validate request with signature.
@@ -476,7 +477,7 @@ $bot-&gt;replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getGroupMemberProfile">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#221-225">getGroupMemberProfile</a>( <span> string <span class="property-name">$groupId</span> </span>, <span> string <span class="property-name">$userId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#222-226">getGroupMemberProfile</a>( <span> string <span class="property-name">$groupId</span> </span>, <span> string <span class="property-name">$userId</span> </span> )</code>
 
             <div class="description">
                 Gets the user profile of a member of a group that the bot is in.
@@ -510,7 +511,7 @@ This can be the user ID of a user who has not added the bot as a friend or has b
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getRoomMemberProfile">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#235-239">getRoomMemberProfile</a>( <span> string <span class="property-name">$roomId</span> </span>, <span> string <span class="property-name">$userId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#236-240">getRoomMemberProfile</a>( <span> string <span class="property-name">$roomId</span> </span>, <span> string <span class="property-name">$userId</span> </span> )</code>
 
             <div class="description">
                 Gets the user profile of a member of a room that the bot is in.
@@ -544,7 +545,7 @@ This can be the user ID of a user who has not added the bot as a friend or has b
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getGroupMemberIds">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#251-256">getGroupMemberIds</a>( <span> string <span class="property-name">$groupId</span> </span>, <span> string <span class="property-name">$start</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#252-257">getGroupMemberIds</a>( <span> string <span class="property-name">$groupId</span> </span>, <span> string <span class="property-name">$start</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Gets the user IDs of the members of a group that the bot is in.
@@ -580,7 +581,7 @@ This feature is only available for LINE@ Approved accounts or official accounts.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getRoomMemberIds">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#268-273">getRoomMemberIds</a>( <span> string <span class="property-name">$roomId</span> </span>, <span> string <span class="property-name">$start</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#269-274">getRoomMemberIds</a>( <span> string <span class="property-name">$roomId</span> </span>, <span> string <span class="property-name">$start</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Gets the user IDs of the members of a room that the bot is in.
@@ -616,7 +617,7 @@ This feature is only available for LINE@ Approved accounts or official accounts.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getAllGroupMemberIds">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#286-298">getAllGroupMemberIds</a>( <span> string <span class="property-name">$groupId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#287-299">getAllGroupMemberIds</a>( <span> string <span class="property-name">$groupId</span> </span> )</code>
 
             <div class="description">
                 Gets the user IDs of the members of a group that the bot is in.
@@ -657,7 +658,7 @@ This feature is only available for LINE@ Approved accounts or official accounts.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getAllRoomMemberIds">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#311-323">getAllRoomMemberIds</a>( <span> string <span class="property-name">$roomId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#312-324">getAllRoomMemberIds</a>( <span> string <span class="property-name">$roomId</span> </span> )</code>
 
             <div class="description">
                 Gets the user IDs of the members of a room that the bot is in.
@@ -698,7 +699,7 @@ This feature is only available for LINE@ Approved accounts or official accounts.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#331-335">getRichMenu</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#332-336">getRichMenu</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
 
             <div class="description">
                 Gets a rich menu via a rich menu ID.
@@ -730,7 +731,7 @@ This feature is only available for LINE@ Approved accounts or official accounts.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_createRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#345-348">createRichMenu</a>( <span> \RichMenuBuilder <span class="property-name">$richMenuBuilder</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#346-349">createRichMenu</a>( <span> \RichMenuBuilder <span class="property-name">$richMenuBuilder</span> </span> )</code>
 
             <div class="description">
                 Creates a rich menu.
@@ -764,7 +765,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_deleteRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#356-360">deleteRichMenu</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#357-361">deleteRichMenu</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
 
             <div class="description">
                 Deletes a rich menu.
@@ -796,7 +797,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getRichMenuId">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#368-372">getRichMenuId</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#369-373">getRichMenuId</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
 
             <div class="description">
                 Gets the ID of the rich menu linked to a user.
@@ -828,7 +829,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_linkRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#381-390">linkRichMenu</a>( <span> string <span class="property-name">$userId</span> </span>, <span> string <span class="property-name">$richMenuId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#382-391">linkRichMenu</a>( <span> string <span class="property-name">$userId</span> </span>, <span> string <span class="property-name">$richMenuId</span> </span> )</code>
 
             <div class="description">
                 Links a rich menu to a user. Only one rich menu can be linked to a user at one time.
@@ -860,7 +861,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_unlinkRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#398-402">unlinkRichMenu</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#399-403">unlinkRichMenu</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
 
             <div class="description">
                 Unlinks a rich menu from a user.
@@ -892,7 +893,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_downloadRichMenuImage">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#410-414">downloadRichMenuImage</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#411-415">downloadRichMenuImage</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
 
             <div class="description">
                 Downloads an image associated with a rich menu.
@@ -924,7 +925,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_uploadRichMenuImage">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#429-440">uploadRichMenuImage</a>( <span> string <span class="property-name">$richMenuId</span> </span>, <span> string <span class="property-name">$imagePath</span> </span>, <span> string <span class="property-name">$contentType</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#430-441">uploadRichMenuImage</a>( <span> string <span class="property-name">$richMenuId</span> </span>, <span> string <span class="property-name">$imagePath</span> </span>, <span> string <span class="property-name">$contentType</span> </span> )</code>
 
             <div class="description">
                 Uploads and attaches an image to a rich menu.
@@ -961,7 +962,7 @@ create a new rich menu object and upload another image.&lt;/li&gt;&lt;/ul&gt;
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getRichMenuList">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#447-450">getRichMenuList</a>( )</code>
+            <code><a href="source-class-LINE.LINEBot.html#448-451">getRichMenuList</a>( )</code>
 
             <div class="description">
                 Gets a list of all uploaded rich menus.
@@ -994,7 +995,7 @@ create a new rich menu object and upload another image.&lt;/li&gt;&lt;/ul&gt;
     </td>
     <td class="name">
         <code>
-            <a href="source-class-LINE.LINEBot.html#37" class="constant-name">DEFAULT_ENDPOINT_BASE</a>
+            <a href="source-class-LINE.LINEBot.html#38" class="constant-name">DEFAULT_ENDPOINT_BASE</a>
         </code>
 
         <div class="description">

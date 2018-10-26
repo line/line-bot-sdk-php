@@ -114,7 +114,7 @@
 </span><span class="l" id="line-55">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __construct(<span class="php-var">$text</span>, <span class="php-var">$extraTexts</span> = <span class="php-keyword1">null</span>)
 </span><span class="l" id="line-56">    {
 </span><span class="l" id="line-57">        <span class="php-var">$extras</span> = [];
-</span><span class="l" id="line-58">        <span class="php-keyword1">if</span> (! <span class="php-keyword2">is_null</span>(<span class="php-var">$extraTexts</span>)) {
+</span><span class="l" id="line-58">        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$extraTexts</span>)) {
 </span><span class="l" id="line-59">            <span class="php-var">$args</span> = <span class="php-keyword2">func_get_args</span>();
 </span><span class="l" id="line-60">            <span class="php-var">$extras</span> = <span class="php-keyword2">array_slice</span>(<span class="php-var">$args</span>, <span class="php-num">1</span>);
 </span><span class="l" id="line-61">
@@ -137,7 +137,7 @@
 </span></span><span class="l" id="line-78"><span class="php-comment">     */</span>
 </span><span class="l" id="line-79">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> buildMessage()
 </span><span class="l" id="line-80">    {
-</span><span class="l" id="line-81">        <span class="php-keyword1">if</span> (! <span class="php-keyword1">empty</span>(<span class="php-var">$this</span>-&gt;message)) {
+</span><span class="l" id="line-81">        <span class="php-keyword1">if</span> (!<span class="php-keyword1">empty</span>(<span class="php-var">$this</span>-&gt;message)) {
 </span><span class="l" id="line-82">            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;message;
 </span><span class="l" id="line-83">        }
 </span><span class="l" id="line-84">
@@ -151,8 +151,8 @@
 </span><span class="l" id="line-92">        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;quickReply) {
 </span><span class="l" id="line-93">            <span class="php-var">$lastKey</span> = <span class="php-keyword2">count</span>(<span class="php-var">$this</span>-&gt;message) - <span class="php-num">1</span>;
 </span><span class="l" id="line-94">
-</span><span class="l" id="line-95">            <span class="php-comment">//If the user receives multiple message objects.</span>
-</span><span class="l" id="line-96">            <span class="php-comment">//The quickReply property of the last message object is displayed.</span>
+</span><span class="l" id="line-95">            <span class="php-comment">// If the user receives multiple message objects.</span>
+</span><span class="l" id="line-96">            <span class="php-comment">// The quickReply property of the last message object is displayed.</span>
 </span><span class="l" id="line-97">            <span class="php-var">$this</span>-&gt;message[<span class="php-var">$lastKey</span>][<span class="php-quote">'quickReply'</span>] = <span class="php-var">$this</span>-&gt;quickReply-&gt;buildQuickReply();
 </span><span class="l" id="line-98">        }
 </span><span class="l" id="line-99">
