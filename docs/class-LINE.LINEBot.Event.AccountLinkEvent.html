@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link rel="stylesheet" href="resources/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/style.css">
+
+        <title>
+            Class LINE\LINEBot\Event\AccountLinkEvent
+        </title>
+    </head>
+
+    <body>
+<div id="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.html">
+                                Overview
+                            </a>
+                        </li>
+
+                            <li>
+                                <a href="classes.html">Classes</a>
+                            </li>
+
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
+
+
+
+                            <li>
+                                <a href="exceptions.html">Exceptions</a>
+                            </li>
+
+                    </ul>
+
+                    <form id="search" class="pull-right">
+                        <input type="text" name="q" class="form-control text" placeholder="Search class, function or namespace" autofocus>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+            <div id="breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+<div class="pull-left type">
+    <span class="label label-success">Class</span>
+</div>
+
+<ol class="breadcrumb pull-left">
+        <li>
+            <a href="namespace-LINE.html">LINE</a>
+        </li>
+            <li class="backslash">\</li>
+        <li>
+            <a href="namespace-LINE.LINEBot.html">LINEBot</a>
+        </li>
+            <li class="backslash">\</li>
+        <li>
+            <a href="namespace-LINE.LINEBot.Event.html">Event</a>
+        </li>
+
+        <li class="backslash">\</li>
+        <li class="active">AccountLinkEvent</li>
+</ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+    <h1>AccountLinkEvent</h1>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                A class that represents the event of account link.
+
+Event object for when a user has linked his/her LINE account with a provider's service account.
+You can reply to account link events.  If the link token has expired or has already been used,
+ no webhook event will be sent and the user will be shown an error.
+            </div>
+        </div>
+
+        <dl class="tree">
+            <dd>
+                    extends
+                    <a href="class-LINE.LINEBot.Event.BaseEvent.html">
+                        LINE\LINEBot\Event\BaseEvent
+                    </a>
+
+
+            </dd>
+        </dl>
+
+
+
+    <div class="info">
+        
+
+            <br>
+            <a href="source-class-LINE.LINEBot.Event.AccountLinkEvent.html" class="open-source-code">Open source code</a>
+        <br>
+    </div>
+
+        <table class="summary table table-bordered table-responsive table-striped" id="methods">
+            <tr><th colspan="3">Methods Summary</th></tr>
+
+
+
+<tr id="___construct">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#___construct">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.AccountLinkEvent.html#40-43">__construct</a>( <span> array <span class="property-name">$event</span> </span> )</code>
+
+            <div class="description">
+                AccountLinkEvent constructor.
+
+
+
+
+
+
+
+                        <h2>Overrides</h2>
+                        <div>
+                            <code>
+                                <a href="class-LINE.LINEBot.Event.BaseEvent.html#___construct">
+                                    LINE\LINEBot\Event\BaseEvent::__construct()
+                                </a>
+                            </code>
+                        </div>
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getResult">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getResult">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.AccountLinkEvent.html#55-58">getResult</a>( )</code>
+
+            <div class="description">
+                Gets the result of the link event
+One of the following values to indicate whether the link was successful or not.
+
+ok: Indicates the link was successful.
+failed: Indicates the link failed for any reason, such as due to a user impersonation.
+
+
+
+
+
+
+                    <h2>see</h2>
+                    <div class="list">
+                        <code><a href="class-LINE.LINEBot.Event.AccountLinkEvent.html#_isSuccess">AccountLinkEvent::isSuccess()</a></code><br>
+                    </div>
+                    <h2>see</h2>
+                    <div class="list">
+                        <code><a href="class-LINE.LINEBot.Event.AccountLinkEvent.html#_isFailed">AccountLinkEvent::isFailed()</a></code><br>
+                    </div>
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getNonce">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getNonce">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.AccountLinkEvent.html#65-68">getNonce</a>( )</code>
+
+            <div class="description">
+                Gets the nonce generated from the user ID on the provider's service.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_isSuccess">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_isSuccess">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.AccountLinkEvent.html#75-78">isSuccess</a>( )</code>
+
+            <div class="description">
+                Returns the account link has success or not
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_isFailed">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_isFailed">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.AccountLinkEvent.html#85-88">isFailed</a>( )</code>
+
+            <div class="description">
+                Returns the account link has failed or not
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+        </table>
+
+        <table class="summary table table-bordered table-responsive table-striped">
+            <tr>
+                <th>
+                    Methods inherited from <a href="class-LINE.LINEBot.Event.BaseEvent.html#methods">LINE\LINEBot\Event\BaseEvent</a>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#___construct">__construct()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getType">getType()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getTimestamp">getTimestamp()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getReplyToken">getReplyToken()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isUserEvent">isUserEvent()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isGroupEvent">isGroupEvent()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isRoomEvent">isRoomEvent()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isUnknownEvent">isUnknownEvent()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getUserId">getUserId()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getGroupId">getGroupId()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getRoomId">getRoomId()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getEventSourceId">getEventSourceId()</a></code>
+                </td>
+            </tr>
+        </table>
+
+
+        <table class="summary table table-bordered table-responsive table-striped" id="constants">
+            <tr><th colspan="3">Constants Summary</th></tr>
+<tr id="RESULT_OK">
+    <td class="attributes">
+        <code class="keyword">
+        public
+        
+        
+        string
+        </code>
+    </td>
+    <td class="name">
+        <code>
+            <a href="source-class-LINE.LINEBot.Event.AccountLinkEvent.html#32" class="constant-name">RESULT_OK</a>
+        </code>
+
+        <div class="description">
+            
+
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#RESULT_OK" class="anchor pull-right">#</a>
+            <code><span class="php-quote">'ok'</span></code>
+        </div>
+    </td>
+</tr>
+<tr id="RESULT_FAILED">
+    <td class="attributes">
+        <code class="keyword">
+        public
+        
+        
+        string
+        </code>
+    </td>
+    <td class="name">
+        <code>
+            <a href="source-class-LINE.LINEBot.Event.AccountLinkEvent.html#33" class="constant-name">RESULT_FAILED</a>
+        </code>
+
+        <div class="description">
+            
+
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#RESULT_FAILED" class="anchor pull-right">#</a>
+            <code><span class="php-quote">'failed'</span></code>
+        </div>
+    </td>
+</tr>
+        </table>
+
+
+
+            <table class="summary table table-bordered table-responsive table-striped">
+                <tr>
+                    <th>
+                        Properties inherited from <a href="class-LINE.LINEBot.Event.BaseEvent.html#properties">LINE\LINEBot\Event\BaseEvent</a>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                            <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#$event" class="property-name">$event</a></code>
+                    </td>
+                </tr>
+            </table>
+
+    <div id="footer">
+        Generated by <a href="https://github.com/apigen/apigen">ApiGen</a>
+    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="resources/jquery-3.2.1.min.js"></script>
+        <script src="resources/jquery-ui-1.12.1.min.js"></script>
+
+        <script src="elementlist.js"></script>
+        <script src="resources/main.js"></script>
+    </body>
+</html>
+
+
