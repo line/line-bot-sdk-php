@@ -44,6 +44,7 @@ class FlexMessageBuilder implements MessageBuilder
     
     /** @var array */
     private $jsonRaw;
+    
     /**
      * FlexMessageBuilder constructor.
      *
