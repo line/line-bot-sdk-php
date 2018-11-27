@@ -112,7 +112,7 @@ class FlexMessageBuilder implements MessageBuilder
      * Builds flex message structure.
      *
      * @return array
-     */     
+     */
     public function buildMessage()
     {
         if (isset($this->message)) {
