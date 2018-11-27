@@ -52,14 +52,13 @@ class FlexMessageBuilder implements MessageBuilder
      * @param ContainerBuilder $containerBuilder
      * @param QuickReplyBuilder|null $quickReply
      */
-    public function __construct($altText, $containerBuilder, QuickReplyBuilder $quickReply = null , $jsonRaw = null)
+    public function __construct($altText, $containerBuilder, QuickReplyBuilder $quickReply = null, $jsonRaw = null)
     {
         
-        $this->jsonRaw = json_decode($jsonRaw,1);
+        $this->jsonRaw = json_decode($jsonRaw, 1);
         $this->altText = $altText;
         $this->containerBuilder = $containerBuilder;
         $this->quickReply = $quickReply;
-        
     }
 
     /**
@@ -114,11 +113,11 @@ class FlexMessageBuilder implements MessageBuilder
      * @return array
      */
      public function buildMessage()
-    {
+     {
         if (isset($this->message)) {
             return $this->message;
         }
-        if(isset($this->jsonRaw)){
+        if (isset($this->jsonRaw)) {
             $this->message = [
                 BuildUtil::removeNullElements([
                     'type' => MessageType::FLEX,
@@ -127,7 +126,7 @@ class FlexMessageBuilder implements MessageBuilder
                     'quickReply' => BuildUtil::build($this->quickReply, 'buildQuickReply'),
                 ])
             ];
-        }else{
+        }else {
             $this->message = [
                 BuildUtil::removeNullElements([
                     'type' => MessageType::FLEX,
