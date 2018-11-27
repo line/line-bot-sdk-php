@@ -41,7 +41,9 @@ class FlexMessageBuilder implements MessageBuilder
 
     /** @var array */
     private $message;
-
+    
+    /** @var array */
+    private $jsonRaw;
     /**
      * FlexMessageBuilder constructor.
      *
@@ -49,11 +51,14 @@ class FlexMessageBuilder implements MessageBuilder
      * @param ContainerBuilder $containerBuilder
      * @param QuickReplyBuilder|null $quickReply
      */
-    public function __construct($altText, $containerBuilder, QuickReplyBuilder $quickReply = null)
+    public function __construct($altText, $containerBuilder, QuickReplyBuilder $quickReply = null , $jsonRaw = null)
     {
+        
+        $this->jsonRaw = json_decode($jsonRaw,1);
         $this->altText = $altText;
         $this->containerBuilder = $containerBuilder;
         $this->quickReply = $quickReply;
+        
     }
 
     /**
@@ -106,22 +111,31 @@ class FlexMessageBuilder implements MessageBuilder
      * Builds flex message structure.
      *
      * @return array
-     */
+     */     
     public function buildMessage()
     {
         if (isset($this->message)) {
             return $this->message;
         }
-
-        $this->message = [
-            BuildUtil::removeNullElements([
-                'type' => MessageType::FLEX,
-                'altText' => $this->altText,
-                'contents' => $this->containerBuilder->build(),
-                'quickReply' => BuildUtil::build($this->quickReply, 'buildQuickReply'),
-            ])
-        ];
-
+        if(isset($this->jsonRaw)){
+            $this->message = [
+                BuildUtil::removeNullElements([
+                    'type' => MessageType::FLEX,
+                    'altText' => $this->altText,
+                    'contents' => $this->jsonRaw,
+                    'quickReply' => BuildUtil::build($this->quickReply, 'buildQuickReply'),
+                ])
+            ];
+        }else{
+            $this->message = [
+                BuildUtil::removeNullElements([
+                    'type' => MessageType::FLEX,
+                    'altText' => $this->altText,
+                    'contents' => $this->containerBuilder->build(),
+                    'quickReply' => BuildUtil::build($this->quickReply, 'buildQuickReply'),
+                ])
+            ];
+        }
         return $this->message;
     }
 }
