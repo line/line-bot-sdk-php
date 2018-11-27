@@ -112,8 +112,8 @@ class FlexMessageBuilder implements MessageBuilder
      *
      * @return array
      */
-     public function buildMessage()
-     {
+    public function buildMessage()
+    {
         if (isset($this->message)) {
             return $this->message;
         }
@@ -126,7 +126,7 @@ class FlexMessageBuilder implements MessageBuilder
                     'quickReply' => BuildUtil::build($this->quickReply, 'buildQuickReply'),
                 ])
             ];
-        }else {
+        } else {
             $this->message = [
                 BuildUtil::removeNullElements([
                     'type' => MessageType::FLEX,
