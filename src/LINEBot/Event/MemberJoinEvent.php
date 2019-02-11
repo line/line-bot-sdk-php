@@ -34,4 +34,14 @@ class MemberJoinEvent extends BaseEvent
     {
         parent::__construct($event);
     }
+
+    /**
+     * Returns joined members.
+     *
+     * @return string
+     */
+    public function getMembers()
+    {
+        return $this->event['joined']['members'];
+    }
 }

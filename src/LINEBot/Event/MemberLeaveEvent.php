@@ -34,4 +34,14 @@ class MemberLeaveEvent extends BaseEvent
     {
         parent::__construct($event);
     }
+
+    /**
+     * Returns left members.
+     *
+     * @return string
+     */
+    public function getMembers()
+    {
+        return $this->event['left']['members'];
+    }
 }

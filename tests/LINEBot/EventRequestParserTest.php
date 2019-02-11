@@ -24,6 +24,8 @@ use LINE\LINEBot\Event\BeaconDetectionEvent;
 use LINE\LINEBot\Event\FollowEvent;
 use LINE\LINEBot\Event\JoinEvent;
 use LINE\LINEBot\Event\LeaveEvent;
+use LINE\LINEBot\Event\MemberJoinEvent;
+use LINE\LINEBot\Event\MemberLeaveEvent;
 use LINE\LINEBot\Event\MessageEvent\AudioMessage;
 use LINE\LINEBot\Event\MessageEvent\FileMessage;
 use LINE\LINEBot\Event\MessageEvent\ImageMessage;
@@ -348,6 +350,47 @@ class EventRequestParserTest extends TestCase
     "result": "failed",
     "nonce": "1234567890abcdefghijklmnopqrstuvwxyz"
    }
+  },
+  {
+   "type":"memberJoined",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"group",
+    "groupId":"groupid"
+   },
+   "joined": {
+    "members": [
+     {
+      "type": "user",
+      "userId": "U4af4980629..."
+     },
+     {
+      "type": "user",
+      "userId": "U91eeaf62d9..."
+     }
+    ]
+   },
+   "replyToken":"replytoken"
+  },
+  {
+   "type":"memberLeft",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"group",
+    "groupId":"groupid"
+   },
+   "left": {
+    "members": [
+     {
+      "type": "user",
+      "userId": "U4af4980629..."
+     },
+     {
+      "type": "user",
+      "userId": "U91eeaf62d9..."
+     }
+    ]
+   }
   }
  ]
 }
@@ -362,9 +405,9 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        $events = $bot->parseEventRequest($this::$json, 'uilGuZPX3SyyreXYIYla+I3kS48xg4+igqQZL33fc6M=');
+        $events = $bot->parseEventRequest($this::$json, 'iiWsqJCsXZSzoKpuZPBk9Vqw3XiAl+AqLJLUKYEVf2I=');
 
-        $this->assertEquals(count($events), 24);
+        $this->assertEquals(count($events), 26);
 
         {
             // text
@@ -639,6 +682,30 @@ JSON;
             $this->assertEquals(false, $event->isSuccess());
             $this->assertEquals(true, $event->isFailed());
             $this->assertEquals("1234567890abcdefghijklmnopqrstuvwxyz", $event->getNonce());
+        }
+
+        {
+            // member join
+            $event = $events[24];
+            $this->assertInstanceOf('LINE\LINEBot\Event\MemberJoinEvent', $event);
+            /** @var MemberJoinEvent $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $members = $event->getMembers();
+            $this->assertEquals(["type" => "user", "userId" => "U4af4980629..."], $members[0]);
+            $this->assertEquals(["type" => "user", "userId" => "U91eeaf62d9..."], $members[1]);
+        }
+
+        {
+            // member leave
+            $event = $events[25];
+            $this->assertInstanceOf('LINE\LINEBot\Event\MemberLeaveEvent', $event);
+            /** @var MemberLeaveEvent $event */
+            $this->assertTrue($event->getReplyToken() === null);
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $members = $event->getMembers();
+            $this->assertEquals(["type" => "user", "userId" => "U4af4980629..."], $members[0]);
+            $this->assertEquals(["type" => "user", "userId" => "U91eeaf62d9..."], $members[1]);
         }
     }
 }
