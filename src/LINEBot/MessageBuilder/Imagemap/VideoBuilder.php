@@ -44,8 +44,12 @@ class VideoBuilder
      * @param AreaBuilder $area
      * @param ExternalLinkBuilder $externalLink
      */
-    public function __construct($originalContentUrl, $previewImageUrl, AreaBuilder $areaBuilder, ExternalLinkBuilder $externalLinkBuilder = null)
-    {
+    public function __construct(
+        $originalContentUrl,
+        $previewImageUrl,
+        AreaBuilder $areaBuilder,
+        ExternalLinkBuilder $externalLinkBuilder = null
+    ) {
         $this->originalContentUrl = $originalContentUrl;
         $this->previewImageUrl = $previewImageUrl;
         $this->areaBuilder = $areaBuilder;
