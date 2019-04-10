@@ -204,7 +204,7 @@ class TextMessageHandler implements EventHandler
                     new VideoBuilder(
                         UrlBuilder::buildUrl($this->req, ['static', 'video.mp4']),
                         UrlBuilder::buildUrl($this->req, ['static', 'preview.jpg']),
-                        new AreaBuilder(0, 0, 520, 520),
+                        new AreaBuilder(260, 260, 520, 520),
                         new ExternalLinkBuilder('https://line.me', 'LINE')
                     )
                 );
