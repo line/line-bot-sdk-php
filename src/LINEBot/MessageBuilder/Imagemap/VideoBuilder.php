@@ -33,7 +33,7 @@ class VideoBuilder
     private $previewImageUrl;
     /** @var AreaBuilder */
     private $areaBuilder;
-    /** @var ExternalLinkBuilder */
+    /** @var ExternalLinkBuilder|null */
     private $externalLinkBuilder;
     
     /**
@@ -42,7 +42,7 @@ class VideoBuilder
      * @param string $originalContentUrl
      * @param string $previewImageUrl
      * @param AreaBuilder $area
-     * @param ExternalLinkBuilder $externalLink
+     * @param ExternalLinkBuilder|null $externalLink
      */
     public function __construct(
         $originalContentUrl,

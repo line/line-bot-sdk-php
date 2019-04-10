@@ -41,7 +41,7 @@ class ImagemapMessageBuilder implements MessageBuilder
     /** @var BaseSizeBuilder */
     private $baseSizeBuilder;
 
-    /** @var VideoBuilder */
+    /** @var VideoBuilder|null */
     private $videoBuilder;
 
     /** @var ImagemapActionBuilder[] */
@@ -61,6 +61,7 @@ class ImagemapMessageBuilder implements MessageBuilder
      * @param BaseSizeBuilder $baseSizeBuilder
      * @param ImagemapActionBuilder[] $imagemapActionBuilders
      * @param QuickReplyBuilder|null $quickReply
+     * @param VideoBuilder|null $videoBuilder
      */
     public function __construct(
         $baseUrl,
