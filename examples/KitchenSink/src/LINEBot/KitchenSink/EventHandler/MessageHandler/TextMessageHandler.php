@@ -176,7 +176,7 @@ class TextMessageHandler implements EventHandler
                 );
                 $this->bot->replyMessage($replyToken, $imagemapMessageBuilder);
                 break;
-            case 'imagemap video':
+            case 'imagemapVideo':
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
                 $imagemapMessageBuilder = new ImagemapMessageBuilder(
                     $richMessageUrl,
