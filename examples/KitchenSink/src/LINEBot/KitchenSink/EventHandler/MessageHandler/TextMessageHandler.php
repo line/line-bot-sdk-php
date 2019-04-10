@@ -38,6 +38,8 @@ use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleRestaura
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleShopping;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
 use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
+use LINE\LINEBot\MessageBuilder\Imagemap\VideoBuilder;
+use LINE\LINEBot\MessageBuilder\Imagemap\ExternalLinkBuilder;
 use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
@@ -171,6 +173,40 @@ class TextMessageHandler implements EventHandler
                             new AreaBuilder(520, 520, 520, 520)
                         )
                     ]
+                );
+                $this->bot->replyMessage($replyToken, $imagemapMessageBuilder);
+                break;
+            case 'imagemapVideo':
+                $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
+                $imagemapMessageBuilder = new ImagemapMessageBuilder(
+                    $richMessageUrl,
+                    'This is alt text',
+                    new BaseSizeBuilder(1040, 1040),
+                    [
+                        new ImagemapUriActionBuilder(
+                            'https://store.line.me/family/manga/en',
+                            new AreaBuilder(0, 0, 520, 520)
+                        ),
+                        new ImagemapUriActionBuilder(
+                            'https://store.line.me/family/music/en',
+                            new AreaBuilder(520, 0, 520, 520)
+                        ),
+                        new ImagemapUriActionBuilder(
+                            'https://store.line.me/family/play/en',
+                            new AreaBuilder(0, 520, 520, 520)
+                        ),
+                        new ImagemapMessageActionBuilder(
+                            'URANAI!',
+                            new AreaBuilder(520, 520, 520, 520)
+                        )
+                    ],
+                    null,
+                    new VideoBuilder(
+                        UrlBuilder::buildUrl($this->req, ['static', 'video.mp4']),
+                        UrlBuilder::buildUrl($this->req, ['static', 'preview.jpg']),
+                        new AreaBuilder(260, 260, 520, 520),
+                        new ExternalLinkBuilder('https://line.me', 'LINE')
+                    )
                 );
                 $this->bot->replyMessage($replyToken, $imagemapMessageBuilder);
                 break;

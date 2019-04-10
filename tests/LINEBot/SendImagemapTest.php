@@ -25,6 +25,8 @@ use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
 use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
 use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
 use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
+use LINE\LINEBot\MessageBuilder\Imagemap\VideoBuilder;
+use LINE\LINEBot\MessageBuilder\Imagemap\ExternalLinkBuilder;
 use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 use PHPUnit\Framework\TestCase;
@@ -80,6 +82,79 @@ class SendImagemapTest extends TestCase
                         new AreaBuilder(0, 520, 1040, 520)
                     ),
                 ]
+            )
+        );
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+    }
+
+    public function testReplyImagemapVideo()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('POST', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/message/reply', $url);
+
+            $testRunner->assertEquals('REPLY-TOKEN', $data['replyToken']);
+            $testRunner->assertEquals(1, count($data['messages']));
+
+            $message = $data['messages'][0];
+            $testRunner->assertEquals(MessageType::IMAGEMAP, $message['type']);
+            $testRunner->assertEquals('https://example.com/imagemap_base', $message['baseUrl']);
+            $testRunner->assertEquals('alt test', $message['altText']);
+            $testRunner->assertEquals(1040, $message['baseSize']['width']);
+            $testRunner->assertEquals(1040, $message['baseSize']['height']);
+
+            $testRunner->assertEquals(2, count($message['actions']));
+            $testRunner->assertEquals(ActionType::URI, $message['actions'][0]['type']);
+            $testRunner->assertEquals(0, $message['actions'][0]['area']['x']);
+            $testRunner->assertEquals(0, $message['actions'][0]['area']['y']);
+            $testRunner->assertEquals(1040, $message['actions'][0]['area']['width']);
+            $testRunner->assertEquals(520, $message['actions'][0]['area']['height']);
+
+            $testRunner->assertEquals(ActionType::MESSAGE, $message['actions'][1]['type']);
+            $testRunner->assertEquals(0, $message['actions'][1]['area']['x']);
+            $testRunner->assertEquals(520, $message['actions'][1]['area']['y']);
+            $testRunner->assertEquals(1040, $message['actions'][1]['area']['width']);
+            $testRunner->assertEquals(520, $message['actions'][1]['area']['height']);
+
+            $testRunner->assertEquals('https://example.com/video.mp4', $message['video']['originalContentUrl']);
+            $testRunner->assertEquals('https://example.com/preview.jpg', $message['video']['previewImageUrl']);
+            $testRunner->assertEquals(0, $message['video']['area']['x']);
+            $testRunner->assertEquals(0, $message['video']['area']['y']);
+            $testRunner->assertEquals(520, $message['video']['area']['width']);
+            $testRunner->assertEquals(520, $message['video']['area']['height']);
+            $testRunner->assertEquals('https://example.com/foo/bar', $message['video']['externalLink']['linkUri']);
+            $testRunner->assertEquals('test', $message['video']['externalLink']['label']);
+
+            return ['status' => 200];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->replyMessage(
+            'REPLY-TOKEN',
+            new ImagemapMessageBuilder(
+                'https://example.com/imagemap_base',
+                'alt test',
+                new BaseSizeBuilder(1040, 1040),
+                [
+                    new ImagemapUriActionBuilder(
+                        'https://example.com/foo/bar',
+                        new AreaBuilder(0, 0, 1040, 520)
+                    ),
+                    new ImagemapMessageActionBuilder(
+                        'Fortune',
+                        new AreaBuilder(0, 520, 1040, 520)
+                    ),
+                ],
+                null,
+                new VideoBuilder(
+                    'https://example.com/video.mp4',
+                    'https://example.com/preview.jpg',
+                    new AreaBuilder(0, 0, 520, 520),
+                    new ExternalLinkBuilder('https://example.com/foo/bar', 'test')
+                )
             )
         );
 

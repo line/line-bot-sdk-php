@@ -22,6 +22,7 @@ use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\ImagemapActionBuilder;
 use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
+use LINE\LINEBot\MessageBuilder\Imagemap\VideoBuilder;
 use LINE\LINEBot\QuickReplyBuilder;
 
 /**
@@ -40,6 +41,9 @@ class ImagemapMessageBuilder implements MessageBuilder
     /** @var BaseSizeBuilder */
     private $baseSizeBuilder;
 
+    /** @var VideoBuilder|null */
+    private $videoBuilder;
+
     /** @var ImagemapActionBuilder[] */
     private $imagemapActionBuilders;
 
@@ -57,19 +61,22 @@ class ImagemapMessageBuilder implements MessageBuilder
      * @param BaseSizeBuilder $baseSizeBuilder
      * @param ImagemapActionBuilder[] $imagemapActionBuilders
      * @param QuickReplyBuilder|null $quickReply
+     * @param VideoBuilder|null $videoBuilder
      */
     public function __construct(
         $baseUrl,
         $altText,
         $baseSizeBuilder,
         array $imagemapActionBuilders,
-        QuickReplyBuilder $quickReply = null
+        QuickReplyBuilder $quickReply = null,
+        VideoBuilder $videoBuilder = null
     ) {
         $this->baseUrl = $baseUrl;
         $this->altText = $altText;
         $this->baseSizeBuilder = $baseSizeBuilder;
         $this->imagemapActionBuilders = $imagemapActionBuilders;
         $this->quickReply = $quickReply;
+        $this->videoBuilder = $videoBuilder;
     }
 
     /**
@@ -98,6 +105,10 @@ class ImagemapMessageBuilder implements MessageBuilder
 
         if ($this->quickReply) {
             $imagemapMessage['quickReply'] = $this->quickReply->buildQuickReply();
+        }
+
+        if ($this->videoBuilder) {
+            $imagemapMessage['video'] = $this->videoBuilder->build();
         }
 
         $this->message[] = $imagemapMessage;
