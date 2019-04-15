@@ -391,7 +391,23 @@ class LINEBot
     }
 
     /**
-     * Unlinks a rich menu from a user.
+     * Links a rich menu to multiple users.
+     *
+     * @param string[] $userIds Found in the source object of webhook event objects. Max: 150 user IDs.
+     * @param string $richMenuId ID of an uploaded rich menu
+     * @return Response
+     */
+    public function bulkLinkRichMenu($userIds, $richMenuId)
+    {
+        $url = $this->endpointBase . '/v2/bot/richmenu/bulk/link';
+        return $this->httpClient->post($url, [
+            'richMenuId' => $richMenuId,
+            'userIds' => $userIds
+        ]);
+    }
+
+    /**
+     * Unlinks a rich menu from multiple user.
      *
      * @param string $userId User ID. Found in the source object of webhook event objects.
      * @return Response
@@ -400,6 +416,20 @@ class LINEBot
     {
         $url = sprintf('%s/v2/bot/user/%s/richmenu', $this->endpointBase, urlencode($userId));
         return $this->httpClient->delete($url);
+    }
+
+    /**
+     * Unlinks rich menus from multiple users.
+     *
+     * @param string[] $userIds Found in the source object of webhook event objects. Max: 150 user IDs.
+     * @return Response
+     */
+    public function bulkUnlinkRichMenu($userIds)
+    {
+        $url = $this->endpointBase . '/v2/bot/richmenu/bulk/unlink';
+        return $this->httpClient->post($url, [
+            'userIds' => $userIds
+        ]);
     }
 
     /**
