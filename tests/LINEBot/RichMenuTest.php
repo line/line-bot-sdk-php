@@ -155,6 +155,26 @@ class RichMenuTest extends TestCase
         $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
     }
 
+    public function testBulkLinkRichMenu()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('POST', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu/bulk/link', $url);
+            $testRunner->assertEquals([
+                'userIds' => ['123'],
+                'richMenuId' => '567',
+            ], $data);
+            return ['status' => 202];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->bulkLinkRichMenu([123], 567);
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(202, $res->getJSONDecodedBody()['status']);
+    }
+
     public function testUnlinkRichMenu()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
@@ -170,6 +190,25 @@ class RichMenuTest extends TestCase
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());
         $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+    }
+
+    public function testBulkUnlinkRichMenu()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('POST', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu/bulk/unlink', $url);
+            $testRunner->assertEquals([
+                'userIds' => ['123']
+            ], $data);
+            return ['status' => 202];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->bulkUnlinkRichMenu([123]);
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(202, $res->getJSONDecodedBody()['status']);
     }
 
     public function testDownloadRichMenuImage()
