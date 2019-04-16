@@ -54,11 +54,11 @@ class EventRequestParser
      * @param string $body
      * @param string $channelSecret
      * @param string $signature
-     * @return \LINE\LINEBot\Event\BaseEvent[] array
+     * @return mixed
      * @throws InvalidEventRequestException
      * @throws InvalidSignatureException
      */
-    public static function parseEventRequest($body, $channelSecret, $signature)
+    public static function parseEventRequest($body, $channelSecret, $signature, $eventsOnly = true)
     {
         if (!isset($signature)) {
             throw new InvalidSignatureException('Request does not contain signature');
@@ -94,7 +94,16 @@ class EventRequestParser
             $events[] = new $eventClass($eventData);
         }
 
-        return $events;
+        if ($eventsOnly) {
+            return $events;
+        }
+
+        $parsedReq = json_decode($body, true);
+        if (!array_key_exists('destination', $parsedReq)) {
+            throw new InvalidEventRequestException();
+        }
+
+        return [$parsedReq['destination'], $events];
     }
 
     /**

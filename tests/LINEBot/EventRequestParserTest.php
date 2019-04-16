@@ -44,6 +44,7 @@ class EventRequestParserTest extends TestCase
 {
     private static $json = <<<JSON
 {
+ "destination":"U0123456789abcdef0123456789abcd",
  "events":[
   {
    "type":"message",
@@ -405,7 +406,9 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        $events = $bot->parseEventRequest($this::$json, 'iiWsqJCsXZSzoKpuZPBk9Vqw3XiAl+AqLJLUKYEVf2I=');
+        list($destination, $events) = $bot->parseEventRequest($this::$json, '6Ac0b69wx8mj0JM5QIe+aO/V/YCaBp9UASneQVP66AE=', false);
+
+        $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
         $this->assertEquals(count($events), 26);
 

@@ -189,13 +189,14 @@ class LINEBot
      *
      * @param string $body Request body.
      * @param string $signature Signature of request.
-     * @return LINEBot\Event\BaseEvent[]
+     * @param bool $eventOnly if this flag on, get events only.
+     * @return mixed
      * @throws LINEBot\Exception\InvalidEventRequestException
      * @throws LINEBot\Exception\InvalidSignatureException
      */
-    public function parseEventRequest($body, $signature)
+    public function parseEventRequest($body, $signature, $eventOnly = true)
     {
-        return EventRequestParser::parseEventRequest($body, $this->channelSecret, $signature);
+        return EventRequestParser::parseEventRequest($body, $this->channelSecret, $signature, $eventOnly);
     }
 
     /**
