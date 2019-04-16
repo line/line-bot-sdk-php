@@ -1,20 +1,27 @@
-line-bot-sdk-php
-==
+# LINE Messaging API SDK for PHP
 
 [![Build Status](https://travis-ci.org/line/line-bot-sdk-php.svg?branch=master)](https://travis-ci.org/line/line-bot-sdk-php)
 
-SDK of the LINE Messaging API for PHP.
 
-About the LINE Messaging API
---
+## Introduction
+
+The LINE Messaging API SDK for PHP makes it easy to develop bots using LINE Messaging API, and you can create a sample bot within minutes.
+
+
+## Documentation
 
 See the official API documentation for more information.
 
-English: [https://developers.line.me/en/docs/](https://developers.line.me/en/docs/)<br>
-Japanese: [https://developers.line.me/ja/docs/](https://developers.line.me/ja/docs/)
+- English: https://developers.line.biz/en/docs/messaging-api/overview/
+- Japanese: https://developers.line.biz/ja/docs/messaging-api/overview/
 
-Installation
---
+
+## Requirements
+
+- PHP 5.5 or later
+
+
+## Installation
 
 Install the LINE Messaging API SDK using [Composer](https://getcomposer.org/).
 
@@ -22,8 +29,7 @@ Install the LINE Messaging API SDK using [Composer](https://getcomposer.org/).
 $ composer require linecorp/line-bot-sdk
 ```
 
-Getting started
---
+## Getting started
 
 ### Create the bot client instance
 
@@ -66,8 +72,7 @@ echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 `LINEBot#replyMessage()` takes the reply token and `MessageBuilder`.
 The method sends a message that is built by `MessageBuilder` to the destination.
 
-Components
---
+## Components
 
 ### MessageBuilder
 
@@ -134,7 +139,7 @@ The following examples show how webhooks are handled:
 More information
 --
 
-For more information, see the [official API documents](#about-the-line-messaging-api) and PHPDoc.
+For more information, see the [official API documents](#documentation) and PHPDoc.
 If it's your first time using this library, we recommend taking a look at `examples` and the PHPDoc of `\LINE\LINEBot`.
 
 Hints
@@ -166,7 +171,7 @@ The HTML files are generated in `docs/`.
 
 ### Official API documentation
 
-[Official API documents](#about-the-line-messaging-api) shows the detail of  Messaging API and fundamental usage of SDK.
+[Official API documents](#documentation) shows the detail of  Messaging API and fundamental usage of SDK.
 
 Notes
 --
@@ -178,15 +183,6 @@ Notes
 
 Please refer [CurlHTTPClient](/src/LINEBot/HTTPClient/CurlHTTPClient.php) that is the default HTTP client implementation.
 
-Requirements
---
-
-- PHP 5.5 or later
-
-For SDK developers
---
-
-Please refer [HACKING.md](/HACKING.md).
 
 See also
 --
@@ -196,21 +192,45 @@ See also
 A very simple SDK (subset) for the LINE Messaging API for PHP.
 line-bot-sdk-tiny provides a simple interface and functions which makes it a good way to learn how to use the LINE Messaging API.
 
-License
---
+## Help and media
+
+FAQ: https://developers.line.biz/en/faq/
+
+Community Q&A: https://www.line-community.me/questions
+
+News: https://developers.line.biz/en/news/
+
+Twitter: [@LINE_DEV](https://twitter.com/LINE_DEV)
+
+
+## Versioning
+
+This project respects semantic versioning.
+
+See http://semver.org/
+
+
+## Contributing
+
+Please check [CONTRIBUTING](contributing.md) before making a contribution.
+
+For hacking instructions, please refer [HACKING.md](/HACKING.md).
+
+
+## License
 
 ```
 Copyright 2016 LINE Corporation
 
-LINE Corporation licenses this file to you under the Apache License,
-version 2.0 (the "License"); you may not use this file except in compliance
-with the License. You may obtain a copy of the License at:
+Licensed under the Apache License, version 2.0 (the "License"); 
+you may not use this file except in compliance with the License. 
+You may obtain a copy of the License at
 
   https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-License for the specific language governing permissions and limitations
-under the License.
+distributed under the License is distributed on an "AS IS" BASIS, 
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+See the License for the specific language governing permissions and 
+limitations under the License.
 ```
