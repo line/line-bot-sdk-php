@@ -22,6 +22,7 @@ use LINE\LINEBot;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 use PHPUnit\Framework\TestCase;
 use DateTime;
+use DateTimeZone;
 
 class GetNumberOfMessagesSentTest extends TestCase
 {
@@ -32,6 +33,7 @@ class GetNumberOfMessagesSentTest extends TestCase
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/message/delivery/reply', $url);
+            $date->setTimezone(new DateTimeZone('Asia/Tokyo'));
             $testRunner->assertEquals([
                 'date' => $date->format('Ymd')
             ], $data);
@@ -58,6 +60,7 @@ class GetNumberOfMessagesSentTest extends TestCase
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/message/delivery/push', $url);
+            $date->setTimezone(new DateTimeZone('Asia/Tokyo'));
             $testRunner->assertEquals([
                 'date' => $date->format('Ymd')
             ], $data);
@@ -84,6 +87,7 @@ class GetNumberOfMessagesSentTest extends TestCase
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/message/delivery/multicast', $url);
+            $date->setTimezone(new DateTimeZone('Asia/Tokyo'));
             $testRunner->assertEquals([
                 'date' => $date->format('Ymd')
             ], $data);

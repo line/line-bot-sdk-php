@@ -27,6 +27,7 @@ use LINE\LINEBot\SignatureValidator;
 use LINE\LINEBot\RichMenuBuilder;
 use ReflectionClass;
 use DateTime;
+use DateTimeZone;
 
 /**
  * A client class of LINE Messaging API.
@@ -490,6 +491,7 @@ class LINEBot
     public function getNumberOfSentReplyMessages(DateTime $datetime)
     {
         $url = $this->endpointBase . '/v2/bot/message/delivery/reply';
+        $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
         return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
     }
 
@@ -502,6 +504,7 @@ class LINEBot
     public function getNumberOfSentPushMessages(DateTime $datetime)
     {
         $url = $this->endpointBase . '/v2/bot/message/delivery/push';
+        $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
         return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
     }
 
@@ -514,6 +517,7 @@ class LINEBot
     public function getNumberOfSentMulticastMessages(DateTime $datetime)
     {
         $url = $this->endpointBase . '/v2/bot/message/delivery/multicast';
+        $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
         return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
     }
 }
