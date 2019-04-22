@@ -52,6 +52,21 @@ class AudioMessageHandler implements EventHandler
 
     public function handle()
     {
+        $replyToken = $this->audioMessage->getReplyToken();
+
+        $contentProvider = $this->audioMessage->getContentProvider();
+        if ($contentProvider->isExternal()) {
+            $resp = $this->bot->replyMessage(
+                $replyToken,
+                new AudioMessageBuilder(
+                    $contentProvider->getOriginalContentUrl(),
+                    $this->audioMessage->getDuration()
+                )
+            );
+            $this->logger->info($resp->getRawBody());
+            return;
+        }
+        
         $contentId = $this->audioMessage->getMessageId();
         $audio = $this->bot->getMessageContent($contentId)->getRawBody();
 
@@ -63,8 +78,6 @@ class AudioMessageHandler implements EventHandler
         $fh = fopen($filePath, 'x');
         fwrite($fh, $audio);
         fclose($fh);
-
-        $replyToken = $this->audioMessage->getReplyToken();
 
         $url = UrlBuilder::buildUrl($this->req, ['static', 'tmpdir', $filename]);
 

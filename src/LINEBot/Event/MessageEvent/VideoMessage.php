@@ -54,7 +54,7 @@ class VideoMessage extends MessageEvent
     /**
      * Returns contentProvider of the video message.
      *
-     * @return string
+     * @return ContentProvider
      */
     public function getContentProvider()
     {

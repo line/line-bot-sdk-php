@@ -44,7 +44,7 @@ class ImageMessage extends MessageEvent
     /**
      * Returns contentProvider of the image message.
      *
-     * @return string
+     * @return ContentProvider
      */
     public function getContentProvider()
     {

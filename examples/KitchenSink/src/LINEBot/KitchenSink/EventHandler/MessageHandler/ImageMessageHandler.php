@@ -52,6 +52,20 @@ class ImageMessageHandler implements EventHandler
 
     public function handle()
     {
+        $replyToken = $this->imageMessage->getReplyToken();
+
+        $contentProvider = $this->imageMessage->getContentProvider();
+        if ($contentProvider->isExternal()) {
+            $this->bot->replyMessage(
+                $replyToken,
+                new ImageMessageBuilder(
+                    $contentProvider->getOriginalContentUrl(),
+                    $contentProvider->getPreviewImageUrl()
+                )
+            );
+            return;
+        }
+
         $contentId = $this->imageMessage->getMessageId();
         $image = $this->bot->getMessageContent($contentId)->getRawBody();
 
@@ -63,8 +77,6 @@ class ImageMessageHandler implements EventHandler
         $fh = fopen($filePath, 'x');
         fwrite($fh, $image);
         fclose($fh);
-
-        $replyToken = $this->imageMessage->getReplyToken();
 
         $url = UrlBuilder::buildUrl($this->req, ['static', 'tmpdir', $filename]);
 

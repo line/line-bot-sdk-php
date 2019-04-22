@@ -36,9 +36,9 @@ class ContentProvider
     }
 
     /**
-     * Returns contentProvider type is 'external' or not.
+     * Returns contentProvider type is 'line' or not.
      *
-     * @return string
+     * @return bool
      */
     public function isLine()
     {
@@ -48,7 +48,7 @@ class ContentProvider
     /**
      * Returns contentProvider type is 'external' or not.
      *
-     * @return string
+     * @return bool
      */
     public function isExternal()
     {

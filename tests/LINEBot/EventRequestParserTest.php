@@ -427,7 +427,11 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        list($destination, $events) = $bot->parseEventRequest($this::$json, '3N7gibJhWF5uqTJfwtTPgY87BnD3SrwvSdeG2sbcVhk=', false);
+        list($destination, $events) = $bot->parseEventRequest(
+            $this::$json,
+            '3N7gibJhWF5uqTJfwtTPgY87BnD3SrwvSdeG2sbcVhk=',
+            false
+        );
 
         $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
@@ -462,8 +466,14 @@ JSON;
             $this->assertEquals('image', $event->getMessageType());
             $this->assertEquals('contentid', $event->getMessageId());
             $this->assertTrue($event->getContentProvider()->isExternal());
-            $this->assertEquals('https://example.com/test.jpg', $event->getContentProvider()->getOriginalContentUrl());
-            $this->assertEquals('https://example.com/test-preview.jpg', $event->getContentProvider()->getPreviewImageUrl());
+            $this->assertEquals(
+                'https://example.com/test.jpg',
+                $event->getContentProvider()->getOriginalContentUrl()
+            );
+            $this->assertEquals(
+                'https://example.com/test-preview.jpg',
+                $event->getContentProvider()->getPreviewImageUrl()
+            );
         }
 
         {
@@ -480,7 +490,10 @@ JSON;
             $this->assertEquals('contentid', $event->getMessageId());
             $this->assertEquals(10000, $event->getDuration());
             $this->assertTrue($event->getContentProvider()->isExternal());
-            $this->assertEquals('https://example.com/test.m4a', $event->getContentProvider()->getOriginalContentUrl());
+            $this->assertEquals(
+                'https://example.com/test.m4a',
+                $event->getContentProvider()->getOriginalContentUrl()
+            );
         }
 
         {
@@ -496,8 +509,14 @@ JSON;
             $this->assertEquals('video', $event->getMessageType());
             $this->assertEquals(10000, $event->getDuration());
             $this->assertTrue($event->getContentProvider()->isExternal());
-            $this->assertEquals('https://example.com/test.mp4', $event->getContentProvider()->getOriginalContentUrl());
-            $this->assertEquals('https://example.com/test-preview.jpg', $event->getContentProvider()->getPreviewImageUrl());
+            $this->assertEquals(
+                'https://example.com/test.mp4',
+                $event->getContentProvider()->getOriginalContentUrl()
+            );
+            $this->assertEquals(
+                'https://example.com/test-preview.jpg',
+                $event->getContentProvider()->getPreviewImageUrl()
+            );
         }
 
         {

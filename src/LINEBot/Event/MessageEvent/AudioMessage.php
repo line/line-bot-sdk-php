@@ -54,7 +54,7 @@ class AudioMessage extends MessageEvent
     /**
      * Returns contentProvider of the audio message.
      *
-     * @return string
+     * @return ContentProvider
      */
     public function getContentProvider()
     {
