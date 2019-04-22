@@ -56,14 +56,13 @@ class AudioMessageHandler implements EventHandler
 
         $contentProvider = $this->audioMessage->getContentProvider();
         if ($contentProvider->isExternal()) {
-            $resp = $this->bot->replyMessage(
+            $this->bot->replyMessage(
                 $replyToken,
                 new AudioMessageBuilder(
                     $contentProvider->getOriginalContentUrl(),
                     $this->audioMessage->getDuration()
                 )
             );
-            $this->logger->info($resp->getRawBody());
             return;
         }
         
@@ -81,10 +80,9 @@ class AudioMessageHandler implements EventHandler
 
         $url = UrlBuilder::buildUrl($this->req, ['static', 'tmpdir', $filename]);
 
-        $resp = $this->bot->replyMessage(
+        $this->bot->replyMessage(
             $replyToken,
             new AudioMessageBuilder($url, 100)
         );
-        $this->logger->info($resp->getRawBody());
     }
 }
