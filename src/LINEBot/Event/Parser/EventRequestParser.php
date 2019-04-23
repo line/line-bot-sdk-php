@@ -71,14 +71,14 @@ class EventRequestParser
         $events = [];
 
         $parsedReq = json_decode($body, true);
-        if (!array_key_exists('events', $parsedReq)) {
+        if (!isset($parsedReq['events'])) {
             throw new InvalidEventRequestException();
         }
 
         foreach ($parsedReq['events'] as $eventData) {
             $eventType = $eventData['type'];
 
-            if (!array_key_exists($eventType, self::$eventType2class)) {
+            if (!isset(self::$eventType2class[$eventType])) {
                 # Unknown event has come
                 $events[] = new UnknownEvent($eventData);
                 continue;
@@ -99,7 +99,7 @@ class EventRequestParser
         }
 
         $parsedReq = json_decode($body, true);
-        if (!array_key_exists('destination', $parsedReq)) {
+        if (!isset($parsedReq['destination'])) {
             throw new InvalidEventRequestException();
         }
 
@@ -113,7 +113,7 @@ class EventRequestParser
     private static function parseMessageEvent($eventData)
     {
         $messageType = $eventData['message']['type'];
-        if (!array_key_exists($messageType, self::$messageType2class)) {
+        if (!isset(self::$messageType2class[$messageType])) {
             return new UnknownMessage($eventData);
         }
 

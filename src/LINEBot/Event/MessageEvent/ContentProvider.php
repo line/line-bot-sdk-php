@@ -62,10 +62,9 @@ class ContentProvider
      */
     public function getOriginalContentUrl()
     {
-        if (array_key_exists('originalContentUrl', $this->contentProvider)) {
-            return $this->contentProvider['originalContentUrl'];
-        }
-        return null;
+        return isset($this->contentProvider['originalContentUrl'])
+            ? $this->contentProvider['originalContentUrl']
+            : null;
     }
 
     /**
@@ -75,9 +74,8 @@ class ContentProvider
      */
     public function getPreviewImageUrl()
     {
-        if (array_key_exists('previewImageUrl', $this->contentProvider)) {
-            return $this->contentProvider['previewImageUrl'];
-        }
-        return null;
+        return isset($this->contentProvider['previewImageUrl'])
+            ? $this->contentProvider['previewImageUrl']
+            : null;
     }
 }
