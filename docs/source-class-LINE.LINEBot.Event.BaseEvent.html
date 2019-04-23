@@ -129,7 +129,7 @@
 </span></span><span class="l" id="line-70"><span class="php-comment">     */</span>
 </span><span class="l" id="line-71">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getReplyToken()
 </span><span class="l" id="line-72">    {
-</span><span class="l" id="line-73">        <span class="php-keyword1">return</span> <span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'replyToken'</span>, <span class="php-var">$this</span>-&gt;event) ? <span class="php-var">$this</span>-&gt;event[<span class="php-quote">'replyToken'</span>] : <span class="php-keyword1">null</span>;
+</span><span class="l" id="line-73">        <span class="php-keyword1">return</span> <span class="php-keyword1">isset</span>(<span class="php-var">$this</span>-&gt;event[<span class="php-quote">'replyToken'</span>]) ? <span class="php-var">$this</span>-&gt;event[<span class="php-quote">'replyToken'</span>] : <span class="php-keyword1">null</span>;
 </span><span class="l" id="line-74">    }
 </span><span class="l" id="line-75">
 </span><span class="l" id="line-76">    <span class="php-comment">/**
@@ -179,7 +179,7 @@
 </span></span><span class="l" id="line-120"><span class="php-comment">     */</span>
 </span><span class="l" id="line-121">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getUserId()
 </span><span class="l" id="line-122">    {
-</span><span class="l" id="line-123">        <span class="php-keyword1">return</span> <span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'userId'</span>, <span class="php-var">$this</span>-&gt;event[<span class="php-quote">'source'</span>])
+</span><span class="l" id="line-123">        <span class="php-keyword1">return</span> <span class="php-keyword1">isset</span>(<span class="php-var">$this</span>-&gt;event[<span class="php-quote">'source'</span>][<span class="php-quote">'userId'</span>])
 </span><span class="l" id="line-124">            ? <span class="php-var">$this</span>-&gt;event[<span class="php-quote">'source'</span>][<span class="php-quote">'userId'</span>]
 </span><span class="l" id="line-125">            : <span class="php-keyword1">null</span>;
 </span><span class="l" id="line-126">    }
@@ -195,7 +195,7 @@
 </span><span class="l" id="line-136">        <span class="php-keyword1">if</span> (!<span class="php-var">$this</span>-&gt;isGroupEvent()) {
 </span><span class="l" id="line-137">            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> InvalidEventSourceException(<span class="php-quote">'This event source is not a group type'</span>);
 </span><span class="l" id="line-138">        }
-</span><span class="l" id="line-139">        <span class="php-keyword1">return</span> <span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'groupId'</span>, <span class="php-var">$this</span>-&gt;event[<span class="php-quote">'source'</span>])
+</span><span class="l" id="line-139">        <span class="php-keyword1">return</span> <span class="php-keyword1">isset</span>(<span class="php-var">$this</span>-&gt;event[<span class="php-quote">'source'</span>][<span class="php-quote">'groupId'</span>])
 </span><span class="l" id="line-140">            ? <span class="php-var">$this</span>-&gt;event[<span class="php-quote">'source'</span>][<span class="php-quote">'groupId'</span>]
 </span><span class="l" id="line-141">            : <span class="php-keyword1">null</span>;
 </span><span class="l" id="line-142">    }
@@ -211,7 +211,7 @@
 </span><span class="l" id="line-152">        <span class="php-keyword1">if</span> (!<span class="php-var">$this</span>-&gt;isRoomEvent()) {
 </span><span class="l" id="line-153">            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> InvalidEventSourceException(<span class="php-quote">'This event source is not a room type'</span>);
 </span><span class="l" id="line-154">        }
-</span><span class="l" id="line-155">        <span class="php-keyword1">return</span> <span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'roomId'</span>, <span class="php-var">$this</span>-&gt;event[<span class="php-quote">'source'</span>])
+</span><span class="l" id="line-155">        <span class="php-keyword1">return</span> <span class="php-keyword1">isset</span>(<span class="php-var">$this</span>-&gt;event[<span class="php-quote">'source'</span>][<span class="php-quote">'roomId'</span>])
 </span><span class="l" id="line-156">            ? <span class="php-var">$this</span>-&gt;event[<span class="php-quote">'source'</span>][<span class="php-quote">'roomId'</span>]
 </span><span class="l" id="line-157">            : <span class="php-keyword1">null</span>;
 </span><span class="l" id="line-158">    }

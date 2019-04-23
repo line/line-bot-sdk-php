@@ -153,7 +153,7 @@
 </span></span><span class="l" id="line-94"><span class="php-comment">     */</span>
 </span><span class="l" id="line-95">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getHeader(<span class="php-var">$name</span>)
 </span><span class="l" id="line-96">    {
-</span><span class="l" id="line-97">        <span class="php-keyword1">if</span> (<span class="php-keyword2">array_key_exists</span>(<span class="php-var">$name</span>, <span class="php-var">$this</span>-&gt;headers)) {
+</span><span class="l" id="line-97">        <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$this</span>-&gt;headers[<span class="php-var">$name</span>])) {
 </span><span class="l" id="line-98">            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;headers[<span class="php-var">$name</span>];
 </span><span class="l" id="line-99">        }
 </span><span class="l" id="line-100">        <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="resources/style.css">
 
         <title>
-            Class LINE\LINEBot\Event\Parser\EventRequestParser
+            Class LINE\LINEBot\Event\MessageEvent\ContentProvider
         </title>
     </head>
 
@@ -75,11 +75,11 @@
         </li>
             <li class="backslash">\</li>
         <li>
-            <a href="namespace-LINE.LINEBot.Event.Parser.html">Parser</a>
+            <a href="namespace-LINE.LINEBot.Event.MessageEvent.html">MessageEvent</a>
         </li>
 
         <li class="backslash">\</li>
-        <li class="active">EventRequestParser</li>
+        <li class="active">ContentProvider</li>
 </ol>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-    <h1>EventRequestParser</h1>
+    <h1>ContentProvider</h1>
 
 
 
@@ -98,7 +98,7 @@
     <div class="info">
         
 
-            <a href="source-class-LINE.LINEBot.Event.Parser.EventRequestParser.html" class="open-source-code">Open source code</a>
+            <a href="source-class-LINE.LINEBot.Event.MessageEvent.ContentProvider.html" class="open-source-code">Open source code</a>
         <br>
     </div>
 
@@ -107,11 +107,11 @@
 
 
 
-<tr id="_parseEventRequest">
+<tr id="___construct">
 
     <td class="attributes col-md-1">
         <code class="keyword">
-                 public static
+                 public 
                 
                 
         </code>
@@ -119,11 +119,139 @@
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_parseEventRequest">#</a>
-            <code><a href="source-class-LINE.LINEBot.Event.Parser.EventRequestParser.html#61-107">parseEventRequest</a>( <span> string <span class="property-name">$body</span> </span>, <span> string <span class="property-name">$channelSecret</span> </span>, <span> string <span class="property-name">$signature</span> </span>, <span> <span class="property-name">$eventsOnly</span> = <span class="php-keyword1">true</span></span> )</code>
+            <a class="anchor pull-right" href="#___construct">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.MessageEvent.ContentProvider.html#33-36">__construct</a>( <span> array <span class="property-name">$contentProvider</span> </span> )</code>
 
             <div class="description">
+                ContentProvider constructor.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_isLine">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
                 
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_isLine">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.MessageEvent.ContentProvider.html#43-46">isLine</a>( )</code>
+
+            <div class="description">
+                Returns contentProvider type is 'line' or not.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_isExternal">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_isExternal">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.MessageEvent.ContentProvider.html#53-56">isExternal</a>( )</code>
+
+            <div class="description">
+                Returns contentProvider type is 'external' or not.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getOriginalContentUrl">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getOriginalContentUrl">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.MessageEvent.ContentProvider.html#63-68">getOriginalContentUrl</a>( )</code>
+
+            <div class="description">
+                Returns contentProvider getOriginalContentUrl.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getPreviewImageUrl">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getPreviewImageUrl">#</a>
+            <code><a href="source-class-LINE.LINEBot.Event.MessageEvent.ContentProvider.html#75-80">getPreviewImageUrl</a>( )</code>
+
+            <div class="description">
+                Returns contentProvider getPreviewImageUrl.
 
 
 
