@@ -61,7 +61,7 @@ class GetMemberIdsTest extends TestCase
 
         $data = $res->getJSONDecodedBody();
         $this->assertEquals(['Uxxxxxxxxxxxxxx4', 'Uxxxxxxxxxxxxxx5'], $data['memberIds']);
-        $this->assertFalse(array_key_exists('next', $data));
+        $this->assertFalse(isset($data['next']));
 
         // test getAllGroupMemberIds()
         $memberIds = $bot->getAllGroupMemberIds('GROUP_ID');
@@ -108,7 +108,7 @@ class GetMemberIdsTest extends TestCase
 
         $data = $res->getJSONDecodedBody();
         $this->assertEquals(['Uxxxxxxxxxxxxxx4', 'Uxxxxxxxxxxxxxx5'], $data['memberIds']);
-        $this->assertFalse(array_key_exists('next', $data));
+        $this->assertFalse(isset($data['next']));
 
         // test getAllGroupMemberIds()
         $memberIds = $bot->getAllRoomMemberIds('ROOM_ID');

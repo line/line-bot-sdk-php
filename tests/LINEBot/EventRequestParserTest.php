@@ -44,6 +44,7 @@ class EventRequestParserTest extends TestCase
 {
     private static $json = <<<JSON
 {
+ "destination":"U0123456789abcdef0123456789abcd",
  "events":[
   {
    "type":"message",
@@ -69,7 +70,12 @@ class EventRequestParserTest extends TestCase
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
-    "type":"image"
+    "type":"image",
+    "contentProvider":{
+     "type":"external",
+     "originalContentUrl":"https://example.com/test.jpg",
+     "previewImageUrl":"https://example.com/test-preview.jpg"
+    }
    }
   },
   {
@@ -83,7 +89,12 @@ class EventRequestParserTest extends TestCase
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
-    "type":"audio"
+    "type":"audio",
+    "duration":10000,
+    "contentProvider":{
+     "type":"external",
+     "originalContentUrl":"https://example.com/test.m4a"
+    }
    }
   },
   {
@@ -96,7 +107,13 @@ class EventRequestParserTest extends TestCase
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
-    "type":"video"
+    "type":"video",
+    "duration":10000,
+    "contentProvider":{
+     "type":"external",
+     "originalContentUrl":"https://example.com/test.mp4",
+     "previewImageUrl":"https://example.com/test-preview.jpg"
+    }
    }
   },
   {
@@ -110,7 +127,12 @@ class EventRequestParserTest extends TestCase
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
-    "type":"audio"
+    "type":"audio",
+    "duration":10000,
+    "contentProvider":{
+     "type":"external",
+     "originalContentUrl":"https://example.com/test.m4a"
+    }
    }
   },
   {
@@ -405,7 +427,13 @@ JSON;
     {
         $bot = new LINEBot(new DummyHttpClient($this, function () {
         }), ['channelSecret' => 'testsecret']);
-        $events = $bot->parseEventRequest($this::$json, 'iiWsqJCsXZSzoKpuZPBk9Vqw3XiAl+AqLJLUKYEVf2I=');
+        list($destination, $events) = $bot->parseEventRequest(
+            $this::$json,
+            '3N7gibJhWF5uqTJfwtTPgY87BnD3SrwvSdeG2sbcVhk=',
+            false
+        );
+
+        $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
         $this->assertEquals(count($events), 26);
 
@@ -437,6 +465,15 @@ JSON;
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('image', $event->getMessageType());
             $this->assertEquals('contentid', $event->getMessageId());
+            $this->assertTrue($event->getContentProvider()->isExternal());
+            $this->assertEquals(
+                'https://example.com/test.jpg',
+                $event->getContentProvider()->getOriginalContentUrl()
+            );
+            $this->assertEquals(
+                'https://example.com/test-preview.jpg',
+                $event->getContentProvider()->getPreviewImageUrl()
+            );
         }
 
         {
@@ -451,6 +488,12 @@ JSON;
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('audio', $event->getMessageType());
             $this->assertEquals('contentid', $event->getMessageId());
+            $this->assertEquals(10000, $event->getDuration());
+            $this->assertTrue($event->getContentProvider()->isExternal());
+            $this->assertEquals(
+                'https://example.com/test.m4a',
+                $event->getContentProvider()->getOriginalContentUrl()
+            );
         }
 
         {
@@ -464,6 +507,16 @@ JSON;
             /** @var VideoMessage $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('video', $event->getMessageType());
+            $this->assertEquals(10000, $event->getDuration());
+            $this->assertTrue($event->getContentProvider()->isExternal());
+            $this->assertEquals(
+                'https://example.com/test.mp4',
+                $event->getContentProvider()->getOriginalContentUrl()
+            );
+            $this->assertEquals(
+                'https://example.com/test-preview.jpg',
+                $event->getContentProvider()->getPreviewImageUrl()
+            );
         }
 
         {
