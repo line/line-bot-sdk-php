@@ -327,6 +327,18 @@ class LINEBot
     }
 
     /**
+     * Issues a link token used for the account link feature.
+     *
+     * @param string $userId User ID for the LINE account to be linked.
+     * @return Response
+     */
+    public function createLinkToken($userId)
+    {
+        $url = sprintf('%s/v2/bot/user/%s/linkToken', $this->endpointBase, urlencode($userId));
+        return $this->httpClient->post($url, []);
+    }
+
+    /**
      * Gets a rich menu via a rich menu ID.
      *
      * @param string $richMenuId ID of an uploaded rich menu
