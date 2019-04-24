@@ -19,6 +19,7 @@
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex;
 
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\Uri\AltUriBuilder;
 use LINE\LINEBot\Constant\Flex\ComponentButtonHeight;
 use LINE\LINEBot\Constant\Flex\ComponentButtonStyle;
 use LINE\LINEBot\Constant\Flex\ComponentFontSize;
@@ -69,7 +70,13 @@ class FlexSampleRestaurant
             ->setSize(ComponentImageSize::FULL)
             ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
             ->setAspectMode(ComponentImageAspectMode::COVER)
-            ->setAction(new UriTemplateActionBuilder(null, 'https://example.com'));
+            ->setAction(
+                new UriTemplateActionBuilder(
+                    null,
+                    'https://example.com',
+                    new AltUriBuilder('https://example.com#desktop')
+                )
+            );
     }
 
     private static function createBodyBlock()
@@ -144,11 +151,23 @@ class FlexSampleRestaurant
         $callButton = ButtonComponentBuilder::builder()
             ->setStyle(ComponentButtonStyle::LINK)
             ->setHeight(ComponentButtonHeight::SM)
-            ->setAction(new UriTemplateActionBuilder('CALL', 'https://example.com'));
+            ->setAction(
+                new UriTemplateActionBuilder(
+                    'CALL',
+                    'https://example.com',
+                    new AltUriBuilder('https://example.com#desktop')
+                )
+            );
         $websiteButton = ButtonComponentBuilder::builder()
             ->setStyle(ComponentButtonStyle::LINK)
             ->setHeight(ComponentButtonHeight::SM)
-            ->setAction(new UriTemplateActionBuilder('WEBSITE', 'https://example.com'));
+            ->setAction(
+                new UriTemplateActionBuilder(
+                    'WEBSITE',
+                    'https://example.com',
+                    new AltUriBuilder('https://example.com#desktop')
+                )
+            );
         $spacer = new SpacerComponentBuilder(ComponentSpaceSize::SM);
 
         return BoxComponentBuilder::builder()

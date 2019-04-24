@@ -21,6 +21,7 @@ namespace LINE\LINEBot\TemplateActionBuilder;
 use LINE\LINEBot\Constant\ActionType;
 use LINE\LINEBot\Util\BuildUtil;
 use LINE\LINEBot\TemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\Uri\AltUriBuilder;
 
 /**
  * A builder class for URI action.
@@ -33,6 +34,8 @@ class UriTemplateActionBuilder implements TemplateActionBuilder
     private $label;
     /** @var string */
     private $uri;
+    /** @var AltUriBuilder */
+    private $altUri;
 
     /**
      * UriAction constructor.
@@ -40,10 +43,11 @@ class UriTemplateActionBuilder implements TemplateActionBuilder
      * @param string $label Label of action.
      * @param string $uri URI of the link.
      */
-    public function __construct($label, $uri)
+    public function __construct($label, $uri, AltUriBuilder $altUri = null)
     {
         $this->label = $label;
         $this->uri = $uri;
+        $this->altUri = $altUri;
     }
 
     /**
@@ -53,10 +57,16 @@ class UriTemplateActionBuilder implements TemplateActionBuilder
      */
     public function buildTemplateAction()
     {
-        return BuildUtil::removeNullElements([
+        $templateAction = BuildUtil::removeNullElements([
             'type' => ActionType::URI,
             'label' => $this->label,
             'uri' => $this->uri,
         ]);
+
+        if ($this->altUri) {
+            $templateAction['altUri'] = $this->altUri->build();
+        }
+
+        return $templateAction;
     }
 }

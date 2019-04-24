@@ -19,6 +19,7 @@
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex;
 
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\Uri\AltUriBuilder;
 use LINE\LINEBot\Constant\Flex\ComponentButtonStyle;
 use LINE\LINEBot\Constant\Flex\ComponentFontSize;
 use LINE\LINEBot\Constant\Flex\ComponentFontWeight;
@@ -143,7 +144,8 @@ class FlexSampleShopping
             ->setAction(
                 new UriTemplateActionBuilder(
                     'Add to Cart',
-                    'https://example.com'
+                    'https://example.com',
+                    new AltUriBuilder('https://example.com#desktop')
                 )
             );
 
@@ -151,7 +153,8 @@ class FlexSampleShopping
             ->setAction(
                 new UriTemplateActionBuilder(
                     'Add to wishlist',
-                    'https://example.com'
+                    'https://example.com',
+                    new AltUriBuilder('https://example.com#desktop')
                 )
             );
 
@@ -172,7 +175,13 @@ class FlexSampleShopping
                         ButtonComponentBuilder::builder()
                             ->setFlex(1)
                             ->setGravity(ComponentGravity::CENTER)
-                            ->setAction(new UriTemplateActionBuilder('See more', 'https://example.com'))
+                            ->setAction(
+                                new UriTemplateActionBuilder(
+                                    'See more',
+                                    'https://example.com',
+                                    new AltUriBuilder('https://example.com#desktop')
+                                )
+                            )
                     ])
             );
     }
