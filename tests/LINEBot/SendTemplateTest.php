@@ -68,14 +68,18 @@ class SendTemplateTest extends TestCase
             $testRunner->assertEquals(ActionType::URI, $actions[2]['type']);
             $testRunner->assertEquals('uri label', $actions[2]['label']);
             $testRunner->assertEquals('https://example.com', $actions[2]['uri']);
-            $testRunner->assertEquals(
-                ['desktop' => 'http://example.com/pc/page/222'],
-                $actions[2]['altUri']
-            );
+            if (isset($actions[2]['altUri'])) {
+                $testRunner->assertEquals(
+                    ['desktop' => 'http://example.com/pc/page/222'],
+                    $actions[2]['altUri']
+                );
+            }
 
             return ['status' => 200];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+
+        // test case that AltUriBuilder is set
         $res = $bot->replyMessage(
             'REPLY-TOKEN',
             new LINEBot\MessageBuilder\TemplateMessageBuilder(
@@ -92,6 +96,28 @@ class SendTemplateTest extends TestCase
                             'https://example.com',
                             new AltUriBuilder('http://example.com/pc/page/222')
                         ),
+                    ]
+                )
+            )
+        );
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+
+        // test case that AltUriBuilder is not set
+        $res = $bot->replyMessage(
+            'REPLY-TOKEN',
+            new LINEBot\MessageBuilder\TemplateMessageBuilder(
+                'alt test',
+                new ButtonTemplateBuilder(
+                    'button title',
+                    'button button',
+                    'https://example.com/thumbnail.jpg',
+                    [
+                        new PostbackTemplateActionBuilder('postback label', 'post=back'),
+                        new MessageTemplateActionBuilder('message label', 'test message'),
+                        new UriTemplateActionBuilder('uri label', 'https://example.com'),
                     ]
                 )
             )
@@ -139,10 +165,12 @@ class SendTemplateTest extends TestCase
             $testRunner->assertEquals(ActionType::URI, $actions[3]['type']);
             $testRunner->assertEquals('uri label', $actions[3]['label']);
             $testRunner->assertEquals('https://example.com', $actions[3]['uri']);
-            $testRunner->assertEquals(
-                ['desktop' => 'http://example.com/pc/page/222'],
-                $actions[3]['altUri']
-            );
+            if (isset($actions[3]['altUri'])) {
+                $testRunner->assertEquals(
+                    ['desktop' => 'http://example.com/pc/page/222'],
+                    $actions[3]['altUri']
+                );
+            }
 
             $testRunner->assertEquals('rectangle', $template['imageAspectRatio']);
             $testRunner->assertEquals('cover', $template['imageSize']);
@@ -151,6 +179,8 @@ class SendTemplateTest extends TestCase
             return ['status' => 200];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+
+        // test case that AltUriBuilder is set
         $res = $bot->pushMessage(
             'DESTINATION',
             new LINEBot\MessageBuilder\TemplateMessageBuilder(
@@ -168,6 +198,32 @@ class SendTemplateTest extends TestCase
                             'https://example.com',
                             new AltUriBuilder('http://example.com/pc/page/222')
                         ),
+                    ],
+                    'rectangle',
+                    'cover',
+                    '#FFFFFF'
+                )
+            )
+        );
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+
+        // test case that AltUriBuilder is not set
+        $res = $bot->pushMessage(
+            'DESTINATION',
+            new LINEBot\MessageBuilder\TemplateMessageBuilder(
+                'alt test',
+                new ButtonTemplateBuilder(
+                    'button title',
+                    'button button',
+                    'https://example.com/thumbnail.jpg',
+                    [
+                        new PostbackTemplateActionBuilder('postback label', 'post=back'),
+                        new PostbackTemplateActionBuilder('postback label2', 'post=back2', 'extend text'),
+                        new MessageTemplateActionBuilder('message label', 'test message'),
+                        new UriTemplateActionBuilder('uri label', 'https://example.com'),
                     ],
                     'rectangle',
                     'cover',
