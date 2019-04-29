@@ -686,6 +686,38 @@ This feature is only available for LINE@ Approved accounts or official accounts.
 
 
 
+<tr id="_createLinkToken">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_createLinkToken">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#335-339">createLinkToken</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
+
+            <div class="description">
+                Issues a link token used for the account link feature.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
 <tr id="_getRichMenu">
 
     <td class="attributes col-md-1">
@@ -699,7 +731,7 @@ This feature is only available for LINE@ Approved accounts or official accounts.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#335-339">getRichMenu</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#347-351">getRichMenu</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
 
             <div class="description">
                 Gets a rich menu via a rich menu ID.
@@ -731,7 +763,7 @@ This feature is only available for LINE@ Approved accounts or official accounts.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_createRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#349-352">createRichMenu</a>( <span> \RichMenuBuilder <span class="property-name">$richMenuBuilder</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#361-364">createRichMenu</a>( <span> \RichMenuBuilder <span class="property-name">$richMenuBuilder</span> </span> )</code>
 
             <div class="description">
                 Creates a rich menu.
@@ -765,7 +797,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_deleteRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#360-364">deleteRichMenu</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#372-376">deleteRichMenu</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
 
             <div class="description">
                 Deletes a rich menu.
@@ -797,7 +829,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getRichMenuId">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#372-376">getRichMenuId</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#384-388">getRichMenuId</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
 
             <div class="description">
                 Gets the ID of the rich menu linked to a user.
@@ -829,7 +861,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_linkRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#385-394">linkRichMenu</a>( <span> string <span class="property-name">$userId</span> </span>, <span> string <span class="property-name">$richMenuId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#397-406">linkRichMenu</a>( <span> string <span class="property-name">$userId</span> </span>, <span> string <span class="property-name">$richMenuId</span> </span> )</code>
 
             <div class="description">
                 Links a rich menu to a user. Only one rich menu can be linked to a user at one time.
@@ -861,7 +893,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_bulkLinkRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#403-410">bulkLinkRichMenu</a>( <span> string[] <span class="property-name">$userIds</span> </span>, <span> string <span class="property-name">$richMenuId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#415-422">bulkLinkRichMenu</a>( <span> string[] <span class="property-name">$userIds</span> </span>, <span> string <span class="property-name">$richMenuId</span> </span> )</code>
 
             <div class="description">
                 Links a rich menu to multiple users.
@@ -893,7 +925,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_unlinkRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#418-422">unlinkRichMenu</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#430-434">unlinkRichMenu</a>( <span> string <span class="property-name">$userId</span> </span> )</code>
 
             <div class="description">
                 Unlinks a rich menu from multiple user.
@@ -925,7 +957,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_bulkUnlinkRichMenu">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#430-436">bulkUnlinkRichMenu</a>( <span> string[] <span class="property-name">$userIds</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#442-448">bulkUnlinkRichMenu</a>( <span> string[] <span class="property-name">$userIds</span> </span> )</code>
 
             <div class="description">
                 Unlinks rich menus from multiple users.
@@ -957,7 +989,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_downloadRichMenuImage">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#444-448">downloadRichMenuImage</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#456-460">downloadRichMenuImage</a>( <span> string <span class="property-name">$richMenuId</span> </span> )</code>
 
             <div class="description">
                 Downloads an image associated with a rich menu.
@@ -989,7 +1021,7 @@ You must upload a rich menu image and link the rich menu to a user for the rich 
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_uploadRichMenuImage">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#463-474">uploadRichMenuImage</a>( <span> string <span class="property-name">$richMenuId</span> </span>, <span> string <span class="property-name">$imagePath</span> </span>, <span> string <span class="property-name">$contentType</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#475-486">uploadRichMenuImage</a>( <span> string <span class="property-name">$richMenuId</span> </span>, <span> string <span class="property-name">$imagePath</span> </span>, <span> string <span class="property-name">$contentType</span> </span> )</code>
 
             <div class="description">
                 Uploads and attaches an image to a rich menu.
@@ -1026,7 +1058,7 @@ create a new rich menu object and upload another image.&lt;/li&gt;&lt;/ul&gt;
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getRichMenuList">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#481-484">getRichMenuList</a>( )</code>
+            <code><a href="source-class-LINE.LINEBot.html#493-496">getRichMenuList</a>( )</code>
 
             <div class="description">
                 Gets a list of all uploaded rich menus.
@@ -1058,7 +1090,7 @@ create a new rich menu object and upload another image.&lt;/li&gt;&lt;/ul&gt;
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getNumberOfSentReplyMessages">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#492-497">getNumberOfSentReplyMessages</a>( <span> DateTime <span class="property-name">$datetime</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#504-509">getNumberOfSentReplyMessages</a>( <span> DateTime <span class="property-name">$datetime</span> </span> )</code>
 
             <div class="description">
                 Get number of sent reply messages
@@ -1090,7 +1122,7 @@ create a new rich menu object and upload another image.&lt;/li&gt;&lt;/ul&gt;
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getNumberOfSentPushMessages">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#505-510">getNumberOfSentPushMessages</a>( <span> DateTime <span class="property-name">$datetime</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#517-522">getNumberOfSentPushMessages</a>( <span> DateTime <span class="property-name">$datetime</span> </span> )</code>
 
             <div class="description">
                 Get number of sent push messages
@@ -1122,7 +1154,7 @@ create a new rich menu object and upload another image.&lt;/li&gt;&lt;/ul&gt;
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getNumberOfSentMulticastMessages">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#518-523">getNumberOfSentMulticastMessages</a>( <span> DateTime <span class="property-name">$datetime</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#530-535">getNumberOfSentMulticastMessages</a>( <span> DateTime <span class="property-name">$datetime</span> </span> )</code>
 
             <div class="description">
                 Get number of sent multicast messages
