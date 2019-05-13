@@ -38,6 +38,7 @@ class EventRequestParser
         'accountLink' => 'LINE\LINEBot\Event\AccountLinkEvent',
         'memberJoined' => 'LINE\LINEBot\Event\MemberJoinEvent',
         'memberLeft' => 'LINE\LINEBot\Event\MemberLeaveEvent',
+        'things' => 'LINE\LINEBot\Event\ThingsEvent',
     ];
 
     private static $messageType2class = [
