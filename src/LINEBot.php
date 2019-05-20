@@ -159,13 +159,15 @@ class LINEBot
      *
      * @param string $to Identifier of destination.
      * @param MessageBuilder $messageBuilder Message builder to send.
+     * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @return Response
      */
-    public function pushMessage($to, MessageBuilder $messageBuilder)
+    public function pushMessage($to, MessageBuilder $messageBuilder, $notificationDisabled = false)
     {
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
             'to' => $to,
             'messages' => $messageBuilder->buildMessage(),
+            'notificationDisabled' => $notificationDisabled,
         ]);
     }
 
@@ -174,13 +176,31 @@ class LINEBot
      *
      * @param array $tos Identifiers of destination.
      * @param MessageBuilder $messageBuilder Message builder to send.
+     * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @return Response
      */
-    public function multicast(array $tos, MessageBuilder $messageBuilder)
+    public function multicast(array $tos, MessageBuilder $messageBuilder, $notificationDisabled = false)
     {
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
             'to' => $tos,
             'messages' => $messageBuilder->buildMessage(),
+            'notificationDisabled' => $notificationDisabled,
+        ]);
+    }
+
+    /**
+     * Sends push messages to multiple users at any time.
+     * LINE@ accounts cannot call this API endpoint. Please migrate it to a LINE official account.
+     *
+     * @param MessageBuilder $messageBuilder Message builder to send.
+     * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
+     * @return Response
+     */
+    public function broadcast(MessageBuilder $messageBuilder, $notificationDisabled = false)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/broadcast', [
+            'messages' => $messageBuilder->buildMessage(),
+            'notificationDisabled' => $notificationDisabled,
         ]);
     }
 
@@ -550,6 +570,19 @@ class LINEBot
     public function getNumberOfSentMulticastMessages(DateTime $datetime)
     {
         $url = $this->endpointBase . '/v2/bot/message/delivery/multicast';
+        $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
+        return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
+    }
+
+    /**
+     * Get number of sent broadcast messages
+     *
+     * @param DateTime $datetime Date the messages were sent.
+     * @return Response
+     */
+    public function getNumberOfSentBroadcastMessages(DateTime $datetime)
+    {
+        $url = $this->endpointBase . '/v2/bot/message/delivery/broadcast';
         $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
         return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
     }

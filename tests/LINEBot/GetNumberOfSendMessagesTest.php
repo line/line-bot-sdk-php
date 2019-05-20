@@ -171,4 +171,31 @@ class GetNumberOfMessagesSentTest extends TestCase
         $data = $res->getJSONDecodedBody();
         $this->assertEquals(10000, $data['totalUsage']);
     }
+
+    public function testGetNumberOfSentBroadcastMessages()
+    {
+        $date = new DateTime();
+        $mock = function ($testRunner, $httpMethod, $url, $data) use ($date) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('GET', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/message/delivery/broadcast', $url);
+            $date->setTimezone(new DateTimeZone('Asia/Tokyo'));
+            $testRunner->assertEquals([
+                'date' => $date->format('Ymd')
+            ], $data);
+            return [
+                'status' => 'ready',
+                'success' => 10000
+            ];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->getNumberOfSentBroadcastMessages($date);
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+
+        $data = $res->getJSONDecodedBody();
+        $this->assertEquals('ready', $data['status']);
+        $this->assertEquals(10000, $data['success']);
+    }
 }
