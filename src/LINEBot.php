@@ -86,6 +86,26 @@ class LINEBot
     }
 
     /**
+     * Gets the target limit for additional messages in the current month.
+     *
+     * @return Response
+     */
+    public function getNumberOfLimitForAdditional()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/message/quota');
+    }
+
+    /**
+     * Gets the number of messages sent in the current month.
+     *
+     * @return Response
+     */
+    public function getNumberOfSentThisMonth()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/message/quota/consumption');
+    }
+
+    /**
      * Replies arbitrary message to destination which is associated with reply token.
      *
      * @param string $replyToken Identifier of destination.
