@@ -18,6 +18,8 @@
 
 namespace LINE\LINEBot\Event;
 
+use LINE\LINEBot\Event\Things\ThingsResult;
+
 /**
  * A class that represents the event of things event.
  *
@@ -27,6 +29,10 @@ class ThingsEvent extends BaseEvent
 {
     const TYPE_DEVICE_LINKED = 'link';
     const TYPE_DEVICE_UNLINKED = 'unlink';
+    const TYPE_SCENARIO_RESULT = 'scenarioResult';
+
+    /** @var ThingsResult */
+    private $result;
 
     /**
      * ThingsEvent constructor.
@@ -36,6 +42,9 @@ class ThingsEvent extends BaseEvent
     public function __construct($event)
     {
         parent::__construct($event);
+        if (isset($this->event['things']['result'])) {
+            $this->result = new ThingsResult($this->event['things']['result']);
+        }
     }
 
     /**
@@ -56,5 +65,15 @@ class ThingsEvent extends BaseEvent
     public function getThingsEventType()
     {
         return $this->event['things']['type'];
+    }
+
+    /**
+     * Returns the things event result.
+     *
+     * @return ThingsResult
+     */
+    public function getScenarioResult()
+    {
+        return $this->result;
     }
 }
