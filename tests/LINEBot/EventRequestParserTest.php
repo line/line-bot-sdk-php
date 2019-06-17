@@ -844,7 +844,6 @@ JSON;
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('t2c449c9d1', $event->getDeviceId());
             $this->assertEquals(ThingsEvent::TYPE_SCENARIO_RESULT, $event->getThingsEventType());
-            $this->assertEquals(ThingsEvent::TYPE_SCENARIO_RESULT, $event->getThingsEventType());
             $this->assertEquals('dummy_scenario_id', $event->getScenarioResult()->getScenarioId());
             $scenarioResult = $event->getScenarioResult();
             $this->assertEquals(2, $scenarioResult->getRevision());

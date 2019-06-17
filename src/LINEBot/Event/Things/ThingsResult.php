@@ -43,7 +43,7 @@ class ThingsResult
     }
 
     /**
-     * Returns the things event result senario id.
+     * Returns the senario id of things event result.
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class ThingsResult
     }
 
     /**
-     * Returns the things event result revision.
+     * Returns the revision of things event result.
      *
      * @return int
      */
@@ -63,7 +63,7 @@ class ThingsResult
     }
 
     /**
-     * Returns the things event result code.
+     * Returns the code of things event result.
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class ThingsResult
     }
 
     /**
-     * Returns the things event result start time.
+     * Returns the start time of things event result.
      *
      * @return int
      */
@@ -83,7 +83,7 @@ class ThingsResult
     }
 
     /**
-     * Returns the things event result end time.
+     * Returns the end time of things event result.
      *
      * @return int
      */
@@ -93,7 +93,7 @@ class ThingsResult
     }
 
     /**
-     * Returns the things event result ble notification payload.
+     * Returns the BLE notification payload of things event result.
      *
      * @return string
      */
@@ -102,9 +102,8 @@ class ThingsResult
         return $this->result['bleNotificationPayload'];
     }
 
-
     /**
-     * Returns the things event result action results.
+     * Returns the action results of things event result.
      *
      * @return array
      */

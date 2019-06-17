@@ -44,7 +44,7 @@ class ThingsResultAction
     }
 
     /**
-     * Returns the things event result action type.
+     * Returns the type of things event result action.
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class ThingsResultAction
     }
 
     /**
-     * Returns the things event result action data.
+     * Returns the data of things event result action.
      *
      * @return string|null
      */

@@ -70,7 +70,7 @@ class ThingsEvent extends BaseEvent
     /**
      * Returns the things event result.
      *
-     * @return ThingsResult
+     * @return ThingsResult|null
      */
     public function getScenarioResult()
     {
