@@ -586,4 +586,47 @@ class LINEBot
         $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
         return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
     }
+
+    /**
+     * Create channel access token
+     *
+     * Create a short-lived channel access token.
+     * Up to 30 tokens can be issued.
+     * If the maximum is exceeded,
+     * existing channel access tokens are revoked in the order of when they were first issued.
+     *
+     * @param string $channelId
+     * @return Response
+     */
+    public function createChannelAccessToken($channelId)
+    {
+        $url = $this->endpointBase . '/v2/oauth/accessToken';
+        return $this->httpClient->post(
+            $url,
+            [
+                'grant_type' => 'client_credentials',
+                'client_id' => $channelId,
+                'client_secret' => $this->channelSecret,
+            ],
+            ['Content-Type: application/x-www-form-urlencoded']
+        );
+    }
+    
+    /**
+     * Revoke channel access token
+     *
+     * Revokes a channel access token.
+     *
+     * @param string $channelAccessToken
+     * @return Response
+     */
+    public function revokeChannelAccessToken($channelAccessToken)
+    {
+        $url = $this->endpointBase . '/v2/oauth/revoke';
+        return $this->httpClient->post(
+            $url,
+            ['access_token' => $channelAccessToken],
+            ['Content-Type: application/x-www-form-urlencoded']
+        );
+    }
 }

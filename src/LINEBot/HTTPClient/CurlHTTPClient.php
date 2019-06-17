@@ -120,6 +120,9 @@ class CurlHTTPClient implements HTTPClient
                     $options[CURLOPT_PUT] = true;
                     $options[CURLOPT_INFILE] = fopen($reqBody['__file'], 'r');
                     $options[CURLOPT_INFILESIZE] = filesize($reqBody['__file']);
+                } elseif (in_array('Content-Type: application/x-www-form-urlencoded', $headers)) {
+                    $options[CURLOPT_POST] = true;
+                    $options[CURLOPT_POSTFIELDS] = http_build_query($reqBody);
                 } elseif (!empty($reqBody)) {
                     $options[CURLOPT_POST] = true;
                     $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
