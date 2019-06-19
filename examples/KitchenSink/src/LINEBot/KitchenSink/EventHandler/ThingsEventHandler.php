@@ -51,12 +51,18 @@ class ThingsEventHandler implements EventHandler
     public function handle()
     {
         $text = 'Device ' . $this->thingsEvent->getDeviceId();
-        if ($this->thingsEvent->getThingsEventType() == ThingsEvent::TYPE_DEVICE_LINKED) {
-            $text .= ' was linked!';
-        } elseif ($this->thingsEvent->getThingsEventType() == ThingsEvent::TYPE_DEVICE_UNLINKED) {
-            $text .= ' was unlinked!';
+        switch ($this->thingsEvent->getThingsEventType()) {
+            case ThingsEvent::TYPE_DEVICE_LINKED:
+                $text .= ' was linked!';
+                break;
+            case ThingsEvent::TYPE_DEVICE_UNLINKED:
+                $text .= ' was unlinked!';
+                break;
+            case ThingsEvent::TYPE_SCENARIO_RESULT:
+                $result = $this->thingsEvent->getScenarioResult();
+                $text .= ' executed scenario:' . $result->getScenarioId();
+                break;
         }
-
         $this->bot->replyText($this->thingsEvent->getReplyToken(), $text);
     }
 }
