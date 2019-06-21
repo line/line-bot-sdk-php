@@ -24,6 +24,11 @@
       "name": "Satoshi Shibuya",
       "email": "satosby@gmail.com",
 	  "role": "Maintainer"
+    },
+    {
+      "name": "Shunsuke Mori",
+      "email": "morimorim7180@gmail.com",
+	  "role": "Maintainer"
     }
   ],
   "require": {
