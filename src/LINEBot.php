@@ -588,6 +588,47 @@ class LINEBot
     }
 
     /**
+     * Get number of message deliveries
+     *
+     * @param DateTime $datetime Date for which to retrieve number of sent messages.
+     * @return Response
+     */
+    public function getNumberOfMessageDeliveries(DateTime $datetime)
+    {
+        $url = $this->endpointBase . '/v2/bot/insight/message/delivery';
+        $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
+        return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
+    }
+
+    /**
+     * Get number of followers
+     *
+     * @param DateTime $datetime Date for which to retrieve the number of followers.
+     * @return Response
+     */
+    public function getNumberOfFollowers(DateTime $datetime)
+    {
+        $url = $this->endpointBase . '/v2/bot/insight/followers';
+        $datetime->setTimezone(new DateTimeZone('Asia/Tokyo'));
+        return $this->httpClient->get($url, ['date' => $datetime->format('Ymd')]);
+    }
+
+    /**
+     * Get friend demographics
+     *
+     * It can take up to 3 days for demographic information to be calculated.
+     * This means the information the API returns may be 3 days old.
+     * Furthermore, your Target reach number must be at least 20 to retrieve demographic information.
+     *
+     * @return Response
+     */
+    public function getFriendDemographics()
+    {
+        $url = $this->endpointBase . '/v2/bot/insight/demographic';
+        return $this->httpClient->get($url);
+    }
+
+    /**
      * Create channel access token
      *
      * Create a short-lived channel access token.
