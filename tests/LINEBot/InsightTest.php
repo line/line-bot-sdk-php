@@ -94,7 +94,7 @@ class InsightTest extends TestCase
         $data = $res->getJSONDecodedBody();
         $this->assertEquals('unready', $data['status']);
 
-        // Test: status is unready
+        // Test: status is out_of_service
         $mock = function ($testRunner, $httpMethod, $url, $data) use ($date) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
@@ -174,7 +174,7 @@ class InsightTest extends TestCase
         $data = $res->getJSONDecodedBody();
         $this->assertEquals('unready', $data['status']);
 
-        // Test: status is unready
+        // Test: status is out_of_service
         $mock = function ($testRunner, $httpMethod, $url, $data) use ($date) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
