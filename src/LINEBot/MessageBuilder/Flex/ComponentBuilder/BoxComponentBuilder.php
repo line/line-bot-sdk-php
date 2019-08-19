@@ -57,6 +57,19 @@ class BoxComponentBuilder implements ComponentBuilder
     /** @var string */
     private $paddingEnd;
 
+    /** @var string */
+    private $backgroundColor;
+    /** @var string */
+    private $borderColor;
+    /** @var string */
+    private $borderWidth;
+    /** @var string */
+    private $cornerRadius;
+    /** @var string */
+    private $width;
+    /** @var string */
+    private $height;
+
     /** @var array */
     private $component;
 
@@ -251,14 +264,116 @@ class BoxComponentBuilder implements ComponentBuilder
      * (e.g.
      * percentage: 5%
      * pixel: 5px
-     * keyword: none (defined in BoxComponentPaddingKeyword)
+     * keyword: none (defined in ComponentSpacing)
      *
-     * @param string|BoxComponentPaddingKeyword|null $paddingEnd
+     * @param string|ComponentSpacing|null $paddingEnd
      * @return $this
      */
     public function setPaddingEnd($paddingEnd)
     {
         $this->paddingEnd = $paddingEnd;
+        return $this;
+    }
+
+    /**
+     * Set background color
+     *
+     * Hex color string: #RRGGBB or #RRGGBBAA
+     *
+     * @param string|null $backgroundColor
+     * @return $this
+     */
+    public function setBackgroundColor($backgroundColor)
+    {
+        $this->backgroundColor = $backgroundColor;
+        return $this;
+    }
+
+    /**
+     * Set border color
+     *
+     * Hex color string: #RRGGBB or #RRGGBBAA
+     *
+     * @param string|null $borderColor
+     * @return $this
+     */
+    public function setBorderColor($borderColor)
+    {
+        $this->borderColor = $borderColor;
+        return $this;
+    }
+
+    /**
+     * Set border width
+     *
+     * specifiable pixel and keyword.
+     * (e.g.
+     * pixel: 5px
+     * keyword: none (defined in ComponentBorderWidth)
+     *
+     * @param ComponentBorderWidth|string|null $borderWidth
+     * @return $this
+     */
+    public function setBorderWidth($borderWidth)
+    {
+        $this->borderWidth = $borderWidth;
+        return $this;
+    }
+
+    /**
+     * Set corner radius
+     *
+     * specifiable pixel and keyword.
+     * (e.g.
+     * pixel: 5px
+     * keyword: none (defined in ComponentSpacing)
+     *
+     * @param ComponentSpacing|string|null $cornerRadius
+     * @return $this
+     */
+    public function setCornerRadius($cornerRadius)
+    {
+        $this->cornerRadius = $cornerRadius;
+        return $this;
+    }
+
+    /**
+     * Set width
+     *
+     * specifiable percentage and pixel.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     *
+     * ※In horizontal and baseline box,
+     *  `flex` property is ignored and the value is regarded as 0
+     *
+     * @param string|null $width
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+        return $this;
+    }
+
+    /**
+     * Set height
+     *
+     * specifiable percentage and pixel.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     *
+     * ※In horizontal and baseline box,
+     *  `flex` property is ignored and the value is regarded as 0
+     *
+     * @param string|null $height
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
         return $this;
     }
 
@@ -291,6 +406,12 @@ class BoxComponentBuilder implements ComponentBuilder
             'paddingBottom' => $this->paddingBottom,
             'paddingStart' => $this->paddingStart,
             'paddingEnd' => $this->paddingEnd,
+            'backgroundColor' => $this->backgroundColor,
+            'borderColor' => $this->borderColor,
+            'borderWidth' => $this->borderWidth,
+            'cornerRadius' => $this->cornerRadius,
+            'width' => $this->width,
+            'height' => $this->height,
         ]);
 
         return $this->component;

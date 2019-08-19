@@ -25,6 +25,7 @@ use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
+use LINE\LINEBot\Constant\Flex\ComponentBorderWidth;
 
 class BoxComponentBuilderTest extends TestCase
 {
@@ -46,7 +47,13 @@ class BoxComponentBuilderTest extends TestCase
   "paddingAll":"none",
   "paddingTop":"5%",
   "paddingBottom":"5px",
-  "paddingStart":"lg"
+  "paddingStart":"lg",
+  "backgroundColor":"#000000",
+  "borderColor":"#000000",
+  "borderWidth":"semi-bold",
+  "cornerRadius":"xxl",
+  "width":"5px",
+  "height":"5%"
 }
 JSON
             , true);
@@ -60,12 +67,18 @@ JSON
             3,
             ComponentSpacing::SM,
             ComponentMargin::XS,
-            new MessageTemplateActionBuilder('ok', 'OK'),
-            ComponentSpacing::NONE,
-            '5%',
-            '5px',
-            ComponentSpacing::LG
+            new MessageTemplateActionBuilder('ok', 'OK')
         );
+        $componentBuilder->setPaddingAll(ComponentSpacing::NONE)
+            ->setPaddingTop('5%')
+            ->setPaddingBottom('5px')
+            ->setPaddingStart(ComponentSpacing::LG)
+            ->setBackgroundColor('#000000')
+            ->setBorderColor('#000000')
+            ->setBorderWidth(ComponentBorderWidth::SEMI_BOLD)
+            ->setCornerRadius(ComponentSpacing::XXL)
+            ->setWidth('5px')
+            ->setHeight('5%');
         $this->assertEquals($result, $componentBuilder->build());
 
         $componentBuilder = BoxComponentBuilder::builder()
@@ -81,7 +94,13 @@ JSON
             ->setPaddingAll(ComponentSpacing::NONE)
             ->setPaddingTop('5%')
             ->setPaddingBottom('5px')
-            ->setPaddingStart(ComponentSpacing::LG);
+            ->setPaddingStart(ComponentSpacing::LG)
+            ->setBackgroundColor('#000000')
+            ->setBorderColor('#000000')
+            ->setBorderWidth(ComponentBorderWidth::SEMI_BOLD)
+            ->setCornerRadius(ComponentSpacing::XXL)
+            ->setWidth('5px')
+            ->setHeight('5%');
         $this->assertEquals($result, $componentBuilder->build());
     }
 }
