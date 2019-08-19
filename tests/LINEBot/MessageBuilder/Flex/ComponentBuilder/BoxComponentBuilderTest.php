@@ -42,7 +42,11 @@ class BoxComponentBuilderTest extends TestCase
   "flex":3,
   "spacing":"sm",
   "margin":"xs",
-  "action":{"type":"message", "label":"ok", "text":"OK"}
+  "action":{"type":"message", "label":"ok", "text":"OK"},
+  "paddingAll":"none",
+  "paddingTop":"5%",
+  "paddingBottom":"5px",
+  "paddingStart":"lg"
 }
 JSON
             , true);
@@ -56,7 +60,11 @@ JSON
             3,
             ComponentSpacing::SM,
             ComponentMargin::XS,
-            new MessageTemplateActionBuilder('ok', 'OK')
+            new MessageTemplateActionBuilder('ok', 'OK'),
+            ComponentSpacing::NONE,
+            '5%',
+            '5px',
+            ComponentSpacing::LG
         );
         $this->assertEquals($result, $componentBuilder->build());
 
@@ -69,7 +77,11 @@ JSON
             ->setFlex(3)
             ->setSpacing(ComponentSpacing::SM)
             ->setMargin(ComponentMargin::XS)
-            ->setAction(new MessageTemplateActionBuilder('ok', 'OK'));
+            ->setAction(new MessageTemplateActionBuilder('ok', 'OK'))
+            ->setPaddingAll(ComponentSpacing::NONE)
+            ->setPaddingTop('5%')
+            ->setPaddingBottom('5px')
+            ->setPaddingStart(ComponentSpacing::LG);
         $this->assertEquals($result, $componentBuilder->build());
     }
 }

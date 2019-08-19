@@ -46,6 +46,17 @@ class BoxComponentBuilder implements ComponentBuilder
     /** @var TemplateActionBuilder */
     private $actionBuilder;
 
+    /** @var string */
+    private $paddingAll;
+    /** @var string */
+    private $paddingTop;
+    /** @var string */
+    private $paddingBottom;
+    /** @var string */
+    private $paddingStart;
+    /** @var string */
+    private $paddingEnd;
+
     /** @var array */
     private $component;
 
@@ -57,7 +68,11 @@ class BoxComponentBuilder implements ComponentBuilder
      * @param int|null $flex
      * @param ComponentSpacing|string|null $spacing
      * @param ComponentMargin|null $margin
-     * @param TemplateActionBuilder|null $actionBuilder
+     * @param string|null $paddingAll
+     * @param string|null $paddingTop
+     * @param string|null $paddingBottom
+     * @param string|null $paddingStart
+     * @param string|null $paddingEnd
      */
     public function __construct(
         $layout,
@@ -158,6 +173,96 @@ class BoxComponentBuilder implements ComponentBuilder
     }
 
     /**
+     * Set paddingAll.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: none (defined in ComponentSpacing)
+     *
+     * @param string|ComponentSpacing|null $paddingAll
+     * @return $this
+     */
+    public function setPaddingAll($paddingAll)
+    {
+        $this->paddingAll = $paddingAll;
+        return $this;
+    }
+
+    /**
+     * Set paddingTop.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: none (defined in ComponentSpacing)
+     *
+     * @param string|ComponentSpacing|null $paddingTop
+     * @return $this
+     */
+    public function setPaddingTop($paddingTop)
+    {
+        $this->paddingTop = $paddingTop;
+        return $this;
+    }
+
+    /**
+     * Set paddingBottom.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: none (defined in ComponentSpacing)
+     *
+     * @param string|ComponentSpacing|null $paddingBottom
+     * @return $this
+     */
+    public function setPaddingBottom($paddingBottom)
+    {
+        $this->paddingBottom = $paddingBottom;
+        return $this;
+    }
+
+    /**
+     * Set paddingStart.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: none (defined in ComponentSpacing)
+     *
+     * @param string|ComponentSpacing|null $paddingStart
+     * @return $this
+     */
+    public function setPaddingStart($paddingStart)
+    {
+        $this->paddingStart = $paddingStart;
+        return $this;
+    }
+
+    /**
+     * Set paddingEnd.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: none (defined in BoxComponentPaddingKeyword)
+     *
+     * @param string|BoxComponentPaddingKeyword|null $paddingEnd
+     * @return $this
+     */
+    public function setPaddingEnd($paddingEnd)
+    {
+        $this->paddingEnd = $paddingEnd;
+        return $this;
+    }
+
+    /**
      * Builds box component structure.
      *
      * @return array
@@ -181,6 +286,11 @@ class BoxComponentBuilder implements ComponentBuilder
             'spacing' => $this->spacing,
             'margin' => $this->margin,
             'action' => BuildUtil::build($this->actionBuilder, 'buildTemplateAction'),
+            'paddingAll' => $this->paddingAll,
+            'paddingTop' => $this->paddingTop,
+            'paddingBottom' => $this->paddingBottom,
+            'paddingStart' => $this->paddingStart,
+            'paddingEnd' => $this->paddingEnd,
         ]);
 
         return $this->component;
