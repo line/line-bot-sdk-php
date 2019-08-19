@@ -20,6 +20,7 @@ namespace LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 
 use LINE\LINEBot\Constant\Flex\ContainerDirection;
 use LINE\LINEBot\Constant\Flex\ContainerType;
+use LINE\LINEBot\Constant\Flex\BubleContainerSize;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
@@ -45,6 +46,8 @@ class BubbleContainerBuilder implements ContainerBuilder
     private $footerComponentBuilder;
     /** @var BubbleStylesBuilder */
     private $stylesBuilder;
+    /** @var BubleContainerSize */
+    private $size;
 
     /** @var array */
     private $container;
@@ -58,6 +61,7 @@ class BubbleContainerBuilder implements ContainerBuilder
      * @param BoxComponentBuilder|null $bodyComponentBuilder
      * @param BoxComponentBuilder|null $footerComponentBuilder
      * @param BubbleStylesBuilder|null $stylesBuilder
+     * @param BubleContainerSize|null $size
      */
     public function __construct(
         $direction = null,
@@ -65,7 +69,8 @@ class BubbleContainerBuilder implements ContainerBuilder
         $heroComponentBuilder = null,
         $bodyComponentBuilder = null,
         $footerComponentBuilder = null,
-        $stylesBuilder = null
+        $stylesBuilder = null,
+        $size = null
     ) {
         $this->direction = $direction;
         $this->headerComponentBuilder = $headerComponentBuilder;
@@ -73,6 +78,7 @@ class BubbleContainerBuilder implements ContainerBuilder
         $this->bodyComponentBuilder = $bodyComponentBuilder;
         $this->footerComponentBuilder = $footerComponentBuilder;
         $this->stylesBuilder = $stylesBuilder;
+        $this->size = $size;
     }
 
     /**
@@ -83,6 +89,19 @@ class BubbleContainerBuilder implements ContainerBuilder
     public static function builder()
     {
         return new self();
+    }
+
+    /**
+     * Set size.
+     * default: mega
+     *
+     * @param BubleContainerSize|string|null $direction
+     * @return BubbleContainerBuilder
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+        return $this;
     }
 
     /**
@@ -170,6 +189,7 @@ class BubbleContainerBuilder implements ContainerBuilder
 
         $this->container = BuildUtil::removeNullElements([
             'type' => ContainerType::BUBBLE,
+            'size' => $this->size,
             'direction' => $this->direction,
             'header' => BuildUtil::build($this->headerComponentBuilder),
             'hero' => BuildUtil::build($this->heroComponentBuilder),

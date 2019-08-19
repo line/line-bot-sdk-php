@@ -19,6 +19,7 @@ namespace LINE\Tests\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\Constant\Flex\ContainerDirection;
+use LINE\LINEBot\Constant\Flex\BubleContainerSize;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\BubbleContainerBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
@@ -35,6 +36,7 @@ class BubbleContainerBuilderTest extends TestCase
         $json = <<<JSON
 {
   "type":"bubble",
+  "size":"giga",
   "direction":"ltr",
   "header":{
     "type":"box",
@@ -76,12 +78,14 @@ JSON;
             new ImageComponentBuilder('https://example.com/hero.png'),
             new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('body')]),
             new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('footer')]),
-            BubbleStylesBuilder::builder()->setBody(new BlockStyleBuilder(null, true, '#000000'))
+            BubbleStylesBuilder::builder()->setBody(new BlockStyleBuilder(null, true, '#000000')),
+            BubleContainerSize::GIGA
         );
         $this->assertEquals(json_decode($json, true), $builder->build());
 
         $builder = BubbleContainerBuilder::builder()
             ->setDirection(ContainerDirection::LTR)
+            ->setSize(BubleContainerSize::GIGA)
             ->setHeader(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('header')]))
             ->setHero(new ImageComponentBuilder('https://example.com/hero.png'))
             ->setBody(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('body')]))
