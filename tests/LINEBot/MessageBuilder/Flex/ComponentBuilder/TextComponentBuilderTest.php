@@ -25,6 +25,8 @@ use LINE\LINEBot\Constant\Flex\ComponentFontSize;
 use LINE\LINEBot\Constant\Flex\ComponentAlign;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentFontWeight;
+use LINE\LINEBot\Constant\Flex\ComponentSpacing;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
 
 class TextComponentBuilderTest extends TestCase
 {
@@ -44,7 +46,12 @@ class TextComponentBuilderTest extends TestCase
   "maxLines":0,
   "weight":"bold",
   "color":"#111111",
-  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"}
+  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"},
+  "position": "relative",
+  "offsetTop": "4px",
+  "offsetBottom": "4%",
+  "offsetStart": "none",
+  "offsetEnd": "sm"
 }
 JSON;
 
@@ -61,6 +68,11 @@ JSON;
             '#111111',
             new UriTemplateActionBuilder('OK', 'http://linecorp.com/')
         );
+        $componentBuilder->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
         $componentBuilder = TextComponentBuilder::builder()
@@ -74,7 +86,12 @@ JSON;
             ->setMaxLines(0)
             ->setWeight(ComponentFontWeight::BOLD)
             ->setColor('#111111')
-            ->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'));
+            ->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'))
+            ->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }

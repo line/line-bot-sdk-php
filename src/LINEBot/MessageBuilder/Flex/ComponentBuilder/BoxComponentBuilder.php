@@ -23,6 +23,7 @@ use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentType;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
@@ -70,6 +71,17 @@ class BoxComponentBuilder implements ComponentBuilder
     /** @var string */
     private $height;
 
+    /** @var string */
+    private $position;
+    /** @var string */
+    private $offsetTop;
+    /** @var string */
+    private $offsetBottom;
+    /** @var string */
+    private $offsetStart;
+    /** @var string */
+    private $offsetEnd;
+
     /** @var array */
     private $component;
 
@@ -81,11 +93,6 @@ class BoxComponentBuilder implements ComponentBuilder
      * @param int|null $flex
      * @param ComponentSpacing|string|null $spacing
      * @param ComponentMargin|null $margin
-     * @param string|null $paddingAll
-     * @param string|null $paddingTop
-     * @param string|null $paddingBottom
-     * @param string|null $paddingStart
-     * @param string|null $paddingEnd
      */
     public function __construct(
         $layout,
@@ -276,6 +283,92 @@ class BoxComponentBuilder implements ComponentBuilder
     }
 
     /**
+     * Set position.
+     *
+     * specifiable relative or absolute
+     *
+     * @param string|ComponentPosition|null $position
+     * @return $this
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * Set offsetTop.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: none (defined in ComponentSpacing)
+     *
+     * @param string|ComponentSpacing|null $offsetTop
+     * @return $this
+     */
+    public function setOffsetTop($offsetTop)
+    {
+        $this->offsetTop = $offsetTop;
+        return $this;
+    }
+    
+    /**
+     * Set offsetBottom.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: none (defined in ComponentSpacing)
+     *
+     * @param string|ComponentSpacing|null $offsetBottom
+     * @return $this
+     */
+    public function setOffsetBottom($offsetBottom)
+    {
+        $this->offsetBottom = $offsetBottom;
+        return $this;
+    }
+    
+    /**
+     * Set offsetStart.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: none (defined in ComponentSpacing)
+     *
+     * @param string|ComponentSpacing|null $offsetStart
+     * @return $this
+     */
+    public function setOffsetStart($offsetStart)
+    {
+        $this->offsetStart = $offsetStart;
+        return $this;
+    }
+    
+    /**
+     * Set offsetEnd.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: none (defined in ComponentSpacing)
+     *
+     * @param string|ComponentSpacing|null $offsetEnd
+     * @return $this
+     */
+    public function setOffsetEnd($offsetEnd)
+    {
+        $this->offsetEnd = $offsetEnd;
+        return $this;
+    }
+
+    /**
      * Set background color
      *
      * Hex color string: #RRGGBB or #RRGGBBAA
@@ -412,6 +505,11 @@ class BoxComponentBuilder implements ComponentBuilder
             'cornerRadius' => $this->cornerRadius,
             'width' => $this->width,
             'height' => $this->height,
+            'position' => $this->position,
+            'offsetTop' => $this->offsetTop,
+            'offsetBottom' => $this->offsetBottom,
+            'offsetStart' => $this->offsetStart,
+            'offsetEnd' => $this->offsetEnd,
         ]);
 
         return $this->component;

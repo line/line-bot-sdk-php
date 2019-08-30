@@ -26,6 +26,7 @@ use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentBorderWidth;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
 
 class BoxComponentBuilderTest extends TestCase
 {
@@ -52,6 +53,11 @@ class BoxComponentBuilderTest extends TestCase
   "borderColor":"#000000",
   "borderWidth":"semi-bold",
   "cornerRadius":"xxl",
+  "position": "relative",
+  "offsetTop": "4px",
+  "offsetBottom": "4%",
+  "offsetStart": "none",
+  "offsetEnd": "sm",
   "width":"5px",
   "height":"5%"
 }
@@ -77,6 +83,11 @@ JSON
             ->setBorderColor('#000000')
             ->setBorderWidth(ComponentBorderWidth::SEMI_BOLD)
             ->setCornerRadius(ComponentSpacing::XXL)
+            ->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM)
             ->setWidth('5px')
             ->setHeight('5%');
         $this->assertEquals($result, $componentBuilder->build());
@@ -99,6 +110,11 @@ JSON
             ->setBorderColor('#000000')
             ->setBorderWidth(ComponentBorderWidth::SEMI_BOLD)
             ->setCornerRadius(ComponentSpacing::XXL)
+            ->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM)
             ->setWidth('5px')
             ->setHeight('5%');
         $this->assertEquals($result, $componentBuilder->build());
