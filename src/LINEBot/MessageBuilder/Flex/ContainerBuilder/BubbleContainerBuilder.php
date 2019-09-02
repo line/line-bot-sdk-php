@@ -24,7 +24,7 @@ use LINE\LINEBot\Constant\Flex\BubleContainerSize;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
+use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ComponentBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
 /**
@@ -38,7 +38,7 @@ class BubbleContainerBuilder implements ContainerBuilder
     private $direction;
     /** @var BoxComponentBuilder */
     private $headerComponentBuilder;
-    /** @var ImageComponentBuilder */
+    /** @var ComponentBuilder */
     private $heroComponentBuilder;
     /** @var BoxComponentBuilder */
     private $bodyComponentBuilder;
@@ -48,6 +48,8 @@ class BubbleContainerBuilder implements ContainerBuilder
     private $stylesBuilder;
     /** @var BubleContainerSize */
     private $size;
+    /** @var TemplateActionBuilder */
+    private $actionBuilder;
 
     /** @var array */
     private $container;
@@ -57,7 +59,7 @@ class BubbleContainerBuilder implements ContainerBuilder
      *
      * @param ContainerDirection|null $direction
      * @param BoxComponentBuilder|null $headerComponentBuilder
-     * @param ImageComponentBuilder|null $heroComponentBuilder
+     * @param ComponentBuilder|null $heroComponentBuilder
      * @param BoxComponentBuilder|null $bodyComponentBuilder
      * @param BoxComponentBuilder|null $footerComponentBuilder
      * @param BubbleStylesBuilder|null $stylesBuilder
@@ -131,7 +133,7 @@ class BubbleContainerBuilder implements ContainerBuilder
     /**
      * Set hero.
      *
-     * @param ImageComponentBuilder|null $heroComponentBuilder
+     * @param ComponentBuilder|null $heroComponentBuilder
      * @return BubbleContainerBuilder
      */
     public function setHero($heroComponentBuilder)
@@ -177,6 +179,18 @@ class BubbleContainerBuilder implements ContainerBuilder
     }
 
     /**
+     * Set action.
+     *
+     * @param TemplateActionBuilder|null $actionBuilder
+     * @return BubbleContainerBuilder
+     */
+    public function setAction($actionBuilder)
+    {
+        $this->actionBuilder = $actionBuilder;
+        return $this;
+    }
+
+    /**
      * Builds bubble container structure.
      *
      * @return array
@@ -196,6 +210,7 @@ class BubbleContainerBuilder implements ContainerBuilder
             'body' => BuildUtil::build($this->bodyComponentBuilder),
             'footer' => BuildUtil::build($this->footerComponentBuilder),
             'styles' => BuildUtil::build($this->stylesBuilder),
+            'action' => BuildUtil::build($this->actionBuilder, 'buildTemplateAction'),
         ]);
 
         return $this->container;
