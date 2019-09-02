@@ -194,15 +194,7 @@ line-bot-sdk-tiny provides a simple interface and functions which makes it a goo
 
 ### Laravel Support
 Easy to use from Laravel.
-
-1. After installed, run this.
-
-```
-$ php artisan vendor:publish 
-```
-
-2. Select number of `Provider: LINE\Laravel\LINEServiceProvider` row.
-3. add `LINE_BOT_CHANNEL_ACCESS_TOKEN` and `LINE_BOT_CHANNEL_SECRET` to `.env`
+After installed, add `LINE_BOT_CHANNEL_ACCESS_TOKEN` and `LINE_BOT_CHANNEL_SECRET` to `.env`
 
 ```
 LINE_BOT_CHANNEL_ACCESS_TOKEN=<Channel Access Token>
