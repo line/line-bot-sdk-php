@@ -25,6 +25,8 @@ use LINE\LINEBot\Constant\Flex\ComponentFontWeight;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentType;
+use LINE\LINEBot\Constant\Flex\ComponentTextDecoration;
+use LINE\LINEBot\Constant\Flex\ComponentTextStyle;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
@@ -56,6 +58,12 @@ class TextComponentBuilder implements ComponentBuilder
     private $weight;
     /** @var string */
     private $color;
+    /** @var ComponentTextStyle */
+    private $style;
+    /** @var ComponentTextDecoration */
+    private $decoration;
+    /** @var array */
+    private $contents;
     /** @var TemplateActionBuilder */
     private $actionBuilder;
 
@@ -245,6 +253,30 @@ class TextComponentBuilder implements ComponentBuilder
     }
 
     /**
+     * Set style.
+     *
+     * @param string|null $style
+     * @return TextComponentBuilder
+     */
+    public function setStyle($style)
+    {
+        $this->style = $style;
+        return $this;
+    }
+
+    /**
+     * Set decoration.
+     *
+     * @param string|null $decoration
+     * @return TextComponentBuilder
+     */
+    public function setDecoration($decoration)
+    {
+        $this->decoration = $decoration;
+        return $this;
+    }
+
+    /**
      * Set action.
      *
      * @param TemplateActionBuilder|null $actionBuilder
@@ -343,6 +375,18 @@ class TextComponentBuilder implements ComponentBuilder
     }
 
     /**
+     * Set contents.
+     *
+     * @param array|null $contents array of SpanComponentBuilder
+     * @return $this
+     */
+    public function setContents($contents)
+    {
+        $this->contents = $contents;
+        return $this;
+    }
+
+    /**
      * Builds text component structure.
      *
      * @return array
@@ -365,6 +409,8 @@ class TextComponentBuilder implements ComponentBuilder
             'maxLines' => $this->maxLines,
             'weight' => $this->weight,
             'color' => $this->color,
+            'style' => $this->style,
+            'decoration' => $this->decoration,
             'action' => BuildUtil::build($this->actionBuilder, 'buildTemplateAction'),
             'position' => $this->position,
             'offsetTop' => $this->offsetTop,
@@ -372,6 +418,12 @@ class TextComponentBuilder implements ComponentBuilder
             'offsetStart' => $this->offsetStart,
             'offsetEnd' => $this->offsetEnd,
         ]);
+
+        if (isset($this->contents)) {
+            $this->component['contents'] = array_map(function ($span) {
+                return $span->build();
+            }, $this->contents);
+        }
 
         return $this->component;
     }
