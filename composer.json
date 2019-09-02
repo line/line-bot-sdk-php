@@ -65,5 +65,15 @@
     "doc": "apigen generate src --destination docs",
     "cs": "phpcs --standard=PSR2 src tests examples/EchoBot/src examples/EchoBot/public examples/KitchenSink/src examples/KitchenSink/public",
     "md": "phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LINE\\Laravel\\LINEServiceProvider"
+      ],
+      "aliases": {
+        "LINEBot": "LINE\\Laravel\\Facade\\LINEBot"
+      }
+    }
   }
 }
