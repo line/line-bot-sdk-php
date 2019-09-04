@@ -24,6 +24,6 @@ class LINEBot extends Facade
 {
     public static function getFacadeAccessor()
     {
-        return 'linebot';
+        return 'line-bot';
     }
 }
