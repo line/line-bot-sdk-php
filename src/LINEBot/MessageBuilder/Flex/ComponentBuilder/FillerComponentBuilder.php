@@ -44,6 +44,7 @@ class FillerComponentBuilder implements ComponentBuilder
     public function setFlex($flex)
     {
         $this->flex = $flex;
+        return $this;
     }
 
     /**
