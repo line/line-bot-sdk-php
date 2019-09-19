@@ -38,6 +38,9 @@ foreach ($client->parseEvents() as $event) {
                         ]
                     ]);
                     break;
+                case 'sticker':
+                    // For checking connection from LINE Developers dashboard
+                    http_response_code(200);
                 default:
                     error_log('Unsupported message type: ' . $message['type']);
                     break;
