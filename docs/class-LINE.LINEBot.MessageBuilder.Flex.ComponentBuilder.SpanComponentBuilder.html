@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="resources/style.css">
 
         <title>
-            Class LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\FillerComponentBuilder
+            Class LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder
         </title>
     </head>
 
@@ -83,7 +83,7 @@
         </li>
 
         <li class="backslash">\</li>
-        <li class="active">FillerComponentBuilder</li>
+        <li class="active">SpanComponentBuilder</li>
 </ol>
                         </div>
                     </div>
@@ -93,11 +93,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-    <h1>FillerComponentBuilder</h1>
+    <h1>SpanComponentBuilder</h1>
 
         <div class="panel panel-default">
             <div class="panel-body">
-                A builder class for filler component.
+                A builder class for span component.
             </div>
         </div>
 
@@ -118,12 +118,45 @@
         
 
             <br>
-            <a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.FillerComponentBuilder.html" class="open-source-code">Open source code</a>
+            <br>
+            <a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html" class="open-source-code">Open source code</a>
         <br>
     </div>
 
         <table class="summary table table-bordered table-responsive table-striped" id="methods">
             <tr><th colspan="3">Methods Summary</th></tr>
+
+
+
+<tr id="___construct">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#___construct">#</a>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html#50-64">__construct</a>( <span> <span class="property-name">$text</span> </span>, <span> <span class="property-name">$size</span> = <span class="php-keyword1">NULL</span></span>, <span> <span class="property-name">$color</span> = <span class="php-keyword1">NULL</span></span>, <span> <span class="property-name">$weight</span> = <span class="php-keyword1">NULL</span></span>, <span> <span class="property-name">$style</span> = <span class="php-keyword1">NULL</span></span>, <span> <span class="property-name">$decoration</span> = <span class="php-keyword1">NULL</span></span> )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
 
 
 
@@ -140,10 +173,10 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_builder">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.FillerComponentBuilder.html#39-42">builder</a>( )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html#71-74">builder</a>( )</code>
 
             <div class="description">
-                Create empty FillerComponentBuilder.
+                Create empty TextComponentBuilder.
 
 
 
@@ -159,7 +192,7 @@
 
 
 
-<tr id="_setFlex">
+<tr id="_setText">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -171,11 +204,171 @@
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_setFlex">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.FillerComponentBuilder.html#44-48">setFlex</a>( <span> <span class="property-name">$flex</span> </span> )</code>
+            <a class="anchor pull-right" href="#_setText">#</a>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html#82-86">setText</a>( <span> string <span class="property-name">$text</span> </span> )</code>
 
             <div class="description">
+                Set text.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_setSize">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
                 
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setSize">#</a>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html#94-98">setSize</a>( <span> \ComponentFontSize|string|null <span class="property-name">$size</span> </span> )</code>
+
+            <div class="description">
+                Set size.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_setWeight">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setWeight">#</a>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html#106-110">setWeight</a>( <span> \ComponentFontWeight|string|null <span class="property-name">$weight</span> </span> )</code>
+
+            <div class="description">
+                Set weight.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_setColor">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setColor">#</a>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html#118-122">setColor</a>( <span> string|null <span class="property-name">$color</span> </span> )</code>
+
+            <div class="description">
+                Set color.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_setStyle">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setStyle">#</a>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html#130-134">setStyle</a>( <span> string|null <span class="property-name">$style</span> </span> )</code>
+
+            <div class="description">
+                Set style.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_setDecoration">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setDecoration">#</a>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html#142-146">setDecoration</a>( <span> string|null <span class="property-name">$decoration</span> </span> )</code>
+
+            <div class="description">
+                Set decoration.
 
 
 
@@ -204,10 +397,10 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_build">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.FillerComponentBuilder.html#55-64">build</a>( )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.SpanComponentBuilder.html#148-159">build</a>( )</code>
 
             <div class="description">
-                Builds filler component structure.
+                
 
 
 
