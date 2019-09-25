@@ -25,6 +25,8 @@ use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
+use LINE\LINEBot\Constant\Flex\ComponentBorderWidth;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
 
 class BoxComponentBuilderTest extends TestCase
 {
@@ -42,7 +44,23 @@ class BoxComponentBuilderTest extends TestCase
   "flex":3,
   "spacing":"sm",
   "margin":"xs",
-  "action":{"type":"message", "label":"ok", "text":"OK"}
+  "action":{"type":"message", "label":"ok", "text":"OK"},
+  "paddingAll":"none",
+  "paddingTop":"5%",
+  "paddingBottom":"5px",
+  "paddingStart":"lg",
+  "paddingEnd":"xl",
+  "backgroundColor":"#000000",
+  "borderColor":"#000000",
+  "borderWidth":"semi-bold",
+  "cornerRadius":"xxl",
+  "position": "relative",
+  "offsetTop": "4px",
+  "offsetBottom": "4%",
+  "offsetStart": "none",
+  "offsetEnd": "sm",
+  "width":"5px",
+  "height":"5%"
 }
 JSON
             , true);
@@ -58,6 +76,22 @@ JSON
             ComponentMargin::XS,
             new MessageTemplateActionBuilder('ok', 'OK')
         );
+        $componentBuilder->setPaddingAll(ComponentSpacing::NONE)
+            ->setPaddingTop('5%')
+            ->setPaddingBottom('5px')
+            ->setPaddingStart(ComponentSpacing::LG)
+            ->setPaddingEnd(ComponentSpacing::XL)
+            ->setBackgroundColor('#000000')
+            ->setBorderColor('#000000')
+            ->setBorderWidth(ComponentBorderWidth::SEMI_BOLD)
+            ->setCornerRadius(ComponentSpacing::XXL)
+            ->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM)
+            ->setWidth('5px')
+            ->setHeight('5%');
         $this->assertEquals($result, $componentBuilder->build());
 
         $componentBuilder = BoxComponentBuilder::builder()
@@ -69,7 +103,23 @@ JSON
             ->setFlex(3)
             ->setSpacing(ComponentSpacing::SM)
             ->setMargin(ComponentMargin::XS)
-            ->setAction(new MessageTemplateActionBuilder('ok', 'OK'));
+            ->setAction(new MessageTemplateActionBuilder('ok', 'OK'))
+            ->setPaddingAll(ComponentSpacing::NONE)
+            ->setPaddingTop('5%')
+            ->setPaddingBottom('5px')
+            ->setPaddingStart(ComponentSpacing::LG)
+            ->setPaddingEnd(ComponentSpacing::XL)
+            ->setBackgroundColor('#000000')
+            ->setBorderColor('#000000')
+            ->setBorderWidth(ComponentBorderWidth::SEMI_BOLD)
+            ->setCornerRadius(ComponentSpacing::XXL)
+            ->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM)
+            ->setWidth('5px')
+            ->setHeight('5%');
         $this->assertEquals($result, $componentBuilder->build());
     }
 }

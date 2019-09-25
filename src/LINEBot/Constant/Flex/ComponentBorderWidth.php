@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2018 LINE Corporation
+ * Copyright 2019 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -18,15 +18,12 @@
 
 namespace LINE\LINEBot\Constant\Flex;
 
-class ComponentType
+class ComponentBorderWidth
 {
-    const BOX = 'box';
-    const BUTTON = 'button';
-    const FILLER = 'filler';
-    const ICON = 'icon';
-    const IMAGE = 'image';
-    const SEPARATOR = 'separator';
-    const SPACER = 'spacer';
-    const TEXT = 'text';
-    const SPAN = 'span';
+    const NONE = 'none';
+    const LIGHT = 'light';
+    const NORMAL = 'normal';
+    const MEDIUM = 'medium';
+    const SEMI_BOLD = 'semi-bold';
+    const BOLD = 'bold';
 }

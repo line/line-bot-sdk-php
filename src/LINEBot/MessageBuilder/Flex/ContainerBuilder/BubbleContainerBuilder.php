@@ -20,10 +20,11 @@ namespace LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 
 use LINE\LINEBot\Constant\Flex\ContainerDirection;
 use LINE\LINEBot\Constant\Flex\ContainerType;
+use LINE\LINEBot\Constant\Flex\BubleContainerSize;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
+use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ComponentBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
 /**
@@ -37,7 +38,7 @@ class BubbleContainerBuilder implements ContainerBuilder
     private $direction;
     /** @var BoxComponentBuilder */
     private $headerComponentBuilder;
-    /** @var ImageComponentBuilder */
+    /** @var ComponentBuilder */
     private $heroComponentBuilder;
     /** @var BoxComponentBuilder */
     private $bodyComponentBuilder;
@@ -45,6 +46,10 @@ class BubbleContainerBuilder implements ContainerBuilder
     private $footerComponentBuilder;
     /** @var BubbleStylesBuilder */
     private $stylesBuilder;
+    /** @var BubleContainerSize */
+    private $size;
+    /** @var TemplateActionBuilder */
+    private $actionBuilder;
 
     /** @var array */
     private $container;
@@ -54,10 +59,11 @@ class BubbleContainerBuilder implements ContainerBuilder
      *
      * @param ContainerDirection|null $direction
      * @param BoxComponentBuilder|null $headerComponentBuilder
-     * @param ImageComponentBuilder|null $heroComponentBuilder
+     * @param ComponentBuilder|null $heroComponentBuilder
      * @param BoxComponentBuilder|null $bodyComponentBuilder
      * @param BoxComponentBuilder|null $footerComponentBuilder
      * @param BubbleStylesBuilder|null $stylesBuilder
+     * @param BubleContainerSize|null $size
      */
     public function __construct(
         $direction = null,
@@ -65,7 +71,8 @@ class BubbleContainerBuilder implements ContainerBuilder
         $heroComponentBuilder = null,
         $bodyComponentBuilder = null,
         $footerComponentBuilder = null,
-        $stylesBuilder = null
+        $stylesBuilder = null,
+        $size = null
     ) {
         $this->direction = $direction;
         $this->headerComponentBuilder = $headerComponentBuilder;
@@ -73,6 +80,7 @@ class BubbleContainerBuilder implements ContainerBuilder
         $this->bodyComponentBuilder = $bodyComponentBuilder;
         $this->footerComponentBuilder = $footerComponentBuilder;
         $this->stylesBuilder = $stylesBuilder;
+        $this->size = $size;
     }
 
     /**
@@ -83,6 +91,19 @@ class BubbleContainerBuilder implements ContainerBuilder
     public static function builder()
     {
         return new self();
+    }
+
+    /**
+     * Set size.
+     * default: mega
+     *
+     * @param BubleContainerSize|string|null $direction
+     * @return BubbleContainerBuilder
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+        return $this;
     }
 
     /**
@@ -112,7 +133,7 @@ class BubbleContainerBuilder implements ContainerBuilder
     /**
      * Set hero.
      *
-     * @param ImageComponentBuilder|null $heroComponentBuilder
+     * @param ComponentBuilder|null $heroComponentBuilder
      * @return BubbleContainerBuilder
      */
     public function setHero($heroComponentBuilder)
@@ -158,6 +179,18 @@ class BubbleContainerBuilder implements ContainerBuilder
     }
 
     /**
+     * Set action.
+     *
+     * @param TemplateActionBuilder|null $actionBuilder
+     * @return BubbleContainerBuilder
+     */
+    public function setAction($actionBuilder)
+    {
+        $this->actionBuilder = $actionBuilder;
+        return $this;
+    }
+
+    /**
      * Builds bubble container structure.
      *
      * @return array
@@ -170,12 +203,14 @@ class BubbleContainerBuilder implements ContainerBuilder
 
         $this->container = BuildUtil::removeNullElements([
             'type' => ContainerType::BUBBLE,
+            'size' => $this->size,
             'direction' => $this->direction,
             'header' => BuildUtil::build($this->headerComponentBuilder),
             'hero' => BuildUtil::build($this->heroComponentBuilder),
             'body' => BuildUtil::build($this->bodyComponentBuilder),
             'footer' => BuildUtil::build($this->footerComponentBuilder),
             'styles' => BuildUtil::build($this->stylesBuilder),
+            'action' => BuildUtil::build($this->actionBuilder, 'buildTemplateAction'),
         ]);
 
         return $this->container;
