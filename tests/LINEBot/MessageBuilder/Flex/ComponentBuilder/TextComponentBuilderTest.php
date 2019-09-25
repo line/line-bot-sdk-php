@@ -18,6 +18,7 @@
 namespace LINE\Tests\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
+use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
@@ -25,6 +26,10 @@ use LINE\LINEBot\Constant\Flex\ComponentFontSize;
 use LINE\LINEBot\Constant\Flex\ComponentAlign;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentFontWeight;
+use LINE\LINEBot\Constant\Flex\ComponentSpacing;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
+use LINE\LINEBot\Constant\Flex\ComponentTextDecoration;
+use LINE\LINEBot\Constant\Flex\ComponentTextStyle;
 
 class TextComponentBuilderTest extends TestCase
 {
@@ -44,7 +49,25 @@ class TextComponentBuilderTest extends TestCase
   "maxLines":0,
   "weight":"bold",
   "color":"#111111",
-  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"}
+  "style":"italic",
+  "decoration":"underline",
+  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"},
+  "position":"relative",
+  "offsetTop":"4px",
+  "offsetBottom":"4%",
+  "offsetStart":"none",
+  "offsetEnd":"sm",
+  "contents":[
+    {
+      "type":"span",
+      "text":"Good Bye World!",
+      "color":"#F0F0F0",
+      "size":"lg",
+      "weight":"bold",
+      "style":"italic",
+      "decoration":"underline"
+    }
+  ]
 }
 JSON;
 
@@ -61,6 +84,23 @@ JSON;
             '#111111',
             new UriTemplateActionBuilder('OK', 'http://linecorp.com/')
         );
+        $componentBuilder->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM)
+            ->setStyle(ComponentTextStyle::ITALIC)
+            ->setDecoration(ComponentTextDecoration::UNDERLINE)
+            ->setContents([
+                new SpanComponentBuilder(
+                    'Good Bye World!',
+                    ComponentFontSize::LG,
+                    '#F0F0F0',
+                    ComponentFontWeight::BOLD,
+                    ComponentTextStyle::ITALIC,
+                    ComponentTextDecoration::UNDERLINE
+                )
+            ]);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
         $componentBuilder = TextComponentBuilder::builder()
@@ -74,7 +114,24 @@ JSON;
             ->setMaxLines(0)
             ->setWeight(ComponentFontWeight::BOLD)
             ->setColor('#111111')
-            ->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'));
+            ->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'))
+            ->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM)
+            ->setStyle(ComponentTextStyle::ITALIC)
+            ->setDecoration(ComponentTextDecoration::UNDERLINE)
+            ->setContents([
+                new SpanComponentBuilder(
+                    'Good Bye World!',
+                    ComponentFontSize::LG,
+                    '#F0F0F0',
+                    ComponentFontWeight::BOLD,
+                    ComponentTextStyle::ITALIC,
+                    ComponentTextDecoration::UNDERLINE
+                )
+            ]);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }

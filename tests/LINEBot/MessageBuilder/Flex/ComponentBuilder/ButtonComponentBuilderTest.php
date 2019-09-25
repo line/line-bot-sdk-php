@@ -24,6 +24,8 @@ use LINE\LINEBot\Constant\Flex\ComponentButtonHeight;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentButtonStyle;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
+use LINE\LINEBot\Constant\Flex\ComponentSpacing;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
 
 class ButtonComponentBuilderTest extends TestCase
 {
@@ -39,7 +41,12 @@ class ButtonComponentBuilderTest extends TestCase
   "height":"sm",
   "style":"link",
   "color":"#FF0000",
-  "gravity":"center"
+  "gravity":"center",
+  "position": "relative",
+  "offsetTop": "4px",
+  "offsetBottom": "4%",
+  "offsetStart": "none",
+  "offsetEnd": "sm"
 }
 JSON;
 
@@ -52,6 +59,11 @@ JSON;
             '#FF0000',
             ComponentGravity::CENTER
         );
+        $componentBuilder->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM);
         $this->assertEquals(json_decode($result, true), $componentBuilder->build());
 
         $componentBuilder = ButtonComponentBuilder::builder()
@@ -61,7 +73,12 @@ JSON;
             ->setHeight(ComponentButtonHeight::SM)
             ->setStyle(ComponentButtonStyle::LINK)
             ->setColor('#FF0000')
-            ->setGravity(ComponentGravity::CENTER);
+            ->setGravity(ComponentGravity::CENTER)
+            ->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM);
         $this->assertEquals(json_decode($result, true), $componentBuilder->build());
     }
 }
