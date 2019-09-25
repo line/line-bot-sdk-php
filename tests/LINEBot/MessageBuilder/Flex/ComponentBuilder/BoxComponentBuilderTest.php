@@ -49,6 +49,7 @@ class BoxComponentBuilderTest extends TestCase
   "paddingTop":"5%",
   "paddingBottom":"5px",
   "paddingStart":"lg",
+  "paddingEnd":"xl",
   "backgroundColor":"#000000",
   "borderColor":"#000000",
   "borderWidth":"semi-bold",
@@ -79,6 +80,7 @@ JSON
             ->setPaddingTop('5%')
             ->setPaddingBottom('5px')
             ->setPaddingStart(ComponentSpacing::LG)
+            ->setPaddingEnd(ComponentSpacing::XL)
             ->setBackgroundColor('#000000')
             ->setBorderColor('#000000')
             ->setBorderWidth(ComponentBorderWidth::SEMI_BOLD)
@@ -106,6 +108,7 @@ JSON
             ->setPaddingTop('5%')
             ->setPaddingBottom('5px')
             ->setPaddingStart(ComponentSpacing::LG)
+            ->setPaddingEnd(ComponentSpacing::XL)
             ->setBackgroundColor('#000000')
             ->setBorderColor('#000000')
             ->setBorderWidth(ComponentBorderWidth::SEMI_BOLD)
