@@ -26,6 +26,8 @@ use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentImageSize;
 use LINE\LINEBot\Constant\Flex\ComponentImageAspectRatio;
 use LINE\LINEBot\Constant\Flex\ComponentImageAspectMode;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
+use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 
 class ImageComponentBuilderTest extends TestCase
 {
@@ -44,7 +46,12 @@ class ImageComponentBuilderTest extends TestCase
   "aspectRatio":"16:9",
   "aspectMode":"cover",
   "backgroundColor":"#000000",
-  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"}
+  "action":{"type":"uri", "label":"OK", "uri":"http://linecorp.com/"},
+  "position": "relative",
+  "offsetTop": "4px",
+  "offsetBottom": "4%",
+  "offsetStart": "none",
+  "offsetEnd": "sm"
 }
 JSON;
 
@@ -60,6 +67,11 @@ JSON;
             '#000000',
             new UriTemplateActionBuilder('OK', 'http://linecorp.com/')
         );
+        $componentBuilder->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
         $componentBuilder = ImageComponentBuilder::builder()
@@ -72,7 +84,12 @@ JSON;
             ->setAspectRatio(ComponentImageAspectRatio::R16TO9)
             ->setAspectMode(ComponentImageAspectMode::COVER)
             ->setBackgroundColor('#000000')
-            ->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'));
+            ->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'))
+            ->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }

@@ -27,14 +27,17 @@ class FillerComponentBuilderTest extends TestCase
     {
         $json = <<<JSON
 {
-  "type":"filler"
+  "type":"filler",
+  "flex":2
 }
 JSON;
 
         $componentBuilder = new FillerComponentBuilder();
+        $componentBuilder->setFlex(2);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
         $componentBuilder = FillerComponentBuilder::builder();
+        $componentBuilder->setFlex(2);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }

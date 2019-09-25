@@ -22,6 +22,8 @@ use PHPUnit\Framework\TestCase;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentIconSize;
 use LINE\LINEBot\Constant\Flex\ComponentIconAspectRatio;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
+use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 
 class IconComponentBuilderTest extends TestCase
 {
@@ -34,7 +36,12 @@ class IconComponentBuilderTest extends TestCase
   "url":"http://example.com",
   "margin":"none",
   "size":"4xl",
-  "aspectRatio":"2:1"
+  "aspectRatio":"2:1",
+  "position": "relative",
+  "offsetTop": "4px",
+  "offsetBottom": "4%",
+  "offsetStart": "none",
+  "offsetEnd": "sm"
 }
 JSON;
 
@@ -44,13 +51,23 @@ JSON;
             ComponentIconSize::XXXXL,
             ComponentIconAspectRatio::R2TO1
         );
+        $componentBuilder->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
 
         $componentBuilder = IconComponentBuilder::builder()
             ->setUrl('http://example.com')
             ->setMargin(ComponentMargin::NONE)
             ->setSize(ComponentIconSize::XXXXL)
-            ->setAspectRatio(ComponentIconAspectRatio::R2TO1);
+            ->setAspectRatio(ComponentIconAspectRatio::R2TO1)
+            ->setPosition(ComponentPosition::RELATIVE)
+            ->setOffsetTop('4px')
+            ->setOffsetBottom('4%')
+            ->setOffsetStart(ComponentSpacing::NONE)
+            ->setOffsetEnd(ComponentSpacing::SM);
         $this->assertEquals(json_decode($json, true), $componentBuilder->build());
     }
 }
