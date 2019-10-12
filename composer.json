@@ -44,7 +44,8 @@
     "indigophp/hash-compat": "~1.1.0",
     "symfony/config": "^3.3",
     "symfony/dependency-injection": "^3.3",
-    "ext-posix": "*"
+    "ext-posix": "*",
+    "orchestra/testbench": "^3.5"
   },
   "suggest": {
     "apigen/apigen": "Install with roave/better-reflection:dev-master to generate docs",
