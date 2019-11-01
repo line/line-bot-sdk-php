@@ -635,7 +635,7 @@ class LINEBot
      * Interactions are tracked for only 14 days after a message was sent.
      * The statistics are no longer updated after 15 days.
      *
-     * @param string Request ID of broadcast message.
+     * @param string $requestId Request ID of broadcast message.
      * @return Response
      */
     public function getUserInteractionStatistics($requestId)
