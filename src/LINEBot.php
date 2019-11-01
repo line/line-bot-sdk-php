@@ -629,6 +629,22 @@ class LINEBot
     }
 
     /**
+     * Get user interaction statistics
+     *
+     * Returns statistics about how users interact with broadcast messages sent from your LINE official account.
+     * Interactions are tracked for only 14 days after a message was sent.
+     * The statistics are no longer updated after 15 days.
+     *
+     * @param string $requestId Request ID of broadcast message.
+     * @return Response
+     */
+    public function getUserInteractionStatistics($requestId)
+    {
+        $url = $this->endpointBase . '/v2/bot/insight/message/event';
+        return $this->httpClient->get($url, ['requestId' => $requestId]);
+    }
+
+    /**
      * Create channel access token
      *
      * Create a short-lived channel access token.

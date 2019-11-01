@@ -316,4 +316,101 @@ class InsightTest extends TestCase
         $data = $res->getJSONDecodedBody();
         $this->assertEquals($responseJson, $data);
     }
+    
+    public function testGetUserInteractionStatistics()
+    {
+        $requestId = 'test request id';
+
+        // Test: status is ready
+        $mock = function ($testRunner, $httpMethod, $url, $data) use ($requestId) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('GET', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/insight/message/event', $url);
+            $testRunner->assertEquals([
+                'requestId' => $requestId
+            ], $data);
+
+            return [
+                'overview' => [
+                    'requestId' => $requestId,
+                    'timestamp' => 1568214000,
+                    'delivered' => 32,
+                    'uniqueImpression' => 4,
+                    'uniqueClick' => null,
+                    'uniqueMediaPlayed' => 2,
+                    'uniqueMediaPlayed100Percent' => -1
+                ],
+                'messages' => [
+                    [
+                        'seq' => 1,
+                        'impression' => 18,
+                        'mediaPlayed' => 11,
+                        'mediaPlayed25Percent' => -1,
+                        'mediaPlayed50Percent' => -1,
+                        'mediaPlayed75Percent' => -1,
+                        'mediaPlayed100Percent' => -1,
+                        'uniqueMediaPlayed' => 2,
+                        'uniqueMediaPlayed25Percent' => -1,
+                        'uniqueMediaPlayed50Percent' => -1,
+                        'uniqueMediaPlayed75Percent' => -1,
+                        'uniqueMediaPlayed100Percent' => -1
+                    ],
+                ],
+                'clicks' => [
+                    [
+                        'seq' => 1,
+                        'url' => 'https://www.yahoo.co.jp/',
+                        'click' => -1,
+                        'uniqueClick' => -1,
+                        'uniqueClickOfRequest' => -1
+                    ],
+                    [
+                        'seq' => 1,
+                        'url' => 'https://www.google.com/?hl=ja',
+                        'click' => -1,
+                        'uniqueClick' => -1,
+                        'uniqueClickOfRequest' => -1
+                    ],
+                ]
+            ];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->getUserInteractionStatistics($requestId);
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+
+        $data = $res->getJSONDecodedBody();
+        $this->assertEquals($requestId, $data['overview']['requestId']);
+        $this->assertEquals(1568214000, $data['overview']['timestamp']);
+        $this->assertEquals(32, $data['overview']['delivered']);
+        $this->assertEquals(4, $data['overview']['uniqueImpression']);
+        $this->assertEquals(null, $data['overview']['uniqueClick']);
+        $this->assertEquals(2, $data['overview']['uniqueMediaPlayed']);
+        $this->assertEquals(-1, $data['overview']['uniqueMediaPlayed100Percent']);
+        $this->assertEquals(1, count($data['messages']));
+        $this->assertEquals(1, $data['messages'][0]['seq']);
+        $this->assertEquals(18, $data['messages'][0]['impression']);
+        $this->assertEquals(11, $data['messages'][0]['mediaPlayed']);
+        $this->assertEquals(-1, $data['messages'][0]['mediaPlayed25Percent']);
+        $this->assertEquals(-1, $data['messages'][0]['mediaPlayed50Percent']);
+        $this->assertEquals(-1, $data['messages'][0]['mediaPlayed75Percent']);
+        $this->assertEquals(-1, $data['messages'][0]['mediaPlayed100Percent']);
+        $this->assertEquals(2, $data['messages'][0]['uniqueMediaPlayed']);
+        $this->assertEquals(-1, $data['messages'][0]['uniqueMediaPlayed25Percent']);
+        $this->assertEquals(-1, $data['messages'][0]['uniqueMediaPlayed50Percent']);
+        $this->assertEquals(-1, $data['messages'][0]['uniqueMediaPlayed75Percent']);
+        $this->assertEquals(-1, $data['messages'][0]['uniqueMediaPlayed100Percent']);
+        $this->assertEquals(2, count($data['clicks']));
+        $this->assertEquals(1, $data['clicks'][0]['seq']);
+        $this->assertEquals('https://www.yahoo.co.jp/', $data['clicks'][0]['url']);
+        $this->assertEquals(-1, $data['clicks'][0]['click']);
+        $this->assertEquals(-1, $data['clicks'][0]['uniqueClick']);
+        $this->assertEquals(-1, $data['clicks'][0]['uniqueClickOfRequest']);
+        $this->assertEquals(1, $data['clicks'][1]['seq']);
+        $this->assertEquals('https://www.google.com/?hl=ja', $data['clicks'][1]['url']);
+        $this->assertEquals(-1, $data['clicks'][1]['click']);
+        $this->assertEquals(-1, $data['clicks'][1]['uniqueClick']);
+        $this->assertEquals(-1, $data['clicks'][1]['uniqueClickOfRequest']);
+    }
 }
