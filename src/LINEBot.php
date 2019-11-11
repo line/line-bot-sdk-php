@@ -89,7 +89,8 @@ class LINEBot
      */
     public function getMessageContent($messageId)
     {
-        return $this->httpClient->get($this->dataEndpointBase . '/v2/bot/message/' . urlencode($messageId) . '/content');
+        $url = $this->dataEndpointBase . '/v2/bot/message/' . urlencode($messageId) . '/content';
+        return $this->httpClient->get($url);
     }
 
     /**
