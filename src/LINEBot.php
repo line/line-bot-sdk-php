@@ -38,11 +38,14 @@ use DateTimeZone;
 class LINEBot
 {
     const DEFAULT_ENDPOINT_BASE = 'https://api.line.me';
+    const DEFAULT_DATA_ENDPOINT_BASE = 'https://api-data.line.me';
 
     /** @var string */
     private $channelSecret;
     /** @var string */
     private $endpointBase;
+    /** @var string */
+    private $dataEndpointBase;
     /** @var HTTPClient */
     private $httpClient;
 
@@ -60,6 +63,10 @@ class LINEBot
         $this->endpointBase = LINEBot::DEFAULT_ENDPOINT_BASE;
         if (!empty($args['endpointBase'])) {
             $this->endpointBase = $args['endpointBase'];
+        }
+        $this->dataEndpointBase = LINEBot::DEFAULT_DATA_ENDPOINT_BASE;
+        if (array_key_exists('dataEndpointBase', $args) && !empty($args['dataEndpointBase'])) {
+            $this->dataEndpointBase = $args['dataEndpointBase'];
         }
     }
 
@@ -82,7 +89,7 @@ class LINEBot
      */
     public function getMessageContent($messageId)
     {
-        return $this->httpClient->get($this->endpointBase . '/v2/bot/message/' . urlencode($messageId) . '/content');
+        return $this->httpClient->get($this->dataEndpointBase . '/v2/bot/message/' . urlencode($messageId) . '/content');
     }
 
     /**
@@ -495,7 +502,7 @@ class LINEBot
      */
     public function downloadRichMenuImage($richMenuId)
     {
-        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->endpointBase, urlencode($richMenuId));
+        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->dataEndpointBase, urlencode($richMenuId));
         return $this->httpClient->get($url);
     }
 
@@ -514,7 +521,7 @@ class LINEBot
      */
     public function uploadRichMenuImage($richMenuId, $imagePath, $contentType)
     {
-        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->endpointBase, urlencode($richMenuId));
+        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->dataEndpointBase, urlencode($richMenuId));
         return $this->httpClient->post(
             $url,
             [

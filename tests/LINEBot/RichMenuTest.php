@@ -216,7 +216,7 @@ class RichMenuTest extends TestCase
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
-            $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu/123/content', $url);
+            $testRunner->assertEquals('https://api-data.line.me/v2/bot/richmenu/123/content', $url);
             $testRunner->assertEquals([], $data);
             return ['status' => 200];
         };
@@ -233,7 +233,7 @@ class RichMenuTest extends TestCase
         $mock = function ($testRunner, $httpMethod, $url, $data, $headers) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
-            $testRunner->assertEquals('https://api.line.me/v2/bot/richmenu/123/content', $url);
+            $testRunner->assertEquals('https://api-data.line.me/v2/bot/richmenu/123/content', $url);
 
             $testRunner->assertEquals(1, count($headers));
             $testRunner->assertEquals('Content-Type: image/png', $headers[0]);
