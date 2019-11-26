@@ -42,8 +42,6 @@
     "phpmd/phpmd": "~2.4",
     "squizlabs/php_codesniffer": "~2.6||^3",
     "indigophp/hash-compat": "~1.1.0",
-    "symfony/config": "^3.3",
-    "symfony/dependency-injection": "^3.3",
     "ext-posix": "*"
   },
   "suggest": {
