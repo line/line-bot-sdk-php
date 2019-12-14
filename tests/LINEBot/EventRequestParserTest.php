@@ -19,6 +19,7 @@
 namespace LINE\Tests\LINEBot;
 
 use LINE\LINEBot;
+use LINE\LINEBot\Constant\StickerResourceType;
 use LINE\LINEBot\Event\AccountLinkEvent;
 use LINE\LINEBot\Event\BeaconDetectionEvent;
 use LINE\LINEBot\Event\FollowEvent;
@@ -198,7 +199,8 @@ class EventRequestParserTest extends TestCase
     "id":"contentid",
     "type":"sticker",
     "packageId":"1",
-    "stickerId":"2"
+    "stickerId":"2",
+    "stickerResourceType":"STATIC"
    }
   },
   {
@@ -484,7 +486,7 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'QbldItjJS8DrEngSZWTdbmZi1ZWppeQVLVKWnrlc1V4=',
+            'E4RwvnMZKLeGdtg+WLmGeA4DgW7e9f1Xugxl7X1KLGw=',
             false
         );
 
@@ -633,6 +635,7 @@ JSON;
             $this->assertEquals('sticker', $event->getMessageType());
             $this->assertEquals(1, $event->getPackageId());
             $this->assertEquals(2, $event->getStickerId());
+            $this->assertEquals(StickerResourceType::STILL_IMAGE, $event->getStickerResourceType());
         }
 
         {

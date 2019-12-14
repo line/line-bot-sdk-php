@@ -56,4 +56,14 @@ class StickerMessage extends MessageEvent
     {
         return $this->message['stickerId'];
     }
+
+    /**
+     * Returns the sticker resource type.
+     *
+     * @return string
+     */
+    public function getStickerResourceType()
+    {
+        return $this->message['stickerResourceType'];
+    }
 }
