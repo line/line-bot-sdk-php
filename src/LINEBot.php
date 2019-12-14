@@ -424,6 +424,40 @@ class LINEBot
     }
 
     /**
+     * Set the default rich menu.
+     *
+     * @param string $richMenuId ID of an uploaded rich menu
+     * @return Response
+     */
+    public function setDefaultRichMenuId($richMenuId)
+    {
+        $url = sprintf('%s/v2/bot/user/all/richmenu/%s', $this->endpointBase, urlencode($richMenuId));
+        return $this->httpClient->post($url, []);
+    }
+
+    /**
+     * Get the default rich menu ID.
+     *
+     * @return Response
+     */
+    public function getDefaultRichMenuId()
+    {
+        $url = $this->endpointBase . '/v2/bot/user/all/richmenu';
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Cancel the default rich menu.
+     *
+     * @return Response
+     */
+    public function cancelDefaultRichMenuId()
+    {
+        $url = $this->endpointBase . '/v2/bot/user/all/richmenu';
+        return $this->httpClient->delete($url);
+    }
+
+    /**
      * Gets the ID of the rich menu linked to a user.
      *
      * @param string $userId User ID. Found in the source object of webhook event objects.

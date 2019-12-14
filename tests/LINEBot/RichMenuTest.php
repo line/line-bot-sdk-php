@@ -138,6 +138,57 @@ class RichMenuTest extends TestCase
         $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
     }
 
+    public function testSetDefaultRichMenuId()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('POST', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/user/all/richmenu/123', $url);
+            $testRunner->assertEquals([], $data);
+            return ['status' => 200];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->setDefaultRichMenuId(123);
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+    }
+
+    public function testGetDefaultRichMenuId()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('GET', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/user/all/richmenu', $url);
+            $testRunner->assertEquals([], $data);
+            return ['status' => 200];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->getDefaultRichMenuId();
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+    }
+
+    public function testCancelDefaultRichMenuId()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('DELETE', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/user/all/richmenu', $url);
+            $testRunner->assertEquals([], $data);
+            return ['status' => 200];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->cancelDefaultRichMenuId();
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+    }
+
     public function testLinkRichMenu()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
