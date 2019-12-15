@@ -635,7 +635,7 @@ JSON;
             $this->assertEquals('sticker', $event->getMessageType());
             $this->assertEquals(1, $event->getPackageId());
             $this->assertEquals(2, $event->getStickerId());
-            $this->assertEquals(StickerResourceType::STILL_IMAGE, $event->getStickerResourceType());
+            $this->assertEquals(StickerResourceType::STATIC_IMAGE, $event->getStickerResourceType());
         }
 
         {

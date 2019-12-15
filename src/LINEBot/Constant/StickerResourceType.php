@@ -20,7 +20,7 @@ namespace LINE\LINEBot\Constant;
 
 class StickerResourceType
 {
-    const STILL_IMAGE = 'STATIC';
+    const STATIC_IMAGE = 'STATIC';
     const ANIMATION = 'ANIMATION';
     const SOUND = 'SOUND';
     const ANIMATION_SOUND = 'ANIMATION_SOUND';
