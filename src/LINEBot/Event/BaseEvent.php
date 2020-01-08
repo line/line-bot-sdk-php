@@ -58,7 +58,7 @@ class BaseEvent
      *
      * active: The channel is active.
      * standby: The channel is waiting.
-     * 
+     *
      * @return string
      */
     public function getMode()
