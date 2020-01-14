@@ -51,6 +51,7 @@ class EventRequestParserTest extends TestCase
  "events":[
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -65,6 +66,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"group",
@@ -83,6 +85,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"group",
@@ -102,6 +105,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"room",
@@ -121,6 +125,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"room",
@@ -140,6 +145,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -157,6 +163,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -173,6 +180,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -189,6 +197,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -205,6 +214,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"follow",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -214,6 +224,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"unfollow",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -222,6 +233,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"join",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -231,6 +243,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"leave",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -239,6 +252,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"postback",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -251,6 +265,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"beacon",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -265,6 +280,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"__unknown__",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -273,6 +289,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"__unknown__",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"__unknown__"
@@ -280,6 +297,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"message",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -294,6 +312,7 @@ class EventRequestParserTest extends TestCase
   {
    "replyToken": "replytoken",
    "type": "message",
+   "mode":"active",
    "timestamp": 1462629479859,
    "source": {
     "type": "user",
@@ -309,6 +328,7 @@ class EventRequestParserTest extends TestCase
   {
    "replyToken": "replytoken",
    "type": "postback",
+   "mode":"active",
    "timestamp": 1501234567890,
    "source": {
     "type": "user",
@@ -324,6 +344,7 @@ class EventRequestParserTest extends TestCase
   {
    "replyToken": "replytoken",
    "type": "postback",
+   "mode":"active",
    "timestamp": 1501234567890,
    "source": {
     "type": "user",
@@ -339,6 +360,7 @@ class EventRequestParserTest extends TestCase
   {
    "replyToken": "replytoken",
    "type": "postback",
+   "mode":"active",
    "timestamp": 1501234567890,
    "source": {
     "type": "user",
@@ -354,6 +376,7 @@ class EventRequestParserTest extends TestCase
   {
    "replyToken": "replytoken",
    "type": "accountLink",
+   "mode":"standby",
    "timestamp": 1501234567890,
    "source": {
     "type": "user",
@@ -367,6 +390,7 @@ class EventRequestParserTest extends TestCase
   {
    "replyToken": "replytoken",
    "type": "accountLink",
+   "mode":"active",
    "timestamp": 1501234567890,
    "source": {
     "type": "user",
@@ -379,6 +403,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"memberJoined",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"group",
@@ -400,6 +425,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"memberLeft",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"group",
@@ -420,6 +446,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"things",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -433,6 +460,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type":"things",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -446,6 +474,7 @@ class EventRequestParserTest extends TestCase
   },
   {
    "type": "things",
+   "mode":"active",
    "timestamp":12345678901234,
    "source":{
     "type":"user",
@@ -486,7 +515,7 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'E4RwvnMZKLeGdtg+WLmGeA4DgW7e9f1Xugxl7X1KLGw=',
+            'qsC+32XO0KUio+ScsxnvUk4t/sYfCyseYaNwi2AA7cw=',
             false
         );
 
@@ -498,6 +527,7 @@ JSON;
             // text
             $event = $events[0];
             $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
             $this->assertTrue($event->isUserEvent());
             $this->assertEquals('userid', $event->getUserId());
             $this->assertEquals('userid', $event->getEventSourceId());
@@ -700,6 +730,7 @@ JSON;
             $this->assertEquals('__unknown__', $event->getEventBody()['type']); // with unprocessed event body
             $this->assertEquals(null, $event->getReplyToken());
             $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
             $this->assertEquals('userid', $event->getEventSourceId());
             $this->assertEquals('userid', $event->getUserId());
             $this->assertEquals(true, $event->isUserEvent());
@@ -714,6 +745,7 @@ JSON;
             $this->assertEquals('__unknown__', $event->getEventBody()['type']); // with unprocessed event body
             $this->assertEquals(null, $event->getReplyToken());
             $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
             $this->assertEquals(null, $event->getEventSourceId());
             $this->assertEquals(true, $event->isUnknownEvent());
         }
@@ -776,6 +808,7 @@ JSON;
             /** @var AccountLinkEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals(1501234567890, $event->getTimestamp());
+            $this->assertEquals('standby', $event->getMode());
             $this->assertEquals("ok", $event->getResult());
             $this->assertEquals(true, $event->isSuccess());
             $this->assertEquals(false, $event->isFailed());
@@ -789,6 +822,7 @@ JSON;
             /** @var AccountLinkEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals(1501234567890, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
             $this->assertEquals("failed", $event->getResult());
             $this->assertEquals(false, $event->isSuccess());
             $this->assertEquals(true, $event->isFailed());
@@ -802,6 +836,7 @@ JSON;
             /** @var MemberJoinEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
             $members = $event->getMembers();
             $this->assertEquals(["type" => "user", "userId" => "U4af4980629..."], $members[0]);
             $this->assertEquals(["type" => "user", "userId" => "U91eeaf62d9..."], $members[1]);
@@ -814,6 +849,7 @@ JSON;
             /** @var MemberLeaveEvent $event */
             $this->assertTrue($event->getReplyToken() === null);
             $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
             $members = $event->getMembers();
             $this->assertEquals(["type" => "user", "userId" => "U4af4980629..."], $members[0]);
             $this->assertEquals(["type" => "user", "userId" => "U91eeaf62d9..."], $members[1]);
