@@ -376,7 +376,7 @@ class EventRequestParserTest extends TestCase
   {
    "replyToken": "replytoken",
    "type": "accountLink",
-   "mode":"active",
+   "mode":"standby",
    "timestamp": 1501234567890,
    "source": {
     "type": "user",
@@ -515,7 +515,7 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'QoCJw8X6xEnfclWbLJ4/qlJ4kvDYCYXgpDv9y60NLOs=',
+            'qsC+32XO0KUio+ScsxnvUk4t/sYfCyseYaNwi2AA7cw=',
             false
         );
 
@@ -808,7 +808,7 @@ JSON;
             /** @var AccountLinkEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals(1501234567890, $event->getTimestamp());
-            $this->assertEquals('active', $event->getMode());
+            $this->assertEquals('standby', $event->getMode());
             $this->assertEquals("ok", $event->getResult());
             $this->assertEquals(true, $event->isSuccess());
             $this->assertEquals(false, $event->isFailed());
