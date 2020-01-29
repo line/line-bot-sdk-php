@@ -737,7 +737,7 @@ class LINEBot
      * @param MessageBuilder $messageBuilder
      * @param RecipientBuilder|null $recipientBuilder
      * @param DemographicFilterBuilder|null $demographicFilterBuilder
-     * @param null $limit
+     * @param int|null $limit
      * @return Response
      */
     public function sendNarrowcast(

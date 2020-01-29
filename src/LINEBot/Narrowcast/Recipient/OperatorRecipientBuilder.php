@@ -30,7 +30,7 @@ class OperatorRecipientBuilder extends RecipientBuilder
     private $operator;
 
     /** @var RecipientBuilder[] $children */
-    private $children;
+    private $children = [];
 
     /**
      * Set filters with 'and' operation
@@ -41,7 +41,7 @@ class OperatorRecipientBuilder extends RecipientBuilder
     public function setAnd($recipientBuilders)
     {
         $this->operator = 'and';
-        $this->children = $recipientBuilders;
+        $this->children[$this->operator] = $recipientBuilders;
         return $this;
     }
 
@@ -54,20 +54,20 @@ class OperatorRecipientBuilder extends RecipientBuilder
     public function setOr($recipientBuilders)
     {
         $this->operator = 'or';
-        $this->children = $recipientBuilders;
+        $this->children[$this->operator] = $recipientBuilders;
         return $this;
     }
 
     /**
      * Set filters with 'not' operation
      *
-     * @param RecipientBuilder[] $recipientBuilders
+     * @param RecipientBuilder $recipientBuilder
      * @return $this
      */
-    public function setNot($recipientBuilders)
+    public function setNot(RecipientBuilder $recipientBuilder)
     {
         $this->operator = 'not';
-        $this->children = $recipientBuilders;
+        $this->children[$this->operator] = $recipientBuilder;
         return $this;
     }
 
@@ -78,11 +78,17 @@ class OperatorRecipientBuilder extends RecipientBuilder
      */
     public function build()
     {
+        $children = $this->children[$this->operator];
+        if (is_array($children)) {
+            $children = array_map(function ($child) {
+                return $child->build();
+            }, $children);
+        } else {
+            $children = $children->build();
+        }
         return [
             'type' => self::TYPE,
-            $this->operator => array_map(function ($child) {
-                return $child->build();
-            }, $this->children)
+            $this->operator => $children,
         ];
     }
 }

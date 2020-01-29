@@ -25,6 +25,7 @@ use LINE\LINEBot\Narrowcast\Recipient\AudienceRecipientBuilder;
 use LINE\LINEBot\Narrowcast\DemographicFilter\OperatorDemographicFilterBuilder;
 use LINE\LINEBot\Narrowcast\DemographicFilter\GenderDemographicFilterBuilder;
 use LINE\LINEBot\Narrowcast\DemographicFilter\AgeDemographicFilterBuilder;
+use LINE\LINEBot\Narrowcast\DemographicFilter\AppTypeDemographicFilterBuilder;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
 use PHPUnit\Framework\TestCase;
 
@@ -42,8 +43,15 @@ class NarrowCastTest extends TestCase
             $testRunner->assertEquals('operator', $data['recipient']['type']);
             $testRunner->assertEquals([
                 'type' => 'audience',
-                'audienceGroupId' => 'test audience group id'
+                'audienceGroupId' => 11234567890
             ], $data['recipient']['and'][0]);
+            $testRunner->assertEquals([
+                'type' => 'operator',
+                'not' => [
+                    'type' => 'audience',
+                    'audienceGroupId' => 21234567890
+                ]
+            ], $data['recipient']['and'][1]);
             $testRunner->assertEquals('operator', $data['filter']['demographic']['type']);
             $testRunner->assertEquals([
                 'type' => 'gender',
@@ -54,6 +62,13 @@ class NarrowCastTest extends TestCase
                 'gte' => 'age_20',
                 'lt' => 'age_25',
             ], $data['filter']['demographic']['and'][1]);
+            $testRunner->assertEquals([
+                'type' => 'operator',
+                'not' => [
+                    'type' => 'appType',
+                    'oneOf' => ['ios', 'android']
+                ]
+            ], $data['filter']['demographic']['and'][2]);
             $testRunner->assertEquals(100, $data['limit']['max']);
 
             return ['status' => 200];
@@ -64,7 +79,12 @@ class NarrowCastTest extends TestCase
             OperatorRecipientBuilder::builder()
                 ->setAnd([
                     AudienceRecipientBuilder::builder()
-                        ->setAudienceGroupId('test audience group id')
+                        ->setAudienceGroupId(11234567890),
+                    OperatorRecipientBuilder::builder()
+                        ->setNot(
+                            AudienceRecipientBuilder::builder()
+                                ->setAudienceGroupId(21234567890)
+                        )
                 ]),
             OperatorDemographicFilterBuilder::builder()
                 ->setAnd([
@@ -72,7 +92,12 @@ class NarrowCastTest extends TestCase
                         ->setOneOf(['male', 'female']),
                     AgeDemographicFilterBuilder::builder()
                         ->setGte('age_20')
-                        ->setLt('age_25')
+                        ->setLt('age_25'),
+                    OperatorDemographicFilterBuilder::builder()
+                        ->setNot(
+                            AppTypeDemographicFilterBuilder::builder()
+                                ->setOneOf(['ios', 'android'])
+                        )
                 ]),
             100
         );

@@ -30,7 +30,7 @@ class OperatorDemographicFilterBuilder extends DemographicFilterBuilder
     private $operator;
 
     /** @var DemographicFilterBuilder[] $children */
-    private $children;
+    private $children = [];
 
     /**
      * Set filters with 'and' operation
@@ -41,7 +41,7 @@ class OperatorDemographicFilterBuilder extends DemographicFilterBuilder
     public function setAnd($demographicFilterBuilders)
     {
         $this->operator = 'and';
-        $this->children = $demographicFilterBuilders;
+        $this->children[$this->operator] = $demographicFilterBuilders;
         return $this;
     }
 
@@ -54,20 +54,20 @@ class OperatorDemographicFilterBuilder extends DemographicFilterBuilder
     public function setOr($demographicFilterBuilders)
     {
         $this->operator = 'or';
-        $this->children = $demographicFilterBuilders;
+        $this->children[$this->operator] = $demographicFilterBuilders;
         return $this;
     }
 
     /**
      * Set filters with 'not' operation
      *
-     * @param DemographicFilterBuilder[] $demographicFilterBuilders
+     * @param DemographicFilterBuilder $demographicFilterBuilder
      * @return $this
      */
-    public function setNot($demographicFilterBuilders)
+    public function setNot(DemographicFilterBuilder $demographicFilterBuilder)
     {
         $this->operator = 'not';
-        $this->children = $demographicFilterBuilders;
+        $this->children[$this->operator] = $demographicFilterBuilder;
         return $this;
     }
 
@@ -78,11 +78,17 @@ class OperatorDemographicFilterBuilder extends DemographicFilterBuilder
      */
     public function build()
     {
+        $children = $this->children[$this->operator];
+        if (is_array($children)) {
+            $children = array_map(function ($child) {
+                return $child->build();
+            }, $children);
+        } else {
+            $children = $children->build();
+        }
         return [
             'type' => self::TYPE,
-            $this->operator => array_map(function ($child) {
-                return $child->build();
-            }, $this->children)
+            $this->operator => $children,
         ];
     }
 }

@@ -26,12 +26,13 @@ class AudienceRecipientBuilder extends RecipientBuilder
 {
     const TYPE = 'audience';
 
+    /** @var int $audienceGroupId */
     private $audienceGroupId;
 
     /**
      * Set audienceGroupId
      *
-     * @param $audienceGroupId
+     * @param int $audienceGroupId
      * @return $this
      */
     public function setAudienceGroupId($audienceGroupId)
