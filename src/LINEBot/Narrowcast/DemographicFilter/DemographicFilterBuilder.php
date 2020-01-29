@@ -15,12 +15,12 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Narrowcast;
+namespace LINE\LINEBot\Narrowcast\DemographicFilter;
 
 /**
  * A builder class for demographic filter
  *
- * @package LINE\LINEBot\Narrowcast
+ * @package LINE\LINEBot\Narrowcast\DemographicFilter
  */
 abstract class DemographicFilterBuilder
 {
@@ -30,4 +30,15 @@ abstract class DemographicFilterBuilder
      * @return array
      */
     abstract public function build();
+
+    /**
+     * Create builder
+     *
+     * @return DemographicFilterBuilder
+     */
+    public static function builder()
+    {
+        $class = \get_called_class();
+        return new $class();
+    }
 }

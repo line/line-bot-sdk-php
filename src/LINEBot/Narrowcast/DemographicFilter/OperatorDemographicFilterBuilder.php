@@ -15,12 +15,12 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Narrowcast;
+namespace LINE\LINEBot\Narrowcast\DemographicFilter;
 
 /**
  * A builder class for app type demographic filter
  *
- * @package LINE\LINEBot\Narrowcast
+ * @package LINE\LINEBot\Narrowcast\DemographicFilter
  */
 class OperatorDemographicFilterBuilder extends DemographicFilterBuilder
 {
@@ -36,33 +36,39 @@ class OperatorDemographicFilterBuilder extends DemographicFilterBuilder
      * Set filters with 'and' operation
      *
      * @param DemographicFilterBuilder[] $demographicFilterBuilders
+     * @return $this
      */
-    protected function setAnd($demographicFilterBuilders)
+    public function setAnd($demographicFilterBuilders)
     {
         $this->operator = 'and';
         $this->children = $demographicFilterBuilders;
+        return $this;
     }
 
     /**
      * Set filters with 'or' operation
      *
      * @param DemographicFilterBuilder[] $demographicFilterBuilders
+     * @return $this
      */
-    protected function setOr($demographicFilterBuilders)
+    public function setOr($demographicFilterBuilders)
     {
         $this->operator = 'or';
         $this->children = $demographicFilterBuilders;
+        return $this;
     }
 
     /**
      * Set filters with 'not' operation
      *
      * @param DemographicFilterBuilder[] $demographicFilterBuilders
+     * @return $this
      */
-    protected function setNot($demographicFilterBuilders)
+    public function setNot($demographicFilterBuilders)
     {
         $this->operator = 'not';
         $this->children = $demographicFilterBuilders;
+        return $this;
     }
 
     /**
@@ -74,7 +80,9 @@ class OperatorDemographicFilterBuilder extends DemographicFilterBuilder
     {
         return [
             'type' => self::TYPE,
-            $this->operator => $this->children
+            $this->operator => array_map(function ($child) {
+                return $child->build();
+            }, $this->children)
         ];
     }
 }

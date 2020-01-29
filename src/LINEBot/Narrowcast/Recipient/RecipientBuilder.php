@@ -15,14 +15,30 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Narrowcast;
+namespace LINE\LINEBot\Narrowcast\Recipient;
 
 /**
  * A builder class for recipient
  *
- * @package LINE\LINEBot\Narrowcast
+ * @package LINE\LINEBot\Narrowcast\Recipient
  */
 abstract class RecipientBuilder
 {
+    /**
+     * Builds recipient
+     *
+     * @return array
+     */
     abstract public function build();
+
+    /**
+     * Create builder
+     *
+     * @return RecipientBuilder
+     */
+    public static function builder()
+    {
+        $class = \get_called_class();
+        return new $class();
+    }
 }

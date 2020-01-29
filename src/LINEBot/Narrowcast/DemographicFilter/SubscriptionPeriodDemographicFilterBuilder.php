@@ -15,54 +15,22 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Narrowcast;
+namespace LINE\LINEBot\Narrowcast\DemographicFilter;
 
 /**
  * A builder class for subscription period demographic filter
  *
- * @package LINE\LINEBot\Narrowcast
+ * @package LINE\LINEBot\Narrowcast\DemographicFilter
  */
-class SubscriptionPeriodDemographicFilterBuilder extends DemographicFilterBuilder
+class SubscriptionPeriodDemographicFilterBuilder extends RangeDemographicFilterBuilder
 {
     const TYPE = 'subscriptionPeriod';
 
-    /** @var string $gte */
-    private $gte;
-
-    /** @var string $lt */
-    private $lt;
-
     /**
-     * Set gte
-     *
-     * @param string $gte
+     * @return string
      */
-    protected function setGte($gte)
+    protected function getType()
     {
-        $this->gte = $gte;
-    }
-
-    /**
-     * Set lt
-     *
-     * @param string $lt
-     */
-    protected function setLt($lt)
-    {
-        $this->lt = $lt;
-    }
-
-    /**
-     * Builds demographic filter
-     *
-     * @return array
-     */
-    public function build()
-    {
-        return [
-            'type' => self::TYPE,
-            'gte' => $this->gte,
-            'lt' => $this->lt,
-        ];
+        return self::TYPE;
     }
 }

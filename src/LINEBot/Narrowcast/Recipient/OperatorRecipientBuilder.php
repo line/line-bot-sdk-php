@@ -15,12 +15,12 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Narrowcast;
+namespace LINE\LINEBot\Narrowcast\Recipient;
 
 /**
  * A builder class for operator recipient
  *
- * @package LINE\LINEBot\Narrowcast
+ * @package LINE\LINEBot\Narrowcast\Recipient
  */
 class OperatorRecipientBuilder extends RecipientBuilder
 {
@@ -36,37 +36,43 @@ class OperatorRecipientBuilder extends RecipientBuilder
      * Set filters with 'and' operation
      *
      * @param RecipientBuilder[] $recipientBuilders
+     * @return $this
      */
-    protected function setAnd($recipientBuilders)
+    public function setAnd($recipientBuilders)
     {
         $this->operator = 'and';
         $this->children = $recipientBuilders;
+        return $this;
     }
 
     /**
      * Set filters with 'or' operation
      *
      * @param RecipientBuilder[] $recipientBuilders
+     * @return $this
      */
-    protected function setOr($recipientBuilders)
+    public function setOr($recipientBuilders)
     {
         $this->operator = 'or';
         $this->children = $recipientBuilders;
+        return $this;
     }
 
     /**
      * Set filters with 'not' operation
      *
      * @param RecipientBuilder[] $recipientBuilders
+     * @return $this
      */
-    protected function setNot($recipientBuilders)
+    public function setNot($recipientBuilders)
     {
         $this->operator = 'not';
         $this->children = $recipientBuilders;
+        return $this;
     }
 
     /**
-     * Builds demographic filter
+     * Builds recipient
      *
      * @return array
      */
@@ -74,7 +80,9 @@ class OperatorRecipientBuilder extends RecipientBuilder
     {
         return [
             'type' => self::TYPE,
-            $this->operator => $this->children
+            $this->operator => array_map(function ($child) {
+                return $child->build();
+            }, $this->children)
         ];
     }
 }

@@ -22,8 +22,8 @@ use LINE\LINEBot\Event\Parser\EventRequestParser;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
-use LINE\LINEBot\Narrowcast\DemographicFilterBuilder;
-use LINE\LINEBot\Narrowcast\RecipientBuilder;
+use LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder;
+use LINE\LINEBot\Narrowcast\Recipient\RecipientBuilder;
 use LINE\LINEBot\Response;
 use LINE\LINEBot\SignatureValidator;
 use LINE\LINEBot\RichMenuBuilder;
@@ -734,22 +734,20 @@ class LINEBot
     /**
      * Send Narrowcast message.
      *
-     * @param MessageBuilder[] $messageBuilders
+     * @param MessageBuilder $messageBuilder
      * @param RecipientBuilder|null $recipientBuilder
      * @param DemographicFilterBuilder|null $demographicFilterBuilder
      * @param null $limit
      * @return Response
      */
     public function sendNarrowcast(
-        $messageBuilders,
+        MessageBuilder $messageBuilder,
         RecipientBuilder $recipientBuilder = null,
         DemographicFilterBuilder $demographicFilterBuilder = null,
         $limit = null
     ) {
         $params = [
-            'messages' => array_map(function ($messageBuilder) {
-                return $messageBuilder->build();
-            }, $messageBuilders),
+            'messages' => $messageBuilder->buildMessage()
         ];
         if (isset($recipientBuilder)) {
             $params['recipient'] = $recipientBuilder->build();

@@ -18,21 +18,44 @@
 namespace LINE\LINEBot\Narrowcast\DemographicFilter;
 
 /**
- * A builder class for area demographic filter
+ * A builder class for demographic filter has a oneOf parameter
  *
  * @package LINE\LINEBot\Narrowcast\DemographicFilter
  */
-class AreaDemographicFilterBuilder extends OneOfDemographicFilter
+abstract class OneOfDemographicFilter extends DemographicFilterBuilder
 {
-    const TYPE = 'area';
+    /** @var string[] $oneOf */
+    private $oneOf = [];
 
     /**
      * Get type
      *
      * @return string
      */
-    protected function getType()
+    abstract protected function getType();
+
+    /**
+     * Set oneOf
+     *
+     * @param string[] $oneOf
+     * @return $this
+     */
+    public function setOneOf($oneOf)
     {
-        return self::TYPE;
+        $this->oneOf = $oneOf;
+        return $this;
+    }
+
+    /**
+     * Builds demographic filter
+     *
+     * @return array
+     */
+    public function build()
+    {
+        return [
+            'type' => $this->getType(),
+            'oneOf' => $this->oneOf,
+        ];
     }
 }

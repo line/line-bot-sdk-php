@@ -15,40 +15,24 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Narrowcast;
+namespace LINE\LINEBot\Narrowcast\DemographicFilter;
 
 /**
  * A builder class for app type demographic filter
  *
- * @package LINE\LINEBot\Narrowcast
+ * @package LINE\LINEBot\Narrowcast\DemographicFilter
  */
-class AppTypeDemographicFilterBuilder extends DemographicFilterBuilder
+class AppTypeDemographicFilterBuilder extends OneOfDemographicFilter
 {
     const TYPE = 'appType';
 
-    /** @var string[] $oneOf */
-    private $oneOf = [];
-
     /**
-     * Set oneOf
+     * Get type
      *
-     * @param string[] $oneOf
+     * @return string
      */
-    protected function setOneOf($oneOf)
+    protected function getType()
     {
-        $this->oneOf = $oneOf;
-    }
-
-    /**
-     * Builds demographic filter
-     *
-     * @return array
-     */
-    public function build()
-    {
-        return [
-            'type' => self::TYPE,
-            'oneOf' => $this->oneOf,
-        ];
+        return self::TYPE;
     }
 }

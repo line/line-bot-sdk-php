@@ -15,12 +15,12 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Narrowcast;
+namespace LINE\LINEBot\Narrowcast\Recipient;
 
 /**
  * A builder class for audience recipient
  *
- * @package LINE\LINEBot\Narrowcast
+ * @package LINE\LINEBot\Narrowcast\Recipient
  */
 class AudienceRecipientBuilder extends RecipientBuilder
 {
@@ -28,11 +28,23 @@ class AudienceRecipientBuilder extends RecipientBuilder
 
     private $audienceGroupId;
 
-    protected function setAudienceGroupId($audienceGroupId)
+    /**
+     * Set audienceGroupId
+     *
+     * @param $audienceGroupId
+     * @return $this
+     */
+    public function setAudienceGroupId($audienceGroupId)
     {
         $this->audienceGroupId = $audienceGroupId;
+        return $this;
     }
 
+    /**
+     * Builds recipient
+     *
+     * @return array
+     */
     public function build()
     {
         return [
