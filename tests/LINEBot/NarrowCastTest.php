@@ -81,4 +81,69 @@ class NarrowCastTest extends TestCase
         $this->assertTrue($res->isSucceeded());
         $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
     }
+
+    public function testGetNarrowcastProgress1()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('GET', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/message/progress/narrowcast', $url);
+
+            $testRunner->assertEquals('test request id', $data['requestId']);
+
+            return [
+                'status' => 200,
+                'phase' => 'waiting',
+            ];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->getNarrowcastProgress('test request id');
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+
+        $data = $res->getJSONDecodedBody();
+        $this->assertEquals(200, $data['status']);
+        $this->assertEquals('waiting', $data['phase']);
+        $this->assertArrayNotHasKey('successCount', $data);
+        $this->assertArrayNotHasKey('failureCount', $data);
+        $this->assertArrayNotHasKey('targetCount', $data);
+        $this->assertArrayNotHasKey('failedDescription', $data);
+        $this->assertArrayNotHasKey('errorCode', $data);
+    }
+
+    public function testGetNarrowcastProgress2()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('GET', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/message/progress/narrowcast', $url);
+
+            $testRunner->assertEquals('test request id', $data['requestId']);
+
+            return [
+                'status' => 200,
+                'phase' => 'failed',
+                'successCount' => 1,
+                'failureCount' => 2,
+                'targetCount' => 10,
+                'failedDescription' => 'unknown',
+                'errorCode' => 1
+            ];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->getNarrowcastProgress('test request id');
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+
+        $data = $res->getJSONDecodedBody();
+        $this->assertEquals(200, $data['status']);
+        $this->assertEquals('failed', $data['phase']);
+        $this->assertEquals(1, $data['successCount']);
+        $this->assertEquals(2, $data['failureCount']);
+        $this->assertEquals(10, $data['targetCount']);
+        $this->assertEquals('unknown', $data['failedDescription']);
+        $this->assertEquals(1, $data['errorCode']);
+    }
 }
