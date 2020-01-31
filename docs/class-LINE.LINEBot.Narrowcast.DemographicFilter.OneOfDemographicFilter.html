@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="resources/style.css">
 
         <title>
-            Class LINE\LINEBot\Event\MemberJoinEvent
+            Class LINE\LINEBot\Narrowcast\DemographicFilter\OneOfDemographicFilter
         </title>
     </head>
 
@@ -71,11 +71,15 @@
         </li>
             <li class="backslash">\</li>
         <li>
-            <a href="namespace-LINE.LINEBot.Event.html">Event</a>
+            <a href="namespace-LINE.LINEBot.Narrowcast.html">Narrowcast</a>
+        </li>
+            <li class="backslash">\</li>
+        <li>
+            <a href="namespace-LINE.LINEBot.Narrowcast.DemographicFilter.html">DemographicFilter</a>
         </li>
 
         <li class="backslash">\</li>
-        <li class="active">MemberJoinEvent</li>
+        <li class="active">OneOfDemographicFilter</li>
 </ol>
                         </div>
                     </div>
@@ -85,19 +89,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-    <h1>MemberJoinEvent</h1>
+    <h1>OneOfDemographicFilter</h1>
 
         <div class="panel panel-default">
             <div class="panel-body">
-                A class that represents the event of joining.
+                A builder class for demographic filter has a oneOf parameter
             </div>
         </div>
 
         <dl class="tree">
             <dd>
                     extends
-                    <a href="class-LINE.LINEBot.Event.BaseEvent.html">
-                        LINE\LINEBot\Event\BaseEvent
+                    <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html">
+                        LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder
                     </a>
 
 
@@ -105,12 +109,18 @@
         </dl>
 
 
+        <div>
+            <h2>Known subclasses</h2>
+            <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.AppTypeDemographicFilterBuilder.html">LINE\LINEBot\Narrowcast\DemographicFilter\AppTypeDemographicFilterBuilder</a>, 
+            <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.AreaDemographicFilterBuilder.html">LINE\LINEBot\Narrowcast\DemographicFilter\AreaDemographicFilterBuilder</a>, 
+            <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.GenderDemographicFilterBuilder.html">LINE\LINEBot\Narrowcast\DemographicFilter\GenderDemographicFilterBuilder</a>
+        </div>
 
     <div class="info">
-        
+        <strong>Abstract</strong><br>
 
             <br>
-            <a href="source-class-LINE.LINEBot.Event.MemberJoinEvent.html" class="open-source-code">Open source code</a>
+            <a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OneOfDemographicFilter.html" class="open-source-code">Open source code</a>
         <br>
     </div>
 
@@ -119,11 +129,11 @@
 
 
 
-<tr id="___construct">
+<tr id="_getType">
 
     <td class="attributes col-md-1">
         <code class="keyword">
-                 public 
+                abstract protected 
                 
                 
         </code>
@@ -131,11 +141,11 @@
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#___construct">#</a>
-            <code><a href="source-class-LINE.LINEBot.Event.MemberJoinEvent.html#33-36">__construct</a>( <span> array <span class="property-name">$event</span> </span> )</code>
+            <a class="anchor pull-right" href="#_getType">#</a>
+            <code><a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OneOfDemographicFilter.html#35">getType</a>( )</code>
 
             <div class="description">
-                MemberJoinEvent constructor.
+                Get type
 
 
 
@@ -143,14 +153,6 @@
 
 
 
-                        <h2>Overrides</h2>
-                        <div>
-                            <code>
-                                <a href="class-LINE.LINEBot.Event.BaseEvent.html#___construct">
-                                    LINE\LINEBot\Event\BaseEvent::__construct()
-                                </a>
-                            </code>
-                        </div>
 
             </div>
         </div>
@@ -159,7 +161,7 @@
 
 
 
-<tr id="_getMembers">
+<tr id="_setOneOf">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -171,11 +173,43 @@
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_getMembers">#</a>
-            <code><a href="source-class-LINE.LINEBot.Event.MemberJoinEvent.html#43-46">getMembers</a>( )</code>
+            <a class="anchor pull-right" href="#_setOneOf">#</a>
+            <code><a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OneOfDemographicFilter.html#43-47">setOneOf</a>( <span> string[] <span class="property-name">$oneOf</span> </span> )</code>
 
             <div class="description">
-                Returns joined members.
+                Set oneOf
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_build">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_build">#</a>
+            <code><a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OneOfDemographicFilter.html#54-60">build</a>( )</code>
+
+            <div class="description">
+                Builds demographic filter
 
 
 
@@ -193,24 +227,13 @@
         <table class="summary table table-bordered table-responsive table-striped">
             <tr>
                 <th>
-                    Methods inherited from <a href="class-LINE.LINEBot.Event.BaseEvent.html#methods">LINE\LINEBot\Event\BaseEvent</a>
+                    Methods inherited from <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html#methods">LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder</a>
                 </th>
             </tr>
             <tr>
                 <td>
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#___construct">__construct()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getType">getType()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getMode">getMode()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getTimestamp">getTimestamp()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getReplyToken">getReplyToken()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isUserEvent">isUserEvent()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isGroupEvent">isGroupEvent()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isRoomEvent">isRoomEvent()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isUnknownEvent">isUnknownEvent()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getUserId">getUserId()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getGroupId">getGroupId()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getRoomId">getRoomId()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getEventSourceId">getEventSourceId()</a></code>
+                        <code><a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html#_build">build()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html#_builder">builder()</a></code>
                 </td>
             </tr>
         </table>
@@ -219,18 +242,6 @@
 
 
 
-            <table class="summary table table-bordered table-responsive table-striped">
-                <tr>
-                    <th>
-                        Properties inherited from <a href="class-LINE.LINEBot.Event.BaseEvent.html#properties">LINE\LINEBot\Event\BaseEvent</a>
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                            <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#$event" class="property-name">$event</a></code>
-                    </td>
-                </tr>
-            </table>
 
     <div id="footer">
         Generated by <a href="https://github.com/apigen/apigen">ApiGen</a>

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="resources/style.css">
 
         <title>
-            Class LINE\LINEBot\Event\BeaconDetectionEvent
+            Class LINE\LINEBot\Narrowcast\DemographicFilter\OperatorDemographicFilterBuilder
         </title>
     </head>
 
@@ -71,11 +71,15 @@
         </li>
             <li class="backslash">\</li>
         <li>
-            <a href="namespace-LINE.LINEBot.Event.html">Event</a>
+            <a href="namespace-LINE.LINEBot.Narrowcast.html">Narrowcast</a>
+        </li>
+            <li class="backslash">\</li>
+        <li>
+            <a href="namespace-LINE.LINEBot.Narrowcast.DemographicFilter.html">DemographicFilter</a>
         </li>
 
         <li class="backslash">\</li>
-        <li class="active">BeaconDetectionEvent</li>
+        <li class="active">OperatorDemographicFilterBuilder</li>
 </ol>
                         </div>
                     </div>
@@ -85,19 +89,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-    <h1>BeaconDetectionEvent</h1>
+    <h1>OperatorDemographicFilterBuilder</h1>
 
         <div class="panel panel-default">
             <div class="panel-body">
-                A class that represents the event of beacon detection.
+                A builder class for app type demographic filter
             </div>
         </div>
 
         <dl class="tree">
             <dd>
                     extends
-                    <a href="class-LINE.LINEBot.Event.BaseEvent.html">
-                        LINE\LINEBot\Event\BaseEvent
+                    <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html">
+                        LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder
                     </a>
 
 
@@ -110,7 +114,7 @@
         
 
             <br>
-            <a href="source-class-LINE.LINEBot.Event.BeaconDetectionEvent.html" class="open-source-code">Open source code</a>
+            <a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OperatorDemographicFilterBuilder.html" class="open-source-code">Open source code</a>
         <br>
     </div>
 
@@ -119,7 +123,7 @@
 
 
 
-<tr id="___construct">
+<tr id="_setAnd">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -131,51 +135,11 @@
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#___construct">#</a>
-            <code><a href="source-class-LINE.LINEBot.Event.BeaconDetectionEvent.html#33-36">__construct</a>( <span> array <span class="property-name">$event</span> </span> )</code>
+            <a class="anchor pull-right" href="#_setAnd">#</a>
+            <code><a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OperatorDemographicFilterBuilder.html#41-46">setAnd</a>( <span> \DemographicFilterBuilder[] <span class="property-name">$demographicFilterBuilders</span> </span> )</code>
 
             <div class="description">
-                BeaconDetectionEvent constructor.
-
-
-
-
-
-
-
-                        <h2>Overrides</h2>
-                        <div>
-                            <code>
-                                <a href="class-LINE.LINEBot.Event.BaseEvent.html#___construct">
-                                    LINE\LINEBot\Event\BaseEvent::__construct()
-                                </a>
-                            </code>
-                        </div>
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getHwid">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getHwid">#</a>
-            <code><a href="source-class-LINE.LINEBot.Event.BeaconDetectionEvent.html#43-46">getHwid</a>( )</code>
-
-            <div class="description">
-                Get hardware ID of the beacon.
+                Set filters with 'and' operation
 
 
 
@@ -191,7 +155,7 @@
 
 
 
-<tr id="_getBeaconEventType">
+<tr id="_setOr">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -203,11 +167,11 @@
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_getBeaconEventType">#</a>
-            <code><a href="source-class-LINE.LINEBot.Event.BeaconDetectionEvent.html#53-56">getBeaconEventType</a>( )</code>
+            <a class="anchor pull-right" href="#_setOr">#</a>
+            <code><a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OperatorDemographicFilterBuilder.html#54-59">setOr</a>( <span> \DemographicFilterBuilder[] <span class="property-name">$demographicFilterBuilders</span> </span> )</code>
 
             <div class="description">
-                Returns type of beacon event.
+                Set filters with 'or' operation
 
 
 
@@ -223,7 +187,7 @@
 
 
 
-<tr id="_getDeviceMessage">
+<tr id="_setNot">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -235,11 +199,43 @@
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_getDeviceMessage">#</a>
-            <code><a href="source-class-LINE.LINEBot.Event.BeaconDetectionEvent.html#63-66">getDeviceMessage</a>( )</code>
+            <a class="anchor pull-right" href="#_setNot">#</a>
+            <code><a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OperatorDemographicFilterBuilder.html#67-72">setNot</a>( <span> <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html">LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder</a> <span class="property-name">$demographicFilterBuilder</span> </span> )</code>
 
             <div class="description">
-                Returns device message of the beacon.
+                Set filters with 'not' operation
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_build">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_build">#</a>
+            <code><a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OperatorDemographicFilterBuilder.html#79-93">build</a>( )</code>
+
+            <div class="description">
+                Builds demographic filter
 
 
 
@@ -257,44 +253,50 @@
         <table class="summary table table-bordered table-responsive table-striped">
             <tr>
                 <th>
-                    Methods inherited from <a href="class-LINE.LINEBot.Event.BaseEvent.html#methods">LINE\LINEBot\Event\BaseEvent</a>
+                    Methods inherited from <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html#methods">LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder</a>
                 </th>
             </tr>
             <tr>
                 <td>
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#___construct">__construct()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getType">getType()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getMode">getMode()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getTimestamp">getTimestamp()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getReplyToken">getReplyToken()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isUserEvent">isUserEvent()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isGroupEvent">isGroupEvent()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isRoomEvent">isRoomEvent()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_isUnknownEvent">isUnknownEvent()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getUserId">getUserId()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getGroupId">getGroupId()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getRoomId">getRoomId()</a></code>, 
-                        <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#_getEventSourceId">getEventSourceId()</a></code>
+                        <code><a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html#_build">build()</a></code>, 
+                        <code><a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html#_builder">builder()</a></code>
                 </td>
             </tr>
         </table>
 
 
+        <table class="summary table table-bordered table-responsive table-striped" id="constants">
+            <tr><th colspan="3">Constants Summary</th></tr>
+<tr id="TYPE">
+    <td class="attributes">
+        <code class="keyword">
+        public
+        
+        
+        string
+        </code>
+    </td>
+    <td class="name">
+        <code>
+            <a href="source-class-LINE.LINEBot.Narrowcast.DemographicFilter.OperatorDemographicFilterBuilder.html#27" class="constant-name">TYPE</a>
+        </code>
+
+        <div class="description">
+            
+
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#TYPE" class="anchor pull-right">#</a>
+            <code><span class="php-quote">'operator'</span></code>
+        </div>
+    </td>
+</tr>
+        </table>
 
 
 
-            <table class="summary table table-bordered table-responsive table-striped">
-                <tr>
-                    <th>
-                        Properties inherited from <a href="class-LINE.LINEBot.Event.BaseEvent.html#properties">LINE\LINEBot\Event\BaseEvent</a>
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                            <code><a href="class-LINE.LINEBot.Event.BaseEvent.html#$event" class="property-name">$event</a></code>
-                    </td>
-                </tr>
-            </table>
 
     <div id="footer">
         Generated by <a href="https://github.com/apigen/apigen">ApiGen</a>
