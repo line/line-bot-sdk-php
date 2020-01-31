@@ -22,6 +22,8 @@ use LINE\LINEBot\Event\Parser\EventRequestParser;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder;
+use LINE\LINEBot\Narrowcast\Recipient\RecipientBuilder;
 use LINE\LINEBot\Response;
 use LINE\LINEBot\SignatureValidator;
 use LINE\LINEBot\RichMenuBuilder;
@@ -727,5 +729,51 @@ class LINEBot
             ['access_token' => $channelAccessToken],
             ['Content-Type: application/x-www-form-urlencoded']
         );
+    }
+
+    /**
+     * Send Narrowcast message.
+     *
+     * @param MessageBuilder $messageBuilder
+     * @param RecipientBuilder|null $recipientBuilder
+     * @param DemographicFilterBuilder|null $demographicFilterBuilder
+     * @param int|null $limit
+     * @return Response
+     */
+    public function sendNarrowcast(
+        MessageBuilder $messageBuilder,
+        RecipientBuilder $recipientBuilder = null,
+        DemographicFilterBuilder $demographicFilterBuilder = null,
+        $limit = null
+    ) {
+        $params = [
+            'messages' => $messageBuilder->buildMessage()
+        ];
+        if (isset($recipientBuilder)) {
+            $params['recipient'] = $recipientBuilder->build();
+        }
+        if (isset($demographicFilterBuilder)) {
+            $params['filter'] = [
+                'demographic' => $demographicFilterBuilder->build(),
+            ];
+        }
+        if (isset($limit)) {
+            $params['limit'] =  [
+                'max' => $limit
+            ];
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/narrowcast', $params);
+    }
+
+    /**
+     * Get Narrowcast message sending progress.
+     *
+     * @param string $requestId
+     * @return Response
+     */
+    public function getNarrowcastProgress($requestId)
+    {
+        $url = $this->endpointBase . '/v2/bot/message/progress/narrowcast';
+        return $this->httpClient->get($url, ['requestId' => $requestId]);
     }
 }
