@@ -55,8 +55,12 @@ class TemplateMessageBuilder implements MessageBuilder
      * @param QuickReplyBuilder|null $quickReply
      * @param SenderBuilder|null $sender
      */
-    public function __construct($altText, TemplateBuilder $templateBuilder, QuickReplyBuilder $quickReply = null, SenderBuilder $sender = null)
-    {
+    public function __construct(
+        $altText,
+        TemplateBuilder $templateBuilder,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->altText = $altText;
         $this->templateBuilder = $templateBuilder;
         $this->quickReply = $quickReply;

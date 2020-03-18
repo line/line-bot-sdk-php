@@ -61,8 +61,14 @@ class LocationMessageBuilder implements MessageBuilder
      * @param QuickReplyBuilder|null $quickReply
      * @param SenderBuilder|null $sender
      */
-    public function __construct($title, $address, $latitude, $longitude, QuickReplyBuilder $quickReply = null, SenderBuilder $sender = null)
-    {
+    public function __construct(
+        $title,
+        $address,
+        $latitude,
+        $longitude,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->title = $title;
         $this->address = $address;
         $this->latitude = $latitude;

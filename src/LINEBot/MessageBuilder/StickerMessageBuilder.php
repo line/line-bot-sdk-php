@@ -53,8 +53,12 @@ class StickerMessageBuilder implements MessageBuilder
      * @param QuickReplyBuilder|null $quickReply
      * @param SenderBuilder|null $sender
      */
-    public function __construct($packageId, $stickerId, QuickReplyBuilder $quickReply = null, SenderBuilder $sender = null)
-    {
+    public function __construct(
+        $packageId,
+        $stickerId,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->packageId = $packageId;
         $this->stickerId = $stickerId;
         $this->quickReply = $quickReply;

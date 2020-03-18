@@ -53,8 +53,12 @@ class VideoMessageBuilder implements MessageBuilder
      * @param QuickReplyBuilder|null $quickReply
      * @param SenderBuilder|null $sender
      */
-    public function __construct($originalContentUrl, $previewImageUrl, QuickReplyBuilder $quickReply = null, SenderBuilder $sender = null)
-    {
+    public function __construct(
+        $originalContentUrl,
+        $previewImageUrl,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->originalContentUrl = $originalContentUrl;
         $this->previewImageUrl = $previewImageUrl;
         $this->quickReply = $quickReply;

@@ -20,8 +20,8 @@ namespace LINE\LINEBot\MessageBuilder;
 
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
-use LINE\LINEBot\QuickReplyBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
+use LINE\LINEBot\QuickReplyBuilder;
 use LINE\LINEBot\SenderBuilder\SenderBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
@@ -54,8 +54,12 @@ class FlexMessageBuilder implements MessageBuilder
      * @param QuickReplyBuilder|null $quickReply
      * @param SenderBuilder|null $sender
      */
-    public function __construct($altText, $containerBuilder, QuickReplyBuilder $quickReply = null, SenderBuilder $sender = null)
-    {
+    public function __construct(
+        $altText,
+        $containerBuilder,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->altText = $altText;
         $this->containerBuilder = $containerBuilder;
         $this->quickReply = $quickReply;

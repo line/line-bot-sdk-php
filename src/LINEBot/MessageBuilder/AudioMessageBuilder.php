@@ -53,8 +53,12 @@ class AudioMessageBuilder implements MessageBuilder
      * @param QuickReplyBuilder|null $quickReply
      * @param SenderBuilder|null $sender
      */
-    public function __construct($originalContentUrl, $duration, QuickReplyBuilder $quickReply = null, SenderBuilder $sender = null)
-    {
+    public function __construct(
+        $originalContentUrl,
+        $duration,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->originalContentUrl = $originalContentUrl;
         $this->duration = $duration;
         $this->quickReply = $quickReply;
