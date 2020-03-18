@@ -224,7 +224,7 @@ class SendTextTest extends TestCase
             return ['status' => 200];
         };
 
-        $sender = new SenderMessageBuilder("test1","https://example.com/test2");
+        $sender = new SenderMessageBuilder("test1", "https://example.com/test2");
 
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
         $res = $bot->pushMessage('DESTINATION', new TextMessageBuilder('test text1', 'test text2', $sender));

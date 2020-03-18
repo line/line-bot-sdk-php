@@ -45,7 +45,7 @@ class SenderTest extends TestCase
 {
     public function testTextMessageWithSender()
     {
-        $sender = new SenderMessageBuilder("test1","https://example.com/test2");
+        $sender = new SenderMessageBuilder("test1", "https://example.com/test2");
 
         $messageTemplate = new TextMessageBuilder('test text1', 'test text2', $sender);
 
@@ -74,9 +74,9 @@ class SenderTest extends TestCase
 
     public function testStickerMessageWithSender()
     {
-        $sender = new SenderMessageBuilder(null,"https://example.com/test2");
+        $sender = new SenderMessageBuilder(null, "https://example.com/test2");
 
-        $messageTemplate = new StickerMessageBuilder('1', '1', null,$sender);
+        $messageTemplate = new StickerMessageBuilder('1', '1', null, $sender);
 
         $this->assertEquals(
             [
@@ -121,7 +121,7 @@ class SenderTest extends TestCase
 
     public function testVideoMessageWithSender()
     {
-        $sender = new SenderMessageBuilder("test1","https://example.com/test2");
+        $sender = new SenderMessageBuilder("test1", "https://example.com/test2");
 
         $messageTemplate = new VideoMessageBuilder(
             'https://example.com/original.mp4',
@@ -148,7 +148,7 @@ class SenderTest extends TestCase
 
     public function testAudioMessageWithSender()
     {
-        $sender = new SenderMessageBuilder("test1","https://example.com/test2");
+        $sender = new SenderMessageBuilder("test1", "https://example.com/test2");
 
         $messageTemplate = new AudioMessageBuilder('https://example.com/original.m4a', '60000', null, $sender);
 
@@ -170,7 +170,7 @@ class SenderTest extends TestCase
 
     public function testLocationMessageWithSender()
     {
-        $sender = new SenderMessageBuilder("test1","https://example.com/test2");
+        $sender = new SenderMessageBuilder("test1", "https://example.com/test2");
 
         $messageTemplate = new LocationMessageBuilder(
             'my location',
@@ -201,7 +201,7 @@ class SenderTest extends TestCase
 
     public function testImagemapMessageWithSender()
     {
-        $sender = new SenderMessageBuilder("test1","https://example.com/test2");
+        $sender = new SenderMessageBuilder("test1", "https://example.com/test2");
 
         $messageTemplate = new ImagemapMessageBuilder(
             'https://example.com/bot/images/rm001',
@@ -264,7 +264,7 @@ class SenderTest extends TestCase
             new QuickReplyButtonBuilder(new CameraTemplateActionBuilder('Camera')),
             new QuickReplyButtonBuilder(new CameraRollTemplateActionBuilder('Camera roll')),
         ]);
-        $sender = new SenderMessageBuilder("test1","https://example.com/test2");
+        $sender = new SenderMessageBuilder("test1", "https://example.com/test2");
 
         $messageTemplate = new TemplateMessageBuilder(
             'This is a buttons template',
