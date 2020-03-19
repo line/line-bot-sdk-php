@@ -26,9 +26,9 @@ use LINE\LINEBot\SenderBuilder\SenderBuilder;
  */
 class SenderMessageBuilder implements SenderBuilder
 {
-    /** @var string */
+    /** @var string|null */
     private $name;
-    /** @var string */
+    /** @var string|null */
     private $iconUrl;
     /** @var array */
     private $sender;
