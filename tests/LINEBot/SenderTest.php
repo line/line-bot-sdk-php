@@ -35,8 +35,6 @@ use LINE\LINEBot\QuickReplyBuilder\QuickReplyMessageBuilder;
 use LINE\LINEBot\SenderBuilder\SenderMessageBuilder;
 use LINE\LINEBot\TemplateActionBuilder\CameraRollTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\CameraTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\LocationTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use PHPUnit\Framework\TestCase;
