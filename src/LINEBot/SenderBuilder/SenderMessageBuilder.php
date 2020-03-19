@@ -58,10 +58,10 @@ class SenderMessageBuilder implements SenderBuilder
         $sender = [];
 
         if (!empty($this->name)) {
-            $sender["name"]=$this->name;
+            $sender['name'] = $this->name;
         }
         if (!empty($this->iconUrl)) {
-            $sender["iconUrl"]=$this->iconUrl;
+            $sender['iconUrl'] = $this->iconUrl;
         }
 
         $this->sender = $sender;
