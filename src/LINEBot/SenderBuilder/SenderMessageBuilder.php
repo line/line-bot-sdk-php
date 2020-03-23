@@ -57,7 +57,7 @@ class SenderMessageBuilder implements SenderBuilder
 
         $sender = [];
 
-        if (!empty($this->name)) {
+        if (isset($this->name)) {
             $sender['name'] = $this->name;
         }
         if (!empty($this->iconUrl)) {
