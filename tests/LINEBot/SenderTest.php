@@ -78,14 +78,14 @@ class SenderTest extends TestCase
 
         $this->assertEquals(
             [
-            [
-                "type" => "sticker",
-                "packageId" => "1",
-                "stickerId" => "1",
-                'sender' => [
-                    'iconUrl' => 'https://example.com/test2',
+                [
+                    "type" => "sticker",
+                    "packageId" => "1",
+                    "stickerId" => "1",
+                    'sender' => [
+                        'iconUrl' => 'https://example.com/test2',
+                    ],
                 ],
-            ],
             ],
             $messageTemplate->buildMessage()
         );
@@ -104,14 +104,14 @@ class SenderTest extends TestCase
 
         $this->assertEquals(
             [
-            [
-                "type" => "image",
-                "originalContentUrl" => "https://example.com/original.jpg",
-                "previewImageUrl" => "https://example.com/preview.jpg",
-                'sender' => [
-                    'name' => "test1"
+                [
+                    "type" => "image",
+                    "originalContentUrl" => "https://example.com/original.jpg",
+                    "previewImageUrl" => "https://example.com/preview.jpg",
+                    'sender' => [
+                        'name' => "test1"
+                    ],
                 ],
-            ],
             ],
             $messageTemplate->buildMessage()
         );
@@ -130,15 +130,15 @@ class SenderTest extends TestCase
 
         $this->assertEquals(
             [
-            [
-                "type" => "video",
-                "originalContentUrl" => "https://example.com/original.mp4",
-                "previewImageUrl" => "https://example.com/preview.jpg",
-                'sender' => [
-                    'name' => 'test1',
-                    'iconUrl' => 'https://example.com/test2',
+                [
+                    "type" => "video",
+                    "originalContentUrl" => "https://example.com/original.mp4",
+                    "previewImageUrl" => "https://example.com/preview.jpg",
+                    'sender' => [
+                        'name' => 'test1',
+                        'iconUrl' => 'https://example.com/test2',
+                    ],
                 ],
-            ],
             ],
             $messageTemplate->buildMessage()
         );
@@ -152,15 +152,15 @@ class SenderTest extends TestCase
 
         $this->assertEquals(
             [
-            [
-                "type" => "audio",
-                "originalContentUrl" => "https://example.com/original.m4a",
-                "duration" => 60000,
-                'sender' => [
-                    'name' => 'test1',
-                    'iconUrl' => 'https://example.com/test2',
+                [
+                    "type" => "audio",
+                    "originalContentUrl" => "https://example.com/original.m4a",
+                    "duration" => 60000,
+                    'sender' => [
+                        'name' => 'test1',
+                        'iconUrl' => 'https://example.com/test2',
+                    ],
                 ],
-            ],
             ],
             $messageTemplate->buildMessage()
         );
@@ -181,17 +181,17 @@ class SenderTest extends TestCase
 
         $this->assertEquals(
             [
-            [
-                "type" => "location",
-                "title" => "my location",
-                "address" => "〒150-0002 東京都渋谷区渋谷２丁目２１−１",
-                "latitude" => 35.65910807942215,
-                "longitude" => 139.70372892916203,
-                'sender' => [
-                    'name' => 'test1',
-                    'iconUrl' => 'https://example.com/test2',
+                [
+                    "type" => "location",
+                    "title" => "my location",
+                    "address" => "〒150-0002 東京都渋谷区渋谷２丁目２１−１",
+                    "latitude" => 35.65910807942215,
+                    "longitude" => 139.70372892916203,
+                    'sender' => [
+                        'name' => 'test1',
+                        'iconUrl' => 'https://example.com/test2',
+                    ],
                 ],
-            ],
             ],
             $messageTemplate->buildMessage()
         );
