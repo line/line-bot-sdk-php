@@ -67,11 +67,9 @@ class TextMessageBuilder implements MessageBuilder
                 if ($extra instanceof QuickReplyBuilder) {
                     $this->quickReply = $extra;
                     unset($extras[$key]);
-                    break;
                 } elseif ($extra instanceof SenderBuilder) {
                     $this->sender = $extra;
                     unset($extras[$key]);
-                    break;
                 }
             }
             $extras = array_values($extras);
