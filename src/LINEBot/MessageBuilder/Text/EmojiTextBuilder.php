@@ -42,10 +42,11 @@ class EmojiTextBuilder
      * @param string $text Message text.
      * @param array $emojis One or more LINE emoji. Max: 20 LINE emoji.
      */
-    public function __construct($text, ...$emojis)
+    public function __construct($text, $emojis)
     {
         $this->text = $text;
-        $this->emojis = $emojis;
+        $args = func_get_args();
+        $this->emojis = array_slice($args, 1);
     }
 
     /**
