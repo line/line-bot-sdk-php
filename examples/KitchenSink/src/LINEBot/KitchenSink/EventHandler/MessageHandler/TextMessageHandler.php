@@ -246,7 +246,8 @@ class TextMessageHandler implements EventHandler
                         new EmojiBuilder(0, '5ac1bfd5040ab15980c9b435', '001'),
                         new EmojiBuilder(16, '5ac1bfd5040ab15980c9b435', '001')
                     ),
-                    $quickReply);
+                    $quickReply
+                );
                 $this->bot->replyMessage($replyToken, $messageTemplate);
                 break;
             default:

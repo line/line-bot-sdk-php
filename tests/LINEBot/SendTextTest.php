@@ -174,8 +174,8 @@ class SendTextTest extends TestCase
                 new EmojiBuilder(0, '5ac1bfd5040ab15980c9b435', '001'),
                 new EmojiBuilder(6, '5ac1bfd5040ab15980c9b435', '001')
             ),
-            'test text3')
-        );
+            'test text3'
+        ));
 
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());
@@ -290,14 +290,14 @@ class SendTextTest extends TestCase
 
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
         $res = $bot->pushMessage('DESTINATION', new TextMessageBuilder(
-            'test text1', 
+            'test text1',
             new EmojiTextBuilder(
                 '$ test$ text2',
                 new EmojiBuilder(0, '5ac1bfd5040ab15980c9b435', '001'),
                 new EmojiBuilder(6, '5ac1bfd5040ab15980c9b435', '001')
             ),
-            $quickReply)
-        );
+            $quickReply
+        ));
 
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());
