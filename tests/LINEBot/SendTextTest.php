@@ -233,4 +233,52 @@ class SendTextTest extends TestCase
         $this->assertTrue($res->isSucceeded());
         $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
     }
+
+    public function testTextMessageWithSenderAndQuickReply()
+    {
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('POST', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/message/push', $url);
+
+            $testRunner->assertEquals('DESTINATION', $data['to']);
+            $testRunner->assertEquals(2, count($data['messages']));
+            $testRunner->assertEquals(MessageType::TEXT, $data['messages'][0]['type']);
+            $testRunner->assertEquals('test text1', $data['messages'][0]['text']);
+            $testRunner->assertEquals(MessageType::TEXT, $data['messages'][1]['type']);
+            $testRunner->assertEquals('test text2', $data['messages'][1]['text']);
+            $testRunner->assertEquals([
+                'name' => 'test1',
+                'iconUrl' => 'https://example.com/test2',
+            ], $data['messages'][0]['sender']);
+            $testRunner->assertEquals([
+                'name' => 'test1',
+                'iconUrl' => 'https://example.com/test2',
+            ], $data['messages'][1]['sender']);
+            $testRunner->assertEquals([
+                'items' => [
+                    [
+                        'type' => 'action',
+                        'imageUrl' => 'https://foo.bar',
+                        'action' => ['type' => 'message', 'label' => 'LabelText', 'text' => 'Text66'],
+                    ],
+                ],
+            ], $data['messages'][1]['quickReply']);
+
+            return ['status' => 200];
+        };
+
+        $quickReply = new QuickReplyMessageBuilder([
+            new QuickReplyButtonBuilder(new MessageTemplateActionBuilder('LabelText', 'Text66'), 'https://foo.bar'),
+        ]);
+
+        $sender = new SenderMessageBuilder("test1", "https://example.com/test2");
+
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->pushMessage('DESTINATION', new TextMessageBuilder('test text1', 'test text2', $sender,$quickReply));
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+    }
 }
