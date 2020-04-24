@@ -275,7 +275,10 @@ class SendTextTest extends TestCase
         $sender = new SenderMessageBuilder("test1", "https://example.com/test2");
 
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->pushMessage('DESTINATION', new TextMessageBuilder('test text1', 'test text2', $sender, $quickReply));
+        $res = $bot->pushMessage(
+            'DESTINATION',
+            new TextMessageBuilder('test text1', 'test text2', $sender, $quickReply)
+        );
 
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());
