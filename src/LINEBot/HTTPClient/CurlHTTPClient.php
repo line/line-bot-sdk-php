@@ -125,7 +125,7 @@ class CurlHTTPClient implements HTTPClient
             CURLOPT_BINARYTRANSFER => true,
             CURLOPT_HEADER => true,
         ];
-        if ($method === 'POST' || $method === 'PUT') {
+        if ($method === 'POST') {
             if (is_null($reqBody)) {
                 // Rel: https://github.com/line/line-bot-sdk-php/issues/35
                 $options[CURLOPT_HTTPHEADER][] = 'Content-Length: 0';
@@ -144,6 +144,15 @@ class CurlHTTPClient implements HTTPClient
                     $options[CURLOPT_POST] = true;
                     $options[CURLOPT_POSTFIELDS] = $reqBody;
                 }
+            }
+        }
+        if ($method === 'PUT') {
+            if (!empty($reqBody)) {
+                $options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+                $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
+            } else {
+                $options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+                $options[CURLOPT_POSTFIELDS] = $reqBody;
             }
         }
         return $options;
