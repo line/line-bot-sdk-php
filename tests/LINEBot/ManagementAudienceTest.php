@@ -459,18 +459,15 @@ class ManagementAudienceTest extends TestCase
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
-            $testRunner->assertEquals('GET', $httpMethod);
+            $testRunner->assertEquals('PUT', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/audienceGroup/authorityLevel', $url);
 
-            return [
-                'authorityLevel' => 'PUBLIC',
-            ];
+            return [];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->getAuthorityLevel();
+        $res = $bot->updateAuthorityLevel('PUBLIC');
 
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());
-        $this->assertEquals('PUBLIC', $res->getJSONDecodedBody()['authorityLevel']);
     }
 }
