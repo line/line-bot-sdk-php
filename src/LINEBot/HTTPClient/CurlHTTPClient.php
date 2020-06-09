@@ -148,10 +148,10 @@ class CurlHTTPClient implements HTTPClient
         }
         if ($method === 'PUT') {
             if (!empty($reqBody)) {
-                $options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+                $options[CURLOPT_PUT] = true;
                 $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
             } else {
-                $options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+                $options[CURLOPT_PUT] = true;
                 $options[CURLOPT_POSTFIELDS] = $reqBody;
             }
         }
