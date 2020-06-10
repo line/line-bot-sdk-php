@@ -19,6 +19,7 @@
 namespace LINE;
 
 use LINE\LINEBot\Event\Parser\EventRequestParser;
+use LINE\LINEBot\Constant\HTTPHeader;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
@@ -170,15 +171,20 @@ class LINEBot
      * @param string $to Identifier of destination.
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
+     * @param string|null $retryKey Arbitrarily gPenerated UUID in hexadecimal notation. (example: 123e4567-e89b-12d3-a456-426614174000)
      * @return Response
      */
-    public function pushMessage($to, MessageBuilder $messageBuilder, $notificationDisabled = false)
+    public function pushMessage($to, MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
     {
+        $headers = [];
+        if (isset($retryKey)) {
+            $headers[HTTPHeader::LINE_RETRY_KEY] = $retryKey;
+        }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
             'to' => $to,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ]);
+        ], $headers);
     }
 
     /**
@@ -187,15 +193,20 @@ class LINEBot
      * @param array $tos Identifiers of destination.
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
+     * @param string|null $retryKey Arbitrarily gPenerated UUID in hexadecimal notation. (example: 123e4567-e89b-12d3-a456-426614174000)
      * @return Response
      */
-    public function multicast(array $tos, MessageBuilder $messageBuilder, $notificationDisabled = false)
+    public function multicast(array $tos, MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
     {
+        $headers = [];
+        if (isset($retryKey)) {
+            $headers[HTTPHeader::LINE_RETRY_KEY] = $retryKey;
+        }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
             'to' => $tos,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ]);
+        ], $headers);
     }
 
     /**
@@ -204,14 +215,19 @@ class LINEBot
      *
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
+     * @param string|null $retryKey Arbitrarily gPenerated UUID in hexadecimal notation. (example: 123e4567-e89b-12d3-a456-426614174000)
      * @return Response
      */
-    public function broadcast(MessageBuilder $messageBuilder, $notificationDisabled = false)
+    public function broadcast(MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
     {
+        $headers = [];
+        if (isset($retryKey)) {
+            $headers[HTTPHeader::LINE_RETRY_KEY] = $retryKey;
+        }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/broadcast', [
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ]);
+        ], $headers);
     }
 
     /**
@@ -738,13 +754,15 @@ class LINEBot
      * @param RecipientBuilder|null $recipientBuilder
      * @param DemographicFilterBuilder|null $demographicFilterBuilder
      * @param int|null $limit
+     * @param string|null $retryKey Arbitrarily gPenerated UUID in hexadecimal notation. (example: 123e4567-e89b-12d3-a456-426614174000)
      * @return Response
      */
     public function sendNarrowcast(
         MessageBuilder $messageBuilder,
         RecipientBuilder $recipientBuilder = null,
         DemographicFilterBuilder $demographicFilterBuilder = null,
-        $limit = null
+        $limit = null,
+        $retryKey = null
     ) {
         $params = [
             'messages' => $messageBuilder->buildMessage()
@@ -762,7 +780,11 @@ class LINEBot
                 'max' => $limit
             ];
         }
-        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/narrowcast', $params);
+        $headers = [];
+        if (isset($retryKey)) {
+            $headers[HTTPHeader::LINE_RETRY_KEY] = $retryKey;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/narrowcast', $params, $headers);
     }
 
     /**

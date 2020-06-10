@@ -33,7 +33,7 @@ class NarrowCastTest extends TestCase
 {
     public function testSendNarrowcast()
     {
-        $mock = function ($testRunner, $httpMethod, $url, $data) {
+        $mock = function ($testRunner, $httpMethod, $url, $data, $headers) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/message/narrowcast', $url);
@@ -70,6 +70,7 @@ class NarrowCastTest extends TestCase
                 ]
             ], $data['filter']['demographic']['and'][2]);
             $testRunner->assertEquals(100, $data['limit']['max']);
+            $testRunner->assertEquals('123e4567-e89b-12d3-a456-426614174000', $headers['X-Line-Retry-Key']);
 
             return ['status' => 200];
         };
@@ -99,7 +100,8 @@ class NarrowCastTest extends TestCase
                                 ->setOneOf(['ios', 'android'])
                         )
                 ]),
-            100
+            100,
+            '123e4567-e89b-12d3-a456-426614174000'
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());
