@@ -85,6 +85,20 @@ class CurlHTTPClient implements HTTPClient
     }
 
     /**
+     * Sends PUT request to LINE Messaging API.
+     *
+     * @param string $url Request URL.
+     * @param array $data Request body.
+     * @param array|null $headers Request headers.
+     * @return Response Response of API request.
+     */
+    public function put($url, array $data, array $headers = null)
+    {
+        $headers = is_null($headers) ? ['Content-Type: application/json; charset=utf-8'] : $headers;
+        return $this->sendRequest('PUT', $url, $headers, $data);
+    }
+
+    /**
      * Sends DELETE request to LINE Messaging API.
      *
      * @param string $url Request URL.
@@ -130,6 +144,13 @@ class CurlHTTPClient implements HTTPClient
                     $options[CURLOPT_POST] = true;
                     $options[CURLOPT_POSTFIELDS] = $reqBody;
                 }
+            }
+        }
+        if ($method === 'PUT') {
+            if (!empty($reqBody)) {
+                $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
+            } else {
+                $options[CURLOPT_POSTFIELDS] = $reqBody;
             }
         }
         return $options;

@@ -46,6 +46,16 @@ interface HTTPClient
      * @return Response Response of API request.
      */
     public function post($url, array $data, array $headers = null);
+
+    /**
+     * Sends PUT request to LINE Messaging API.
+     *
+     * @param string $url Request URL.
+     * @param array $data Request body.
+     * @param array|null $headers Request headers.
+     * @return Response Response of API request.
+     */
+    public function put($url, array $data, array $headers = null);
     
     /**
      * Sends DELETE request to LINE Messaging API.
