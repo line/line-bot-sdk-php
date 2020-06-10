@@ -61,7 +61,15 @@ class EventRequestParserTest extends TestCase
    "message":{
     "id":"contentid",
     "type":"text",
-    "text":"message"
+    "text":"message (love)",
+    "emojis": [
+      {
+        "index": 8,
+        "length": 6,
+        "productId": "5ac1bfd5040ab15980c9b435",
+        "emojiId": "001"
+      }
+    ]
    }
   },
   {
@@ -515,7 +523,7 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'qsC+32XO0KUio+ScsxnvUk4t/sYfCyseYaNwi2AA7cw=',
+            'V1LgwKgBQTYcW2T0fywGyX8tHBzduTK7F9STWJVhJEE=',
             false
         );
 
@@ -537,7 +545,12 @@ JSON;
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('contentid', $event->getMessageId());
             $this->assertEquals('text', $event->getMessageType());
-            $this->assertEquals('message', $event->getText());
+            $this->assertEquals('message (love)', $event->getText());
+            $emojiInfo = $event->getEmojis()[0];
+            $this->assertEquals(8, $emojiInfo->getIndex());
+            $this->assertEquals(6, $emojiInfo->getLength());
+            $this->assertEquals('5ac1bfd5040ab15980c9b435', $emojiInfo->getProductId());
+            $this->assertEquals('001', $emojiInfo->getEmojiId());
         }
 
         {
