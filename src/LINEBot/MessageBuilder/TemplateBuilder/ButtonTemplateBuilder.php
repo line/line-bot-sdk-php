@@ -113,8 +113,8 @@ class ButtonTemplateBuilder implements TemplateBuilder
             'actions' => $actions,
         ];
 
-        if (((string)($this->title)) !== "") {
-            $this->template['title'] = (string)($this->title);
+        if (isset($this->title)) {
+            $this->template['title'] = $this->title;
         }
 
         if ($this->thumbnailImageUrl) {
