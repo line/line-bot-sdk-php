@@ -776,4 +776,186 @@ class LINEBot
         $url = $this->endpointBase . '/v2/bot/message/progress/narrowcast';
         return $this->httpClient->get($url, ['requestId' => $requestId]);
     }
+
+    /**
+     * Create audience for uploading user IDs
+     *
+     * @param string $description The audience's name. Max character limit: 120
+     * @param array $audiences An array of up to 10,000 user IDs or IFAs.
+     * @param bool $isIfaAudience If this is false (default), recipients are specified by user IDs.
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function createAudienceGroupForUpdatingUserIds(
+        $description,
+        $audiences,
+        $isIfaAudience = false,
+        $uploadDescription = null
+    ) {
+        $params = [
+            'description' => $description,
+            'isIfaAudience' => $isIfaAudience,
+            'audiences' => $audiences,
+        ];
+        if (isset($uploadDescription)) {
+            $params['uploadDescription'] = $uploadDescription;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/audienceGroup/upload', $params);
+    }
+
+    /**
+     * Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @param array $audiences An array of up to 10,000 user IDs or IFAs.
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function updateAudienceGroupForUpdatingUserIds(
+        $audienceGroupId,
+        $audiences,
+        $uploadDescription = null
+    ) {
+        $params = [
+            'audienceGroupId' => $audienceGroupId,
+            'audiences' => $audiences,
+        ];
+        if (isset($uploadDescription)) {
+            $params['uploadDescription'] = $uploadDescription;
+        }
+        return $this->httpClient->put($this->endpointBase . '/v2/bot/audienceGroup/upload', $params);
+    }
+
+    /**
+     * Create audience for click-based retargeting
+     *
+     * @param string $description The audience's name. Max character limit: 120
+     * @param string $requestId The request ID of a broadcast or narrowcast message sent in the past 60 days.
+     * @param string|null $clickUrl The URL clicked by the user. Max character limit: 2,000
+     * @return Response
+     */
+    public function createAudienceGroupForClick($description, $requestId, $clickUrl = null)
+    {
+        $params = [
+            'description' => $description,
+            'requestId' => $requestId,
+        ];
+        if (isset($clickUrl)) {
+            $params['clickUrl'] = $clickUrl;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/audienceGroup/click', $params);
+    }
+
+    /**
+     * Create audience for impression-based retargeting
+     *
+     * @param string $description The audience's name. Max character limit: 120
+     * @param string $requestId The request ID of a broadcast or narrowcast message sent in the past 60 days.
+     * @return Response
+     */
+    public function createAudienceGroupForImpression($description, $requestId)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/audienceGroup/imp', [
+            'description' => $description,
+            'requestId' => $requestId,
+        ]);
+    }
+
+    /**
+     * Rename an audience
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @param string $description The audience's name. Max character limit: 120
+     * @return Response
+     */
+    public function renameAudience($audienceGroupId, $description)
+    {
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription', urlencode($audienceGroupId));
+        return $this->httpClient->put($url, ['description' => $description]);
+    }
+
+    /**
+     * Delete audience
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @return Response
+     */
+    public function deleteAudience($audienceGroupId)
+    {
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        return $this->httpClient->delete($url);
+    }
+
+    /**
+     * Get audience
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @return Response
+     */
+    public function getAudience($audienceGroupId)
+    {
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Get data for multiple audiences
+     *
+     * @param int $page The page to return when getting (paginated) results. Must be 1 or higher.
+     * @param int $size The number of audiences per page. Max: 40
+     * @param string|null $description You can search for partial matches.
+     * @param string|null $status One of: IN_PROGRESS, READY, FAILED, EXPIRED
+     * @param boolean|null $includesExternalPublicGroups
+     * @param string|null $createRoute How the audience was created. One of: OA_MANAGER, MESSAGING_API
+     * @return Response
+     */
+    public function getAudiences(
+        $page,
+        $size = 20,
+        $description = null,
+        $status = null,
+        $includesExternalPublicGroups = null,
+        $createRoute = null
+    ) {
+        $params = [
+            'page' => $page,
+            'size' => $size,
+        ];
+        if (isset($description)) {
+            $params['description'] = $description;
+        }
+        if (isset($status)) {
+            $params['status'] = $status;
+        }
+        if (isset($includesExternalPublicGroups)) {
+            $params['includesExternalPublicGroups'] = $includesExternalPublicGroups;
+        }
+        if (isset($createRoute)) {
+            $params['createRoute'] = $createRoute;
+        }
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/audienceGroup/list', $params);
+    }
+
+    /**
+     * Get the authority level of the audience
+     *
+     * @return Response
+     */
+    public function getAuthorityLevel()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/audienceGroup/authorityLevel');
+    }
+
+    /**
+     * Change the authority level of the audience
+     *
+     * @param string $authorityLevel One of: PUBLIC, PRIVATE
+     * @return Response
+     */
+    public function updateAuthorityLevel($authorityLevel)
+    {
+        return $this->httpClient->put($this->endpointBase . '/v2/bot/audienceGroup/authorityLevel', [
+            'authorityLevel' => $authorityLevel,
+        ]);
+    }
 }
