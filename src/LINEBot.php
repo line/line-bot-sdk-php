@@ -171,7 +171,7 @@ class LINEBot
      * @param string $to Identifier of destination.
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
-     * @param string|null $retryKey Arbitrarily gPenerated UUID in hexadecimal notation. (example: 123e4567-e89b-12d3-a456-426614174000)
+     * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
     public function pushMessage($to, MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
@@ -193,11 +193,15 @@ class LINEBot
      * @param array $tos Identifiers of destination.
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
-     * @param string|null $retryKey Arbitrarily gPenerated UUID in hexadecimal notation. (example: 123e4567-e89b-12d3-a456-426614174000)
+     * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
-    public function multicast(array $tos, MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
-    {
+    public function multicast(
+        array $tos,
+        MessageBuilder $messageBuilder,
+        $notificationDisabled = false,
+        $retryKey = null
+    ) {
         $headers = [];
         if (isset($retryKey)) {
             $headers[HTTPHeader::LINE_RETRY_KEY] = $retryKey;
@@ -215,7 +219,7 @@ class LINEBot
      *
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
-     * @param string|null $retryKey Arbitrarily gPenerated UUID in hexadecimal notation. (example: 123e4567-e89b-12d3-a456-426614174000)
+     * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
     public function broadcast(MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
@@ -754,7 +758,7 @@ class LINEBot
      * @param RecipientBuilder|null $recipientBuilder
      * @param DemographicFilterBuilder|null $demographicFilterBuilder
      * @param int|null $limit
-     * @param string|null $retryKey Arbitrarily gPenerated UUID in hexadecimal notation. (example: 123e4567-e89b-12d3-a456-426614174000)
+     * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
     public function sendNarrowcast(
