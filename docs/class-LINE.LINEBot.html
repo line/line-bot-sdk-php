@@ -1667,6 +1667,326 @@ Revokes a channel access token.
         </div>
     </td>
 </tr>
+
+
+
+<tr id="_createAudienceGroupForUpdatingUserIds">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_createAudienceGroupForUpdatingUserIds">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#789-804">createAudienceGroupForUpdatingUserIds</a>( <span> string <span class="property-name">$description</span> </span>, <span> array <span class="property-name">$audiences</span> </span>, <span> bool <span class="property-name">$isIfaAudience</span> = <span class="php-keyword1">false</span></span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
+
+            <div class="description">
+                Create audience for uploading user IDs
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_updateAudienceGroupForUpdatingUserIds">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_updateAudienceGroupForUpdatingUserIds">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#814-827">updateAudienceGroupForUpdatingUserIds</a>( <span> int <span class="property-name">$audienceGroupId</span> </span>, <span> array <span class="property-name">$audiences</span> </span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
+
+            <div class="description">
+                Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_createAudienceGroupForClick">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_createAudienceGroupForClick">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#837-847">createAudienceGroupForClick</a>( <span> string <span class="property-name">$description</span> </span>, <span> string <span class="property-name">$requestId</span> </span>, <span> string|null <span class="property-name">$clickUrl</span> = <span class="php-keyword1">NULL</span></span> )</code>
+
+            <div class="description">
+                Create audience for click-based retargeting
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_createAudienceGroupForImpression">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_createAudienceGroupForImpression">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#856-862">createAudienceGroupForImpression</a>( <span> string <span class="property-name">$description</span> </span>, <span> string <span class="property-name">$requestId</span> </span> )</code>
+
+            <div class="description">
+                Create audience for impression-based retargeting
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_renameAudience">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_renameAudience">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#871-875">renameAudience</a>( <span> int <span class="property-name">$audienceGroupId</span> </span>, <span> string <span class="property-name">$description</span> </span> )</code>
+
+            <div class="description">
+                Rename an audience
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_deleteAudience">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_deleteAudience">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#883-887">deleteAudience</a>( <span> int <span class="property-name">$audienceGroupId</span> </span> )</code>
+
+            <div class="description">
+                Delete audience
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getAudience">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getAudience">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#895-899">getAudience</a>( <span> int <span class="property-name">$audienceGroupId</span> </span> )</code>
+
+            <div class="description">
+                Get audience
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getAudiences">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getAudiences">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#912-937">getAudiences</a>( <span> int <span class="property-name">$page</span> </span>, <span> int <span class="property-name">$size</span> = <span class="php-num">20</span></span>, <span> string|null <span class="property-name">$description</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$status</span> = <span class="php-keyword1">NULL</span></span>, <span> bool|null <span class="property-name">$includesExternalPublicGroups</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$createRoute</span> = <span class="php-keyword1">NULL</span></span> )</code>
+
+            <div class="description">
+                Get data for multiple audiences
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getAuthorityLevel">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getAuthorityLevel">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#944-947">getAuthorityLevel</a>( )</code>
+
+            <div class="description">
+                Get the authority level of the audience
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_updateAuthorityLevel">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_updateAuthorityLevel">#</a>
+            <code><a href="source-class-LINE.LINEBot.html#955-960">updateAuthorityLevel</a>( <span> string <span class="property-name">$authorityLevel</span> </span> )</code>
+
+            <div class="description">
+                Change the authority level of the audience
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
         </table>
 
 
