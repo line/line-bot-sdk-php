@@ -30,7 +30,7 @@ class TextMessage extends MessageEvent
     /**
      * Emoji Info List
      *
-     * @var array
+     * @var array|null
      */
     private $emojis;
 
