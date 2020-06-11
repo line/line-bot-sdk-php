@@ -507,6 +507,21 @@ class EventRequestParserTest extends TestCase
      ]
     }
    }
+  },  
+  {
+   "type":"message",
+   "mode":"active",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"user",
+    "userId":"userid"
+   },
+   "replyToken":"replytoken",
+   "message":{
+    "id":"contentid",
+    "type":"text",
+    "text":"message without emoji"
+   }
   }
  ]
 }
@@ -523,13 +538,13 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'V1LgwKgBQTYcW2T0fywGyX8tHBzduTK7F9STWJVhJEE=',
+            'D4WpU4d9YYR3p4uYIdEOjn2HjXDP+l3X5j78ndXriA4=',
             false
         );
 
         $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
-        $this->assertEquals(count($events), 29);
+        $this->assertEquals(count($events), 30);
 
         {
             // text
@@ -906,6 +921,24 @@ JSON;
             $actionResults = $scenarioResult->getActionResults();
             $this->assertEquals(ThingsResultAction::TYPE_BINARY, $actionResults[0]->getType());
             $this->assertEquals('/w==', $actionResults[0]->getData());
+        }
+
+        {
+            // text without emoji
+            $event = $events[29];
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($event->isUserEvent());
+            $this->assertEquals('userid', $event->getUserId());
+            $this->assertEquals('userid', $event->getEventSourceId());
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
+            /** @var TextMessage $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals('contentid', $event->getMessageId());
+            $this->assertEquals('text', $event->getMessageType());
+            $this->assertEquals('message without emoji', $event->getText());
+            $this->assertEquals(null, $event->getEmojis());
         }
     }
 }

@@ -30,7 +30,7 @@ class TextMessage extends MessageEvent
     /**
      * Emoji Info List
      *
-     * @var array
+     * @var array|null
      */
     private $emojis;
 
@@ -42,9 +42,11 @@ class TextMessage extends MessageEvent
     public function __construct($event)
     {
         parent::__construct($event);
-        $this->emojis = array_map(function ($emojiInfo) {
-            return new EmojiInfo($emojiInfo);
-        }, $this->message['emojis']);
+        if (isset($this->message['emojis'])) {
+            $this->emojis = array_map(function ($emojiInfo) {
+                return new EmojiInfo($emojiInfo);
+            }, $this->message['emojis']);
+        }
     }
 
     /**
