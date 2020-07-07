@@ -22,6 +22,7 @@ use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\QuickReplyBuilder;
 use LINE\LINEBot\SenderBuilder\SenderBuilder;
+use LINE\LINEBot\MessageBuilder\Text\EmojiTextBuilder;
 
 /**
  * A builder class for text message.
@@ -30,7 +31,7 @@ use LINE\LINEBot\SenderBuilder\SenderBuilder;
  */
 class TextMessageBuilder implements MessageBuilder
 {
-    /** @var string[] */
+    /** @var mixed[] */
     private $texts;
 
     /** @var array */
@@ -67,11 +68,9 @@ class TextMessageBuilder implements MessageBuilder
                 if ($extra instanceof QuickReplyBuilder) {
                     $this->quickReply = $extra;
                     unset($extras[$key]);
-                    break;
                 } elseif ($extra instanceof SenderBuilder) {
                     $this->sender = $extra;
                     unset($extras[$key]);
-                    break;
                 }
             }
             $extras = array_values($extras);
@@ -91,6 +90,10 @@ class TextMessageBuilder implements MessageBuilder
         }
 
         foreach ($this->texts as $text) {
+            if ($text instanceof EmojiTextBuilder) {
+                $this->message[] = $text->build();
+                continue;
+            }
             $this->message[] = [
                 'type' => MessageType::TEXT,
                 'text' => $text,

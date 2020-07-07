@@ -23,6 +23,8 @@ use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
 use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
 use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use LINE\LINEBot\MessageBuilder\Text\EmojiTextBuilder;
+use LINE\LINEBot\MessageBuilder\Text\EmojiBuilder;
 use LINE\LINEBot\QuickReplyBuilder\ButtonBuilder\QuickReplyButtonBuilder;
 use LINE\LINEBot\QuickReplyBuilder\QuickReplyMessageBuilder;
 use LINE\LINEBot\TemplateActionBuilder\CameraRollTemplateActionBuilder;
@@ -237,7 +239,15 @@ class TextMessageHandler implements EventHandler
                     new QuickReplyButtonBuilder($datetimePicker),
                 ]);
 
-                $messageTemplate = new TextMessageBuilder('Text with quickReply buttons', $quickReply);
+                $messageTemplate = new TextMessageBuilder(
+                    'Text with quickReply buttons',
+                    new EmojiTextBuilder(
+                        '$ click button! $',
+                        new EmojiBuilder(0, '5ac1bfd5040ab15980c9b435', '001'),
+                        new EmojiBuilder(16, '5ac1bfd5040ab15980c9b435', '001')
+                    ),
+                    $quickReply
+                );
                 $this->bot->replyMessage($replyToken, $messageTemplate);
                 break;
             default:

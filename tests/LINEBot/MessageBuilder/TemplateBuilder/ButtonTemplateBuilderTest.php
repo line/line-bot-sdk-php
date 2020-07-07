@@ -118,7 +118,20 @@ JSON
   ]
 }
 JSON
-        ]
+        ],
+        [
+            'param' => ["0", 'aaa', null, ['uri']],
+            'json' => <<<JSON
+{
+  "type":"buttons",
+  "title":"0",
+  "text":"aaa",
+  "actions":[
+    {"type":"uri","label":"EEE","uri":"FFF"}
+  ]
+}
+JSON
+        ],
     ];
 
     public function test()
