@@ -743,7 +743,7 @@ class LINEBot
      */
     public function createChannelAccessToken21($jwt)
     {
-        $url = $this->endpointBase . '/v2/oauth2/v2.1/token';
+        $url = $this->endpointBase . '/oauth2/v2.1/token';
         return $this->httpClient->post(
             $url,
             [
@@ -765,7 +765,7 @@ class LINEBot
      */
     public function revokeChannelAccessToken21($channelId, $channelSecret, $channelAccessToken)
     {
-        $url = $this->endpointBase . '/v2/oauth2/v2.1/revoke';
+        $url = $this->endpointBase . '/oauth2/v2.1/revoke';
         return $this->httpClient->post(
             $url,
             [
@@ -785,7 +785,7 @@ class LINEBot
      */
     public function getChannelAccessToken21Keys($jwt)
     {
-        $url = $this->endpointBase . '/v2/oauth2/v2.1/tokens/kid';
+        $url = $this->endpointBase . '/oauth2/v2.1/tokens/kid';
         return $this->httpClient->get(
             $url,
             [

@@ -81,7 +81,7 @@ class OauthTest extends TestCase
         $mock = function ($testRunner, $httpMethod, $url, $data, $header) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
-            $testRunner->assertEquals('https://api.line.me/v2/oauth2/v2.1/token', $url);
+            $testRunner->assertEquals('https://api.line.me/oauth2/v2.1/token', $url);
             $testRunner->assertEquals([
                 'grant_type' => 'client_credentials',
                 'client_assertion_type' => 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
@@ -115,7 +115,7 @@ class OauthTest extends TestCase
         $mock = function ($testRunner, $httpMethod, $url, $data, $header) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
-            $testRunner->assertEquals('https://api.line.me/v2/oauth2/v2.1/revoke', $url);
+            $testRunner->assertEquals('https://api.line.me/oauth2/v2.1/revoke', $url);
             $testRunner->assertEquals([
                 'client_id' => 'CHANNEL-ID',
                 'client_secret' => 'CHANNEL-SECRET',
@@ -139,7 +139,7 @@ class OauthTest extends TestCase
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
-            $testRunner->assertEquals('https://api.line.me/v2/oauth2/v2.1/tokens/kid', $url);
+            $testRunner->assertEquals('https://api.line.me/oauth2/v2.1/tokens/kid', $url);
             $testRunner->assertEquals([
                 'client_assertion_type' => 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
                 'client_assertion' => 'JWT',
