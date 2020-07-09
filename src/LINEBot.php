@@ -732,6 +732,70 @@ class LINEBot
     }
 
     /**
+     * Create channel access token v2.1
+     * 
+     * You can issue up to 30 tokens.
+     * If you reach the maximum limit, additional requests of issuing channel access tokens are blocked.
+     * 
+     * @see https://developers.line.biz/en/docs/messaging-api/generate-json-web-token/#generate_jwt
+     * @param string $jwt
+     * @return Response
+     */
+    public function createChannelAccessToken21($jwt)
+    {
+        $url = $this->endpointBase . '/v2/oauth2/v2.1/token';
+        return $this->httpClient->post(
+            $url,
+            [
+                'grant_type' => 'client_credentials',
+                'client_assertion_type' => 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+                'client_assertion' => $jwt,
+            ],
+            ['Content-Type: application/x-www-form-urlencoded']
+        );
+    }
+
+    /**
+     * Revoke channel access token v2.1
+     *
+     * @param string $channelId
+     * @param string $channelSecret
+     * @param string $channelAccessToken
+     * @return Response
+     */
+    public function revokeChannelAccessToken21($channelId, $channelSecret, $channelAccessToken)
+    {
+        $url = $this->endpointBase . '/v2/oauth2/v2.1/revoke';
+        return $this->httpClient->post(
+            $url,
+            [
+                'client_id' => $channelId,
+                'client_secret' => $channelSecret,
+                'access_token' => $channelAccessToken,
+            ],
+            ['Content-Type: application/x-www-form-urlencoded']
+        );
+    }
+
+    /**
+     * Get all valid channel access token key IDs v2.1
+     *
+     * @param string $jwt
+     * @return Response
+     */
+    public function getChannelAccessToken21Keys($jwt)
+    {
+        $url = $this->endpointBase . '/v2/oauth2/v2.1/tokens/kid';
+        return $this->httpClient->get(
+            $url,
+            [
+                'client_assertion_type' => 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+                'client_assertion' => $jwt,
+            ]
+        );
+    }
+
+    /**
      * Send Narrowcast message.
      *
      * @param MessageBuilder $messageBuilder
