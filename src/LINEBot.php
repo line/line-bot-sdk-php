@@ -733,10 +733,10 @@ class LINEBot
 
     /**
      * Create channel access token v2.1
-     * 
+     *
      * You can issue up to 30 tokens.
      * If you reach the maximum limit, additional requests of issuing channel access tokens are blocked.
-     * 
+     *
      * @see https://developers.line.biz/en/docs/messaging-api/generate-json-web-token/#generate_jwt
      * @param string $jwt
      * @return Response
