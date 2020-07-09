@@ -37,7 +37,7 @@ class MulticastTest extends TestCase
             $testRunner->assertEquals(1, count($data['messages']));
             $testRunner->assertEquals(MessageType::TEXT, $data['messages'][0]['type']);
             $testRunner->assertEquals('test text', $data['messages'][0]['text']);
-            $testRunner->assertEquals('123e4567-e89b-12d3-a456-426614174000', $headers['X-Line-Retry-Key']);
+            $testRunner->assertTrue(\in_array('X-Line-Retry-Key: 123e4567-e89b-12d3-a456-426614174000', $headers));
 
             return ['status' => 200];
         };

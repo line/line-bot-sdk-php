@@ -197,7 +197,7 @@ class SendTextTest extends TestCase
             $testRunner->assertEquals('test text2', $data['messages'][1]['text']);
             $testRunner->assertEquals(MessageType::TEXT, $data['messages'][2]['type']);
             $testRunner->assertEquals('test text3', $data['messages'][2]['text']);
-            $testRunner->assertEquals('123e4567-e89b-12d3-a456-426614174000', $headers['X-Line-Retry-Key']);
+            $testRunner->assertTrue(\in_array('X-Line-Retry-Key: 123e4567-e89b-12d3-a456-426614174000', $headers));
 
             return ['status' => 200];
         };
