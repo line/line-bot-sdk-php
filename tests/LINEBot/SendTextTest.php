@@ -184,7 +184,7 @@ class SendTextTest extends TestCase
 
     public function testPushTextMessage()
     {
-        $mock = function ($testRunner, $httpMethod, $url, $data) {
+        $mock = function ($testRunner, $httpMethod, $url, $data, $headers) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/message/push', $url);
@@ -197,12 +197,18 @@ class SendTextTest extends TestCase
             $testRunner->assertEquals('test text2', $data['messages'][1]['text']);
             $testRunner->assertEquals(MessageType::TEXT, $data['messages'][2]['type']);
             $testRunner->assertEquals('test text3', $data['messages'][2]['text']);
+            $testRunner->assertTrue(\in_array('X-Line-Retry-Key: 123e4567-e89b-12d3-a456-426614174000', $headers));
 
             return ['status' => 200];
         };
 
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->pushMessage('DESTINATION', new TextMessageBuilder('test text1', 'test text2', 'test text3'));
+        $res = $bot->pushMessage(
+            'DESTINATION',
+            new TextMessageBuilder('test text1', 'test text2', 'test text3'),
+            false,
+            '123e4567-e89b-12d3-a456-426614174000'
+        );
 
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());
