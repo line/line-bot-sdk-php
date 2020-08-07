@@ -35,6 +35,7 @@ class EventRequestParser
         'join' => 'LINE\LINEBot\Event\JoinEvent',
         'leave' => 'LINE\LINEBot\Event\LeaveEvent',
         'postback' => 'LINE\LINEBot\Event\PostbackEvent',
+        'videoPlayComplete' => 'LINE\LINEBot\Event\VideoPlayCompleteEvent',
         'beacon' => 'LINE\LINEBot\Event\BeaconDetectionEvent',
         'accountLink' => 'LINE\LINEBot\Event\AccountLinkEvent',
         'memberJoined' => 'LINE\LINEBot\Event\MemberJoinEvent',
