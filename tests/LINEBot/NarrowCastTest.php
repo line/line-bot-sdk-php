@@ -70,6 +70,7 @@ class NarrowCastTest extends TestCase
                 ]
             ], $data['filter']['demographic']['and'][2]);
             $testRunner->assertEquals(100, $data['limit']['max']);
+            $testRunner->assertFalse($data['limit']['upToRemainingQuota']);
             $testRunner->assertTrue(\in_array('X-Line-Retry-Key: 123e4567-e89b-12d3-a456-426614174000', $headers));
 
             return ['status' => 200];

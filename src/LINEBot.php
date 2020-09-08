@@ -830,7 +830,8 @@ class LINEBot
         RecipientBuilder $recipientBuilder = null,
         DemographicFilterBuilder $demographicFilterBuilder = null,
         $limit = null,
-        $retryKey = null
+        $retryKey = null,
+        $upToRemainingQuota = false
     ) {
         $params = [
             'messages' => $messageBuilder->buildMessage()
@@ -845,7 +846,8 @@ class LINEBot
         }
         if (isset($limit)) {
             $params['limit'] =  [
-                'max' => $limit
+                'max' => $limit,
+                'upToRemainingQuota' => $upToRemainingQuota,
             ];
         }
         $headers = ['Content-Type: application/json; charset=utf-8'];
