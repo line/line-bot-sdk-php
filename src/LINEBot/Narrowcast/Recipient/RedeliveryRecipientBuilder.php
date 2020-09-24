@@ -54,4 +54,3 @@ class RedeliveryRecipientBuilder extends RecipientBuilder
         ];
     }
 }
-
