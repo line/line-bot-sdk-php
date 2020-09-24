@@ -22,6 +22,7 @@ use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\LINEBot\Narrowcast\Recipient\OperatorRecipientBuilder;
 use LINE\LINEBot\Narrowcast\Recipient\AudienceRecipientBuilder;
+use LINE\LINEBot\Narrowcast\Recipient\RedeliveryRecipientBuilder;
 use LINE\LINEBot\Narrowcast\DemographicFilter\OperatorDemographicFilterBuilder;
 use LINE\LINEBot\Narrowcast\DemographicFilter\GenderDemographicFilterBuilder;
 use LINE\LINEBot\Narrowcast\DemographicFilter\AgeDemographicFilterBuilder;
@@ -85,6 +86,13 @@ class NarrowCastTest extends TestCase
                         ->setNot(
                             AudienceRecipientBuilder::builder()
                                 ->setAudienceGroupId(21234567890)
+                        ),
+                    RedeliveryRecipientBuilder::builder()
+                        ->setRequestId('test request id 1'),
+                    OperatorRecipientBuilder::builder()
+                        ->setNot(
+                            RedeliveryRecipientBuilder::builder()
+                                ->setRequestId('test request id 2')
                         )
                 ]),
             OperatorDemographicFilterBuilder::builder()
