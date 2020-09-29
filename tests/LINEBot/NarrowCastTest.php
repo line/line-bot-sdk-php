@@ -53,6 +53,17 @@ class NarrowCastTest extends TestCase
                     'audienceGroupId' => 21234567890
                 ]
             ], $data['recipient']['and'][1]);
+            $testRunner->assertEquals([
+                'type' => 'redelivery',
+                'requestId' => 'test request id 1'
+            ], $data['recipient']['and'][2]);
+            $testRunner->assertEquals([
+                'type' => 'operator',
+                'not' => [
+                    'type' => 'redelivery',
+                    'requestId' => 'test request id 2'
+                ]
+            ], $data['recipient']['and'][3]);
             $testRunner->assertEquals('operator', $data['filter']['demographic']['type']);
             $testRunner->assertEquals([
                 'type' => 'gender',
