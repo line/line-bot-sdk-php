@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 
 class ManagementAudienceTest extends TestCase
 {
-    public function testCreateAudienceGroupForUpdatingUserIds202()
+    public function testCreateAudienceGroupForUploadingUserIds202()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
@@ -40,7 +40,7 @@ class ManagementAudienceTest extends TestCase
             ];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->createAudienceGroupForUpdatingUserIds(
+        $res = $bot->createAudienceGroupForUploadingUserIds(
             'TEST DESCRIPTION',
             [
                 ['id' => 'USER ID1'],
@@ -59,7 +59,7 @@ class ManagementAudienceTest extends TestCase
         $this->assertEquals(1500351844, $data['created']);
     }
 
-    public function testCreateAudienceGroupForUpdatingUserIds400()
+    public function testCreateAudienceGroupForUploadingUserIds400()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
@@ -73,7 +73,7 @@ class ManagementAudienceTest extends TestCase
             ];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->createAudienceGroupForUpdatingUserIds(
+        $res = $bot->createAudienceGroupForUploadingUserIds(
             'TEST DESCRIPTION',
             [
                 ['id' => 'USER ID1'],
@@ -90,7 +90,63 @@ class ManagementAudienceTest extends TestCase
         $this->assertEquals('AUDIENCE_GROUP_COUNT_MAX_OVER', $data['details']);
     }
 
-    public function testUpdateAudienceGroupForUpdatingUserIds202()
+    public function createAudienceGroupForUploadingUserIdsByFile202()
+    {
+        $file_name = __DIR__ . '/test.txt';
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('POST', $httpMethod);
+            $testRunner->assertEquals('https://api-data.line.me/v2/bot/audienceGroup/upload/byFile', $url);
+
+            return [
+                'status' => 202,
+                'audienceGroupId' => 4389303728991,
+                'type' => 'UPLOAD',
+                'description' => 'TEST DESCRIPTION',
+                'created' => 1500351844,
+            ];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->createAudienceGroupForUploadingUserIdsByFile('TEST DESCRIPTION', $file_name);
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(202, $res->getJSONDecodedBody()['status']);
+
+        $data = $res->getJSONDecodedBody();
+        $this->assertEquals(4389303728991, $data['audienceGroupId']);
+        $this->assertEquals('UPLOAD', $data['type']);
+        $this->assertEquals('TEST DESCRIPTION', $data['description']);
+        $this->assertEquals(1500351844, $data['created']);
+    }
+
+    public function createAudienceGroupForUploadingUserIdsByFile400()
+    {
+        $file_name = __DIR__ . '/test.txt';
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('POST', $httpMethod);
+            $testRunner->assertEquals('https://api-data.line.me/v2/bot/audienceGroup/upload/byFile', $url);
+
+            return [
+                'status' => 400,
+                'message' => 'ERROR MESSAGE.',
+                'details' => 'AUDIENCE_GROUP_COUNT_MAX_OVER',
+            ];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->createAudienceGroupForUploadingUserIdsByFile('TEST DESCRIPTION', $file_name);
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(400, $res->getJSONDecodedBody()['status']);
+
+        $data = $res->getJSONDecodedBody();
+        $this->assertEquals('ERROR MESSAGE.', $data['message']);
+        $this->assertEquals('AUDIENCE_GROUP_COUNT_MAX_OVER', $data['details']);
+    }
+
+    public function testUpdateAudienceGroupForUploadingUserIds202()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
@@ -102,7 +158,7 @@ class ManagementAudienceTest extends TestCase
             ];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->updateAudienceGroupForUpdatingUserIds(
+        $res = $bot->updateAudienceGroupForUploadingUserIds(
             4389303728991,
             [
                 ['id' => 'USER ID2'],
@@ -115,7 +171,7 @@ class ManagementAudienceTest extends TestCase
         $this->assertEquals(202, $res->getJSONDecodedBody()['status']);
     }
 
-    public function testUpdateAudienceGroupForUpdatingUserIds400()
+    public function testUpdateAudienceGroupForUploadingUserIds400()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
@@ -129,13 +185,59 @@ class ManagementAudienceTest extends TestCase
             ];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->updateAudienceGroupForUpdatingUserIds(
+        $res = $bot->updateAudienceGroupForUploadingUserIds(
             4389303728991,
             [
                 ['id' => 'USER ID2'],
                 ['id' => 'USER ID3'],
             ]
         );
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(400, $res->getJSONDecodedBody()['status']);
+
+        $data = $res->getJSONDecodedBody();
+        $this->assertEquals('ERROR MESSAGE.', $data['message']);
+        $this->assertEquals('UPLOAD_AUDIENCE_GROUP_INVALID_AUDIENCE_ID_FORMAT', $data['details']);
+    }
+
+    public function testUpdateAudienceGroupForUploadingUserIdsByFile202()
+    {
+        $file_name = __DIR__ . '/test.txt';
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('PUT', $httpMethod);
+            $testRunner->assertEquals('https://api-data.line.me/v2/bot/audienceGroup/upload/byFile', $url);
+
+            return [
+                'status' => 202,
+            ];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->updateAudienceGroupForUploadingUserIdsByFile(4389303728991, $file_name);
+
+        $this->assertEquals(200, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+        $this->assertEquals(202, $res->getJSONDecodedBody()['status']);
+    }
+
+    public function testUpdateAudienceGroupForUploadingUserIdsByFile400()
+    {
+        $file_name = __DIR__ . '/test.txt';
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('PUT', $httpMethod);
+            $testRunner->assertEquals('https://api-data.line.me/v2/bot/audienceGroup/upload/byFile', $url);
+
+            return [
+                'status' => 400,
+                'message' => 'ERROR MESSAGE.',
+                'details' => 'UPLOAD_AUDIENCE_GROUP_INVALID_AUDIENCE_ID_FORMAT',
+            ];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->updateAudienceGroupForUploadingUserIdsByFile(4389303728991, $file_name);
 
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());
