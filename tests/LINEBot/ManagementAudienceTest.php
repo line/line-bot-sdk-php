@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 
 class ManagementAudienceTest extends TestCase
 {
-    public function testCreateAudienceGroupForUpdatingUserIds202()
+    public function testCreateAudienceGroupForUploadingUserIds202()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
@@ -40,7 +40,7 @@ class ManagementAudienceTest extends TestCase
             ];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->createAudienceGroupForUpdatingUserIds(
+        $res = $bot->createAudienceGroupForUploadingUserIds(
             'TEST DESCRIPTION',
             [
                 ['id' => 'USER ID1'],
@@ -59,7 +59,7 @@ class ManagementAudienceTest extends TestCase
         $this->assertEquals(1500351844, $data['created']);
     }
 
-    public function testCreateAudienceGroupForUpdatingUserIds400()
+    public function testCreateAudienceGroupForUploadingUserIds400()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
@@ -73,7 +73,7 @@ class ManagementAudienceTest extends TestCase
             ];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->createAudienceGroupForUpdatingUserIds(
+        $res = $bot->createAudienceGroupForUploadingUserIds(
             'TEST DESCRIPTION',
             [
                 ['id' => 'USER ID1'],
@@ -146,7 +146,7 @@ class ManagementAudienceTest extends TestCase
         $this->assertEquals('AUDIENCE_GROUP_COUNT_MAX_OVER', $data['details']);
     }
 
-    public function testUpdateAudienceGroupForUpdatingUserIds202()
+    public function testUpdateAudienceGroupForUploadingUserIds202()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
@@ -158,7 +158,7 @@ class ManagementAudienceTest extends TestCase
             ];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->updateAudienceGroupForUpdatingUserIds(
+        $res = $bot->updateAudienceGroupForUploadingUserIds(
             4389303728991,
             [
                 ['id' => 'USER ID2'],
@@ -171,7 +171,7 @@ class ManagementAudienceTest extends TestCase
         $this->assertEquals(202, $res->getJSONDecodedBody()['status']);
     }
 
-    public function testUpdateAudienceGroupForUpdatingUserIds400()
+    public function testUpdateAudienceGroupForUploadingUserIds400()
     {
         $mock = function ($testRunner, $httpMethod, $url, $data) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
@@ -185,7 +185,7 @@ class ManagementAudienceTest extends TestCase
             ];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
-        $res = $bot->updateAudienceGroupForUpdatingUserIds(
+        $res = $bot->updateAudienceGroupForUploadingUserIds(
             4389303728991,
             [
                 ['id' => 'USER ID2'],

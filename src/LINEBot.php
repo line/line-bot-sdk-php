@@ -868,6 +868,27 @@ class LINEBot
         return $this->httpClient->get($url, ['requestId' => $requestId]);
     }
 
+
+    /**
+     * Create audience for uploading user IDs
+     *
+     * @deprecated 5.0.0
+     * @param string $description The audience's name. Max character limit: 120
+     * @param array $audiences An array of up to 10,000 user IDs or IFAs.
+     * @param bool $isIfaAudience If this is false (default), recipients are specified by user IDs.
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function createAudienceGroupForUpdatingUserIds(
+        $description,
+        $audiences = [],
+        $isIfaAudience = false,
+        $uploadDescription = null
+    ) {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return $this->createAudienceGroupForUploadingUserIds($description, $audiences, $isIfaAudience, $uploadDescription);
+    }
+
     /**
      * Create audience for uploading user IDs
      *
@@ -877,7 +898,7 @@ class LINEBot
      * @param string|null $uploadDescription The description to register with the job.
      * @return Response
      */
-    public function createAudienceGroupForUpdatingUserIds(
+    public function createAudienceGroupForUploadingUserIds(
         $description,
         $audiences = [],
         $isIfaAudience = false,
@@ -927,12 +948,30 @@ class LINEBot
     /**
      * Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs
      *
+     * @deprecated 5.0.0
      * @param int $audienceGroupId The audience ID.
      * @param array $audiences An array of up to 10,000 user IDs or IFAs.
      * @param string|null $uploadDescription The description to register with the job.
      * @return Response
      */
     public function updateAudienceGroupForUpdatingUserIds(
+        $audienceGroupId,
+        $audiences,
+        $uploadDescription = null
+    ) {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return $this->updateAudienceGroupForUploadingUserIds($audienceGroupId, $audiences, $uploadDescription);
+    }
+
+    /**
+     * Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @param array $audiences An array of up to 10,000 user IDs or IFAs.
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function updateAudienceGroupForUploadingUserIds(
         $audienceGroupId,
         $audiences,
         $uploadDescription = null
