@@ -15,6 +15,6 @@ before_install: >
     composer self-update --rollback
   fi
 install:
-  - composer update
+  - COMPOSER_MEMORY_LIMIT=-1 composer update
 script: make check
 sudo: false
