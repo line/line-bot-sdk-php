@@ -137,6 +137,9 @@ class CurlHTTPClient implements HTTPClient
                 } elseif (in_array('Content-Type: application/x-www-form-urlencoded', $headers)) {
                     $options[CURLOPT_POST] = true;
                     $options[CURLOPT_POSTFIELDS] = http_build_query($reqBody);
+                } elseif (in_array('Content-Type: multipart/form-data', $headers)) {
+                    $options[CURLOPT_POST] = true;
+                    $options[CURLOPT_POSTFIELDS] = $reqBody;
                 } elseif (!empty($reqBody)) {
                     $options[CURLOPT_POST] = true;
                     $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
@@ -147,7 +150,9 @@ class CurlHTTPClient implements HTTPClient
             }
         }
         if ($method === 'PUT') {
-            if (!empty($reqBody)) {
+            if (in_array('Content-Type: multipart/form-data', $headers)) {
+                $options[CURLOPT_POSTFIELDS] = $reqBody;
+            } elseif (!empty($reqBody)) {
                 $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
             } else {
                 $options[CURLOPT_POSTFIELDS] = $reqBody;

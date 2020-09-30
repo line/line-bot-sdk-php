@@ -38,6 +38,7 @@ use LINE\LINEBot\Event\MessageEvent\VideoMessage;
 use LINE\LINEBot\Event\PostbackEvent;
 use LINE\LINEBot\Event\Things\ThingsResultAction;
 use LINE\LINEBot\Event\ThingsEvent;
+use LINE\LINEBot\Event\VideoPlayCompleteEvent;
 use LINE\LINEBot\Event\UnfollowEvent;
 use LINE\LINEBot\Event\UnknownEvent;
 use LINE\Tests\LINEBot\Util\DummyHttpClient;
@@ -522,6 +523,31 @@ class EventRequestParserTest extends TestCase
     "type":"text",
     "text":"message without emoji"
    }
+  },
+  {
+   "type":"unsend",
+   "timestamp":12345678901234,
+   "source":{
+    "type": "group",
+    "groupId":"groupid",
+    "userId":"userid"
+   },
+   "unsend": {
+        "messageId": "325708"
+   }
+  },
+  {
+   "type":"videoPlayComplete",
+   "timestamp":12345678901234,
+   "source":{
+    "type": "group",
+    "groupId":"groupid",
+    "userId":"userid"
+   },
+   "videoPlayComplete": {
+    "trackingId": "track_id"
+   },
+   "replyToken":"replytoken"
   }
  ]
 }
@@ -538,13 +564,13 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'D4WpU4d9YYR3p4uYIdEOjn2HjXDP+l3X5j78ndXriA4=',
+            'UFdI/gt1zikYcRYGy9wW+R+XVtujLvfYxnZjLBzTSHs=',
             false
         );
 
         $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
-        $this->assertEquals(count($events), 30);
+        $this->assertEquals(count($events), 32);
 
         {
             // text
@@ -939,6 +965,22 @@ JSON;
             $this->assertEquals('text', $event->getMessageType());
             $this->assertEquals('message without emoji', $event->getText());
             $this->assertEquals(null, $event->getEmojis());
+        }
+
+        {
+            // unsend event
+            $event = $events[30];
+            $this->assertInstanceOf('LINE\LINEBot\Event\UnsendEvent', $event);
+            /** @var UnsendMessage $event */
+            $this->assertEquals('325708', $event->getUnsendMessageId());
+        }
+
+        {
+            // video play complete event
+            $event = $events[31];
+            $this->assertInstanceOf('LINE\LINEBot\Event\VideoPlayCompleteEvent', $event);
+            /** @var UnsendMessage $event */
+            $this->assertEquals('track_id', $event->getTrackingId());
         }
     }
 }

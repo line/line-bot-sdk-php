@@ -29,11 +29,13 @@ class EventRequestParser
 {
     private static $eventType2class = [
         'message' => 'LINE\LINEBot\Event\MessageEvent',
+        'unsend' => 'LINE\LINEBot\Event\UnsendEvent',
         'follow' => 'LINE\LINEBot\Event\FollowEvent',
         'unfollow' => 'LINE\LINEBot\Event\UnfollowEvent',
         'join' => 'LINE\LINEBot\Event\JoinEvent',
         'leave' => 'LINE\LINEBot\Event\LeaveEvent',
         'postback' => 'LINE\LINEBot\Event\PostbackEvent',
+        'videoPlayComplete' => 'LINE\LINEBot\Event\VideoPlayCompleteEvent',
         'beacon' => 'LINE\LINEBot\Event\BeaconDetectionEvent',
         'accountLink' => 'LINE\LINEBot\Event\AccountLinkEvent',
         'memberJoined' => 'LINE\LINEBot\Event\MemberJoinEvent',
