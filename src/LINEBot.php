@@ -886,7 +886,12 @@ class LINEBot
         $uploadDescription = null
     ) {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        return $this->createAudienceGroupForUploadingUserIds($description, $audiences, $isIfaAudience, $uploadDescription);
+        return $this->createAudienceGroupForUploadingUserIds(
+            $description,
+            $audiences,
+            $isIfaAudience,
+            $uploadDescription
+        );
     }
 
     /**
@@ -960,7 +965,11 @@ class LINEBot
         $uploadDescription = null
     ) {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        return $this->updateAudienceGroupForUploadingUserIds($audienceGroupId, $audiences, $uploadDescription);
+        return $this->updateAudienceGroupForUploadingUserIds(
+            $audienceGroupId,
+            $audiences,
+            $uploadDescription
+        );
     }
 
     /**
