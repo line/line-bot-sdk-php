@@ -398,6 +398,48 @@ class LINEBot
     }
 
     /**
+     * Get group summary
+     *
+     * Gets the group ID, group name, and group icon URL of a group where the LINE Official Account is a member.
+     *
+     * @param string $groupId Group ID
+     * @return Response
+     */
+    public function getGroupSummary($groupId)
+    {
+        $url = sprintf('%s/v2/bot/group/%s/summary', $this->endpointBase, urlencode($groupId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Gets the count of members in a group
+     *
+     * The number returned excludes the LINE Official Account.
+     *
+     * @param string $groupId Group ID
+     * @return Response
+     */
+    public function getGroupMembersCount($groupId)
+    {
+        $url = sprintf('%s/v2/bot/group/%s/members/count', $this->endpointBase, urlencode($groupId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Gets the count of members in a room
+     *
+     * The number returned excludes the LINE Official Account.
+     *
+     * @param string $roomId Room ID
+     * @return Response
+     */
+    public function getRoomMembersCount($roomId)
+    {
+        $url = sprintf('%s/v2/bot/room/%s/members/count', $this->endpointBase, urlencode($roomId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
      * Issues a link token used for the account link feature.
      *
      * @param string $userId User ID for the LINE account to be linked.
@@ -434,7 +476,7 @@ class LINEBot
         return $this->httpClient->post($this->endpointBase . '/v2/bot/richmenu', $richMenuBuilder->build());
     }
 
-     /**
+    /**
      * Deletes a rich menu.
      *
      * @param string $richMenuId ID of an uploaded rich menu
