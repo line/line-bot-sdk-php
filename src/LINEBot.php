@@ -872,7 +872,7 @@ class LINEBot
         MessageBuilder $messageBuilder,
         RecipientBuilder $recipientBuilder = null,
         DemographicFilterBuilder $demographicFilterBuilder = null,
-        $limit = null,
+        $max = null,
         $retryKey = null,
         $upToRemainingQuota = false
     ) {
@@ -887,11 +887,12 @@ class LINEBot
                 'demographic' => $demographicFilterBuilder->build(),
             ];
         }
-        if (isset($limit)) {
-            $params['limit'] =  [
-                'max' => $limit,
-                'upToRemainingQuota' => $upToRemainingQuota,
-            ];
+
+        $params['limit'] = [
+            'upToRemainingQuota' => $upToRemainingQuota,
+        ];
+        if (isset($max)) {
+            $params['limit']['max'] = $max;
         }
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
@@ -910,32 +911,6 @@ class LINEBot
     {
         $url = $this->endpointBase . '/v2/bot/message/progress/narrowcast';
         return $this->httpClient->get($url, ['requestId' => $requestId]);
-    }
-
-
-    /**
-     * Create audience for uploading user IDs
-     *
-     * @deprecated 5.0.0
-     * @param string $description The audience's name. Max character limit: 120
-     * @param array $audiences An array of up to 10,000 user IDs or IFAs.
-     * @param bool $isIfaAudience If this is false (default), recipients are specified by user IDs.
-     * @param string|null $uploadDescription The description to register with the job.
-     * @return Response
-     */
-    public function createAudienceGroupForUpdatingUserIds(
-        $description,
-        $audiences = [],
-        $isIfaAudience = false,
-        $uploadDescription = null
-    ) {
-        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        return $this->createAudienceGroupForUploadingUserIds(
-            $description,
-            $audiences,
-            $isIfaAudience,
-            $uploadDescription
-        );
     }
 
     /**
@@ -992,28 +967,6 @@ class LINEBot
         $url = $this->dataEndpointBase . '/v2/bot/audienceGroup/upload/byFile';
         $headers = ['Content-Type: multipart/form-data'];
         return $this->httpClient->post($url, $params, $headers);
-    }
-
-    /**
-     * Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs
-     *
-     * @deprecated 5.0.0
-     * @param int $audienceGroupId The audience ID.
-     * @param array $audiences An array of up to 10,000 user IDs or IFAs.
-     * @param string|null $uploadDescription The description to register with the job.
-     * @return Response
-     */
-    public function updateAudienceGroupForUpdatingUserIds(
-        $audienceGroupId,
-        $audiences,
-        $uploadDescription = null
-    ) {
-        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        return $this->updateAudienceGroupForUploadingUserIds(
-            $audienceGroupId,
-            $audiences,
-            $uploadDescription
-        );
     }
 
     /**
