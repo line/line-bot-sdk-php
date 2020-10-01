@@ -22,6 +22,7 @@ use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\LINEBot\Narrowcast\Recipient\OperatorRecipientBuilder;
 use LINE\LINEBot\Narrowcast\Recipient\AudienceRecipientBuilder;
+use LINE\LINEBot\Narrowcast\Recipient\RedeliveryRecipientBuilder;
 use LINE\LINEBot\Narrowcast\DemographicFilter\OperatorDemographicFilterBuilder;
 use LINE\LINEBot\Narrowcast\DemographicFilter\GenderDemographicFilterBuilder;
 use LINE\LINEBot\Narrowcast\DemographicFilter\AgeDemographicFilterBuilder;
@@ -52,6 +53,17 @@ class NarrowCastTest extends TestCase
                     'audienceGroupId' => 21234567890
                 ]
             ], $data['recipient']['and'][1]);
+            $testRunner->assertEquals([
+                'type' => 'redelivery',
+                'requestId' => 'test request id 1'
+            ], $data['recipient']['and'][2]);
+            $testRunner->assertEquals([
+                'type' => 'operator',
+                'not' => [
+                    'type' => 'redelivery',
+                    'requestId' => 'test request id 2'
+                ]
+            ], $data['recipient']['and'][3]);
             $testRunner->assertEquals('operator', $data['filter']['demographic']['type']);
             $testRunner->assertEquals([
                 'type' => 'gender',
@@ -86,6 +98,13 @@ class NarrowCastTest extends TestCase
                         ->setNot(
                             AudienceRecipientBuilder::builder()
                                 ->setAudienceGroupId(21234567890)
+                        ),
+                    RedeliveryRecipientBuilder::builder()
+                        ->setRequestId('test request id 1'),
+                    OperatorRecipientBuilder::builder()
+                        ->setNot(
+                            RedeliveryRecipientBuilder::builder()
+                                ->setRequestId('test request id 2')
                         )
                 ]),
             OperatorDemographicFilterBuilder::builder()

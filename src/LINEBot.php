@@ -31,6 +31,7 @@ use LINE\LINEBot\RichMenuBuilder;
 use ReflectionClass;
 use DateTime;
 use DateTimeZone;
+use CURLFile;
 
 /**
  * A client class of LINE Messaging API.
@@ -397,6 +398,48 @@ class LINEBot
     }
 
     /**
+     * Get group summary
+     *
+     * Gets the group ID, group name, and group icon URL of a group where the LINE Official Account is a member.
+     *
+     * @param string $groupId Group ID
+     * @return Response
+     */
+    public function getGroupSummary($groupId)
+    {
+        $url = sprintf('%s/v2/bot/group/%s/summary', $this->endpointBase, urlencode($groupId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Gets the count of members in a group
+     *
+     * The number returned excludes the LINE Official Account.
+     *
+     * @param string $groupId Group ID
+     * @return Response
+     */
+    public function getGroupMembersCount($groupId)
+    {
+        $url = sprintf('%s/v2/bot/group/%s/members/count', $this->endpointBase, urlencode($groupId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Gets the count of members in a room
+     *
+     * The number returned excludes the LINE Official Account.
+     *
+     * @param string $roomId Room ID
+     * @return Response
+     */
+    public function getRoomMembersCount($roomId)
+    {
+        $url = sprintf('%s/v2/bot/room/%s/members/count', $this->endpointBase, urlencode($roomId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
      * Issues a link token used for the account link feature.
      *
      * @param string $userId User ID for the LINE account to be linked.
@@ -433,7 +476,7 @@ class LINEBot
         return $this->httpClient->post($this->endpointBase . '/v2/bot/richmenu', $richMenuBuilder->build());
     }
 
-     /**
+    /**
      * Deletes a rich menu.
      *
      * @param string $richMenuId ID of an uploaded rich menu
@@ -879,21 +922,51 @@ class LINEBot
      * @param string|null $uploadDescription The description to register with the job.
      * @return Response
      */
-    public function createAudienceGroupForUpdatingUserIds(
+    public function createAudienceGroupForUploadingUserIds(
         $description,
-        $audiences,
+        $audiences = [],
         $isIfaAudience = false,
         $uploadDescription = null
     ) {
         $params = [
             'description' => $description,
             'isIfaAudience' => $isIfaAudience,
-            'audiences' => $audiences,
         ];
+        if (!empty($audiences)) {
+            $params['audiences'] = $audiences;
+        }
         if (isset($uploadDescription)) {
             $params['uploadDescription'] = $uploadDescription;
         }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/audienceGroup/upload', $params);
+    }
+
+    /**
+     * Create audience for uploading user IDs (by file)
+     *
+     * @param string $description The audience's name. Max character limit: 120
+     * @param string $filePath A text file path with one user ID or IFA entered per line. Max number: 1,500,000
+     * @param bool $isIfaAudience If this is false (default), recipients are specified by user IDs.
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function createAudienceGroupForUploadingUserIdsByFile(
+        $description,
+        $filePath,
+        $isIfaAudience = false,
+        $uploadDescription = null
+    ) {
+        $params = [
+            'description' => $description,
+            'isIfaAudience' => $isIfaAudience,
+            'file' => new CURLFile($filePath, 'text/plain', 'file'),
+        ];
+        if (isset($uploadDescription)) {
+            $params['uploadDescription'] = $uploadDescription;
+        }
+        $url = $this->dataEndpointBase . '/v2/bot/audienceGroup/upload/byFile';
+        $headers = ['Content-Type: multipart/form-data'];
+        return $this->httpClient->post($url, $params, $headers);
     }
 
     /**
@@ -904,7 +977,7 @@ class LINEBot
      * @param string|null $uploadDescription The description to register with the job.
      * @return Response
      */
-    public function updateAudienceGroupForUpdatingUserIds(
+    public function updateAudienceGroupForUploadingUserIds(
         $audienceGroupId,
         $audiences,
         $uploadDescription = null
@@ -917,6 +990,31 @@ class LINEBot
             $params['uploadDescription'] = $uploadDescription;
         }
         return $this->httpClient->put($this->endpointBase . '/v2/bot/audienceGroup/upload', $params);
+    }
+
+    /**
+     * Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs (by file)
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @param string $filePath A text file path with one user ID or IFA entered per line. Max number: 1,500,000
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function updateAudienceGroupForUploadingUserIdsByFile(
+        $audienceGroupId,
+        $filePath,
+        $uploadDescription = null
+    ) {
+        $params = [
+            'audienceGroupId' => $audienceGroupId,
+            'file' => new CURLFile($filePath, 'text/plain', 'file'),
+        ];
+        if (isset($uploadDescription)) {
+            $params['uploadDescription'] = $uploadDescription;
+        }
+        $url = $this->dataEndpointBase . '/v2/bot/audienceGroup/upload/byFile';
+        $headers = ['Content-Type: multipart/form-data'];
+        return $this->httpClient->put($url, $params, $headers);
     }
 
     /**
