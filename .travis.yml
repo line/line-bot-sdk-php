@@ -7,7 +7,12 @@ matrix:
     - php: 7.2
     - php: 7.3
     - php: 7.4
+before_install: >
+  php_version=$(php --version);
+  if  [ ${php_version:4:3} = '5.5' ]; then
+    composer self-update --rollback
+  fi
 install:
-  - composer update
+  - COMPOSER_MEMORY_LIMIT=-1 composer update
 script: make check
 sudo: false
