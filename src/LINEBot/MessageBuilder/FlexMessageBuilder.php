@@ -20,8 +20,9 @@ namespace LINE\LINEBot\MessageBuilder;
 
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
-use LINE\LINEBot\QuickReplyBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
+use LINE\LINEBot\QuickReplyBuilder;
+use LINE\LINEBot\SenderBuilder\SenderBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
 /**
@@ -39,6 +40,9 @@ class FlexMessageBuilder implements MessageBuilder
     /** @var QuickReplyBuilder|null */
     private $quickReply;
 
+    /** @var SenderBuilder|null */
+    private $sender;
+
     /** @var array */
     private $message;
 
@@ -48,12 +52,18 @@ class FlexMessageBuilder implements MessageBuilder
      * @param string $altText
      * @param ContainerBuilder $containerBuilder
      * @param QuickReplyBuilder|null $quickReply
+     * @param SenderBuilder|null $sender
      */
-    public function __construct($altText, $containerBuilder, QuickReplyBuilder $quickReply = null)
-    {
+    public function __construct(
+        $altText,
+        $containerBuilder,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->altText = $altText;
         $this->containerBuilder = $containerBuilder;
         $this->quickReply = $quickReply;
+        $this->sender = $sender;
     }
 
     /**
@@ -103,6 +113,18 @@ class FlexMessageBuilder implements MessageBuilder
     }
 
     /**
+     * Set sender.
+     *
+     * @param SenderBuilder|null $sender
+     * @return FlexMessageBuilder
+     */
+    public function setSender(SenderBuilder $sender = null)
+    {
+        $this->sender = $sender;
+        return $this;
+    }
+
+    /**
      * Builds flex message structure.
      *
      * @return array
@@ -119,6 +141,7 @@ class FlexMessageBuilder implements MessageBuilder
                 'altText' => $this->altText,
                 'contents' => $this->containerBuilder->build(),
                 'quickReply' => BuildUtil::build($this->quickReply, 'buildQuickReply'),
+                'sender' => BuildUtil::build($this->sender, 'buildSender'),
             ])
         ];
 

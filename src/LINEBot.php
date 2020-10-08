@@ -19,15 +19,19 @@
 namespace LINE;
 
 use LINE\LINEBot\Event\Parser\EventRequestParser;
+use LINE\LINEBot\Constant\HTTPHeader;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder;
+use LINE\LINEBot\Narrowcast\Recipient\RecipientBuilder;
 use LINE\LINEBot\Response;
 use LINE\LINEBot\SignatureValidator;
 use LINE\LINEBot\RichMenuBuilder;
 use ReflectionClass;
 use DateTime;
 use DateTimeZone;
+use CURLFile;
 
 /**
  * A client class of LINE Messaging API.
@@ -38,11 +42,14 @@ use DateTimeZone;
 class LINEBot
 {
     const DEFAULT_ENDPOINT_BASE = 'https://api.line.me';
+    const DEFAULT_DATA_ENDPOINT_BASE = 'https://api-data.line.me';
 
     /** @var string */
     private $channelSecret;
     /** @var string */
     private $endpointBase;
+    /** @var string */
+    private $dataEndpointBase;
     /** @var HTTPClient */
     private $httpClient;
 
@@ -60,6 +67,10 @@ class LINEBot
         $this->endpointBase = LINEBot::DEFAULT_ENDPOINT_BASE;
         if (!empty($args['endpointBase'])) {
             $this->endpointBase = $args['endpointBase'];
+        }
+        $this->dataEndpointBase = LINEBot::DEFAULT_DATA_ENDPOINT_BASE;
+        if (array_key_exists('dataEndpointBase', $args) && !empty($args['dataEndpointBase'])) {
+            $this->dataEndpointBase = $args['dataEndpointBase'];
         }
     }
 
@@ -82,7 +93,8 @@ class LINEBot
      */
     public function getMessageContent($messageId)
     {
-        return $this->httpClient->get($this->endpointBase . '/v2/bot/message/' . urlencode($messageId) . '/content');
+        $url = $this->dataEndpointBase . '/v2/bot/message/' . urlencode($messageId) . '/content';
+        return $this->httpClient->get($url);
     }
 
     /**
@@ -160,15 +172,20 @@ class LINEBot
      * @param string $to Identifier of destination.
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
+     * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
-    public function pushMessage($to, MessageBuilder $messageBuilder, $notificationDisabled = false)
+    public function pushMessage($to, MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
     {
+        $headers = ['Content-Type: application/json; charset=utf-8'];
+        if (isset($retryKey)) {
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+        }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
             'to' => $to,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ]);
+        ], $headers);
     }
 
     /**
@@ -177,15 +194,24 @@ class LINEBot
      * @param array $tos Identifiers of destination.
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
+     * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
-    public function multicast(array $tos, MessageBuilder $messageBuilder, $notificationDisabled = false)
-    {
+    public function multicast(
+        array $tos,
+        MessageBuilder $messageBuilder,
+        $notificationDisabled = false,
+        $retryKey = null
+    ) {
+        $headers = ['Content-Type: application/json; charset=utf-8'];
+        if (isset($retryKey)) {
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+        }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
             'to' => $tos,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ]);
+        ], $headers);
     }
 
     /**
@@ -194,14 +220,19 @@ class LINEBot
      *
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
+     * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
-    public function broadcast(MessageBuilder $messageBuilder, $notificationDisabled = false)
+    public function broadcast(MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
     {
+        $headers = ['Content-Type: application/json; charset=utf-8'];
+        if (isset($retryKey)) {
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+        }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/broadcast', [
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ]);
+        ], $headers);
     }
 
     /**
@@ -367,6 +398,48 @@ class LINEBot
     }
 
     /**
+     * Get group summary
+     *
+     * Gets the group ID, group name, and group icon URL of a group where the LINE Official Account is a member.
+     *
+     * @param string $groupId Group ID
+     * @return Response
+     */
+    public function getGroupSummary($groupId)
+    {
+        $url = sprintf('%s/v2/bot/group/%s/summary', $this->endpointBase, urlencode($groupId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Gets the count of members in a group
+     *
+     * The number returned excludes the LINE Official Account.
+     *
+     * @param string $groupId Group ID
+     * @return Response
+     */
+    public function getGroupMembersCount($groupId)
+    {
+        $url = sprintf('%s/v2/bot/group/%s/members/count', $this->endpointBase, urlencode($groupId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Gets the count of members in a room
+     *
+     * The number returned excludes the LINE Official Account.
+     *
+     * @param string $roomId Room ID
+     * @return Response
+     */
+    public function getRoomMembersCount($roomId)
+    {
+        $url = sprintf('%s/v2/bot/room/%s/members/count', $this->endpointBase, urlencode($roomId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
      * Issues a link token used for the account link feature.
      *
      * @param string $userId User ID for the LINE account to be linked.
@@ -403,7 +476,7 @@ class LINEBot
         return $this->httpClient->post($this->endpointBase . '/v2/bot/richmenu', $richMenuBuilder->build());
     }
 
-     /**
+    /**
      * Deletes a rich menu.
      *
      * @param string $richMenuId ID of an uploaded rich menu
@@ -412,6 +485,40 @@ class LINEBot
     public function deleteRichMenu($richMenuId)
     {
         $url = sprintf('%s/v2/bot/richmenu/%s', $this->endpointBase, urlencode($richMenuId));
+        return $this->httpClient->delete($url);
+    }
+
+    /**
+     * Set the default rich menu.
+     *
+     * @param string $richMenuId ID of an uploaded rich menu
+     * @return Response
+     */
+    public function setDefaultRichMenuId($richMenuId)
+    {
+        $url = sprintf('%s/v2/bot/user/all/richmenu/%s', $this->endpointBase, urlencode($richMenuId));
+        return $this->httpClient->post($url, []);
+    }
+
+    /**
+     * Get the default rich menu ID.
+     *
+     * @return Response
+     */
+    public function getDefaultRichMenuId()
+    {
+        $url = $this->endpointBase . '/v2/bot/user/all/richmenu';
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Cancel the default rich menu.
+     *
+     * @return Response
+     */
+    public function cancelDefaultRichMenuId()
+    {
+        $url = $this->endpointBase . '/v2/bot/user/all/richmenu';
         return $this->httpClient->delete($url);
     }
 
@@ -495,7 +602,7 @@ class LINEBot
      */
     public function downloadRichMenuImage($richMenuId)
     {
-        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->endpointBase, urlencode($richMenuId));
+        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->dataEndpointBase, urlencode($richMenuId));
         return $this->httpClient->get($url);
     }
 
@@ -514,7 +621,7 @@ class LINEBot
      */
     public function uploadRichMenuImage($richMenuId, $imagePath, $contentType)
     {
-        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->endpointBase, urlencode($richMenuId));
+        $url = sprintf('%s/v2/bot/richmenu/%s/content', $this->dataEndpointBase, urlencode($richMenuId));
         return $this->httpClient->post(
             $url,
             [
@@ -685,5 +792,361 @@ class LINEBot
             ['access_token' => $channelAccessToken],
             ['Content-Type: application/x-www-form-urlencoded']
         );
+    }
+
+    /**
+     * Create channel access token v2.1
+     *
+     * You can issue up to 30 tokens.
+     * If you reach the maximum limit, additional requests of issuing channel access tokens are blocked.
+     *
+     * @see https://developers.line.biz/en/docs/messaging-api/generate-json-web-token/#generate_jwt
+     * @param string $jwt
+     * @return Response
+     */
+    public function createChannelAccessToken21($jwt)
+    {
+        $url = $this->endpointBase . '/oauth2/v2.1/token';
+        return $this->httpClient->post(
+            $url,
+            [
+                'grant_type' => 'client_credentials',
+                'client_assertion_type' => 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+                'client_assertion' => $jwt,
+            ],
+            ['Content-Type: application/x-www-form-urlencoded']
+        );
+    }
+
+    /**
+     * Revoke channel access token v2.1
+     *
+     * @param string $channelId
+     * @param string $channelSecret
+     * @param string $channelAccessToken
+     * @return Response
+     */
+    public function revokeChannelAccessToken21($channelId, $channelSecret, $channelAccessToken)
+    {
+        $url = $this->endpointBase . '/oauth2/v2.1/revoke';
+        return $this->httpClient->post(
+            $url,
+            [
+                'client_id' => $channelId,
+                'client_secret' => $channelSecret,
+                'access_token' => $channelAccessToken,
+            ],
+            ['Content-Type: application/x-www-form-urlencoded']
+        );
+    }
+
+    /**
+     * Get all valid channel access token key IDs v2.1
+     *
+     * @param string $jwt
+     * @return Response
+     */
+    public function getChannelAccessToken21Keys($jwt)
+    {
+        $url = $this->endpointBase . '/oauth2/v2.1/tokens/kid';
+        return $this->httpClient->get(
+            $url,
+            [
+                'client_assertion_type' => 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+                'client_assertion' => $jwt,
+            ]
+        );
+    }
+
+    /**
+     * Send Narrowcast message.
+     *
+     * @param MessageBuilder $messageBuilder
+     * @param RecipientBuilder|null $recipientBuilder
+     * @param DemographicFilterBuilder|null $demographicFilterBuilder
+     * @param int|null $limit
+     * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
+     * @return Response
+     */
+    public function sendNarrowcast(
+        MessageBuilder $messageBuilder,
+        RecipientBuilder $recipientBuilder = null,
+        DemographicFilterBuilder $demographicFilterBuilder = null,
+        $max = null,
+        $retryKey = null,
+        $upToRemainingQuota = false
+    ) {
+        $params = [
+            'messages' => $messageBuilder->buildMessage()
+        ];
+        if (isset($recipientBuilder)) {
+            $params['recipient'] = $recipientBuilder->build();
+        }
+        if (isset($demographicFilterBuilder)) {
+            $params['filter'] = [
+                'demographic' => $demographicFilterBuilder->build(),
+            ];
+        }
+
+        $params['limit'] = [
+            'upToRemainingQuota' => $upToRemainingQuota,
+        ];
+        if (isset($max)) {
+            $params['limit']['max'] = $max;
+        }
+        $headers = ['Content-Type: application/json; charset=utf-8'];
+        if (isset($retryKey)) {
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/narrowcast', $params, $headers);
+    }
+
+    /**
+     * Get Narrowcast message sending progress.
+     *
+     * @param string $requestId
+     * @return Response
+     */
+    public function getNarrowcastProgress($requestId)
+    {
+        $url = $this->endpointBase . '/v2/bot/message/progress/narrowcast';
+        return $this->httpClient->get($url, ['requestId' => $requestId]);
+    }
+
+    /**
+     * Create audience for uploading user IDs
+     *
+     * @param string $description The audience's name. Max character limit: 120
+     * @param array $audiences An array of up to 10,000 user IDs or IFAs.
+     * @param bool $isIfaAudience If this is false (default), recipients are specified by user IDs.
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function createAudienceGroupForUploadingUserIds(
+        $description,
+        $audiences = [],
+        $isIfaAudience = false,
+        $uploadDescription = null
+    ) {
+        $params = [
+            'description' => $description,
+            'isIfaAudience' => $isIfaAudience,
+        ];
+        if (!empty($audiences)) {
+            $params['audiences'] = $audiences;
+        }
+        if (isset($uploadDescription)) {
+            $params['uploadDescription'] = $uploadDescription;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/audienceGroup/upload', $params);
+    }
+
+    /**
+     * Create audience for uploading user IDs (by file)
+     *
+     * @param string $description The audience's name. Max character limit: 120
+     * @param string $filePath A text file path with one user ID or IFA entered per line. Max number: 1,500,000
+     * @param bool $isIfaAudience If this is false (default), recipients are specified by user IDs.
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function createAudienceGroupForUploadingUserIdsByFile(
+        $description,
+        $filePath,
+        $isIfaAudience = false,
+        $uploadDescription = null
+    ) {
+        $params = [
+            'description' => $description,
+            'isIfaAudience' => $isIfaAudience,
+            'file' => new CURLFile($filePath, 'text/plain', 'file'),
+        ];
+        if (isset($uploadDescription)) {
+            $params['uploadDescription'] = $uploadDescription;
+        }
+        $url = $this->dataEndpointBase . '/v2/bot/audienceGroup/upload/byFile';
+        $headers = ['Content-Type: multipart/form-data'];
+        return $this->httpClient->post($url, $params, $headers);
+    }
+
+    /**
+     * Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @param array $audiences An array of up to 10,000 user IDs or IFAs.
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function updateAudienceGroupForUploadingUserIds(
+        $audienceGroupId,
+        $audiences,
+        $uploadDescription = null
+    ) {
+        $params = [
+            'audienceGroupId' => $audienceGroupId,
+            'audiences' => $audiences,
+        ];
+        if (isset($uploadDescription)) {
+            $params['uploadDescription'] = $uploadDescription;
+        }
+        return $this->httpClient->put($this->endpointBase . '/v2/bot/audienceGroup/upload', $params);
+    }
+
+    /**
+     * Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs (by file)
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @param string $filePath A text file path with one user ID or IFA entered per line. Max number: 1,500,000
+     * @param string|null $uploadDescription The description to register with the job.
+     * @return Response
+     */
+    public function updateAudienceGroupForUploadingUserIdsByFile(
+        $audienceGroupId,
+        $filePath,
+        $uploadDescription = null
+    ) {
+        $params = [
+            'audienceGroupId' => $audienceGroupId,
+            'file' => new CURLFile($filePath, 'text/plain', 'file'),
+        ];
+        if (isset($uploadDescription)) {
+            $params['uploadDescription'] = $uploadDescription;
+        }
+        $url = $this->dataEndpointBase . '/v2/bot/audienceGroup/upload/byFile';
+        $headers = ['Content-Type: multipart/form-data'];
+        return $this->httpClient->put($url, $params, $headers);
+    }
+
+    /**
+     * Create audience for click-based retargeting
+     *
+     * @param string $description The audience's name. Max character limit: 120
+     * @param string $requestId The request ID of a broadcast or narrowcast message sent in the past 60 days.
+     * @param string|null $clickUrl The URL clicked by the user. Max character limit: 2,000
+     * @return Response
+     */
+    public function createAudienceGroupForClick($description, $requestId, $clickUrl = null)
+    {
+        $params = [
+            'description' => $description,
+            'requestId' => $requestId,
+        ];
+        if (isset($clickUrl)) {
+            $params['clickUrl'] = $clickUrl;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/audienceGroup/click', $params);
+    }
+
+    /**
+     * Create audience for impression-based retargeting
+     *
+     * @param string $description The audience's name. Max character limit: 120
+     * @param string $requestId The request ID of a broadcast or narrowcast message sent in the past 60 days.
+     * @return Response
+     */
+    public function createAudienceGroupForImpression($description, $requestId)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/audienceGroup/imp', [
+            'description' => $description,
+            'requestId' => $requestId,
+        ]);
+    }
+
+    /**
+     * Rename an audience
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @param string $description The audience's name. Max character limit: 120
+     * @return Response
+     */
+    public function renameAudience($audienceGroupId, $description)
+    {
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription', urlencode($audienceGroupId));
+        return $this->httpClient->put($url, ['description' => $description]);
+    }
+
+    /**
+     * Delete audience
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @return Response
+     */
+    public function deleteAudience($audienceGroupId)
+    {
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        return $this->httpClient->delete($url);
+    }
+
+    /**
+     * Get audience
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @return Response
+     */
+    public function getAudience($audienceGroupId)
+    {
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Get data for multiple audiences
+     *
+     * @param int $page The page to return when getting (paginated) results. Must be 1 or higher.
+     * @param int $size The number of audiences per page. Max: 40
+     * @param string|null $description You can search for partial matches.
+     * @param string|null $status One of: IN_PROGRESS, READY, FAILED, EXPIRED
+     * @param boolean|null $includesExternalPublicGroups
+     * @param string|null $createRoute How the audience was created. One of: OA_MANAGER, MESSAGING_API
+     * @return Response
+     */
+    public function getAudiences(
+        $page,
+        $size = 20,
+        $description = null,
+        $status = null,
+        $includesExternalPublicGroups = null,
+        $createRoute = null
+    ) {
+        $params = [
+            'page' => $page,
+            'size' => $size,
+        ];
+        if (isset($description)) {
+            $params['description'] = $description;
+        }
+        if (isset($status)) {
+            $params['status'] = $status;
+        }
+        if (isset($includesExternalPublicGroups)) {
+            $params['includesExternalPublicGroups'] = $includesExternalPublicGroups;
+        }
+        if (isset($createRoute)) {
+            $params['createRoute'] = $createRoute;
+        }
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/audienceGroup/list', $params);
+    }
+
+    /**
+     * Get the authority level of the audience
+     *
+     * @return Response
+     */
+    public function getAuthorityLevel()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/audienceGroup/authorityLevel');
+    }
+
+    /**
+     * Change the authority level of the audience
+     *
+     * @param string $authorityLevel One of: PUBLIC, PRIVATE
+     * @return Response
+     */
+    public function updateAuthorityLevel($authorityLevel)
+    {
+        return $this->httpClient->put($this->endpointBase . '/v2/bot/audienceGroup/authorityLevel', [
+            'authorityLevel' => $authorityLevel,
+        ]);
     }
 }

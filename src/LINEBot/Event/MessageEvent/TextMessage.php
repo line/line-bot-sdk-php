@@ -28,6 +28,13 @@ use LINE\LINEBot\Event\MessageEvent;
 class TextMessage extends MessageEvent
 {
     /**
+     * Emoji Info List
+     *
+     * @var array|null
+     */
+    private $emojis;
+
+    /**
      * TextMessage constructor.
      *
      * @param array $event
@@ -35,6 +42,11 @@ class TextMessage extends MessageEvent
     public function __construct($event)
     {
         parent::__construct($event);
+        if (isset($this->message['emojis'])) {
+            $this->emojis = array_map(function ($emojiInfo) {
+                return new EmojiInfo($emojiInfo);
+            }, $this->message['emojis']);
+        }
     }
 
     /**
@@ -45,5 +57,15 @@ class TextMessage extends MessageEvent
     public function getText()
     {
         return $this->message['text'];
+    }
+
+    /**
+     * Returns emoji info list of the messages.
+     *
+     * @return array
+     */
+    public function getEmojis()
+    {
+        return $this->emojis;
     }
 }

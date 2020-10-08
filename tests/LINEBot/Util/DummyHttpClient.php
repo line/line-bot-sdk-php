@@ -60,6 +60,20 @@ class DummyHttpClient implements HTTPClient
     }
 
     /**
+     * Sends PUT request to LINE Messaging API.
+     *
+     * @param string $url Request URL.
+     * @param array $data Request body.
+     * @param array|null $headers Request headers.
+     * @return Response Response of API request.
+     */
+    public function put($url, array $data, array $headers = null)
+    {
+        $ret = call_user_func($this->mock, $this->testRunner, 'PUT', $url, $data, $headers);
+        return new Response(200, json_encode($ret));
+    }
+
+    /**
      * @param string $url
      * @param array|null $data
      * @return Response

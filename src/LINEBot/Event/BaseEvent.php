@@ -54,6 +54,19 @@ class BaseEvent
     }
 
     /**
+     * Returns mode.
+     *
+     * active: The channel is active.
+     * standby: The channel is waiting.
+     *
+     * @return string
+     */
+    public function getMode()
+    {
+        return $this->event['mode'];
+    }
+
+    /**
      * Returns timestamp of the event.
      *
      * @return int

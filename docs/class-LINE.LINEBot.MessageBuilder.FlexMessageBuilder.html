@@ -132,7 +132,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#___construct">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#52-57">__construct</a>( <span> string <span class="property-name">$altText</span> </span>, <span> \ContainerBuilder <span class="property-name">$containerBuilder</span> </span>, <span> <a href="interface-LINE.LINEBot.QuickReplyBuilder.html">LINE\LINEBot\QuickReplyBuilder</a> <span class="property-name">$quickReply</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#57-67">__construct</a>( <span> string <span class="property-name">$altText</span> </span>, <span> \ContainerBuilder <span class="property-name">$containerBuilder</span> </span>, <span> <a href="interface-LINE.LINEBot.QuickReplyBuilder.html">LINE\LINEBot\QuickReplyBuilder</a> <span class="property-name">$quickReply</span> = <span class="php-keyword1">NULL</span></span>, <span> <a href="interface-LINE.LINEBot.SenderBuilder.SenderBuilder.html">LINE\LINEBot\SenderBuilder\SenderBuilder</a> <span class="property-name">$sender</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 FlexMessageBuilder constructor.
@@ -164,7 +164,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_builder">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#64-67">builder</a>( )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#74-77">builder</a>( )</code>
 
             <div class="description">
                 Create empty FlexMessageBuilder.
@@ -196,7 +196,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setAltText">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#75-79">setAltText</a>( <span> string <span class="property-name">$altText</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#85-89">setAltText</a>( <span> string <span class="property-name">$altText</span> </span> )</code>
 
             <div class="description">
                 Set altText.
@@ -228,7 +228,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setContents">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#87-91">setContents</a>( <span> \ContainerBuilder <span class="property-name">$containerBuilder</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#97-101">setContents</a>( <span> \ContainerBuilder <span class="property-name">$containerBuilder</span> </span> )</code>
 
             <div class="description">
                 Set contents.
@@ -260,10 +260,42 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setQuickReply">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#99-103">setQuickReply</a>( <span> <a href="interface-LINE.LINEBot.QuickReplyBuilder.html">LINE\LINEBot\QuickReplyBuilder</a> <span class="property-name">$quickReply</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#109-113">setQuickReply</a>( <span> <a href="interface-LINE.LINEBot.QuickReplyBuilder.html">LINE\LINEBot\QuickReplyBuilder</a> <span class="property-name">$quickReply</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Set quickReply.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_setSender">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setSender">#</a>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#121-125">setSender</a>( <span> <a href="interface-LINE.LINEBot.SenderBuilder.SenderBuilder.html">LINE\LINEBot\SenderBuilder\SenderBuilder</a> <span class="property-name">$sender</span> = <span class="php-keyword1">NULL</span></span> )</code>
+
+            <div class="description">
+                Set sender.
 
 
 
@@ -292,7 +324,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_buildMessage">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#110-126">buildMessage</a>( )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.FlexMessageBuilder.html#132-149">buildMessage</a>( )</code>
 
             <div class="description">
                 Builds flex message structure.

@@ -28,7 +28,7 @@ class MulticastTest extends TestCase
 {
     public function testMulticast()
     {
-        $mock = function ($testRunner, $httpMethod, $url, $data) {
+        $mock = function ($testRunner, $httpMethod, $url, $data, $headers) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('POST', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/message/multicast', $url);
@@ -37,13 +37,16 @@ class MulticastTest extends TestCase
             $testRunner->assertEquals(1, count($data['messages']));
             $testRunner->assertEquals(MessageType::TEXT, $data['messages'][0]['type']);
             $testRunner->assertEquals('test text', $data['messages'][0]['text']);
+            $testRunner->assertTrue(\in_array('X-Line-Retry-Key: 123e4567-e89b-12d3-a456-426614174000', $headers));
 
             return ['status' => 200];
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
         $res = $bot->multicast(
             ['DESTINATION1', 'DESTINATION2'],
-            new TextMessageBuilder("test text")
+            new TextMessageBuilder("test text"),
+            false,
+            '123e4567-e89b-12d3-a456-426614174000'
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());

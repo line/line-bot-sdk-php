@@ -21,6 +21,7 @@ namespace LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
 use LINE\LINEBot\QuickReplyBuilder;
+use LINE\LINEBot\SenderBuilder\SenderBuilder;
 
 /**
  * A builder class for location message.
@@ -47,6 +48,9 @@ class LocationMessageBuilder implements MessageBuilder
     /** @var QuickReplyBuilder|null */
     private $quickReply;
 
+    /** @var SenderBuilder|null */
+    private $sender;
+
     /**
      * LocationMessageBuilder constructor.
      *
@@ -55,14 +59,22 @@ class LocationMessageBuilder implements MessageBuilder
      * @param double $latitude
      * @param double $longitude
      * @param QuickReplyBuilder|null $quickReply
+     * @param SenderBuilder|null $sender
      */
-    public function __construct($title, $address, $latitude, $longitude, QuickReplyBuilder $quickReply = null)
-    {
+    public function __construct(
+        $title,
+        $address,
+        $latitude,
+        $longitude,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->title = $title;
         $this->address = $address;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
         $this->quickReply = $quickReply;
+        $this->sender = $sender;
     }
 
     /**
@@ -86,6 +98,10 @@ class LocationMessageBuilder implements MessageBuilder
 
         if ($this->quickReply) {
             $locationMessage['quickReply'] = $this->quickReply->buildQuickReply();
+        }
+
+        if ($this->sender) {
+            $locationMessage['sender'] = $this->sender->buildSender();
         }
 
         $this->message[] = $locationMessage;
