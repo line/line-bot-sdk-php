@@ -1824,7 +1824,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_sendNarrowcast">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#871-899">sendNarrowcast</a>( <span> <a href="interface-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a> <span class="property-name">$messageBuilder</span> </span>, <span> <a href="class-LINE.LINEBot.Narrowcast.Recipient.RecipientBuilder.html">LINE\LINEBot\Narrowcast\Recipient\RecipientBuilder</a> <span class="property-name">$recipientBuilder</span> = <span class="php-keyword1">NULL</span></span>, <span> <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html">LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder</a> <span class="property-name">$demographicFilterBuilder</span> = <span class="php-keyword1">NULL</span></span>, <span> int|null <span class="property-name">$limit</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$retryKey</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#871-902">sendNarrowcast</a>( <span> <a href="interface-LINE.LINEBot.MessageBuilder.html">LINE\LINEBot\MessageBuilder</a> <span class="property-name">$messageBuilder</span> </span>, <span> <a href="class-LINE.LINEBot.Narrowcast.Recipient.RecipientBuilder.html">LINE\LINEBot\Narrowcast\Recipient\RecipientBuilder</a> <span class="property-name">$recipientBuilder</span> = <span class="php-keyword1">NULL</span></span>, <span> <a href="class-LINE.LINEBot.Narrowcast.DemographicFilter.DemographicFilterBuilder.html">LINE\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder</a> <span class="property-name">$demographicFilterBuilder</span> = <span class="php-keyword1">NULL</span></span>, <span> int|null <span class="property-name">$max</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$retryKey</span> = <span class="php-keyword1">NULL</span></span>, <span> <span class="property-name">$upToRemainingQuota</span> = <span class="php-keyword1">false</span></span> )</code>
 
             <div class="description">
                 Send Narrowcast message.
@@ -1856,45 +1856,11 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getNarrowcastProgress">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#907-911">getNarrowcastProgress</a>( <span> string <span class="property-name">$requestId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#910-914">getNarrowcastProgress</a>( <span> string <span class="property-name">$requestId</span> </span> )</code>
 
             <div class="description">
                 Get Narrowcast message sending progress.
 
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_createAudienceGroupForUpdatingUserIds">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_createAudienceGroupForUpdatingUserIds">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#924-937">createAudienceGroupForUpdatingUserIds</a>( <span> string <span class="property-name">$description</span> </span>, <span> array <span class="property-name">$audiences</span> = <span class="php-keyword1">array</span> ( )</span>, <span> bool <span class="property-name">$isIfaAudience</span> = <span class="php-keyword1">false</span></span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
-
-            <div class="description">
-                Create audience for uploading user IDs
-
-                    <h2>Deprecated</h2>
-                        <br>
 
 
 
@@ -1922,7 +1888,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_createAudienceGroupForUploadingUserIds">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#948-965">createAudienceGroupForUploadingUserIds</a>( <span> string <span class="property-name">$description</span> </span>, <span> array <span class="property-name">$audiences</span> = <span class="php-keyword1">array</span> ( )</span>, <span> bool <span class="property-name">$isIfaAudience</span> = <span class="php-keyword1">false</span></span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#925-942">createAudienceGroupForUploadingUserIds</a>( <span> string <span class="property-name">$description</span> </span>, <span> array <span class="property-name">$audiences</span> = <span class="php-keyword1">array</span> ( )</span>, <span> bool <span class="property-name">$isIfaAudience</span> = <span class="php-keyword1">false</span></span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Create audience for uploading user IDs
@@ -1954,45 +1920,11 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_createAudienceGroupForUploadingUserIdsByFile">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#976-993">createAudienceGroupForUploadingUserIdsByFile</a>( <span> string <span class="property-name">$description</span> </span>, <span> string <span class="property-name">$filePath</span> </span>, <span> bool <span class="property-name">$isIfaAudience</span> = <span class="php-keyword1">false</span></span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#953-970">createAudienceGroupForUploadingUserIdsByFile</a>( <span> string <span class="property-name">$description</span> </span>, <span> string <span class="property-name">$filePath</span> </span>, <span> bool <span class="property-name">$isIfaAudience</span> = <span class="php-keyword1">false</span></span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Create audience for uploading user IDs (by file)
 
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_updateAudienceGroupForUpdatingUserIds">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_updateAudienceGroupForUpdatingUserIds">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1004-1015">updateAudienceGroupForUpdatingUserIds</a>( <span> int <span class="property-name">$audienceGroupId</span> </span>, <span> array <span class="property-name">$audiences</span> </span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
-
-            <div class="description">
-                Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs
-
-                    <h2>Deprecated</h2>
-                        <br>
 
 
 
@@ -2020,7 +1952,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_updateAudienceGroupForUploadingUserIds">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1025-1038">updateAudienceGroupForUploadingUserIds</a>( <span> int <span class="property-name">$audienceGroupId</span> </span>, <span> array <span class="property-name">$audiences</span> </span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#980-993">updateAudienceGroupForUploadingUserIds</a>( <span> int <span class="property-name">$audienceGroupId</span> </span>, <span> array <span class="property-name">$audiences</span> </span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs
@@ -2052,7 +1984,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_updateAudienceGroupForUploadingUserIdsByFile">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1048-1063">updateAudienceGroupForUploadingUserIdsByFile</a>( <span> int <span class="property-name">$audienceGroupId</span> </span>, <span> string <span class="property-name">$filePath</span> </span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#1003-1018">updateAudienceGroupForUploadingUserIdsByFile</a>( <span> int <span class="property-name">$audienceGroupId</span> </span>, <span> string <span class="property-name">$filePath</span> </span>, <span> string|null <span class="property-name">$uploadDescription</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs (by file)
@@ -2084,7 +2016,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_createAudienceGroupForClick">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1073-1083">createAudienceGroupForClick</a>( <span> string <span class="property-name">$description</span> </span>, <span> string <span class="property-name">$requestId</span> </span>, <span> string|null <span class="property-name">$clickUrl</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#1028-1038">createAudienceGroupForClick</a>( <span> string <span class="property-name">$description</span> </span>, <span> string <span class="property-name">$requestId</span> </span>, <span> string|null <span class="property-name">$clickUrl</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Create audience for click-based retargeting
@@ -2116,7 +2048,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_createAudienceGroupForImpression">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1092-1098">createAudienceGroupForImpression</a>( <span> string <span class="property-name">$description</span> </span>, <span> string <span class="property-name">$requestId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#1047-1053">createAudienceGroupForImpression</a>( <span> string <span class="property-name">$description</span> </span>, <span> string <span class="property-name">$requestId</span> </span> )</code>
 
             <div class="description">
                 Create audience for impression-based retargeting
@@ -2148,7 +2080,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_renameAudience">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1107-1111">renameAudience</a>( <span> int <span class="property-name">$audienceGroupId</span> </span>, <span> string <span class="property-name">$description</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#1062-1066">renameAudience</a>( <span> int <span class="property-name">$audienceGroupId</span> </span>, <span> string <span class="property-name">$description</span> </span> )</code>
 
             <div class="description">
                 Rename an audience
@@ -2180,7 +2112,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_deleteAudience">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1119-1123">deleteAudience</a>( <span> int <span class="property-name">$audienceGroupId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#1074-1078">deleteAudience</a>( <span> int <span class="property-name">$audienceGroupId</span> </span> )</code>
 
             <div class="description">
                 Delete audience
@@ -2212,7 +2144,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getAudience">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1131-1135">getAudience</a>( <span> int <span class="property-name">$audienceGroupId</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#1086-1090">getAudience</a>( <span> int <span class="property-name">$audienceGroupId</span> </span> )</code>
 
             <div class="description">
                 Get audience
@@ -2244,7 +2176,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getAudiences">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1148-1173">getAudiences</a>( <span> int <span class="property-name">$page</span> </span>, <span> int <span class="property-name">$size</span> = <span class="php-num">20</span></span>, <span> string|null <span class="property-name">$description</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$status</span> = <span class="php-keyword1">NULL</span></span>, <span> bool|null <span class="property-name">$includesExternalPublicGroups</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$createRoute</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#1103-1128">getAudiences</a>( <span> int <span class="property-name">$page</span> </span>, <span> int <span class="property-name">$size</span> = <span class="php-num">20</span></span>, <span> string|null <span class="property-name">$description</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$status</span> = <span class="php-keyword1">NULL</span></span>, <span> bool|null <span class="property-name">$includesExternalPublicGroups</span> = <span class="php-keyword1">NULL</span></span>, <span> string|null <span class="property-name">$createRoute</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Get data for multiple audiences
@@ -2276,7 +2208,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getAuthorityLevel">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1180-1183">getAuthorityLevel</a>( )</code>
+            <code><a href="source-class-LINE.LINEBot.html#1135-1138">getAuthorityLevel</a>( )</code>
 
             <div class="description">
                 Get the authority level of the audience
@@ -2308,7 +2240,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_updateAuthorityLevel">#</a>
-            <code><a href="source-class-LINE.LINEBot.html#1191-1196">updateAuthorityLevel</a>( <span> string <span class="property-name">$authorityLevel</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.html#1146-1151">updateAuthorityLevel</a>( <span> string <span class="property-name">$authorityLevel</span> </span> )</code>
 
             <div class="description">
                 Change the authority level of the audience
