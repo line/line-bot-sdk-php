@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 use DateTime;
 use DateTimeZone;
 
-class GetNumberOfMessagesSentTest extends TestCase
+class GetNumberOfSendMessagesTest extends TestCase
 {
     public function testGetNumberOfSentReplyMessages()
     {
