@@ -5,6 +5,9 @@ default: check
 test:
 	composer test
 
+laravel:
+	composer laravel
+
 doc:
 	composer doc
 

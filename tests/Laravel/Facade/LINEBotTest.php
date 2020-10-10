@@ -17,32 +17,11 @@
  */
 namespace LINE\Tests\Laravel\Facade;
 
-use LINEBot;
+use LINE\Tests\Laravel\TestCase;
+use LINE\Laravel\Facade\LINEBot;
 
-class LINEBotTest extends \Orchestra\Testbench\TestCase
+class LINEBotTest extends TestCase
 {
-    /**
-     * Load package service provider
-     * @param  \Illuminate\Foundation\Application $app
-     * @return array
-     */
-    protected function getPackageProviders($app)
-    {
-        return ['LINE\Laravel\LINEBotServiceProvider'];
-    }
-    
-    /**
-     * Load package alias
-     * @param  \Illuminate\Foundation\Application $app
-     * @return array
-     */
-    protected function getPackageAliases($app)
-    {
-        return [
-            'LINEBot' => 'LINE\Laravel\Facade\LINEBot',
-        ];
-    }
-
     /**
      * Testing config loaded
      *

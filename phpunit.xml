@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit colors="true" bootstrap="./tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="Test">
+            <directory suffix="Test.php">./tests/LINEBot</directory>
+        </testsuite>
+        <testsuite name="Laravel">
+            <directory suffix="Test.php">./tests/Laravel</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
     <php>
-        <env name="LINE_BOT_CHANNEL_ACCESS_TOKEN" value="test_channel_access_token"/>
-        <env name="LINE_BOT_CHANNEL_SECRET" value="test_channel_secret"/>
+        <server name="LINE_BOT_CHANNEL_ACCESS_TOKEN" value="test_channel_access_token"/>
+        <server name="LINE_BOT_CHANNEL_SECRET" value="test_channel_secret"/>
     </php>
 </phpunit>
-
