@@ -75,6 +75,16 @@ class LINEBot
     }
 
     /**
+     * Get basic information about bot.
+     *
+     * @return Response
+     */
+    public function getBotInfo()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/info');
+    }
+
+    /**
      * Gets specified user's profile through API calling.
      *
      * @param string $userId The user ID to retrieve profile.
@@ -775,7 +785,7 @@ class LINEBot
             ['Content-Type: application/x-www-form-urlencoded']
         );
     }
-    
+
     /**
      * Revoke channel access token
      *
