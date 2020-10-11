@@ -14,7 +14,7 @@
         </whitelist>
     </filter>
     <php>
-        <server name="LINE_BOT_CHANNEL_ACCESS_TOKEN" value="test_channel_access_token"/>
-        <server name="LINE_BOT_CHANNEL_SECRET" value="test_channel_secret"/>
+        <env name="LINE_BOT_CHANNEL_ACCESS_TOKEN" value="test_channel_access_token"/>
+        <env name="LINE_BOT_CHANNEL_SECRET" value="test_channel_secret"/>
     </php>
 </phpunit>

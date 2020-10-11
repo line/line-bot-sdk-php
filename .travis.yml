@@ -5,14 +5,23 @@ matrix:
     - php: 7.0
     - php: 7.1
     - php: 7.2
+    - php: 7.2
+      env: TESTBENCH=^4.0
     - php: 7.3
+    - php: 7.3
+      env: TESTBENCH=^5.0
     - php: 7.4
-before_install: >
-  php_version=$(php --version);
-  if  [ ${php_version:4:3} = '5.5' ]; then
-    composer self-update --rollback
-  fi
+    - php: 7.4
+      env: TESTBENCH=^6.0
+
+before_install:
+  - if [ "$TESTBENCH" != '' ]; then composer remove phpunit/phpunit orchestra/testbench --dev --no-update; fi
+  - if [ "$TESTBENCH" != '' ]; then composer require "orchestra/testbench=$TESTBENCH" --dev --no-update; fi
+
 install:
-  - COMPOSER_MEMORY_LIMIT=-1 composer update
-script: make check
+  - COMPOSER_MEMORY_LIMIT=-1 composer install --no-progress --no-suggest --optimize-autoloader
+
+script:
+  - if [ "$TESTBENCH" = '' ]; then make check; fi
+  - if [ "$TESTBENCH" != '' ]; then make laravel-test; fi
 sudo: false
