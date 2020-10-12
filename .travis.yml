@@ -25,5 +25,5 @@ install:
 
 script:
   - if [ "$TESTBENCH" = '' ]; then make check; fi
-  - if [ "$TESTBENCH" != '' ]; then make laravel-test; fi
+  - if [ "$TESTBENCH" != '' ]; then make laravel-check; fi
 sudo: false
