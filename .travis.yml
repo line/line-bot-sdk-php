@@ -14,9 +14,11 @@ matrix:
     - php: 7.4
       env: TESTBENCH=^6.0
 
-before_install:
-  - if [ "$TESTBENCH" != '' ]; then composer remove phpunit/phpunit orchestra/testbench --dev --no-update; fi
-  - if [ "$TESTBENCH" != '' ]; then composer require "orchestra/testbench=$TESTBENCH" --dev --no-update; fi
+before_install: >
+  if [ "$TESTBENCH" != '' ]; then
+    composer remove phpunit/phpunit orchestra/testbench --dev --no-update
+    composer require "orchestra/testbench=$TESTBENCH" --dev --no-update
+  fi
 
 install:
   - COMPOSER_MEMORY_LIMIT=-1 composer install --no-progress --no-suggest --optimize-autoloader
