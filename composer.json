@@ -41,7 +41,8 @@
     "phpunit/phpunit": "^4.8.36||^5||^6||^7",
     "phpmd/phpmd": "~2.9",
     "squizlabs/php_codesniffer": "~3.5",
-    "ext-posix": "*"
+    "ext-posix": "*",
+    "orchestra/testbench": "*"
   },
   "suggest": {
     "apigen/apigen": "Install with roave/better-reflection:dev-master to generate docs",
@@ -62,5 +63,15 @@
     "doc": "apigen generate src --destination docs",
     "cs": "phpcs --standard=PSR2 src tests examples/EchoBot/src examples/EchoBot/public examples/KitchenSink/src examples/KitchenSink/public",
     "md": "phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LINE\\Laravel\\LINEBotServiceProvider"
+      ],
+      "aliases": {
+        "LINEBot": "LINE\\Laravel\\Facade\\LINEBot"
+      }
+    }
   }
 }
