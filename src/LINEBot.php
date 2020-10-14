@@ -1159,4 +1159,40 @@ class LINEBot
             'authorityLevel' => $authorityLevel,
         ]);
     }
+
+    /**
+     * Get webhook endpoint information
+     *
+     * @return Response
+     */
+    public function getWebhookEndpointInfo()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/channel/webhook/endpoint');
+    }
+
+    /**
+     * Set webhook endpoint URL
+     *
+     * @param string $endpoint
+     * @return Response
+     */
+    public function setWebhookEndpoint($endpoint)
+    {
+        return $this->httpClient->put($this->endpointBase . '/v2/bot/channel/webhook/endpoint', [
+            'endpoint' => $endpoint,
+        ]);
+    }
+
+    /**
+     * Checks if the configured webhook endpoint can receive a test webhook event
+     *
+     * @param string $endpoint
+     * @return Response
+     */
+    public function testWebhookEndpoint($endpoint)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/channel/webhook/test', [
+            'endpoint' => $endpoint,
+        ]);
+    }
 }
