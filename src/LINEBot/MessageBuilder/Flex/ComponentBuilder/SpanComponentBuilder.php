@@ -88,6 +88,11 @@ class SpanComponentBuilder implements ComponentBuilder
     /**
      * Set size.
      *
+     * specifiable pixel and keyword.
+     * (e.g.
+     * pixel: 5px
+     * keyword: xxs (defined in ComponentFontSize)
+     *
      * @param ComponentFontSize|string|null $size
      * @return TextComponentBuilder
      */

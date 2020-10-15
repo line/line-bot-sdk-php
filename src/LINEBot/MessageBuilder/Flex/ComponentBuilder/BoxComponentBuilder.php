@@ -24,6 +24,9 @@ use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentType;
 use LINE\LINEBot\Constant\Flex\ComponentPosition;
+use LINE\LINEBot\Constant\Flex\ComponentJustifyContent;
+use LINE\LINEBot\Constant\Flex\ComponentAlignItems;
+use LINE\LINEBot\Constant\Flex\ComponentBackgroundType;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
@@ -81,6 +84,24 @@ class BoxComponentBuilder implements ComponentBuilder
     private $offsetStart;
     /** @var string */
     private $offsetEnd;
+
+    /** @var ComponentJustifyContent */
+    private $justifyContent;
+    /** @var ComponentAlignItems */
+    private $alignItems;
+
+    /** @var ComponentBackgroundType */
+    private $backgroundType;
+    /** @var string */
+    private $backgroundAngle;
+    /** @var string */
+    private $backgroundStartColor;
+    /** @var string */
+    private $backgroundEndColor;
+    /** @var string */
+    private $backgroundCenterColor;
+    /** @var string */
+    private $backgroundCenterPosition;
 
     /** @var array */
     private $component;
@@ -471,6 +492,114 @@ class BoxComponentBuilder implements ComponentBuilder
     }
 
     /**
+     * Set justifyContent
+     *
+     * @param string|ComponentJustifyContent|null $justifyContent
+     * @return $this
+     */
+    public function setJustifyContent($justifyContent)
+    {
+        $this->justifyContent = $justifyContent;
+        return $this;
+    }
+
+    /**
+     * Set alignItems
+     *
+     * @param string|ComponentAlignItems|null $alignItems
+     * @return $this
+     */
+    public function setAlignItems($alignItems)
+    {
+        $this->alignItems = $alignItems;
+        return $this;
+    }
+
+    /**
+     * Set backgroundType
+     *
+     * @param string|ComponentBackgroundType|null $backgroundType
+     * @return $this
+     */
+    public function setBackgroundType($backgroundType)
+    {
+        $this->backgroundType = $backgroundType;
+        return $this;
+    }
+
+    /**
+     * Set backgroundAngle
+     *
+     * specifiable "**deg".
+     * (e.g. 90deg, 23.5deg
+     *
+     * @param string $backgroundAngle
+     * @return $this
+     */
+    public function setBackgroundAngle($backgroundAngle)
+    {
+        $this->backgroundAngle = $backgroundAngle;
+        return $this;
+    }
+
+    /**
+     * Set backgroundStartColor
+     *
+     * Hex color string: #RRGGBB or #RRGGBBAA
+     *
+     * @param string $backgroundStartColor
+     * @return $this
+     */
+    public function setBackgroundStartColor($backgroundStartColor)
+    {
+        $this->backgroundStartColor = $backgroundStartColor;
+        return $this;
+    }
+
+    /**
+     * Set backgroundEndColor
+     *
+     * Hex color string: #RRGGBB or #RRGGBBAA
+     *
+     * @param string $backgroundEndColor
+     * @return $this
+     */
+    public function setBackgroundEndColor($backgroundEndColor)
+    {
+        $this->backgroundEndColor = $backgroundEndColor;
+        return $this;
+    }
+
+    /**
+     * Set backgroundCenterColor
+     *
+     * Hex color string: #RRGGBB or #RRGGBBAA
+     *
+     * @param string $backgroundCenterColor
+     * @return $this
+     */
+    public function setBackgroundCenterColor($backgroundCenterColor)
+    {
+        $this->backgroundCenterColor = $backgroundCenterColor;
+        return $this;
+    }
+
+    /**
+     * Set backgroundCenterPosition
+     *
+     * specifiable percentage (0%~100%).
+     * (e.g. 5%, 10.1%, 100%
+     *
+     * @param string $backgroundCenterPosition
+     * @return $this
+     */
+    public function setBackgroundCenterPosition($backgroundCenterPosition)
+    {
+        $this->backgroundCenterPosition = $backgroundCenterPosition;
+        return $this;
+    }
+
+    /**
      * Builds box component structure.
      *
      * @return array
@@ -480,6 +609,15 @@ class BoxComponentBuilder implements ComponentBuilder
         if (isset($this->component)) {
             return $this->component;
         }
+
+        $background = BuildUtil::removeNullElements([
+            'type' => $this->backgroundType,
+            'angle' => $this->backgroundAngle,
+            'startColor' => $this->backgroundStartColor,
+            'endColor' => $this->backgroundEndColor,
+            'centerColor' => $this->backgroundCenterColor,
+            'centerPosition' => $this->backgroundCenterPosition,
+        ]);
 
         $contents = array_map(function ($componentBuilder) {
             /** @var ComponentBuilder $componentBuilder */
@@ -510,6 +648,9 @@ class BoxComponentBuilder implements ComponentBuilder
             'offsetBottom' => $this->offsetBottom,
             'offsetStart' => $this->offsetStart,
             'offsetEnd' => $this->offsetEnd,
+            'justifyContent' => $this->justifyContent,
+            'alignItems' => $this->alignItems,
+            'background' => empty($background) ? null : $background,
         ]);
 
         return $this->component;
