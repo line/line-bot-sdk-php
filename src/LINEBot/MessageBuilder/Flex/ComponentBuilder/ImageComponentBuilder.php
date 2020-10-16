@@ -57,6 +57,8 @@ class ImageComponentBuilder implements ComponentBuilder
     private $backgroundColor;
     /** @var TemplateActionBuilder */
     private $actionBuilder;
+    /** @var bool */
+    private $animated;
 
     /** @var string */
     private $position;
@@ -80,7 +82,7 @@ class ImageComponentBuilder implements ComponentBuilder
      * @param ComponentMargin|null $margin
      * @param ComponentAlign|null $align
      * @param ComponentGravity|null $gravity
-     * @param ComponentImageSize|null $size
+     * @param ComponentImageSize|string|null $size
      * @param ComponentImageAspectRatio|null $aspectRatio
      * @param ComponentImageAspectMode|null $aspectMode
      * @param string|null $backgroundColor
@@ -182,6 +184,12 @@ class ImageComponentBuilder implements ComponentBuilder
 
     /**
      * Set size.
+     *
+     * specifiable percentage, pixel and keyword.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     * keyword: xxs (defined in ComponentImageSize)
      *
      * @param ComponentImageSize|string|null $size
      * @return ImageComponentBuilder
@@ -325,6 +333,21 @@ class ImageComponentBuilder implements ComponentBuilder
         $this->offsetEnd = $offsetEnd;
         return $this;
     }
+    
+    /**
+     * Set animated.
+     *
+     * When this is true, an animated image (APNG) plays.
+     * default: false
+     *
+     * @param bool $animated
+     * @return $this
+     */
+    public function setAnimated($animated = false)
+    {
+        $this->animated = $animated;
+        return $this;
+    }
 
     /**
      * Builds image component structure.
@@ -354,6 +377,7 @@ class ImageComponentBuilder implements ComponentBuilder
             'offsetBottom' => $this->offsetBottom,
             'offsetStart' => $this->offsetStart,
             'offsetEnd' => $this->offsetEnd,
+            'animated' => $this->animated,
         ]);
 
         return $this->component;
