@@ -20,5 +20,5 @@ namespace LINE\LINEBot\Constant;
 
 class Meta
 {
-    const VERSION = '5.1.0';
+    const VERSION = '6.0.0';
 }
