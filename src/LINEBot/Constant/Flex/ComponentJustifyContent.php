@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 LINE Corporation
+ * Copyright 2020 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -16,9 +16,14 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Constant;
+namespace LINE\LINEBot\Constant\Flex;
 
-class Meta
+class ComponentJustifyContent
 {
-    const VERSION = '6.0.0';
+    const FLEX_START = 'flex-start';
+    const FLEX_END = 'flex-end';
+    const CENTER = 'center';
+    const SPACE_BETWEEN = 'space-between';
+    const SPACE_AROUND = 'space-around';
+    const SPACE_EVENLY = 'space-evenly';
 }
