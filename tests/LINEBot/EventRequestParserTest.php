@@ -218,7 +218,8 @@ class EventRequestParserTest extends TestCase
     "type":"sticker",
     "packageId":"1",
     "stickerId":"2",
-    "stickerResourceType":"STATIC"
+    "stickerResourceType":"STATIC",
+    "keywords": ["a","b","c","d","e","f","g","h","i","j","k","l","m","n"]
    }
   },
   {
@@ -564,7 +565,7 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'UFdI/gt1zikYcRYGy9wW+R+XVtujLvfYxnZjLBzTSHs=',
+            '72gRU3rSwbF9yWd6+dqOK7IwIbDE+/TLu56PKoysdHE=',
             false
         );
 
@@ -720,6 +721,10 @@ JSON;
             $this->assertEquals(1, $event->getPackageId());
             $this->assertEquals(2, $event->getStickerId());
             $this->assertEquals(StickerResourceType::STATIC_IMAGE, $event->getStickerResourceType());
+            $this->assertEquals(
+                ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'],
+                $event->getKeywords()
+            );
         }
 
         {
