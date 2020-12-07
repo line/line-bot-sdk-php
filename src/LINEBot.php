@@ -75,6 +75,16 @@ class LINEBot
     }
 
     /**
+     * Get basic information about bot.
+     *
+     * @return Response
+     */
+    public function getBotInfo()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/info');
+    }
+
+    /**
      * Gets specified user's profile through API calling.
      *
      * @param string $userId The user ID to retrieve profile.
@@ -775,7 +785,7 @@ class LINEBot
             ['Content-Type: application/x-www-form-urlencoded']
         );
     }
-    
+
     /**
      * Revoke channel access token
      *
@@ -1147,6 +1157,42 @@ class LINEBot
     {
         return $this->httpClient->put($this->endpointBase . '/v2/bot/audienceGroup/authorityLevel', [
             'authorityLevel' => $authorityLevel,
+        ]);
+    }
+
+    /**
+     * Get webhook endpoint information
+     *
+     * @return Response
+     */
+    public function getWebhookEndpointInfo()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/channel/webhook/endpoint');
+    }
+
+    /**
+     * Set webhook endpoint URL
+     *
+     * @param string $endpoint
+     * @return Response
+     */
+    public function setWebhookEndpoint($endpoint)
+    {
+        return $this->httpClient->put($this->endpointBase . '/v2/bot/channel/webhook/endpoint', [
+            'endpoint' => $endpoint,
+        ]);
+    }
+
+    /**
+     * Checks if the configured webhook endpoint can receive a test webhook event
+     *
+     * @param string $endpoint
+     * @return Response
+     */
+    public function testWebhookEndpoint($endpoint)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/channel/webhook/test', [
+            'endpoint' => $endpoint,
         ]);
     }
 }

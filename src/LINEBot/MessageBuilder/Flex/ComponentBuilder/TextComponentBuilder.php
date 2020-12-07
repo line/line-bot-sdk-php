@@ -27,6 +27,7 @@ use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentType;
 use LINE\LINEBot\Constant\Flex\ComponentTextDecoration;
 use LINE\LINEBot\Constant\Flex\ComponentTextStyle;
+use LINE\LINEBot\Constant\Flex\ComponentAdjustMode;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
@@ -77,6 +78,9 @@ class TextComponentBuilder implements ComponentBuilder
     private $offsetStart;
     /** @var string */
     private $offsetEnd;
+
+    /** @var ComponentAdjustMode */
+    private $adjustMode;
 
     /** @var array */
     private $component;
@@ -170,6 +174,11 @@ class TextComponentBuilder implements ComponentBuilder
 
     /**
      * Set size.
+     *
+     * specifiable pixel and keyword.
+     * (e.g.
+     * pixel: 5px
+     * keyword: xxs (defined in ComponentFontSize)
      *
      * @param ComponentFontSize|string|null $size
      * @return TextComponentBuilder
@@ -375,6 +384,18 @@ class TextComponentBuilder implements ComponentBuilder
     }
 
     /**
+     * Set adjustMode
+     *
+     * @param ComponentAdjustMode|null $adjustMode
+     * @return $this
+     */
+    public function setAdjustMode($adjustMode)
+    {
+        $this->adjustMode = $adjustMode;
+        return $this;
+    }
+
+    /**
      * Set contents.
      *
      * @param array|null $contents array of SpanComponentBuilder
@@ -417,6 +438,7 @@ class TextComponentBuilder implements ComponentBuilder
             'offsetBottom' => $this->offsetBottom,
             'offsetStart' => $this->offsetStart,
             'offsetEnd' => $this->offsetEnd,
+            'adjustMode' => $this->adjustMode,
         ]);
 
         if (isset($this->contents)) {

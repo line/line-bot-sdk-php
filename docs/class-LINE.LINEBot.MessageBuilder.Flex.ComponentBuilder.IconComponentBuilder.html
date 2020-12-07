@@ -140,7 +140,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#___construct">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#66-72">__construct</a>( <span> string <span class="property-name">$url</span> </span>, <span> \ComponentMargin|null <span class="property-name">$margin</span> = <span class="php-keyword1">NULL</span></span>, <span> \ComponentIconSize|null <span class="property-name">$size</span> = <span class="php-keyword1">NULL</span></span>, <span> \ComponentIconAspectRatio|null <span class="property-name">$aspectRatio</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#66-72">__construct</a>( <span> string <span class="property-name">$url</span> </span>, <span> \ComponentMargin|null <span class="property-name">$margin</span> = <span class="php-keyword1">NULL</span></span>, <span> \ComponentIconSize|string|null <span class="property-name">$size</span> = <span class="php-keyword1">NULL</span></span>, <span> \ComponentIconAspectRatio|null <span class="property-name">$aspectRatio</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 IconComponentBuilder constructor.
@@ -268,10 +268,15 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setSize">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#114-118">setSize</a>( <span> \ComponentIconSize|string|null <span class="property-name">$size</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#119-123">setSize</a>( <span> \ComponentIconSize|string|null <span class="property-name">$size</span> </span> )</code>
 
             <div class="description">
                 Set size.
+
+specifiable pixel and keyword.
+(e.g.
+pixel: 5px
+keyword: xxs (defined in ComponentIconSize)
 
 
 
@@ -300,7 +305,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setAspectRatio">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#126-130">setAspectRatio</a>( <span> \ComponentIconAspectRatio|string|null <span class="property-name">$aspectRatio</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#131-135">setAspectRatio</a>( <span> \ComponentIconAspectRatio|string|null <span class="property-name">$aspectRatio</span> </span> )</code>
 
             <div class="description">
                 Set aspectRatio.
@@ -332,7 +337,7 @@
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setPosition">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#140-144">setPosition</a>( <span> string|\ComponentPosition|null <span class="property-name">$position</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#145-149">setPosition</a>( <span> string|\ComponentPosition|null <span class="property-name">$position</span> </span> )</code>
 
             <div class="description">
                 Set position.
@@ -366,7 +371,7 @@ specifiable relative or absolute
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setOffsetTop">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#158-162">setOffsetTop</a>( <span> string|\ComponentSpacing|null <span class="property-name">$offsetTop</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#163-167">setOffsetTop</a>( <span> string|\ComponentSpacing|null <span class="property-name">$offsetTop</span> </span> )</code>
 
             <div class="description">
                 Set offsetTop.
@@ -404,7 +409,7 @@ keyword: none (defined in ComponentSpacing)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setOffsetBottom">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#176-180">setOffsetBottom</a>( <span> string|\ComponentSpacing|null <span class="property-name">$offsetBottom</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#181-185">setOffsetBottom</a>( <span> string|\ComponentSpacing|null <span class="property-name">$offsetBottom</span> </span> )</code>
 
             <div class="description">
                 Set offsetBottom.
@@ -442,7 +447,7 @@ keyword: none (defined in ComponentSpacing)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setOffsetStart">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#194-198">setOffsetStart</a>( <span> string|\ComponentSpacing|null <span class="property-name">$offsetStart</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#199-203">setOffsetStart</a>( <span> string|\ComponentSpacing|null <span class="property-name">$offsetStart</span> </span> )</code>
 
             <div class="description">
                 Set offsetStart.
@@ -480,7 +485,7 @@ keyword: none (defined in ComponentSpacing)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setOffsetEnd">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#212-216">setOffsetEnd</a>( <span> string|\ComponentSpacing|null <span class="property-name">$offsetEnd</span> </span> )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#217-221">setOffsetEnd</a>( <span> string|\ComponentSpacing|null <span class="property-name">$offsetEnd</span> </span> )</code>
 
             <div class="description">
                 Set offsetEnd.
@@ -518,7 +523,7 @@ keyword: none (defined in ComponentSpacing)
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_build">#</a>
-            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#223-243">build</a>( )</code>
+            <code><a href="source-class-LINE.LINEBot.MessageBuilder.Flex.ComponentBuilder.IconComponentBuilder.html#228-248">build</a>( )</code>
 
             <div class="description">
                 Builds icon component structure.

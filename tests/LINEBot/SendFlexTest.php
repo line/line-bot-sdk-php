@@ -42,7 +42,6 @@ use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentButtonStyle;
 use LINE\LINEBot\Constant\Flex\ComponentButtonHeight;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpacerComponentBuilder;
 use LINE\LINEBot\Constant\Flex\ComponentSpaceSize;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\QuickReplyBuilder\ButtonBuilder\QuickReplyButtonBuilder;
@@ -349,12 +348,9 @@ JSON;
             "label": "WEBSITE",
             "uri": "https://example.com"
           }
-        },
-        {
-          "type": "spacer",
-          "size": "sm"
         }
       ],
+      "paddingBottom": "sm",
       "flex": 0
     }
   }
@@ -473,10 +469,9 @@ JSON;
                                                 'WEBSITE',
                                                 'https://example.com'
                                             )
-                                        ),
-                                    SpacerComponentBuilder::builder()
-                                        ->setSize(ComponentSpaceSize::SM)
+                                        )
                                 ])
+                                ->setPaddingBottom(ComponentSpacing::SM)
                         )
                 )
         );
@@ -633,11 +628,8 @@ JSON;
                                         'uri' => 'https://example.com'
                                     ]
                                 ],
-                                [
-                                    'type' => 'spacer',
-                                    'size' => 'sm'
-                                ]
                             ],
+                            'paddingBottom' => 'sm',
                             'flex' => 0
                         ]
                     ]

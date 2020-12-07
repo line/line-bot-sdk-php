@@ -27,6 +27,9 @@ use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
 use LINE\LINEBot\Constant\Flex\ComponentBorderWidth;
 use LINE\LINEBot\Constant\Flex\ComponentPosition;
+use LINE\LINEBot\Constant\Flex\ComponentBackgroundType;
+use LINE\LINEBot\Constant\Flex\ComponentJustifyContent;
+use LINE\LINEBot\Constant\Flex\ComponentAlignItems;
 
 class BoxComponentBuilderTest extends TestCase
 {
@@ -59,6 +62,12 @@ class BoxComponentBuilderTest extends TestCase
   "offsetBottom": "4%",
   "offsetStart": "none",
   "offsetEnd": "sm",
+  "justifyContent": "flex-start",
+  "alignItems": "center",
+  "background": {
+    "type": "linearGradient",
+    "centerColor": "#000000"
+  },
   "width":"5px",
   "height":"5%"
 }
@@ -90,6 +99,10 @@ JSON
             ->setOffsetBottom('4%')
             ->setOffsetStart(ComponentSpacing::NONE)
             ->setOffsetEnd(ComponentSpacing::SM)
+            ->setJustifyContent(ComponentJustifyContent::FLEX_START)
+            ->setAlignItems(ComponentAlignItems::CENTER)
+            ->setBackgroundType(ComponentBackgroundType::LINEAR_GRADIENT)
+            ->setBackgroundCenterColor('#000000')
             ->setWidth('5px')
             ->setHeight('5%');
         $this->assertEquals($result, $componentBuilder->build());
@@ -118,6 +131,10 @@ JSON
             ->setOffsetBottom('4%')
             ->setOffsetStart(ComponentSpacing::NONE)
             ->setOffsetEnd(ComponentSpacing::SM)
+            ->setJustifyContent(ComponentJustifyContent::FLEX_START)
+            ->setAlignItems(ComponentAlignItems::CENTER)
+            ->setBackgroundType(ComponentBackgroundType::LINEAR_GRADIENT)
+            ->setBackgroundCenterColor('#000000')
             ->setWidth('5px')
             ->setHeight('5%');
         $this->assertEquals($result, $componentBuilder->build());
