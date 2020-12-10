@@ -45,4 +45,37 @@ class ResponseTest extends TestCase
         $this->assertEquals('application/json', $headers['Content-Type']);
         $this->assertEquals('15', $headers['Content-Length']);
     }
+
+    public function testIsSucceeded()
+    {
+        $response = new Response(200, '{"body":"text"}', [
+            'Content-Type' => 'application/json',
+            'Content-Length' => '15',
+        ]);
+        $this->assertEquals(true, $response->isSucceeded());
+
+        $response = new Response(202, '{"body":"text"}', [
+            'Content-Type' => 'application/json',
+            'Content-Length' => '15',
+        ]);
+        $this->assertEquals(true, $response->isSucceeded());
+
+        $response = new Response(299, '{"body":"text"}', [
+            'Content-Type' => 'application/json',
+            'Content-Length' => '15',
+        ]);
+        $this->assertEquals(true, $response->isSucceeded());
+
+        $response = new Response(199, '{"body":"text"}', [
+            'Content-Type' => 'application/json',
+            'Content-Length' => '15',
+        ]);
+        $this->assertEquals(false, $response->isSucceeded());
+
+        $response = new Response(300, '{"body":"text"}', [
+            'Content-Type' => 'application/json',
+            'Content-Length' => '15',
+        ]);
+        $this->assertEquals(false, $response->isSucceeded());
+    }
 }
