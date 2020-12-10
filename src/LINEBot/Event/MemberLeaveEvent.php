@@ -38,7 +38,7 @@ class MemberLeaveEvent extends BaseEvent
     /**
      * Returns left members.
      *
-     * @return string
+     * @return array
      */
     public function getMembers()
     {
