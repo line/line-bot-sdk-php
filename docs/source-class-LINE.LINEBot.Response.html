@@ -122,7 +122,7 @@
 </span></span><span class="l" id="line-63"><span class="php-comment">     */</span>
 </span><span class="l" id="line-64">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isSucceeded()
 </span><span class="l" id="line-65">    {
-</span><span class="l" id="line-66">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;httpStatus === <span class="php-num">200</span>;
+</span><span class="l" id="line-66">        <span class="php-keyword1">return</span> <span class="php-num">200</span> &lt;= <span class="php-var">$this</span>-&gt;httpStatus &amp;&amp; <span class="php-var">$this</span>-&gt;httpStatus &lt;= <span class="php-num">299</span>;
 </span><span class="l" id="line-67">    }
 </span><span class="l" id="line-68">
 </span><span class="l" id="line-69">    <span class="php-comment">/**

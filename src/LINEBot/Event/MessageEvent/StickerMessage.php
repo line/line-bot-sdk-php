@@ -66,4 +66,19 @@ class StickerMessage extends MessageEvent
     {
         return $this->message['stickerResourceType'];
     }
+
+    /**
+     * Returns keywords
+     *
+     * List of up to 15 keywords describing the sticker.
+     * If a sticker has 16 or more keywords, a random selection of 15 keywords will be returned.
+     * The keyword selection is random for each event,
+     * so different keywords may be returned for the same sticker.
+     *
+     * @return string[]
+     */
+    public function getKeywords()
+    {
+        return $this->message['keywords'];
+    }
 }
