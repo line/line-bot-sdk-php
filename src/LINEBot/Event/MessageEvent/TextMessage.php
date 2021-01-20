@@ -84,7 +84,7 @@ class TextMessage extends MessageEvent
     /**
      * Returns mentioned user info list of the messages.
      *
-     * @return array
+     * @return array|null
      */
     public function getMentionees()
     {
