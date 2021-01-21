@@ -62,7 +62,7 @@ class EventRequestParserTest extends TestCase
    "message":{
     "id":"contentid",
     "type":"text",
-    "text":"@example Hello, world! (love)",
+    "text":"message (love)",
     "emojis": [
       {
         "index": 8,
@@ -70,16 +70,7 @@ class EventRequestParserTest extends TestCase
         "productId": "5ac1bfd5040ab15980c9b435",
         "emojiId": "001"
       }
-    ],
-    "mention": {
-      "mentionees": [
-        {
-          "index": 0,
-          "length": 8,
-          "userId": "U850014438e..."
-        }
-      ]
-    }
+    ]
    }
   },
   {
@@ -518,7 +509,7 @@ class EventRequestParserTest extends TestCase
      ]
     }
    }
-  },
+  },  
   {
    "type":"message",
    "mode":"active",
@@ -574,7 +565,7 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            '10vQN649KUf4gkVzjGUkIJOsdWpdbYgPAcL2Mj0FKS8=',
+            '72gRU3rSwbF9yWd6+dqOK7IwIbDE+/TLu56PKoysdHE=',
             false
         );
 
@@ -596,11 +587,7 @@ JSON;
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('contentid', $event->getMessageId());
             $this->assertEquals('text', $event->getMessageType());
-            $this->assertEquals('@example Hello, world! (love)', $event->getText());
-            $mentioneeInfo = $event->getMentionees()[0];
-            $this->assertEquals(0, $mentioneeInfo->getIndex());
-            $this->assertEquals(8, $mentioneeInfo->getLength());
-            $this->assertEquals('U850014438e...', $mentioneeInfo->getUserId());
+            $this->assertEquals('message (love)', $event->getText());
             $emojiInfo = $event->getEmojis()[0];
             $this->assertEquals(8, $emojiInfo->getIndex());
             $this->assertEquals(6, $emojiInfo->getLength());
