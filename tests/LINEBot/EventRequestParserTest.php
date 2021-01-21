@@ -1032,6 +1032,5 @@ JSON;
             $this->assertEquals(8, $mentioneeInfo->getLength());
             $this->assertEquals('U850014438e...', $mentioneeInfo->getUserId());
         }
-
     }
 }
