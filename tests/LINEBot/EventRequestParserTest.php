@@ -509,7 +509,7 @@ class EventRequestParserTest extends TestCase
      ]
     }
    }
-  },  
+  },
   {
    "type":"message",
    "mode":"active",
@@ -549,6 +549,30 @@ class EventRequestParserTest extends TestCase
     "trackingId": "track_id"
    },
    "replyToken":"replytoken"
+  },
+  {
+   "replyToken": "nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
+   "type": "message",
+   "mode": "active",
+   "timestamp": 1462629479859,
+   "source": {
+    "type": "user",
+    "userId": "U4af4980629..."
+   },
+   "message": {
+    "id": "325708",
+    "type": "text",
+    "text": "@example Hello, world! (love)",
+    "mention": {
+     "mentionees": [
+      {
+       "index": 0,
+       "length": 8,
+       "userId": "U850014438e..."
+      }
+     ]
+    }
+   }
   }
  ]
 }
@@ -565,13 +589,13 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            '72gRU3rSwbF9yWd6+dqOK7IwIbDE+/TLu56PKoysdHE=',
+            '+l5bcEKeyQMweR1OJMzTZHwHG5joak0RLFXhhSJQxNY=',
             false
         );
 
         $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
-        $this->assertEquals(count($events), 32);
+        $this->assertEquals(count($events), 33);
 
         {
             // text
@@ -987,5 +1011,27 @@ JSON;
             /** @var UnsendMessage $event */
             $this->assertEquals('track_id', $event->getTrackingId());
         }
+
+        {
+            // text
+            $event = $events[32];
+            $this->assertEquals(1462629479859, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($event->isUserEvent());
+            $this->assertEquals('U4af4980629...', $event->getUserId());
+            $this->assertEquals('U4af4980629...', $event->getEventSourceId());
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
+            /** @var TextMessage $event */
+            $this->assertEquals('nHuyWiB7yP5Zw52FIkcQobQuGDXCTA', $event->getReplyToken());
+            $this->assertEquals('325708', $event->getMessageId());
+            $this->assertEquals('text', $event->getMessageType());
+            $this->assertEquals('@example Hello, world! (love)', $event->getText());
+            $mentioneeInfo = $event->getMentionees()[0];
+            $this->assertEquals(0, $mentioneeInfo->getIndex());
+            $this->assertEquals(8, $mentioneeInfo->getLength());
+            $this->assertEquals('U850014438e...', $mentioneeInfo->getUserId());
+        }
+
     }
 }
