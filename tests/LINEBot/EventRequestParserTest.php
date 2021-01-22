@@ -627,7 +627,7 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'SNWNqnpLmzQqA1sgK0Zs/QJRZbxcT6g6Nsq6bR/+a8M=',
+            'Q4tp1jGo39vhlcbd4QiQ/9I+zoJDwGIkPP22wgoOjDI=',
             false
         );
 
@@ -1077,8 +1077,8 @@ JSON;
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertTrue($event->isUserEvent());
-            $this->assertEquals('U4af4980629...', $event->getUserId());
-            $this->assertEquals('U4af4980629...', $event->getEventSourceId());
+            $this->assertEquals('U0123456789abcd0123456789abcdef', $event->getUserId());
+            $this->assertEquals('U0123456789abcd0123456789abcdef', $event->getEventSourceId());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
             /** @var TextMessage $event */
@@ -1098,15 +1098,15 @@ JSON;
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertTrue($event->isUserEvent());
-            $this->assertEquals('U4af4980629...', $event->getUserId());
-            $this->assertEquals('U4af4980629...', $event->getEventSourceId());
+            $this->assertEquals('U0123456789abcd0123456789abcdef', $event->getUserId());
+            $this->assertEquals('U0123456789abcd0123456789abcdef', $event->getEventSourceId());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
             /** @var TextMessage $event */
             $this->assertEquals('nHuyWiB7yP5Zw52FIkcQobQuGDXCTA', $event->getReplyToken());
             $this->assertEquals('325708', $event->getMessageId());
             $this->assertEquals('text', $event->getMessageType());
-            $this->assertEquals('@example message without mention', $event->getText());
+            $this->assertEquals('message without mention', $event->getText());
             $this->assertEquals(null, $event->getMentionees());
         }
     }
