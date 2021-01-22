@@ -581,7 +581,7 @@ class EventRequestParserTest extends TestCase
    "timestamp": 1462629479859,
    "source": {
     "type": "user",
-    "userId": "U4af4980629..."
+    "userId": "U0123456789abcd0123456789abcdef"
    },
    "message": {
     "id": "325708",
@@ -604,12 +604,12 @@ class EventRequestParserTest extends TestCase
    "timestamp": 1462629479859,
    "source": {
     "type": "user",
-    "userId": "U4af4980629..."
+    "userId": "U0123456789abcd0123456789abcdef"
    },
    "message": {
     "id": "325708",
     "type": "text",
-    "text": "@example message without mention"
+    "text": "message without mention"
    }
   }
  ]
