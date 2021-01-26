@@ -54,7 +54,7 @@ class MentioneeInfo
     /**
      * Returns length of the text of the mentioned user.
      *
-     * @return string
+     * @return int
      */
     public function getLength()
     {
@@ -64,7 +64,7 @@ class MentioneeInfo
     /**
      * Returns User ID of the mentioned user.
      *
-     * @return string
+     * @return string|null
      */
     public function getUserId()
     {
