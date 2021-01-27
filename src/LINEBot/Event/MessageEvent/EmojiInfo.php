@@ -55,7 +55,7 @@ class EmojiInfo
     /**
      * Returns length of emoji.
      *
-     * @return string
+     * @return int
      */
     public function getLength()
     {
