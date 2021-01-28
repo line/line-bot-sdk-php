@@ -63,8 +63,8 @@ class CarouselColumnTemplateBuilder implements TemplateBuilder
         $thumbnailImageUrl,
         array $actionBuilders,
         $imageBackgroundColor = null,
-        TemplateActionBuilder $defaultAction = null)
-    {
+        TemplateActionBuilder $defaultAction = null
+    ) {
         $this->title = $title;
         $this->text = $text;
         $this->thumbnailImageUrl = $thumbnailImageUrl;
