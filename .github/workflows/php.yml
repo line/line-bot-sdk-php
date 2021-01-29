@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4']
+        php: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0']
 
     steps:
     - name: Setup PHP ${{ matrix.php }}
@@ -17,9 +17,6 @@ jobs:
         php-version: ${{ matrix.php }}
     
     - uses: actions/checkout@v2
-
-    - name: Install dependencies
-      run: COMPOSER_MEMORY_LIMIT=-1 composer update
 
     - name: Cache Composer packages
       id: composer-cache
@@ -32,7 +29,7 @@ jobs:
 
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
-      run: composer install --prefer-dist --no-progress --no-suggest
+      run: COMPOSER_MEMORY_LIMIT=-1 composer update --prefer-dist
 
     - name: Run test
       run: make check
