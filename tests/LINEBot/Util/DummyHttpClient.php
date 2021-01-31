@@ -20,6 +20,7 @@ namespace LINE\Tests\LINEBot\Util;
 
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\Response;
+use phpDocumentor\Reflection\Types\Integer;
 use PHPUnit\Framework\TestCase;
 
 class DummyHttpClient implements HTTPClient
@@ -28,11 +29,14 @@ class DummyHttpClient implements HTTPClient
     private $testRunner;
     /** @var \Closure */
     private $mock;
+    /** @var int */
+    private $statusCode;
 
-    public function __construct(TestCase $testRunner, \Closure $mock)
+    public function __construct(TestCase $testRunner, \Closure $mock, $statusCode = 200)
     {
         $this->testRunner = $testRunner;
         $this->mock = $mock;
+        $this->statusCode = $statusCode;
     }
 
     /**
@@ -44,7 +48,7 @@ class DummyHttpClient implements HTTPClient
     public function get($url, array $data = [], array $headers = [])
     {
         $ret = call_user_func($this->mock, $this->testRunner, 'GET', $url, is_null($data) ? [] : $data);
-        return new Response(200, json_encode($ret));
+        return new Response($this->statusCode, json_encode($ret));
     }
 
     /**
@@ -56,7 +60,7 @@ class DummyHttpClient implements HTTPClient
     public function post($url, array $data, array $headers = null)
     {
         $ret = call_user_func($this->mock, $this->testRunner, 'POST', $url, $data, $headers);
-        return new Response(200, json_encode($ret));
+        return new Response($this->statusCode, json_encode($ret));
     }
 
     /**
@@ -70,7 +74,7 @@ class DummyHttpClient implements HTTPClient
     public function put($url, array $data, array $headers = null)
     {
         $ret = call_user_func($this->mock, $this->testRunner, 'PUT', $url, $data, $headers);
-        return new Response(200, json_encode($ret));
+        return new Response($this->statusCode, json_encode($ret));
     }
 
     /**
@@ -81,6 +85,6 @@ class DummyHttpClient implements HTTPClient
     public function delete($url, $data = null)
     {
         $ret = call_user_func($this->mock, $this->testRunner, 'DELETE', $url, is_null($data) ? [] : $data);
-        return new Response(200, json_encode($ret));
+        return new Response($this->statusCode, json_encode($ret));
     }
 }
