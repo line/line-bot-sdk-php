@@ -1161,7 +1161,7 @@ class LINEBot
     }
 
     /**
-     * activate the audience
+     * Activate the audience
      *
      * @param int $audienceGroupId The audience ID.
      * @return Response
