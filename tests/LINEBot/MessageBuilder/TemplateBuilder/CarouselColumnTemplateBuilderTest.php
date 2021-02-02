@@ -88,6 +88,36 @@ JSON
 }
 JSON
         ],
+        [
+            'param' => ['aaa', 'bbb', 'ccc', ['postback'], 'ddd', 'message'],
+            'json' => <<<JSON
+{
+  "thumbnailImageUrl":"ccc",
+  "title":"aaa",
+  "text":"bbb",
+  "actions":[
+    {"type":"postback","label":"AAA","data":"BBB"}
+  ],
+  "imageBackgroundColor":"ddd",
+  "defaultAction":{"type":"message","label":"CCC","text":"DDD"}
+}
+JSON
+        ],
+        [
+            'param' => ['aaa', 'bbb', 'ccc', ['postback'], 'ddd', 'postback'],
+            'json' => <<<JSON
+{
+  "thumbnailImageUrl":"ccc",
+  "title":"aaa",
+  "text":"bbb",
+  "actions":[
+    {"type":"postback","label":"AAA","data":"BBB"}
+  ],
+  "imageBackgroundColor":"ddd",
+  "defaultAction":{"type":"postback","label":"AAA","data":"BBB"}
+}
+JSON
+        ],
     ];
 
     public function test()
