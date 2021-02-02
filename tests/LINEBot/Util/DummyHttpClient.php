@@ -20,7 +20,6 @@ namespace LINE\Tests\LINEBot\Util;
 
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\Response;
-use phpDocumentor\Reflection\Types\Integer;
 use PHPUnit\Framework\TestCase;
 
 class DummyHttpClient implements HTTPClient
