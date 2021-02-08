@@ -73,6 +73,51 @@ JSON
 }
 JSON
         ],
+        [
+            'param' => ['aaa', 'bbb', 'ccc', ['postback'], 'ddd', 'uri'],
+            'json' => <<<JSON
+{
+  "thumbnailImageUrl":"ccc",
+  "title":"aaa",
+  "text":"bbb",
+  "actions":[
+    {"type":"postback","label":"AAA","data":"BBB"}
+  ],
+  "imageBackgroundColor":"ddd",
+  "defaultAction":{"type":"uri","label":"EEE","uri":"FFF"}
+}
+JSON
+        ],
+        [
+            'param' => ['aaa', 'bbb', 'ccc', ['postback'], 'ddd', 'message'],
+            'json' => <<<JSON
+{
+  "thumbnailImageUrl":"ccc",
+  "title":"aaa",
+  "text":"bbb",
+  "actions":[
+    {"type":"postback","label":"AAA","data":"BBB"}
+  ],
+  "imageBackgroundColor":"ddd",
+  "defaultAction":{"type":"message","label":"CCC","text":"DDD"}
+}
+JSON
+        ],
+        [
+            'param' => ['aaa', 'bbb', 'ccc', ['postback'], 'ddd', 'postback'],
+            'json' => <<<JSON
+{
+  "thumbnailImageUrl":"ccc",
+  "title":"aaa",
+  "text":"bbb",
+  "actions":[
+    {"type":"postback","label":"AAA","data":"BBB"}
+  ],
+  "imageBackgroundColor":"ddd",
+  "defaultAction":{"type":"postback","label":"AAA","data":"BBB"}
+}
+JSON
+        ],
     ];
 
     public function test()
@@ -100,6 +145,20 @@ JSON
                 $actionBuilders = null;
             }
             $imageBackgroundColor = isset($t['param'][4]) ? $t['param'][4] : null;
+            $defaultAction = null;
+            if (isset($t['param'][5])) {
+                switch ($t['param'][5]) {
+                    case 'postback':
+                        $defaultAction = $postbackActionBuilder;
+                        break;
+                    case 'message':
+                        $defaultAction = $messageTemplateActionBuilder;
+                        break;
+                    case 'uri':
+                        $defaultAction = $uriTemplateActionBuilder;
+                        break;
+                }
+            }
 
             if (count($t['param']) == 5) {
                 $builder = new CarouselColumnTemplateBuilder(
@@ -108,6 +167,15 @@ JSON
                     $thumbnailImageUrl,
                     $actionBuilders,
                     $imageBackgroundColor
+                );
+            } elseif (count($t['param']) == 6) {
+                $builder = new CarouselColumnTemplateBuilder(
+                    $title,
+                    $text,
+                    $thumbnailImageUrl,
+                    $actionBuilders,
+                    $imageBackgroundColor,
+                    $defaultAction
                 );
             } else {
                 $builder = new CarouselColumnTemplateBuilder(
