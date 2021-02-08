@@ -572,4 +572,43 @@ class ManagementAudienceTest extends TestCase
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());
     }
+
+    public function testActivateAudience202()
+    {
+        $audienceGroupId = "4389303728991";
+        $mock = function ($testRunner, $httpMethod, $url, $data) use ($audienceGroupId) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('PUT', $httpMethod);
+            $testRunner->assertEquals("https://api.line.me/v2/bot/audienceGroup/{$audienceGroupId}/activate", $url);
+            return [];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock, 202), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->activateAudience($audienceGroupId);
+
+        $this->assertEquals(202, $res->getHTTPStatus());
+        $this->assertTrue($res->isSucceeded());
+    }
+
+    public function testActivateAudience400()
+    {
+        $audienceGroupId = "4389303728991";
+        $mock = function ($testRunner, $httpMethod, $url, $data) use ($audienceGroupId) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('PUT', $httpMethod);
+            $testRunner->assertEquals("https://api.line.me/v2/bot/audienceGroup/{$audienceGroupId}/activate", $url);
+            return [
+                'status' => 400,
+                'message' => 'ERROR MESSAGE.',
+                'details' => 'ALREADY_ACTIVE',
+            ];
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock, 400), ['channelSecret' => 'CHANNEL-SECRET']);
+        $res = $bot->activateAudience($audienceGroupId);
+
+        $this->assertEquals(400, $res->getHTTPStatus());
+        $this->assertFalse($res->isSucceeded());
+        $data = $res->getJSONDecodedBody();
+        $this->assertEquals('ERROR MESSAGE.', $data['message']);
+        $this->assertEquals('ALREADY_ACTIVE', $data['details']);
+    }
 }
