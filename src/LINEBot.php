@@ -1161,6 +1161,18 @@ class LINEBot
     }
 
     /**
+     * Activate the audience
+     *
+     * @param int $audienceGroupId The audience ID.
+     * @return Response
+     */
+    public function activateAudience($audienceGroupId)
+    {
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/activate', urlencode($audienceGroupId));
+        return $this->httpClient->put($url, []);
+    }
+
+    /**
      * Get webhook endpoint information
      *
      * @return Response
