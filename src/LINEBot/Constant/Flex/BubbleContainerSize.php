@@ -18,7 +18,7 @@
 
 namespace LINE\LINEBot\Constant\Flex;
 
-class BubleContainerSize
+class BubbleContainerSize
 {
     const NANO = 'nano';
     const MICRO = 'micro';
