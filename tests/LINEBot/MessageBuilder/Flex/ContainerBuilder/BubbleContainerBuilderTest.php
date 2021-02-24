@@ -19,7 +19,7 @@ namespace LINE\Tests\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\Constant\Flex\ContainerDirection;
-use LINE\LINEBot\Constant\Flex\BubleContainerSize;
+use LINE\LINEBot\Constant\Flex\BubbleContainerSize;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\BubbleContainerBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
