@@ -80,13 +80,13 @@ JSON;
             new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('body')]),
             new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('footer')]),
             BubbleStylesBuilder::builder()->setBody(new BlockStyleBuilder(null, true, '#000000')),
-            BubleContainerSize::GIGA
+            BubbleContainerSize::GIGA
         );
         $this->assertEquals(json_decode($json, true), $builder->build());
 
         $builder = BubbleContainerBuilder::builder()
             ->setDirection(ContainerDirection::LTR)
-            ->setSize(BubleContainerSize::GIGA)
+            ->setSize(BubbleContainerSize::GIGA)
             ->setHeader(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('header')]))
             ->setHero(new ImageComponentBuilder('https://example.com/hero.png'))
             ->setBody(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('body')]))
@@ -151,14 +151,14 @@ JSON;
             new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('body')]),
             new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('footer')]),
             BubbleStylesBuilder::builder()->setBody(new BlockStyleBuilder(null, true, '#000000')),
-            BubleContainerSize::GIGA
+            BubbleContainerSize::GIGA
         );
         $builder->setAction(new UriTemplateActionBuilder('OK', 'http://linecorp.com/'));
         $this->assertEquals(json_decode($json, true), $builder->build());
 
         $builder = BubbleContainerBuilder::builder()
             ->setDirection(ContainerDirection::LTR)
-            ->setSize(BubleContainerSize::GIGA)
+            ->setSize(BubbleContainerSize::GIGA)
             ->setHeader(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('header')]))
             ->setHero(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('header')]))
             ->setBody(new BoxComponentBuilder(ComponentLayout::VERTICAL, [new TextComponentBuilder('body')]))
