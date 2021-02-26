@@ -36,6 +36,10 @@ class CurlHTTPClient implements HTTPClient
     private $authHeaders;
     /** @var array */
     private $userAgentHeader;
+    /** @var int|null */
+    private $timeout;
+    /** @var int|null */
+    private $connectTimeout;
 
     /**
      * CurlHTTPClient constructor.
@@ -111,6 +115,26 @@ class CurlHTTPClient implements HTTPClient
     }
 
     /**
+     * set curl timeout second
+     *
+     * @param int|null $timeout timeout(sec)
+     */
+    public function setTimeout($timeout)
+    {
+        $this->timeout = $timeout;
+    }
+
+    /**
+     * set curl connect timeout second
+     *
+     * @param int|null $connectTimeout connectTimeout(sec)
+     */
+    public function setConnectTimeout($connectTimeout)
+    {
+        $this->connectTimeout = $connectTimeout;
+    }
+
+    /**
      * @param string $method
      * @param array $headers
      * @param string|null $reqBody
@@ -157,6 +181,12 @@ class CurlHTTPClient implements HTTPClient
             } else {
                 $options[CURLOPT_POSTFIELDS] = $reqBody;
             }
+        }
+        if (!is_null($this->timeout)) {
+            $options[CURLOPT_TIMEOUT] = $this->timeout;
+        }
+        if (!is_null($this->connectTimeout)) {
+            $options[CURLOPT_CONNECTTIMEOUT] = $this->connectTimeout;
         }
         return $options;
     }
