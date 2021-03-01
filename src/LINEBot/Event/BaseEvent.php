@@ -194,4 +194,14 @@ class BaseEvent
         # Unknown event
         return null;
     }
+
+    /**
+     * Returns the instance as an array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->event;
+    }
 }
