@@ -98,8 +98,8 @@ class LINEBot
     /**
      * Gets the list of User IDs of users who have added your LINE Official Account as a friend.
      * These users' IDs won't be included in the obtained list of user IDs:
-     * ・ Users who blocked the target LINE Official Account after adding it as a friend.
-     * ・ Users who haven't consented to their profile information being obtained.
+     * - Users who blocked the target LINE Official Account after adding it as a friend.
+     * - Users who haven't consented to their profile information being obtained.
      *
      * This feature is only available for LINE@ Approved accounts or official accounts.
      *
