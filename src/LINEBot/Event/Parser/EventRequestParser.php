@@ -18,6 +18,7 @@
 
 namespace LINE\LINEBot\Event\Parser;
 
+use LINE\LINEBot\Event\BaseEvent;
 use LINE\LINEBot\Event\MessageEvent;
 use LINE\LINEBot\Event\MessageEvent\UnknownMessage;
 use LINE\LINEBot\Event\UnknownEvent;
@@ -79,22 +80,7 @@ class EventRequestParser
         }
 
         foreach ($parsedReq['events'] as $eventData) {
-            $eventType = $eventData['type'];
-
-            if (!isset(self::$eventType2class[$eventType])) {
-                # Unknown event has come
-                $events[] = new UnknownEvent($eventData);
-                continue;
-            }
-
-            $eventClass = self::$eventType2class[$eventType];
-
-            if ($eventType === 'message') {
-                $events[] = self::parseMessageEvent($eventData);
-                continue;
-            }
-
-            $events[] = new $eventClass($eventData);
+            $events[] = self::parseEvent($eventData);
         }
 
         if ($eventsOnly) {
@@ -107,6 +93,28 @@ class EventRequestParser
         }
 
         return [$parsedReq['destination'], $events];
+    }
+
+    /**
+     * @param array $eventData
+     * @return BaseEvent
+     */
+    private static function parseEvent($eventData)
+    {
+        $eventType = $eventData['type'];
+
+        if (!isset(self::$eventType2class[$eventType])) {
+            # Unknown event has come
+            return new UnknownEvent($eventData);
+        }
+
+        $eventClass = self::$eventType2class[$eventType];
+
+        if ($eventType === 'message') {
+            return self::parseMessageEvent($eventData);
+        }
+
+        return new $eventClass($eventData);
     }
 
     /**
