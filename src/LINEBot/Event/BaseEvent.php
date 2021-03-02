@@ -196,7 +196,7 @@ class BaseEvent
     }
 
     /**
-     * Returns raw array of the event.
+     * Returns event
      *
      * @return array
      */
