@@ -196,11 +196,11 @@ class BaseEvent
     }
 
     /**
-     * Returns the instance as an array.
+     * Returns raw array of the event.
      *
      * @return array
      */
-    public function toArray()
+    public function getEvent()
     {
         return $this->event;
     }
