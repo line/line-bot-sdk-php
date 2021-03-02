@@ -644,7 +644,7 @@ JSON;
             $this->assertTrue($event->isUserEvent());
             $this->assertEquals('userid', $event->getUserId());
             $this->assertEquals('userid', $event->getEventSourceId());
-            $this->assertEquals($eventArrays[0], $event->toArray());
+            $this->assertEquals($eventArrays[0], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
             /** @var TextMessage $event */
