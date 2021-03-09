@@ -17,6 +17,13 @@
  */
 
 $body = file_get_contents('php://input');
+
+/** responseDelay url paramter define delay of response.(millisecond) */
+$delayMs = isset($_GET["responseDelay"]) ? $_GET["responseDelay"] : null;
+if (!is_null($delayMs)) {
+    usleep($delayMs * 1000);
+}
+
 header('Content-Type: application/json');
 echo json_encode(array(
     'Body'    => isset($_SERVER['HTTP_CONTENT_TYPE']) && strpos($_SERVER['HTTP_CONTENT_TYPE'], 'image/') === 0 ?
