@@ -96,6 +96,50 @@ class LINEBot
     }
 
     /**
+     * Gets the list of User IDs of users who have added your LINE Official Account as a friend.
+     * These users' IDs won't be included in the obtained list of user IDs:
+     * - Users who blocked the target LINE Official Account after adding it as a friend.
+     * - Users who haven't consented to their profile information being obtained.
+     *
+     * This feature is only available for LINE@ Approved accounts or official accounts.
+     *
+     * @param string|null $start continuationToken
+     * @return Response
+     */
+    public function getFollowerIds($start = null)
+    {
+        $params = is_null($start) ? [] : ['start' => $start];
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/followers/ids', $params);
+    }
+
+    /**
+     * Gets the list of User IDs of users who have added your LINE Official Account as a friend.
+     * These users' IDs won't be included in the obtained list of user IDs:
+     * - Users who blocked the target LINE Official Account after adding it as a friend.
+     * - Users who haven't consented to their profile information being obtained.
+     *
+     * This method gets all of followers by calling getFollowerIds() continually using token
+     *
+     * This feature is only available for LINE@ Approved accounts or official accounts.
+     *
+     * @return array userIds
+     * @see \LINE\LINEBot::getFollowerIds()
+     */
+    public function getAllFollowerIds()
+    {
+        $userIds = [];
+        $continuationToken = null;
+        do {
+            $response = $this->getFollowerIds($continuationToken);
+            $data = $response->getJSONDecodedBody();
+            $userIds = array_merge($userIds, $data['userIds']);
+            $continuationToken = isset($data['next']) ? $data['next'] : null;
+        } while ($continuationToken);
+
+        return $userIds;
+    }
+
+    /**
      * Gets message content which is associated with specified message ID.
      *
      * @param string $messageId The message ID to retrieve content.
@@ -330,7 +374,7 @@ class LINEBot
      * This feature is only available for LINE@ Approved accounts or official accounts.
      *
      * @param string $groupId Identifier of the group
-     * @param string $start continuationToken
+     * @param string|null $start continuationToken
      * @return Response
      */
     public function getGroupMemberIds($groupId, $start = null)
@@ -347,7 +391,7 @@ class LINEBot
      * This feature is only available for LINE@ Approved accounts or official accounts.
      *
      * @param string $roomId Identifier of the room
-     * @param string $start continuationToken
+     * @param string|null $start continuationToken
      * @return Response
      */
     public function getRoomMemberIds($roomId, $start = null)
