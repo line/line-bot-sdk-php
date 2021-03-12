@@ -19,9 +19,8 @@
 $body = file_get_contents('php://input');
 
 /** responseDelay url paramter define delay of response.(millisecond) */
-$delayMs = isset($_GET["responseDelay"]) ? $_GET["responseDelay"] : null;
-if (!is_null($delayMs)) {
-    usleep($delayMs * 1000);
+if (isset($_GET["responseDelay"]) && is_numeric($_GET["responseDelay"])) {
+    usleep($_GET["responseDelay"]) * 1000);
 }
 
 header('Content-Type: application/json');
