@@ -78,7 +78,7 @@ class AggregationUnitTest extends TestCase
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
 
-        $res = $bot->getStaticsPerUnit(
+        $res = $bot->getUserInteractionStatisticsPerUnit(
             'promotion_a',
             '20210301',
             '20210302'

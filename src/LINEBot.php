@@ -1276,7 +1276,7 @@ class LINEBot
      * @param string $to End date of aggregation period
      * @return Response
      */
-    public function getStaticsPerUnit($customAggregationUnit, $from, $to)
+    public function getUserInteractionStatisticsPerUnit($customAggregationUnit, $from, $to)
     {
         return $this->httpClient->get($this->endpointBase . 'v2/bot/insight/message/event/aggregation', [
             'customAggregationUnit' => $customAggregationUnit,
