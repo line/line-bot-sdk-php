@@ -1278,7 +1278,7 @@ class LINEBot
      */
     public function getUserInteractionStatisticsPerUnit($customAggregationUnit, $from, $to)
     {
-        return $this->httpClient->get($this->endpointBase . 'v2/bot/insight/message/event/aggregation', [
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/insight/message/event/aggregation', [
             'customAggregationUnit' => $customAggregationUnit,
             'from' => $from,
             'to' => $to,
@@ -1311,6 +1311,6 @@ class LINEBot
         if (isset($start)) {
             $data['start'] = $start;
         }
-        return $this->httpClient->get($this->endpointBase . 'v2/bot/insight/message/event/aggregation', $data);
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/insight/message/event/aggregation', $data);
     }
 }
