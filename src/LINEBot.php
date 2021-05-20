@@ -1267,4 +1267,50 @@ class LINEBot
             'endpoint' => $endpoint,
         ]);
     }
+
+    /**
+     * Get the per-unit statistics of how users interact with push messages and multicast messages sent from your LINE Official Account.
+     *
+     * @param string $customAggregationUnit Name of aggregation unit
+     * @param string $from Start date of aggregation period
+     * @param string $to End date of aggregation period
+     * @return Response
+     */
+    public function getStaticsPerUnit($customAggregationUnit, $from, $to)
+    {
+        return $this->httpClient->get($this->endpointBase . 'v2/bot/insight/message/event/aggregation', [
+            'customAggregationUnit' => $customAggregationUnit,
+            'from' => $from,
+            'to' => $to,
+        ]);
+    }
+
+    /**
+     * Get the number of aggregation units used this month.
+     *
+     * @return Response
+     */
+    public function getNumberOfUnitsUsedThisMonth()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/message/aggregation/info');
+    }
+
+    /**
+     * Get the name list of units used this month for statistics aggregation.
+     *
+     * @param string|null $limit
+     * @param string|null $start
+     * @return Response
+     */
+    public function getNameListOfUnitsUsedThisMonth($limit = null, $start = null)
+    {
+        $data = [];
+        if (isset($limit)) {
+            $data['limit'] = $limit;
+        }
+        if (isset($start)) {
+            $data['start'] = $start;
+        }
+        return $this->httpClient->get($this->endpointBase . 'v2/bot/insight/message/event/aggregation', $data);
+    }
 }
