@@ -89,7 +89,7 @@ class AggregationUnitTest extends TestCase
 
         $data = $res->getJSONDecodedBody();
         $this->assertEquals(40, $data['overview']['uniqueImpression']);
-        $this->assertEquals(30, $data['overview']['uniqueClick']);
+        $this->assertEquals(39, $data['overview']['uniqueClick']);
         $this->assertEquals(25, $data['overview']['uniqueMediaPlayed']);
         $this->assertEquals(null, $data['overview']['uniqueMediaPlayed100Percent']);
         $this->assertEquals(1, count($data['messages']));
