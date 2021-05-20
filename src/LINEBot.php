@@ -227,19 +227,29 @@ class LINEBot
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
+     * @param array|null $customAggregationUnits Name of aggregation unit.
      * @return Response
      */
-    public function pushMessage($to, MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
-    {
+    public function pushMessage(
+        $to,
+        MessageBuilder $messageBuilder,
+        $notificationDisabled = false,
+        $retryKey = null,
+        $customAggregationUnits = null
+    ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
             $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
         }
-        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
+        $params = [
             'to' => $to,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ], $headers);
+        ];
+        if (!empty($customAggregationUnits)) {
+            $params['customAggregationUnits'] = $customAggregationUnits;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', $params, $headers);
     }
 
     /**
@@ -249,23 +259,29 @@ class LINEBot
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
+     * @param array|null $customAggregationUnits Name of aggregation unit.
      * @return Response
      */
     public function multicast(
         array $tos,
         MessageBuilder $messageBuilder,
         $notificationDisabled = false,
-        $retryKey = null
+        $retryKey = null,
+        $customAggregationUnits = null
     ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
             $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
         }
-        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
+        $params = [
             'to' => $tos,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ], $headers);
+        ];
+        if (!empty($customAggregationUnits)) {
+            $params['customAggregationUnits'] = $customAggregationUnits;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', $params, $headers);
     }
 
     /**
