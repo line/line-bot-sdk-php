@@ -1269,7 +1269,9 @@ class LINEBot
     }
 
     /**
-     * Get the per-unit statistics of how users interact with push messages and multicast messages sent from your LINE Official Account.
+     * Get the per-unit statistics of how users interact
+     * with push messages and multicast messages
+     * sent from your LINE Official Account.
      *
      * @param string $customAggregationUnit Name of aggregation unit
      * @param string $from Start date of aggregation period
