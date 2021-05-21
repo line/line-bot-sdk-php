@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2020 LINE Corporation
+ * Copyright 2021 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the 'License'); you may not use this file except in compliance
@@ -160,6 +160,7 @@ class AggregationUnitTest extends TestCase
 
         $data = $res->getJSONDecodedBody();
         $this->assertEquals(['promotion_a', 'promotion_b'], $data['customAggregationUnits']);
+        $this->assertFalse(isset($data['next']));
 
         // Test: with params
         $mock = function ($testRunner, $httpMethod, $url, $data) {
@@ -186,5 +187,30 @@ class AggregationUnitTest extends TestCase
         $data = $res->getJSONDecodedBody();
         $this->assertEquals(['promotion_a', 'promotion_b'], $data['customAggregationUnits']);
         $this->assertEquals('jxEWCEEP2...', $data['next']);
+
+        // test getAllNameListOfUnitsUsedThisMonth()
+        $mock = function ($testRunner, $httpMethod, $url, $data) {
+            /** @var \PHPUnit\Framework\TestCase $testRunner */
+            $testRunner->assertEquals('GET', $httpMethod);
+            $testRunner->assertEquals('https://api.line.me/v2/bot/insight/message/event/aggregation', $url);
+
+            if (isset($data['start'])) {
+                $testRunner->assertEquals(['start' => 'jxEWCEEP...'], $data);
+                return [
+                    'customAggregationUnits' => ['promotion_c', 'promotion_d']
+                ];
+            } else {
+                return [
+                    'customAggregationUnits' => ['promotion_a', 'promotion_b'],
+                    'next' => 'jxEWCEEP...',
+                ];
+            }
+        };
+        $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
+        $nameList = $bot->getAllNameListOfUnitsUsedThisMonth();
+        $this->assertEquals(
+            ['promotion_a', 'promotion_b', 'promotion_c', 'promotion_d'],
+            $nameList
+        );
     }
 }

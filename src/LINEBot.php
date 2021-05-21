@@ -227,7 +227,7 @@ class LINEBot
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
-     * @param array|null $customAggregationUnits Name of aggregation unit.
+     * @param array $customAggregationUnits Name of aggregation unit.
      * @return Response
      */
     public function pushMessage(
@@ -235,7 +235,7 @@ class LINEBot
         MessageBuilder $messageBuilder,
         $notificationDisabled = false,
         $retryKey = null,
-        $customAggregationUnits = null
+        array $customAggregationUnits = array()
     ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
@@ -259,7 +259,7 @@ class LINEBot
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
-     * @param array|null $customAggregationUnits Name of aggregation unit.
+     * @param array $customAggregationUnits Name of aggregation unit.
      * @return Response
      */
     public function multicast(
@@ -267,7 +267,7 @@ class LINEBot
         MessageBuilder $messageBuilder,
         $notificationDisabled = false,
         $retryKey = null,
-        $customAggregationUnits = null
+        array $customAggregationUnits = array()
     ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
@@ -1314,5 +1314,28 @@ class LINEBot
             $data['start'] = $start;
         }
         return $this->httpClient->get($this->endpointBase . '/v2/bot/insight/message/event/aggregation', $data);
+    }
+
+    /**
+     * Get the name list of units used this month for statistics aggregation.
+     * This method gets all of the names
+     * by calling getNameListOfUnitsUsedThisMonth() continually using token
+     *
+     * @return array
+     */
+    public function getAllNameListOfUnitsUsedThisMonth()
+    {
+        $nameList = [];
+        $start = null;
+        do {
+            $response = $this->getNameListOfUnitsUsedThisMonth(null, $start);
+            $data = $response->getJSONDecodedBody();
+            foreach ($data['customAggregationUnits'] as $customAggregationUnit) {
+                $nameList[] = $customAggregationUnit;
+            }
+            $start = isset($data['next']) ? $data['next'] : null;
+        } while ($start);
+
+        return $nameList;
     }
 }
