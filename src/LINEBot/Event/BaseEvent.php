@@ -194,4 +194,14 @@ class BaseEvent
         # Unknown event
         return null;
     }
+
+    /**
+     * Returns event
+     *
+     * @return array
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
 }
