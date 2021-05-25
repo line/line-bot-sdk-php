@@ -168,7 +168,7 @@ class AggregationUnitTest extends TestCase
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('https://api.line.me/v2/bot/insight/message/event/aggregation', $url);
             $testRunner->assertEquals([
-                'limit' => '30',
+                'limit' => 30,
                 'start' => 'jxEWCEEP...'
             ], $data);
 
@@ -179,7 +179,7 @@ class AggregationUnitTest extends TestCase
         };
         $bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'CHANNEL-SECRET']);
 
-        $res = $bot->getNameListOfUnitsUsedThisMonth('30', 'jxEWCEEP...');
+        $res = $bot->getNameListOfUnitsUsedThisMonth(30, 'jxEWCEEP...');
 
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());

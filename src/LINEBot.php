@@ -1301,7 +1301,7 @@ class LINEBot
      * Get the name list of units used this month for statistics aggregation.
      *
      * @param string|null $limit
-     * @param string|null $start
+     * @param int|null $start
      * @return Response
      */
     public function getNameListOfUnitsUsedThisMonth($limit = null, $start = null)
