@@ -181,4 +181,27 @@ class CurlHTTPClientTest extends TestCase
         $this->assertEquals('LINE-BotSDK-PHP/' . Meta::VERSION, $body['_SERVER']['HTTP_USER_AGENT']);
         fclose($tmpfile);
     }
+
+    public function testDelayResponseWithoutTimeout()
+    {
+        $curl = new CurlHTTPClient("channel-token");
+        $res = $curl->get('127.0.0.1:' . CurlHTTPClientTest::$reqMirrorPort, ['responseDelay' => '1500']);
+        $body = $res->getJSONDecodedBody();
+        $this->assertNotNull($body);
+        $this->assertEquals('GET', $body['_SERVER']['REQUEST_METHOD']);
+        $this->assertEquals('', $body['Body']);
+    }
+
+
+    /**
+     * @throws \LINE\LINEBot\Exception\CurlExecutionException
+     */
+    public function testDelayResponseWithTimeout()
+    {
+        $this->expectException(\LINE\LINEBot\Exception\CurlExecutionException::class);
+        $this->expectExceptionMessage("Operation timed out after");
+        $curl = new CurlHTTPClient("channel-token");
+        $curl->setTimeout(1);
+        $curl->get('127.0.0.1:' . CurlHTTPClientTest::$reqMirrorPort, ['responseDelay' => '1500']);
+    }
 }
