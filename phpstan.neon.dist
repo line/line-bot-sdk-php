@@ -1,0 +1,10 @@
+parameters:
+  level: 1
+  paths:
+    - src
+  ignoreErrors:
+    # A known bug in phpstan: https://github.com/phpstan/phpstan/issues/5252
+    - message: '#Unsafe usage of new static\(\).#'
+      paths:
+        - src\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder.php
+        - src\LINEBot\Narrowcast\Recipient\RecipientBuilder.php

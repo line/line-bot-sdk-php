@@ -38,7 +38,6 @@ abstract class DemographicFilterBuilder
      */
     public static function builder()
     {
-        $class = \get_called_class();
-        return new $class();
+        return new static();
     }
 }

@@ -38,7 +38,7 @@ class SignatureValidator
      */
     public static function validateSignature($body, $channelSecret, $signature)
     {
-        if (!isset($signature)) {
+        if (trim($signature) === '') {
             throw new InvalidSignatureException('Signature must not be empty');
         }
 

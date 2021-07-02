@@ -14,10 +14,13 @@ phpcs:
 phpmd:
 	composer md
 
+phpstan:
+	composer stan
+
 copyright:
 	devtool/check_copyright.sh
 
-check: test copyright phpcs phpmd
+check: test copyright phpcs phpmd phpstan
 
 clean:
 	rm -rf vendor composer.lock

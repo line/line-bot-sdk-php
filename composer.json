@@ -41,7 +41,8 @@
     "phpunit/phpunit": "^4.8.36||^5||^6||^7",
     "phpmd/phpmd": "~2.9",
     "squizlabs/php_codesniffer": "~3.5",
-    "orchestra/testbench": "*"
+    "orchestra/testbench": "*",
+    "phpstan/phpstan": "^0.12.90"
   },
   "suggest": {
     "apigen/apigen": "Install with roave/better-reflection:dev-master to generate docs",
@@ -61,7 +62,8 @@
     "test": "phpunit --debug tests",
     "doc": "apigen generate src --destination docs",
     "cs": "phpcs --standard=PSR2 src tests examples/EchoBot/src examples/EchoBot/public examples/KitchenSink/src examples/KitchenSink/public",
-    "md": "phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml"
+    "md": "phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
+    "stan": "phpstan analyse"
   },
   "extra": {
     "laravel": {
