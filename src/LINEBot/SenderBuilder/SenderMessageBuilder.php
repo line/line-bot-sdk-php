@@ -30,7 +30,7 @@ class SenderMessageBuilder implements SenderBuilder
     private $name;
     /** @var string|null */
     private $iconUrl;
-    /** @var array */
+    /** @var array|null */
     private $sender;
 
     /**

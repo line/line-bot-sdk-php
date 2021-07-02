@@ -34,7 +34,7 @@ class UriTemplateActionBuilder implements TemplateActionBuilder
     private $label;
     /** @var string */
     private $uri;
-    /** @var AltUriBuilder */
+    /** @var AltUriBuilder|null */
     private $altUri;
 
     /**
