@@ -110,8 +110,8 @@ class BoxComponentBuilder implements ComponentBuilder
     /**
      * BoxComponentBuilder constructor.
      *
-     * @param ComponentLayout|string $layout
-     * @param ComponentBuilder[] $componentBuilders
+     * @param ComponentLayout|string|null $layout
+     * @param ComponentBuilder[]|null $componentBuilders
      * @param int|null $flex
      * @param ComponentSpacing|string|null $spacing
      * @param ComponentMargin|null $margin

@@ -79,7 +79,7 @@ class ImageComponentBuilder implements ComponentBuilder
     /**
      * ImageComponentBuilder constructor.
      *
-     * @param string $url
+     * @param string|null $url
      * @param int|null $flex
      * @param ComponentMargin|null $margin
      * @param ComponentAlign|null $align

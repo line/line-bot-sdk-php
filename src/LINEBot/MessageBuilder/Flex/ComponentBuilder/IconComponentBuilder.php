@@ -60,7 +60,7 @@ class IconComponentBuilder implements ComponentBuilder
     /**
      * IconComponentBuilder constructor.
      *
-     * @param string $url
+     * @param string|null $url
      * @param ComponentMargin|null $margin
      * @param ComponentIconSize|string|null $size
      * @param ComponentIconAspectRatio|null $aspectRatio

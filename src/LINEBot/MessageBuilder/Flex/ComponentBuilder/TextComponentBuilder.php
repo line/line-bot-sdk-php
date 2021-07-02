@@ -90,7 +90,7 @@ class TextComponentBuilder implements ComponentBuilder
     /**
      * TextComponentBuilder constructor.
      *
-     * @param string $text
+     * @param string|null $text
      * @param int|null $flex
      * @param ComponentMargin|null $margin
      * @param ComponentFontSize|null $size

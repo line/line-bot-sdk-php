@@ -195,7 +195,7 @@ class CurlHTTPClient implements HTTPClient
      * @param string $method
      * @param string $url
      * @param array $additionalHeader
-     * @param string|null $reqBody
+     * @param string|array|null $reqBody
      * @return Response
      * @throws CurlExecutionException
      */

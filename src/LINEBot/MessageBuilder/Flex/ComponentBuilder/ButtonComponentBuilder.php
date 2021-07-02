@@ -72,7 +72,7 @@ class ButtonComponentBuilder implements ComponentBuilder
     /**
      * ButtonComponentBuilder constructor.
      *
-     * @param TemplateActionBuilder $actionBuilder
+     * @param TemplateActionBuilder|null $actionBuilder
      * @param int|null $flex
      * @param ComponentMargin|null $margin
      * @param ComponentButtonHeight|null $height

@@ -1115,7 +1115,7 @@ class LINEBot
      */
     public function renameAudience($audienceGroupId, $description)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription', urlencode(strval($audienceGroupId)));
         return $this->httpClient->put($url, ['description' => $description]);
     }
 
@@ -1127,7 +1127,7 @@ class LINEBot
      */
     public function deleteAudience($audienceGroupId)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode(strval($audienceGroupId)));
         return $this->httpClient->delete($url);
     }
 
@@ -1139,7 +1139,7 @@ class LINEBot
      */
     public function getAudience($audienceGroupId)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode(strval($audienceGroupId)));
         return $this->httpClient->get($url);
     }
 
@@ -1212,7 +1212,7 @@ class LINEBot
      */
     public function activateAudience($audienceGroupId)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/activate', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/activate', urlencode(strval($audienceGroupId)));
         return $this->httpClient->put($url, []);
     }
 
