@@ -266,7 +266,7 @@ class TextComponentBuilder implements ComponentBuilder
     /**
      * Set style.
      *
-     * @param string|null $style
+     * @param ComponentTextStyle|string|null $style
      * @return TextComponentBuilder
      */
     public function setStyle($style)
@@ -278,7 +278,7 @@ class TextComponentBuilder implements ComponentBuilder
     /**
      * Set decoration.
      *
-     * @param string|null $decoration
+     * @param ComponentTextDecoration|string|null $decoration
      * @return TextComponentBuilder
      */
     public function setDecoration($decoration)

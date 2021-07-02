@@ -137,7 +137,7 @@ class CurlHTTPClient implements HTTPClient
     /**
      * @param string $method
      * @param array $headers
-     * @param string|null $reqBody
+     * @param array|string|null $reqBody
      * @return array cUrl options
      */
     private function getOptions($method, $headers, $reqBody)
