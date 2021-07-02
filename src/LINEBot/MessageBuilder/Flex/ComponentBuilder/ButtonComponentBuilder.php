@@ -18,14 +18,16 @@
 
 namespace LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 
-use LINE\LINEBot\TemplateActionBuilder;
+use LINE\LINEBot\Constant\Flex\ComponentAdjustMode;
 use LINE\LINEBot\Constant\Flex\ComponentButtonHeight;
 use LINE\LINEBot\Constant\Flex\ComponentButtonStyle;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
+use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentType;
-use LINE\LINEBot\Constant\Flex\ComponentAdjustMode;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
+use LINE\LINEBot\TemplateActionBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
 /**

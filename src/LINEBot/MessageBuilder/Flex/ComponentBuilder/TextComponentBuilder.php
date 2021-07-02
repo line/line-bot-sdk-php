@@ -18,17 +18,19 @@
 
 namespace LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 
-use LINE\LINEBot\TemplateActionBuilder;
+use LINE\LINEBot\Constant\Flex\ComponentAdjustMode;
 use LINE\LINEBot\Constant\Flex\ComponentAlign;
 use LINE\LINEBot\Constant\Flex\ComponentFontSize;
 use LINE\LINEBot\Constant\Flex\ComponentFontWeight;
 use LINE\LINEBot\Constant\Flex\ComponentGravity;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
-use LINE\LINEBot\Constant\Flex\ComponentType;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
+use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentTextDecoration;
 use LINE\LINEBot\Constant\Flex\ComponentTextStyle;
-use LINE\LINEBot\Constant\Flex\ComponentAdjustMode;
+use LINE\LINEBot\Constant\Flex\ComponentType;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
+use LINE\LINEBot\TemplateActionBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
 /**

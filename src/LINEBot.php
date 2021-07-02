@@ -213,8 +213,8 @@ class LINEBot
             $extra = array_slice($args, 2);
         }
 
-        /** @var TextMessageBuilder $textMessageBuilder */
         $ref = new ReflectionClass('LINE\LINEBot\MessageBuilder\TextMessageBuilder');
+        /** @var TextMessageBuilder $textMessageBuilder */
         $textMessageBuilder = $ref->newInstanceArgs(array_merge([$text], $extra));
 
         return $this->replyMessage($replyToken, $textMessageBuilder);
@@ -918,7 +918,7 @@ class LINEBot
      * @param MessageBuilder $messageBuilder
      * @param RecipientBuilder|null $recipientBuilder
      * @param DemographicFilterBuilder|null $demographicFilterBuilder
-     * @param int|null $limit
+     * @param int|null $max
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
