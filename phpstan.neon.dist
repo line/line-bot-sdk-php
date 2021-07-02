@@ -1,6 +1,7 @@
 parameters:
   level: 5
   paths:
+    - line-bot-sdk-tiny
     - src
   ignoreErrors:
     # A known bug in phpstan: https://github.com/phpstan/phpstan/issues/5252
