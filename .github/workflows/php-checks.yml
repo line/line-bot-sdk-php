@@ -52,7 +52,7 @@ jobs:
 
       - name: Check with PHPStan
         if: matrix.analysis
-        run: devtool/check_phpstan.sh
+        run: bash devtool/check_phpstan.sh
 
       - name: Run unit tests
         run: vendor/bin/phpunit --debug tests
