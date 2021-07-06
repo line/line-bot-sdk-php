@@ -9,13 +9,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0]
+        php: [5.6, 7.0, 7.1, 7.2, 7.3, 7.4]
         include:
-          - php: 5.6
-            composer-options: "--ignore-platform-reqs"
-          - php: 7.0
-            composer-options: "--ignore-platform-reqs"
-          - php: 8.0
+          - php: 7.4
             analysis: true
 
     steps:
@@ -41,8 +37,10 @@ jobs:
 
       - name: Install dependencies with Composer
         uses: ramsey/composer-install@v1
-        with:
-          composer-options: "${{ matrix.composer-options }}"
+        
+      - name: Check copyrights
+        if: matrix.analysis
+        run: bash devtool/check_copyright.sh
 
       - name: Check code style with PHP_CodeSniffer
         if: matrix.analysis
@@ -52,9 +50,9 @@ jobs:
         if: matrix.analysis
         run: vendor/bin/phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml
 
-      # - name: Check with PHPStan
-      #   if: matrix.analysis
-      #   run: vendor/bin/phpstan analyse
+      - name: Check with PHPStan
+        if: matrix.analysis
+        run: devtool/check_phpstan.sh
 
       - name: Run unit tests
         run: vendor/bin/phpunit --debug tests
