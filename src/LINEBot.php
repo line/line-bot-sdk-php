@@ -1115,7 +1115,10 @@ class LINEBot
      */
     public function renameAudience($audienceGroupId, $description)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription', urlencode(strval($audienceGroupId)));
+        $url = sprintf(
+            $this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription',
+            urlencode(strval($audienceGroupId))
+        );
         return $this->httpClient->put($url, ['description' => $description]);
     }
 
