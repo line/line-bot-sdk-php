@@ -21,6 +21,8 @@ namespace LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 use LINE\LINEBot\Constant\Flex\ComponentIconAspectRatio;
 use LINE\LINEBot\Constant\Flex\ComponentIconSize;
 use LINE\LINEBot\Constant\Flex\ComponentMargin;
+use LINE\LINEBot\Constant\Flex\ComponentPosition;
+use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 use LINE\LINEBot\Constant\Flex\ComponentType;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
 use LINE\LINEBot\Util\BuildUtil;
@@ -58,7 +60,7 @@ class IconComponentBuilder implements ComponentBuilder
     /**
      * IconComponentBuilder constructor.
      *
-     * @param string $url
+     * @param string|null $url
      * @param ComponentMargin|null $margin
      * @param ComponentIconSize|string|null $size
      * @param ComponentIconAspectRatio|null $aspectRatio

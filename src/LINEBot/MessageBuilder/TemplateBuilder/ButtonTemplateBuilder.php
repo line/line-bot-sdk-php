@@ -55,7 +55,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
     private $template;
 
     /**
-     * @var TemplateActionBuilder
+     * @var TemplateActionBuilder|null
      */
     private $defaultAction;
 

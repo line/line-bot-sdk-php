@@ -35,7 +35,7 @@ class EmojiBuilder
     /**
      * EmojiBuilder constructor.
      *
-     * @param array $emojis The specified position must correspond to a $.
+     * @param int $index The specified position must correspond to a $.
      * @param string $productId Product ID for a set of LINE emoji.
      * @param string $emojiId ID for a LINE emoji inside a set.
      */
