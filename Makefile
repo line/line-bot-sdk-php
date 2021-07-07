@@ -15,7 +15,7 @@ phpmd:
 	composer md
 
 phpstan:
-	composer stan
+	devtool/check_phpstan.sh
 
 copyright:
 	devtool/check_copyright.sh
