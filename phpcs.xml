@@ -2,7 +2,7 @@
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          name="PHP_CodeSniffer"
          xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
-    <description>The coding standard for torbin.</description>
+    <description>The coding standard for line-bot-sdk-php.</description>
 
     <file>src</file>
     <file>tests</file>
