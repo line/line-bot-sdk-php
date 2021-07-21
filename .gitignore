@@ -5,3 +5,4 @@ composer.phar
 *.iml
 vendor/
 /.phpdoc/
+phpDocumentor.phar

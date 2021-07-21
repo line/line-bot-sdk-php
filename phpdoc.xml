@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+        configVersion="3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://www.phpdoc.org"
+        xsi:noNamespaceSchemaLocation="data/xsd/phpdoc.xsd"
+>
+    <title>LINE Messaging API SDK for PHP</title>
+    <paths>
+        <output>docs</output>
+    </paths>
+    <version number="7.1.0">
+        <folder>latest</folder>
+        <api>
+            <ignore hidden="true" symlinks="true">
+                <path>tests/**/*</path>
+                <path>examples/**/*</path>
+                <path>line-bot-sdk-tiny/**/*</path>
+                <path>vendor/**/*</path>
+            </ignore>
+            <extensions>
+                <extension>php</extension>
+            </extensions>
+        </api>
+        <guide>
+            <source dsn=".">
+                <path>docs</path>
+            </source>
+            <output>guide</output>
+        </guide>
+    </version>
+    <template name="default"/>
+</phpdocumentor>
