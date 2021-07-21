@@ -9,8 +9,13 @@
     <paths>
         <output>docs</output>
     </paths>
-    <version number="7.1.0">
+    <version number="latest">
         <folder>latest</folder>
+        <api>
+            <source dsn=".">
+                <path>src</path>
+            </source>
+        </api>
         <api>
             <ignore hidden="true" symlinks="true">
                 <path>tests/**/*</path>
@@ -22,12 +27,6 @@
                 <extension>php</extension>
             </extensions>
         </api>
-        <guide>
-            <source dsn=".">
-                <path>docs</path>
-            </source>
-            <output>guide</output>
-        </guide>
     </version>
     <template name="default"/>
 </phpdocumentor>
