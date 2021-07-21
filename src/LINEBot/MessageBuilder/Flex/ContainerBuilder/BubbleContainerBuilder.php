@@ -18,13 +18,14 @@
 
 namespace LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 
+use LINE\LINEBot\Constant\Flex\BubbleContainerSize;
 use LINE\LINEBot\Constant\Flex\ContainerDirection;
 use LINE\LINEBot\Constant\Flex\ContainerType;
-use LINE\LINEBot\Constant\Flex\BubleContainerSize;
-use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
+use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
+use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder;
+use LINE\LINEBot\TemplateActionBuilder;
 use LINE\LINEBot\Util\BuildUtil;
 
 /**
@@ -46,7 +47,7 @@ class BubbleContainerBuilder implements ContainerBuilder
     private $footerComponentBuilder;
     /** @var BubbleStylesBuilder */
     private $stylesBuilder;
-    /** @var BubleContainerSize */
+    /** @var BubbleContainerSize */
     private $size;
     /** @var TemplateActionBuilder */
     private $actionBuilder;
@@ -63,7 +64,7 @@ class BubbleContainerBuilder implements ContainerBuilder
      * @param BoxComponentBuilder|null $bodyComponentBuilder
      * @param BoxComponentBuilder|null $footerComponentBuilder
      * @param BubbleStylesBuilder|null $stylesBuilder
-     * @param BubleContainerSize|null $size
+     * @param BubbleContainerSize|null $size
      */
     public function __construct(
         $direction = null,
@@ -97,7 +98,7 @@ class BubbleContainerBuilder implements ContainerBuilder
      * Set size.
      * default: mega
      *
-     * @param BubleContainerSize|string|null $direction
+     * @param BubbleContainerSize|string|null $size
      * @return BubbleContainerBuilder
      */
     public function setSize($size)

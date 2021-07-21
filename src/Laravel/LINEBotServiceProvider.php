@@ -34,8 +34,11 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
             __DIR__ . '/config/line-bot.php',
             'line-bot'
         );
-        $this->app->bind('line-bot', function () {
-            $httpClient = new CurlHTTPClient(config('line-bot.channel_access_token'));
+        $this->app->bind('line-bot-http-client', function () {
+            return new CurlHTTPClient(config('line-bot.channel_access_token'));
+        });
+        $this->app->bind('line-bot', function ($app) {
+            $httpClient = $app->make('line-bot-http-client');
             return new LINEBot($httpClient, ['channelSecret' => config('line-bot.channel_secret')]);
         });
     }

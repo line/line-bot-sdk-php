@@ -509,7 +509,7 @@ class EventRequestParserTest extends TestCase
      ]
     }
    }
-  },  
+  },
   {
    "type":"message",
    "mode":"active",
@@ -549,6 +549,68 @@ class EventRequestParserTest extends TestCase
     "trackingId": "track_id"
    },
    "replyToken":"replytoken"
+  },
+  {
+   "replyToken": "nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
+   "type": "message",
+   "mode": "active",
+   "timestamp": 1462629479859,
+   "source": {
+    "type": "user",
+    "userId": "U4af4980629..."
+   },
+   "message": {
+    "id": "325708",
+    "type": "text",
+    "text": "@example Hello, world! (love)",
+    "mention": {
+     "mentionees": [
+      {
+       "index": 0,
+       "length": 8,
+       "userId": "U0123456789abcd0123456789abcdef"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "replyToken": "nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
+   "type": "message",
+   "mode": "active",
+   "timestamp": 1462629479859,
+   "source": {
+    "type": "user",
+    "userId": "U0123456789abcd0123456789abcdef"
+   },
+   "message": {
+    "id": "325708",
+    "type": "text",
+    "text": "@example message without mentionee userId",
+    "mention": {
+     "mentionees": [
+      {
+       "index": 0,
+       "length": 8
+      }
+     ]
+    }
+   }
+  },
+  {
+   "replyToken": "nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
+   "type": "message",
+   "mode": "active",
+   "timestamp": 1462629479859,
+   "source": {
+    "type": "user",
+    "userId": "U0123456789abcd0123456789abcdef"
+   },
+   "message": {
+    "id": "325708",
+    "type": "text",
+    "text": "message without mention"
+   }
   }
  ]
 }
@@ -565,13 +627,14 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            '72gRU3rSwbF9yWd6+dqOK7IwIbDE+/TLu56PKoysdHE=',
+            'Q4tp1jGo39vhlcbd4QiQ/9I+zoJDwGIkPP22wgoOjDI=',
             false
         );
+        $eventArrays = json_decode($this::$json, true)["events"];
 
         $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
-        $this->assertEquals(count($events), 32);
+        $this->assertEquals(count($events), 35);
 
         {
             // text
@@ -581,6 +644,7 @@ JSON;
             $this->assertTrue($event->isUserEvent());
             $this->assertEquals('userid', $event->getUserId());
             $this->assertEquals('userid', $event->getEventSourceId());
+            $this->assertEquals($eventArrays[0], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
             /** @var TextMessage $event */
@@ -602,6 +666,7 @@ JSON;
             $this->assertEquals('groupid', $event->getGroupId());
             $this->assertEquals('groupid', $event->getEventSourceId());
             $this->assertEquals(null, $event->getUserId());
+            $this->assertEquals($eventArrays[1], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\ImageMessage', $event);
             /** @var ImageMessage $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -624,6 +689,7 @@ JSON;
             $this->assertTrue($event->isGroupEvent());
             $this->assertEquals('groupid', $event->getGroupId());
             $this->assertEquals('groupid', $event->getEventSourceId());
+            $this->assertEquals($eventArrays[2], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\AudioMessage', $event);
             $this->assertEquals('userid', $event->getUserId());
             /** @var AudioMessage $event */
@@ -645,6 +711,7 @@ JSON;
             $this->assertEquals('roomid', $event->getRoomId());
             $this->assertEquals('roomid', $event->getEventSourceId());
             $this->assertEquals(null, $event->getUserId());
+            $this->assertEquals($eventArrays[3], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\VideoMessage', $event);
             /** @var VideoMessage $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -986,6 +1053,66 @@ JSON;
             $this->assertInstanceOf('LINE\LINEBot\Event\VideoPlayCompleteEvent', $event);
             /** @var UnsendMessage $event */
             $this->assertEquals('track_id', $event->getTrackingId());
+        }
+
+        {
+            // text
+            $event = $events[32];
+            $this->assertEquals(1462629479859, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($event->isUserEvent());
+            $this->assertEquals('U4af4980629...', $event->getUserId());
+            $this->assertEquals('U4af4980629...', $event->getEventSourceId());
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
+            /** @var TextMessage $event */
+            $this->assertEquals('nHuyWiB7yP5Zw52FIkcQobQuGDXCTA', $event->getReplyToken());
+            $this->assertEquals('325708', $event->getMessageId());
+            $this->assertEquals('text', $event->getMessageType());
+            $this->assertEquals('@example Hello, world! (love)', $event->getText());
+            $mentioneeInfo = $event->getMentionees()[0];
+            $this->assertEquals(0, $mentioneeInfo->getIndex());
+            $this->assertEquals(8, $mentioneeInfo->getLength());
+            $this->assertEquals('U0123456789abcd0123456789abcdef', $mentioneeInfo->getUserId());
+        }
+
+        {
+            // text without mentionee userId
+            $event = $events[33];
+            $this->assertEquals(1462629479859, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($event->isUserEvent());
+            $this->assertEquals('U0123456789abcd0123456789abcdef', $event->getUserId());
+            $this->assertEquals('U0123456789abcd0123456789abcdef', $event->getEventSourceId());
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
+            /** @var TextMessage $event */
+            $this->assertEquals('nHuyWiB7yP5Zw52FIkcQobQuGDXCTA', $event->getReplyToken());
+            $this->assertEquals('325708', $event->getMessageId());
+            $this->assertEquals('text', $event->getMessageType());
+            $this->assertEquals('@example message without mentionee userId', $event->getText());
+            $mentioneeInfo = $event->getMentionees()[0];
+            $this->assertEquals(0, $mentioneeInfo->getIndex());
+            $this->assertEquals(8, $mentioneeInfo->getLength());
+            $this->assertEquals(null, $mentioneeInfo->getUserId());
+        }
+
+        {
+            // text without mention
+            $event = $events[34];
+            $this->assertEquals(1462629479859, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($event->isUserEvent());
+            $this->assertEquals('U0123456789abcd0123456789abcdef', $event->getUserId());
+            $this->assertEquals('U0123456789abcd0123456789abcdef', $event->getEventSourceId());
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
+            /** @var TextMessage $event */
+            $this->assertEquals('nHuyWiB7yP5Zw52FIkcQobQuGDXCTA', $event->getReplyToken());
+            $this->assertEquals('325708', $event->getMessageId());
+            $this->assertEquals('text', $event->getMessageType());
+            $this->assertEquals('message without mention', $event->getText());
+            $this->assertEquals(null, $event->getMentionees());
         }
     }
 }

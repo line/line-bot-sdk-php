@@ -65,7 +65,7 @@ class AudioMessageHandler implements EventHandler
             );
             return;
         }
-        
+
         $contentId = $this->audioMessage->getMessageId();
         $audio = $this->bot->getMessageContent($contentId)->getRawBody();
 

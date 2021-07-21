@@ -15,6 +15,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+
 namespace LINE\Tests\Laravel\Facade;
 
 use LINEBot;
@@ -30,7 +31,7 @@ class LINEBotTest extends \Orchestra\Testbench\TestCase
     {
         return ['LINE\Laravel\LINEBotServiceProvider'];
     }
-    
+
     /**
      * Load package alias
      * @param  \Illuminate\Foundation\Application $app

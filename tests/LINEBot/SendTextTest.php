@@ -198,6 +198,7 @@ class SendTextTest extends TestCase
             $testRunner->assertEquals(MessageType::TEXT, $data['messages'][2]['type']);
             $testRunner->assertEquals('test text3', $data['messages'][2]['text']);
             $testRunner->assertTrue(\in_array('X-Line-Retry-Key: 123e4567-e89b-12d3-a456-426614174000', $headers));
+            $testRunner->assertEquals('promotion_a', $data['customAggregationUnits'][0]);
 
             return ['status' => 200];
         };
@@ -207,7 +208,8 @@ class SendTextTest extends TestCase
             'DESTINATION',
             new TextMessageBuilder('test text1', 'test text2', 'test text3'),
             false,
-            '123e4567-e89b-12d3-a456-426614174000'
+            '123e4567-e89b-12d3-a456-426614174000',
+            ['promotion_a']
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());

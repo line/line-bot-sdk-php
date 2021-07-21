@@ -35,14 +35,14 @@ class VideoBuilder
     private $areaBuilder;
     /** @var ExternalLinkBuilder|null */
     private $externalLinkBuilder;
-    
+
     /**
      * VideoBuilder constructor.
      *
      * @param string $originalContentUrl
      * @param string $previewImageUrl
-     * @param AreaBuilder $area
-     * @param ExternalLinkBuilder|null $externalLink
+     * @param AreaBuilder $areaBuilder
+     * @param ExternalLinkBuilder|null $externalLinkBuilder
      */
     public function __construct(
         $originalContentUrl,
