@@ -134,7 +134,7 @@ class AggregationUnitTest extends TestCase
         $this->assertEquals(200, $res->getHTTPStatus());
         $this->assertTrue($res->isSucceeded());
 
-        $data =$res->getJSONDecodedBody();
+        $data = $res->getJSONDecodedBody();
         $this->assertEquals(22, $data['numOfCustomAggregationUnits']);
     }
 
