@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         name="PHP_CodeSniffer"
+         xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <description>The coding standard for line-bot-sdk-php.</description>
+
+    <file>src</file>
+    <file>tests</file>
+    <file>examples/EchoBot/src</file>
+    <file>examples/EchoBot/public</file>
+    <file>examples/KitchenSink/src</file>
+    <file>examples/KitchenSink/public</file>
+
+    <arg name="basepath" value="."/>
+    <arg name="colors"/>
+    <arg name="parallel" value="75"/>
+    <arg value="np"/>
+
+    <!-- Use PSR-12 Standard: https://www.php-fig.org/psr/psr-12/ -->
+    <rule ref="PSR12">
+        <!-- TODO: Enable this rule once we require PHP version >= 7.1 -->
+        <exclude name="PSR12.Properties.ConstantVisibility.NotFound"/>
+    </rule>
+</ruleset>

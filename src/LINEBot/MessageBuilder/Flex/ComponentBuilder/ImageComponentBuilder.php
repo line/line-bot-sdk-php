@@ -281,7 +281,7 @@ class ImageComponentBuilder implements ComponentBuilder
         $this->offsetTop = $offsetTop;
         return $this;
     }
-    
+
     /**
      * Set offsetBottom.
      *
@@ -299,7 +299,7 @@ class ImageComponentBuilder implements ComponentBuilder
         $this->offsetBottom = $offsetBottom;
         return $this;
     }
-    
+
     /**
      * Set offsetStart.
      *
@@ -317,7 +317,7 @@ class ImageComponentBuilder implements ComponentBuilder
         $this->offsetStart = $offsetStart;
         return $this;
     }
-    
+
     /**
      * Set offsetEnd.
      *
@@ -335,7 +335,7 @@ class ImageComponentBuilder implements ComponentBuilder
         $this->offsetEnd = $offsetEnd;
         return $this;
     }
-    
+
     /**
      * Set animated.
      *

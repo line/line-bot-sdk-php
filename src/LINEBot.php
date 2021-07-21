@@ -233,7 +233,7 @@ class LINEBot
     {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
             'to' => $to,
@@ -259,7 +259,7 @@ class LINEBot
     ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
             'to' => $tos,
@@ -281,7 +281,7 @@ class LINEBot
     {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/broadcast', [
             'messages' => $messageBuilder->buildMessage(),
@@ -950,7 +950,7 @@ class LINEBot
         }
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/narrowcast', $params, $headers);
     }

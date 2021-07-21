@@ -44,7 +44,7 @@ jobs:
 
       - name: Check code style with PHP_CodeSniffer
         if: matrix.analysis
-        run: vendor/bin/phpcs --standard=PSR2 src tests examples/EchoBot/src examples/EchoBot/public examples/KitchenSink/src examples/KitchenSink/public
+        run: vendor/bin/phpcs
 
       - name: Check with PHP Mess Detector 
         if: matrix.analysis

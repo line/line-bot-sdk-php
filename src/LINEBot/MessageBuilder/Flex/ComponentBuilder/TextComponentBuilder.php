@@ -330,7 +330,7 @@ class TextComponentBuilder implements ComponentBuilder
         $this->offsetTop = $offsetTop;
         return $this;
     }
-    
+
     /**
      * Set offsetBottom.
      *
@@ -348,7 +348,7 @@ class TextComponentBuilder implements ComponentBuilder
         $this->offsetBottom = $offsetBottom;
         return $this;
     }
-    
+
     /**
      * Set offsetStart.
      *
@@ -366,7 +366,7 @@ class TextComponentBuilder implements ComponentBuilder
         $this->offsetStart = $offsetStart;
         return $this;
     }
-    
+
     /**
      * Set offsetEnd.
      *

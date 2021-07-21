@@ -335,7 +335,7 @@ class BoxComponentBuilder implements ComponentBuilder
         $this->offsetTop = $offsetTop;
         return $this;
     }
-    
+
     /**
      * Set offsetBottom.
      *
@@ -353,7 +353,7 @@ class BoxComponentBuilder implements ComponentBuilder
         $this->offsetBottom = $offsetBottom;
         return $this;
     }
-    
+
     /**
      * Set offsetStart.
      *
@@ -371,7 +371,7 @@ class BoxComponentBuilder implements ComponentBuilder
         $this->offsetStart = $offsetStart;
         return $this;
     }
-    
+
     /**
      * Set offsetEnd.
      *

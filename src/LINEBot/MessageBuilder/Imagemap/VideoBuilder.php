@@ -35,7 +35,7 @@ class VideoBuilder
     private $areaBuilder;
     /** @var ExternalLinkBuilder|null */
     private $externalLinkBuilder;
-    
+
     /**
      * VideoBuilder constructor.
      *
