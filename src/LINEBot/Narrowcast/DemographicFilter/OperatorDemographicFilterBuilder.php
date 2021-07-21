@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2020 LINE Corporation
  *
@@ -29,7 +30,7 @@ class OperatorDemographicFilterBuilder extends DemographicFilterBuilder
     /** @var string $operator */
     private $operator;
 
-    /** @var DemographicFilterBuilder[] $children */
+    /** @var array<DemographicFilterBuilder|DemographicFilterBuilder[]> $children */
     private $children = [];
 
     /**

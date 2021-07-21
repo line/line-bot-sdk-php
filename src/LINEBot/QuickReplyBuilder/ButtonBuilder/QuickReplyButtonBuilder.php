@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2018 LINE Corporation
  *
@@ -17,7 +18,7 @@
 
 namespace LINE\LINEBot\QuickReplyBuilder\ButtonBuilder;
 
-use \LINE\LINEBot\QuickReplyBuilder\QuickReplyButtonBuilder as IQuickReplyButtonBuilder;
+use LINE\LINEBot\QuickReplyBuilder\QuickReplyButtonBuilder as IQuickReplyButtonBuilder;
 use LINE\LINEBot\TemplateActionBuilder;
 
 /**

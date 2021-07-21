@@ -117,7 +117,7 @@ class InsightTest extends TestCase
         $data = $res->getJSONDecodedBody();
         $this->assertEquals('out_of_service', $data['status']);
     }
-    
+
     public function testGetNumberOfFollowers()
     {
         $date = new DateTime();
@@ -197,7 +197,7 @@ class InsightTest extends TestCase
         $data = $res->getJSONDecodedBody();
         $this->assertEquals('out_of_service', $data['status']);
     }
-    
+
     public function testGetFriendDemographics()
     {
         // Test: available = true
@@ -316,7 +316,7 @@ class InsightTest extends TestCase
         $data = $res->getJSONDecodedBody();
         $this->assertEquals($responseJson, $data);
     }
-    
+
     public function testGetUserInteractionStatistics()
     {
         $requestId = 'test request id';

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2020 LINE Corporation
  *
@@ -38,7 +39,6 @@ abstract class RecipientBuilder
      */
     public static function builder()
     {
-        $class = \get_called_class();
-        return new $class();
+        return new static();
     }
 }

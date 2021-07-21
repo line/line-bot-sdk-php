@@ -213,8 +213,8 @@ class LINEBot
             $extra = array_slice($args, 2);
         }
 
-        /** @var TextMessageBuilder $textMessageBuilder */
         $ref = new ReflectionClass('LINE\LINEBot\MessageBuilder\TextMessageBuilder');
+        /** @var TextMessageBuilder $textMessageBuilder */
         $textMessageBuilder = $ref->newInstanceArgs(array_merge([$text], $extra));
 
         return $this->replyMessage($replyToken, $textMessageBuilder);
@@ -239,7 +239,7 @@ class LINEBot
     ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         $params = [
             'to' => $to,
@@ -271,7 +271,7 @@ class LINEBot
     ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         $params = [
             'to' => $tos,
@@ -297,7 +297,7 @@ class LINEBot
     {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/broadcast', [
             'messages' => $messageBuilder->buildMessage(),
@@ -934,7 +934,7 @@ class LINEBot
      * @param MessageBuilder $messageBuilder
      * @param RecipientBuilder|null $recipientBuilder
      * @param DemographicFilterBuilder|null $demographicFilterBuilder
-     * @param int|null $limit
+     * @param int|null $max
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
@@ -966,7 +966,7 @@ class LINEBot
         }
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/narrowcast', $params, $headers);
     }
@@ -1131,7 +1131,10 @@ class LINEBot
      */
     public function renameAudience($audienceGroupId, $description)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription', urlencode($audienceGroupId));
+        $url = sprintf(
+            $this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription',
+            urlencode(strval($audienceGroupId))
+        );
         return $this->httpClient->put($url, ['description' => $description]);
     }
 
@@ -1143,7 +1146,7 @@ class LINEBot
      */
     public function deleteAudience($audienceGroupId)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode(strval($audienceGroupId)));
         return $this->httpClient->delete($url);
     }
 
@@ -1155,7 +1158,7 @@ class LINEBot
      */
     public function getAudience($audienceGroupId)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode(strval($audienceGroupId)));
         return $this->httpClient->get($url);
     }
 
@@ -1228,7 +1231,7 @@ class LINEBot
      */
     public function activateAudience($audienceGroupId)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/activate', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/activate', urlencode(strval($audienceGroupId)));
         return $this->httpClient->put($url, []);
     }
 
