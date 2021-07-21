@@ -64,9 +64,9 @@ class SpanComponentBuilder implements ComponentBuilder
     }
 
     /**
-     * Create empty TextComponentBuilder.
+     * Create empty SpanComponentBuilder.
      *
-     * @return TextComponentBuilder
+     * @return SpanComponentBuilder
      */
     public static function builder()
     {
@@ -77,7 +77,7 @@ class SpanComponentBuilder implements ComponentBuilder
      * Set text.
      *
      * @param string $text
-     * @return TextComponentBuilder
+     * @return SpanComponentBuilder
      */
     public function setText($text)
     {
@@ -94,7 +94,7 @@ class SpanComponentBuilder implements ComponentBuilder
      * keyword: xxs (defined in ComponentFontSize)
      *
      * @param ComponentFontSize|string|null $size
-     * @return TextComponentBuilder
+     * @return SpanComponentBuilder
      */
     public function setSize($size)
     {
@@ -106,7 +106,7 @@ class SpanComponentBuilder implements ComponentBuilder
      * Set weight.
      *
      * @param ComponentFontWeight|string|null $weight
-     * @return TextComponentBuilder
+     * @return SpanComponentBuilder
      */
     public function setWeight($weight)
     {
@@ -118,7 +118,7 @@ class SpanComponentBuilder implements ComponentBuilder
      * Set color.
      *
      * @param string|null $color
-     * @return TextComponentBuilder
+     * @return SpanComponentBuilder
      */
     public function setColor($color)
     {
@@ -129,8 +129,8 @@ class SpanComponentBuilder implements ComponentBuilder
     /**
      * Set style.
      *
-     * @param string|null $style
-     * @return TextComponentBuilder
+     * @param ComponentTextStyle|string|null $style
+     * @return SpanComponentBuilder
      */
     public function setStyle($style)
     {
@@ -141,8 +141,8 @@ class SpanComponentBuilder implements ComponentBuilder
     /**
      * Set decoration.
      *
-     * @param string|null $decoration
-     * @return TextComponentBuilder
+     * @param ComponentTextDecoration|string|null $decoration
+     * @return SpanComponentBuilder
      */
     public function setDecoration($decoration)
     {

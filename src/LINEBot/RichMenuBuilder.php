@@ -38,7 +38,7 @@ class RichMenuBuilder
     private $chatBarText;
     /** @var RichMenuAreaBuilder[] */
     private $areaBuilders = [];
-    
+
     /**
      * RichMenu constructor.
      *
@@ -58,7 +58,7 @@ class RichMenuBuilder
         $this->chatBarText = $chatBarText;
         $this->areaBuilders = $areaBuilders;
     }
- 
+
     /**
      * Builds message structure.
      *

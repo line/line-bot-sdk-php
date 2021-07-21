@@ -60,8 +60,9 @@
   "scripts": {
     "test": "phpunit --debug tests",
     "doc": "apigen generate src --destination docs",
-    "cs": "phpcs --standard=PSR2 src tests examples/EchoBot/src examples/EchoBot/public examples/KitchenSink/src examples/KitchenSink/public",
-    "md": "phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml"
+    "cs": "phpcs",
+    "md": "phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
+    "stan": "devtool/check_phpstan.sh"
   },
   "extra": {
     "laravel": {

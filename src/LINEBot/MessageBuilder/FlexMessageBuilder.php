@@ -49,8 +49,8 @@ class FlexMessageBuilder implements MessageBuilder
     /**
      * FlexMessageBuilder constructor.
      *
-     * @param string $altText
-     * @param ContainerBuilder $containerBuilder
+     * @param string|null $altText
+     * @param ContainerBuilder|null $containerBuilder
      * @param QuickReplyBuilder|null $quickReply
      * @param SenderBuilder|null $sender
      */

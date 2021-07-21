@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2020 LINE Corporation
  *
@@ -29,7 +30,7 @@ class OperatorRecipientBuilder extends RecipientBuilder
     /** @var string $operator */
     private $operator;
 
-    /** @var RecipientBuilder[] $children */
+    /** @var array<RecipientBuilder|RecipientBuilder[]> $children */
     private $children = [];
 
     /**

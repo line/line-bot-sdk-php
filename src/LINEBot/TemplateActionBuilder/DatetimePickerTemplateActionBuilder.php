@@ -56,10 +56,10 @@ class DatetimePickerTemplateActionBuilder implements TemplateActionBuilder
      * date: Pick date
      * time: Pick time
      * datetime: Pick date and time
-     * @param string initial Initial value of date or time
-     * @param string max Largest date or time value that can be selected.
+     * @param string $initial Initial value of date or time
+     * @param string $max Largest date or time value that can be selected.
      * Must be greater than the min value.
-     * @param string min Smallest date or time value that can be selected.
+     * @param string $min Smallest date or time value that can be selected.
      * Must be less than the max value.
      */
     public function __construct($label, $data, $mode, $initial = null, $max = null, $min = null)

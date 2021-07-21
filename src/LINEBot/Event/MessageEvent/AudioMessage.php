@@ -29,7 +29,7 @@ class AudioMessage extends MessageEvent
 {
     /** @var ContentProvider */
     private $contentProvider;
-    
+
     /**
      * AudioMessage constructor.
      *

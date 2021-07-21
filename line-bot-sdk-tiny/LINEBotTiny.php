@@ -26,6 +26,11 @@
 if (!function_exists('hash_equals')) {
     defined('USE_MB_STRING') or define('USE_MB_STRING', function_exists('mb_strlen'));
 
+    /**
+     * @param string $knownString
+     * @param string $userString
+     * @return bool
+     */
     function hash_equals($knownString, $userString)
     {
         $strlen = function ($string) {
@@ -53,15 +58,24 @@ if (!function_exists('hash_equals')) {
 
 class LINEBotTiny
 {
+    /** @var string */
     private $channelAccessToken;
+    /** @var string */
     private $channelSecret;
 
+    /**
+     * @param string $channelAccessToken
+     * @param string $channelSecret
+     */
     public function __construct($channelAccessToken, $channelSecret)
     {
         $this->channelAccessToken = $channelAccessToken;
         $this->channelSecret = $channelSecret;
     }
 
+    /**
+     * @return mixed
+     */
     public function parseEvents()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -72,7 +86,7 @@ class LINEBotTiny
 
         $entityBody = file_get_contents('php://input');
 
-        if (strlen($entityBody) === 0) {
+        if ($entityBody === false || strlen($entityBody) === 0) {
             http_response_code(400);
             error_log('Missing request body');
             exit();
@@ -93,6 +107,10 @@ class LINEBotTiny
         return $data['events'];
     }
 
+    /**
+     * @param array<string, mixed> $message
+     * @return void
+     */
     public function replyMessage($message)
     {
         $header = array(
@@ -115,6 +133,10 @@ class LINEBotTiny
         }
     }
 
+    /**
+     * @param string $body
+     * @return string
+     */
     private function sign($body)
     {
         $hash = hash_hmac('sha256', $body, $this->channelSecret, true);
