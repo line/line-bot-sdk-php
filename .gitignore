@@ -4,3 +4,5 @@ composer.phar
 /tests/Private
 *.iml
 vendor/
+/.phpdoc/
+phpDocumentor.phar
