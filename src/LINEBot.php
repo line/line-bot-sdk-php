@@ -227,19 +227,29 @@ class LINEBot
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
+     * @param array $customAggregationUnits Name of aggregation unit.
      * @return Response
      */
-    public function pushMessage($to, MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
-    {
+    public function pushMessage(
+        $to,
+        MessageBuilder $messageBuilder,
+        $notificationDisabled = false,
+        $retryKey = null,
+        array $customAggregationUnits = array()
+    ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
             $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
-        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
+        $params = [
             'to' => $to,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ], $headers);
+        ];
+        if (!empty($customAggregationUnits)) {
+            $params['customAggregationUnits'] = $customAggregationUnits;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', $params, $headers);
     }
 
     /**
@@ -249,23 +259,29 @@ class LINEBot
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
+     * @param array $customAggregationUnits Name of aggregation unit.
      * @return Response
      */
     public function multicast(
         array $tos,
         MessageBuilder $messageBuilder,
         $notificationDisabled = false,
-        $retryKey = null
+        $retryKey = null,
+        array $customAggregationUnits = array()
     ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
             $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
-        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
+        $params = [
             'to' => $tos,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ], $headers);
+        ];
+        if (!empty($customAggregationUnits)) {
+            $params['customAggregationUnits'] = $customAggregationUnits;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', $params, $headers);
     }
 
     /**
@@ -1253,5 +1269,76 @@ class LINEBot
         return $this->httpClient->post($this->endpointBase . '/v2/bot/channel/webhook/test', [
             'endpoint' => $endpoint,
         ]);
+    }
+
+    /**
+     * Get the per-unit statistics of how users interact
+     * with push messages and multicast messages
+     * sent from your LINE Official Account.
+     *
+     * @param string $customAggregationUnit Name of aggregation unit
+     * @param string $from Start date of aggregation period
+     * @param string $to End date of aggregation period
+     * @return Response
+     */
+    public function getUserInteractionStatisticsPerUnit($customAggregationUnit, $from, $to)
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/insight/message/event/aggregation', [
+            'customAggregationUnit' => $customAggregationUnit,
+            'from' => $from,
+            'to' => $to,
+        ]);
+    }
+
+    /**
+     * Get the number of aggregation units used this month.
+     *
+     * @return Response
+     */
+    public function getNumberOfUnitsUsedThisMonth()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/message/aggregation/info');
+    }
+
+    /**
+     * Get the name list of units used this month for statistics aggregation.
+     *
+     * @param string|null $limit
+     * @param int|null $start
+     * @return Response
+     */
+    public function getNameListOfUnitsUsedThisMonth($limit = null, $start = null)
+    {
+        $data = [];
+        if (isset($limit)) {
+            $data['limit'] = $limit;
+        }
+        if (isset($start)) {
+            $data['start'] = $start;
+        }
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/insight/message/event/aggregation', $data);
+    }
+
+    /**
+     * Get the name list of units used this month for statistics aggregation.
+     * This method gets all of the names
+     * by calling getNameListOfUnitsUsedThisMonth() continually using token
+     *
+     * @return array
+     */
+    public function getAllNameListOfUnitsUsedThisMonth()
+    {
+        $nameList = [];
+        $start = null;
+        do {
+            $response = $this->getNameListOfUnitsUsedThisMonth(null, $start);
+            $data = $response->getJSONDecodedBody();
+            foreach ($data['customAggregationUnits'] as $customAggregationUnit) {
+                $nameList[] = $customAggregationUnit;
+            }
+            $start = isset($data['next']) ? $data['next'] : null;
+        } while ($start);
+
+        return $nameList;
     }
 }
