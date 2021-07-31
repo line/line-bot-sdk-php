@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpOptionalBeforeRequiredParametersInspection */
+<?php
+
+/** @noinspection PhpOptionalBeforeRequiredParametersInspection */
 
 /**
  * Copyright 2016 LINE Corporation

@@ -38,6 +38,7 @@ class MulticastTest extends TestCase
             $testRunner->assertEquals(MessageType::TEXT, $data['messages'][0]['type']);
             $testRunner->assertEquals('test text', $data['messages'][0]['text']);
             $testRunner->assertTrue(\in_array('X-Line-Retry-Key: 123e4567-e89b-12d3-a456-426614174000', $headers));
+            $testRunner->assertEquals('promotion_a', $data['customAggregationUnits'][0]);
 
             return ['status' => 200];
         };
@@ -46,7 +47,8 @@ class MulticastTest extends TestCase
             ['DESTINATION1', 'DESTINATION2'],
             new TextMessageBuilder("test text"),
             false,
-            '123e4567-e89b-12d3-a456-426614174000'
+            '123e4567-e89b-12d3-a456-426614174000',
+            ['promotion_a']
         );
 
         $this->assertEquals(200, $res->getHTTPStatus());
