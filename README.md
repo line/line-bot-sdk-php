@@ -161,10 +161,11 @@ A full-stack (and slightly complex) sample implementation. This application demo
 
 [https://line.github.io/line-bot-sdk-php/](https://line.github.io/line-bot-sdk-php/)
 
-This library provides PHPDoc to describe how to use the methods. You can generate the documentation using [apigen](http://www.apigen.org/) using the following command.
+This library provides PHPDoc to describe how to use the methods. You can generate the documentation using [phpDocumenter](https://docs.phpdoc.org/) using the following command.
 
 ```
-$ make doc
+$ wget https://phpdoc.org/phpDocumentor.phar
+$ php phpDocumentor.phar php phpDocumentor.phar run -d src -t docs
 ```
 
 The HTML files are generated in `docs/`.
