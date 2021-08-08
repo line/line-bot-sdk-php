@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpOptionalBeforeRequiredParametersInspection */
+<?php
+
+/** @noinspection PhpOptionalBeforeRequiredParametersInspection */
 
 /**
  * Copyright 2016 LINE Corporation
@@ -55,7 +57,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
     private $template;
 
     /**
-     * @var TemplateActionBuilder
+     * @var TemplateActionBuilder|null
      */
     private $defaultAction;
 

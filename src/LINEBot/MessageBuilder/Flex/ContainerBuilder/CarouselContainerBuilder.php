@@ -37,7 +37,7 @@ class CarouselContainerBuilder implements ContainerBuilder
     /**
      * AreaBuilder constructor.
      *
-     * @param BubbleContainerBuilder[] $containerBuilders
+     * @param BubbleContainerBuilder[]|null $containerBuilders
      */
     public function __construct($containerBuilders)
     {

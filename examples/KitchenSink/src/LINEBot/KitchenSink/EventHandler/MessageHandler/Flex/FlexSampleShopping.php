@@ -106,13 +106,13 @@ class FlexSampleShopping
             ->setLayout(ComponentLayout::BASELINE)
             ->setContents([
                 TextComponentBuilder::builder()
-                    ->setText('$'.$price[0])
+                    ->setText('$' . $price[0])
                     ->setWrap(true)
                     ->setWeight(ComponentFontWeight::BOLD)
                     ->setSize(ComponentFontSize::XL)
                     ->setFlex(0),
                 TextComponentBuilder::builder()
-                    ->setText('.'.$price[1])
+                    ->setText('.' . $price[1])
                     ->setWrap(true)
                     ->setWeight(ComponentFontWeight::BOLD)
                     ->setSize(ComponentFontSize::SM)

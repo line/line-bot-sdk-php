@@ -64,7 +64,7 @@ class EventRequestParser
      */
     public static function parseEventRequest($body, $channelSecret, $signature, $eventsOnly = true)
     {
-        if (!isset($signature)) {
+        if (trim($signature) === '') {
             throw new InvalidSignatureException('Request does not contain signature');
         }
 

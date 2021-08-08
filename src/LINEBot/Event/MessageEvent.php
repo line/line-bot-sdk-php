@@ -51,7 +51,7 @@ class MessageEvent extends BaseEvent
     {
         return $this->message['id'];
     }
-    
+
     /**
      * Returns the type of the message.
      *

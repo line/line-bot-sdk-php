@@ -630,6 +630,7 @@ JSON;
             'Q4tp1jGo39vhlcbd4QiQ/9I+zoJDwGIkPP22wgoOjDI=',
             false
         );
+        $eventArrays = json_decode($this::$json, true)["events"];
 
         $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
@@ -643,6 +644,7 @@ JSON;
             $this->assertTrue($event->isUserEvent());
             $this->assertEquals('userid', $event->getUserId());
             $this->assertEquals('userid', $event->getEventSourceId());
+            $this->assertEquals($eventArrays[0], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
             /** @var TextMessage $event */
@@ -664,6 +666,7 @@ JSON;
             $this->assertEquals('groupid', $event->getGroupId());
             $this->assertEquals('groupid', $event->getEventSourceId());
             $this->assertEquals(null, $event->getUserId());
+            $this->assertEquals($eventArrays[1], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\ImageMessage', $event);
             /** @var ImageMessage $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -686,6 +689,7 @@ JSON;
             $this->assertTrue($event->isGroupEvent());
             $this->assertEquals('groupid', $event->getGroupId());
             $this->assertEquals('groupid', $event->getEventSourceId());
+            $this->assertEquals($eventArrays[2], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\AudioMessage', $event);
             $this->assertEquals('userid', $event->getUserId());
             /** @var AudioMessage $event */
@@ -707,6 +711,7 @@ JSON;
             $this->assertEquals('roomid', $event->getRoomId());
             $this->assertEquals('roomid', $event->getEventSourceId());
             $this->assertEquals(null, $event->getUserId());
+            $this->assertEquals($eventArrays[3], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\VideoMessage', $event);
             /** @var VideoMessage $event */
             $this->assertEquals('replytoken', $event->getReplyToken());

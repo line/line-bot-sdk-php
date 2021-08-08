@@ -96,6 +96,50 @@ class LINEBot
     }
 
     /**
+     * Gets the list of User IDs of users who have added your LINE Official Account as a friend.
+     * These users' IDs won't be included in the obtained list of user IDs:
+     * - Users who blocked the target LINE Official Account after adding it as a friend.
+     * - Users who haven't consented to their profile information being obtained.
+     *
+     * This feature is only available for LINE@ Approved accounts or official accounts.
+     *
+     * @param string|null $start continuationToken
+     * @return Response
+     */
+    public function getFollowerIds($start = null)
+    {
+        $params = is_null($start) ? [] : ['start' => $start];
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/followers/ids', $params);
+    }
+
+    /**
+     * Gets the list of User IDs of users who have added your LINE Official Account as a friend.
+     * These users' IDs won't be included in the obtained list of user IDs:
+     * - Users who blocked the target LINE Official Account after adding it as a friend.
+     * - Users who haven't consented to their profile information being obtained.
+     *
+     * This method gets all of followers by calling getFollowerIds() continually using token
+     *
+     * This feature is only available for LINE@ Approved accounts or official accounts.
+     *
+     * @return array userIds
+     * @see \LINE\LINEBot::getFollowerIds()
+     */
+    public function getAllFollowerIds()
+    {
+        $userIds = [];
+        $continuationToken = null;
+        do {
+            $response = $this->getFollowerIds($continuationToken);
+            $data = $response->getJSONDecodedBody();
+            $userIds = array_merge($userIds, $data['userIds']);
+            $continuationToken = isset($data['next']) ? $data['next'] : null;
+        } while ($continuationToken);
+
+        return $userIds;
+    }
+
+    /**
      * Gets message content which is associated with specified message ID.
      *
      * @param string $messageId The message ID to retrieve content.
@@ -169,8 +213,8 @@ class LINEBot
             $extra = array_slice($args, 2);
         }
 
-        /** @var TextMessageBuilder $textMessageBuilder */
         $ref = new ReflectionClass('LINE\LINEBot\MessageBuilder\TextMessageBuilder');
+        /** @var TextMessageBuilder $textMessageBuilder */
         $textMessageBuilder = $ref->newInstanceArgs(array_merge([$text], $extra));
 
         return $this->replyMessage($replyToken, $textMessageBuilder);
@@ -183,19 +227,29 @@ class LINEBot
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
+     * @param array $customAggregationUnits Name of aggregation unit.
      * @return Response
      */
-    public function pushMessage($to, MessageBuilder $messageBuilder, $notificationDisabled = false, $retryKey = null)
-    {
+    public function pushMessage(
+        $to,
+        MessageBuilder $messageBuilder,
+        $notificationDisabled = false,
+        $retryKey = null,
+        array $customAggregationUnits = array()
+    ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
-        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
+        $params = [
             'to' => $to,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ], $headers);
+        ];
+        if (!empty($customAggregationUnits)) {
+            $params['customAggregationUnits'] = $customAggregationUnits;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', $params, $headers);
     }
 
     /**
@@ -205,23 +259,29 @@ class LINEBot
      * @param MessageBuilder $messageBuilder Message builder to send.
      * @param boolean $notificationDisabled Don't send push notifications(=true) or send(=false)
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
+     * @param array $customAggregationUnits Name of aggregation unit.
      * @return Response
      */
     public function multicast(
         array $tos,
         MessageBuilder $messageBuilder,
         $notificationDisabled = false,
-        $retryKey = null
+        $retryKey = null,
+        array $customAggregationUnits = array()
     ) {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
-        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
+        $params = [
             'to' => $tos,
             'messages' => $messageBuilder->buildMessage(),
             'notificationDisabled' => $notificationDisabled,
-        ], $headers);
+        ];
+        if (!empty($customAggregationUnits)) {
+            $params['customAggregationUnits'] = $customAggregationUnits;
+        }
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', $params, $headers);
     }
 
     /**
@@ -237,7 +297,7 @@ class LINEBot
     {
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/broadcast', [
             'messages' => $messageBuilder->buildMessage(),
@@ -330,7 +390,7 @@ class LINEBot
      * This feature is only available for LINE@ Approved accounts or official accounts.
      *
      * @param string $groupId Identifier of the group
-     * @param string $start continuationToken
+     * @param string|null $start continuationToken
      * @return Response
      */
     public function getGroupMemberIds($groupId, $start = null)
@@ -347,7 +407,7 @@ class LINEBot
      * This feature is only available for LINE@ Approved accounts or official accounts.
      *
      * @param string $roomId Identifier of the room
-     * @param string $start continuationToken
+     * @param string|null $start continuationToken
      * @return Response
      */
     public function getRoomMemberIds($roomId, $start = null)
@@ -874,7 +934,7 @@ class LINEBot
      * @param MessageBuilder $messageBuilder
      * @param RecipientBuilder|null $recipientBuilder
      * @param DemographicFilterBuilder|null $demographicFilterBuilder
-     * @param int|null $limit
+     * @param int|null $max
      * @param string|null $retryKey UUID(example: 123e4567-e89b-12d3-a456-426614174000) or Not needed retry(=null)
      * @return Response
      */
@@ -906,7 +966,7 @@ class LINEBot
         }
         $headers = ['Content-Type: application/json; charset=utf-8'];
         if (isset($retryKey)) {
-            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' .$retryKey;
+            $headers[] = HTTPHeader::LINE_RETRY_KEY . ': ' . $retryKey;
         }
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/narrowcast', $params, $headers);
     }
@@ -1071,7 +1131,10 @@ class LINEBot
      */
     public function renameAudience($audienceGroupId, $description)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription', urlencode($audienceGroupId));
+        $url = sprintf(
+            $this->endpointBase . '/v2/bot/audienceGroup/%s/updateDescription',
+            urlencode(strval($audienceGroupId))
+        );
         return $this->httpClient->put($url, ['description' => $description]);
     }
 
@@ -1083,7 +1146,7 @@ class LINEBot
      */
     public function deleteAudience($audienceGroupId)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode(strval($audienceGroupId)));
         return $this->httpClient->delete($url);
     }
 
@@ -1095,7 +1158,7 @@ class LINEBot
      */
     public function getAudience($audienceGroupId)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s', urlencode(strval($audienceGroupId)));
         return $this->httpClient->get($url);
     }
 
@@ -1168,7 +1231,7 @@ class LINEBot
      */
     public function activateAudience($audienceGroupId)
     {
-        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/activate', urlencode($audienceGroupId));
+        $url = sprintf($this->endpointBase . '/v2/bot/audienceGroup/%s/activate', urlencode(strval($audienceGroupId)));
         return $this->httpClient->put($url, []);
     }
 
@@ -1206,5 +1269,76 @@ class LINEBot
         return $this->httpClient->post($this->endpointBase . '/v2/bot/channel/webhook/test', [
             'endpoint' => $endpoint,
         ]);
+    }
+
+    /**
+     * Get the per-unit statistics of how users interact
+     * with push messages and multicast messages
+     * sent from your LINE Official Account.
+     *
+     * @param string $customAggregationUnit Name of aggregation unit
+     * @param string $from Start date of aggregation period
+     * @param string $to End date of aggregation period
+     * @return Response
+     */
+    public function getUserInteractionStatisticsPerUnit($customAggregationUnit, $from, $to)
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/insight/message/event/aggregation', [
+            'customAggregationUnit' => $customAggregationUnit,
+            'from' => $from,
+            'to' => $to,
+        ]);
+    }
+
+    /**
+     * Get the number of aggregation units used this month.
+     *
+     * @return Response
+     */
+    public function getNumberOfUnitsUsedThisMonth()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/message/aggregation/info');
+    }
+
+    /**
+     * Get the name list of units used this month for statistics aggregation.
+     *
+     * @param string|null $limit
+     * @param int|null $start
+     * @return Response
+     */
+    public function getNameListOfUnitsUsedThisMonth($limit = null, $start = null)
+    {
+        $data = [];
+        if (isset($limit)) {
+            $data['limit'] = $limit;
+        }
+        if (isset($start)) {
+            $data['start'] = $start;
+        }
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/insight/message/event/aggregation', $data);
+    }
+
+    /**
+     * Get the name list of units used this month for statistics aggregation.
+     * This method gets all of the names
+     * by calling getNameListOfUnitsUsedThisMonth() continually using token
+     *
+     * @return array
+     */
+    public function getAllNameListOfUnitsUsedThisMonth()
+    {
+        $nameList = [];
+        $start = null;
+        do {
+            $response = $this->getNameListOfUnitsUsedThisMonth(null, $start);
+            $data = $response->getJSONDecodedBody();
+            foreach ($data['customAggregationUnits'] as $customAggregationUnit) {
+                $nameList[] = $customAggregationUnit;
+            }
+            $start = isset($data['next']) ? $data['next'] : null;
+        } while ($start);
+
+        return $nameList;
     }
 }

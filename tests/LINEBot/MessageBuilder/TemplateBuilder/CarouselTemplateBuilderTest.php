@@ -94,7 +94,7 @@ JSON
 
         foreach (self::$tests as $t) {
             if (is_array($t['param'][0])) {
-                $columnTemplateBuilders= [];
+                $columnTemplateBuilders = [];
                 if (in_array('postback', $t['param'][0])) {
                     $columnTemplateBuilders[] = $postbackActionBuilder;
                 }
