@@ -713,6 +713,69 @@ class LINEBot
     }
 
     /**
+     * Create rich menu alias
+     *
+     * @param string $richMenuAliasId Rich menu alias ID, which can be any ID, unique for each channel.
+     * @param string $richMenuId The rich menu ID to be associated with the rich menu alias.
+     * @return Response
+     */
+    public function createRichMenuAlias($richMenuAliasId, $richMenuId)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/richmenu/alias', [
+            'richMenuAliasId' => $richMenuAliasId,
+            'richMenuId' => $richMenuId
+        ]);
+    }
+
+    /**
+     * Delete rich menu alias
+     *
+     * @param string $richMenuAliasId The rich menu alias ID whose information you want to obtain.
+     * @return Response
+     */
+    public function deleteRichMenuAlias($richMenuAliasId)
+    {
+        $url = sprintf('%s/v2/bot/richmenu/alias/%s', $this->endpointBase, urlencode($richMenuAliasId));
+        return $this->httpClient->delete($url);
+    }
+
+    /**
+     * Update rich menu alias
+     *
+     * @param string $richMenuAliasId The rich menu alias ID whose information you want to obtain.
+     * @return Response
+     */
+    public function updateRichMenuAlias($richMenuAliasId, $richMenuId)
+    {
+        $url = sprintf('%s/v2/bot/richmenu/alias/%s', $this->endpointBase, urlencode($richMenuAliasId));
+        return $this->httpClient->post($url, [
+            'richMenuId' => $richMenuId
+        ]);
+    }
+
+    /**
+     * Get rich menu alias information
+     *
+     * @param string $richMenuAliasId The rich menu alias ID whose information you want to obtain.
+     * @return Response
+     */
+    public function getRichMenuAlias($richMenuAliasId)
+    {
+        $url = sprintf('%s/v2/bot/richmenu/alias/%s', $this->endpointBase, urlencode($richMenuAliasId));
+        return $this->httpClient->get($url);
+    }
+
+    /**
+     * Get list of rich menu alias
+     *
+     * @return Response
+     */
+    public function getRichMenuAliasList()
+    {
+        return $this->httpClient->get($this->endpointBase . '/v2/bot/richmenu/alias/list');
+    }
+
+    /**
      * Get number of sent reply messages
      *
      * @param DateTime $datetime Date the messages were sent.
