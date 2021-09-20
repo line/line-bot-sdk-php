@@ -43,10 +43,6 @@
     "squizlabs/php_codesniffer": "~3.5",
     "orchestra/testbench": "*"
   },
-  "suggest": {
-    "apigen/apigen": "Install with roave/better-reflection:dev-master to generate docs",
-    "roave/better-reflection": "Required by apigen/apigen:dev-master"
-  },
   "autoload": {
     "psr-4": {
       "LINE\\": "src/"
@@ -59,7 +55,6 @@
   },
   "scripts": {
     "test": "phpunit --debug tests",
-    "doc": "apigen generate src --destination docs",
     "cs": "phpcs",
     "md": "phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
     "stan": "devtool/check_phpstan.sh"
