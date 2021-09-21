@@ -52,25 +52,35 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-        
-    <section class="phpdocumentor-sidebar__category">
-        <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
-                                                <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/line.html"><abbr title="\LINE">LINE</abbr></a></h4>
-                <ul class="phpdocumentor-list">
-                                            <li><a href="namespaces/line-laravel.html"><abbr title="\LINE\Laravel">Laravel</abbr></a></li>
-                                            <li><a href="namespaces/line-linebot.html"><abbr title="\LINE\LINEBot">LINEBot</abbr></a></li>
-                                    </ul>
-                        </section>
+                    <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/line.html">LINE</a></h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/line-laravel.html">Laravel</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/line-linebot.html">LINEBot</a>
+                
+            </li>
+            </ul>
 
-        <section class="phpdocumentor-sidebar__category">
-        <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
-                    <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Application.html"><abbr title="\Application">Application</abbr></a></h3>
-                                <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/LINE.html"><abbr title="\LINE">LINE</abbr></a></h3>
-                        <ul class="phpdocumentor-list">
-                                    <li><a href="packages/LINE-LINEBot.html"><abbr title="\LINE\LINEBot">LINEBot</abbr></a></li>
-                            </ul>
                         </section>
-    
+                <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/Application.html">Application</a></h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/LINE.html">LINE</a></h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/LINE-LINEBot.html">LINEBot</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+            
     <section class="phpdocumentor-sidebar__category">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
@@ -283,6 +293,13 @@
 <dd>Creates a rich menu.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot.html#method_createRichMenuAlias">createRichMenuAlias()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a>    </span>
+</dt>
+<dd>Create rich menu alias</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-LINEBot.html#method_deleteAudience">deleteAudience()</a>
     <span>
                         &nbsp;: <a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a>    </span>
@@ -295,6 +312,13 @@
                         &nbsp;: <a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a>    </span>
 </dt>
 <dd>Deletes a rich menu.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot.html#method_deleteRichMenuAlias">deleteRichMenuAlias()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a>    </span>
+</dt>
+<dd>Delete rich menu alias</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-LINEBot.html#method_downloadRichMenuImage">downloadRichMenuImage()</a>
@@ -514,6 +538,20 @@
 <dd>Gets a rich menu via a rich menu ID.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot.html#method_getRichMenuAlias">getRichMenuAlias()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a>    </span>
+</dt>
+<dd>Get rich menu alias information</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot.html#method_getRichMenuAliasList">getRichMenuAliasList()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a>    </span>
+</dt>
+<dd>Get list of rich menu alias</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-LINEBot.html#method_getRichMenuId">getRichMenuId()</a>
     <span>
                         &nbsp;: <a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a>    </span>
@@ -703,6 +741,13 @@ sent from your LINE Official Account.</dd>
                         &nbsp;: <a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a>    </span>
 </dt>
 <dd>Change the authority level of the audience</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot.html#method_updateRichMenuAlias">updateRichMenuAlias()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a>    </span>
+</dt>
+<dd>Update rich menu alias</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-LINEBot.html#method_uploadRichMenuImage">uploadRichMenuImage()</a>
@@ -996,7 +1041,7 @@ sent from your LINE Official Account.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1232</span>
+    <span class="phpdocumentor-element-found-in__line">1296</span>
 
     </aside>
 
@@ -1238,7 +1283,7 @@ sent from your LINE Official Account.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1098</span>
+    <span class="phpdocumentor-element-found-in__line">1162</span>
 
     </aside>
 
@@ -1301,7 +1346,7 @@ sent from your LINE Official Account.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1117</span>
+    <span class="phpdocumentor-element-found-in__line">1181</span>
 
     </aside>
 
@@ -1355,7 +1400,7 @@ sent from your LINE Official Account.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">995</span>
+    <span class="phpdocumentor-element-found-in__line">1059</span>
 
     </aside>
 
@@ -1427,7 +1472,7 @@ sent from your LINE Official Account.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1023</span>
+    <span class="phpdocumentor-element-found-in__line">1087</span>
 
     </aside>
 
@@ -1499,7 +1544,7 @@ sent from your LINE Official Account.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">835</span>
+    <span class="phpdocumentor-element-found-in__line">899</span>
 
     </aside>
 
@@ -1547,7 +1592,7 @@ existing channel access tokens are revoked in the order of when they were first 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">877</span>
+    <span class="phpdocumentor-element-found-in__line">941</span>
 
     </aside>
 
@@ -1690,6 +1735,60 @@ If you reach the maximum limit, additional requests of issuing channel access to
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_createRichMenuAlias">
+        createRichMenuAlias()
+        <a href="classes/LINE-LINEBot.html#method_createRichMenuAlias" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">722</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Create rich menu alias</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">createRichMenuAlias</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuAliasId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$richMenuAliasId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Rich menu alias ID, which can be any ID, unique for each channel.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$richMenuId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The rich menu ID to be associated with the rich menu alias.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_deleteAudience">
         deleteAudience()
         <a href="classes/LINE-LINEBot.html#method_deleteAudience" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1697,7 +1796,7 @@ If you reach the maximum limit, additional requests of issuing channel access to
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1147</span>
+    <span class="phpdocumentor-element-found-in__line">1211</span>
 
     </aside>
 
@@ -1761,6 +1860,51 @@ If you reach the maximum limit, additional requests of issuing channel access to
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>ID of an uploaded rich menu</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_deleteRichMenuAlias">
+        deleteRichMenuAlias()
+        <a href="classes/LINE-LINEBot.html#method_deleteRichMenuAlias" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">736</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Delete rich menu alias</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">deleteRichMenuAlias</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuAliasId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$richMenuAliasId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The rich menu alias ID whose information you want to obtain.</p>
 </section>
 
             </dd>
@@ -1954,7 +2098,7 @@ This method gets all of the members by calling getGroupMemberIds() continually u
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1329</span>
+    <span class="phpdocumentor-element-found-in__line">1393</span>
 
     </aside>
 
@@ -2055,7 +2199,7 @@ This method gets all of the members by calling getRoomMemberIds() continually us
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1159</span>
+    <span class="phpdocumentor-element-found-in__line">1223</span>
 
     </aside>
 
@@ -2100,7 +2244,7 @@ This method gets all of the members by calling getRoomMemberIds() continually us
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1176</span>
+    <span class="phpdocumentor-element-found-in__line">1240</span>
 
     </aside>
 
@@ -2188,7 +2332,7 @@ This method gets all of the members by calling getRoomMemberIds() continually us
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1208</span>
+    <span class="phpdocumentor-element-found-in__line">1272</span>
 
     </aside>
 
@@ -2254,7 +2398,7 @@ This method gets all of the members by calling getRoomMemberIds() continually us
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">919</span>
+    <span class="phpdocumentor-element-found-in__line">983</span>
 
     </aside>
 
@@ -2382,7 +2526,7 @@ This method gets all of the members by calling getRoomMemberIds() continually us
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">802</span>
+    <span class="phpdocumentor-element-found-in__line">866</span>
 
     </aside>
 
@@ -2671,7 +2815,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1310</span>
+    <span class="phpdocumentor-element-found-in__line">1374</span>
 
     </aside>
 
@@ -2721,7 +2865,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">980</span>
+    <span class="phpdocumentor-element-found-in__line">1044</span>
 
     </aside>
 
@@ -2764,7 +2908,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">786</span>
+    <span class="phpdocumentor-element-found-in__line">850</span>
 
     </aside>
 
@@ -2842,7 +2986,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">773</span>
+    <span class="phpdocumentor-element-found-in__line">837</span>
 
     </aside>
 
@@ -2887,7 +3031,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">760</span>
+    <span class="phpdocumentor-element-found-in__line">824</span>
 
     </aside>
 
@@ -2932,7 +3076,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">747</span>
+    <span class="phpdocumentor-element-found-in__line">811</span>
 
     </aside>
 
@@ -2977,7 +3121,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">734</span>
+    <span class="phpdocumentor-element-found-in__line">798</span>
 
     </aside>
 
@@ -3022,7 +3166,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">721</span>
+    <span class="phpdocumentor-element-found-in__line">785</span>
 
     </aside>
 
@@ -3100,7 +3244,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1298</span>
+    <span class="phpdocumentor-element-found-in__line">1362</span>
 
     </aside>
 
@@ -3202,6 +3346,84 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
             </dd>
             </dl>
 
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getRichMenuAlias">
+        getRichMenuAlias()
+        <a href="classes/LINE-LINEBot.html#method_getRichMenuAlias" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">763</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get rich menu alias information</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getRichMenuAlias</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuAliasId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$richMenuAliasId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The rich menu alias ID whose information you want to obtain.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getRichMenuAliasList">
+        getRichMenuAliasList()
+        <a href="classes/LINE-LINEBot.html#method_getRichMenuAliasList" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">774</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get list of rich menu alias</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getRichMenuAliasList</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span></code>
+
+    
+    
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3461,7 +3683,7 @@ Furthermore, your Target reach number must be at least 20 to retrieve demographi
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">818</span>
+    <span class="phpdocumentor-element-found-in__line">882</span>
 
     </aside>
 
@@ -3510,7 +3732,7 @@ The statistics are no longer updated after 15 days.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1284</span>
+    <span class="phpdocumentor-element-found-in__line">1348</span>
 
     </aside>
 
@@ -3575,7 +3797,7 @@ sent from your LINE Official Account.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1243</span>
+    <span class="phpdocumentor-element-found-in__line">1307</span>
 
     </aside>
 
@@ -3999,7 +4221,7 @@ sent from your LINE Official Account.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1132</span>
+    <span class="phpdocumentor-element-found-in__line">1196</span>
 
     </aside>
 
@@ -4191,7 +4413,7 @@ $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">857</span>
+    <span class="phpdocumentor-element-found-in__line">921</span>
 
     </aside>
 
@@ -4236,7 +4458,7 @@ $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">899</span>
+    <span class="phpdocumentor-element-found-in__line">963</span>
 
     </aside>
 
@@ -4293,7 +4515,7 @@ $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">941</span>
+    <span class="phpdocumentor-element-found-in__line">1005</span>
 
     </aside>
 
@@ -4419,7 +4641,7 @@ $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1254</span>
+    <span class="phpdocumentor-element-found-in__line">1318</span>
 
     </aside>
 
@@ -4462,7 +4684,7 @@ $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1267</span>
+    <span class="phpdocumentor-element-found-in__line">1331</span>
 
     </aside>
 
@@ -4550,7 +4772,7 @@ $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1050</span>
+    <span class="phpdocumentor-element-found-in__line">1114</span>
 
     </aside>
 
@@ -4613,7 +4835,7 @@ $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1073</span>
+    <span class="phpdocumentor-element-found-in__line">1137</span>
 
     </aside>
 
@@ -4676,7 +4898,7 @@ $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1219</span>
+    <span class="phpdocumentor-element-found-in__line">1283</span>
 
     </aside>
 
@@ -4695,6 +4917,60 @@ $bot->replyText('reply-text', 'text', 'extra text1', 'extra text2', ...)
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>One of: PUBLIC, PRIVATE</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_updateRichMenuAlias">
+        updateRichMenuAlias()
+        <a href="classes/LINE-LINEBot.html#method_updateRichMenuAlias" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot.php"><a href="files/src-linebot.html"><abbr title="src/LINEBot.php">LINEBot.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">749</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Update rich menu alias</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">updateRichMenuAlias</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuAliasId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-Response.html"><abbr title="\LINE\LINEBot\Response">Response</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$richMenuAliasId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The rich menu alias ID whose information you want to obtain.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$richMenuId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The rich menu ID to be associated with the rich menu alias.</p>
 </section>
 
             </dd>

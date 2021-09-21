@@ -1351,10 +1351,60 @@ Search.appendIndex(
             "summary": "Returns\u0020contentProvider\u0020of\u0020the\u0020image\u0020message.",
             "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessage.html#method_getContentProvider"
         },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessage\u003A\u003AgetImageSet\u0028\u0029",
+            "name": "getImageSet",
+            "summary": "Returns\u0020image\u0020set\u0020of\u0020the\u0020image\u0020message.",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessage.html#method_getImageSet"
+        },                {
             "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessage\u003A\u003A\u0024contentProvider",
             "name": "contentProvider",
             "summary": "",
             "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessage.html#property_contentProvider"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessage\u003A\u003A\u0024imageSet",
+            "name": "imageSet",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessage.html#property_imageSet"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet",
+            "name": "ImageSet",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#method___construct"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "Returns\u0020Image\u0020set\u0020ID.",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#method_getId"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet\u003A\u003AgetIndex\u0028\u0029",
+            "name": "getIndex",
+            "summary": "Returns\u0020indicating\u0020the\u0020image\u0020number\u0020in\u0020a\u0020set\u0020of\u0020images\u0020sent\u0020simultaneously.",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#method_getIndex"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet\u003A\u003AgetTotal\u0028\u0029",
+            "name": "getTotal",
+            "summary": "Returns\u0020total\u0020number\u0020of\u0020images\u0020sent\u0020simultaneously.",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#method_getTotal"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#property_id"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet\u003A\u003A\u0024index",
+            "name": "index",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#property_index"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet\u003A\u003A\u0024total",
+            "name": "total",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#property_total"
         },                {
             "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\LocationMessage",
             "name": "LocationMessage",
@@ -5381,6 +5431,31 @@ Search.appendIndex(
             "summary": "Gets\u0020a\u0020list\u0020of\u0020all\u0020uploaded\u0020rich\u0020menus.",
             "url": "classes/LINE-LINEBot.html#method_getRichMenuList"
         },                {
+            "fqsen": "\\LINE\\LINEBot\u003A\u003AcreateRichMenuAlias\u0028\u0029",
+            "name": "createRichMenuAlias",
+            "summary": "Create\u0020rich\u0020menu\u0020alias",
+            "url": "classes/LINE-LINEBot.html#method_createRichMenuAlias"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\u003A\u003AdeleteRichMenuAlias\u0028\u0029",
+            "name": "deleteRichMenuAlias",
+            "summary": "Delete\u0020rich\u0020menu\u0020alias",
+            "url": "classes/LINE-LINEBot.html#method_deleteRichMenuAlias"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\u003A\u003AupdateRichMenuAlias\u0028\u0029",
+            "name": "updateRichMenuAlias",
+            "summary": "Update\u0020rich\u0020menu\u0020alias",
+            "url": "classes/LINE-LINEBot.html#method_updateRichMenuAlias"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\u003A\u003AgetRichMenuAlias\u0028\u0029",
+            "name": "getRichMenuAlias",
+            "summary": "Get\u0020rich\u0020menu\u0020alias\u0020information",
+            "url": "classes/LINE-LINEBot.html#method_getRichMenuAlias"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\u003A\u003AgetRichMenuAliasList\u0028\u0029",
+            "name": "getRichMenuAliasList",
+            "summary": "Get\u0020list\u0020of\u0020rich\u0020menu\u0020alias",
+            "url": "classes/LINE-LINEBot.html#method_getRichMenuAliasList"
+        },                {
             "fqsen": "\\LINE\\LINEBot\u003A\u003AgetNumberOfSentReplyMessages\u0028\u0029",
             "name": "getNumberOfSentReplyMessages",
             "summary": "Get\u0020number\u0020of\u0020sent\u0020reply\u0020messages",
@@ -5620,6 +5695,11 @@ Search.appendIndex(
             "name": "MessageEvent",
             "summary": "",
             "url": "namespaces/line-linebot-event-messageevent.html"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge",
+            "name": "ImageMessasge",
+            "summary": "",
+            "url": "namespaces/line-linebot-event-messageevent-imagemessasge.html"
         },                {
             "fqsen": "\\LINE\\LINEBot\\Event\\Parser",
             "name": "Parser",
