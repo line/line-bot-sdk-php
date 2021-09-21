@@ -743,6 +743,7 @@ class LINEBot
      * Update rich menu alias
      *
      * @param string $richMenuAliasId The rich menu alias ID whose information you want to obtain.
+     * @param string $richMenuId The rich menu ID to be associated with the rich menu alias.
      * @return Response
      */
     public function updateRichMenuAlias($richMenuAliasId, $richMenuId)
