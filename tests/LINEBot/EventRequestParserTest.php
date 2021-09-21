@@ -89,6 +89,11 @@ class EventRequestParserTest extends TestCase
      "type":"external",
      "originalContentUrl":"https://example.com/test.jpg",
      "previewImageUrl":"https://example.com/test-preview.jpg"
+    },
+    "imageSet": {
+        "id": "E005D41A7288F41B65593ED38FF6E9834B046AB36A37921A56BC236F13A91855",
+        "index": 1,
+        "total": 1
     }
    }
   },
@@ -627,7 +632,7 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'Q4tp1jGo39vhlcbd4QiQ/9I+zoJDwGIkPP22wgoOjDI=',
+            'psIJjcTxkC7xl7vW/s3HxD79BKdBazvrBmdsIR3tnz4=',
             false
         );
         $eventArrays = json_decode($this::$json, true)["events"];
@@ -681,6 +686,12 @@ JSON;
                 'https://example.com/test-preview.jpg',
                 $event->getContentProvider()->getPreviewImageUrl()
             );
+            $this->assertEquals(
+                'E005D41A7288F41B65593ED38FF6E9834B046AB36A37921A56BC236F13A91855',
+                $event->getImageSet()->getId()
+            );
+            $this->assertEquals(1, $event->getImageSet()->getIndex());
+            $this->assertEquals(1, $event->getImageSet()->getTotal());
         }
 
         {

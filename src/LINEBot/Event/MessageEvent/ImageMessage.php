@@ -19,6 +19,7 @@
 namespace LINE\LINEBot\Event\MessageEvent;
 
 use LINE\LINEBot\Event\MessageEvent;
+use LINE\LINEBot\Event\MessageEvent\ImageMessasge\ImageSet;
 
 /**
  * A class that represents the message event of image.
@@ -29,6 +30,8 @@ class ImageMessage extends MessageEvent
 {
     /** @var ContentProvider */
     private $contentProvider;
+    /** @var ImageSet */
+    private $imageSet;
 
     /**
      * ImageMessage constructor.
@@ -39,6 +42,7 @@ class ImageMessage extends MessageEvent
     {
         parent::__construct($event);
         $this->contentProvider = new ContentProvider($this->message['contentProvider']);
+        $this->imageSet = new ImageSet($this->message['imageSet']);
     }
 
     /**
@@ -49,5 +53,15 @@ class ImageMessage extends MessageEvent
     public function getContentProvider()
     {
         return $this->contentProvider;
+    }
+
+    /**
+     * Returns image set of the image message.
+     *
+     * @return ImageSet
+     */
+    public function getImageSet()
+    {
+        return $this->imageSet;
     }
 }
