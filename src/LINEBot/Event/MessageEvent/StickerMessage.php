@@ -81,4 +81,15 @@ class StickerMessage extends MessageEvent
     {
         return $this->message['keywords'];
     }
+
+    /**
+     * Returns text.
+     *
+     * Any text entered by the user. This property is only included for message stickers.
+     * @return string|null
+     */
+    public function getText()
+    {
+        return isset($this->message['text']) ? $this->message['text'] : null;
+    }
 }
