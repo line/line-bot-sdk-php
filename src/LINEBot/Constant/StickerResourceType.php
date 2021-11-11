@@ -26,5 +26,8 @@ class StickerResourceType
     const ANIMATION_SOUND = 'ANIMATION_SOUND';
     const POPUP = 'POPUP';
     const POPUP_SOUND = 'POPUP_SOUND';
-    const NAME_TEXT = 'NAME_TEXT';
+    const CUSTOM = 'CUSTOM';
+    const MESSAGE = 'MESSAGE';
+    const NAME_TEXT = 'NAME_TEXT'; //discontinued
+    const PER_STICKER_TEXT = 'PER_STICKER_TEXT'; //discontinued
 }
