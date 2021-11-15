@@ -28,6 +28,12 @@ class StickerResourceType
     const POPUP_SOUND = 'POPUP_SOUND';
     const CUSTOM = 'CUSTOM';
     const MESSAGE = 'MESSAGE';
-    const NAME_TEXT = 'NAME_TEXT'; //discontinued
-    const PER_STICKER_TEXT = 'PER_STICKER_TEXT'; //discontinued
+    /**
+     * @deprecated Discontinued since the near future.
+     */
+    const NAME_TEXT = 'NAME_TEXT';
+    /**
+     * @deprecated Discontinued since the near future.
+     */
+    const PER_STICKER_TEXT = 'PER_STICKER_TEXT';
 }
