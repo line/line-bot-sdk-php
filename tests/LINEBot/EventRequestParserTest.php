@@ -228,6 +228,25 @@ class EventRequestParserTest extends TestCase
    }
   },
   {
+   "type":"message",
+   "mode":"active",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"user",
+    "userId":"userid"
+   },
+   "replyToken":"replytoken",
+   "message":{
+    "id":"contentid",
+    "type":"sticker",
+    "packageId":"12287",
+    "stickerId":"738839",
+    "stickerResourceType":"MESSAGE",
+    "keywords": ["Anticipation","Sparkle","Straight face","Staring","Thinking"],
+    "text": "Let's\\nhang out\\nthis weekend!"
+   }
+  },
+  {
    "type":"follow",
    "mode":"active",
    "timestamp":12345678901234,
@@ -632,14 +651,14 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'psIJjcTxkC7xl7vW/s3HxD79BKdBazvrBmdsIR3tnz4=',
+            'dRbmylMFpsyhp1oVCBzzqU+dvoMzPkYflDytd7h46vs=',
             false
         );
         $eventArrays = json_decode($this::$json, true)["events"];
 
         $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
-        $this->assertEquals(count($events), 35);
+        $this->assertEquals(count($events), 36);
 
         {
             // text
@@ -803,11 +822,29 @@ JSON;
                 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'],
                 $event->getKeywords()
             );
+            $this->assertEquals(null, $event->getText());
+        }
+
+        {
+            // sticker with text
+            $event = $events[9];
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\StickerMessage', $event);
+            /** @var StickerMessage $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals('sticker', $event->getMessageType());
+            $this->assertEquals(12287, $event->getPackageId());
+            $this->assertEquals(738839, $event->getStickerId());
+            $this->assertEquals(StickerResourceType::MESSAGE, $event->getStickerResourceType());
+            $this->assertEquals(
+                ['Anticipation', 'Sparkle', 'Straight face', 'Staring', 'Thinking'],
+                $event->getKeywords()
+            );
+            $this->assertEquals("Let's\nhang out\nthis weekend!", $event->getText());
         }
 
         {
             // follow
-            $event = $events[9];
+            $event = $events[10];
             $this->assertInstanceOf('LINE\LINEBot\Event\FollowEvent', $event);
             /** @var FollowEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -815,7 +852,7 @@ JSON;
 
         {
             // unfollow
-            $event = $events[10];
+            $event = $events[11];
             $this->assertInstanceOf('LINE\LINEBot\Event\UnfollowEvent', $event);
             /** @var UnfollowEvent $event */
             $this->assertTrue($event->getReplyToken() === null);
@@ -823,7 +860,7 @@ JSON;
 
         {
             // join
-            $event = $events[11];
+            $event = $events[12];
             $this->assertInstanceOf('LINE\LINEBot\Event\JoinEvent', $event);
             /** @var JoinEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -831,7 +868,7 @@ JSON;
 
         {
             // leave
-            $event = $events[12];
+            $event = $events[13];
             $this->assertInstanceOf('LINE\LINEBot\Event\LeaveEvent', $event);
             /** @var LeaveEvent $event */
             $this->assertTrue($event->getReplyToken() === null);
@@ -839,7 +876,7 @@ JSON;
 
         {
             // postback
-            $event = $events[13];
+            $event = $events[14];
             $this->assertInstanceOf('LINE\LINEBot\Event\PostbackEvent', $event);
             /** @var PostbackEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -849,7 +886,7 @@ JSON;
 
         {
             // beacon
-            $event = $events[14];
+            $event = $events[15];
             $this->assertInstanceOf('LINE\LINEBot\Event\BeaconDetectionEvent', $event);
             /** @var BeaconDetectionEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -860,7 +897,7 @@ JSON;
 
         {
             // unknown event (event source: user)
-            $event = $events[15];
+            $event = $events[16];
             $this->assertInstanceOf('LINE\LINEBot\Event\UnknownEvent', $event);
             /** @var UnknownEvent $event */
             $this->assertEquals('__unknown__', $event->getType());
@@ -875,7 +912,7 @@ JSON;
 
         {
             // unknown event (event source: unknown)
-            $event = $events[16];
+            $event = $events[17];
             $this->assertInstanceOf('LINE\LINEBot\Event\UnknownEvent', $event);
             /** @var UnknownEvent $event */
             $this->assertEquals('__unknown__', $event->getType());
@@ -889,7 +926,7 @@ JSON;
 
         {
             // message event & unknown message event
-            $event = $events[17];
+            $event = $events[18];
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\UnknownMessage', $event);
             /** @var UnknownMessage $event */
@@ -898,7 +935,7 @@ JSON;
 
         {
             // file message
-            $event = $events[18];
+            $event = $events[19];
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\FileMessage', $event);
             /** @var FileMessage $event */
@@ -910,7 +947,7 @@ JSON;
 
         {
             // postback date
-            $event = $events[19];
+            $event = $events[20];
             $this->assertInstanceOf('LINE\LINEBot\Event\PostbackEvent', $event);
             /** @var PostbackEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -920,7 +957,7 @@ JSON;
 
         {
             // postback time
-            $event = $events[20];
+            $event = $events[21];
             $this->assertInstanceOf('LINE\LINEBot\Event\PostbackEvent', $event);
             /** @var PostbackEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -930,7 +967,7 @@ JSON;
 
         {
             // postback datetime
-            $event = $events[21];
+            $event = $events[22];
             $this->assertInstanceOf('LINE\LINEBot\Event\PostbackEvent', $event);
             /** @var PostbackEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -940,7 +977,7 @@ JSON;
 
         {
             // account link - success
-            $event = $events[22];
+            $event = $events[23];
             $this->assertInstanceOf('LINE\LINEBot\Event\AccountLinkEvent', $event);
             /** @var AccountLinkEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -954,7 +991,7 @@ JSON;
 
         {
             // account link - failed
-            $event = $events[23];
+            $event = $events[24];
             $this->assertInstanceOf('LINE\LINEBot\Event\AccountLinkEvent', $event);
             /** @var AccountLinkEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -968,7 +1005,7 @@ JSON;
 
         {
             // member join
-            $event = $events[24];
+            $event = $events[25];
             $this->assertInstanceOf('LINE\LINEBot\Event\MemberJoinEvent', $event);
             /** @var MemberJoinEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -981,7 +1018,7 @@ JSON;
 
         {
             // member leave
-            $event = $events[25];
+            $event = $events[26];
             $this->assertInstanceOf('LINE\LINEBot\Event\MemberLeaveEvent', $event);
             /** @var MemberLeaveEvent $event */
             $this->assertTrue($event->getReplyToken() === null);
@@ -994,7 +1031,7 @@ JSON;
 
         {
             // things
-            $event = $events[26];
+            $event = $events[27];
             $this->assertInstanceOf('LINE\LINEBot\Event\ThingsEvent', $event);
             /** @var ThingsEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -1004,7 +1041,7 @@ JSON;
 
         {
             // things
-            $event = $events[27];
+            $event = $events[28];
             $this->assertInstanceOf('LINE\LINEBot\Event\ThingsEvent', $event);
             /** @var ThingsEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -1014,7 +1051,7 @@ JSON;
 
         {
             // things
-            $event = $events[28];
+            $event = $events[29];
             $this->assertInstanceOf('LINE\LINEBot\Event\ThingsEvent', $event);
             /** @var ThingsEvent $event */
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -1034,7 +1071,7 @@ JSON;
 
         {
             // text without emoji
-            $event = $events[29];
+            $event = $events[30];
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertTrue($event->isUserEvent());
@@ -1052,7 +1089,7 @@ JSON;
 
         {
             // unsend event
-            $event = $events[30];
+            $event = $events[31];
             $this->assertInstanceOf('LINE\LINEBot\Event\UnsendEvent', $event);
             /** @var UnsendMessage $event */
             $this->assertEquals('325708', $event->getUnsendMessageId());
@@ -1060,7 +1097,7 @@ JSON;
 
         {
             // video play complete event
-            $event = $events[31];
+            $event = $events[32];
             $this->assertInstanceOf('LINE\LINEBot\Event\VideoPlayCompleteEvent', $event);
             /** @var UnsendMessage $event */
             $this->assertEquals('track_id', $event->getTrackingId());
@@ -1068,7 +1105,7 @@ JSON;
 
         {
             // text
-            $event = $events[32];
+            $event = $events[33];
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertTrue($event->isUserEvent());
@@ -1089,7 +1126,7 @@ JSON;
 
         {
             // text without mentionee userId
-            $event = $events[33];
+            $event = $events[34];
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertTrue($event->isUserEvent());
@@ -1110,7 +1147,7 @@ JSON;
 
         {
             // text without mention
-            $event = $events[34];
+            $event = $events[35];
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertTrue($event->isUserEvent());
