@@ -42,7 +42,10 @@ class ImageMessage extends MessageEvent
     {
         parent::__construct($event);
         $this->contentProvider = new ContentProvider($this->message['contentProvider']);
-        $this->imageSet = new ImageSet($this->message['imageSet']);
+        // Only included when multiple images are sent simultaneously.
+        if (isset($this->message['imageSet'])) {
+            $this->imageSet = new ImageSet($this->message['imageSet']);
+        }
     }
 
     /**
@@ -58,7 +61,7 @@ class ImageMessage extends MessageEvent
     /**
      * Returns image set of the image message.
      *
-     * @return ImageSet
+     * @return ImageSet|null
      */
     public function getImageSet()
     {
