@@ -971,10 +971,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LINE-LINEBot-Constant-StickerResourceType.html#constant_POPUP_SOUND"
         },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\StickerResourceType\u003A\u003ACUSTOM",
+            "name": "CUSTOM",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-StickerResourceType.html#constant_CUSTOM"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\StickerResourceType\u003A\u003AMESSAGE",
+            "name": "MESSAGE",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-StickerResourceType.html#constant_MESSAGE"
+        },                {
             "fqsen": "\\LINE\\LINEBot\\Constant\\StickerResourceType\u003A\u003ANAME_TEXT",
             "name": "NAME_TEXT",
             "summary": "",
             "url": "classes/LINE-LINEBot-Constant-StickerResourceType.html#constant_NAME_TEXT"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\StickerResourceType\u003A\u003APER_STICKER_TEXT",
+            "name": "PER_STICKER_TEXT",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-StickerResourceType.html#constant_PER_STICKER_TEXT"
         },                {
             "fqsen": "\\LINE\\LINEBot\\Constant\\TemplateType",
             "name": "TemplateType",
@@ -1505,6 +1520,11 @@ Search.appendIndex(
             "name": "getKeywords",
             "summary": "Returns\u0020keywords",
             "url": "classes/LINE-LINEBot-Event-MessageEvent-StickerMessage.html#method_getKeywords"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\StickerMessage\u003A\u003AgetText\u0028\u0029",
+            "name": "getText",
+            "summary": "Returns\u0020text.",
+            "url": "classes/LINE-LINEBot-Event-MessageEvent-StickerMessage.html#method_getText"
         },                {
             "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\TextMessage",
             "name": "TextMessage",
