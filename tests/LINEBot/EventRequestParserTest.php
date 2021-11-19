@@ -635,6 +635,25 @@ class EventRequestParserTest extends TestCase
     "type": "text",
     "text": "message without mention"
    }
+  },
+  {
+   "type":"message",
+   "mode":"active",
+   "timestamp":12345678901234,
+   "source":{
+    "type":"group",
+    "groupId":"groupid"
+   },
+   "replyToken":"replytoken",
+   "message":{
+    "id":"contentid",
+    "type":"image",
+    "contentProvider":{
+     "type":"external",
+     "originalContentUrl":"https://example.com/test.jpg",
+     "previewImageUrl":"https://example.com/test-preview.jpg"
+    }
+   }
   }
  ]
 }
@@ -651,14 +670,14 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'dRbmylMFpsyhp1oVCBzzqU+dvoMzPkYflDytd7h46vs=',
+            'hbnY5i5clEV84DFbLns1c/pzGVF91TEkbRHA55tYxoU=',
             false
         );
         $eventArrays = json_decode($this::$json, true)["events"];
 
         $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
-        $this->assertEquals(count($events), 36);
+        $this->assertEquals(count($events), 37);
 
         {
             // text
@@ -1161,6 +1180,31 @@ JSON;
             $this->assertEquals('text', $event->getMessageType());
             $this->assertEquals('message without mention', $event->getText());
             $this->assertEquals(null, $event->getMentionees());
+        }
+
+        {
+            // Only included when multiple images are sent simultaneously.
+            $event = $events[36];
+            $this->assertTrue($event->isGroupEvent());
+            $this->assertEquals('groupid', $event->getGroupId());
+            $this->assertEquals('groupid', $event->getEventSourceId());
+            $this->assertEquals(null, $event->getUserId());
+            $this->assertEquals($eventArrays[36], $event->getEvent());
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\ImageMessage', $event);
+            /** @var ImageMessage $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals('image', $event->getMessageType());
+            $this->assertEquals('contentid', $event->getMessageId());
+            $this->assertTrue($event->getContentProvider()->isExternal());
+            $this->assertEquals(
+                'https://example.com/test.jpg',
+                $event->getContentProvider()->getOriginalContentUrl()
+            );
+            $this->assertEquals(
+                'https://example.com/test-preview.jpg',
+                $event->getContentProvider()->getPreviewImageUrl()
+            );
+            $this->assertEquals(null, $event->getImageSet());
         }
     }
 }
