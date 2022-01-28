@@ -164,8 +164,8 @@ A full-stack (and slightly complex) sample implementation. This application demo
 This library provides PHPDoc to describe how to use the methods. You can generate the documentation using [phpDocumenter](https://docs.phpdoc.org/) using the following command.
 
 ```
-$ wget https://phpdoc.org/phpDocumentor.phar
-$ php phpDocumentor.phar php phpDocumentor.phar run -d src -t docs
+$ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.0.0/phpDocumentor.phar
+$ php phpDocumentor.phar run -d src -t docs
 ```
 
 The HTML files are generated in `docs/`.
