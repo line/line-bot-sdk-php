@@ -28,7 +28,6 @@ use LINE\LINEBot\Constant\Flex\ComponentSpacing;
 
 class IconComponentBuilderTest extends TestCase
 {
-
     public function test()
     {
         $json = <<<JSON

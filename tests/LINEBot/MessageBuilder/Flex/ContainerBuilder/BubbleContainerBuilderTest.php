@@ -32,7 +32,6 @@ use PHPUnit\Framework\TestCase;
 
 class BubbleContainerBuilderTest extends TestCase
 {
-
     public function test()
     {
         $json = <<<JSON

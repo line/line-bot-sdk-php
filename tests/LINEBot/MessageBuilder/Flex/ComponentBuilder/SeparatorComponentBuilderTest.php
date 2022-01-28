@@ -24,7 +24,6 @@ use LINE\LINEBot\Constant\Flex\ComponentMargin;
 
 class SeparatorComponentBuilderTest extends TestCase
 {
-
     public function test()
     {
         $json = <<<JSON
