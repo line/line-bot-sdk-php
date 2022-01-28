@@ -35,7 +35,6 @@ use LINE\LINEBot\Constant\Flex\ComponentAdjustMode;
 
 class TextComponentBuilderTest extends TestCase
 {
-
     public function test()
     {
         $json = <<<JSON

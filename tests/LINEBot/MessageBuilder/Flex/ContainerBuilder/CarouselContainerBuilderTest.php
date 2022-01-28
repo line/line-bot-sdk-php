@@ -27,7 +27,6 @@ use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
 
 class CarouselContainerBuilderTest extends TestCase
 {
-
     public function test()
     {
         $json = <<<JSON

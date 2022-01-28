@@ -26,7 +26,6 @@ use PHPUnit\Framework\TestCase;
 
 class ButtonTemplateBuilderTest extends TestCase
 {
-
     private static $tests = [
         [
             'param' => ['aaa', 'bbb', 'ccc', ['postback', 'message', 'uri']],
