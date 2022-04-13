@@ -29,4 +29,5 @@ class ComponentType
     const SPACER = 'spacer';
     const TEXT = 'text';
     const SPAN = 'span';
+    const VIDEO = 'video';
 }
