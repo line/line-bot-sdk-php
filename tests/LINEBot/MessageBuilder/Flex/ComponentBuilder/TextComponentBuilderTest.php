@@ -47,6 +47,7 @@ class TextComponentBuilderTest extends TestCase
   "align":"end",
   "gravity":"top",
   "wrap":true,
+  "lineSpacing":"20px",
   "maxLines":0,
   "weight":"bold",
   "color":"#111111",
@@ -80,6 +81,7 @@ JSON;
             ComponentAlign::END,
             ComponentGravity::TOP,
             true,
+            "20px",
             0,
             ComponentFontWeight::BOLD,
             '#111111',
@@ -112,6 +114,7 @@ JSON;
             ->setAlign(ComponentAlign::END)
             ->setGravity(ComponentGravity::TOP)
             ->setWrap(true)
+            ->setLineSpacing("20px")
             ->setMaxLines(0)
             ->setWeight(ComponentFontWeight::BOLD)
             ->setColor('#111111')

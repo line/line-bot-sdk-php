@@ -55,6 +55,8 @@ class TextComponentBuilder implements ComponentBuilder
     private $gravity;
     /** @var boolean */
     private $wrap;
+    /** @var string */
+    private $lineSpacing;
     /** @var int */
     private $maxLines;
     /** @var ComponentFontWeight */
@@ -97,6 +99,7 @@ class TextComponentBuilder implements ComponentBuilder
      * @param ComponentAlign|null $align
      * @param ComponentGravity|null $gravity
      * @param boolean|null $wrap
+     * @param string|null $lineSpacing
      * @param int|null $maxLines
      * @param ComponentFontWeight|null $weight
      * @param string|null $color
@@ -110,6 +113,7 @@ class TextComponentBuilder implements ComponentBuilder
         $align = null,
         $gravity = null,
         $wrap = null,
+        $lineSpacing = null,
         $maxLines = null,
         $weight = null,
         $color = null,
@@ -122,6 +126,7 @@ class TextComponentBuilder implements ComponentBuilder
         $this->align = $align;
         $this->gravity = $gravity;
         $this->wrap = $wrap;
+        $this->lineSpacing = $lineSpacing;
         $this->maxLines = $maxLines;
         $this->weight = $weight;
         $this->color = $color;
@@ -224,6 +229,18 @@ class TextComponentBuilder implements ComponentBuilder
     public function setWrap($wrap)
     {
         $this->wrap = $wrap;
+        return $this;
+    }
+
+    /**
+     * Set lineSpacing.
+     *
+     * @param string|null $lineSpacing
+     * @return TextComponentBuilder
+     */
+    public function setLineSpacing($lineSpacing)
+    {
+        $this->lineSpacing = $lineSpacing;
         return $this;
     }
 
@@ -429,6 +446,7 @@ class TextComponentBuilder implements ComponentBuilder
             'align' => $this->align,
             'gravity' => $this->gravity,
             'wrap' => $this->wrap,
+            'lineSpacing' => $this->lineSpacing,
             'maxLines' => $this->maxLines,
             'weight' => $this->weight,
             'color' => $this->color,
