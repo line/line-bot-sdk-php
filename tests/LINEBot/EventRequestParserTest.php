@@ -59,6 +59,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -83,6 +86,9 @@ class EventRequestParserTest extends TestCase
     "groupId":"groupid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -109,6 +115,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -129,6 +138,9 @@ class EventRequestParserTest extends TestCase
     "roomId":"roomid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -151,6 +163,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -171,6 +186,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -190,6 +208,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -208,6 +229,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -226,6 +250,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -244,6 +271,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -264,6 +294,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken"
   },
   {
@@ -274,7 +307,10 @@ class EventRequestParserTest extends TestCase
     "type":"user",
     "userId":"userid"
    },
-   "webhookEventId":"testwebhookeventid"
+   "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   }
   },
   {
    "type":"join",
@@ -285,6 +321,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken"
   },
   {
@@ -295,7 +334,10 @@ class EventRequestParserTest extends TestCase
     "type":"user",
     "userId":"userid"
    },
-   "webhookEventId":"testwebhookeventid"
+   "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   }
   },
   {
    "type":"postback",
@@ -306,6 +348,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "postback":{
     "data":"postback"
@@ -320,6 +365,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "beacon":{
     "hwid":"bid",
@@ -335,7 +383,10 @@ class EventRequestParserTest extends TestCase
     "type":"user",
     "userId":"userid"
    },
-   "webhookEventId":"testwebhookeventid"
+   "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   }
   },
   {
    "type":"__unknown__",
@@ -344,7 +395,10 @@ class EventRequestParserTest extends TestCase
    "source":{
     "type":"__unknown__"
    },
-   "webhookEventId":"testwebhookeventid"
+   "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   }
   },
   {
    "type":"message",
@@ -355,6 +409,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -371,6 +428,9 @@ class EventRequestParserTest extends TestCase
     "userId": "userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "message": {
     "id": "325708",
     "type": "file",
@@ -388,6 +448,9 @@ class EventRequestParserTest extends TestCase
     "userId": "userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "postback": {
     "data":"postback",
     "params": {
@@ -405,6 +468,9 @@ class EventRequestParserTest extends TestCase
     "userId": "userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "postback": {
     "data":"postback",
     "params": {
@@ -422,6 +488,9 @@ class EventRequestParserTest extends TestCase
     "userId": "userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "postback": {
     "data":"postback",
     "params": {
@@ -439,6 +508,9 @@ class EventRequestParserTest extends TestCase
     "userId": "userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "link": {
     "result": "ok",
     "nonce": "1234567890abcdefghijklmnopqrstuvwxyz"
@@ -454,6 +526,9 @@ class EventRequestParserTest extends TestCase
     "userId": "userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "link": {
     "result": "failed",
     "nonce": "1234567890abcdefghijklmnopqrstuvwxyz"
@@ -468,6 +543,9 @@ class EventRequestParserTest extends TestCase
     "groupId":"groupid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "joined": {
     "members": [
      {
@@ -491,6 +569,9 @@ class EventRequestParserTest extends TestCase
     "groupId":"groupid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "left": {
     "members": [
      {
@@ -513,6 +594,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "things":{
     "deviceId":"t2c449c9d1",
@@ -528,6 +612,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "things":{
     "deviceId":"t2c449c9d1",
@@ -543,6 +630,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "things": {
     "type": "scenarioResult",
@@ -572,6 +662,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -588,6 +681,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "unsend": {
         "messageId": "325708"
    }
@@ -601,6 +697,9 @@ class EventRequestParserTest extends TestCase
     "userId":"userid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "videoPlayComplete": {
     "trackingId": "track_id"
    },
@@ -616,6 +715,9 @@ class EventRequestParserTest extends TestCase
     "userId": "U4af4980629..."
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "message": {
     "id": "325708",
     "type": "text",
@@ -641,6 +743,9 @@ class EventRequestParserTest extends TestCase
     "userId": "U0123456789abcd0123456789abcdef"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "message": {
     "id": "325708",
     "type": "text",
@@ -665,6 +770,9 @@ class EventRequestParserTest extends TestCase
     "userId": "U0123456789abcd0123456789abcdef"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "message": {
     "id": "325708",
     "type": "text",
@@ -680,6 +788,9 @@ class EventRequestParserTest extends TestCase
     "groupId":"groupid"
    },
    "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
    "replyToken":"replytoken",
    "message":{
     "id":"contentid",
@@ -706,7 +817,7 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            '9HlQzxpiYiieJOOYQzXJGvqTbyzFWCOOIKPbhm2z4Aw=',
+            '1cSpU+WUQ7RFIPAj8WvqotyxKTNq7AvzL1yJp6Ffiow=',
             false
         );
         $eventArrays = json_decode($this::$json, true)["events"];
