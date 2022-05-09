@@ -77,6 +77,26 @@ class BaseEvent
     }
 
     /**
+     * Returns webhook event id
+     *
+     * @return string
+     */
+    public function getWebhookEventId()
+    {
+        return $this->event['webhookEventId'];
+    }
+
+    /**
+     * Returns the event is a redelivered one or not.
+     *
+     * @return bool
+     */
+    public function isRedelivery()
+    {
+        return $this->event['deliveryContext']['isRedelivery'];
+    }
+
+    /**
      * Returns reply token of the event.
      *
      * @return string|null
