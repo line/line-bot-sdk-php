@@ -69,6 +69,8 @@ class TextComponentBuilder implements ComponentBuilder
     private $contents;
     /** @var TemplateActionBuilder */
     private $actionBuilder;
+    /** @var string */
+    private $lineSpacing;
 
     /** @var string */
     private $position;
@@ -101,6 +103,7 @@ class TextComponentBuilder implements ComponentBuilder
      * @param ComponentFontWeight|null $weight
      * @param string|null $color
      * @param TemplateActionBuilder|null $actionBuilder
+     * @param string|null $lineSpacing
      */
     public function __construct(
         $text,
@@ -113,7 +116,8 @@ class TextComponentBuilder implements ComponentBuilder
         $maxLines = null,
         $weight = null,
         $color = null,
-        $actionBuilder = null
+        $actionBuilder = null,
+        $lineSpacing = null
     ) {
         $this->text = $text;
         $this->flex = $flex;
@@ -126,6 +130,7 @@ class TextComponentBuilder implements ComponentBuilder
         $this->weight = $weight;
         $this->color = $color;
         $this->actionBuilder = $actionBuilder;
+        $this->lineSpacing = $lineSpacing;
     }
 
     /**
@@ -224,6 +229,18 @@ class TextComponentBuilder implements ComponentBuilder
     public function setWrap($wrap)
     {
         $this->wrap = $wrap;
+        return $this;
+    }
+
+    /**
+     * Set lineSpacing.
+     *
+     * @param string|null $lineSpacing
+     * @return TextComponentBuilder
+     */
+    public function setLineSpacing($lineSpacing)
+    {
+        $this->lineSpacing = $lineSpacing;
         return $this;
     }
 
@@ -429,6 +446,7 @@ class TextComponentBuilder implements ComponentBuilder
             'align' => $this->align,
             'gravity' => $this->gravity,
             'wrap' => $this->wrap,
+            'lineSpacing' => $this->lineSpacing,
             'maxLines' => $this->maxLines,
             'weight' => $this->weight,
             'color' => $this->color,
