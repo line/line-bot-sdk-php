@@ -81,11 +81,11 @@ JSON;
             ComponentAlign::END,
             ComponentGravity::TOP,
             true,
-            "20px",
             0,
             ComponentFontWeight::BOLD,
             '#111111',
-            new UriTemplateActionBuilder('OK', 'http://linecorp.com/')
+            new UriTemplateActionBuilder('OK', 'http://linecorp.com/'),
+            "20px"
         );
         $componentBuilder->setPosition(ComponentPosition::RELATIVE)
             ->setOffsetTop('4px')

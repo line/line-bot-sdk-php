@@ -55,8 +55,6 @@ class TextComponentBuilder implements ComponentBuilder
     private $gravity;
     /** @var boolean */
     private $wrap;
-    /** @var string */
-    private $lineSpacing;
     /** @var int */
     private $maxLines;
     /** @var ComponentFontWeight */
@@ -71,6 +69,8 @@ class TextComponentBuilder implements ComponentBuilder
     private $contents;
     /** @var TemplateActionBuilder */
     private $actionBuilder;
+    /** @var string */
+    private $lineSpacing;
 
     /** @var string */
     private $position;
@@ -99,11 +99,11 @@ class TextComponentBuilder implements ComponentBuilder
      * @param ComponentAlign|null $align
      * @param ComponentGravity|null $gravity
      * @param boolean|null $wrap
-     * @param string|null $lineSpacing
      * @param int|null $maxLines
      * @param ComponentFontWeight|null $weight
      * @param string|null $color
      * @param TemplateActionBuilder|null $actionBuilder
+     * @param string|null $lineSpacing
      */
     public function __construct(
         $text,
@@ -113,11 +113,11 @@ class TextComponentBuilder implements ComponentBuilder
         $align = null,
         $gravity = null,
         $wrap = null,
-        $lineSpacing = null,
         $maxLines = null,
         $weight = null,
         $color = null,
-        $actionBuilder = null
+        $actionBuilder = null,
+        $lineSpacing = null
     ) {
         $this->text = $text;
         $this->flex = $flex;
@@ -126,11 +126,11 @@ class TextComponentBuilder implements ComponentBuilder
         $this->align = $align;
         $this->gravity = $gravity;
         $this->wrap = $wrap;
-        $this->lineSpacing = $lineSpacing;
         $this->maxLines = $maxLines;
         $this->weight = $weight;
         $this->color = $color;
         $this->actionBuilder = $actionBuilder;
+        $this->lineSpacing = $lineSpacing;
     }
 
     /**
