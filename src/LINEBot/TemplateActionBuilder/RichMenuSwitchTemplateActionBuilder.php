@@ -20,6 +20,7 @@ namespace LINE\LINEBot\TemplateActionBuilder;
 
 use LINE\LINEBot\Constant\ActionType;
 use LINE\LINEBot\TemplateActionBuilder;
+use LINE\LINEBot\Util\BuildUtil;
 
 /**
  * A builder class for rich menu switch action.
@@ -56,16 +57,12 @@ class RichMenuSwitchTemplateActionBuilder implements TemplateActionBuilder
      */
     public function buildTemplateAction()
     {
-        $action = [
+        $action = BuildUtil::removeNullElements([
             'type' => ActionType::RICH_MENU_SWITCH,
             'richMenuAliasId' => $this->richMenuAliasId,
             'data' => $this->data,
-        ];
-
-        if (isset($this->label)) {
-            // If label is set, append extend field.
-            $action['label'] = $this->label;
-        }
+            'label' => $this->label,
+        ]);
 
         return $action;
     }
