@@ -28,7 +28,7 @@ class PostbackTemplateActionBuilderTest extends TestCase
     {
         $poskbackTemplateAction = new PostbackTemplateActionBuilder(
             'postback label',
-            'post=back',
+            'post=back'
         );
 
         $this->assertEquals(
@@ -46,7 +46,7 @@ class PostbackTemplateActionBuilderTest extends TestCase
         $poskbackTemplateAction = new PostbackTemplateActionBuilder(
             'postback label',
             'post=back',
-            'extend text',
+            'extend text'
         );
 
         $this->assertEquals(
@@ -67,7 +67,7 @@ class PostbackTemplateActionBuilderTest extends TestCase
             'postback label',
             'post=back',
             'extend text',
-            PostbackInputOption::CLOSE_RICH_MENU,
+            PostbackInputOption::CLOSE_RICH_MENU
         );
 
         $this->assertEquals(
@@ -86,7 +86,7 @@ class PostbackTemplateActionBuilderTest extends TestCase
             'postback label2',
             'post=back2',
             'extend text2',
-            PostbackInputOption::OPEN_RICH_MENU,
+            PostbackInputOption::OPEN_RICH_MENU
         );
 
         $this->assertEquals(
@@ -105,7 +105,7 @@ class PostbackTemplateActionBuilderTest extends TestCase
             'postback label3',
             'post=back3',
             'extend text3',
-            PostbackInputOption::OPEN_KEYBOARD,
+            PostbackInputOption::OPEN_KEYBOARD
         );
 
         $this->assertEquals(
@@ -124,7 +124,7 @@ class PostbackTemplateActionBuilderTest extends TestCase
             'postback label4',
             'post=back4',
             'extend text4',
-            PostbackInputOption::OPEN_VOICE,
+            PostbackInputOption::OPEN_VOICE
         );
 
         $this->assertEquals(
@@ -147,7 +147,7 @@ class PostbackTemplateActionBuilderTest extends TestCase
             'post=back',
             'extend text',
             PostbackInputOption::OPEN_KEYBOARD,
-            'fill in text',
+            'fill in text'
         );
 
         $this->assertEquals(
