@@ -34,6 +34,10 @@ class PostbackTemplateActionBuilder implements TemplateActionBuilder
     private $data;
     /** @var string|null */
     private $displayText;
+    /** @var string|null */
+    private $inputOption;
+    /** @var string|null */
+    private $fillInText;
 
     /**
      * PostbackAction constructor.
@@ -41,12 +45,16 @@ class PostbackTemplateActionBuilder implements TemplateActionBuilder
      * @param string $label Label of action.
      * @param string $data Data of postback.
      * @param string|null $displayText The text which will be sent when action is executed (optional).
+     * @param string|null $inputOption The display method of such as rich menu based on user action (optional).
+     * @param string|null $fillInText String to be pre-filled in the input field when the keyboard is opened (optional).
      */
-    public function __construct($label, $data, $displayText = null)
+    public function __construct($label, $data, $displayText = null, $inputOption = null, $fillInText = null)
     {
         $this->label = $label;
         $this->data = $data;
         $this->displayText = $displayText;
+        $this->inputOption = $inputOption;
+        $this->fillInText = $fillInText;
     }
 
     /**
@@ -65,6 +73,16 @@ class PostbackTemplateActionBuilder implements TemplateActionBuilder
         if (isset($this->displayText)) {
             // If text is set, append extend field.
             $action['displayText'] = $this->displayText;
+        }
+
+        if (isset($this->inputOption)) {
+            // If inputOption is set, append extend field.
+            $action['inputOption'] = $this->inputOption;
+        }
+
+        if (isset($this->fillInText)) {
+            // If fillInText is set, append extend field.
+            $action['fillInText'] = $this->fillInText;
         }
 
         return $action;

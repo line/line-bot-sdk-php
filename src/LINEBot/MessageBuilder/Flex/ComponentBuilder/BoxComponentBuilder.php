@@ -73,7 +73,11 @@ class BoxComponentBuilder implements ComponentBuilder
     /** @var string */
     private $width;
     /** @var string */
+    private $maxWidth;
+    /** @var string */
     private $height;
+    /** @var string */
+    private $maxHeight;
 
     /** @var string */
     private $position;
@@ -473,6 +477,28 @@ class BoxComponentBuilder implements ComponentBuilder
     }
 
     /**
+     * Set maxWidth
+     *
+     * specifiable percentage and pixel.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     *
+     * ※If the width of the box calculated from the width property
+     * is greater than the width of the box calculated from the maxWidth property,
+     * the width of the box will shrink to the value specified
+     * by the maxWidth property.
+     *
+     * @param string|null $maxWidth
+     * @return $this
+     */
+    public function setMaxWidth($maxWidth)
+    {
+        $this->maxWidth = $maxWidth;
+        return $this;
+    }
+
+    /**
      * Set height
      *
      * specifiable percentage and pixel.
@@ -489,6 +515,28 @@ class BoxComponentBuilder implements ComponentBuilder
     public function setHeight($height)
     {
         $this->height = $height;
+        return $this;
+    }
+
+    /**
+     * Set maxHeight
+     *
+     * specifiable percentage and pixel.
+     * (e.g.
+     * percentage: 5%
+     * pixel: 5px
+     *
+     * ※If the height of the box calculated from the height property
+     * is greater than the height of the box calculated from the maxHeight property,
+     * the height of the box will shrink to the value specified
+     * by the maxHeight property.
+     *
+     * @param string|null $maxHeight
+     * @return $this
+     */
+    public function setMaxHeight($maxHeight)
+    {
+        $this->maxHeight = $maxHeight;
         return $this;
     }
 
@@ -643,7 +691,9 @@ class BoxComponentBuilder implements ComponentBuilder
             'borderWidth' => $this->borderWidth,
             'cornerRadius' => $this->cornerRadius,
             'width' => $this->width,
+            'maxWidth' => $this->maxWidth,
             'height' => $this->height,
+            'maxHeight' => $this->maxHeight,
             'position' => $this->position,
             'offsetTop' => $this->offsetTop,
             'offsetBottom' => $this->offsetBottom,

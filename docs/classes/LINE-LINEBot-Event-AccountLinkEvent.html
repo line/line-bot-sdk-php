@@ -241,6 +241,13 @@ One of the following values to indicate whether the link was successful or not.<
 <dd>Returns user ID of the event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-Event-BaseEvent.html#method_getWebhookEventId">getWebhookEventId()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Returns webhook event id</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-LINEBot-Event-AccountLinkEvent.html#method_isFailed">isFailed()</a>
     <span>
                         &nbsp;: bool    </span>
@@ -253,6 +260,13 @@ One of the following values to indicate whether the link was successful or not.<
                         &nbsp;: bool    </span>
 </dt>
 <dd>Returns the event is group&#039;s one or not.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-Event-BaseEvent.html#method_isRedelivery">isRedelivery()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Returns the event is a redelivered one or not.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-LINEBot-Event-BaseEvent.html#method_isRoomEvent">isRoomEvent()</a>
@@ -446,7 +460,7 @@ One of the following values to indicate whether the link was successful or not.<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">203</span>
+    <span class="phpdocumentor-element-found-in__line">223</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns event</p>
@@ -480,7 +494,7 @@ One of the following values to indicate whether the link was successful or not.<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">180</span>
+    <span class="phpdocumentor-element-found-in__line">200</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns the identifier of the event source that associated with event source type
@@ -530,7 +544,7 @@ One of the following values to indicate whether the link was successful or not.<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns group ID of the event.</p>
@@ -650,7 +664,7 @@ standby: The channel is waiting.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns reply token of the event.</p>
@@ -747,7 +761,7 @@ failed: Indicates the link failed for any reason, such as due to a user imperson
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">163</span>
+    <span class="phpdocumentor-element-found-in__line">183</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns room ID of the event.</p>
@@ -865,7 +879,7 @@ failed: Indicates the link failed for any reason, such as due to a user imperson
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">134</span>
+    <span class="phpdocumentor-element-found-in__line">154</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns user ID of the event.</p>
@@ -881,6 +895,40 @@ failed: Indicates the link failed for any reason, such as due to a user imperson
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getWebhookEventId">
+        getWebhookEventId()
+        <a href="classes/LINE-LINEBot-Event-BaseEvent.html#method_getWebhookEventId" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">84</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns webhook event id</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getWebhookEventId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -933,7 +981,7 @@ failed: Indicates the link failed for any reason, such as due to a user imperson
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns the event is group&#039;s one or not.</p>
@@ -960,6 +1008,40 @@ failed: Indicates the link failed for any reason, such as due to a user imperson
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_isRedelivery">
+        isRedelivery()
+        <a href="classes/LINE-LINEBot-Event-BaseEvent.html#method_isRedelivery" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">94</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns the event is a redelivered one or not.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">isRedelivery</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_isRoomEvent">
         isRoomEvent()
         <a href="classes/LINE-LINEBot-Event-BaseEvent.html#method_isRoomEvent" class="headerlink"><i class="fas fa-link"></i></a>
@@ -967,7 +1049,7 @@ failed: Indicates the link failed for any reason, such as due to a user imperson
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">134</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns the event is room&#039;s one or not.</p>
@@ -1035,7 +1117,7 @@ failed: Indicates the link failed for any reason, such as due to a user imperson
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">124</span>
+    <span class="phpdocumentor-element-found-in__line">144</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns the event is unknown or not.</p>
@@ -1069,7 +1151,7 @@ failed: Indicates the link failed for any reason, such as due to a user imperson
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/BaseEvent.php"><a href="files/src-linebot-event-baseevent.html"><abbr title="src/LINEBot/Event/BaseEvent.php">BaseEvent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns the event is user&#039;s one or not.</p>

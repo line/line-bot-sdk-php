@@ -61,6 +61,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LINE-LINEBot-Constant-ActionType.html#constant_LOCATION"
         },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\ActionType\u003A\u003ARICH_MENU_SWITCH",
+            "name": "RICH_MENU_SWITCH",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-ActionType.html#constant_RICH_MENU_SWITCH"
+        },                {
             "fqsen": "\\LINE\\LINEBot\\Constant\\EventSourceType",
             "name": "EventSourceType",
             "summary": "",
@@ -816,6 +821,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LINE-LINEBot-Constant-Flex-ComponentType.html#constant_SPAN"
         },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\Flex\\ComponentType\u003A\u003AVIDEO",
+            "name": "VIDEO",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-Flex-ComponentType.html#constant_VIDEO"
+        },                {
             "fqsen": "\\LINE\\LINEBot\\Constant\\Flex\\ContainerDirection",
             "name": "ContainerDirection",
             "summary": "",
@@ -1080,6 +1090,16 @@ Search.appendIndex(
             "name": "getTimestamp",
             "summary": "Returns\u0020timestamp\u0020of\u0020the\u0020event.",
             "url": "classes/LINE-LINEBot-Event-BaseEvent.html#method_getTimestamp"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\BaseEvent\u003A\u003AgetWebhookEventId\u0028\u0029",
+            "name": "getWebhookEventId",
+            "summary": "Returns\u0020webhook\u0020event\u0020id",
+            "url": "classes/LINE-LINEBot-Event-BaseEvent.html#method_getWebhookEventId"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Event\\BaseEvent\u003A\u003AisRedelivery\u0028\u0029",
+            "name": "isRedelivery",
+            "summary": "Returns\u0020the\u0020event\u0020is\u0020a\u0020redelivered\u0020one\u0020or\u0020not.",
+            "url": "classes/LINE-LINEBot-Event-BaseEvent.html#method_isRedelivery"
         },                {
             "fqsen": "\\LINE\\LINEBot\\Event\\BaseEvent\u003A\u003AgetReplyToken\u0028\u0029",
             "name": "getReplyToken",
@@ -2401,10 +2421,20 @@ Search.appendIndex(
             "summary": "Set\u0020width",
             "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-BoxComponentBuilder.html#method_setWidth"
         },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\BoxComponentBuilder\u003A\u003AsetMaxWidth\u0028\u0029",
+            "name": "setMaxWidth",
+            "summary": "Set\u0020maxWidth",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-BoxComponentBuilder.html#method_setMaxWidth"
+        },                {
             "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\BoxComponentBuilder\u003A\u003AsetHeight\u0028\u0029",
             "name": "setHeight",
             "summary": "Set\u0020height",
             "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-BoxComponentBuilder.html#method_setHeight"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\BoxComponentBuilder\u003A\u003AsetMaxHeight\u0028\u0029",
+            "name": "setMaxHeight",
+            "summary": "Set\u0020maxHeight",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-BoxComponentBuilder.html#method_setMaxHeight"
         },                {
             "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\BoxComponentBuilder\u003A\u003AsetJustifyContent\u0028\u0029",
             "name": "setJustifyContent",
@@ -2531,10 +2561,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-BoxComponentBuilder.html#property_width"
         },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\BoxComponentBuilder\u003A\u003A\u0024maxWidth",
+            "name": "maxWidth",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-BoxComponentBuilder.html#property_maxWidth"
+        },                {
             "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\BoxComponentBuilder\u003A\u003A\u0024height",
             "name": "height",
             "summary": "",
             "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-BoxComponentBuilder.html#property_height"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\BoxComponentBuilder\u003A\u003A\u0024maxHeight",
+            "name": "maxHeight",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-BoxComponentBuilder.html#property_maxHeight"
         },                {
             "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\BoxComponentBuilder\u003A\u003A\u0024position",
             "name": "position",
@@ -3261,6 +3301,11 @@ Search.appendIndex(
             "summary": "Set\u0020wrap.",
             "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-TextComponentBuilder.html#method_setWrap"
         },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\TextComponentBuilder\u003A\u003AsetLineSpacing\u0028\u0029",
+            "name": "setLineSpacing",
+            "summary": "Set\u0020lineSpacing.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-TextComponentBuilder.html#method_setLineSpacing"
+        },                {
             "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\TextComponentBuilder\u003A\u003AsetMaxLines\u0028\u0029",
             "name": "setMaxLines",
             "summary": "Set\u0020maxLines.",
@@ -3400,6 +3445,11 @@ Search.appendIndex(
             "name": "actionBuilder",
             "summary": "",
             "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-TextComponentBuilder.html#property_actionBuilder"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\TextComponentBuilder\u003A\u003A\u0024lineSpacing",
+            "name": "lineSpacing",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-TextComponentBuilder.html#property_lineSpacing"
         },                {
             "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\TextComponentBuilder\u003A\u003A\u0024position",
             "name": "position",
@@ -5166,6 +5216,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LINE-LINEBot-TemplateActionBuilder-PostbackTemplateActionBuilder.html#property_displayText"
         },                {
+            "fqsen": "\\LINE\\LINEBot\\TemplateActionBuilder\\PostbackTemplateActionBuilder\u003A\u003A\u0024inputOption",
+            "name": "inputOption",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-TemplateActionBuilder-PostbackTemplateActionBuilder.html#property_inputOption"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\TemplateActionBuilder\\PostbackTemplateActionBuilder\u003A\u003A\u0024fillInText",
+            "name": "fillInText",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-TemplateActionBuilder-PostbackTemplateActionBuilder.html#property_fillInText"
+        },                {
             "fqsen": "\\LINE\\LINEBot\\TemplateActionBuilder\\Uri\\AltUriBuilder",
             "name": "AltUriBuilder",
             "summary": "A\u0020builder\u0020class\u0020for\u0020alt\u0020uri\u0020of\u0020uri.",
@@ -5680,6 +5740,136 @@ Search.appendIndex(
             "name": "httpClient",
             "summary": "",
             "url": "classes/LINE-LINEBot.html#property_httpClient"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder",
+            "name": "VideoComponentBuilder",
+            "summary": "A\u0020builder\u0020class\u0020for\u0020video\u0020component.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "VideoComponentBuilder\u0020constructor.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#method___construct"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003Abuilder\u0028\u0029",
+            "name": "builder",
+            "summary": "Create\u0020empty\u0020VideoComponentBuilder.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#method_builder"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003AsetUrl\u0028\u0029",
+            "name": "setUrl",
+            "summary": "Set\u0020url.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#method_setUrl"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003AsetPreviewUrl\u0028\u0029",
+            "name": "setPreviewUrl",
+            "summary": "Set\u0020previewUrl.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#method_setPreviewUrl"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003AsetAltContent\u0028\u0029",
+            "name": "setAltContent",
+            "summary": "Set\u0020altContent.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#method_setAltContent"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003AsetAspectRatio\u0028\u0029",
+            "name": "setAspectRatio",
+            "summary": "Set\u0020aspectRatio.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#method_setAspectRatio"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003AsetAction\u0028\u0029",
+            "name": "setAction",
+            "summary": "Set\u0020action.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#method_setAction"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003Abuild\u0028\u0029",
+            "name": "build",
+            "summary": "Builds\u0020video\u0020component\u0020structure.",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#method_build"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003A\u0024url",
+            "name": "url",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#property_url"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003A\u0024previewUrl",
+            "name": "previewUrl",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#property_previewUrl"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003A\u0024altContent",
+            "name": "altContent",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#property_altContent"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003A\u0024aspectRatio",
+            "name": "aspectRatio",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#property_aspectRatio"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003A\u0024actionBuilder",
+            "name": "actionBuilder",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#property_actionBuilder"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\MessageBuilder\\Flex\\ComponentBuilder\\VideoComponentBuilder\u003A\u003A\u0024component",
+            "name": "component",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-VideoComponentBuilder.html#property_component"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\PostbackInputOption",
+            "name": "PostbackInputOption",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-PostbackInputOption.html"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\PostbackInputOption\u003A\u003ACLOSE_RICH_MENU",
+            "name": "CLOSE_RICH_MENU",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-PostbackInputOption.html#constant_CLOSE_RICH_MENU"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\PostbackInputOption\u003A\u003AOPEN_RICH_MENU",
+            "name": "OPEN_RICH_MENU",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-PostbackInputOption.html#constant_OPEN_RICH_MENU"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\PostbackInputOption\u003A\u003AOPEN_KEYBOARD",
+            "name": "OPEN_KEYBOARD",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-PostbackInputOption.html#constant_OPEN_KEYBOARD"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\Constant\\PostbackInputOption\u003A\u003AOPEN_VOICE",
+            "name": "OPEN_VOICE",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-Constant-PostbackInputOption.html#constant_OPEN_VOICE"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\TemplateActionBuilder\\RichMenuSwitchTemplateActionBuilder",
+            "name": "RichMenuSwitchTemplateActionBuilder",
+            "summary": "A\u0020builder\u0020class\u0020for\u0020rich\u0020menu\u0020switch\u0020action.",
+            "url": "classes/LINE-LINEBot-TemplateActionBuilder-RichMenuSwitchTemplateActionBuilder.html"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\TemplateActionBuilder\\RichMenuSwitchTemplateActionBuilder\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "RichMenuSwitchAction\u0020constructor.",
+            "url": "classes/LINE-LINEBot-TemplateActionBuilder-RichMenuSwitchTemplateActionBuilder.html#method___construct"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\TemplateActionBuilder\\RichMenuSwitchTemplateActionBuilder\u003A\u003AbuildTemplateAction\u0028\u0029",
+            "name": "buildTemplateAction",
+            "summary": "Builds\u0020rich\u0020menu\u0020switch\u0020action\u0020structure.",
+            "url": "classes/LINE-LINEBot-TemplateActionBuilder-RichMenuSwitchTemplateActionBuilder.html#method_buildTemplateAction"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\TemplateActionBuilder\\RichMenuSwitchTemplateActionBuilder\u003A\u003A\u0024richMenuAliasId",
+            "name": "richMenuAliasId",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-TemplateActionBuilder-RichMenuSwitchTemplateActionBuilder.html#property_richMenuAliasId"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\TemplateActionBuilder\\RichMenuSwitchTemplateActionBuilder\u003A\u003A\u0024data",
+            "name": "data",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-TemplateActionBuilder-RichMenuSwitchTemplateActionBuilder.html#property_data"
+        },                {
+            "fqsen": "\\LINE\\LINEBot\\TemplateActionBuilder\\RichMenuSwitchTemplateActionBuilder\u003A\u003A\u0024label",
+            "name": "label",
+            "summary": "",
+            "url": "classes/LINE-LINEBot-TemplateActionBuilder-RichMenuSwitchTemplateActionBuilder.html#property_label"
         },                {
             "fqsen": "\\",
             "name": "\\",

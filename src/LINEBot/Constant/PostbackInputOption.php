@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 LINE Corporation
+ * Copyright 2022 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -18,14 +18,10 @@
 
 namespace LINE\LINEBot\Constant;
 
-class ActionType
+class PostbackInputOption
 {
-    const MESSAGE = 'message';
-    const POSTBACK = 'postback';
-    const URI = 'uri';
-    const DATETIME_PICKER = 'datetimepicker';
-    const CAMERA = 'camera';
-    const CAMERA_ROLL = 'cameraRoll';
-    const LOCATION = 'location';
-    const RICH_MENU_SWITCH = 'richmenuswitch';
+    const CLOSE_RICH_MENU = 'closeRichMenu';
+    const OPEN_RICH_MENU = 'openRichMenu';
+    const OPEN_KEYBOARD = 'openKeyboard';
+    const OPEN_VOICE = 'openVoice';
 }

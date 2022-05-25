@@ -21,6 +21,7 @@ namespace LINE\Tests\LINEBot;
 use LINE\LINEBot;
 use LINE\LINEBot\Constant\ActionType;
 use LINE\LINEBot\Constant\MessageType;
+use LINE\LINEBot\Constant\PostbackInputOption;
 use LINE\LINEBot\Constant\TemplateType;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
@@ -56,7 +57,7 @@ class SendTemplateTest extends TestCase
             $testRunner->assertEquals('https://example.com/thumbnail.jpg', $template['thumbnailImageUrl']);
 
             $actions = $template['actions'];
-            $testRunner->assertEquals(3, count($actions));
+            $testRunner->assertEquals(5, count($actions));
             $testRunner->assertEquals(ActionType::POSTBACK, $actions[0]['type']);
             $testRunner->assertEquals('postback label', $actions[0]['label']);
             $testRunner->assertEquals('post=back', $actions[0]['data']);
@@ -74,6 +75,19 @@ class SendTemplateTest extends TestCase
                     $actions[2]['altUri']
                 );
             }
+
+            $testRunner->assertEquals(ActionType::POSTBACK, $actions[3]['type']);
+            $testRunner->assertEquals('postback label2', $actions[3]['label']);
+            $testRunner->assertEquals('post=back2', $actions[3]['data']);
+            $testRunner->assertEquals('extend text', $actions[3]['displayText']);
+            $testRunner->assertEquals('openKeyboard', $actions[3]['inputOption']);
+
+            $testRunner->assertEquals(ActionType::POSTBACK, $actions[4]['type']);
+            $testRunner->assertEquals('postback label3', $actions[4]['label']);
+            $testRunner->assertEquals('post=back3', $actions[4]['data']);
+            $testRunner->assertEquals('extend text2', $actions[4]['displayText']);
+            $testRunner->assertEquals('openKeyboard', $actions[4]['inputOption']);
+            $testRunner->assertEquals('fill in text', $actions[4]['fillInText']);
 
             return ['status' => 200];
         };
@@ -95,6 +109,19 @@ class SendTemplateTest extends TestCase
                             'uri label',
                             'https://example.com',
                             new AltUriBuilder('http://example.com/pc/page/222')
+                        ),
+                        new PostbackTemplateActionBuilder(
+                            'postback label2',
+                            'post=back2',
+                            'extend text',
+                            PostbackInputOption::OPEN_KEYBOARD
+                        ),
+                        new PostbackTemplateActionBuilder(
+                            'postback label3',
+                            'post=back3',
+                            'extend text2',
+                            PostbackInputOption::OPEN_KEYBOARD,
+                            'fill in text'
                         ),
                     ]
                 )
@@ -118,6 +145,19 @@ class SendTemplateTest extends TestCase
                         new PostbackTemplateActionBuilder('postback label', 'post=back'),
                         new MessageTemplateActionBuilder('message label', 'test message'),
                         new UriTemplateActionBuilder('uri label', 'https://example.com'),
+                        new PostbackTemplateActionBuilder(
+                            'postback label2',
+                            'post=back2',
+                            'extend text',
+                            PostbackInputOption::OPEN_KEYBOARD
+                        ),
+                        new PostbackTemplateActionBuilder(
+                            'postback label3',
+                            'post=back3',
+                            'extend text2',
+                            PostbackInputOption::OPEN_KEYBOARD,
+                            'fill in text'
+                        ),
                     ]
                 )
             )
@@ -149,7 +189,7 @@ class SendTemplateTest extends TestCase
             $testRunner->assertEquals('https://example.com/thumbnail.jpg', $template['thumbnailImageUrl']);
 
             $actions = $template['actions'];
-            $testRunner->assertEquals(4, count($actions));
+            $testRunner->assertEquals(6, count($actions));
             $testRunner->assertEquals(ActionType::POSTBACK, $actions[0]['type']);
             $testRunner->assertEquals('postback label', $actions[0]['label']);
             $testRunner->assertEquals('post=back', $actions[0]['data']);
@@ -171,6 +211,19 @@ class SendTemplateTest extends TestCase
                     $actions[3]['altUri']
                 );
             }
+
+            $testRunner->assertEquals(ActionType::POSTBACK, $actions[4]['type']);
+            $testRunner->assertEquals('postback label3', $actions[4]['label']);
+            $testRunner->assertEquals('post=back3', $actions[4]['data']);
+            $testRunner->assertEquals('extend text2', $actions[4]['displayText']);
+            $testRunner->assertEquals('openKeyboard', $actions[4]['inputOption']);
+
+            $testRunner->assertEquals(ActionType::POSTBACK, $actions[5]['type']);
+            $testRunner->assertEquals('postback label4', $actions[5]['label']);
+            $testRunner->assertEquals('post=back4', $actions[5]['data']);
+            $testRunner->assertEquals('extend text3', $actions[5]['displayText']);
+            $testRunner->assertEquals('openKeyboard', $actions[5]['inputOption']);
+            $testRunner->assertEquals('fill in text', $actions[5]['fillInText']);
 
             $testRunner->assertEquals('rectangle', $template['imageAspectRatio']);
             $testRunner->assertEquals('cover', $template['imageSize']);
@@ -198,6 +251,19 @@ class SendTemplateTest extends TestCase
                             'https://example.com',
                             new AltUriBuilder('http://example.com/pc/page/222')
                         ),
+                        new PostbackTemplateActionBuilder(
+                            'postback label3',
+                            'post=back3',
+                            'extend text2',
+                            PostbackInputOption::OPEN_KEYBOARD
+                        ),
+                        new PostbackTemplateActionBuilder(
+                            'postback label4',
+                            'post=back4',
+                            'extend text3',
+                            PostbackInputOption::OPEN_KEYBOARD,
+                            'fill in text'
+                        ),
                     ],
                     'rectangle',
                     'cover',
@@ -224,6 +290,20 @@ class SendTemplateTest extends TestCase
                         new PostbackTemplateActionBuilder('postback label2', 'post=back2', 'extend text'),
                         new MessageTemplateActionBuilder('message label', 'test message'),
                         new UriTemplateActionBuilder('uri label', 'https://example.com'),
+
+                        new PostbackTemplateActionBuilder(
+                            'postback label3',
+                            'post=back3',
+                            'extend text2',
+                            PostbackInputOption::OPEN_KEYBOARD
+                        ),
+                        new PostbackTemplateActionBuilder(
+                            'postback label4',
+                            'post=back4',
+                            'extend text3',
+                            PostbackInputOption::OPEN_KEYBOARD,
+                            'fill in text'
+                        ),
                     ],
                     'rectangle',
                     'cover',

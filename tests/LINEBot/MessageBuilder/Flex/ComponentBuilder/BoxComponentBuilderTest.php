@@ -69,7 +69,9 @@ class BoxComponentBuilderTest extends TestCase
     "centerColor": "#000000"
   },
   "width":"5px",
-  "height":"5%"
+  "height":"5%",
+  "maxWidth":"10px",
+  "maxHeight":"10%"
 }
 JSON
             , true);
@@ -104,7 +106,9 @@ JSON
             ->setBackgroundType(ComponentBackgroundType::LINEAR_GRADIENT)
             ->setBackgroundCenterColor('#000000')
             ->setWidth('5px')
-            ->setHeight('5%');
+            ->setHeight('5%')
+            ->setMaxWidth('10px')
+            ->setMaxHeight('10%');
         $this->assertEquals($result, $componentBuilder->build());
 
         $componentBuilder = BoxComponentBuilder::builder()
@@ -136,7 +140,9 @@ JSON
             ->setBackgroundType(ComponentBackgroundType::LINEAR_GRADIENT)
             ->setBackgroundCenterColor('#000000')
             ->setWidth('5px')
-            ->setHeight('5%');
+            ->setHeight('5%')
+            ->setMaxWidth('10px')
+            ->setMaxHeight('10%');
         $this->assertEquals($result, $componentBuilder->build());
     }
 }
