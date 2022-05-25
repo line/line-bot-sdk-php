@@ -6,3 +6,4 @@ composer.phar
 vendor/
 /.phpdoc/
 phpDocumentor.phar
+.phpunit.result.cache
