@@ -27,7 +27,7 @@ class CurlHTTPClientTest extends TestCase
     private static $reqMirrorPort;
     private static $reqMirrorPID;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         if (defined('PHP_WINDOWS_VERSION_MAJOR')) {
             return;
@@ -54,14 +54,14 @@ class CurlHTTPClientTest extends TestCase
         }
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         if (!empty(CurlHTTPClientTest::$reqMirrorPID)) {
             posix_kill(CurlHTTPClientTest::$reqMirrorPID, 9);
         }
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         if (defined('PHP_WINDOWS_VERSION_MAJOR')) {
             $this->markTestSkipped("These tests don't support Windows environment for now.");
