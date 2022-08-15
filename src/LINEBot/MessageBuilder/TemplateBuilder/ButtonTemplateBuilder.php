@@ -32,7 +32,7 @@ use LINE\LINEBot\TemplateActionBuilder;
  */
 class ButtonTemplateBuilder implements TemplateBuilder
 {
-    /** @var string */
+    /** @var string|null */
     private $title;
 
     /** @var string */
@@ -74,10 +74,10 @@ class ButtonTemplateBuilder implements TemplateBuilder
      * @param TemplateActionBuilder|null $defaultAction
      */
     public function __construct(
-        $title = null,
         $text, // phpcs:ignore
-        $thumbnailImageUrl = null,
         array $actionBuilders,
+        $title = null,
+        $thumbnailImageUrl = null,
         $imageAspectRatio = null,
         $imageSize = null,
         $imageBackgroundColor = null,

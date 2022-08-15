@@ -43,15 +43,15 @@ class VideoComponentBuilder implements ComponentBuilder
     /** @var TemplateActionBuilder|null */
     private $actionBuilder;
 
-    /** @var array */
+    /** @var array|null */
     private $component;
 
     /**
      * VideoComponentBuilder constructor.
      *
-     * @param string $url
-     * @param string $previewUrl
-     * @param ImageComponentBuilder|BoxComponentBuilder $altContent
+     * @param string|null $url
+     * @param string|null $previewUrl
+     * @param ImageComponentBuilder|BoxComponentBuilder|null $altContent
      * @param ComponentImageAspectRatio|string|null $aspectRatio
      * @param TemplateActionBuilder|null $actionBuilder
      */

@@ -18,6 +18,8 @@
 
 namespace LINE\LINEBot\HTTPClient;
 
+use CurlHandle;
+
 /**
  * cURL session manager
  *
@@ -25,7 +27,7 @@ namespace LINE\LINEBot\HTTPClient;
  */
 class Curl
 {
-    /** @var resource */
+    /** @var mixed */
     private $ch;
 
     /**

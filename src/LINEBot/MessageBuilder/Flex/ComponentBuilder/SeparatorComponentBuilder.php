@@ -35,7 +35,7 @@ class SeparatorComponentBuilder implements ComponentBuilder
     /** @var string */
     private $color;
 
-    /** @var array */
+    /** @var array|null */
     private $component;
 
     /**

@@ -34,7 +34,7 @@ class BlockStyleBuilder
     /** @var string */
     private $separatorColor;
 
-    /** @var array */
+    /** @var array|null */
     private $style;
 
     /**

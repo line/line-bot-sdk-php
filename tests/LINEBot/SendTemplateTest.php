@@ -99,9 +99,7 @@ class SendTemplateTest extends TestCase
             new LINEBot\MessageBuilder\TemplateMessageBuilder(
                 'alt test',
                 new ButtonTemplateBuilder(
-                    'button title',
                     'button button',
-                    'https://example.com/thumbnail.jpg',
                     [
                         new PostbackTemplateActionBuilder('postback label', 'post=back'),
                         new MessageTemplateActionBuilder('message label', 'test message'),
@@ -123,7 +121,9 @@ class SendTemplateTest extends TestCase
                             PostbackInputOption::OPEN_KEYBOARD,
                             'fill in text'
                         ),
-                    ]
+                    ],
+                    'button title',
+                    'https://example.com/thumbnail.jpg'
                 )
             )
         );
@@ -138,9 +138,7 @@ class SendTemplateTest extends TestCase
             new LINEBot\MessageBuilder\TemplateMessageBuilder(
                 'alt test',
                 new ButtonTemplateBuilder(
-                    'button title',
                     'button button',
-                    'https://example.com/thumbnail.jpg',
                     [
                         new PostbackTemplateActionBuilder('postback label', 'post=back'),
                         new MessageTemplateActionBuilder('message label', 'test message'),
@@ -158,7 +156,9 @@ class SendTemplateTest extends TestCase
                             PostbackInputOption::OPEN_KEYBOARD,
                             'fill in text'
                         ),
-                    ]
+                    ],
+                    'button title',
+                    'https://example.com/thumbnail.jpg'
                 )
             )
         );
@@ -239,9 +239,7 @@ class SendTemplateTest extends TestCase
             new LINEBot\MessageBuilder\TemplateMessageBuilder(
                 'alt test',
                 new ButtonTemplateBuilder(
-                    'button title',
                     'button button',
-                    'https://example.com/thumbnail.jpg',
                     [
                         new PostbackTemplateActionBuilder('postback label', 'post=back'),
                         new PostbackTemplateActionBuilder('postback label2', 'post=back2', 'extend text'),
@@ -265,6 +263,8 @@ class SendTemplateTest extends TestCase
                             'fill in text'
                         ),
                     ],
+                    'button title',
+                    'https://example.com/thumbnail.jpg',
                     'rectangle',
                     'cover',
                     '#FFFFFF'
@@ -282,9 +282,7 @@ class SendTemplateTest extends TestCase
             new LINEBot\MessageBuilder\TemplateMessageBuilder(
                 'alt test',
                 new ButtonTemplateBuilder(
-                    'button title',
                     'button button',
-                    'https://example.com/thumbnail.jpg',
                     [
                         new PostbackTemplateActionBuilder('postback label', 'post=back'),
                         new PostbackTemplateActionBuilder('postback label2', 'post=back2', 'extend text'),
@@ -305,6 +303,8 @@ class SendTemplateTest extends TestCase
                             'fill in text'
                         ),
                     ],
+                    'button title',
+                    'https://example.com/thumbnail.jpg',
                     'rectangle',
                     'cover',
                     '#FFFFFF'

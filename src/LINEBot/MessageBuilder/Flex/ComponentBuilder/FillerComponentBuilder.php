@@ -28,7 +28,7 @@ use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder;
  */
 class FillerComponentBuilder implements ComponentBuilder
 {
-    /** @var int */
+    /** @var int|null */
     private $flex;
 
     /**

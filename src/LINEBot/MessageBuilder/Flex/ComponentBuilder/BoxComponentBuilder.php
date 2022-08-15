@@ -108,7 +108,7 @@ class BoxComponentBuilder implements ComponentBuilder
     /** @var string */
     private $backgroundCenterPosition;
 
-    /** @var array */
+    /** @var array|null */
     private $component;
 
     /**

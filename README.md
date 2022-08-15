@@ -18,7 +18,7 @@ See the official API documentation for more information.
 
 ## Requirements
 
-- PHP 7.1 or later
+- PHP 7.2 or later
 
 
 ## Installation

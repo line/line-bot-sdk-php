@@ -163,37 +163,37 @@ JSON
 
             if (count($t['param']) == 7) {
                 $templateBuilder = new ButtonTemplateBuilder(
-                    $title,
                     $text,
-                    $thumbnailImageUrl,
                     $actionBuilders,
+                    $title,
+                    $thumbnailImageUrl,
                     $imageAspectRatio,
                     $imageSize,
                     $imageBackgroundColor
                 );
             } elseif (count($t['param']) == 6) {
                 $templateBuilder = new ButtonTemplateBuilder(
-                    $title,
                     $text,
-                    $thumbnailImageUrl,
                     $actionBuilders,
+                    $title,
+                    $thumbnailImageUrl,
                     $imageAspectRatio,
                     $imageSize
                 );
             } elseif (count($t['param']) == 5) {
                 $templateBuilder = new ButtonTemplateBuilder(
-                    $title,
                     $text,
-                    $thumbnailImageUrl,
                     $actionBuilders,
+                    $title,
+                    $thumbnailImageUrl,
                     $imageAspectRatio
                 );
             } else {
                 $templateBuilder = new ButtonTemplateBuilder(
-                    $title,
                     $text,
-                    $thumbnailImageUrl,
-                    $actionBuilders
+                    $actionBuilders,
+                    $title,
+                    $thumbnailImageUrl
                 );
             }
 
