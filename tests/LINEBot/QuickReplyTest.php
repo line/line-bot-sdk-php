@@ -366,14 +366,14 @@ class QuickReplyTest extends TestCase
         $messageTemplate = new TemplateMessageBuilder(
             'This is a buttons template',
             new ButtonTemplateBuilder(
+                'Menu',
                 'Please select',
+                'https://example.com/bot/images/image.jpg',
                 [
                     new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
                     new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
                     new UriTemplateActionBuilder('View detail', 'http://example.com/page/123'),
                 ],
-                'Menu',
-                'https://example.com/bot/images/image.jpg',
                 'rectangle',
                 'cover',
                 '#FFFFFF',

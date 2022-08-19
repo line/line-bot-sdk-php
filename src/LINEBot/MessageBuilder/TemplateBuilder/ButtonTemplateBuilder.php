@@ -35,19 +35,19 @@ class ButtonTemplateBuilder implements TemplateBuilder
     /** @var string|null */
     private $title;
 
-    /** @var string */
+    /** @var string|null */
     private $text;
 
-    /** @var string */
+    /** @var string|null */
     private $thumbnailImageUrl;
 
-    /** @var string */
+    /** @var string|null */
     private $imageAspectRatio;
 
-    /** @var string */
+    /** @var string|null */
     private $imageSize;
 
-    /** @var string */
+    /** @var string|null */
     private $imageBackgroundColor;
 
     /** @var TemplateActionBuilder[] */
@@ -65,7 +65,7 @@ class ButtonTemplateBuilder implements TemplateBuilder
      * ButtonTemplateBuilder constructor.
      *
      * @param string|null $title
-     * @param string $text
+     * @param string|null $text
      * @param string|null $thumbnailImageUrl
      * @param TemplateActionBuilder[] $actionBuilders
      * @param string|null $imageAspectRatio
@@ -74,10 +74,10 @@ class ButtonTemplateBuilder implements TemplateBuilder
      * @param TemplateActionBuilder|null $defaultAction
      */
     public function __construct(
-        $text, // phpcs:ignore
-        array $actionBuilders,
         $title = null,
+        $text = null, // phpcs:ignore
         $thumbnailImageUrl = null,
+        array $actionBuilders = [],
         $imageAspectRatio = null,
         $imageSize = null,
         $imageBackgroundColor = null,
@@ -119,23 +119,23 @@ class ButtonTemplateBuilder implements TemplateBuilder
             $this->template['title'] = $this->title;
         }
 
-        if ($this->thumbnailImageUrl) {
+        if (isset($this->thumbnailImageUrl)) {
             $this->template['thumbnailImageUrl'] = $this->thumbnailImageUrl;
         }
 
-        if ($this->imageAspectRatio) {
+        if (isset($this->imageAspectRatio)) {
             $this->template['imageAspectRatio'] = $this->imageAspectRatio;
         }
 
-        if ($this->imageSize) {
+        if (isset($this->imageSize)) {
             $this->template['imageSize'] = $this->imageSize;
         }
 
-        if ($this->imageBackgroundColor) {
+        if (isset($this->imageBackgroundColor)) {
             $this->template['imageBackgroundColor'] = $this->imageBackgroundColor;
         }
 
-        if ($this->defaultAction) {
+        if (isset($this->defaultAction)) {
             $this->template['defaultAction'] = $this->defaultAction->buildTemplateAction();
         }
 

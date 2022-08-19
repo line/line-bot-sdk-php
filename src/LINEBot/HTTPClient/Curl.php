@@ -18,8 +18,6 @@
 
 namespace LINE\LINEBot\HTTPClient;
 
-use CurlHandle;
-
 /**
  * cURL session manager
  *
