@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.1, 7.2, 7.3, 7.4, 8.0, 8.1]
+        php: [7.2, 7.3, 7.4, 8.0, 8.1]
         include:
           - php: 7.4
             analysis: true
@@ -54,7 +54,7 @@ jobs:
 
       - name: Check with PHPStan
         if: matrix.analysis
-        run: bash devtool/check_phpstan.sh
+        run: vendor/bin/phpstan analyse
 
       - name: Run unit tests
         run: vendor/bin/phpunit --debug tests

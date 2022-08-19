@@ -65,7 +65,7 @@ class TextComponentBuilder implements ComponentBuilder
     private $style;
     /** @var ComponentTextDecoration */
     private $decoration;
-    /** @var array */
+    /** @var array|null */
     private $contents;
     /** @var TemplateActionBuilder */
     private $actionBuilder;
@@ -86,7 +86,7 @@ class TextComponentBuilder implements ComponentBuilder
     /** @var ComponentAdjustMode */
     private $adjustMode;
 
-    /** @var array */
+    /** @var array|null */
     private $component;
 
     /**

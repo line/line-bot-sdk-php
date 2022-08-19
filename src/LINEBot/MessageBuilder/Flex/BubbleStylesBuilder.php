@@ -36,7 +36,7 @@ class BubbleStylesBuilder
     /** @var BlockStyleBuilder */
     private $footerStyleBuilder;
 
-    /** @var array */
+    /** @var array|null */
     private $styles;
 
     /**

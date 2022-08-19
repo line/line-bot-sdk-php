@@ -25,7 +25,7 @@ namespace LINE\LINEBot\HTTPClient;
  */
 class Curl
 {
-    /** @var resource */
+    /** @var mixed */
     private $ch;
 
     /**

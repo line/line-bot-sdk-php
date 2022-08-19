@@ -43,7 +43,7 @@ class FlexMessageBuilder implements MessageBuilder
     /** @var SenderBuilder|null */
     private $sender;
 
-    /** @var array */
+    /** @var array|null */
     private $message;
 
     /**

@@ -54,7 +54,7 @@ class IconComponentBuilder implements ComponentBuilder
     /** @var string */
     private $offsetEnd;
 
-    /** @var array */
+    /** @var array|null */
     private $component;
 
     /**

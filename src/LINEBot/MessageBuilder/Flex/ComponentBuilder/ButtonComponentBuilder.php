@@ -66,7 +66,7 @@ class ButtonComponentBuilder implements ComponentBuilder
     /** @var ComponentAdjustMode */
     private $adjustMode;
 
-    /** @var array */
+    /** @var array|null */
     private $component;
 
     /**
