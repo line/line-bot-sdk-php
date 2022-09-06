@@ -19,7 +19,7 @@
   ],
   "require": {
     "php": ">=5.6",
-    "slim/slim": "^3.5.0",
+    "slim/slim": "^4.0.0",
     "monolog/monolog": "^3.0.0",
     "linecorp/line-bot-sdk": "1.6.0"
   },
