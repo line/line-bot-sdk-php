@@ -20,7 +20,7 @@
   "require": {
     "php": ">=5.6",
     "slim/slim": "^3.5.0",
-    "monolog/monolog": "^1.21.0",
+    "monolog/monolog": "^3.0.0",
     "linecorp/line-bot-sdk": "3.15.0"
   },
   "autoload": {
