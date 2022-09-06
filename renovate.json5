@@ -5,18 +5,20 @@
   ],
   "packageRules": [
     {
-      "paths": ["composer.json"],
-      "excludePackageNames": [
+      "excludePackagePatterns": [
         // For support php7.x
         "phpunit/phpunit",
         // For support php7.x
         "orchestra/testbench",
       ]
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "platformAutomerge": true,
     }
   ],
   "ignorePaths": [
-    "docs/"
+    "docs/",
   ],
-  "automerge": true,
-  "platformAutomerge": true,
 }
