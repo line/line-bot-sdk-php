@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "paths": ["composer.json"],
+      "excludePackageNames": [
+        // For support php7.x
+        "phpunit/phpunit",
+        // For support php7.x
+        "orchestra/testbench",
+      ]
+    }
+  ],
+  "ignorePaths": [
+    "docs/"
+  ],
+  "automerge": true,
+  "platformAutomerge": true,
+}
