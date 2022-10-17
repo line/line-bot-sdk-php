@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="css/base.css">
             <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js" integrity="sha256-0vuk8LXoyrmCjp1f0O300qo1M75ZQyhH9X3J6d+scmk=" crossorigin="anonymous"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -135,16 +135,20 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#property_index">$index</a>
     <span>
-                &nbsp;: int            </span>
+                &nbsp;: int|null            </span>
 </dt>
-<dd></dd>
+<dd>imageSet.index
+It won&#039;t be included if the sender is using
+LINE 11.15 or earlier for Android.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#property_total">$total</a>
     <span>
-                &nbsp;: int            </span>
+                &nbsp;: int|null            </span>
 </dt>
-<dd></dd>
+<dd>imageSet.total
+It won&#039;t be included if the sender is using
+LINE 11.15 or earlier for Android.</dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#method___construct">__construct()</a>
@@ -163,14 +167,14 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#method_getIndex">getIndex()</a>
     <span>
-                        &nbsp;: int    </span>
+                        &nbsp;: int|null    </span>
 </dt>
 <dd>Returns indicating the image number in a set of images sent simultaneously.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#method_getTotal">getTotal()</a>
     <span>
-                        &nbsp;: int    </span>
+                        &nbsp;: int|null    </span>
 </dt>
 <dd>Returns total number of images sent simultaneously.</dd>
 
@@ -233,13 +237,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php"><a href="files/src-linebot-event-messageevent-imagemessasge-imageset.html"><abbr title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php">ImageSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">imageSet.index
+It won&#039;t be included if the sender is using
+LINE 11.15 or earlier for Android.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">int</span>
+        <span class="phpdocumentor-signature__type">int|null</span>
     <span class="phpdocumentor-signature__name">$index</span>
     </code>
 
@@ -264,13 +271,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php"><a href="files/src-linebot-event-messageevent-imagemessasge-imageset.html"><abbr title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php">ImageSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 </aside>
 
-    
+        <p class="phpdocumentor-summary">imageSet.total
+It won&#039;t be included if the sender is using
+LINE 11.15 or earlier for Android.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">int</span>
+        <span class="phpdocumentor-signature__type">int|null</span>
     <span class="phpdocumentor-signature__name">$total</span>
     </code>
 
@@ -299,7 +309,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php"><a href="files/src-linebot-event-messageevent-imagemessasge-imageset.html"><abbr title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php">ImageSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 </aside>
 
     
@@ -341,7 +351,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php"><a href="files/src-linebot-event-messageevent-imagemessasge-imageset.html"><abbr title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php">ImageSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns Image set ID.</p>
@@ -375,14 +385,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php"><a href="files/src-linebot-event-messageevent-imagemessasge-imageset.html"><abbr title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php">ImageSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns indicating the image number in a set of images sent simultaneously.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getIndex</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+                <span class="phpdocumentor-signature__name">getIndex</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
 
         <section class="phpdocumentor-description"><p>An index starting from 1.</p>
 </section>
@@ -391,7 +401,7 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
+    <span class="phpdocumentor-signature__response_type">int|null</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -410,14 +420,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php"><a href="files/src-linebot-event-messageevent-imagemessasge-imageset.html"><abbr title="src/LINEBot/Event/MessageEvent/ImageMessasge/ImageSet.php">ImageSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns total number of images sent simultaneously.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getTotal</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+                <span class="phpdocumentor-signature__name">getTotal</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -425,7 +435,7 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
+    <span class="phpdocumentor-signature__response_type">int|null</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 

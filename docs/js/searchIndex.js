@@ -1433,12 +1433,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet\u003A\u003A\u0024index",
             "name": "index",
-            "summary": "",
+            "summary": "imageSet.index\nIt\u0020won\u0027t\u0020be\u0020included\u0020if\u0020the\u0020sender\u0020is\u0020using\nLINE\u002011.15\u0020or\u0020earlier\u0020for\u0020Android.",
             "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#property_index"
         },                {
             "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\ImageMessasge\\ImageSet\u003A\u003A\u0024total",
             "name": "total",
-            "summary": "",
+            "summary": "imageSet.total\nIt\u0020won\u0027t\u0020be\u0020included\u0020if\u0020the\u0020sender\u0020is\u0020using\nLINE\u002011.15\u0020or\u0020earlier\u0020for\u0020Android.",
             "url": "classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html#property_total"
         },                {
             "fqsen": "\\LINE\\LINEBot\\Event\\MessageEvent\\LocationMessage",
