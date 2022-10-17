@@ -99,9 +99,9 @@ class EventRequestParserTest extends TestCase
      "previewImageUrl":"https://example.com/test-preview.jpg"
     },
     "imageSet": {
-        "id": "E005D41A7288F41B65593ED38FF6E9834B046AB36A37921A56BC236F13A91855",
-        "index": 1,
-        "total": 1
+      "id": "E005D41A7288F41B65593ED38FF6E9834B046AB36A37921A56BC236F13A91855",
+      "index": 1,
+      "total": 1
     }
    }
   },
@@ -807,6 +807,32 @@ class EventRequestParserTest extends TestCase
    "mode":"active",
    "timestamp":12345678901234,
    "source":{
+    "type":"group",
+    "groupId":"groupid"
+   },
+   "webhookEventId":"testwebhookeventid",
+   "deliveryContext":{
+    "isRedelivery":false
+   },
+   "replyToken":"replytoken",
+   "message":{
+    "id":"contentid",
+    "type":"image",
+    "contentProvider":{
+     "type":"external",
+     "originalContentUrl":"https://example.com/test.jpg",
+     "previewImageUrl":"https://example.com/test-preview.jpg"
+    },
+    "imageSet": {
+      "id": "E005D41A7288F41B65593ED38FF6E9834B046AB36A37921A56BC236F13A91855"
+    }
+   }
+  },
+  {
+   "type":"message",
+   "mode":"active",
+   "timestamp":12345678901234,
+   "source":{
     "type":"user",
     "userId":"userid"
    },
@@ -844,14 +870,14 @@ JSON;
         }), ['channelSecret' => 'testsecret']);
         list($destination, $events) = $bot->parseEventRequest(
             $this::$json,
-            'Zqqwd7+TeCa8Yws03VNYd01uYkx1202PJxFz3nZ9UCc=',
+            'MXsLg0X79uDgIgcGF+d5WPnF+MVIIx6t8Nfu8N8yqVI=',
             false
         );
         $eventArrays = json_decode($this::$json, true)["events"];
 
         $this->assertEquals($destination, 'U0123456789abcdef0123456789abcd');
 
-        $this->assertEquals(count($events), 38);
+        $this->assertEquals(count($events), 39);
 
         {
             // text
@@ -1455,8 +1481,40 @@ JSON;
         }
 
         {
-            // text (redelivered)
+            // However, it won't be included if the sender is using LINE 11.15 or earlier for Android.
             $event = $events[37];
+            $this->assertTrue($event->isGroupEvent());
+            $this->assertEquals('groupid', $event->getGroupId());
+            $this->assertEquals('groupid', $event->getEventSourceId());
+            $this->assertEquals(null, $event->getUserId());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->isRedelivery());
+            $this->assertEquals($eventArrays[37], $event->getEvent());
+            $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\ImageMessage', $event);
+            /** @var ImageMessage $event */
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals('image', $event->getMessageType());
+            $this->assertEquals('contentid', $event->getMessageId());
+            $this->assertTrue($event->getContentProvider()->isExternal());
+            $this->assertEquals(
+                'https://example.com/test.jpg',
+                $event->getContentProvider()->getOriginalContentUrl()
+            );
+            $this->assertEquals(
+                'https://example.com/test-preview.jpg',
+                $event->getContentProvider()->getPreviewImageUrl()
+            );
+            $this->assertEquals(
+                'E005D41A7288F41B65593ED38FF6E9834B046AB36A37921A56BC236F13A91855',
+                $event->getImageSet()->getId()
+            );
+            $this->assertNull($event->getImageSet()->getIndex());
+            $this->assertNull($event->getImageSet()->getTotal());
+        }
+
+        {
+            // text (redelivered)
+            $event = $events[38];
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertTrue($event->isUserEvent());
@@ -1464,7 +1522,7 @@ JSON;
             $this->assertEquals('userid', $event->getEventSourceId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertTrue($event->isRedelivery());
-            $this->assertEquals($eventArrays[37], $event->getEvent());
+            $this->assertEquals($eventArrays[38], $event->getEvent());
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent', $event);
             $this->assertInstanceOf('LINE\LINEBot\Event\MessageEvent\TextMessage', $event);
             /** @var TextMessage $event */

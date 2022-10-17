@@ -24,16 +24,26 @@ class ImageSet
 {
     /** @var string */
     private $id;
-    /** @var int */
+    /**
+     * imageSet.index
+     * It won't be included if the sender is using
+     * LINE 11.15 or earlier for Android.
+     * @var int|null
+     */
     private $index;
-    /** @var int */
+    /**
+     * imageSet.total
+     * It won't be included if the sender is using
+     * LINE 11.15 or earlier for Android.
+     * @var int|null
+     */
     private $total;
 
     public function __construct($imageSet)
     {
         $this->id = $imageSet['id'];
-        $this->index = $imageSet['index'];
-        $this->total = $imageSet['total'];
+        $this->index = isset($imageSet['index']) ? $imageSet['index'] : null;
+        $this->total = isset($imageSet['total']) ? $imageSet['total'] : null;
     }
 
     /**
@@ -50,7 +60,7 @@ class ImageSet
      * Returns indicating the image number in a set of images sent simultaneously.
      * An index starting from 1.
      *
-     * @return int
+     * @return int|null
      */
     public function getIndex()
     {
@@ -60,7 +70,7 @@ class ImageSet
     /**
      * Returns total number of images sent simultaneously.
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
