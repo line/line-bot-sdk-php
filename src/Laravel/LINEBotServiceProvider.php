@@ -50,8 +50,10 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/config/line-bot.php' => config_path('line-bot.php'),
-        ], 'config');
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/config/line-bot.php' => config_path('line-bot.php'),
+            ], 'config');
+        }
     }
 }
