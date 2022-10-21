@@ -57,7 +57,7 @@ class LINEBotTest extends \Orchestra\Testbench\TestCase
 
     /**
      * Testing LINEBot facade instance
-     * 
+     *
      * @return void
      */
     public function testLINEBotFacadeInstance()
