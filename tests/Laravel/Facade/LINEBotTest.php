@@ -54,4 +54,14 @@ class LINEBotTest extends \Orchestra\Testbench\TestCase
         $this->assertEquals('test_channel_access_token', config('line-bot.channel_access_token'));
         $this->assertEquals('test_channel_secret', config('line-bot.channel_secret'));
     }
+
+    /**
+     * Testing LINEBot facade instance
+     * 
+     * @return void
+     */
+    public function testLINEBotFacadeInstance()
+    {
+        $this->assertInstanceOf(\LINE\LINEBot::class, LINEBot::getFacadeRoot());
+    }
 }

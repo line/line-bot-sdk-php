@@ -42,4 +42,16 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
             return new LINEBot($httpClient, ['channelSecret' => config('line-bot.channel_secret')]);
         });
     }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->publishes([
+            __DIR__ . '/config/line-bot.php' => config_path('line-bot.php'),
+        ], 'config');
+    }
 }
