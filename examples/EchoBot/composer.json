@@ -21,7 +21,7 @@
     "php": ">=5.6",
     "slim/slim": "^4.0.0",
     "monolog/monolog": "^3.0.0",
-    "linecorp/line-bot-sdk": "1.6.0"
+    "linecorp/line-bot-sdk": "7.6.1"
   },
   "autoload": {
     "psr-4": {
