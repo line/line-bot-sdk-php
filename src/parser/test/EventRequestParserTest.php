@@ -889,7 +889,7 @@ class EventRequestParserTest extends TestCase
             $source = $event->getSource();
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceOf UserSource);
+            $this->assertTrue($source instanceof UserSource);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -912,7 +912,7 @@ class EventRequestParserTest extends TestCase
             // image
             $event = $events[1];
             $source = $event->getSource();
-            $this->assertTrue($source instanceOf GroupSource);
+            $this->assertTrue($source instanceof GroupSource);
             $this->assertEquals('groupid', $source->getGroupId());
             $this->assertEquals(null, $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
@@ -944,7 +944,7 @@ class EventRequestParserTest extends TestCase
             // audio (group event & it has user ID)
             $event = $events[2];
             $source = $event->getSource();
-            $this->assertTrue($source instanceOf GroupSource);
+            $this->assertTrue($source instanceof GroupSource);
             $this->assertEquals('groupid', $source->getGroupId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -967,7 +967,7 @@ class EventRequestParserTest extends TestCase
             // video
             $event = $events[3];
             $source = $event->getSource();
-            $this->assertTrue($source instanceOf RoomSource);
+            $this->assertTrue($source instanceof RoomSource);
             $this->assertEquals('roomid', $source->getRoomId());
             $this->assertEquals(null, $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
@@ -993,7 +993,7 @@ class EventRequestParserTest extends TestCase
             // audio
             $event = $events[4];
             $source = $event->getSource();
-            $this->assertTrue($source instanceOf RoomSource);
+            $this->assertTrue($source instanceof RoomSource);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1153,7 +1153,7 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('bid', $event->getBeacon()->getHwid());
             $this->assertEquals('enter', $event->getBeacon()->getType());
             $this->assertEquals(
-                "1234567890abcdef", 
+                "1234567890abcdef",
                 $event->getBeacon()->getDm()
             );
         }
@@ -1171,7 +1171,7 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertEquals(true, $source instanceOf UserSource);
+            $this->assertEquals(true, $source instanceof UserSource);
         }
 
         {
@@ -1371,7 +1371,7 @@ class EventRequestParserTest extends TestCase
             $source = $event->getSource();
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceOf UserSource);
+            $this->assertTrue($source instanceof UserSource);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1415,7 +1415,7 @@ class EventRequestParserTest extends TestCase
             $source = $event->getSource();
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceOf UserSource);
+            $this->assertTrue($source instanceof UserSource);
             $this->assertEquals('U4af4980629...', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1439,7 +1439,7 @@ class EventRequestParserTest extends TestCase
             $source = $event->getSource();
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceOf UserSource);
+            $this->assertTrue($source instanceof UserSource);
             $this->assertEquals('U0123456789abcd0123456789abcdef', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1462,7 +1462,7 @@ class EventRequestParserTest extends TestCase
             $source = $event->getSource();
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceOf UserSource);
+            $this->assertTrue($source instanceof UserSource);
             $this->assertEquals('U0123456789abcd0123456789abcdef', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1480,7 +1480,7 @@ class EventRequestParserTest extends TestCase
             // Only included when multiple images are sent simultaneously.
             $event = $events[36];
             $source = $event->getSource();
-            $this->assertTrue($source instanceOf GroupSource);
+            $this->assertTrue($source instanceof GroupSource);
             $this->assertEquals('groupid', $source->getGroupId());
             $this->assertEquals(null, $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
@@ -1507,7 +1507,7 @@ class EventRequestParserTest extends TestCase
             // However, it won't be included if the sender is using LINE 11.15 or earlier for Android.
             $event = $events[37];
             $source = $event->getSource();
-            $this->assertTrue($source instanceOf GroupSource);
+            $this->assertTrue($source instanceof GroupSource);
             $this->assertEquals('groupid', $source->getGroupId());
             $this->assertEquals(null, $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
@@ -1541,7 +1541,7 @@ class EventRequestParserTest extends TestCase
             $source = $event->getSource();
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceOf UserSource);
+            $this->assertTrue($source instanceof UserSource);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertTrue($event->getDeliveryContext()->getIsRedelivery());

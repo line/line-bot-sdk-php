@@ -17,6 +17,7 @@
  */
 
 namespace LINE\Parser\Source;
+
 use LINE\Webhook\Model\Source;
 use LINE\Webhook\Model\ThingsContent;
 

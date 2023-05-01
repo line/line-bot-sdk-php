@@ -202,7 +202,7 @@ class FlexSampleRestaurant
                 ]),
             ],
         ]);
-        
+
         return new FlexBox([
             'type' => ComponentType::BOX,
             'layout' => ComponentLayout::VERTICAL,

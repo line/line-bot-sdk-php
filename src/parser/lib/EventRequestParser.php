@@ -92,7 +92,7 @@ class EventRequestParser
         'group' => 'LINE\Webhook\Model\GroupSource',
         'room' => 'LINE\Webhook\Model\RoomSource',
     ];
-    
+
     private static $thingsContentType2class = [
         'link' => '\LINE\Webhook\Model\LinkThingsContent',
         'unlink' => '\LINE\Webhook\Model\UnlinkThingsContent',
@@ -218,7 +218,7 @@ class EventRequestParser
             $contentProvider = new ContentProvider($eventData['message']['contentProvider']);
             $message->setContentProvider($contentProvider);
         }
-       
+
         if ($message instanceof TextMessageContent) {
             $emojis = array_map(function ($emoji) {
                 return new Emoji($emoji);
@@ -265,7 +265,7 @@ class EventRequestParser
         $sourceClass = self::$sourceType2class[$sourceType];
         return new $sourceClass($eventData['source']);
     }
- 
+
     /**
      * @param array $eventData
      * @return ThingsContent

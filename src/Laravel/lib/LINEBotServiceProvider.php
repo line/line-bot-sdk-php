@@ -59,7 +59,8 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->bindMessagingBlobApi();
     }
 
-    private function bindChannelAccessTokenApi() {
+    private function bindChannelAccessTokenApi()
+    {
         $this->app->bind('line-bot-channel-access-token-api', function ($app) {
             $httpClient = $app->make('line-bot-http-client');
             $config = new ChannelAccessTokenConfiguration();
@@ -70,7 +71,8 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
         });
     }
 
-    private function bindInsightApi() {
+    private function bindInsightApi()
+    {
         $this->app->bind('line-bot-insight-api', function ($app) {
             $httpClient = $app->make('line-bot-http-client');
             $config = new InsightConfiguration();
@@ -82,7 +84,8 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
         });
     }
 
-    private function bindLiffApi() {
+    private function bindLiffApi()
+    {
         $this->app->bind('line-bot-liff-api', function ($app) {
             $httpClient = $app->make('line-bot-http-client');
             $config = new LiffConfiguration();
@@ -94,7 +97,8 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
         });
     }
 
-    private function bindManageAudienceApi() {
+    private function bindManageAudienceApi()
+    {
         $this->app->bind('line-bot-manage-audience-api', function ($app) {
             $httpClient = $app->make('line-bot-http-client');
             $config = new ManageAudienceConfiguration();
@@ -106,7 +110,8 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
         });
     }
 
-    private function bindManageAudienceBlobApi() {
+    private function bindManageAudienceBlobApi()
+    {
         $this->app->bind('line-bot-manage-audience-blob-api', function ($app) {
             $httpClient = $app->make('line-bot-http-client');
             $config = new ManageAudienceConfiguration();
@@ -118,7 +123,8 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
         });
     }
 
-    private function bindMessagingApi() {
+    private function bindMessagingApi()
+    {
         $this->app->bind('line-bot-messaging-api', function ($app) {
             $httpClient = $app->make('line-bot-http-client');
             $config = new MessagingApiConfiguration();
@@ -130,7 +136,8 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
         });
     }
 
-    private function bindMessagingBlobApi() {
+    private function bindMessagingBlobApi()
+    {
         $this->app->bind('line-bot-messaging-blob-api', function ($app) {
             $httpClient = $app->make('line-bot-http-client');
             $config = new MessagingApiConfiguration();

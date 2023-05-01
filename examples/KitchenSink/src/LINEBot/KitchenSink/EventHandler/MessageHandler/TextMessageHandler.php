@@ -227,7 +227,7 @@ class TextMessageHandler implements EventHandler
                 $this->replyMessage($replyToken, $templateMessage);
                 break;
             case 'imagemap':
-                $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);                
+                $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
                 $imagemapMessage = new ImagemapMessage([
                     'type' => MessageType::IMAGEMAP,
                     'baseUrl' => $richMessageUrl,
@@ -353,7 +353,7 @@ class TextMessageHandler implements EventHandler
                 $this->replyMessage($replyToken, $imagemapMessage);
                 break;
             case 'restaurant':
-                $this->replyMessage($replyToken,  FlexSampleRestaurant::get());
+                $this->replyMessage($replyToken, FlexSampleRestaurant::get());
                 break;
             case 'shopping':
                 $this->replyMessage($replyToken, FlexSampleShopping::get());
@@ -472,7 +472,8 @@ class TextMessageHandler implements EventHandler
         );
     }
 
-    private function replyText(string $replyToken, string $text) {
+    private function replyText(string $replyToken, string $text)
+    {
         $textMessage = (new TextMessage(['text' => $text, 'type' => MessageType::TEXT]));
         return $this->replyMessage($replyToken, $textMessage);
     }
