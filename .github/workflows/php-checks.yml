@@ -42,19 +42,19 @@ jobs:
         
       - name: Check copyrights
         if: matrix.analysis
-        run: bash devtool/check_copyright.sh
+        run: bash tools/check_copyright.sh
 
       - name: Check code style with PHP_CodeSniffer
         if: matrix.analysis
-        run: vendor/bin/phpcs
+        run: composer cs
 
       - name: Check with PHP Mess Detector 
         if: matrix.analysis
-        run: vendor/bin/phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml
+        run: composer md
 
       - name: Check with PHPStan
         if: matrix.analysis
-        run: vendor/bin/phpstan analyse
+        run: composer stan
 
       - name: Run unit tests
-        run: vendor/bin/phpunit --debug tests
+        run: composer test
