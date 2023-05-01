@@ -18,27 +18,10 @@
 
 namespace LINE\LINEBot\KitchenSink;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Constant\HTTPHeader;
-use LINE\LINEBot\Event\AccountLinkEvent;
-use LINE\LINEBot\Event\BeaconDetectionEvent;
-use LINE\LINEBot\Event\FollowEvent;
-use LINE\LINEBot\Event\JoinEvent;
-use LINE\LINEBot\Event\LeaveEvent;
-use LINE\LINEBot\Event\MessageEvent;
-use LINE\LINEBot\Event\MessageEvent\AudioMessage;
-use LINE\LINEBot\Event\MessageEvent\ImageMessage;
-use LINE\LINEBot\Event\MessageEvent\LocationMessage;
-use LINE\LINEBot\Event\MessageEvent\StickerMessage;
-use LINE\LINEBot\Event\MessageEvent\TextMessage;
-use LINE\LINEBot\Event\MessageEvent\UnknownMessage;
-use LINE\LINEBot\Event\MessageEvent\VideoMessage;
-use LINE\LINEBot\Event\PostbackEvent;
-use LINE\LINEBot\Event\ThingsEvent;
-use LINE\LINEBot\Event\UnfollowEvent;
-use LINE\LINEBot\Event\UnknownEvent;
-use LINE\LINEBot\Exception\InvalidEventRequestException;
-use LINE\LINEBot\Exception\InvalidSignatureException;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Api\MessagingApiBlobApi;
+use LINE\LINEBot\Event\MessageEvent\UnknownMessageContent;
+use LINE\LINEBot\KitchenSink\AccountLinkEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\BeaconEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\FollowEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\JoinEventHandler;
@@ -52,27 +35,47 @@ use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\VideoMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\PostbackEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\ThingsEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\UnfollowEventHandler;
+use LINE\Constants\HTTPHeader;
+use LINE\Parser\Event\UnknownEvent;
+use LINE\Parser\EventRequestParser;
+use LINE\Webhook\Model\MessageEvent;
+use LINE\Parser\Exception\InvalidEventRequestException;
+use LINE\Parser\Exception\InvalidSignatureException;
+use LINE\Webhook\Model\AccountLinkEvent;
+use LINE\Webhook\Model\AudioMessageContent;
+use LINE\Webhook\Model\BeaconEvent;
+use LINE\Webhook\Model\FollowEvent;
+use LINE\Webhook\Model\ImageMessageContent;
+use LINE\Webhook\Model\JoinEvent;
+use LINE\Webhook\Model\LeaveEvent;
+use LINE\Webhook\Model\LocationMessageContent;
+use LINE\Webhook\Model\PostbackEvent;
+use LINE\Webhook\Model\StickerMessageContent;
+use LINE\Webhook\Model\TextMessageContent;
+use LINE\Webhook\Model\ThingsEvent;
+use LINE\Webhook\Model\UnfollowEvent;
+use LINE\Webhook\Model\VideoMessageContent;
 
 class Route
 {
     public function register(\Slim\App $app)
     {
-        $app->post('/callback', function (\Slim\Http\Request $req, \Slim\Http\Response $res) {
-            /** @var LINEBot $bot */
-            $bot = $this->bot;
-            /** @var \Monolog\Logger $logger */
-            $logger = $this->logger;
+        $app->post('/callback', function (\Psr\Http\Message\RequestInterface $req, \Psr\Http\Message\ResponseInterface $res) {
+            /** @var \LINE\Clients\MessagingApi\Api\MessagingApiApi $bot */
+            $bot = $this->get(MessagingApiApi::class);
+            $botBlob = $this->get(MessagingApiBlobApi::class);
+            $logger = $this->get(\Psr\Log\LoggerInterface::class);
 
             $signature = $req->getHeader(HTTPHeader::LINE_SIGNATURE);
             if (empty($signature)) {
-                $logger->info('Signature is missing');
                 return $res->withStatus(400, 'Bad Request');
             }
 
+            // Check request with signature and parse request
             try {
-                $events = $bot->parseEventRequest($req->getBody(), $signature[0]);
+                $secret = $this->get('settings')['bot']['channelSecret'];
+                $events = EventRequestParser::parseEventRequest($req->getBody(), $secret, $signature[0]);
             } catch (InvalidSignatureException $e) {
-                $logger->info('Invalid signature');
                 return $res->withStatus(400, 'Invalid signature');
             } catch (InvalidEventRequestException $e) {
                 return $res->withStatus(400, "Invalid event request");
@@ -83,22 +86,23 @@ class Route
                 $handler = null;
 
                 if ($event instanceof MessageEvent) {
-                    if ($event instanceof TextMessage) {
+                    $message = $event->getMessage();
+                    if ($message instanceof TextMessageContent) {
                         $handler = new TextMessageHandler($bot, $logger, $req, $event);
-                    } elseif ($event instanceof StickerMessage) {
+                    } elseif ($message instanceof StickerMessageContent) {
                         $handler = new StickerMessageHandler($bot, $logger, $event);
-                    } elseif ($event instanceof LocationMessage) {
+                    } elseif ($message instanceof LocationMessageContent) {
                         $handler = new LocationMessageHandler($bot, $logger, $event);
-                    } elseif ($event instanceof ImageMessage) {
-                        $handler = new ImageMessageHandler($bot, $logger, $req, $event);
-                    } elseif ($event instanceof AudioMessage) {
-                        $handler = new AudioMessageHandler($bot, $logger, $req, $event);
-                    } elseif ($event instanceof VideoMessage) {
-                        $handler = new VideoMessageHandler($bot, $logger, $req, $event);
-                    } elseif ($event instanceof UnknownMessage) {
+                    } elseif ($message instanceof ImageMessageContent) {
+                        $handler = new ImageMessageHandler($bot, $botBlob, $logger, $req, $event);
+                    } elseif ($message instanceof AudioMessageContent) {
+                        $handler = new AudioMessageHandler($bot, $botBlob, $logger, $req, $event);
+                    } elseif ($message instanceof VideoMessageContent) {
+                        $handler = new VideoMessageHandler($bot, $botBlob, $logger, $req, $event);
+                    } elseif ($message instanceof UnknownMessageContent) {
                         $logger->info(sprintf(
                             'Unknown message type has come [message type: %s]',
-                            $event->getMessageType()
+                            $message->getType()
                         ));
                     } else {
                         // Unexpected behavior (just in case)
@@ -119,7 +123,7 @@ class Route
                     $handler = new LeaveEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof PostbackEvent) {
                     $handler = new PostbackEventHandler($bot, $logger, $event);
-                } elseif ($event instanceof BeaconDetectionEvent) {
+                } elseif ($event instanceof BeaconEvent) {
                     $handler = new BeaconEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof AccountLinkEvent) {
                     $handler = new AccountLinkEventHandler($bot, $logger, $event);
@@ -140,7 +144,7 @@ class Route
                 $handler->handle();
             }
 
-            $res->write('OK');
+            $res->withStatus(200, 'OK');
             return $res;
         });
     }

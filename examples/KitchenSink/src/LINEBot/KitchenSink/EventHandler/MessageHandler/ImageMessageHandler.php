@@ -18,56 +18,67 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\MessageEvent\ImageMessage;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Api\MessagingApiBlobApi;
+use LINE\Clients\MessagingApi\Model\ImageMessage;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Constants\MessageContentProviderType;
+use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
-use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
+use LINE\Webhook\Model\ImageMessageContent;
+use LINE\Webhook\Model\MessageEvent;
 
 class ImageMessageHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var = $bot */
     private $bot;
+    /** @var MessagingApiBlobApi $bot */
+    private $botBlob;
     /** @var \Monolog\Logger $logger */
     private $logger;
     /** @var \Slim\Http\Request $logger */
     private $req;
-    /** @var ImageMessage $imageMessage */
+    /** @var ImageMessageContent $imageMessage */
     private $imageMessage;
+    /** @var MessageEvent $event */
+    private $event;
 
     /**
      * ImageMessageHandler constructor.
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
-     * @param \Slim\Http\Request $req
-     * @param ImageMessage $imageMessage
+     * @param MessagingApiApi $bot
+     * @param MessagingApiBlobApi $botBlob
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param \Psr\Http\Message\RequestInterface $req
+     * @param MessageEvent $event
      */
-    public function __construct($bot, $logger, \Slim\Http\Request $req, ImageMessage $imageMessage)
+    public function __construct(MessagingApiApi $bot, MessagingApiBlobApi $botBlob, \Psr\Log\LoggerInterface $logger, \Psr\Http\Message\RequestInterface $req, MessageEvent $event)
     {
         $this->bot = $bot;
+        $this->botBlob = $botBlob;
         $this->logger = $logger;
         $this->req = $req;
-        $this->imageMessage = $imageMessage;
+        $this->event = $event;
+        $this->imageMessage = $event->getMessage();
     }
 
     public function handle()
     {
-        $replyToken = $this->imageMessage->getReplyToken();
+        $replyToken = $this->event->getReplyToken();
 
         $contentProvider = $this->imageMessage->getContentProvider();
-        if ($contentProvider->isExternal()) {
-            $this->bot->replyMessage(
+        if ($contentProvider->getType() == MessageContentProviderType::EXTERNAL) {
+            $this->replyImageMessage(
                 $replyToken,
-                new ImageMessageBuilder(
-                    $contentProvider->getOriginalContentUrl(),
-                    $contentProvider->getPreviewImageUrl()
-                )
+                $contentProvider->getOriginalContentUrl(),
+                $contentProvider->getPreviewImageUrl(),
             );
             return;
         }
 
-        $contentId = $this->imageMessage->getMessageId();
-        $image = $this->bot->getMessageContent($contentId)->getRawBody();
+        $contentId = $this->imageMessage->getId();
+        $sfo = $this->botBlob->getMessageContent($contentId);
+        $image = $sfo->fread($sfo->getSize());
 
         $tempFilePath = tempnam($_SERVER['DOCUMENT_ROOT'] . '/static/tmpdir', 'image-');
         unlink($tempFilePath);
@@ -82,6 +93,20 @@ class ImageMessageHandler implements EventHandler
 
         // NOTE: You should pass the url of small image to `previewImageUrl`.
         // This sample doesn't treat that.
-        $this->bot->replyMessage($replyToken, new ImageMessageBuilder($url, $url));
+        $this->replyImageMessage($replyToken, $url, $url);
+    }
+
+    private function replyImageMessage(string $replyToken, string $original, string $preview)
+    {
+        $message = new ImageMessage([
+            'type' => MessageType::IMAGE,
+            'originalContentUrl' => $original,
+            'previewImageUrl' => $preview,
+        ]);
+        $request = new ReplyMessageRequest([
+            'replyToken' => $replyToken,
+            'messages' => [$message],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

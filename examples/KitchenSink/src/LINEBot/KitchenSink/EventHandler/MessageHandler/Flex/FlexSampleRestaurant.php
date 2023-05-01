@@ -18,30 +18,35 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex;
 
-use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\Uri\AltUriBuilder;
-use LINE\LINEBot\Constant\Flex\ComponentButtonHeight;
-use LINE\LINEBot\Constant\Flex\ComponentButtonStyle;
-use LINE\LINEBot\Constant\Flex\ComponentFontSize;
-use LINE\LINEBot\Constant\Flex\ComponentFontWeight;
-use LINE\LINEBot\Constant\Flex\ComponentIconSize;
-use LINE\LINEBot\Constant\Flex\ComponentImageAspectMode;
-use LINE\LINEBot\Constant\Flex\ComponentImageAspectRatio;
-use LINE\LINEBot\Constant\Flex\ComponentImageSize;
-use LINE\LINEBot\Constant\Flex\ComponentLayout;
-use LINE\LINEBot\Constant\Flex\ComponentMargin;
-use LINE\LINEBot\Constant\Flex\ComponentSpaceSize;
-use LINE\LINEBot\Constant\Flex\ComponentSpacing;
-use LINE\LINEBot\Constant\Flex\BubleContainerSize;
-use LINE\LINEBot\MessageBuilder\FlexMessageBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ButtonComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\IconComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpacerComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\BubbleContainerBuilder;
+use LINE\Clients\MessagingApi\Model\AltUri;
+use LINE\Clients\MessagingApi\Model\FlexBox;
+use LINE\Clients\MessagingApi\Model\FlexBubble;
+use LINE\Clients\MessagingApi\Model\FlexButton;
+use LINE\Clients\MessagingApi\Model\FlexComponent;
+use LINE\Clients\MessagingApi\Model\FlexIcon;
+use LINE\Clients\MessagingApi\Model\FlexImage;
+use LINE\Clients\MessagingApi\Model\FlexMessage;
+use LINE\Clients\MessagingApi\Model\FlexSpacer;
+use LINE\Clients\MessagingApi\Model\FlexSpan;
+use LINE\Clients\MessagingApi\Model\FlexText;
+use LINE\Clients\MessagingApi\Model\URIAction;
+use LINE\Constants\ActionType;
+use LINE\Constants\Flex\BubbleContainerSize;
+use LINE\Constants\Flex\ComponentButtonHeight;
+use LINE\Constants\Flex\ComponentButtonStyle;
+use LINE\Constants\Flex\ComponentFontSize;
+use LINE\Constants\Flex\ComponentFontWeight;
+use LINE\Constants\Flex\ComponentIconSize;
+use LINE\Constants\Flex\ComponentImageAspectMode;
+use LINE\Constants\Flex\ComponentImageAspectRatio;
+use LINE\Constants\Flex\ComponentImageSize;
+use LINE\Constants\Flex\ComponentLayout;
+use LINE\Constants\Flex\ComponentMargin;
+use LINE\Constants\Flex\ComponentSpaceSize;
+use LINE\Constants\Flex\ComponentSpacing;
+use LINE\Constants\Flex\ComponentType;
+use LINE\Constants\Flex\ContainerType;
+use LINE\Constants\MessageType;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -51,147 +56,197 @@ class FlexSampleRestaurant
     /**
      * Create sample restaurant flex message
      *
-     * @return \LINE\LINEBot\MessageBuilder\FlexMessageBuilder
+     * @return \LINE\MessagingApi\Model\FlexMessage
      */
-    public static function get()
+    public static function get(): FlexMessage
     {
-        return FlexMessageBuilder::builder()
-            ->setAltText('Restaurant')
-            ->setContents(
-                BubbleContainerBuilder::builder()
-                    ->setHero(self::createHeroBlock())
-                    ->setBody(self::createBodyBlock())
-                    ->setFooter(self::createFooterBlock())
-                    ->setSize(BubleContainerSize::GIGA)
-            );
+        return new FlexMessage([
+            'type' => MessageType::FLEX,
+            'altText' => 'Restaurant',
+            'contents' => new FlexBubble([
+                'type' => ContainerType::BUBBLE,
+                'hero' => self::createHeroBlock(),
+                'body' => self::createBodyBlock(),
+                'footer' => self::createFooterBlock(),
+                'size' => BubbleContainerSize::GIGA,
+            ])
+        ]);
     }
 
-    private static function createHeroBlock()
+    private static function createHeroBlock(): FlexComponent
     {
-        return ImageComponentBuilder::builder()
-            ->setUrl('https://example.com/cafe.png')
-            ->setSize(ComponentImageSize::FULL)
-            ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
-            ->setAspectMode(ComponentImageAspectMode::COVER)
-            ->setAction(
-                new UriTemplateActionBuilder(
-                    null,
-                    'https://example.com',
-                    new AltUriBuilder('https://example.com#desktop')
-                )
-            );
+        return new FlexImage([
+            'type' => ComponentType::IMAGE,
+            'url' => 'https://example.com/cafe.png',
+            'size' => ComponentImageSize::FULL,
+            'aspectRatio' => ComponentImageAspectRatio::R20TO13,
+            'aspectMode' => ComponentImageAspectMode::COVER,
+            'action' => new URIAction([
+                'type' => ActionType::URI,
+                'label' => 'cafe hero',
+                'uri' => 'https://example.com',
+                'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
+            ]),
+        ]);
     }
 
     private static function createBodyBlock()
     {
-        $title = TextComponentBuilder::builder()
-            ->setText('Brown Cafe')
-            ->setWeight(ComponentFontWeight::BOLD)
-            ->setSize(ComponentFontSize::XL);
+        return new FlexBox([
+            'type' => ComponentType::BOX,
+            'layout' => ComponentLayout::VERTICAL,
+            'backgroundColor' => '#fafafa',
+            'paddingAll' => '8%',
+            'contents' => [
+                // Title
+                new FlexText([
+                    'type' => ComponentType::TEXT,
+                    'text' => 'Brown Cafe',
+                    'weight' => ComponentFontWeight::BOLD,
+                    'size' => ComponentFontSize::XL,
+                ]),
+                self::createBodyReview(),
+                self::createBodyInfoBlock(),
+            ],
+        ]);
+    }
 
-        $goldStar = IconComponentBuilder::builder()
-            ->setUrl('https://example.com/gold_star.png')
-            ->setSize(ComponentIconSize::SM);
-        $grayStar = IconComponentBuilder::builder()
-            ->setUrl('https://example.com/gray_star.png')
-            ->setSize(ComponentIconSize::SM);
-        $point = TextComponentBuilder::builder()
-            ->setText('4.0')
-            ->setSize(ComponentFontSize::SM)
-            ->setColor('#999999')
-            ->setMargin(ComponentMargin::MD)
-            ->setFlex(0);
-        $review = BoxComponentBuilder::builder()
-            ->setLayout(ComponentLayout::BASELINE)
-            ->setMargin(ComponentMargin::MD)
-            ->setContents([$goldStar, $goldStar, $goldStar, $goldStar, $grayStar, $point]);
+    private static function createBodyReview(): FlexBox
+    {
+        $goldStar = new FlexIcon([
+            'type' => ComponentType::ICON,
+            'url' => 'https://example.com/gold_star.png',
+            'size' => ComponentIconSize::SM,
+        ]);
+        $grayStar = new FlexIcon([
+            'type' => ComponentType::ICON,
+            'url' => 'https://example.com/gray_star.png',
+            'size' => ComponentIconSize::SM,
+        ]);
+        $point = new FlexText([
+            'type' => ComponentType::TEXT,
+            'text' => '4.0',
+            'size' => ComponentFontSize::SM,
+            'color' => '#999999',
+            'margin' => ComponentMargin::MD,
+            'flex' => 0,
+        ]);
 
-        $place = BoxComponentBuilder::builder()
-            ->setLayout(ComponentLayout::BASELINE)
-            ->setSpacing(ComponentSpacing::SM)
-            ->setContents([
-                TextComponentBuilder::builder()
-                    ->setText('Place')
-                    ->setColor('#aaaaaa')
-                    ->setSize(ComponentFontSize::SM)
-                    ->setFlex(1),
-                TextComponentBuilder::builder()
-                    ->setText('Miraina Tower, 4-1-6 Shinjuku, Tokyo')
-                    ->setWrap(true)
-                    ->setColor('#666666')
-                    ->setSize(ComponentFontSize::SM)
-                    ->setFlex(5)
-            ]);
-        $time = BoxComponentBuilder::builder()
-            ->setLayout(ComponentLayout::BASELINE)
-            ->setSpacing(ComponentSpacing::SM)
-            ->setContents([
-                TextComponentBuilder::builder()
-                    ->setText('Time')
-                    ->setColor('#aaaaaa')
-                    ->setSize(ComponentFontSize::SM)
-                    ->setFlex(1),
-                TextComponentBuilder::builder()
-                    ->setText('10:00 - 23:00')
-                    ->setWrap(true)
-                    ->setColor('#666666')
-                    ->setSize(ComponentFontSize::SM)
-                    ->setFlex(5)
-                    ->setContents([
-                        SpanComponentBuilder::builder()
-                            ->setText('10:00'),
-                        SpanComponentBuilder::builder()
-                            ->setText('-')
-                            ->setColor('#a0a0a0')
-                            ->setSize(ComponentFontSize::XS),
-                        SpanComponentBuilder::builder()
-                            ->setText('23:00'),
-                    ])
-            ]);
-        $info = BoxComponentBuilder::builder()
-            ->setLayout(ComponentLayout::VERTICAL)
-            ->setMargin(ComponentMargin::LG)
-            ->setSpacing(ComponentSpacing::SM)
-            ->setContents([$place, $time]);
+        return new FlexBox([
+            'type' => ComponentType::BOX,
+            'layout' => ComponentLayout::BASELINE,
+            'margin' => ComponentMargin::MD,
+            'contents' => [$goldStar, $goldStar, $goldStar, $goldStar, $grayStar, $point],
+        ]);
+    }
 
-        return BoxComponentBuilder::builder()
-            ->setLayout(ComponentLayout::VERTICAL)
-            ->setBackgroundColor('#fafafa')
-            ->setPaddingAll('8%')
-            ->setContents([$title, $review, $info]);
+    private static function createBodyInfoBlock(): FlexBox
+    {
+        $place = new FlexBox([
+            'type' => ComponentType::BOX,
+            'layout' => ComponentLayout::BASELINE,
+            'spacing' => ComponentSpacing::SM,
+            'contents' => [
+                new FlexText([
+                    'type' => ComponentType::TEXT,
+                    'text' => 'Place',
+                    'color' => '#aaaaaa',
+                    'size' => ComponentFontSize::SM,
+                    'flex' => 1,
+                ]),
+                new FlexText([
+                    'type' => ComponentType::TEXT,
+                    'text' => 'Miraina Tower, 4-1-6 Shinjuku, Tokyo',
+                    'wrap' => true,
+                    'color' => '#666666',
+                    'size' => ComponentFontSize::SM,
+                    'flex' => 5,
+                ]),
+            ],
+        ]);
+        $time = new FlexBox([
+            'type' => ComponentType::BOX,
+            'layout' => ComponentLayout::BASELINE,
+            'spacing' => ComponentSpacing::SM,
+            'contents' => [
+                new FlexText([
+                    'type' => ComponentType::TEXT,
+                    'text' => 'Time',
+                    'color' => '#aaaaaa',
+                    'size' => ComponentFontSize::SM,
+                    'flex' => 1,
+                ]),
+                new FlexText([
+                    'type' => ComponentType::TEXT,
+                    'text' => '10:00 - 23:00',
+                    'wrap' => true,
+                    'color' => '#666666',
+                    'size' => ComponentFontSize::SM,
+                    'flex' => 5,
+                    'contents' => [
+                        new FlexSpan([
+                            'type' => ComponentType::SPAN,
+                            'text' => '10:00',
+                        ]),
+                        new FlexSpan([
+                            'type' => ComponentType::SPAN,
+                            'text' => '-',
+                            'color' => '#a0a0a0',
+                            'size' => ComponentFontSize::XS,
+                        ]),
+                        new FlexSpan([
+                            'type' => ComponentType::SPAN,
+                            'text' => '23:00',
+                        ]),
+                    ],
+                ]),
+            ],
+        ]);
+        
+        return new FlexBox([
+            'type' => ComponentType::BOX,
+            'layout' => ComponentLayout::VERTICAL,
+            'margin' => ComponentMargin::LG,
+            'spacing' => ComponentSpacing::SM,
+            'contents' => [$place, $time],
+        ]);
     }
 
     private static function createFooterBlock()
     {
-        $callButton = ButtonComponentBuilder::builder()
-            ->setStyle(ComponentButtonStyle::LINK)
-            ->setHeight(ComponentButtonHeight::SM)
-            ->setAction(
-                new UriTemplateActionBuilder(
-                    'CALL',
-                    'https://example.com',
-                    new AltUriBuilder('https://example.com#desktop')
-                )
-            );
-        $websiteButton = ButtonComponentBuilder::builder()
-            ->setStyle(ComponentButtonStyle::LINK)
-            ->setHeight(ComponentButtonHeight::SM)
-            ->setAction(
-                new UriTemplateActionBuilder(
-                    'WEBSITE',
-                    'https://example.com',
-                    new AltUriBuilder('https://example.com#desktop')
-                )
-            );
-        $spacer = new SpacerComponentBuilder(ComponentSpaceSize::SM);
+        $callButton = new FlexButton([
+            'type' => ComponentType::BUTTON,
+            'style' => ComponentButtonStyle::LINK,
+            'height' => ComponentButtonHeight::SM,
+            'action' => new URIAction([
+                'type' => ActionType::URI,
+                'label' => 'CALL',
+                'uri' => 'https://example.com',
+                'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
+            ]),
+        ]);
+        $websiteButton = new FlexButton([
+            'type' => ComponentType::BUTTON,
+            'style' => ComponentButtonStyle::LINK,
+            'height' => ComponentButtonHeight::SM,
+            'action' => new URIAction([
+                'type' => ActionType::URI,
+                'label' => 'WEBSITE',
+                'uri' => 'https://example.com',
+                'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
+            ]),
+        ]);
+        $spacer = new FlexSpacer(['type' => ComponentType::SPACER, 'size' => ComponentSpaceSize::SM]);
 
-        return BoxComponentBuilder::builder()
-            ->setLayout(ComponentLayout::VERTICAL)
-            ->setSpacing(ComponentSpacing::SM)
-            ->setFlex(0)
-            ->setBackgroundColor('#fafafa')
-            ->setBorderColor('#e0e0e0')
-            ->setBorderWidth('1px')
-            ->setContents([$callButton, $websiteButton, $spacer]);
+        return new FlexBox([
+            'type' => ComponentType::BOX,
+            'layout' => ComponentLayout::VERTICAL,
+            'spacing' => ComponentSpacing::SM,
+            'flex' => 0,
+            'backgroundColor' => '#fafafa',
+            'borderColor' => '#e0e0e0',
+            'borderWidth' => '1px',
+            'contents' => [$callButton, $websiteButton, $spacer],
+        ]);
     }
 }

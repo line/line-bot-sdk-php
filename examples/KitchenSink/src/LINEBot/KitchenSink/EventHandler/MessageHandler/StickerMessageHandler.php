@@ -18,38 +18,51 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\MessageEvent\StickerMessage;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Clients\MessagingApi\Model\StickerMessage;
+use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
-use LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
+use LINE\Webhook\Model\MessageEvent;
+use LINE\Webhook\Model\StickerMessageContent;
 
 class StickerMessageHandler implements EventHandler
 {
     /** @var LINEBot $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
-    /** @var StickerMessage $stickerMessage */
+    /** @var StickerMessageContent $stickerMessage */
     private $stickerMessage;
+    /** @var MessageEvent $event */
+    private $event;
 
     /**
      * StickerMessageHandler constructor.
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
-     * @param StickerMessage $stickerMessage
+     * @param MessagingApiApi $bot
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param MessageEvent $event
      */
-    public function __construct($bot, $logger, StickerMessage $stickerMessage)
+    public function __construct(MessagingApiApi $bot, \Psr\Log\LoggerInterface $logger, MessageEvent $event)
     {
         $this->bot = $bot;
         $this->logger = $logger;
-        $this->stickerMessage = $stickerMessage;
+        $this->event = $event;
+        $this->stickerMessage = $event->getMessage();
     }
 
     public function handle()
     {
-        $replyToken = $this->stickerMessage->getReplyToken();
-        $packageId = $this->stickerMessage->getPackageId();
-        $stickerId = $this->stickerMessage->getStickerId();
-        $this->bot->replyMessage($replyToken, new StickerMessageBuilder($packageId, $stickerId));
+        $replyToken = $this->event->getReplyToken();
+        $message = new StickerMessage([
+            'type' => MessageType::STICKER,
+            'packageId' => $this->stickerMessage->getPackageId(),
+            'stickerId' => $this->stickerMessage->getStickerId(),
+        ]);
+        $request = new ReplyMessageRequest([
+            'replyToken' => $replyToken,
+            'messages' => [$message],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

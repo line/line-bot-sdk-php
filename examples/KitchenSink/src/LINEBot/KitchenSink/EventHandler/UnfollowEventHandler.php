@@ -18,26 +18,26 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\UnfollowEvent;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\LINEBot\KitchenSink\EventHandler;
+use LINE\Webhook\Model\UnfollowEvent;
 
 class UnfollowEventHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
     /** @var UnfollowEvent $unfollowEvent */
     private $unfollowEvent;
 
     /**
      * UnfollowEventHandler constructor.
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
+     * @param MessagingApiApi $bot
+     * @param \Psr\Log\LoggerInterface $logger
      * @param UnfollowEvent $unfollowEvent
      */
-    public function __construct($bot, $logger, UnfollowEvent $unfollowEvent)
+    public function __construct(MessagingApiApi $bot, \Psr\Log\LoggerInterface $logger, UnfollowEvent $unfollowEvent)
     {
         $this->bot = $bot;
         $this->logger = $logger;
@@ -49,7 +49,7 @@ class UnfollowEventHandler implements EventHandler
         $this->logger->info(sprintf(
             'Unfollowed this bot %s %s',
             $this->unfollowEvent->getType(),
-            $this->unfollowEvent->getUserId()
+            $this->unfollowEvent->getSource()->getUserId()
         ));
     }
 }

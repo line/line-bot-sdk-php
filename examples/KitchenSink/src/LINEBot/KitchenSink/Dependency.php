@@ -18,33 +18,49 @@
 
 namespace LINE\LINEBot\KitchenSink;
 
-use LINE\LINEBot;
-use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Api\MessagingApiBlobApi;
+use LINE\Clients\MessagingApi\Configuration;
 
 class Dependency
 {
-    public function register(\Slim\App $app)
+    public function register(\DI\Container $container)
     {
-        $container = $app->getContainer();
+        $container->set('settings', function ($c) {
+            return Setting::getSetting()['settings'];
+        });
 
-        $container['logger'] = function ($c) {
+        $container->set(\Psr\Log\LoggerInterface::class, function ($c) {
             $settings = $c->get('settings')['logger'];
             $logger = new \Monolog\Logger($settings['name']);
             $logger->pushProcessor(new \Monolog\Processor\UidProcessor());
-            $logger->pushHandler(new \Monolog\Handler\StreamHandler($settings['path'], \Monolog\Logger::DEBUG));
+            $logger->pushHandler(new \Monolog\Handler\StreamHandler('php://stdout', \Monolog\Level::Debug));
+            $logger->pushHandler(new \Monolog\Handler\StreamHandler($settings['path'], \Monolog\Level::Debug));
             return $logger;
-        };
+        });
 
-        $container['bot'] = function ($c) {
+        $container->set(MessagingApiApi::class, function ($c) {
             $settings = $c->get('settings');
-            $channelSecret = $settings['bot']['channelSecret'];
             $channelToken = $settings['bot']['channelToken'];
-            $apiEndpointBase = $settings['apiEndpointBase'];
-            $bot = new LINEBot(new CurlHTTPClient($channelToken), [
-                'channelSecret' => $channelSecret,
-                'endpointBase' => $apiEndpointBase, // <= Normally, you can omit this
-            ]);
+            $config = new Configuration();
+            $config->setAccessToken($channelToken);
+            $bot = new MessagingApiApi(
+                client: new \GuzzleHttp\Client(),
+                config: $config,
+            );
             return $bot;
-        };
+        });
+
+        $container->set(MessagingApiBlobApi::class, function ($c) {
+            $settings = $c->get('settings');
+            $channelToken = $settings['bot']['channelToken'];
+            $config = new Configuration();
+            $config->setAccessToken($channelToken);
+            $bot = new MessagingApiBlobApi(
+                client: new \GuzzleHttp\Client(),
+                config: $config,
+            );
+            return $bot;
+        });
     }
 }

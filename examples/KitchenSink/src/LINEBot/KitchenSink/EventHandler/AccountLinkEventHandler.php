@@ -18,26 +18,28 @@
 
 namespace LINE\LINEBot\KitchenSink;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\AccountLinkEvent;
+use LINE\ChannelAccessToken\Model\TextMessage;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Constants\MessageType;
+use LINE\Webhook\Model\AccountLinkEvent;
 
 class AccountLinkEventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
     /* @var AccountLinkEvent $accountLinkEvent */
     private $accountLinkEvent;
 
     /**
-     * BeaconEventHandler constructor.
-     *
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
+     * AccountLinkEventHandler constructor.
+     * @param MessagingApiApi $bot
+     * @param \Psr\Log\LoggerInterface $logger
      * @param AccountLinkEvent $accountLinkEvent
      */
-    public function __construct($bot, $logger, AccountLinkEvent $accountLinkEvent)
+    public function __construct(MessagingApiApi $bot, \Psr\Log\LoggerInterface $logger, AccountLinkEvent $accountLinkEvent)
     {
         $this->bot = $bot;
         $this->logger = $logger;
@@ -49,9 +51,12 @@ class AccountLinkEventHandler
      */
     public function handle()
     {
-        $this->bot->replyText(
-            $this->accountLinkEvent->getReplyToken(),
-            'Got account link event ' . $this->accountLinkEvent->getNonce()
-        );
+        $request = new ReplyMessageRequest([
+            'replyToken' => $this->accountLinkEvent->getReplyToken(),
+            'messages' => [
+                new TextMessage(['type' => MessageType::TEXT, 'text' => 'Got account link event ' . $this->accountLinkEvent->getLink()->getNonce()]),
+            ],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

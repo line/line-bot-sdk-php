@@ -18,15 +18,19 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\ThingsEvent;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Clients\MessagingApi\Model\TextMessage;
+use LINE\Constants\MessageType;
+use LINE\Constants\ThingsEventType;
 use LINE\LINEBot\KitchenSink\EventHandler;
+use LINE\Webhook\Model\ThingsEvent;
 
 class ThingsEventHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
     /** @var ThingsEvent $thingsEvent */
     private $thingsEvent;
@@ -38,7 +42,7 @@ class ThingsEventHandler implements EventHandler
      * @param \Monolog\Logger $logger
      * @param ThingsEvent $thingsEvent
      */
-    public function __construct($bot, $logger, ThingsEvent $thingsEvent)
+    public function __construct(MessagingApiApi $bot, \Psr\Log\LoggerInterface $logger, ThingsEvent $thingsEvent)
     {
         $this->bot = $bot;
         $this->logger = $logger;
@@ -50,19 +54,26 @@ class ThingsEventHandler implements EventHandler
      */
     public function handle()
     {
-        $text = 'Device ' . $this->thingsEvent->getDeviceId();
+        $text = 'Device ' . $this->thingsEvent->getThings()->getDeviceId();
         switch ($this->thingsEvent->getThingsEventType()) {
-            case ThingsEvent::TYPE_DEVICE_LINKED:
+            case ThingsEventType::DEVICE_LINKED:
                 $text .= ' was linked!';
                 break;
-            case ThingsEvent::TYPE_DEVICE_UNLINKED:
+            case ThingsEventType::DEVICE_UNLINKED:
                 $text .= ' was unlinked!';
                 break;
-            case ThingsEvent::TYPE_SCENARIO_RESULT:
-                $result = $this->thingsEvent->getScenarioResult();
+            case ThingsEventType::SCENARIO_RESULT:
+                $result = $this->thingsEvent->getThings();
                 $text .= ' executed scenario:' . $result->getScenarioId();
                 break;
         }
-        $this->bot->replyText($this->thingsEvent->getReplyToken(), $text);
+
+        $request = new ReplyMessageRequest([
+            'replyToken' => $this->thingsEvent->getReplyToken(),
+            'messages' => [
+                new TextMessage(['type' => MessageType::TEXT, 'text' => $text]),
+            ],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

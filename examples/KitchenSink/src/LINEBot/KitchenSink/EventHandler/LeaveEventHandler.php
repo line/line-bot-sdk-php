@@ -18,26 +18,28 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\LeaveEvent;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\LINEBot\KitchenSink\EventHandler;
+use LINE\Webhook\Model\GroupSource;
+use LINE\Webhook\Model\LeaveEvent;
+use LINE\Webhook\Model\RoomSource;
 
 class LeaveEventHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
     /** @var LeaveEvent $leaveEvent */
     private $leaveEvent;
 
     /**
      * LeaveEventHandler constructor.
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
+     * @param MessagingApiApi $bot
+     * @param \Psr\Log\LoggerInterface $logger
      * @param LeaveEvent $leaveEvent
      */
-    public function __construct($bot, $logger, LeaveEvent $leaveEvent)
+    public function __construct(MessagingApiApi $bot, \Psr\Log\LoggerInterface $logger, LeaveEvent $leaveEvent)
     {
         $this->bot = $bot;
         $this->logger = $logger;
@@ -46,10 +48,11 @@ class LeaveEventHandler implements EventHandler
 
     public function handle()
     {
-        if ($this->leaveEvent->isGroupEvent()) {
-            $id = $this->leaveEvent->getGroupId();
-        } elseif ($this->leaveEvent->isRoomEvent()) {
-            $id = $this->leaveEvent->getRoomId();
+        $source = $this->leaveEvent->getSource();
+        if ($source instanceof GroupSource) {
+            $id = $source->getGroupId();
+        } elseif ($source instanceof RoomSource) {
+            $id = $source->getRoomId();
         } else {
             $this->logger->error("Unknown event type");
             return;

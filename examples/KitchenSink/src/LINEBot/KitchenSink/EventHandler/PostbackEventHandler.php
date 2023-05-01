@@ -18,26 +18,29 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\PostbackEvent;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Clients\MessagingApi\Model\TextMessage;
+use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
+use LINE\Webhook\Model\PostbackEvent;
 
 class PostbackEventHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
     /** @var PostbackEvent $postbackEvent */
     private $postbackEvent;
 
     /**
      * PostbackEventHandler constructor.
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
+     * @param MessagingApiApi $bot
+     * @param \Psr\Log\LoggerInterface $logger
      * @param PostbackEvent $postbackEvent
      */
-    public function __construct($bot, $logger, PostbackEvent $postbackEvent)
+    public function __construct(MessagingApiApi $bot, \Psr\Log\LoggerInterface $logger, PostbackEvent $postbackEvent)
     {
         $this->bot = $bot;
         $this->logger = $logger;
@@ -49,9 +52,12 @@ class PostbackEventHandler implements EventHandler
      */
     public function handle()
     {
-        $this->bot->replyText(
-            $this->postbackEvent->getReplyToken(),
-            'Got postback ' . $this->postbackEvent->getPostbackData()
-        );
+        $request = new ReplyMessageRequest([
+            'replyToken' => $this->postbackEvent->getReplyToken(),
+            'messages' => [
+                new TextMessage(['type' => MessageType::TEXT, 'text' => 'Got postback ' . $this->postbackEvent->getPostback()]),
+            ],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

@@ -18,7 +18,7 @@ See the official API documentation for more information.
 
 ## Requirements
 
-- PHP 7.2 or later
+- PHP 8.1 or later
 
 
 ## Installation
@@ -187,11 +187,6 @@ Please refer [CurlHTTPClient](/src/LINEBot/HTTPClient/CurlHTTPClient.php) that i
 
 See also
 --
-
-### [line-bot-sdk-tiny](./line-bot-sdk-tiny)
-
-A very simple SDK (subset) for the LINE Messaging API for PHP.
-line-bot-sdk-tiny provides a simple interface and functions which makes it a good way to learn how to use the LINE Messaging API.
 
 ### Laravel Support
 Easy to use from Laravel.

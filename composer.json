@@ -32,10 +32,9 @@
     }
   ],
   "require": {
-    "php": ">=7.2",
-    "ext-curl": "*",
-    "ext-json": "*",
-    "ext-sockets": "*"
+    "php": ">=8.1",
+    "guzzlehttp/guzzle": "^7.3",
+    "guzzlehttp/psr7": "^1.7 || ^2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^7||^8||^9",
@@ -46,12 +45,25 @@
   },
   "autoload": {
     "psr-4": {
-      "LINE\\": "src/"
+      "LINE\\Clients\\ChannelAccessToken\\": "src/clients/channel-access-token/lib/",
+      "LINE\\Clients\\Insight\\": "src/clients/insight/lib/",
+      "LINE\\Clients\\Liff\\": "src/clients/liff/lib/",
+      "LINE\\Clients\\ManageAudience\\": "src/clients/manage-audience/lib/",
+      "LINE\\Clients\\MessagingApi\\": "src/clients/messaging-api/lib/",
+      "LINE\\Constants\\": "src/constants/",
+      "LINE\\Laravel\\": "src/laravel/lib/",
+      "LINE\\Parser\\": "src/parser/lib/",
+      "LINE\\Webhook\\": "src/webhook/lib/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "LINE\\Tests\\": "tests/"
+      "LINE\\Clients\\ChannelAccessToken\\Tests\\": "src/clients/channel-access-token/tests/",
+      "LINE\\Clients\\Insight\\Tests\\": "src/clients/insight/tests/",
+      "LINE\\Clients\\Liff\\Tests\\": "src/clients/liff/tests/",
+      "LINE\\Clients\\ManageAudience\\Tests\\": "src/clients/manage-audience/tests/",
+      "LINE\\Parser\\Tests\\": "src/parser/tests/",
+      "LINE\\Webhook\\Tests\\": "src/webhook/tests/"
     }
   },
   "scripts": {
@@ -66,7 +78,11 @@
         "LINE\\Laravel\\LINEBotServiceProvider"
       ],
       "aliases": {
-        "LINEBot": "LINE\\Laravel\\Facade\\LINEBot"
+        "LINEChannelAccessTokenApi": "LINE\\Laravel\\Facade\\LINEChannelAccessTokenApi",
+        "LINEInsightApi": "LINE\\Laravel\\Facade\\LINEInsightApi",
+        "LINELiffApi": "LINE\\Laravel\\Facade\\LINELiffApi",
+        "LINEManageAudienceApi": "LINE\\Laravel\\Facade\\LINEManageAudienceApi",
+        "LINEMessagingApi": "LINE\\Laravel\\Facade\\LINEMessagingApi"
       }
     }
   }
