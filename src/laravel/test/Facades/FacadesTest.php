@@ -16,35 +16,42 @@
  * under the License.
  */
 
-namespace LINE\Tests\Laravel\Facade;
+namespace LINE\Tests\Laravel\Facades;
 
+/** 
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class FacadesTest extends \Orchestra\Testbench\TestCase
 {
     /**
      * Load package service provider
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @param  \Illuminate\Foundation\Application $app
      * @return array
      */
     protected function getPackageProviders($app)
     {
-        return ['LINE\Laravel\LINEBotServiceProvider'];
+        return [\LINE\Laravel\LINEBotServiceProvider::class];
     }
 
     /**
      * Load package alias
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @param  \Illuminate\Foundation\Application $app
      * @return array
      */
     protected function getPackageAliases($app)
     {
         return [
-            'LINEChannelAccessTokenApi' => 'LINE\Laravel\Facades\LINEChannelAccessTokenApi',
-            'LINEInsightApi' => 'LINE\Laravel\Facades\LINEInsightApi',
-            'LINELiffApi' => 'LINE\Laravel\Facades\LINELiffApi',
-            'LINEManageAudienceApi' => 'LINE\Laravel\Facades\LINEManageAudienceApi',
-            'LINEManageAudienceBlobApi' => 'LINE\Laravel\Facades\LINEManageAudienceBlobApi',
-            'LINEMessagingApi' => 'LINE\Laravel\Facades\LINEMessagingApi',
-            'LINEMessagingBlobApi' => 'LINE\Laravel\Facades\LINEMessagingBlobApi',
+            'LINEChannelAccessTokenApi' => \LINE\Laravel\Facades\LINEChannelAccessTokenApi::class,
+            'LINEInsightApi' => \LINE\Laravel\Facades\LINEInsightApi::class,
+            'LINELiffApi' => \LINE\Laravel\Facades\LINELiffApi::class,
+            'LINEManageAudienceApi' => \LINE\Laravel\Facades\LINEManageAudienceApi::class,
+            'LINEManageAudienceBlobApi' => \LINE\Laravel\Facades\LINEManageAudienceBlobApi::class,
+            'LINEMessagingApi' => \LINE\Laravel\Facades\LINEMessagingApi::class,
+            'LINEMessagingBlobApi' => \LINE\Laravel\Facades\LINEMessagingBlobApi::class,
         ];
     }
 
@@ -62,6 +69,7 @@ class FacadesTest extends \Orchestra\Testbench\TestCase
     /**
      * Testing LINEBot facade instance
      *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @return void
      */
     public function testLINEBotFacadeInstance()

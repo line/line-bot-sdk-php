@@ -29,6 +29,9 @@ use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
 use LINE\Webhook\Model\ImageMessageContent;
 use LINE\Webhook\Model\MessageEvent;
 
+/** 
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class ImageMessageHandler implements EventHandler
 {
     /** @var = $bot */

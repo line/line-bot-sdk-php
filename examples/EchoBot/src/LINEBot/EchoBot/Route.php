@@ -32,8 +32,7 @@ class Route
     public function register(\Slim\App $app)
     {
         $app->post('/callback', function (\Psr\Http\Message\RequestInterface $req, \Psr\Http\Message\ResponseInterface $res) {
-            /** @var \LINE\Clients\MessagingApi\Api\MessagingApiApi $bot */
-            $bot = $this->get('botMessagingApi');
+            $bot = $this->get(\LINE\Clients\MessagingApi\Api\MessagingApiApi::class);
             $logger = $this->get(\Psr\Log\LoggerInterface::class);
 
             $signature = $req->getHeader(HTTPHeader::LINE_SIGNATURE);
@@ -44,14 +43,14 @@ class Route
             // Check request with signature and parse request
             try {
                 $secret = $this->get('settings')['bot']['channelSecret'];
-                $events = EventRequestParser::parseEventRequest($req->getBody(), $secret, $signature[0]);
+                $parsedEvents = EventRequestParser::parseEventRequest($req->getBody(), $secret, $signature[0]);
             } catch (InvalidSignatureException $e) {
                 return $res->withStatus(400, 'Invalid signature');
             } catch (InvalidEventRequestException $e) {
                 return $res->withStatus(400, "Invalid event request");
             }
 
-            foreach ($events as $event) {
+            foreach ($parsedEvents->getEvents() as $event) {
                 if (!($event instanceof MessageEvent)) {
                     $logger->info('Non message event has come');
                     continue;

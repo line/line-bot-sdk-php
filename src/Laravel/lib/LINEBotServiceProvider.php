@@ -18,22 +18,41 @@
 
 namespace LINE\Laravel;
 
-use Guzzle\Http\Client;
-use LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi;
-use LINE\Clients\Insight\Api\InsightApi;
-use LINE\Clients\ChannelAccessToken\Configuration as ChannelAccessTokenConfiguration;
-use LINE\Clients\Insight\Configuration as InsightConfiguration;
-use LINE\Clients\Liff\Api\LiffApi;
-use LINE\Clients\Liff\Configuration as LiffConfiguration;
-use LINE\Clients\ManageAudience\Api\ManageAudienceApi;
-use LINE\Clients\ManageAudience\Api\ManageAudienceBlobApi;
-use LINE\Clients\ManageAudience\Configuration as ManageAudienceConfiguration;
-use LINE\Clients\MessagingApi\Api\MessagingApiApi;
-use LINE\Clients\MessagingApi\Api\MessagingApiBlobApi;
-use LINE\Clients\MessagingApi\Configuration as MessagingApiConfiguration;
+use \GuzzleHttp\Client as GuzzleHttpClient;
 
 class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
 {
+    private static $apiBindings = [
+        'line-bot-channel-access-token-api' => [
+            'config' => \LINE\Clients\ChannelAccessToken\Configuration::class,
+            'api' => \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::class,
+        ],
+        'line-bot-insight-api' => [
+            'config' => \LINE\Clients\Insight\Configuration::class,
+            'api' => \LINE\Clients\Insight\Api\InsightApi::class,
+        ],
+        'line-bot-liff-api' => [
+            'config' => \LINE\Clients\Liff\Configuration::class,
+            'api' => \LINE\Clients\Liff\Api\LiffApi::class,
+        ],
+        'line-bot-manage-audience-api' => [
+            'config' => \LINE\Clients\ManageAudience\Configuration::class,
+            'api' => \LINE\Clients\ManageAudience\Api\ManageAudienceApi::class,
+        ],
+        'line-bot-manage-audience-blob-api' => [
+            'config' => \LINE\Clients\ManageAudience\Configuration::class,
+            'api' => \LINE\Clients\ManageAudience\Api\ManageAudienceBlobApi::class,
+        ],
+        'line-bot-messaging-api' => [
+            'config' => \LINE\Clients\MessagingApi\Configuration::class,
+            'api' => \LINE\Clients\MessagingApi\Api\MessagingApiApi::class,
+        ],
+        'line-bot-messaging-blob-api' => [
+            'config' => \LINE\Clients\MessagingApi\Configuration::class,
+            'api' => \LINE\Clients\MessagingApi\Api\MessagingApiBlobApi::class,
+        ],
+    ];
+
     /**
      * Register bindings in the container.
      *
@@ -46,103 +65,22 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
             'line-bot'
         );
         $this->app->bind('line-bot-http-client', function () {
-            return new \GuzzleHttp\Client(
+            return new GuzzleHttpClient(
                 config: config('line-bot.client.config'),
             );
         });
-        $this->bindChannelAccessTokenApi();
-        $this->bindInsightApi();
-        $this->bindLiffApi();
-        $this->bindManageAudienceApi();
-        $this->bindManageAudienceBlobApi();
-        $this->bindMessagingApi();
-        $this->bindMessagingBlobApi();
+        foreach (self::$apiBindings as $facadeName => $classes) {
+            $this->bindApis($facadeName, $classes['api'], $classes['config']);
+        }
     }
 
-    private function bindChannelAccessTokenApi()
+    private function bindApis($facadeName, $clientClass, $configClass)
     {
-        $this->app->bind('line-bot-channel-access-token-api', function ($app) {
+        $this->app->bind($facadeName, function ($app) use ($clientClass, $configClass) {
             $httpClient = $app->make('line-bot-http-client');
-            $config = new ChannelAccessTokenConfiguration();
-            return new ChannelAccessTokenApi(
-                client: $httpClient,
-                config: $config,
-            );
-        });
-    }
-
-    private function bindInsightApi()
-    {
-        $this->app->bind('line-bot-insight-api', function ($app) {
-            $httpClient = $app->make('line-bot-http-client');
-            $config = new InsightConfiguration();
+            $config = new $configClass();
             $config->setAccessToken(config('line-bot.channel_access_token'));
-            return new InsightApi(
-                client: $httpClient,
-                config: $config,
-            );
-        });
-    }
-
-    private function bindLiffApi()
-    {
-        $this->app->bind('line-bot-liff-api', function ($app) {
-            $httpClient = $app->make('line-bot-http-client');
-            $config = new LiffConfiguration();
-            $config->setAccessToken(config('line-bot.channel_access_token'));
-            return new LiffApi(
-                client: $httpClient,
-                config: $config,
-            );
-        });
-    }
-
-    private function bindManageAudienceApi()
-    {
-        $this->app->bind('line-bot-manage-audience-api', function ($app) {
-            $httpClient = $app->make('line-bot-http-client');
-            $config = new ManageAudienceConfiguration();
-            $config->setAccessToken(config('line-bot.channel_access_token'));
-            return new ManageAudienceApi(
-                client: $httpClient,
-                config: $config,
-            );
-        });
-    }
-
-    private function bindManageAudienceBlobApi()
-    {
-        $this->app->bind('line-bot-manage-audience-blob-api', function ($app) {
-            $httpClient = $app->make('line-bot-http-client');
-            $config = new ManageAudienceConfiguration();
-            $config->setAccessToken(config('line-bot.channel_access_token'));
-            return new ManageAudienceBlobApi(
-                client: $httpClient,
-                config: $config,
-            );
-        });
-    }
-
-    private function bindMessagingApi()
-    {
-        $this->app->bind('line-bot-messaging-api', function ($app) {
-            $httpClient = $app->make('line-bot-http-client');
-            $config = new MessagingApiConfiguration();
-            $config->setAccessToken(config('line-bot.channel_access_token'));
-            return new MessagingApiApi(
-                client: $httpClient,
-                config: $config,
-            );
-        });
-    }
-
-    private function bindMessagingBlobApi()
-    {
-        $this->app->bind('line-bot-messaging-blob-api', function ($app) {
-            $httpClient = $app->make('line-bot-http-client');
-            $config = new MessagingApiConfiguration();
-            $config->setAccessToken(config('line-bot.channel_access_token'));
-            return new MessagingApiBlobApi(
+            return new $clientClass(
                 client: $httpClient,
                 config: $config,
             );

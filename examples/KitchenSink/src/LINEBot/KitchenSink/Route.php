@@ -74,14 +74,14 @@ class Route
             // Check request with signature and parse request
             try {
                 $secret = $this->get('settings')['bot']['channelSecret'];
-                $events = EventRequestParser::parseEventRequest($req->getBody(), $secret, $signature[0]);
+                $parsedEvents = EventRequestParser::parseEventRequest($req->getBody(), $secret, $signature[0]);
             } catch (InvalidSignatureException $e) {
                 return $res->withStatus(400, 'Invalid signature');
             } catch (InvalidEventRequestException $e) {
                 return $res->withStatus(400, "Invalid event request");
             }
 
-            foreach ($events as $event) {
+            foreach ($parsedEvents->getEvents() as $event) {
                 /** @var EventHandler $handler */
                 $handler = null;
 

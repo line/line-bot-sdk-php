@@ -176,18 +176,18 @@ class SignatureValidatorTest extends TestCase
 JSON;
 
     /**
-     * @throws \LINE\LINEBot\Exception\InvalidSignatureException
+     * @throws \LINE\Parser\Exception\InvalidSignatureException
      */
     public function testValidateSignature()
     {
         $this->assertTrue(SignatureValidator::validateSignature(
-            $this::$json,
-            $this::$channelSecret,
+            self::$json,
+            self::$channelSecret,
             'Nq7AExtg27CQRfM3ngKtQxtVeIM/757ZTyDOrxQtWNg='
         ));
         $this->assertFalse(SignatureValidator::validateSignature(
-            $this::$json,
-            $this::$channelSecret,
+            self::$json,
+            self::$channelSecret,
             'deadbeef'
         ));
     }

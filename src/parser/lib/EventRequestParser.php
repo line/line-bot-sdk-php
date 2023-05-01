@@ -18,96 +18,92 @@
 
 namespace LINE\Parser;
 
-use LINE\Clients\MessagingApi\Model\TextMessage;
 use LINE\Constants\MentioneeType;
 use LINE\Webhook\Model\MessageEvent;
-use LINE\Parser\Event\UnknownEvent;
 use LINE\Parser\Exception\InvalidEventRequestException;
 use LINE\Parser\Exception\InvalidSignatureException;
-use LINE\Parser\MessageContent\UnknownMessageContent;
-use LINE\Parser\Source\UnknownSource;
-use LINE\Parser\Source\UnknownThingsContent;
-use LINE\Webhook\Model\AccountLinkEvent;
 use LINE\Webhook\Model\ActionResult;
 use LINE\Webhook\Model\AllMentionee;
-use LINE\Webhook\Model\BeaconContent;
-use LINE\Webhook\Model\BeaconEvent;
 use LINE\Webhook\Model\ContentProvider;
 use LINE\Webhook\Model\DeliveryContext;
 use LINE\Webhook\Model\Emoji;
+use LINE\Webhook\Model\Event;
 use LINE\Webhook\Model\ImageMessageContent;
 use LINE\Webhook\Model\ImageSet;
-use LINE\Webhook\Model\JoinedMembers;
-use LINE\Webhook\Model\LeftMembers;
-use LINE\Webhook\Model\LinkContent;
-use LINE\Webhook\Model\MemberJoinedEvent;
-use LINE\Webhook\Model\MemberLeftEvent;
 use LINE\Webhook\Model\Mention;
 use LINE\Webhook\Model\Mentionee;
 use LINE\Webhook\Model\MessageContent;
-use LINE\Webhook\Model\PostbackContent;
-use LINE\Webhook\Model\PostbackEvent;
 use LINE\Webhook\Model\ScenarioResult;
 use LINE\Webhook\Model\ScenarioResultThingsContent;
 use LINE\Webhook\Model\Source;
 use LINE\Webhook\Model\TextMessageContent;
 use LINE\Webhook\Model\ThingsContent;
 use LINE\Webhook\Model\ThingsEvent;
-use LINE\Webhook\Model\UnsendDetail;
-use LINE\Webhook\Model\UnsendEvent;
 use LINE\Webhook\Model\UserMentionee;
-use LINE\Webhook\Model\VideoPlayComplete;
-use LINE\Webhook\Model\VideoPlayCompleteEvent;
 
+/** 
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class EventRequestParser
 {
     private static $eventType2class = [
-        'message' => 'LINE\Webhook\Model\MessageEvent',
-        'unsend' => 'LINE\Webhook\Model\UnsendEvent',
-        'follow' => 'LINE\Webhook\Model\FollowEvent',
-        'unfollow' => 'LINE\Webhook\Model\UnfollowEvent',
-        'join' => 'LINE\Webhook\Model\JoinEvent',
-        'leave' => 'LINE\Webhook\Model\LeaveEvent',
-        'postback' => 'LINE\Webhook\Model\PostbackEvent',
-        'videoPlayComplete' => 'LINE\Webhook\Model\VideoPlayCompleteEvent',
-        'beacon' => 'LINE\Webhook\Model\BeaconEvent',
-        'accountLink' => 'LINE\Webhook\Model\AccountLinkEvent',
-        'memberJoined' => 'LINE\Webhook\Model\MemberJoinedEvent',
-        'memberLeft' => 'LINE\Webhook\Model\MemberLeftEvent',
-        'things' => 'LINE\Webhook\Model\ThingsEvent',
+        'message' => \LINE\Webhook\Model\MessageEvent::class,
+        'unsend' => \LINE\Webhook\Model\UnsendEvent::class,
+        'follow' => \LINE\Webhook\Model\FollowEvent::class,
+        'unfollow' => \LINE\Webhook\Model\UnfollowEvent::class,
+        'join' => \LINE\Webhook\Model\JoinEvent::class,
+        'leave' => \LINE\Webhook\Model\LeaveEvent::class,
+        'postback' => \LINE\Webhook\Model\PostbackEvent::class,
+        'videoPlayComplete' => \LINE\Webhook\Model\VideoPlayCompleteEvent::class,
+        'beacon' => \LINE\Webhook\Model\BeaconEvent::class,
+        'accountLink' => \LINE\Webhook\Model\AccountLinkEvent::class,
+        'memberJoined' => \LINE\Webhook\Model\MemberJoinedEvent::class,
+        'memberLeft' => \LINE\Webhook\Model\MemberLeftEvent::class,
+        'things' => \LINE\Webhook\Model\ThingsEvent::class,
     ];
 
     private static $messageType2class = [
-        'text' => 'LINE\Webhook\Model\TextMessageContent',
-        'image' => 'LINE\Webhook\Model\ImageMessageContent',
-        'video' => 'LINE\Webhook\Model\VideoMessageContent',
-        'audio' => 'LINE\Webhook\Model\AudioMessageContent',
-        'file' => 'LINE\Webhook\Model\FileMessageContent',
-        'location' => 'LINE\Webhook\Model\LocationMessageContent',
-        'sticker' => 'LINE\Webhook\Model\StickerMessageContent',
+        'text' => \LINE\Webhook\Model\TextMessageContent::class,
+        'image' => \LINE\Webhook\Model\ImageMessageContent::class,
+        'video' => \LINE\Webhook\Model\VideoMessageContent::class,
+        'audio' => \LINE\Webhook\Model\AudioMessageContent::class,
+        'file' => \LINE\Webhook\Model\FileMessageContent::class,
+        'location' => \LINE\Webhook\Model\LocationMessageContent::class,
+        'sticker' => \LINE\Webhook\Model\StickerMessageContent::class,
     ];
 
     private static $sourceType2class = [
-        'user' => 'LINE\Webhook\Model\UserSource',
-        'group' => 'LINE\Webhook\Model\GroupSource',
-        'room' => 'LINE\Webhook\Model\RoomSource',
+        'user' => \LINE\Webhook\Model\UserSource::class,
+        'group' => \LINE\Webhook\Model\GroupSource::class,
+        'room' => \LINE\Webhook\Model\RoomSource::class,
     ];
 
     private static $thingsContentType2class = [
-        'link' => '\LINE\Webhook\Model\LinkThingsContent',
-        'unlink' => '\LINE\Webhook\Model\UnlinkThingsContent',
-        'scenarioResult' => '\LINE\Webhook\Model\ScenarioResultThingsContent',
+        'link' => \LINE\Webhook\Model\LinkThingsContent::class,
+        'unlink' => \LINE\Webhook\Model\UnlinkThingsContent::class,
+        'scenarioResult' => \LINE\Webhook\Model\ScenarioResultThingsContent::class,
+    ];
+
+    private static $contentType2class = [
+        'postback' => \LINE\Webhook\Model\PostbackContent::class,
+        'beacon' => \LINE\Webhook\Model\BeaconContent::class,
+        'link' => \LINE\Webhook\Model\LinkContent::class,
+        'joined' => \LINE\Webhook\Model\JoinedMembers::class,
+        'left' => \LINE\Webhook\Model\LeftMembers::class,
+        'unsend' => \LINE\Webhook\Model\UnsendDetail::class,
+        'videoPlayComplete' => \LINE\Webhook\Model\VideoPlayComplete::class,
     ];
 
     /**
      * @param string $body
      * @param string $channelSecret
      * @param string $signature
+     * @param bool $eventsOnly
      * @return mixed
      * @throws InvalidEventRequestException
      * @throws InvalidSignatureException
      */
-    public static function parseEventRequest($body, $channelSecret, $signature, $eventsOnly = true)
+    public static function parseEventRequest(string $body, string $channelSecret, string $signature): ParsedEvents
     {
         if (trim($signature) === '') {
             throw new InvalidSignatureException('Request does not contain signature');
@@ -117,88 +113,51 @@ class EventRequestParser
             throw new InvalidSignatureException('Invalid signature has given');
         }
 
-        $events = [];
-
         $parsedReq = json_decode($body, true);
         if (!isset($parsedReq['events'])) {
             throw new InvalidEventRequestException();
         }
 
+        $events = [];
         foreach ($parsedReq['events'] as $eventData) {
-            $eventType = $eventData['type'];
-
-            if (isset(self::$eventType2class[$eventType])) {
-                $eventClass = self::$eventType2class[$eventType];
-                $event = new $eventClass($eventData);
-            } else {
-                # Unknown event has come
-                $event = new UnknownEvent($eventData);
-            }
-
-
-            if ($event instanceof MessageEvent) {
-                $message = self::parseMessageContent($eventData);
-                $event->setMessage($message);
-            }
-
-            if ($event instanceof ThingsEvent) {
-                $content = self::parseThingsContent($eventData);
-                $event->setThings($content);
-            }
-
-            if ($event instanceof PostbackEvent) {
-                $content = new PostbackContent($eventData['postback']);
-                $event->setPostback($content);
-            }
-
-            if ($event instanceof BeaconEvent) {
-                $content = new BeaconContent($eventData['beacon']);
-                $event->setBeacon($content);
-            }
-
-            if ($event instanceof AccountLinkEvent) {
-                $content = new LinkContent($eventData['link']);
-                $event->setLink($content);
-            }
-
-            if ($event instanceof MemberJoinedEvent) {
-                $content = new JoinedMembers($eventData['joined']);
-                $event->setJoined($content);
-            }
-
-            if ($event instanceof MemberLeftEvent) {
-                $content = new LeftMembers($eventData['left']);
-                $event->setLeft($content);
-            }
-
-            if ($event instanceof UnsendEvent) {
-                $content = new UnsendDetail($eventData['unsend']);
-                $event->setUnsend($content);
-            }
-
-            if ($event instanceof VideoPlayCompleteEvent) {
-                $content = new VideoPlayComplete($eventData['videoPlayComplete']);
-                $event->setVideoPlayComplete($content);
-            }
-
-            $source = self::parseSource($eventData);
-            $event->setSource($source);
-            $deliveryContext = new DeliveryContext($eventData['deliveryContext']);
-            $event->setDeliveryContext($deliveryContext);
-
-            $events[] = $event;
+            $events[] = self::parseEvent($eventData);
         }
 
-        if ($eventsOnly) {
-            return $events;
+        return new ParsedEvents($parsedReq['destination'] ?? null, $events);
+    }
+
+    private static function parseEvent($eventData): Event
+    {
+        $eventType = $eventData['type'];
+        $eventClass = self::$eventType2class[$eventType] ?? \LINE\Webhook\Model\Event::class;
+        $event = new $eventClass($eventData);
+
+        if ($event instanceof MessageEvent) {
+            $message = self::parseMessageContent($eventData);
+            $event->setMessage($message);
         }
 
-        $parsedReq = json_decode($body, true);
-        if (!isset($parsedReq['destination'])) {
-            throw new InvalidEventRequestException();
+        if ($event instanceof ThingsEvent) {
+            $content = self::parseThingsContent($eventData);
+            $event->setThings($content);
         }
 
-        return [$parsedReq['destination'], $events];
+        foreach (array_keys($eventData) as $key) {
+            $contentClass = self::$contentType2class[$key] ?? null;
+            if (!isset($contentClass)) {
+                continue;
+            }
+            $content = new $contentClass($eventData[$key]);
+            $setter = 'set' . ucfirst($key);
+            $event->$setter($content);
+        }
+
+        $source = self::parseSource($eventData);
+        $event->setSource($source);
+        $deliveryContext = new DeliveryContext($eventData['deliveryContext']);
+        $event->setDeliveryContext($deliveryContext);
+
+        return $event;
     }
 
     /**
@@ -209,7 +168,7 @@ class EventRequestParser
     {
         $messageType = $eventData['message']['type'];
         if (!isset(self::$messageType2class[$messageType])) {
-            return new UnknownMessageContent($eventData['message']);
+            return new MessageContent($eventData['message']);
         }
 
         $messageClass = self::$messageType2class[$messageType];
@@ -220,11 +179,10 @@ class EventRequestParser
         }
 
         if ($message instanceof TextMessageContent) {
-            $emojis = array_map(function ($emoji) {
-                return new Emoji($emoji);
-            }, $eventData['message']['emojis'] ?? []);
+            $messageData = $eventData['message'];
+            $emojis = array_map(fn ($item) => new Emoji($item), $messageData['emojis'] ?? []);
             $message->setEmojis($emojis);
-            $mentionData = $eventData['message']['mention'] ?? null;
+            $mentionData = $messageData['mention'] ?? null;
             if (isset($mentionData)) {
                 $mention = new Mention($mentionData);
                 $mentionees = array_map(function ($mentionee) {
@@ -259,7 +217,7 @@ class EventRequestParser
     {
         $sourceType = $eventData['source']['type'];
         if (!isset(self::$sourceType2class[$sourceType])) {
-            return new UnknownSource($eventData['source']);
+            return new Source($eventData['source']);
         }
 
         $sourceClass = self::$sourceType2class[$sourceType];
@@ -274,19 +232,20 @@ class EventRequestParser
     {
         $thingsContentType = $eventData['things']['type'];
         if (!isset(self::$thingsContentType2class[$thingsContentType])) {
-            return new UnknownThingsContent($eventData['source']);
+            return new ThingsContent($eventData['source']);
         }
 
         $thingsContentClass = self::$thingsContentType2class[$thingsContentType];
         $content = new $thingsContentClass($eventData['things']);
-        if ($content instanceof ScenarioResultThingsContent) {
-            $result = new ScenarioResult($eventData['things']['result']);
-            $actionResults = array_map(function ($actionResult) {
-                return new ActionResult($actionResult);
-            }, $eventData['things']['result']['actionResults']);
-            $result->setActionResults($actionResults);
-            $content->setResult($result);
+        if (!($content instanceof ScenarioResultThingsContent)) {
+            return $content;
         }
+
+        $resultData = $eventData['things']['result'];
+        $result = new ScenarioResult($resultData);
+        $actionResults = array_map(fn ($item) => new ActionResult($item), $resultData['actionResults']);
+        $result->setActionResults($actionResults);
+        $content->setResult($result);
         return $content;
     }
 }
