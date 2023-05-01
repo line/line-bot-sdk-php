@@ -21,4 +21,7 @@
   "ignorePaths": [
     "docs/",
   ],
+  "git-submodules": {
+    "enabled": true
+  }
 }

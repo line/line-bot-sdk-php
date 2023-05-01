@@ -197,10 +197,10 @@ LINE_BOT_CHANNEL_ACCESS_TOKEN=<Channel Access Token>
 LINE_BOT_CHANNEL_SECRET=<Channel Secret>
 ```
 
-then you can use `LINEBot` facade like following.
+then you can use facades like following.
 
 ```
-$profile = \LINEBot::getProfile($userId);
+$profile = \LINEMessagingApi::pushMessage(....);
 ```
 
 ## Help and media
