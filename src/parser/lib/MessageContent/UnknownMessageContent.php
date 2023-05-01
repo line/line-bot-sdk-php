@@ -16,7 +16,7 @@
  * under the License.
  */
 
-namespace LINE\LINEBot\Event\MessageEvent;
+namespace LINE\Parser\MessageContent;
 
 use LINE\Webhook\Model\MessageContent;
 

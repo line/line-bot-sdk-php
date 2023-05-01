@@ -16,13 +16,14 @@
  * under the License.
  */
 
-namespace LINE\Laravel\Facade;
+namespace LINE\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class LINEChannelAccessTokenApi extends Facade
+class LINEMessagingApi extends Facade
 {
     public static function getFacadeAccessor()
     {
-        return 'line-bot-channel-access-token-api';
+        return 'line-bot-messaging-api';
     }
+}

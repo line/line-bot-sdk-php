@@ -16,13 +16,10 @@
  * under the License.
  */
 
-namespace LINE\Laravel\Facade;
+namespace LINE\Constants;
 
-use Illuminate\Support\Facades\Facade;
-
-class InsightApi extends Facade
+class MentioneeType
 {
-    public static function getFacadeAccessor()
-    {
-        return 'line-bot-insight-api';
-    }
+    const TYPE_USER = 'user';
+    const TYPE_ALL = 'all';
+}

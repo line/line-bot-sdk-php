@@ -18,9 +18,7 @@
 
 namespace LINE\Tests\Laravel\Facade;
 
-use LINEBot;
-
-class LINEBotTest extends \Orchestra\Testbench\TestCase
+class FacadesTest extends \Orchestra\Testbench\TestCase
 {
     /**
      * Load package service provider
@@ -40,7 +38,13 @@ class LINEBotTest extends \Orchestra\Testbench\TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'LINEBot' => 'LINE\Laravel\Facade\LINEBot',
+            'LINEChannelAccessTokenApi' => 'LINE\Laravel\Facades\LINEChannelAccessTokenApi',
+            'LINEInsightApi' => 'LINE\Laravel\Facades\LINEInsightApi',
+            'LINELiffApi' => 'LINE\Laravel\Facades\LINELiffApi',
+            'LINEManageAudienceApi' => 'LINE\Laravel\Facades\LINEManageAudienceApi',
+            'LINEManageAudienceBlobApi' => 'LINE\Laravel\Facades\LINEManageAudienceBlobApi',
+            'LINEMessagingApi' => 'LINE\Laravel\Facades\LINEMessagingApi',
+            'LINEMessagingBlobApi' => 'LINE\Laravel\Facades\LINEMessagingBlobApi',
         ];
     }
 
@@ -62,6 +66,12 @@ class LINEBotTest extends \Orchestra\Testbench\TestCase
      */
     public function testLINEBotFacadeInstance()
     {
-        $this->assertInstanceOf(\LINE\LINEBot::class, LINEBot::getFacadeRoot());
+        $this->assertInstanceOf(\LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::class, \LINEChannelAccessTokenApi::getFacadeRoot());
+        $this->assertInstanceOf(\LINE\Clients\Insight\Api\InsightApi::class, \LINEInsightApi::getFacadeRoot());
+        $this->assertInstanceOf(\LINE\Clients\Liff\Api\LiffApi::class, \LINELiffApi::getFacadeRoot());
+        $this->assertInstanceOf(\LINE\Clients\ManageAudience\Api\ManageAudienceApi::class, \LINEManageAudienceApi::getFacadeRoot());
+        $this->assertInstanceOf(\LINE\Clients\ManageAudience\Api\ManageAudienceBlobApi::class, \LINEManageAudienceBlobApi::getFacadeRoot());
+        $this->assertInstanceOf(\LINE\Clients\MessagingApi\Api\MessagingApiApi::class, \LINEMessagingApi::getFacadeRoot());
+        $this->assertInstanceOf(\LINE\Clients\MessagingApi\Api\MessagingApiBlobApi::class, \LINEMessagingBlobApi::getFacadeRoot());
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2017 LINE Corporation
+ * Copyright 2023 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -16,26 +16,14 @@
  * under the License.
  */
 
-namespace LINE\Parser\Event;
+namespace LINE\Laravel\Facades;
 
-use LINE\Webhook\Model\Event;
+use Illuminate\Support\Facades\Facade;
 
-/**
- * A class that represents the unknown event.
- *
- * If the event is not supported by this SDK, the event will be instantiate to this.
- *
- * @package LINE\LINEBot\Event
- */
-class UnknownEvent extends Event
+class LINEManageAudienceApi extends Facade
 {
-    /**
-     * UnknownEvent constructor.
-     *
-     * @param array $event
-     */
-    public function __construct($event)
+    public static function getFacadeAccessor()
     {
-        parent::__construct($event);
+        return 'line-bot-manage-audience-api';
     }
 }

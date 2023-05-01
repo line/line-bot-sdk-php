@@ -18,18 +18,46 @@
 
 namespace LINE\Parser;
 
-use LINE\LINEBot\Event\MessageEvent\UnknownMessageContent;
+use LINE\Clients\MessagingApi\Model\TextMessage;
+use LINE\Constants\MentioneeType;
 use LINE\Webhook\Model\MessageEvent;
 use LINE\Parser\Event\UnknownEvent;
 use LINE\Parser\Exception\InvalidEventRequestException;
 use LINE\Parser\Exception\InvalidSignatureException;
+use LINE\Parser\MessageContent\UnknownMessageContent;
 use LINE\Parser\Source\UnknownSource;
 use LINE\Parser\Source\UnknownThingsContent;
+use LINE\Webhook\Model\AccountLinkEvent;
+use LINE\Webhook\Model\ActionResult;
+use LINE\Webhook\Model\AllMentionee;
+use LINE\Webhook\Model\BeaconContent;
+use LINE\Webhook\Model\BeaconEvent;
 use LINE\Webhook\Model\ContentProvider;
+use LINE\Webhook\Model\DeliveryContext;
+use LINE\Webhook\Model\Emoji;
+use LINE\Webhook\Model\ImageMessageContent;
+use LINE\Webhook\Model\ImageSet;
+use LINE\Webhook\Model\JoinedMembers;
+use LINE\Webhook\Model\LeftMembers;
+use LINE\Webhook\Model\LinkContent;
+use LINE\Webhook\Model\MemberJoinedEvent;
+use LINE\Webhook\Model\MemberLeftEvent;
+use LINE\Webhook\Model\Mention;
+use LINE\Webhook\Model\Mentionee;
 use LINE\Webhook\Model\MessageContent;
+use LINE\Webhook\Model\PostbackContent;
+use LINE\Webhook\Model\PostbackEvent;
+use LINE\Webhook\Model\ScenarioResult;
+use LINE\Webhook\Model\ScenarioResultThingsContent;
 use LINE\Webhook\Model\Source;
+use LINE\Webhook\Model\TextMessageContent;
 use LINE\Webhook\Model\ThingsContent;
 use LINE\Webhook\Model\ThingsEvent;
+use LINE\Webhook\Model\UnsendDetail;
+use LINE\Webhook\Model\UnsendEvent;
+use LINE\Webhook\Model\UserMentionee;
+use LINE\Webhook\Model\VideoPlayComplete;
+use LINE\Webhook\Model\VideoPlayCompleteEvent;
 
 class EventRequestParser
 {
@@ -99,14 +127,14 @@ class EventRequestParser
         foreach ($parsedReq['events'] as $eventData) {
             $eventType = $eventData['type'];
 
-            if (!isset(self::$eventType2class[$eventType])) {
+            if (isset(self::$eventType2class[$eventType])) {
+                $eventClass = self::$eventType2class[$eventType];
+                $event = new $eventClass($eventData);
+            } else {
                 # Unknown event has come
-                $events[] = new UnknownEvent($eventData);
-                continue;
+                $event = new UnknownEvent($eventData);
             }
 
-            $eventClass = self::$eventType2class[$eventType];
-            $event = new $eventClass($eventData);
 
             if ($event instanceof MessageEvent) {
                 $message = self::parseMessageContent($eventData);
@@ -118,8 +146,45 @@ class EventRequestParser
                 $event->setThings($content);
             }
 
+            if ($event instanceof PostbackEvent) {
+                $content = new PostbackContent($eventData['postback']);
+                $event->setPostback($content);
+            }
+
+            if ($event instanceof BeaconEvent) {
+                $content = new BeaconContent($eventData['beacon']);
+                $event->setBeacon($content);
+            }
+
+            if ($event instanceof AccountLinkEvent) {
+                $content = new LinkContent($eventData['link']);
+                $event->setLink($content);
+            }
+
+            if ($event instanceof MemberJoinedEvent) {
+                $content = new JoinedMembers($eventData['joined']);
+                $event->setJoined($content);
+            }
+
+            if ($event instanceof MemberLeftEvent) {
+                $content = new LeftMembers($eventData['left']);
+                $event->setLeft($content);
+            }
+
+            if ($event instanceof UnsendEvent) {
+                $content = new UnsendDetail($eventData['unsend']);
+                $event->setUnsend($content);
+            }
+
+            if ($event instanceof VideoPlayCompleteEvent) {
+                $content = new VideoPlayComplete($eventData['videoPlayComplete']);
+                $event->setVideoPlayComplete($content);
+            }
+
             $source = self::parseSource($eventData);
             $event->setSource($source);
+            $deliveryContext = new DeliveryContext($eventData['deliveryContext']);
+            $event->setDeliveryContext($deliveryContext);
 
             $events[] = $event;
         }
@@ -153,6 +218,36 @@ class EventRequestParser
             $contentProvider = new ContentProvider($eventData['message']['contentProvider']);
             $message->setContentProvider($contentProvider);
         }
+       
+        if ($message instanceof TextMessageContent) {
+            $emojis = array_map(function ($emoji) {
+                return new Emoji($emoji);
+            }, $eventData['message']['emojis'] ?? []);
+            $message->setEmojis($emojis);
+            $mentionData = $eventData['message']['mention'] ?? null;
+            if (isset($mentionData)) {
+                $mention = new Mention($mentionData);
+                $mentionees = array_map(function ($mentionee) {
+                    if ($mentionee['type'] == MentioneeType::TYPE_USER) {
+                        return new UserMentionee($mentionee);
+                    }
+                    if ($mentionee['type'] == MentioneeType::TYPE_ALL) {
+                        return new AllMentionee($mentionee);
+                    }
+                    return new Mentionee($mentionee);
+                }, $mentionData['mentionees']);
+                $mention->setMentionees($mentionees);
+                $message->setMention($mention);
+            }
+        }
+
+        if ($message instanceof ImageMessageContent) {
+            $imageSet = $eventData['message']['imageSet'] ?? null;
+            if (isset($imageSet)) {
+                $message->setImageSet(new ImageSet($imageSet));
+            }
+        }
+
         return $message;
     }
 
@@ -177,12 +272,21 @@ class EventRequestParser
      */
     private static function parseThingsContent($eventData): ThingsContent
     {
-        $thingsContentType = $eventData['event']['things']['type'];
+        $thingsContentType = $eventData['things']['type'];
         if (!isset(self::$thingsContentType2class[$thingsContentType])) {
             return new UnknownThingsContent($eventData['source']);
         }
 
         $thingsContentClass = self::$thingsContentType2class[$thingsContentType];
-        return new $thingsContentClass($eventData['event']['things']);
+        $content = new $thingsContentClass($eventData['things']);
+        if ($content instanceof ScenarioResultThingsContent) {
+            $result = new ScenarioResult($eventData['things']['result']);
+            $actionResults = array_map(function ($actionResult) {
+                return new ActionResult($actionResult);
+            }, $eventData['things']['result']['actionResults']);
+            $result->setActionResults($actionResults);
+            $content->setResult($result);
+        }
+        return $content;
     }
 }

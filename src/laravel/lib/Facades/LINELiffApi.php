@@ -16,7 +16,7 @@
  * under the License.
  */
 
-namespace LINE\Laravel\Facade;
+namespace LINE\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

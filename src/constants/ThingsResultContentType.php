@@ -16,14 +16,10 @@
  * under the License.
  */
 
-namespace LINE\Laravel\Facade;
+namespace LINE\Constants;
 
-use Illuminate\Support\Facades\Facade;
-
-class LINEMessagingApi extends Facade
+class ThingsResultContentType
 {
-    public static function getFacadeAccessor()
-    {
-        return 'line-bot-messaging-api';
-    }
+    const TYPE_VOID = 'void';
+    const TYPE_BINARY = 'binary';
 }

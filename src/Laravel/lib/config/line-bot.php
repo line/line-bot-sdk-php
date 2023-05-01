@@ -23,3 +23,4 @@ return [
     'client' => [
         'config' => [],
     ],
+];

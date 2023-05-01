@@ -1,4 +1,3 @@
-];
 <?php
 
 /**
@@ -17,14 +16,14 @@
  * under the License.
  */
 
-namespace LINE\Laravel\Facade;
+namespace LINE\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class LINEManageAudienceApi extends Facade
+class LINEInsightApi extends Facade
 {
     public static function getFacadeAccessor()
     {
-        return 'line-bot-manage-audience-api';
+        return 'line-bot-insight-api';
     }
 }

@@ -16,9 +16,9 @@
  * under the License.
  */
 
-namespace LINE\Tests\LINEBot;
+namespace LINE\Parser\Tests;
 
-use LINE\LINEBot\SignatureValidator;
+use LINE\Parser\SignatureValidator;
 use PHPUnit\Framework\TestCase;
 
 class SignatureValidatorTest extends TestCase
