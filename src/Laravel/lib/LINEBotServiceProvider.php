@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2020 LINE Corporation
  *
@@ -17,7 +18,7 @@
 
 namespace LINE\Laravel;
 
-use \GuzzleHttp\Client as GuzzleHttpClient;
+use GuzzleHttp\Client as GuzzleHttpClient;
 
 class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
 {

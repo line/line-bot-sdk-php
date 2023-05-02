@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2016 LINE Corporation
  *
@@ -40,7 +41,7 @@ use LINE\Webhook\Model\ThingsContent;
 use LINE\Webhook\Model\ThingsEvent;
 use LINE\Webhook\Model\UserMentionee;
 
-/** 
+/**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class EventRequestParser

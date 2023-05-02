@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2019 LINE Corporation
  *

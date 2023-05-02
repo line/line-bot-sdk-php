@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-php-${{ matrix.php }}-
 
       - name: Install dependencies with Composer
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         
       - name: Check copyrights
         if: matrix.analysis
@@ -54,7 +54,8 @@ jobs:
 
       - name: Check with PHPStan
         if: matrix.analysis
-        run: composer stan
+        run: vendor/bin/phpstan analyse
 
       - name: Run unit tests
-        run: composer test
+        if: matrix.analysis
+        run: ./vendor/bin/phpunit --debug --test-suffix=Test.php

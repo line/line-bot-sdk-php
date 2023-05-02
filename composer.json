@@ -37,13 +37,13 @@
     "guzzlehttp/psr7": "^1.7 || ^2.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^7||^8||^9",
     "phpmd/phpmd": "2.13.0",
     "squizlabs/php_codesniffer": "3.7.2",
     "orchestra/testbench": "*",
-    "phpstan/phpstan": "1.10.14",
     "guzzlehttp/guzzle": "^7.3",
-    "guzzlehttp/psr7": "^1.7 || ^2.0"
+    "guzzlehttp/psr7": "^1.7 || ^2.0",
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "^9.6"
   },
   "autoload": {
     "psr-4": {
@@ -60,16 +60,17 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "LINE\\Clients\\ChannelAccessToken\\Tests\\": "src/clients/channel-access-token/tests/",
-      "LINE\\Clients\\Insight\\Tests\\": "src/clients/insight/tests/",
-      "LINE\\Clients\\Liff\\Tests\\": "src/clients/liff/tests/",
-      "LINE\\Clients\\ManageAudience\\Tests\\": "src/clients/manage-audience/tests/",
-      "LINE\\Parser\\Tests\\": "src/parser/tests/",
-      "LINE\\Webhook\\Tests\\": "src/webhook/tests/"
+      "LINE\\Clients\\ChannelAccessToken\\Tests\\": "src/clients/channel-access-token/test/",
+      "LINE\\Clients\\Insight\\Tests\\": "src/clients/insight/test/",
+      "LINE\\Clients\\Liff\\Tests\\": "src/clients/liff/test/",
+      "LINE\\Clients\\ManageAudience\\Tests\\": "src/clients/manage-audience/test/",
+      "LINE\\Laravel\\Tests\\": "src/laravel/test/",
+      "LINE\\Parser\\Tests\\": "src/parser/test/",
+      "LINE\\Webhook\\Tests\\": "src/webhook/test/"
     }
   },
   "scripts": {
-    "test": "phpunit --debug tests",
+    "test": "phpunit --debug",
     "cs": "phpcs",
     "md": "phpmd --ignore-violations-on-exit src/constants,src/laravel,src/parser,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
     "stan": "phpstan analyse --memory-limit=-1"
@@ -80,13 +81,13 @@
         "LINE\\Laravel\\LINEBotServiceProvider"
       ],
       "aliases": {
-        "LINEChannelAccessTokenApi": "LINE\\Laravel\\Facade\\LINEChannelAccessTokenApi",
-        "LINEInsightApi": "LINE\\Laravel\\Facade\\LINEInsightApi",
-        "LINELiffApi": "LINE\\Laravel\\Facade\\LINELiffApi",
-        "LINEManageAudienceApi": "LINE\\Laravel\\Facade\\LINEManageAudienceApi",
-        "LINEManageAudienceBlobApi": "LINE\\Laravel\\Facade\\LINEManageAudienceBlobApi",
-        "LINEMessagingApi": "LINE\\Laravel\\Facade\\LINEMessagingApi",
-        "LINEMessagingBlobApi": "LINE\\Laravel\\Facade\\LINEMessagingBlobApi"
+        "LINEChannelAccessTokenApi": "LINE\\Laravel\\Facades\\LINEChannelAccessTokenApi",
+        "LINEInsightApi": "LINE\\Laravel\\Facades\\LINEInsightApi",
+        "LINELiffApi": "LINE\\Laravel\\Facades\\LINELiffApi",
+        "LINEManageAudienceApi": "LINE\\Laravel\\Facades\\LINEManageAudienceApi",
+        "LINEManageAudienceBlobApi": "LINE\\Laravel\\Facades\\LINEManageAudienceBlobApi",
+        "LINEMessagingApi": "LINE\\Laravel\\Facades\\LINEMessagingApi",
+        "LINEMessagingBlobApi": "LINE\\Laravel\\Facades\\LINEMessagingBlobApi"
       }
     }
   }

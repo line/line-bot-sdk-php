@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2020 LINE Corporation
  *
@@ -15,9 +16,9 @@
  * under the License.
  */
 
-namespace LINE\Tests\Laravel\Facades;
+namespace LINE\Laravel\Tests\Facades;
 
-/** 
+/**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class FacadesTest extends \Orchestra\Testbench\TestCase
@@ -31,7 +32,8 @@ class FacadesTest extends \Orchestra\Testbench\TestCase
      */
     protected function getPackageProviders($app)
     {
-        return [\LINE\Laravel\LINEBotServiceProvider::class];
+        require_once __DIR__ . '/../../lib/LINEBotServiceProvider.php';
+        return ['LINE\Laravel\LINEBotServiceProvider'];
     }
 
     /**

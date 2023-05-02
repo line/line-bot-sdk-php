@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2023 LINE Corporation
+ * Copyright 2016 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -16,10 +16,5 @@
  * under the License.
  */
 
-namespace LINE\Constants;
-
-class ThingsResultContentType
-{
-    const TYPE_VOID = 'void';
-    const TYPE_BINARY = 'binary';
-}
+require __DIR__ . '/../vendor/autoload.php';
+error_reporting(-1);
