@@ -60,17 +60,13 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "LINE\\Clients\\ChannelAccessToken\\Tests\\": "src/clients/channel-access-token/test/",
-      "LINE\\Clients\\Insight\\Tests\\": "src/clients/insight/test/",
-      "LINE\\Clients\\Liff\\Tests\\": "src/clients/liff/test/",
-      "LINE\\Clients\\ManageAudience\\Tests\\": "src/clients/manage-audience/test/",
       "LINE\\Laravel\\Tests\\": "src/laravel/test/",
       "LINE\\Parser\\Tests\\": "src/parser/test/",
       "LINE\\Webhook\\Tests\\": "src/webhook/test/"
     }
   },
   "scripts": {
-    "test": "phpunit --debug",
+    "test": "phpunit --debug --test-suffix=Test.php",
     "cs": "phpcs",
     "md": "phpmd --ignore-violations-on-exit src/constants,src/laravel,src/parser,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
     "stan": "phpstan analyse --memory-limit=-1"

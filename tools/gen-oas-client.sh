@@ -14,6 +14,8 @@ CLIENT_SCHEMAS=(
 for schema in "${CLIENT_SCHEMAS[@]}"; do
     camelSchemaName=$(echo $schema | awk -F '-' '{ for(i=1; i<=NF; i++) {printf toupper(substr($i,1,1)) substr($i,2)}} END {print ""}')
     rm -rf $REPO_ROOT_DIR/src/clients/$schema
+    mkdir $REPO_ROOT_DIR/src/clients/$schema
+    cp $PWD/.openapi-generator-ignore $REPO_ROOT_DIR/src/clients/$schema/
     npx openapi-generator-cli generate \
     -i $REPO_ROOT_DIR/line-openapi/$schema.yml \
     -g php \

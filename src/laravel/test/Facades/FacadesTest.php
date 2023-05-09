@@ -32,7 +32,6 @@ class FacadesTest extends \Orchestra\Testbench\TestCase
      */
     protected function getPackageProviders($app)
     {
-        require_once __DIR__ . '/../../lib/LINEBotServiceProvider.php';
         return ['LINE\Laravel\LINEBotServiceProvider'];
     }
 
