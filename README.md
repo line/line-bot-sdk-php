@@ -64,14 +64,15 @@ $response = $messagingApi->replyMessage($request);
 
 This procedure sends a message to the destination that is associated with `<reply token>`.
 
-A more advanced example:
+We also support setter style.
 
 ```php
-$message = new TextMessage(['type' => 'text','text' => 'hello!']);
-$request = new ReplyMessageRequest([
-    'replyToken' => '<reply token>',
-    'messages' => [$message],
-]);
+$message = (new TextMessage())
+  ->setType(\LINE\Constants\MessageType::TEXT)
+  ->setText('hello!');
+$request = (new ReplyMessageRequest)
+  ->setReplyToken('<reply token>')
+  ->setMessages([$message]);
 try {
   $messagingApi->replyMessage($request);
   // Success
