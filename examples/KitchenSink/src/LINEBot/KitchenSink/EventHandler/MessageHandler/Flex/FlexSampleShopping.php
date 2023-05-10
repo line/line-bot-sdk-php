@@ -18,25 +18,29 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex;
 
-use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\Uri\AltUriBuilder;
-use LINE\LINEBot\Constant\Flex\ComponentButtonStyle;
-use LINE\LINEBot\Constant\Flex\ComponentFontSize;
-use LINE\LINEBot\Constant\Flex\ComponentFontWeight;
-use LINE\LINEBot\Constant\Flex\ComponentGravity;
-use LINE\LINEBot\Constant\Flex\ComponentImageAspectMode;
-use LINE\LINEBot\Constant\Flex\ComponentImageAspectRatio;
-use LINE\LINEBot\Constant\Flex\ComponentImageSize;
-use LINE\LINEBot\Constant\Flex\ComponentLayout;
-use LINE\LINEBot\Constant\Flex\ComponentMargin;
-use LINE\LINEBot\Constant\Flex\ComponentSpacing;
-use LINE\LINEBot\MessageBuilder\FlexMessageBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ButtonComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\BubbleContainerBuilder;
-use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\CarouselContainerBuilder;
+use LINE\Clients\MessagingApi\Model\AltUri;
+use LINE\Clients\MessagingApi\Model\FlexBox;
+use LINE\Clients\MessagingApi\Model\FlexBubble;
+use LINE\Clients\MessagingApi\Model\FlexButton;
+use LINE\Clients\MessagingApi\Model\FlexCarousel;
+use LINE\Clients\MessagingApi\Model\FlexImage;
+use LINE\Clients\MessagingApi\Model\FlexMessage;
+use LINE\Clients\MessagingApi\Model\FlexText;
+use LINE\Clients\MessagingApi\Model\URIAction;
+use LINE\Constants\ActionType;
+use LINE\Constants\Flex\ComponentButtonStyle;
+use LINE\Constants\Flex\ComponentFontSize;
+use LINE\Constants\Flex\ComponentFontWeight;
+use LINE\Constants\Flex\ComponentGravity;
+use LINE\Constants\Flex\ComponentImageAspectMode;
+use LINE\Constants\Flex\ComponentImageAspectRatio;
+use LINE\Constants\Flex\ComponentImageSize;
+use LINE\Constants\Flex\ComponentLayout;
+use LINE\Constants\Flex\ComponentMargin;
+use LINE\Constants\Flex\ComponentSpacing;
+use LINE\Constants\Flex\ComponentType;
+use LINE\Constants\Flex\ContainerType;
+use LINE\Constants\MessageType;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -61,128 +65,156 @@ class FlexSampleShopping
     /**
      * Create sample shopping flex message
      *
-     * @return \LINE\LINEBot\MessageBuilder\FlexMessageBuilder
+     * @return \LINE\Clients\MessagingApi\Model\FlexMessage
      */
-    public static function get()
+    public static function get(): FlexMessage
     {
-        return FlexMessageBuilder::builder()
-            ->setAltText('Shopping')
-            ->setContents(new CarouselContainerBuilder([
-                self::createItemBubble(111),
-                self::createItemBubble(112),
-                self::createMoreBubble()
-            ]));
+        return new FlexMessage([
+            'type' => MessageType::FLEX,
+            'altText' => 'Shopping',
+            'contents' => new FlexCarousel([
+                'type' => ContainerType::CAROUSEL,
+                'contents' => [
+                    self::createItemBubble(111),
+                    self::createItemBubble(112),
+                    self::createMoreBubble(),
+                ],
+            ]),
+        ]);
     }
 
-    private static function createItemBubble($itemId)
+    private static function createItemBubble($itemId): FlexBubble
     {
         $item = self::$items[$itemId];
-        return BubbleContainerBuilder::builder()
-            ->setHero(self::createItemHeroBlock($item))
-            ->setBody(self::createItemBodyBlock($item))
-            ->setFooter(self::createItemFooterBlock($item));
+        return new FlexBubble([
+            'type' => ContainerType::BUBBLE,
+            'hero' => self::createItemHeroBlock($item),
+            'body' => self::createItemBodyBlock($item),
+            'footer' => self::createItemFooterBlock($item),
+        ]);
     }
 
-    private static function createItemHeroBlock($item)
+    private static function createItemHeroBlock($item): FlexImage
     {
-        return ImageComponentBuilder::builder()
-            ->setUrl($item['photo'])
-            ->setSize(ComponentImageSize::FULL)
-            ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
-            ->setAspectMode(ComponentImageAspectMode::COVER);
+        return new FlexImage([
+            'type' => ComponentType::IMAGE,
+            'url' => $item['photo'],
+            'size' => ComponentImageSize::FULL,
+            'aspectRatio' => ComponentImageAspectRatio::R20TO13,
+            'aspectMode' => ComponentImageAspectMode::COVER,
+        ]);
     }
 
-    private static function createItemBodyBlock($item)
+    private static function createItemBodyBlock($item): FlexBox
     {
-        $components = [];
-        $components[] = TextComponentBuilder::builder()
-            ->setText($item['name'])
-            ->setWrap(true)
-            ->setWeight(ComponentFontWeight::BOLD)
-            ->setSize(ComponentFontSize::XL);
-
         $price = explode('.', number_format($item['price'], 2));
-        $components[] = BoxComponentBuilder::builder()
-            ->setLayout(ComponentLayout::BASELINE)
-            ->setContents([
-                TextComponentBuilder::builder()
-                    ->setText('$' . $price[0])
-                    ->setWrap(true)
-                    ->setWeight(ComponentFontWeight::BOLD)
-                    ->setSize(ComponentFontSize::XL)
-                    ->setFlex(0),
-                TextComponentBuilder::builder()
-                    ->setText('.' . $price[1])
-                    ->setWrap(true)
-                    ->setWeight(ComponentFontWeight::BOLD)
-                    ->setSize(ComponentFontSize::SM)
-                    ->setFlex(0)
-            ]);
+        $components = [
+            new FlexText([
+                'type' => ComponentType::TEXT,
+                'text' => $item['name'],
+                'wrap' => true,
+                'weight' => ComponentFontWeight::BOLD,
+                'size' => ComponentFontSize::XL,
+            ]),
+            new FlexBox([
+                'type' => ComponentType::BOX,
+                'layout' => ComponentLayout::BASELINE,
+                'contents' => [
+                    new FlexText([
+                        'type' => ComponentType::TEXT,
+                        'text' => '$' . $price[0],
+                        'wrap' => true,
+                        'weight' => ComponentFontWeight::BOLD,
+                        'size' => ComponentFontSize::XL,
+                        'flex' => 0,
+                    ]),
+                    new FlexText([
+                        'type' => ComponentType::TEXT,
+                        'text' => '.' . $price[1],
+                        'wrap' => true,
+                        'weight' => ComponentFontWeight::BOLD,
+                        'size' => ComponentFontSize::SM,
+                        'flex' => 0,
+                    ]),
+                ],
+            ])
+        ];
 
         if (!$item['stock']) {
-            $components[] = TextComponentBuilder::builder()
-                ->setText('Temporarily out of stock')
-                ->setWrap(true)
-                ->setSize(ComponentFontSize::XXS)
-                ->setMargin(ComponentMargin::MD)
-                ->setColor('#ff5551')
-                ->setFlex(0);
+            $components[] = new FlexText([
+                'type' => ComponentType::TEXT,
+                'text' => 'Temporarily out of stock',
+                'wrap' => true,
+                'size' => ComponentFontSize::XXS,
+                'margin' => ComponentMargin::MD,
+                'color' => '#ff5551',
+                'flex' => 0,
+            ]);
         }
 
-        return BoxComponentBuilder::builder()
-            ->setLayout(ComponentLayout::VERTICAL)
-            ->setSpacing(ComponentSpacing::SM)
-            ->setContents($components);
+        return new FlexBox([
+            'type' => ComponentType::BOX,
+            'layout' => ComponentLayout::VERTICAL,
+            'spacing' => ComponentSpacing::SM,
+            'contents' => $components,
+        ]);
     }
 
-    private static function createItemFooterBlock($item)
+    private static function createItemFooterBlock($item): FlexBox
     {
         $color = $item['stock'] ? null : '#aaaaaa';
-        $cartButton = ButtonComponentBuilder::builder()
-            ->setStyle(ComponentButtonStyle::PRIMARY)
-            ->setColor($color)
-            ->setAction(
-                new UriTemplateActionBuilder(
-                    'Add to Cart',
-                    'https://example.com',
-                    new AltUriBuilder('https://example.com#desktop')
-                )
-            );
+        $cartButton = new FlexButton([
+            'type' => ComponentType::BUTTON,
+            'style' => ComponentButtonStyle::PRIMARY,
+            'color' => $color,
+            'action' => new URIAction([
+                'type' => ActionType::URI,
+                'label' => 'Add to Cart',
+                'uri' => 'https://example.com',
+                'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
+            ]),
+        ]);
 
-        $wishButton = ButtonComponentBuilder::builder()
-            ->setAction(
-                new UriTemplateActionBuilder(
-                    'Add to wishlist',
-                    'https://example.com',
-                    new AltUriBuilder('https://example.com#desktop')
-                )
-            );
+        $wishButton = new FlexButton([
+            'type' => ComponentType::BUTTON,
+            'action' => new URIAction([
+                'type' => ActionType::URI,
+                'label' => 'Add to wishlist',
+                'uri' => 'https://example.com',
+                'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
+            ]),
+        ]);
 
-        return BoxComponentBuilder::builder()
-            ->setLayout(ComponentLayout::VERTICAL)
-            ->setSpacing(ComponentSpacing::SM)
-            ->setContents([$cartButton, $wishButton]);
+        return new FlexBox([
+            'type' => ComponentType::BOX,
+            'layout' => ComponentLayout::VERTICAL,
+            'spacing' => ComponentSpacing::SM,
+            'contents' => [$cartButton, $wishButton],
+        ]);
     }
 
-    private static function createMoreBubble()
+    private static function createMoreBubble(): FlexBubble
     {
-        return BubbleContainerBuilder::builder()
-            ->setBody(
-                BoxComponentBuilder::builder()
-                    ->setLayout(ComponentLayout::VERTICAL)
-                    ->setSpacing(ComponentSpacing::SM)
-                    ->setContents([
-                        ButtonComponentBuilder::builder()
-                            ->setFlex(1)
-                            ->setGravity(ComponentGravity::CENTER)
-                            ->setAction(
-                                new UriTemplateActionBuilder(
-                                    'See more',
-                                    'https://example.com',
-                                    new AltUriBuilder('https://example.com#desktop')
-                                )
-                            )
-                    ])
-            );
+        return new FlexBubble([
+            'type' => ContainerType::BUBBLE,
+            'body' => new FlexBox([
+                'type' => ComponentType::BOX,
+                'layout' => ComponentLayout::VERTICAL,
+                'spacing' => ComponentSpacing::SM,
+                'contents' => [
+                    new FlexButton([
+                        'type' => ComponentType::BUTTON,
+                        'flex' => 1,
+                        'gravity' => ComponentGravity::CENTER,
+                        'action' => new URIAction([
+                            'type' => ActionType::URI,
+                            'label' => 'See more',
+                            'uri' => 'https://example.com',
+                            'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
+                        ]),
+                    ]),
+                ],
+            ]),
+        ]);
     }
 }

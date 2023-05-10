@@ -18,7 +18,7 @@ See the official API documentation for more information.
 
 ## Requirements
 
-- PHP 7.2 or later
+- PHP 8.1 or later
 
 
 ## Installation
@@ -36,89 +36,53 @@ $ composer require linecorp/line-bot-sdk
 The bot client instance is a handler of the Messaging API.
 
 ```php
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('<channel access token>');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '<channel secret>']);
+$client = new \GuzzleHttp\Client();
+$config = new \LINE\Clients\MessagingApi\Configuration();
+$config->setAccessToken('<channel access token>');
+$messagingApi = new \LINE\Clients\MessagingApi\Api\MessagingApiApi(
+  client: $client,
+  config: $config,
+);
 ```
 
-The constructor of the bot client requires an instance of `HTTPClient`.
-This library provides `CurlHTTPClient` by default.
+You must use the Client with `GuzzleHttp\ClientInterface` implementation.
 
 ### Call API
 
-You can call an API through the bot client instance.
+You can call an API through the messagingApi instance.
 
 A very simple example:
 
 ```php
-$response = $bot->replyText('<reply token>', 'hello!');
+$message = new TextMessage(['type' => 'text','text' => 'hello!']);
+$request = new ReplyMessageRequest([
+    'replyToken' => '<reply token>',
+    'messages' => [$message],
+]);
+$response = $messagingApi->replyMessage($request);
 ```
 
 This procedure sends a message to the destination that is associated with `<reply token>`.
 
-A more advanced example:
+We also support setter style.
 
 ```php
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
-$response = $bot->replyMessage('<reply token>', $textMessageBuilder);
-if ($response->isSucceeded()) {
-    echo 'Succeeded!';
-    return;
+$message = (new TextMessage())
+  ->setType(\LINE\Constants\MessageType::TEXT)
+  ->setText('hello!');
+$request = (new ReplyMessageRequest)
+  ->setReplyToken('<reply token>')
+  ->setMessages([$message]);
+try {
+  $messagingApi->replyMessage($request);
+  // Success
+} catch (\LINE\Clients\MessagingApi $e) {
+  // Failed
+  echo $e->getCode() . ' ' . $e->getResponseBody();
 }
-
-// Failed
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 ```
 
-`LINEBot#replyMessage()` takes the reply token and `MessageBuilder`.
-The method sends a message that is built by `MessageBuilder` to the destination.
-
 ## Components
-
-### MessageBuilder
-
-The type of message that is sent depends on the type of instance of `MessageBuilder`.
-For example, the method sends a text message if you pass `TextMessageBuilder` and it sends an image message if you pass `ImageMessageBuilder`.
-
-For more detailed information on `MessageBuilder`, see `\LINE\LINEBot\MessageBuilder` and the namespace.
-
-Other methods that take `MessageBuilder` behave in the same way.
-
-### Response
-
-Methods that call API returns `Response`. A `Response` instance has following methods:
-
-- `Response#isSucceeded()`
-- `Response#getHTTPStatus()`
-- `Response#getRawBody()`
-- `Response#getJSONDecodedBody()`
-- `Response#getHeader($name)`
-- `Response#getHeaders()`
-
-You can use these methods to check the response status and take response body.
-
-#### `Response#isSucceeded()`
-
-Returns a Boolean value. The return value represents whether the request succeeded or not.
-
-#### `Response#getHTTPStatus()`
-
-Returns the HTTP status code of a response.
-
-#### `Response#getRawBody()`
-
-Returns the body of the response as raw data (a byte string).
-
-#### `Response#getJSONDecodedBody()`
-
-Returns the body that is decoded in JSON. This body is an array.
-
-#### `Response#getHeader($name)`
-
-This method returns a response header string, or null if the response does not have a header of that name.
-
-#### `Response#getHeaders()`
-
-This method returns all of the response headers as string array.
 
 ### Webhook
 
@@ -128,7 +92,7 @@ Request of that contains event(s); event is action of the user.
 The following shows how the webhook is handled:
 
 1. Receive webhook from LINE's server.
-2. Parse request payload by `LINEBot#parseEventRequest($body, $signature)`.
+2. Parse request payload by `EventRequestParser#parseEventRequest($body, $channelSecret, $signature)`.
 3. Iterate parsed events and some react as you like.
 
 The following examples show how webhooks are handled:
@@ -140,7 +104,7 @@ More information
 --
 
 For more information, see the [official API documents](#documentation) and PHPDoc.
-If it's your first time using this library, we recommend taking a look at `examples` and the PHPDoc of `\LINE\LINEBot`.
+If it's your first time using this library, we recommend taking a look at `examples`.
 
 Hints
 --
@@ -157,56 +121,49 @@ A simple sample implementation. This application reacts to text messages that ar
 
 A full-stack (and slightly complex) sample implementation. This application demonstrates a practical use of the LINE Messaging API.
 
-### PHPDoc
-
-[https://line.github.io/line-bot-sdk-php/](https://line.github.io/line-bot-sdk-php/)
-
-This library provides PHPDoc to describe how to use the methods. You can generate the documentation using [phpDocumenter](https://docs.phpdoc.org/) using the following command.
-
-```
-$ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.0.0/phpDocumentor.phar
-$ php phpDocumentor.phar run -d src -t docs
-```
-
-The HTML files are generated in `docs/`.
-
 ### Official API documentation
 
 [Official API documents](#documentation) shows the detail of  Messaging API and fundamental usage of SDK.
 
-Notes
---
-
-### How to switch the HTTP client implementation
-
-1. Implement `\LINE\LINEBot\HTTPClient`
-2. Pass the implementation to the constructor of `\LINE\LINEBot`
-
-Please refer [CurlHTTPClient](/src/LINEBot/HTTPClient/CurlHTTPClient.php) that is the default HTTP client implementation.
-
-
 See also
 --
 
-### [line-bot-sdk-tiny](./line-bot-sdk-tiny)
-
-A very simple SDK (subset) for the LINE Messaging API for PHP.
-line-bot-sdk-tiny provides a simple interface and functions which makes it a good way to learn how to use the LINE Messaging API.
-
 ### Laravel Support
 Easy to use from Laravel.
-After installed, add `LINE_BOT_CHANNEL_ACCESS_TOKEN` and `LINE_BOT_CHANNEL_SECRET` to `.env`
+After installed, add `LINE_BOT_CHANNEL_ACCESS_TOKEN` to `.env`
 
 ```
 LINE_BOT_CHANNEL_ACCESS_TOKEN=<Channel Access Token>
-LINE_BOT_CHANNEL_SECRET=<Channel Secret>
 ```
 
-then you can use `LINEBot` facade like following.
+then you can use facades like following.
 
 ```
-$profile = \LINEBot::getProfile($userId);
+$profile = \LINEMessagingApi::pushMessage(....);
 ```
+
+Facade uses `\GuzzleHttp\Client` by default. If you want to change the config, run 
+
+```bash
+$ php artisan vendor:publish --tag=config
+```
+
+Then `line-bot.php` will be published to `config/` dir.
+If you want to configure a custom header, do the following.
+
+```php
+return [
+    'channel_access_token' => env('LINE_BOT_CHANNEL_ACCESS_TOKEN'),
+    'channel_id' => env('LINE_BOT_CHANNEL_ID'),
+    'channel_secret' => env('LINE_BOT_CHANNEL_SECRET'),
+    'client' => [
+        'config' => [
+          'headers' => ['X-Foo' => 'Bar'],
+        ],
+    ],
+];
+```
+
 
 ## Help and media
 

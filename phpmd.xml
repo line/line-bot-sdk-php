@@ -7,7 +7,11 @@
 
     <description>line-bot-sdk-php phpmd custom rules</description>
 
+    <exclude-pattern>EchoBot/Route.php</exclude-pattern>
     <exclude-pattern>KitchenSink/Route.php</exclude-pattern>
+    <exclude-pattern>EchoBot/Dependency.php</exclude-pattern>
+    <exclude-pattern>KitchenSink/Dependency.php</exclude-pattern>
+    <exclude-pattern>test/EventRequestParserTest.php</exclude-pattern>
 
     <rule ref="rulesets/cleancode.xml">
         <exclude name="ElseExpression" />

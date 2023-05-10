@@ -4,8 +4,9 @@
          xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
     <description>The coding standard for line-bot-sdk-php.</description>
 
-    <file>src</file>
-    <file>tests</file>
+    <file>src/constants</file>
+    <file>src/laravel</file>
+    <file>src/parser</file>
     <file>examples/EchoBot/src</file>
     <file>examples/EchoBot/public</file>
     <file>examples/KitchenSink/src</file>

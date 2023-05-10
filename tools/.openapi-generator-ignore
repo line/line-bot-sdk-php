@@ -1,0 +1,10 @@
+.openapi-generator
+.gitignore
+.npmignore
+git_push.sh
+.travis.yml
+composer.json
+phpunit.xml.dist
+README.md
+.php-cs-fixer.dist.php
+test/

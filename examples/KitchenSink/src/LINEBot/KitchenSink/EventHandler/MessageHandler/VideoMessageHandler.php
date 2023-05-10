@@ -18,57 +18,68 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\MessageEvent\VideoMessage;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Api\MessagingApiBlobApi;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Clients\MessagingApi\Model\VideoMessage;
+use LINE\Constants\MessageContentProviderType;
+use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
-use LINE\LINEBot\MessageBuilder\VideoMessageBuilder;
+use LINE\Webhook\Model\MessageEvent;
+use LINE\Webhook\Model\VideoMessageContent;
 
 class VideoMessageHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var MessagingApiBlobApi $bot */
+    private $botBlob;
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
     /** @var \Slim\Http\Request $logger */
     private $req;
-    /** @var VideoMessage $videoMessage */
+    /** @var VideoMessageContent $videoMessage */
     private $videoMessage;
+    /** @var MessageEvent $event */
+    private $event;
 
     /**
      * VideoMessageHandler constructor.
      *
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
-     * @param \Slim\Http\Request $req
-     * @param VideoMessage $videoMessage
+     * @param MessagingApiApi $bot
+     * @param MessagingApiBlobApi $botBlob
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param \Psr\Http\Message\RequestInterface $req
+     * @param MessageEvent $event
      */
-    public function __construct($bot, $logger, \Slim\Http\Request $req, VideoMessage $videoMessage)
+    public function __construct(MessagingApiApi $bot, MessagingApiBlobApi $botBlob, \Psr\Log\LoggerInterface $logger, \Psr\Http\Message\RequestInterface $req, MessageEvent $event)
     {
         $this->bot = $bot;
+        $this->botBlob = $botBlob;
         $this->logger = $logger;
         $this->req = $req;
-        $this->videoMessage = $videoMessage;
+        $this->event = $event;
+        $this->videoMessage = $event->getMessage();
     }
 
     public function handle()
     {
-        $replyToken = $this->videoMessage->getReplyToken();
+        $replyToken = $this->event->getReplyToken();
 
         $contentProvider = $this->videoMessage->getContentProvider();
-        if ($contentProvider->isExternal()) {
-            $this->bot->replyMessage(
+        if ($contentProvider->getType() == MessageContentProviderType::EXTERNAL) {
+            $this->replyVideoMessage(
                 $replyToken,
-                new VideoMessageBuilder(
-                    $contentProvider->getOriginalContentUrl(),
-                    $contentProvider->getPreviewImageUrl()
-                )
+                $contentProvider->getOriginalContentUrl(),
+                $contentProvider->getPreviewImageUrl(),
             );
             return;
         }
 
-        $contentId = $this->videoMessage->getMessageId();
-        $video = $this->bot->getMessageContent($contentId)->getRawBody();
+        $contentId = $this->videoMessage->getId();
+        $sfo = $this->botBlob->getMessageContent($contentId);
+        $video = $sfo->fread($sfo->getSize());
 
         $tempFilePath = tempnam($_SERVER['DOCUMENT_ROOT'] . '/static/tmpdir', 'video-');
         unlink($tempFilePath);
@@ -80,9 +91,24 @@ class VideoMessageHandler implements EventHandler
         fclose($fh);
 
         $url = UrlBuilder::buildUrl($this->req, ['static', 'tmpdir', $filename]);
+        $previewUrl = UrlBuilder::buildUrl($this->req, ['static', 'preview.jpg']);
 
         // NOTE: You should pass the url of thumbnail image to `previewImageUrl`.
         // This sample doesn't treat that so this sample cannot show the thumbnail.
-        $this->bot->replyMessage($replyToken, new VideoMessageBuilder($url, $url));
+        $this->replyVideoMessage($replyToken, $url, $previewUrl);
+    }
+
+    private function replyVideoMessage(string $replyToken, string $original, string $preview)
+    {
+        $message = new VideoMessage([
+            'type' => MessageType::VIDEO,
+            'originalContentUrl' => $original,
+            'previewImageUrl' => $preview,
+        ]);
+        $request = new ReplyMessageRequest([
+            'replyToken' => $replyToken,
+            'messages' => [$message],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

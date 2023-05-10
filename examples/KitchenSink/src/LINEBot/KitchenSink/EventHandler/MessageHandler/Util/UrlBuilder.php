@@ -20,11 +20,12 @@ namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util;
 
 class UrlBuilder
 {
-    public static function buildUrl(\Slim\Http\Request $req, array $paths)
+    public static function buildUrl(\Psr\Http\Message\RequestInterface $req, array $paths)
     {
         // NOTE: You should configure $baseUri according to your environment
         // Perhaps, it is prefer to use $_SERVER['HTTP_HOST'], $_SERVER['HTTP_X_FORWARDED_HOST'] or etc
-        $baseUri = $req->getUri()->getBaseUrl();
+        // $baseUri = "{$req->getUri()->getScheme()}://{$req->getUri()->getHost()}";
+        $baseUri = "{$req->getHeader('X-Forwarded-Scheme')[0]}://{$req->getHeader('X-Forwarded-Host')[0]}";
         foreach ($paths as $path) {
             $baseUri .= '/' . urlencode($path);
         }

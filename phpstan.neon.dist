@@ -1,11 +1,11 @@
 parameters:
   level: 5
   paths:
-    - line-bot-sdk-tiny
-    - src
+    - src/constants
+    - src/laravel
+    - src/parser
   ignoreErrors:
-    # A known bug in phpstan: https://github.com/phpstan/phpstan/issues/5252
-    - message: '#Unsafe usage of new static\(\).#'
+    # Ignore laravel facade unknown.
+    - message: '#Call to static method getFacadeRoot\(\) on an unknown class [a-zA-Z]+\.#'
       paths:
-        - src\LINEBot\Narrowcast\DemographicFilter\DemographicFilterBuilder.php
-        - src\LINEBot\Narrowcast\Recipient\RecipientBuilder.php
+        - src\laravel\test\Facades\FacadesTest.php

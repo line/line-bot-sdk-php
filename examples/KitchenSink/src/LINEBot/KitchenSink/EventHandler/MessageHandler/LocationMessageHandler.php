@@ -18,44 +18,54 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\MessageEvent\LocationMessage;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Model\LocationMessage;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
-use LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
+use LINE\Webhook\Model\LocationMessageContent;
+use LINE\Webhook\Model\MessageEvent;
 
 class LocationMessageHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
-    /** @var LocationMessage $event */
+    /** @var LocationMessageContent $locationMessage */
     private $locationMessage;
+    /** @var MessageEvent $event */
+    private $event;
 
     /**
      * LocationMessageHandler constructor.
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
-     * @param LocationMessage $locationMessage
+     * @param MessagingApiApi $bot
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param MessageEvent $event
      */
-    public function __construct($bot, $logger, LocationMessage $locationMessage)
+    public function __construct(MessagingApiApi $bot, \Psr\Log\LoggerInterface $logger, MessageEvent $event)
     {
         $this->bot = $bot;
         $this->logger = $logger;
-        $this->locationMessage = $locationMessage;
+        $this->event = $event;
+        $this->locationMessage = $event->getMessage();
     }
 
     public function handle()
     {
-        $replyToken = $this->locationMessage->getReplyToken();
-        $title = $this->locationMessage->getTitle();
-        $address = $this->locationMessage->getAddress();
-        $latitude = $this->locationMessage->getLatitude();
-        $longitude = $this->locationMessage->getLongitude();
+        $replyToken = $this->event->getReplyToken();
 
-        $this->bot->replyMessage(
-            $replyToken,
-            new LocationMessageBuilder($title, $address, $latitude, $longitude)
-        );
+        $message = new LocationMessage([
+            'type' => MessageType::LOCATION,
+            'title' => $this->locationMessage->getTitle(),
+            'address' => $this->locationMessage->getAddress(),
+            'latitude' => $this->locationMessage->getLatitude(),
+            'longitude' => $this->locationMessage->getLongitude(),
+        ]);
+        $request = new ReplyMessageRequest([
+            'replyToken' => $replyToken,
+            'messages' => [$message],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

@@ -9,11 +9,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.2, 7.3, 7.4, 8.0, 8.1]
+        php: [8.1, 8.2]
         include:
-          - php: 7.4
-            analysis: true
           - php: 8.1
+            analysis: true
+          - php: 8.2
             analysis: true
 
     steps:
@@ -38,23 +38,24 @@ jobs:
             ${{ runner.os }}-php-${{ matrix.php }}-
 
       - name: Install dependencies with Composer
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         
       - name: Check copyrights
         if: matrix.analysis
-        run: bash devtool/check_copyright.sh
+        run: bash tools/check_copyright.sh
 
       - name: Check code style with PHP_CodeSniffer
         if: matrix.analysis
-        run: vendor/bin/phpcs
+        run: composer cs
 
       - name: Check with PHP Mess Detector 
         if: matrix.analysis
-        run: vendor/bin/phpmd --ignore-violations-on-exit src,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml
+        run: composer md
 
       - name: Check with PHPStan
         if: matrix.analysis
         run: vendor/bin/phpstan analyse
 
       - name: Run unit tests
-        run: vendor/bin/phpunit --debug tests
+        if: matrix.analysis
+        run: ./vendor/bin/phpunit --debug --test-suffix=Test.php

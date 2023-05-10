@@ -18,26 +18,31 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\JoinEvent;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Clients\MessagingApi\Model\TextMessage;
+use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
+use LINE\Webhook\Model\GroupSource;
+use LINE\Webhook\Model\JoinEvent;
+use LINE\Webhook\Model\RoomSource;
 
 class JoinEventHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
     /** @var JoinEvent $joinEvent */
     private $joinEvent;
 
     /**
      * JoinEventHandler constructor.
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
+     * @param MessagingApiApi $bot
+     * @param \Psr\Log\LoggerInterface $logger
      * @param JoinEvent $joinEvent
      */
-    public function __construct($bot, $logger, JoinEvent $joinEvent)
+    public function __construct(MessagingApiApi $bot, \Psr\Log\LoggerInterface $logger, JoinEvent $joinEvent)
     {
         $this->bot = $bot;
         $this->logger = $logger;
@@ -50,18 +55,25 @@ class JoinEventHandler implements EventHandler
      */
     public function handle()
     {
-        if ($this->joinEvent->isGroupEvent()) {
-            $id = $this->joinEvent->getGroupId();
-        } elseif ($this->joinEvent->isRoomEvent()) {
-            $id = $this->joinEvent->getRoomId();
+        $source = $this->joinEvent->getSource();
+        if ($source instanceof GroupSource) {
+            $id = $source->getGroupId();
+        } elseif ($source instanceof RoomSource) {
+            $id = $source->getRoomId();
         } else {
             $this->logger->error("Unknown event type");
             return;
         }
 
-        $this->bot->replyText(
-            $this->joinEvent->getReplyToken(),
-            sprintf('Joined %s %s', $this->joinEvent->getType(), $id)
-        );
+        $request = new ReplyMessageRequest([
+            'replyToken' => $this->joinEvent->getReplyToken(),
+            'messages' => [
+                new TextMessage([
+                    'type' => MessageType::TEXT,
+                    'text' => sprintf('Joined %s %s', $this->joinEvent->getType(), $id),
+                ]),
+            ],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

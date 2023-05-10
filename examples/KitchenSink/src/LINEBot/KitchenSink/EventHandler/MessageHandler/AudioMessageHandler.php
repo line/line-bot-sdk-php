@@ -18,56 +18,64 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\MessageEvent\AudioMessage;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Api\MessagingApiBlobApi;
+use LINE\Clients\MessagingApi\Model\AudioMessage;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Constants\MessageContentProviderType;
+use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
-use LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
+use LINE\Webhook\Model\AudioMessageContent;
+use LINE\Webhook\Model\MessageEvent;
+use SplFileObject;
 
 class AudioMessageHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var MessagingApiBlobApi $bot */
+    private $botBlob;
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
     /** @var \Slim\Http\Request $logger */
     private $req;
-    /** @var AudioMessage $audioMessage */
+    /** @var AudioMessageContent $audioMessage */
     private $audioMessage;
+    /** @var MessageEvent $event */
+    private $event;
 
     /**
      * AudioMessageHandler constructor.
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
-     * @param \Slim\Http\Request $req
-     * @param AudioMessage $audioMessage
+     * @param MessagingApiApi $bot
+     * @param MessagingApiBlobApi $botBlob
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param \Psr\Http\Message\RequestInterface $req
+     * @param MessageEvent $event
      */
-    public function __construct($bot, $logger, \Slim\Http\Request $req, AudioMessage $audioMessage)
+    public function __construct(MessagingApiApi $bot, MessagingApiBlobApi $botBlob, \Psr\Log\LoggerInterface $logger, \Psr\Http\Message\RequestInterface $req, MessageEvent $event)
     {
         $this->bot = $bot;
+        $this->botBlob = $botBlob;
         $this->logger = $logger;
         $this->req = $req;
-        $this->audioMessage = $audioMessage;
+        $this->event = $event;
+        $this->audioMessage = $event->getMessage();
     }
 
     public function handle()
     {
-        $replyToken = $this->audioMessage->getReplyToken();
+        $replyToken = $this->event->getReplyToken();
 
         $contentProvider = $this->audioMessage->getContentProvider();
-        if ($contentProvider->isExternal()) {
-            $this->bot->replyMessage(
-                $replyToken,
-                new AudioMessageBuilder(
-                    $contentProvider->getOriginalContentUrl(),
-                    $this->audioMessage->getDuration()
-                )
-            );
+        if ($contentProvider->getType() == MessageContentProviderType::EXTERNAL) {
+            $this->replyAudioMessage($replyToken, $contentProvider->getOriginalContentUrl(), $this->audioMessage->getDuration());
             return;
         }
 
-        $contentId = $this->audioMessage->getMessageId();
-        $audio = $this->bot->getMessageContent($contentId)->getRawBody();
+        $contentId = $this->audioMessage->getId();
+        $sfo = $this->botBlob->getMessageContent($contentId);
+        $audio = $sfo->fread($sfo->getSize());
 
         $tempFilePath = tempnam($_SERVER['DOCUMENT_ROOT'] . '/static/tmpdir', 'audio-');
         unlink($tempFilePath);
@@ -80,9 +88,20 @@ class AudioMessageHandler implements EventHandler
 
         $url = UrlBuilder::buildUrl($this->req, ['static', 'tmpdir', $filename]);
 
-        $this->bot->replyMessage(
-            $replyToken,
-            new AudioMessageBuilder($url, 100)
-        );
+        $this->replyAudioMessage($replyToken, $url, 100);
+    }
+
+    private function replyAudioMessage(string $replyToken, string $url, int $duration)
+    {
+        $message = new AudioMessage([
+            'type' => MessageType::AUDIO,
+            'originalContentUrl' => $url,
+            'duration' => $duration,
+        ]);
+        $request = new ReplyMessageRequest([
+            'replyToken' => $replyToken,
+            'messages' => [$message],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

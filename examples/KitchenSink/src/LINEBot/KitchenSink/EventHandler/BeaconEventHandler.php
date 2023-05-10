@@ -18,26 +18,29 @@
 
 namespace LINE\LINEBot\KitchenSink\EventHandler;
 
-use LINE\LINEBot;
-use LINE\LINEBot\Event\BeaconDetectionEvent;
+use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Clients\MessagingApi\Model\TextMessage;
+use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
+use LINE\Webhook\Model\BeaconEvent;
 
 class BeaconEventHandler implements EventHandler
 {
-    /** @var LINEBot $bot */
+    /** @var MessagingApiApi $bot */
     private $bot;
-    /** @var \Monolog\Logger $logger */
+    /** @var \Psr\Log\LoggerInterface $logger */
     private $logger;
-    /* @var BeaconDetectionEvent $beaconEvent */
+    /** @var MessageEvent $event */
     private $beaconEvent;
 
     /**
      * BeaconEventHandler constructor.
-     * @param LINEBot $bot
-     * @param \Monolog\Logger $logger
-     * @param BeaconDetectionEvent $beaconEvent
+     * @param MessagingApiApi $bot
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param BeaconEvent $beaconEvent
      */
-    public function __construct($bot, $logger, BeaconDetectionEvent $beaconEvent)
+    public function __construct(MessagingApiApi $bot, \Psr\Log\LoggerInterface $logger, BeaconEvent $beaconEvent)
     {
         $this->bot = $bot;
         $this->logger = $logger;
@@ -49,9 +52,12 @@ class BeaconEventHandler implements EventHandler
      */
     public function handle()
     {
-        $this->bot->replyText(
-            $this->beaconEvent->getReplyToken(),
-            'Got beacon message ' . $this->beaconEvent->getHwid()
-        );
+        $request = new ReplyMessageRequest([
+            'replyToken' => $this->beaconEvent->getReplyToken(),
+            'messages' => [
+                new TextMessage(['type' => MessageType::TEXT, 'text' => 'Got beacon message ' . $this->beaconEvent->getHwid()]),
+            ],
+        ]);
+        $this->bot->replyMessage($request);
     }
 }

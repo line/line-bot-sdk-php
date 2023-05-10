@@ -18,21 +18,22 @@
 
 namespace LINE\LINEBot\EchoBot;
 
-use LINE\LINEBot\Constant\HTTPHeader;
-use LINE\LINEBot\Event\MessageEvent;
-use LINE\LINEBot\Event\MessageEvent\TextMessage;
-use LINE\LINEBot\Exception\InvalidEventRequestException;
-use LINE\LINEBot\Exception\InvalidSignatureException;
+use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
+use LINE\Clients\MessagingApi\Model\TextMessage;
+use LINE\Constants\HTTPHeader;
+use LINE\Parser\EventRequestParser;
+use LINE\Webhook\Model\MessageEvent;
+use LINE\Parser\Exception\InvalidEventRequestException;
+use LINE\Parser\Exception\InvalidSignatureException;
+use LINE\Webhook\Model\TextMessageContent;
 
 class Route
 {
     public function register(\Slim\App $app)
     {
-        $app->post('/callback', function (\Slim\Http\Request $req, \Slim\Http\Response $res) {
-            /** @var \LINE\LINEBot $bot */
-            $bot = $this->bot;
-            /** @var \Monolog\Logger $logger */
-            $logger = $this->logger;
+        $app->post('/callback', function (\Psr\Http\Message\RequestInterface $req, \Psr\Http\Message\ResponseInterface $res) {
+            $bot = $this->get(\LINE\Clients\MessagingApi\Api\MessagingApiApi::class);
+            $logger = $this->get(\Psr\Log\LoggerInterface::class);
 
             $signature = $req->getHeader(HTTPHeader::LINE_SIGNATURE);
             if (empty($signature)) {
@@ -41,31 +42,37 @@ class Route
 
             // Check request with signature and parse request
             try {
-                $events = $bot->parseEventRequest($req->getBody(), $signature[0]);
+                $secret = $this->get('settings')['bot']['channelSecret'];
+                $parsedEvents = EventRequestParser::parseEventRequest($req->getBody(), $secret, $signature[0]);
             } catch (InvalidSignatureException $e) {
                 return $res->withStatus(400, 'Invalid signature');
             } catch (InvalidEventRequestException $e) {
                 return $res->withStatus(400, "Invalid event request");
             }
 
-            foreach ($events as $event) {
+            foreach ($parsedEvents->getEvents() as $event) {
                 if (!($event instanceof MessageEvent)) {
                     $logger->info('Non message event has come');
                     continue;
                 }
 
-                if (!($event instanceof TextMessage)) {
+                $message = $event->getMessage();
+                if (!($message instanceof TextMessageContent)) {
                     $logger->info('Non text message has come');
                     continue;
                 }
 
-                $replyText = $event->getText();
+                $replyText = $message->getText();
                 $logger->info('Reply text: ' . $replyText);
-                $resp = $bot->replyText($event->getReplyToken(), $replyText);
-                $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
+                $bot->replyMessage(new ReplyMessageRequest([
+                    'replyToken' => $event->getReplyToken(),
+                    'messages' => [
+                        (new TextMessage(['text' => $replyText]))->setType('text'),
+                    ],
+                ]));
             }
 
-            $res->write('OK');
+            $res->withStatus(200, 'OK');
             return $res;
         });
     }
