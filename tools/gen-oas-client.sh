@@ -2,7 +2,6 @@
 cd `dirname $0`
 
 REPO_ROOT_DIR=$PWD/..
-OPENAPI_GENERATOR_VERSION=6.5.0
 CLIENT_SCHEMAS=(
     "channel-access-token"
     "insight"
@@ -25,6 +24,8 @@ for schema in "${CLIENT_SCHEMAS[@]}"; do
 done
 
 rm -rf $REPO_ROOT_DIR/src/webhook
+mkdir $REPO_ROOT_DIR/src/webhook
+cp $PWD/.openapi-generator-ignore $REPO_ROOT_DIR/src/webhook
 npx openapi-generator-cli generate \
 -i $REPO_ROOT_DIR/line-openapi/webhook.yml \
 -g php \
