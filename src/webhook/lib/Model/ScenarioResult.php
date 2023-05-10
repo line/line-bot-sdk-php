@@ -73,7 +73,7 @@ class ScenarioResult implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'scenarioId' => 'string',
-        'revision' => 'string',
+        'revision' => 'int',
         'startTime' => 'int',
         'endTime' => 'int',
         'resultCode' => 'string',
@@ -392,7 +392,7 @@ class ScenarioResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets revision
      *
-     * @return string|null
+     * @return int|null
      */
     public function getRevision()
     {
@@ -402,7 +402,7 @@ class ScenarioResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets revision
      *
-     * @param string|null $revision Revision number of the scenario set containing the executed scenario
+     * @param int|null $revision Revision number of the scenario set containing the executed scenario
      *
      * @return self
      */
