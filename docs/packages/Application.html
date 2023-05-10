@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>LINE Messaging API SDK for PHP</title>
+            <title>LINE Messaging API SDK for PHP</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../">
     <link rel="icon" href="images/favicon.ico"/>
@@ -12,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
@@ -54,14 +55,28 @@
 <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/line.html">LINE</a></h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/line.html" class="">LINE</a>
+</h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/line-laravel.html">Laravel</a>
+                <a href="namespaces/line-clients.html" class="">Clients</a>
                 
             </li>
                     <li>
-                <a href="namespaces/line-linebot.html">LINEBot</a>
+                <a href="namespaces/line-constants.html" class="">Constants</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/line-laravel.html" class="">Laravel</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/line-parser.html" class="">Parser</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/line-webhook.html" class="">Webhook</a>
                 
             </li>
             </ul>
@@ -69,12 +84,24 @@
                         </section>
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
-                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/Application.html">Application</a></h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/Application.html" class="-active">Application</a>
+</h4>
 
-                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/LINE.html">LINE</a></h4>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/LINE.html" class="">LINE</a>
+</h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/LINE-LINEBot.html">LINEBot</a>
+                <a href="packages/LINE-Clients.html" class="">Clients</a>
+                
+            </li>
+                    <li>
+                <a href="packages/LINE-LINEBot.html" class="">LINEBot</a>
+                
+            </li>
+                    <li>
+                <a href="packages/LINE-Webhook.html" class="">Webhook</a>
                 
             </li>
             </ul>
@@ -104,114 +131,276 @@
         
 
 <h3 id="interfaces_class_traits">
-    Interfaces, Classes and Traits
+    Interfaces, Classes, Traits and Enums
     <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/LINE-LINEBot-QuickReplyBuilder-QuickReplyButtonBuilder.html"><abbr title="\LINE\LINEBot\QuickReplyBuilder\QuickReplyButtonBuilder">QuickReplyButtonBuilder</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/LINE-LINEBot-QuickReplyBuilder.html"><abbr title="\LINE\LINEBot\QuickReplyBuilder">QuickReplyBuilder</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/LINE-LINEBot-SenderBuilder-SenderBuilder.html"><abbr title="\LINE\LINEBot\SenderBuilder\SenderBuilder">SenderBuilder</abbr></a></dt>
-        <dd></dd>
     
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-Facade-LINEBot.html"><abbr title="\LINE\Laravel\Facade\LINEBot">LINEBot</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-ActionType.html"><abbr title="\LINE\Constants\ActionType">ActionType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-EventSourceType.html"><abbr title="\LINE\Constants\EventSourceType">EventSourceType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-BubbleContainerSize.html"><abbr title="\LINE\Constants\Flex\BubbleContainerSize">BubbleContainerSize</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentAdjustMode.html"><abbr title="\LINE\Constants\Flex\ComponentAdjustMode">ComponentAdjustMode</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentAlign.html"><abbr title="\LINE\Constants\Flex\ComponentAlign">ComponentAlign</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentAlignItems.html"><abbr title="\LINE\Constants\Flex\ComponentAlignItems">ComponentAlignItems</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentBackgroundType.html"><abbr title="\LINE\Constants\Flex\ComponentBackgroundType">ComponentBackgroundType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentBorderWidth.html"><abbr title="\LINE\Constants\Flex\ComponentBorderWidth">ComponentBorderWidth</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentButtonHeight.html"><abbr title="\LINE\Constants\Flex\ComponentButtonHeight">ComponentButtonHeight</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentButtonStyle.html"><abbr title="\LINE\Constants\Flex\ComponentButtonStyle">ComponentButtonStyle</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentFontSize.html"><abbr title="\LINE\Constants\Flex\ComponentFontSize">ComponentFontSize</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentFontWeight.html"><abbr title="\LINE\Constants\Flex\ComponentFontWeight">ComponentFontWeight</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentGravity.html"><abbr title="\LINE\Constants\Flex\ComponentGravity">ComponentGravity</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentIconAspectRatio.html"><abbr title="\LINE\Constants\Flex\ComponentIconAspectRatio">ComponentIconAspectRatio</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentIconSize.html"><abbr title="\LINE\Constants\Flex\ComponentIconSize">ComponentIconSize</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentImageAspectMode.html"><abbr title="\LINE\Constants\Flex\ComponentImageAspectMode">ComponentImageAspectMode</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentImageAspectRatio.html"><abbr title="\LINE\Constants\Flex\ComponentImageAspectRatio">ComponentImageAspectRatio</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentImageSize.html"><abbr title="\LINE\Constants\Flex\ComponentImageSize">ComponentImageSize</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentJustifyContent.html"><abbr title="\LINE\Constants\Flex\ComponentJustifyContent">ComponentJustifyContent</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentLayout.html"><abbr title="\LINE\Constants\Flex\ComponentLayout">ComponentLayout</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentMargin.html"><abbr title="\LINE\Constants\Flex\ComponentMargin">ComponentMargin</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentPosition.html"><abbr title="\LINE\Constants\Flex\ComponentPosition">ComponentPosition</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentSpaceSize.html"><abbr title="\LINE\Constants\Flex\ComponentSpaceSize">ComponentSpaceSize</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentSpacing.html"><abbr title="\LINE\Constants\Flex\ComponentSpacing">ComponentSpacing</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentTextDecoration.html"><abbr title="\LINE\Constants\Flex\ComponentTextDecoration">ComponentTextDecoration</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentTextStyle.html"><abbr title="\LINE\Constants\Flex\ComponentTextStyle">ComponentTextStyle</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ComponentType.html"><abbr title="\LINE\Constants\Flex\ComponentType">ComponentType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ContainerDirection.html"><abbr title="\LINE\Constants\Flex\ContainerDirection">ContainerDirection</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Flex-ContainerType.html"><abbr title="\LINE\Constants\Flex\ContainerType">ContainerType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-HTTPHeader.html"><abbr title="\LINE\Constants\HTTPHeader">HTTPHeader</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-MentioneeType.html"><abbr title="\LINE\Constants\MentioneeType">MentioneeType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-MessageContentProviderType.html"><abbr title="\LINE\Constants\MessageContentProviderType">MessageContentProviderType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-MessageType.html"><abbr title="\LINE\Constants\MessageType">MessageType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-Meta.html"><abbr title="\LINE\Constants\Meta">Meta</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-PostbackInputOption.html"><abbr title="\LINE\Constants\PostbackInputOption">PostbackInputOption</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-StickerResourceType.html"><abbr title="\LINE\Constants\StickerResourceType">StickerResourceType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-TemplateType.html"><abbr title="\LINE\Constants\TemplateType">TemplateType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-ThingsEventType.html"><abbr title="\LINE\Constants\ThingsEventType">ThingsEventType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Constants-ThingsResultContentType.html"><abbr title="\LINE\Constants\ThingsResultContentType">ThingsResultContentType</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-Facades-LINEChannelAccessTokenApi.html"><abbr title="\LINE\Laravel\Facades\LINEChannelAccessTokenApi">LINEChannelAccessTokenApi</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-Facades-LINEInsightApi.html"><abbr title="\LINE\Laravel\Facades\LINEInsightApi">LINEInsightApi</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-Facades-LINELiffApi.html"><abbr title="\LINE\Laravel\Facades\LINELiffApi">LINELiffApi</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-Facades-LINEManageAudienceApi.html"><abbr title="\LINE\Laravel\Facades\LINEManageAudienceApi">LINEManageAudienceApi</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-Facades-LINEManageAudienceBlobApi.html"><abbr title="\LINE\Laravel\Facades\LINEManageAudienceBlobApi">LINEManageAudienceBlobApi</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-Facades-LINEMessagingApi.html"><abbr title="\LINE\Laravel\Facades\LINEMessagingApi">LINEMessagingApi</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-Facades-LINEMessagingBlobApi.html"><abbr title="\LINE\Laravel\Facades\LINEMessagingBlobApi">LINEMessagingBlobApi</abbr></a></dt>
         <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-LINEBotServiceProvider.html"><abbr title="\LINE\Laravel\LINEBotServiceProvider">LINEBotServiceProvider</abbr></a></dt>
         <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-ActionType.html"><abbr title="\LINE\LINEBot\Constant\ActionType">ActionType</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Laravel-Tests-Facades-FacadesTest.html"><abbr title="\LINE\Laravel\Tests\Facades\FacadesTest">FacadesTest</abbr></a></dt>
         <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-EventSourceType.html"><abbr title="\LINE\LINEBot\Constant\EventSourceType">EventSourceType</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Parser-EventRequestParser.html"><abbr title="\LINE\Parser\EventRequestParser">EventRequestParser</abbr></a></dt>
         <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-BubbleContainerSize.html"><abbr title="\LINE\LINEBot\Constant\Flex\BubbleContainerSize">BubbleContainerSize</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Parser-ParsedEvents.html"><abbr title="\LINE\Parser\ParsedEvents">ParsedEvents</abbr></a></dt>
         <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentAdjustMode.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentAdjustMode">ComponentAdjustMode</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Parser-Tests-EventRequestParserTest.html"><abbr title="\LINE\Parser\Tests\EventRequestParserTest">EventRequestParserTest</abbr></a></dt>
         <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentAlign.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentAlign">ComponentAlign</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-Parser-Tests-SignatureValidatorTest.html"><abbr title="\LINE\Parser\Tests\SignatureValidatorTest">SignatureValidatorTest</abbr></a></dt>
         <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentAlignItems.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentAlignItems">ComponentAlignItems</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentBackgroundType.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentBackgroundType">ComponentBackgroundType</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentBorderWidth.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentBorderWidth">ComponentBorderWidth</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentButtonHeight.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentButtonHeight">ComponentButtonHeight</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentButtonStyle.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentButtonStyle">ComponentButtonStyle</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontSize.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontSize">ComponentFontSize</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontWeight.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontWeight">ComponentFontWeight</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentGravity.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentGravity">ComponentGravity</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentIconAspectRatio.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentIconAspectRatio">ComponentIconAspectRatio</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentIconSize.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentIconSize">ComponentIconSize</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentImageAspectMode.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentImageAspectMode">ComponentImageAspectMode</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentImageAspectRatio.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentImageAspectRatio">ComponentImageAspectRatio</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentImageSize.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentImageSize">ComponentImageSize</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentJustifyContent.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentJustifyContent">ComponentJustifyContent</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentLayout.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentLayout">ComponentLayout</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentMargin.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentMargin">ComponentMargin</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentPosition.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentPosition">ComponentPosition</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentSpaceSize.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentSpaceSize">ComponentSpaceSize</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentSpacing.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentSpacing">ComponentSpacing</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextDecoration.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextDecoration">ComponentTextDecoration</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextStyle.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextStyle">ComponentTextStyle</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentType.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentType">ComponentType</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ContainerDirection.html"><abbr title="\LINE\LINEBot\Constant\Flex\ContainerDirection">ContainerDirection</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Flex-ContainerType.html"><abbr title="\LINE\LINEBot\Constant\Flex\ContainerType">ContainerType</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-HTTPHeader.html"><abbr title="\LINE\LINEBot\Constant\HTTPHeader">HTTPHeader</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-MessageContentProviderType.html"><abbr title="\LINE\LINEBot\Constant\MessageContentProviderType">MessageContentProviderType</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-MessageType.html"><abbr title="\LINE\LINEBot\Constant\MessageType">MessageType</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-Meta.html"><abbr title="\LINE\LINEBot\Constant\Meta">Meta</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-StickerResourceType.html"><abbr title="\LINE\LINEBot\Constant\StickerResourceType">StickerResourceType</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Constant-TemplateType.html"><abbr title="\LINE\LINEBot\Constant\TemplateType">TemplateType</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Event-MessageEvent-ContentProvider.html"><abbr title="\LINE\LINEBot\Event\MessageEvent\ContentProvider">ContentProvider</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Event-MessageEvent-EmojiInfo.html"><abbr title="\LINE\LINEBot\Event\MessageEvent\EmojiInfo">EmojiInfo</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Event-MessageEvent-ImageMessasge-ImageSet.html"><abbr title="\LINE\LINEBot\Event\MessageEvent\ImageMessasge\ImageSet">ImageSet</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Event-MessageEvent-MentioneeInfo.html"><abbr title="\LINE\LINEBot\Event\MessageEvent\MentioneeInfo">MentioneeInfo</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-Event-Parser-EventRequestParser.html"><abbr title="\LINE\LINEBot\Event\Parser\EventRequestParser">EventRequestParser</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-MessageBuilder-MultiMessageBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\MultiMessageBuilder">MultiMessageBuilder</abbr></a></dt>
-        <dd></dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/LINE-LINEBot-MessageBuilder-Text-EmojiBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Text\EmojiBuilder">EmojiBuilder</abbr></a></dt>
-        <dd></dd>
+    
     
     </dl>
 
 
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+                            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/default.html#function_patchFile">patchFile()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/default.html#function_addCopyright">addCopyright()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/default.html#function_removeDiscriminatorType">removeDiscriminatorType()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+    </dl>
 
         
 
+            <section class="phpdocumentor-functions">
+        <h3 class="phpdocumentor-elements__header" id="functions">
+            Functions
+            <a href="packages/Application.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_patchFile">
+        patchFile()
+        <a href="namespaces/default.html#function_patchFile" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tools/patch-gen-oas-client.php"><a href="files/tools-patch-gen-oas-client.html"><abbr title="tools/patch-gen-oas-client.php">patch-gen-oas-client.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">3</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">patchFile</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filename</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
         
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_addCopyright">
+        addCopyright()
+        <a href="namespaces/default.html#function_addCopyright" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tools/patch-gen-oas-client.php"><a href="files/tools-patch-gen-oas-client.html"><abbr title="tools/patch-gen-oas-client.php">patch-gen-oas-client.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">8</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">addCopyright</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filename</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_removeDiscriminatorType">
+        removeDiscriminatorType()
+        <a href="namespaces/default.html#function_removeDiscriminatorType" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tools/patch-gen-oas-client.php"><a href="files/tools-patch-gen-oas-client.html"><abbr title="tools/patch-gen-oas-client.php">patch-gen-oas-client.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">37</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">removeDiscriminatorType</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filename</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+            </section>
+
     </article>
                 <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
