@@ -43,7 +43,7 @@
     "guzzlehttp/guzzle": "^7.3",
     "guzzlehttp/psr7": "^1.7 || ^2.0",
     "phpstan/phpstan": "^1.10",
-    "phpunit/phpunit": "^9.6"
+    "phpunit/phpunit": "^9.6 || ^10.0"
   },
   "autoload": {
     "psr-4": {
