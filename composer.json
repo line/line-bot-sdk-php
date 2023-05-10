@@ -1,0 +1,90 @@
+{
+  "name": "linecorp/line-bot-sdk",
+  "description": "SDK of the LINE BOT API for PHP",
+  "keywords": [
+    "LINE",
+    "bot",
+    "sdk"
+  ],
+  "type": "library",
+  "homepage": "https://github.com/line/line-bot-sdk-php",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "moznion",
+      "email": "moznion@gmail.com",
+      "role": "Retired"
+    },
+    {
+      "name": "Satoru Yoshihara",
+      "email": "vaduz0@gmail.com",
+      "role": "Retired"
+    },
+    {
+      "name": "Satoshi Shibuya",
+      "email": "satosby@gmail.com",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Shunsuke Mori",
+      "email": "morimorim7180@gmail.com",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "guzzlehttp/guzzle": "^7.3",
+    "guzzlehttp/psr7": "^1.7 || ^2.0"
+  },
+  "require-dev": {
+    "phpmd/phpmd": "2.13.0",
+    "squizlabs/php_codesniffer": "3.7.2",
+    "orchestra/testbench": "*",
+    "guzzlehttp/guzzle": "^7.3",
+    "guzzlehttp/psr7": "^1.7 || ^2.0",
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "^9.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "LINE\\Clients\\ChannelAccessToken\\": "src/clients/channel-access-token/lib/",
+      "LINE\\Clients\\Insight\\": "src/clients/insight/lib/",
+      "LINE\\Clients\\Liff\\": "src/clients/liff/lib/",
+      "LINE\\Clients\\ManageAudience\\": "src/clients/manage-audience/lib/",
+      "LINE\\Clients\\MessagingApi\\": "src/clients/messaging-api/lib/",
+      "LINE\\Constants\\": "src/constants/",
+      "LINE\\Laravel\\": "src/laravel/lib/",
+      "LINE\\Parser\\": "src/parser/lib/",
+      "LINE\\Webhook\\": "src/webhook/lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LINE\\Laravel\\Tests\\": "src/laravel/test/",
+      "LINE\\Parser\\Tests\\": "src/parser/test/",
+      "LINE\\Webhook\\Tests\\": "src/webhook/test/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit --debug --test-suffix=Test.php",
+    "cs": "phpcs",
+    "md": "phpmd --ignore-violations-on-exit src/constants,src/laravel,src/parser,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
+    "stan": "phpstan analyse --memory-limit=-1"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LINE\\Laravel\\LINEBotServiceProvider"
+      ],
+      "aliases": {
+        "LINEChannelAccessTokenApi": "LINE\\Laravel\\Facades\\LINEChannelAccessTokenApi",
+        "LINEInsightApi": "LINE\\Laravel\\Facades\\LINEInsightApi",
+        "LINELiffApi": "LINE\\Laravel\\Facades\\LINELiffApi",
+        "LINEManageAudienceApi": "LINE\\Laravel\\Facades\\LINEManageAudienceApi",
+        "LINEManageAudienceBlobApi": "LINE\\Laravel\\Facades\\LINEManageAudienceBlobApi",
+        "LINEMessagingApi": "LINE\\Laravel\\Facades\\LINEMessagingApi",
+        "LINEMessagingBlobApi": "LINE\\Laravel\\Facades\\LINEMessagingBlobApi"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+name: Source diff check
+
+on:
+  push:
+    branches:
+      - 'renovate/**'
+
+jobs:
+  tests:
+    name: Diff check and push
+    runs-on: ubuntu-latest
+
+    steps:
+      # Setup
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        id: setup_node_id
+        with:
+          node-version: 18
+
+      # Install openapi-generator-cli
+      - uses: actions/cache@v3
+        id: node-modules-cache
+        env:
+          cache-name: node-modules-cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+      - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
+        run: npm install @openapitools/openapi-generator-cli -g
+
+      # Generate codes
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+      - run: bash tools/gen-oas-client.sh
+      - run: |
+          git config --global user.name "renovate[bot]"
+          git add .
+          git commit --amend --no-edit
+          git push origin ${{ github.ref_name }} -f
+      
+      

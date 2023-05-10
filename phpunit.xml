@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="tools/bootstrap.php">
+    <php>
+        <env name="LINE_BOT_CHANNEL_ACCESS_TOKEN" value="test_channel_access_token"/>
+        <env name="LINE_BOT_CHANNEL_SECRET" value="test_channel_secret"/>
+    </php>
+    <testsuites>
+        <testsuite name="Laravel">
+            <directory suffix="Test.php">./src/laravel/</directory>
+        </testsuite>
+        <testsuite name="Parser">
+            <directory suffix="Test.php">./src/parser/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

@@ -1,0 +1,11 @@
+parameters:
+  level: 5
+  paths:
+    - src/constants
+    - src/laravel
+    - src/parser
+  ignoreErrors:
+    # Ignore laravel facade unknown.
+    - message: '#Call to static method getFacadeRoot\(\) on an unknown class [a-zA-Z]+\.#'
+      paths:
+        - src\laravel\test\Facades\FacadesTest.php

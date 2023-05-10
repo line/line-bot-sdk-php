@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LINE Messaging API SDK for PHP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js" integrity="sha256-0vuk8LXoyrmCjp1f0O300qo1M75ZQyhH9X3J6d+scmk=" crossorigin="anonymous"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">LINE Messaging API SDK for PHP</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+    
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                                <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/line.html"><abbr title="\LINE">LINE</abbr></a></h4>
+                <ul class="phpdocumentor-list">
+                                            <li><a href="namespaces/line-laravel.html"><abbr title="\LINE\Laravel">Laravel</abbr></a></li>
+                                            <li><a href="namespaces/line-linebot.html"><abbr title="\LINE\LINEBot">LINEBot</abbr></a></li>
+                                    </ul>
+                        </section>
+
+        <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                    <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/Default.html"><abbr title="\Default">Default</abbr></a></h3>
+                                <h3 class="phpdocumentor-sidebar__root-package"><a href="packages/LINE.html"><abbr title="\LINE">LINE</abbr></a></h3>
+                        <ul class="phpdocumentor-list">
+                                    <li><a href="packages/LINE-LINEBot.html"><abbr title="\LINE\LINEBot">LINEBot</abbr></a></li>
+                            </ul>
+                        </section>
+    
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -eight phpdocumentor-content">
+                    <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/line.html">LINE</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-linebot.html">LINEBot</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-linebot-messagebuilder.html">MessageBuilder</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-linebot-messagebuilder-flex.html">Flex</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-linebot-messagebuilder-flex-componentbuilder.html">ComponentBuilder</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    SpanComponentBuilder
+
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/LINE.html">LINE</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/LINE-LINEBot.html">LINEBot</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/LINE-LINEBot-MessageBuilder.html">MessageBuilder</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/LINE-LINEBot-MessageBuilder-Flex.html">Flex</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder.html">ComponentBuilder</a></li>
+                            </ul>
+        </div>
+    
+            <span class="phpdocumentor-element__implements">
+            implements
+                            <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder">ComponentBuilder</abbr></a>                    </span>
+    
+    </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">35</span>
+</aside>
+
+            <p class="phpdocumentor-summary">A builder class for span component.</p>
+
+    <section class="phpdocumentor-description"></section>
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">SuppressWarnings</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>(PHPMD.ExcessiveParameterList)</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+
+
+
+<h3 id="interfaces_class_traits">
+    Interfaces, Classes and Traits
+    <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder">ComponentBuilder</abbr></a></dt>
+        <dd>The interface that has a responsibility to build component.</dd>
+    
+    
+    </dl>
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_color">$color</a>
+    <span>
+                &nbsp;: string            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_decoration">$decoration</a>
+    <span>
+                &nbsp;: <a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextDecoration.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextDecoration">ComponentTextDecoration</abbr></a>            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_size">$size</a>
+    <span>
+                &nbsp;: <a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontSize.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontSize">ComponentFontSize</abbr></a>            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_style">$style</a>
+    <span>
+                &nbsp;: <a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextStyle.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextStyle">ComponentTextStyle</abbr></a>            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_text">$text</a>
+    <span>
+                &nbsp;: string            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_weight">$weight</a>
+    <span>
+                &nbsp;: <a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontWeight.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontWeight">ComponentFontWeight</abbr></a>            </span>
+</dt>
+<dd></dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method___construct">__construct()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_build">build()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Builds component structure.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_builder">builder()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a>    </span>
+</dt>
+<dd>Create empty SpanComponentBuilder.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setColor">setColor()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a>    </span>
+</dt>
+<dd>Set color.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setDecoration">setDecoration()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a>    </span>
+</dt>
+<dd>Set decoration.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setSize">setSize()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a>    </span>
+</dt>
+<dd>Set size.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setStyle">setStyle()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a>    </span>
+</dt>
+<dd>Set style.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setText">setText()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a>    </span>
+</dt>
+<dd>Set text.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setWeight">setWeight()</a>
+    <span>
+                        &nbsp;: <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a>    </span>
+</dt>
+<dd>Set weight.</dd>
+
+        </dl>
+
+
+
+        
+
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_color">
+        $color
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_color" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">42</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$color</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_decoration">
+        $decoration
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_decoration" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">48</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextDecoration.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextDecoration">ComponentTextDecoration</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$decoration</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_size">
+        $size
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_size" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">40</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontSize.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontSize">ComponentFontSize</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$size</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_style">
+        $style
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_style" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">46</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextStyle.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextStyle">ComponentTextStyle</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$style</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_text">
+        $text
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_text" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$text</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_weight">
+        $weight
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#property_weight" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontWeight.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontWeight">ComponentFontWeight</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$weight</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$text</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$color</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$weight</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$style</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$decoration</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$text</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$size</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$color</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$weight</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$style</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$decoration</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_build">
+        build()
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_build" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">153</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Builds component structure.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">build</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_builder">
+        builder()
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_builder" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">71</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Create empty SpanComponentBuilder.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">builder</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setColor">
+        setColor()
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setColor" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">123</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set color.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setColor</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$color</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$color</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setDecoration">
+        setDecoration()
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setDecoration" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">147</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set decoration.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setDecoration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextDecoration.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextDecoration">ComponentTextDecoration</abbr></a>|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$decoration</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$decoration</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextDecoration.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextDecoration">ComponentTextDecoration</abbr></a>|string|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setSize">
+        setSize()
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setSize" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">99</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set size.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setSize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontSize.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontSize">ComponentFontSize</abbr></a>|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>specifiable pixel and keyword.
+(e.g.
+pixel: 5px
+keyword: xxs (defined in ComponentFontSize)</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$size</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontSize.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontSize">ComponentFontSize</abbr></a>|string|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setStyle">
+        setStyle()
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setStyle" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">135</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set style.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setStyle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextStyle.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextStyle">ComponentTextStyle</abbr></a>|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$style</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$style</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentTextStyle.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentTextStyle">ComponentTextStyle</abbr></a>|string|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setText">
+        setText()
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setText" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">82</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set text.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setText</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$text</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$text</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setWeight">
+        setWeight()
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#method_setWeight" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php"><a href="files/src-linebot-messagebuilder-flex-componentbuilder-spancomponentbuilder.html"><abbr title="src/LINEBot/MessageBuilder/Flex/ComponentBuilder/SpanComponentBuilder.php">SpanComponentBuilder.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">111</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set weight.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setWeight</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontWeight.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontWeight">ComponentFontWeight</abbr></a>|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$weight</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$weight</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-LINEBot-Constant-Flex-ComponentFontWeight.html"><abbr title="\LINE\LINEBot\Constant\Flex\ComponentFontWeight">ComponentFontWeight</abbr></a>|string|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html"><abbr title="\LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpanComponentBuilder">SpanComponentBuilder</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+            </section>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+            </div>
+        </div>
+        <a href="classes/LINE-LINEBot-MessageBuilder-Flex-ComponentBuilder-SpanComponentBuilder.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+</body>
+</html>
