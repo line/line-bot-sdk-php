@@ -3,7 +3,7 @@ name: Diff check
 on:
   push:
     branches:
-      - 'master'
+      - 'fix-diff-test'
 
 jobs:
   tests:
@@ -19,6 +19,9 @@ jobs:
         id: setup_node_id
         with:
           node-version: 18
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
 
       # Install openapi-generator-cli
       - uses: actions/cache@v3
@@ -28,13 +31,10 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}
-      - if: ${{ steps.node-modules-cache.outputs.cache-hit != 'true' }}
+      - if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm install @openapitools/openapi-generator-cli -g
 
       # Generate codes
-      - uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.2
       - run: bash tools/gen-oas-client.sh
       - run: |
           diff=$(git --no-pager diff --name-only)
