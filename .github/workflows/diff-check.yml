@@ -19,23 +19,31 @@ jobs:
         id: setup_node_id
         with:
           node-version: 18
-
-      # Install openapi-generator-cli
-      - uses: actions/cache@v3
-        id: node-modules-cache
-        env:
-          cache-name: node-modules-cache
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
-      - if: ${{ steps.node-modules-cache.outputs.cache-hit != 'true' }}
-        run: npm install @openapitools/openapi-generator-cli -g
-
-      # Generate codes
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
-      - run: bash tools/gen-oas-client.sh
+
+      # Install openapi-generator-cli
+      - run: echo "OPENAPI_GENERATOR_VERSION=6.6.0" >> $GITHUB_ENV
+      - uses: actions/cache@v3
+        id: openapi-generator-cache
+        env:
+          cache-name: openapi-generator-cache
+        with:
+          path: ~/bin/openapitools
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ env.OPENAPI_GENERATOR_VERSION }}
+      - if: steps.openapi-generator-cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/bin/openapitools
+          curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > ~/bin/openapitools/openapi-generator-cli
+          chmod u+x ~/bin/openapitools/openapi-generator-cli
+          export PATH=$PATH:~/bin/openapitools/
+          OPENAPI_GENERATOR_VERSION=${{ env.OPENAPI_GENERATOR_VERSION }} openapi-generator-cli version
+
+      # # Generate codes
+      - run: |
+          export PATH=$PATH:~/bin/openapitools/
+          bash tools/gen-oas-client.sh
       - run: |
           diff=$(git --no-pager diff --name-only)
           echo "DIFF_IS_EMPTY=$([[ -z "$diff" ]] && echo 'true' || echo 'false')" >> $GITHUB_ENV
