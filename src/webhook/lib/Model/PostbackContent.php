@@ -299,9 +299,6 @@ class PostbackContent implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
-        if ($this->container['params'] === null) {
-            $invalidProperties[] = "'params' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -347,7 +344,7 @@ class PostbackContent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets params
      *
-     * @return array<string,string>
+     * @return array<string,string>|null
      */
     public function getParams()
     {
@@ -357,7 +354,7 @@ class PostbackContent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets params
      *
-     * @param array<string,string> $params params
+     * @param array<string,string>|null $params params
      *
      * @return self
      */

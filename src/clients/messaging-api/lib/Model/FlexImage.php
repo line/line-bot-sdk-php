@@ -964,7 +964,7 @@ class FlexImage extends FlexComponent
     /**
      * Sets animated
      *
-     * @param bool|null $animated When this is `true`, an animated image (APNG) plays. You can specify a value of true up to 10 images in a single message. You can't send messages that exceed this limit.  This is `false` by default. Animated images larger than 300 KB aren't played back.
+     * @param bool|null $animated When this is `true`, an animated image (APNG) plays. You can specify a value of true up to 10 images in a single message. You can't send messages that exceed this limit. This is `false` by default. Animated images larger than 300 KB aren't played back.
      *
      * @return self
      */
