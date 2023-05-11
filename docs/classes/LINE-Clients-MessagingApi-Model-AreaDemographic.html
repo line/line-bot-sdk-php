@@ -1,0 +1,3556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>LINE Messaging API SDK for PHP</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">LINE Messaging API SDK for PHP</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/line.html" class="">LINE</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/line-clients.html" class="">Clients</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/line-constants.html" class="">Constants</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/line-laravel.html" class="">Laravel</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/line-parser.html" class="">Parser</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/line-webhook.html" class="">Webhook</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+                <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/Application.html" class="">Application</a>
+</h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/LINE.html" class="">LINE</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/LINE-Clients.html" class="">Clients</a>
+                
+            </li>
+                    <li>
+                <a href="packages/LINE-LINEBot.html" class="">LINEBot</a>
+                
+            </li>
+                    <li>
+                <a href="packages/LINE-Webhook.html" class="">Webhook</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -eight phpdocumentor-content">
+                    <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/line.html">LINE</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients.html">Clients</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients-messagingapi.html">MessagingApi</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients-messagingapi-model.html">Model</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    AreaDemographic
+
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/LINE.html">LINE</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/LINE-Clients.html">Clients</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/LINE-Clients-MessagingApi.html">MessagingApi</a></li>
+                            </ul>
+        </div>
+    
+    
+    </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">AreaDemographic Class Doc Comment</p>
+
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">category</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Class</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>OpenAPI Generator team</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">link</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                        <a class="phpdocumentor-tag-link" href="https://openapi-generator.tech"> https://openapi-generator.tech </a>
+                    
+                                    </dd>
+                        </dl>
+
+
+
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AICHI">AICHI</a>
+    <span>
+        &nbsp;= &#039;jp_23&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AKITA">AKITA</a>
+    <span>
+        &nbsp;= &#039;jp_05&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AOMORI">AOMORI</a>
+    <span>
+        &nbsp;= &#039;jp_02&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BALI">BALI</a>
+    <span>
+        &nbsp;= &#039;id_01&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANDUNG">BANDUNG</a>
+    <span>
+        &nbsp;= &#039;id_02&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANGKOK">BANGKOK</a>
+    <span>
+        &nbsp;= &#039;th_01&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANJARMASIN">BANJARMASIN</a>
+    <span>
+        &nbsp;= &#039;id_03&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CENTRAL">CENTRAL</a>
+    <span>
+        &nbsp;= &#039;th_04&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHANGHUA_COUNTY">CHANGHUA_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_12&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_CITY">CHIAYI_CITY</a>
+    <span>
+        &nbsp;= &#039;tw_09&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_COUNTY">CHIAYI_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_15&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIBA">CHIBA</a>
+    <span>
+        &nbsp;= &#039;jp_12&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EASTERN">EASTERN</a>
+    <span>
+        &nbsp;= &#039;th_06&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EHIME">EHIME</a>
+    <span>
+        &nbsp;= &#039;jp_38&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUI">FUKUI</a>
+    <span>
+        &nbsp;= &#039;jp_18&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUOKA">FUKUOKA</a>
+    <span>
+        &nbsp;= &#039;jp_40&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUSHIMA">FUKUSHIMA</a>
+    <span>
+        &nbsp;= &#039;jp_07&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GIFU">GIFU</a>
+    <span>
+        &nbsp;= &#039;jp_21&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GUNMA">GUNMA</a>
+    <span>
+        &nbsp;= &#039;jp_10&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HIROSHIMA">HIROSHIMA</a>
+    <span>
+        &nbsp;= &#039;jp_34&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HOKKAIDO">HOKKAIDO</a>
+    <span>
+        &nbsp;= &#039;jp_01&#039;                            </span>
+</dt>
+<dd>Possible values of this enum</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_CITY">HSINCHU_CITY</a>
+    <span>
+        &nbsp;= &#039;tw_08&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_COUNTY">HSINCHU_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_10&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HUALIEN_COUNTY">HUALIEN_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_18&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HYOUGO">HYOUGO</a>
+    <span>
+        &nbsp;= &#039;jp_28&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IBARAKI">IBARAKI</a>
+    <span>
+        &nbsp;= &#039;jp_08&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_ISHIKAWA">ISHIKAWA</a>
+    <span>
+        &nbsp;= &#039;jp_17&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IWATE">IWATE</a>
+    <span>
+        &nbsp;= &#039;jp_03&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_JABODETABEK">JABODETABEK</a>
+    <span>
+        &nbsp;= &#039;id_04&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGAWA">KAGAWA</a>
+    <span>
+        &nbsp;= &#039;jp_37&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGOSHIMA">KAGOSHIMA</a>
+    <span>
+        &nbsp;= &#039;jp_46&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KANAGAWA">KANAGAWA</a>
+    <span>
+        &nbsp;= &#039;jp_14&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAOHSIUNG_CITY">KAOHSIUNG_CITY</a>
+    <span>
+        &nbsp;= &#039;tw_06&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KEELUNG_CITY">KEELUNG_CITY</a>
+    <span>
+        &nbsp;= &#039;tw_07&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KINMEN_COUNTY">KINMEN_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_21&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KOUCHI">KOUCHI</a>
+    <span>
+        &nbsp;= &#039;jp_39&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KUMAMOTO">KUMAMOTO</a>
+    <span>
+        &nbsp;= &#039;jp_43&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KYOTO">KYOTO</a>
+    <span>
+        &nbsp;= &#039;jp_26&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LAINNYA">LAINNYA</a>
+    <span>
+        &nbsp;= &#039;id_12&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LIENCHIANG_COUNTY">LIENCHIANG_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_22&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MAKASSAR">MAKASSAR</a>
+    <span>
+        &nbsp;= &#039;id_05&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MEDAN">MEDAN</a>
+    <span>
+        &nbsp;= &#039;id_06&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIAOLI_COUNTY">MIAOLI_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_11&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIE">MIE</a>
+    <span>
+        &nbsp;= &#039;jp_24&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAGI">MIYAGI</a>
+    <span>
+        &nbsp;= &#039;jp_04&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAZAKI">MIYAZAKI</a>
+    <span>
+        &nbsp;= &#039;jp_45&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGANO">NAGANO</a>
+    <span>
+        &nbsp;= &#039;jp_20&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGASAKI">NAGASAKI</a>
+    <span>
+        &nbsp;= &#039;jp_42&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NANTOU_COUNTY">NANTOU_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_13&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NARA">NARA</a>
+    <span>
+        &nbsp;= &#039;jp_29&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NEW_TAIPEI_CITY">NEW_TAIPEI_CITY</a>
+    <span>
+        &nbsp;= &#039;tw_02&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NIIGATA">NIIGATA</a>
+    <span>
+        &nbsp;= &#039;jp_15&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHEASTERN">NORTHEASTERN</a>
+    <span>
+        &nbsp;= &#039;th_07&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHERN">NORTHERN</a>
+    <span>
+        &nbsp;= &#039;th_03&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OITA">OITA</a>
+    <span>
+        &nbsp;= &#039;jp_44&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKAYAMA">OKAYAMA</a>
+    <span>
+        &nbsp;= &#039;jp_33&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKINAWA">OKINAWA</a>
+    <span>
+        &nbsp;= &#039;jp_47&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OSAKA">OSAKA</a>
+    <span>
+        &nbsp;= &#039;jp_27&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PALEMBANG">PALEMBANG</a>
+    <span>
+        &nbsp;= &#039;id_07&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PATTAYA">PATTAYA</a>
+    <span>
+        &nbsp;= &#039;th_02&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PENGHU_COUNTY">PENGHU_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_20&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PINGTUNG_COUNTY">PINGTUNG_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_16&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAGA">SAGA</a>
+    <span>
+        &nbsp;= &#039;jp_41&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAITAMA">SAITAMA</a>
+    <span>
+        &nbsp;= &#039;jp_11&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAMARINDA">SAMARINDA</a>
+    <span>
+        &nbsp;= &#039;id_08&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SEMARANG">SEMARANG</a>
+    <span>
+        &nbsp;= &#039;id_09&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIGA">SHIGA</a>
+    <span>
+        &nbsp;= &#039;jp_25&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIMANE">SHIMANE</a>
+    <span>
+        &nbsp;= &#039;jp_32&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIZUOKA">SHIZUOKA</a>
+    <span>
+        &nbsp;= &#039;jp_22&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SOUTHERN">SOUTHERN</a>
+    <span>
+        &nbsp;= &#039;th_05&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SURABAYA">SURABAYA</a>
+    <span>
+        &nbsp;= &#039;id_10&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAICHUNG_CITY">TAICHUNG_CITY</a>
+    <span>
+        &nbsp;= &#039;tw_04&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAINAN_CITY">TAINAN_CITY</a>
+    <span>
+        &nbsp;= &#039;tw_05&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAIPEI_CITY">TAIPEI_CITY</a>
+    <span>
+        &nbsp;= &#039;tw_01&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAITUNG_COUNTY">TAITUNG_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_19&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAOYUAN_CITY">TAOYUAN_CITY</a>
+    <span>
+        &nbsp;= &#039;tw_03&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOCHIGI">TOCHIGI</a>
+    <span>
+        &nbsp;= &#039;jp_09&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKUSHIMA">TOKUSHIMA</a>
+    <span>
+        &nbsp;= &#039;jp_36&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKYO">TOKYO</a>
+    <span>
+        &nbsp;= &#039;jp_13&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOTTORI">TOTTORI</a>
+    <span>
+        &nbsp;= &#039;jp_31&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOYAMA">TOYAMA</a>
+    <span>
+        &nbsp;= &#039;jp_16&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WAKAYAMA">WAKAYAMA</a>
+    <span>
+        &nbsp;= &#039;jp_30&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WESTERN">WESTERN</a>
+    <span>
+        &nbsp;= &#039;th_08&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGATA">YAMAGATA</a>
+    <span>
+        &nbsp;= &#039;jp_06&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGUCHI">YAMAGUCHI</a>
+    <span>
+        &nbsp;= &#039;jp_35&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMANASHI">YAMANASHI</a>
+    <span>
+        &nbsp;= &#039;jp_19&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YILAN_COUNTY">YILAN_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_17&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YOGYAKARTA">YOGYAKARTA</a>
+    <span>
+        &nbsp;= &#039;id_11&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YUNLIN_COUNTY">YUNLIN_COUNTY</a>
+    <span>
+        &nbsp;= &#039;tw_14&#039;                            </span>
+</dt>
+<dd></dd>
+
+                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#method_getAllowableEnumValues">getAllowableEnumValues()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, string&gt;    </span>
+</dt>
+<dd>Gets allowable values of the enum</dd>
+
+        </dl>
+
+
+
+        
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_AICHI">
+        AICHI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AICHI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">104</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">AICHI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_23&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_AKITA">
+        AKITA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AKITA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">68</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">AKITA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_05&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_AOMORI">
+        AOMORI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AOMORI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">62</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">AOMORI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_02&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BALI">
+        BALI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BALI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">214</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BALI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_01&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BANDUNG">
+        BANDUNG
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANDUNG" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">216</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BANDUNG</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_02&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BANGKOK">
+        BANGKOK
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANGKOK" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">198</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BANGKOK</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;th_01&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BANJARMASIN">
+        BANJARMASIN
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANJARMASIN" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">218</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BANJARMASIN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_03&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CENTRAL">
+        CENTRAL
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CENTRAL" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">204</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CENTRAL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;th_04&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CHANGHUA_COUNTY">
+        CHANGHUA_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHANGHUA_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">176</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CHANGHUA_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_12&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CHIAYI_CITY">
+        CHIAYI_CITY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">170</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CHIAYI_CITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_09&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CHIAYI_COUNTY">
+        CHIAYI_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">182</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CHIAYI_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_15&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CHIBA">
+        CHIBA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIBA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">82</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CHIBA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_12&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EASTERN">
+        EASTERN
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EASTERN" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">208</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EASTERN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;th_06&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EHIME">
+        EHIME
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EHIME" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">134</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EHIME</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_38&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FUKUI">
+        FUKUI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">94</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FUKUI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_18&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FUKUOKA">
+        FUKUOKA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUOKA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">138</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FUKUOKA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_40&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FUKUSHIMA">
+        FUKUSHIMA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUSHIMA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">72</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FUKUSHIMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_07&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GIFU">
+        GIFU
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GIFU" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">100</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">GIFU</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_21&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GUNMA">
+        GUNMA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GUNMA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">78</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">GUNMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_10&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_HIROSHIMA">
+        HIROSHIMA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HIROSHIMA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">126</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">HIROSHIMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_34&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_HOKKAIDO">
+        HOKKAIDO
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HOKKAIDO" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">60</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Possible values of this enum</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">HOKKAIDO</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_01&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_HSINCHU_CITY">
+        HSINCHU_CITY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">168</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">HSINCHU_CITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_08&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_HSINCHU_COUNTY">
+        HSINCHU_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">172</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">HSINCHU_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_10&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_HUALIEN_COUNTY">
+        HUALIEN_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HUALIEN_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">188</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">HUALIEN_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_18&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_HYOUGO">
+        HYOUGO
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HYOUGO" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">114</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">HYOUGO</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_28&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IBARAKI">
+        IBARAKI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IBARAKI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">74</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IBARAKI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_08&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ISHIKAWA">
+        ISHIKAWA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_ISHIKAWA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">92</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ISHIKAWA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_17&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IWATE">
+        IWATE
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IWATE" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">64</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IWATE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_03&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_JABODETABEK">
+        JABODETABEK
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_JABODETABEK" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">220</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">JABODETABEK</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_04&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KAGAWA">
+        KAGAWA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGAWA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">132</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KAGAWA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_37&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KAGOSHIMA">
+        KAGOSHIMA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGOSHIMA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">150</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KAGOSHIMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_46&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KANAGAWA">
+        KANAGAWA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KANAGAWA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">86</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KANAGAWA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_14&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KAOHSIUNG_CITY">
+        KAOHSIUNG_CITY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAOHSIUNG_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">164</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KAOHSIUNG_CITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_06&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KEELUNG_CITY">
+        KEELUNG_CITY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KEELUNG_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">166</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KEELUNG_CITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_07&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KINMEN_COUNTY">
+        KINMEN_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KINMEN_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">194</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KINMEN_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_21&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KOUCHI">
+        KOUCHI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KOUCHI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">136</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KOUCHI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_39&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KUMAMOTO">
+        KUMAMOTO
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KUMAMOTO" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">144</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KUMAMOTO</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_43&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KYOTO">
+        KYOTO
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KYOTO" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">110</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KYOTO</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_26&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LAINNYA">
+        LAINNYA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LAINNYA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">236</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LAINNYA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_12&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LIENCHIANG_COUNTY">
+        LIENCHIANG_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LIENCHIANG_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">196</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LIENCHIANG_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_22&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MAKASSAR">
+        MAKASSAR
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MAKASSAR" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">222</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MAKASSAR</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_05&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MEDAN">
+        MEDAN
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MEDAN" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">224</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MEDAN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_06&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MIAOLI_COUNTY">
+        MIAOLI_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIAOLI_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">174</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MIAOLI_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_11&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MIE">
+        MIE
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIE" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">106</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MIE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_24&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MIYAGI">
+        MIYAGI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAGI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">66</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MIYAGI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_04&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MIYAZAKI">
+        MIYAZAKI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAZAKI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">148</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MIYAZAKI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_45&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NAGANO">
+        NAGANO
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGANO" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">98</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NAGANO</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_20&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NAGASAKI">
+        NAGASAKI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGASAKI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">142</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NAGASAKI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_42&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NANTOU_COUNTY">
+        NANTOU_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NANTOU_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">178</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NANTOU_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_13&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NARA">
+        NARA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NARA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">116</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NARA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_29&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NEW_TAIPEI_CITY">
+        NEW_TAIPEI_CITY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NEW_TAIPEI_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">156</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NEW_TAIPEI_CITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_02&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NIIGATA">
+        NIIGATA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NIIGATA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">88</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NIIGATA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_15&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NORTHEASTERN">
+        NORTHEASTERN
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHEASTERN" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">210</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NORTHEASTERN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;th_07&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NORTHERN">
+        NORTHERN
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHERN" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">202</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NORTHERN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;th_03&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OITA">
+        OITA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OITA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">146</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OITA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_44&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OKAYAMA">
+        OKAYAMA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKAYAMA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">124</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OKAYAMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_33&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OKINAWA">
+        OKINAWA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKINAWA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">152</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OKINAWA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_47&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OSAKA">
+        OSAKA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OSAKA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">112</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OSAKA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_27&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PALEMBANG">
+        PALEMBANG
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PALEMBANG" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">226</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PALEMBANG</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_07&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATTAYA">
+        PATTAYA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PATTAYA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">200</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATTAYA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;th_02&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PENGHU_COUNTY">
+        PENGHU_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PENGHU_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">192</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PENGHU_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_20&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PINGTUNG_COUNTY">
+        PINGTUNG_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PINGTUNG_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">184</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PINGTUNG_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_16&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SAGA">
+        SAGA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAGA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">140</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SAGA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_41&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SAITAMA">
+        SAITAMA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAITAMA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SAITAMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_11&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SAMARINDA">
+        SAMARINDA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAMARINDA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">228</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SAMARINDA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_08&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SEMARANG">
+        SEMARANG
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SEMARANG" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">230</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SEMARANG</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_09&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SHIGA">
+        SHIGA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIGA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">108</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SHIGA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_25&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SHIMANE">
+        SHIMANE
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIMANE" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">122</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SHIMANE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_32&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SHIZUOKA">
+        SHIZUOKA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIZUOKA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">102</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SHIZUOKA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_22&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SOUTHERN">
+        SOUTHERN
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SOUTHERN" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">206</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SOUTHERN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;th_05&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SURABAYA">
+        SURABAYA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SURABAYA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">232</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SURABAYA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_10&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TAICHUNG_CITY">
+        TAICHUNG_CITY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAICHUNG_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">160</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TAICHUNG_CITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_04&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TAINAN_CITY">
+        TAINAN_CITY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAINAN_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">162</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TAINAN_CITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_05&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TAIPEI_CITY">
+        TAIPEI_CITY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAIPEI_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">154</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TAIPEI_CITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_01&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TAITUNG_COUNTY">
+        TAITUNG_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAITUNG_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">190</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TAITUNG_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_19&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TAOYUAN_CITY">
+        TAOYUAN_CITY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAOYUAN_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">158</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TAOYUAN_CITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_03&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TOCHIGI">
+        TOCHIGI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOCHIGI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TOCHIGI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_09&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TOKUSHIMA">
+        TOKUSHIMA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKUSHIMA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">130</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TOKUSHIMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_36&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TOKYO">
+        TOKYO
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKYO" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">84</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TOKYO</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_13&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TOTTORI">
+        TOTTORI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOTTORI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">120</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TOTTORI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_31&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TOYAMA">
+        TOYAMA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOYAMA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">90</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TOYAMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_16&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_WAKAYAMA">
+        WAKAYAMA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WAKAYAMA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">118</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">WAKAYAMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_30&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_WESTERN">
+        WESTERN
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WESTERN" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">212</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">WESTERN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;th_08&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YAMAGATA">
+        YAMAGATA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGATA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">70</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YAMAGATA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_06&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YAMAGUCHI">
+        YAMAGUCHI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGUCHI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">128</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YAMAGUCHI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_35&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YAMANASHI">
+        YAMANASHI
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMANASHI" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">96</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YAMANASHI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jp_19&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YILAN_COUNTY">
+        YILAN_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YILAN_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">186</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YILAN_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_17&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YOGYAKARTA">
+        YOGYAKARTA
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YOGYAKARTA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">234</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YOGYAKARTA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id_11&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YUNLIN_COUNTY">
+        YUNLIN_COUNTY
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YUNLIN_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">180</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YUNLIN_COUNTY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;tw_14&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+            </section>
+
+        
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getAllowableEnumValues">
+        getAllowableEnumValues()
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#method_getAllowableEnumValues" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">242</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets allowable values of the enum</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getAllowableEnumValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+            &mdash;
+        
+    
+</article>
+            </section>
+
+        
+    <script type="text/javascript">
+        function loadExternalCodeSnippets(line) {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                pre.setAttribute('data-line', line)
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        var modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                //event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("phpdocumentor-modal__open");
+                loadExternalCodeSnippets(trigger.dataset.line)
+                const exits = modal.querySelectorAll("[data-exit-button]");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("phpdocumentor-modal__open");
+                    });
+                });
+            });
+        });
+    </script>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+            </div>
+        </div>
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>
