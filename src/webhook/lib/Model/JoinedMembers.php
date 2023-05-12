@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
+namespace LINE\Webhook\Model;
 
 use \ArrayAccess;
-use \LINE\\Webhook\ObjectSerializer;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * JoinedMembers Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class JoinedMembers implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'members' => '\LINE\\Webhook\Model\UserSource[]'
+        'members' => '\LINE\Webhook\Model\UserSource[]'
     ];
 
     /**
@@ -310,7 +310,7 @@ class JoinedMembers implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets members
      *
-     * @return \LINE\\Webhook\Model\UserSource[]
+     * @return \LINE\Webhook\Model\UserSource[]
      */
     public function getMembers()
     {
@@ -320,7 +320,7 @@ class JoinedMembers implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets members
      *
-     * @param \LINE\\Webhook\Model\UserSource[] $members Users who joined. Array of source user objects.
+     * @param \LINE\Webhook\Model\UserSource[] $members Users who joined. Array of source user objects.
      *
      * @return self
      */

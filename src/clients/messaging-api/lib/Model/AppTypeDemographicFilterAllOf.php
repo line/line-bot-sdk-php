@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * AppTypeDemographicFilterAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class AppTypeDemographicFilterAllOf implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'oneOf' => '\LINE\\Clients\\MessagingApi\Model\AppTypeDemographic[]'
+        'oneOf' => '\LINE\Clients\MessagingApi\Model\AppTypeDemographic[]'
     ];
 
     /**
@@ -307,7 +307,7 @@ class AppTypeDemographicFilterAllOf implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets oneOf
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\AppTypeDemographic[]|null
+     * @return \LINE\Clients\MessagingApi\Model\AppTypeDemographic[]|null
      */
     public function getOneOf()
     {
@@ -317,7 +317,7 @@ class AppTypeDemographicFilterAllOf implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets oneOf
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\AppTypeDemographic[]|null $oneOf oneOf
+     * @param \LINE\Clients\MessagingApi\Model\AppTypeDemographic[]|null $oneOf oneOf
      *
      * @return self
      */

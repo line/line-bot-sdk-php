@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,15 +41,15 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
-use \LINE\\Webhook\ObjectSerializer;
+namespace LINE\Webhook\Model;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * PostbackEvent Class Doc Comment
  *
  * @category Class
  * @description Event object for when a user performs a postback action which initiates a postback. You can reply to postback events.
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class PostbackEvent extends Event
       */
     protected static $openAPITypes = [
         'replyToken' => 'string',
-        'postback' => '\LINE\\Webhook\Model\PostbackContent'
+        'postback' => '\LINE\Webhook\Model\PostbackContent'
     ];
 
     /**
@@ -336,7 +336,7 @@ class PostbackEvent extends Event
     /**
      * Gets postback
      *
-     * @return \LINE\\Webhook\Model\PostbackContent|null
+     * @return \LINE\Webhook\Model\PostbackContent|null
      */
     public function getPostback()
     {
@@ -346,7 +346,7 @@ class PostbackEvent extends Event
     /**
      * Sets postback
      *
-     * @param \LINE\\Webhook\Model\PostbackContent|null $postback postback
+     * @param \LINE\Webhook\Model\PostbackContent|null $postback postback
      *
      * @return self
      */

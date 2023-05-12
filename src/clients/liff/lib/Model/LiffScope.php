@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\Liff
+ * @package  LINE\Clients\Liff
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,15 +41,15 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\Liff\Model;
-use \LINE\\Clients\\Liff\ObjectSerializer;
+namespace LINE\Clients\Liff\Model;
+use \LINE\Clients\Liff\ObjectSerializer;
 
 /**
  * LiffScope Class Doc Comment
  *
  * @category Class
  * @description Array of scopes required for some LIFF SDK methods to function. The default value is &#x60;[\&quot;profile\&quot;, \&quot;chat_message.write\&quot;]&#x60;.
- * @package  LINE\\Clients\\Liff
+ * @package  LINE\Clients\Liff
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

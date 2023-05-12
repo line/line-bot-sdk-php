@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,15 +41,15 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ManageAudience\Model;
-use \LINE\\Clients\\ManageAudience\ObjectSerializer;
+namespace LINE\Clients\ManageAudience\Model;
+use \LINE\Clients\ManageAudience\ObjectSerializer;
 
 /**
  * AudienceGroupStatus Class Doc Comment
  *
  * @category Class
  * @description Status
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

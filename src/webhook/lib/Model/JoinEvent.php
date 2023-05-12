@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,15 +41,15 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
-use \LINE\\Webhook\ObjectSerializer;
+namespace LINE\Webhook\Model;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * JoinEvent Class Doc Comment
  *
  * @category Class
  * @description Event object for when your LINE Official Account joins a group chat or multi-person chat. You can reply to join events.
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>

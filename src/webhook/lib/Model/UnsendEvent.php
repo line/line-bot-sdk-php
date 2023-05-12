@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,15 +41,15 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
-use \LINE\\Webhook\ObjectSerializer;
+namespace LINE\Webhook\Model;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * UnsendEvent Class Doc Comment
  *
  * @category Class
  * @description Event object for when the user unsends a message.
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -71,7 +71,7 @@ class UnsendEvent extends Event
       * @var string[]
       */
     protected static $openAPITypes = [
-        'unsend' => '\LINE\\Webhook\Model\UnsendDetail'
+        'unsend' => '\LINE\Webhook\Model\UnsendDetail'
     ];
 
     /**
@@ -302,7 +302,7 @@ class UnsendEvent extends Event
     /**
      * Gets unsend
      *
-     * @return \LINE\\Webhook\Model\UnsendDetail|null
+     * @return \LINE\Webhook\Model\UnsendDetail|null
      */
     public function getUnsend()
     {
@@ -312,7 +312,7 @@ class UnsendEvent extends Event
     /**
      * Sets unsend
      *
-     * @param \LINE\\Webhook\Model\UnsendDetail|null $unsend unsend
+     * @param \LINE\Webhook\Model\UnsendDetail|null $unsend unsend
      *
      * @return self
      */

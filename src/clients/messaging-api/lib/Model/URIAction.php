@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * URIAction Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -71,7 +71,7 @@ class URIAction extends Action
       */
     protected static $openAPITypes = [
         'uri' => 'string',
-        'altUri' => '\LINE\\Clients\\MessagingApi\Model\AltUri'
+        'altUri' => '\LINE\Clients\MessagingApi\Model\AltUri'
     ];
 
     /**
@@ -335,7 +335,7 @@ class URIAction extends Action
     /**
      * Gets altUri
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\AltUri|null
+     * @return \LINE\Clients\MessagingApi\Model\AltUri|null
      */
     public function getAltUri()
     {
@@ -345,7 +345,7 @@ class URIAction extends Action
     /**
      * Sets altUri
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\AltUri|null $altUri altUri
+     * @param \LINE\Clients\MessagingApi\Model\AltUri|null $altUri altUri
      *
      * @return self
      */

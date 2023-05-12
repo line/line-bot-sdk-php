@@ -19,7 +19,7 @@ for schema in "${CLIENT_SCHEMAS[@]}"; do
     -i $REPO_ROOT_DIR/line-openapi/$schema.yml \
     -g php \
     -o $REPO_ROOT_DIR/src/clients/$schema \
-    --additional-properties="invokerPackage=LINE\\\\Clients\\\\$camelSchemaName" \
+    --additional-properties="invokerPackage=LINE\Clients\\$camelSchemaName" \
     --additional-properties="variableNamingConvention=camelCase"
 done
 
@@ -28,7 +28,7 @@ openapi-generator-cli generate \
 -i $REPO_ROOT_DIR/line-openapi/webhook.yml \
 -g php \
 -o $REPO_ROOT_DIR/src/webhook \
---additional-properties="invokerPackage=LINE\\\\Webhook" \
+--additional-properties="invokerPackage=LINE\Webhook" \
 --additional-properties="variableNamingConvention=camelCase"
 
 php $PWD/patch-gen-oas-client.php

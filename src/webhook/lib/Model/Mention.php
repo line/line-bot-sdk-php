@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
+namespace LINE\Webhook\Model;
 
 use \ArrayAccess;
-use \LINE\\Webhook\ObjectSerializer;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * Mention Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class Mention implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'mentionees' => '\LINE\\Webhook\Model\Mentionee[]'
+        'mentionees' => '\LINE\Webhook\Model\Mentionee[]'
     ];
 
     /**
@@ -310,7 +310,7 @@ class Mention implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets mentionees
      *
-     * @return \LINE\\Webhook\Model\Mentionee[]
+     * @return \LINE\Webhook\Model\Mentionee[]
      */
     public function getMentionees()
     {
@@ -320,7 +320,7 @@ class Mention implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mentionees
      *
-     * @param \LINE\\Webhook\Model\Mentionee[] $mentionees Array of one or more mention objects. Max: 20 mentions
+     * @param \LINE\Webhook\Model\Mentionee[] $mentionees Array of one or more mention objects. Max: 20 mentions
      *
      * @return self
      */

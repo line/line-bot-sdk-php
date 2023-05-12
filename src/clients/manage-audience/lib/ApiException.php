@@ -19,7 +19,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -40,7 +40,7 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ManageAudience;
+namespace LINE\Clients\ManageAudience;
 
 use \Exception;
 
@@ -48,7 +48,7 @@ use \Exception;
  * ApiException Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

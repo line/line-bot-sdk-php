@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * ImagemapMessageAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -74,9 +74,9 @@ class ImagemapMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'baseUrl' => 'string',
         'altText' => 'string',
-        'baseSize' => '\LINE\\Clients\\MessagingApi\Model\ImagemapBaseSize',
-        'actions' => '\LINE\\Clients\\MessagingApi\Model\ImagemapAction[]',
-        'video' => '\LINE\\Clients\\MessagingApi\Model\ImagemapVideo'
+        'baseSize' => '\LINE\Clients\MessagingApi\Model\ImagemapBaseSize',
+        'actions' => '\LINE\Clients\MessagingApi\Model\ImagemapAction[]',
+        'video' => '\LINE\Clients\MessagingApi\Model\ImagemapVideo'
     ];
 
     /**
@@ -389,7 +389,7 @@ class ImagemapMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets baseSize
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\ImagemapBaseSize|null
+     * @return \LINE\Clients\MessagingApi\Model\ImagemapBaseSize|null
      */
     public function getBaseSize()
     {
@@ -399,7 +399,7 @@ class ImagemapMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets baseSize
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\ImagemapBaseSize|null $baseSize baseSize
+     * @param \LINE\Clients\MessagingApi\Model\ImagemapBaseSize|null $baseSize baseSize
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class ImagemapMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets actions
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\ImagemapAction[]|null
+     * @return \LINE\Clients\MessagingApi\Model\ImagemapAction[]|null
      */
     public function getActions()
     {
@@ -426,7 +426,7 @@ class ImagemapMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets actions
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\ImagemapAction[]|null $actions actions
+     * @param \LINE\Clients\MessagingApi\Model\ImagemapAction[]|null $actions actions
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class ImagemapMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets video
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\ImagemapVideo|null
+     * @return \LINE\Clients\MessagingApi\Model\ImagemapVideo|null
      */
     public function getVideo()
     {
@@ -453,7 +453,7 @@ class ImagemapMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets video
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\ImagemapVideo|null $video video
+     * @param \LINE\Clients\MessagingApi\Model\ImagemapVideo|null $video video
      *
      * @return self
      */

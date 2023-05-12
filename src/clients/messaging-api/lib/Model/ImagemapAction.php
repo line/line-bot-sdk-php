@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * ImagemapAction Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class ImagemapAction implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'area' => '\LINE\\Clients\\MessagingApi\Model\ImagemapArea'
+        'area' => '\LINE\Clients\MessagingApi\Model\ImagemapArea'
     ];
 
     /**
@@ -344,7 +344,7 @@ class ImagemapAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets area
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\ImagemapArea|null
+     * @return \LINE\Clients\MessagingApi\Model\ImagemapArea|null
      */
     public function getArea()
     {
@@ -354,7 +354,7 @@ class ImagemapAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets area
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\ImagemapArea|null $area area
+     * @param \LINE\Clients\MessagingApi\Model\ImagemapArea|null $area area
      *
      * @return self
      */

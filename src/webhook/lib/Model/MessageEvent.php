@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,15 +41,15 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
-use \LINE\\Webhook\ObjectSerializer;
+namespace LINE\Webhook\Model;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * MessageEvent Class Doc Comment
  *
  * @category Class
  * @description Webhook event object which contains the sent message.
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class MessageEvent extends Event
       */
     protected static $openAPITypes = [
         'replyToken' => 'string',
-        'message' => '\LINE\\Webhook\Model\MessageContent'
+        'message' => '\LINE\Webhook\Model\MessageContent'
     ];
 
     /**
@@ -336,7 +336,7 @@ class MessageEvent extends Event
     /**
      * Gets message
      *
-     * @return \LINE\\Webhook\Model\MessageContent|null
+     * @return \LINE\Webhook\Model\MessageContent|null
      */
     public function getMessage()
     {
@@ -346,7 +346,7 @@ class MessageEvent extends Event
     /**
      * Sets message
      *
-     * @param \LINE\\Webhook\Model\MessageContent|null $message message
+     * @param \LINE\Webhook\Model\MessageContent|null $message message
      *
      * @return self
      */

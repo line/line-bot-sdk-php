@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * OperatorRecipientAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,9 +72,9 @@ class OperatorRecipientAllOf implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'and' => '\LINE\\Clients\\MessagingApi\Model\Recipient[]',
-        'or' => '\LINE\\Clients\\MessagingApi\Model\Recipient[]',
-        'not' => '\LINE\\Clients\\MessagingApi\Model\Recipient'
+        'and' => '\LINE\Clients\MessagingApi\Model\Recipient[]',
+        'or' => '\LINE\Clients\MessagingApi\Model\Recipient[]',
+        'not' => '\LINE\Clients\MessagingApi\Model\Recipient'
     ];
 
     /**
@@ -321,7 +321,7 @@ class OperatorRecipientAllOf implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets and
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Recipient[]|null
+     * @return \LINE\Clients\MessagingApi\Model\Recipient[]|null
      */
     public function getAnd()
     {
@@ -331,7 +331,7 @@ class OperatorRecipientAllOf implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets and
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Recipient[]|null $and Create a new recipient object by taking the logical conjunction (AND) of the specified array of recipient objects.
+     * @param \LINE\Clients\MessagingApi\Model\Recipient[]|null $and Create a new recipient object by taking the logical conjunction (AND) of the specified array of recipient objects.
      *
      * @return self
      */
@@ -348,7 +348,7 @@ class OperatorRecipientAllOf implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets or
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Recipient[]|null
+     * @return \LINE\Clients\MessagingApi\Model\Recipient[]|null
      */
     public function getOr()
     {
@@ -358,7 +358,7 @@ class OperatorRecipientAllOf implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets or
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Recipient[]|null $or Create a new recipient object by taking the logical disjunction (OR) of the specified array of recipient objects.
+     * @param \LINE\Clients\MessagingApi\Model\Recipient[]|null $or Create a new recipient object by taking the logical disjunction (OR) of the specified array of recipient objects.
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class OperatorRecipientAllOf implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets not
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Recipient|null
+     * @return \LINE\Clients\MessagingApi\Model\Recipient|null
      */
     public function getNot()
     {
@@ -385,7 +385,7 @@ class OperatorRecipientAllOf implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets not
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Recipient|null $not not
+     * @param \LINE\Clients\MessagingApi\Model\Recipient|null $not not
      *
      * @return self
      */

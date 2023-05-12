@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * FlexBubble Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -71,13 +71,13 @@ class FlexBubble extends FlexContainer
       */
     protected static $openAPITypes = [
         'direction' => 'string',
-        'styles' => '\LINE\\Clients\\MessagingApi\Model\FlexBubbleStyles',
-        'header' => '\LINE\\Clients\\MessagingApi\Model\FlexBox',
-        'hero' => '\LINE\\Clients\\MessagingApi\Model\FlexComponent',
-        'body' => '\LINE\\Clients\\MessagingApi\Model\FlexBox',
-        'footer' => '\LINE\\Clients\\MessagingApi\Model\FlexBox',
+        'styles' => '\LINE\Clients\MessagingApi\Model\FlexBubbleStyles',
+        'header' => '\LINE\Clients\MessagingApi\Model\FlexBox',
+        'hero' => '\LINE\Clients\MessagingApi\Model\FlexComponent',
+        'body' => '\LINE\Clients\MessagingApi\Model\FlexBox',
+        'footer' => '\LINE\Clients\MessagingApi\Model\FlexBox',
         'size' => 'string',
-        'action' => '\LINE\\Clients\\MessagingApi\Model\Action'
+        'action' => '\LINE\Clients\MessagingApi\Model\Action'
     ];
 
     /**
@@ -441,7 +441,7 @@ class FlexBubble extends FlexContainer
     /**
      * Gets styles
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexBubbleStyles|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexBubbleStyles|null
      */
     public function getStyles()
     {
@@ -451,7 +451,7 @@ class FlexBubble extends FlexContainer
     /**
      * Sets styles
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexBubbleStyles|null $styles styles
+     * @param \LINE\Clients\MessagingApi\Model\FlexBubbleStyles|null $styles styles
      *
      * @return self
      */
@@ -468,7 +468,7 @@ class FlexBubble extends FlexContainer
     /**
      * Gets header
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexBox|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexBox|null
      */
     public function getHeader()
     {
@@ -478,7 +478,7 @@ class FlexBubble extends FlexContainer
     /**
      * Sets header
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexBox|null $header header
+     * @param \LINE\Clients\MessagingApi\Model\FlexBox|null $header header
      *
      * @return self
      */
@@ -495,7 +495,7 @@ class FlexBubble extends FlexContainer
     /**
      * Gets hero
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexComponent|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexComponent|null
      */
     public function getHero()
     {
@@ -505,7 +505,7 @@ class FlexBubble extends FlexContainer
     /**
      * Sets hero
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexComponent|null $hero hero
+     * @param \LINE\Clients\MessagingApi\Model\FlexComponent|null $hero hero
      *
      * @return self
      */
@@ -522,7 +522,7 @@ class FlexBubble extends FlexContainer
     /**
      * Gets body
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexBox|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexBox|null
      */
     public function getBody()
     {
@@ -532,7 +532,7 @@ class FlexBubble extends FlexContainer
     /**
      * Sets body
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexBox|null $body body
+     * @param \LINE\Clients\MessagingApi\Model\FlexBox|null $body body
      *
      * @return self
      */
@@ -549,7 +549,7 @@ class FlexBubble extends FlexContainer
     /**
      * Gets footer
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexBox|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexBox|null
      */
     public function getFooter()
     {
@@ -559,7 +559,7 @@ class FlexBubble extends FlexContainer
     /**
      * Sets footer
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexBox|null $footer footer
+     * @param \LINE\Clients\MessagingApi\Model\FlexBox|null $footer footer
      *
      * @return self
      */
@@ -613,7 +613,7 @@ class FlexBubble extends FlexContainer
     /**
      * Gets action
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Action|null
+     * @return \LINE\Clients\MessagingApi\Model\Action|null
      */
     public function getAction()
     {
@@ -623,7 +623,7 @@ class FlexBubble extends FlexContainer
     /**
      * Sets action
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Action|null $action action
+     * @param \LINE\Clients\MessagingApi\Model\Action|null $action action
      *
      * @return self
      */

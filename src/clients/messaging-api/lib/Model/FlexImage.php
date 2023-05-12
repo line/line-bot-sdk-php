@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * FlexImage Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -84,7 +84,7 @@ class FlexImage extends FlexComponent
         'aspectRatio' => 'string',
         'aspectMode' => 'string',
         'backgroundColor' => 'string',
-        'action' => '\LINE\\Clients\\MessagingApi\Model\Action',
+        'action' => '\LINE\Clients\MessagingApi\Model\Action',
         'animated' => 'bool'
     ];
 
@@ -927,7 +927,7 @@ class FlexImage extends FlexComponent
     /**
      * Gets action
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Action|null
+     * @return \LINE\Clients\MessagingApi\Model\Action|null
      */
     public function getAction()
     {
@@ -937,7 +937,7 @@ class FlexImage extends FlexComponent
     /**
      * Sets action
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Action|null $action action
+     * @param \LINE\Clients\MessagingApi\Model\Action|null $action action
      *
      * @return self
      */

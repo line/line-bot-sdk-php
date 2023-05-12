@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * FlexMessageAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class FlexMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'altText' => 'string',
-        'contents' => '\LINE\\Clients\\MessagingApi\Model\FlexContainer'
+        'contents' => '\LINE\Clients\MessagingApi\Model\FlexContainer'
     ];
 
     /**
@@ -341,7 +341,7 @@ class FlexMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets contents
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexContainer|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexContainer|null
      */
     public function getContents()
     {
@@ -351,7 +351,7 @@ class FlexMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets contents
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexContainer|null $contents contents
+     * @param \LINE\Clients\MessagingApi\Model\FlexContainer|null $contents contents
      *
      * @return self
      */

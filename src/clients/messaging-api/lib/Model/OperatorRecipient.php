@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * OperatorRecipient Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -70,9 +70,9 @@ class OperatorRecipient extends Recipient
       * @var string[]
       */
     protected static $openAPITypes = [
-        'and' => '\LINE\\Clients\\MessagingApi\Model\Recipient[]',
-        'or' => '\LINE\\Clients\\MessagingApi\Model\Recipient[]',
-        'not' => '\LINE\\Clients\\MessagingApi\Model\Recipient'
+        'and' => '\LINE\Clients\MessagingApi\Model\Recipient[]',
+        'or' => '\LINE\Clients\MessagingApi\Model\Recipient[]',
+        'not' => '\LINE\Clients\MessagingApi\Model\Recipient'
     ];
 
     /**
@@ -315,7 +315,7 @@ class OperatorRecipient extends Recipient
     /**
      * Gets and
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Recipient[]|null
+     * @return \LINE\Clients\MessagingApi\Model\Recipient[]|null
      */
     public function getAnd()
     {
@@ -325,7 +325,7 @@ class OperatorRecipient extends Recipient
     /**
      * Sets and
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Recipient[]|null $and Create a new recipient object by taking the logical conjunction (AND) of the specified array of recipient objects.
+     * @param \LINE\Clients\MessagingApi\Model\Recipient[]|null $and Create a new recipient object by taking the logical conjunction (AND) of the specified array of recipient objects.
      *
      * @return self
      */
@@ -342,7 +342,7 @@ class OperatorRecipient extends Recipient
     /**
      * Gets or
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Recipient[]|null
+     * @return \LINE\Clients\MessagingApi\Model\Recipient[]|null
      */
     public function getOr()
     {
@@ -352,7 +352,7 @@ class OperatorRecipient extends Recipient
     /**
      * Sets or
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Recipient[]|null $or Create a new recipient object by taking the logical disjunction (OR) of the specified array of recipient objects.
+     * @param \LINE\Clients\MessagingApi\Model\Recipient[]|null $or Create a new recipient object by taking the logical disjunction (OR) of the specified array of recipient objects.
      *
      * @return self
      */
@@ -369,7 +369,7 @@ class OperatorRecipient extends Recipient
     /**
      * Gets not
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Recipient|null
+     * @return \LINE\Clients\MessagingApi\Model\Recipient|null
      */
     public function getNot()
     {
@@ -379,7 +379,7 @@ class OperatorRecipient extends Recipient
     /**
      * Sets not
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Recipient|null $not not
+     * @param \LINE\Clients\MessagingApi\Model\Recipient|null $not not
      *
      * @return self
      */

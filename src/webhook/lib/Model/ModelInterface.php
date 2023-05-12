@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook\Model
+ * @package  LINE\Webhook\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,12 +41,12 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
+namespace LINE\Webhook\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package LINE\\Webhook\Model
+ * @package LINE\Webhook\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

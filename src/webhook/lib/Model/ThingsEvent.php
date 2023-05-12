@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,15 +41,15 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
-use \LINE\\Webhook\ObjectSerializer;
+namespace LINE\Webhook\Model;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * ThingsEvent Class Doc Comment
  *
  * @category Class
  * @description Indicates that a user linked a device with LINE.
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class ThingsEvent extends Event
       */
     protected static $openAPITypes = [
         'replyToken' => 'string',
-        'things' => '\LINE\\Webhook\Model\ThingsContent'
+        'things' => '\LINE\Webhook\Model\ThingsContent'
     ];
 
     /**
@@ -342,7 +342,7 @@ class ThingsEvent extends Event
     /**
      * Gets things
      *
-     * @return \LINE\\Webhook\Model\ThingsContent
+     * @return \LINE\Webhook\Model\ThingsContent
      */
     public function getThings()
     {
@@ -352,7 +352,7 @@ class ThingsEvent extends Event
     /**
      * Sets things
      *
-     * @param \LINE\\Webhook\Model\ThingsContent $things things
+     * @param \LINE\Webhook\Model\ThingsContent $things things
      *
      * @return self
      */

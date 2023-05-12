@@ -19,7 +19,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -40,18 +40,18 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace LINE\\Webhook\Test\Api;
+namespace LINE\Webhook\Test\Api;
 
-use \LINE\\Webhook\Configuration;
-use \LINE\\Webhook\ApiException;
-use \LINE\\Webhook\ObjectSerializer;
+use \LINE\Webhook\Configuration;
+use \LINE\Webhook\ApiException;
+use \LINE\Webhook\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * DummyApiTest Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

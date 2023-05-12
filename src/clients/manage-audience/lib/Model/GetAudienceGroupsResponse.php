@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,17 +41,17 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ManageAudience\Model;
+namespace LINE\Clients\ManageAudience\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\ManageAudience\ObjectSerializer;
+use \LINE\Clients\ManageAudience\ObjectSerializer;
 
 /**
  * GetAudienceGroupsResponse Class Doc Comment
  *
  * @category Class
  * @description Gets data for more than one audience.
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class GetAudienceGroupsResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'audienceGroups' => '\LINE\\Clients\\ManageAudience\Model\AudienceGroup[]',
+        'audienceGroups' => '\LINE\Clients\ManageAudience\Model\AudienceGroup[]',
         'hasNextPage' => 'bool',
         'totalCount' => 'int',
         'readWriteAudienceGroupTotalCount' => 'int',
@@ -343,7 +343,7 @@ class GetAudienceGroupsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets audienceGroups
      *
-     * @return \LINE\\Clients\\ManageAudience\Model\AudienceGroup[]|null
+     * @return \LINE\Clients\ManageAudience\Model\AudienceGroup[]|null
      */
     public function getAudienceGroups()
     {
@@ -353,7 +353,7 @@ class GetAudienceGroupsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets audienceGroups
      *
-     * @param \LINE\\Clients\\ManageAudience\Model\AudienceGroup[]|null $audienceGroups An array of audience data. If there are no audiences that match the specified filter, an empty array will be returned.
+     * @param \LINE\Clients\ManageAudience\Model\AudienceGroup[]|null $audienceGroups An array of audience data. If there are no audiences that match the specified filter, an empty array will be returned.
      *
      * @return self
      */

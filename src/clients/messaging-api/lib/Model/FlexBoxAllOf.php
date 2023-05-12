@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * FlexBoxAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -74,7 +74,7 @@ class FlexBoxAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'layout' => 'string',
         'flex' => 'int',
-        'contents' => '\LINE\\Clients\\MessagingApi\Model\FlexComponent[]',
+        'contents' => '\LINE\Clients\MessagingApi\Model\FlexComponent[]',
         'spacing' => 'string',
         'margin' => 'string',
         'position' => 'string',
@@ -95,10 +95,10 @@ class FlexBoxAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'paddingBottom' => 'string',
         'paddingStart' => 'string',
         'paddingEnd' => 'string',
-        'action' => '\LINE\\Clients\\MessagingApi\Model\Action',
+        'action' => '\LINE\Clients\MessagingApi\Model\Action',
         'justifyContent' => 'string',
         'alignItems' => 'string',
-        'background' => '\LINE\\Clients\\MessagingApi\Model\FlexBoxBackground'
+        'background' => '\LINE\Clients\MessagingApi\Model\FlexBoxBackground'
     ];
 
     /**
@@ -661,7 +661,7 @@ class FlexBoxAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets contents
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexComponent[]|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexComponent[]|null
      */
     public function getContents()
     {
@@ -671,7 +671,7 @@ class FlexBoxAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets contents
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexComponent[]|null $contents contents
+     * @param \LINE\Clients\MessagingApi\Model\FlexComponent[]|null $contents contents
      *
      * @return self
      */
@@ -1238,7 +1238,7 @@ class FlexBoxAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets action
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Action|null
+     * @return \LINE\Clients\MessagingApi\Model\Action|null
      */
     public function getAction()
     {
@@ -1248,7 +1248,7 @@ class FlexBoxAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Action|null $action action
+     * @param \LINE\Clients\MessagingApi\Model\Action|null $action action
      *
      * @return self
      */
@@ -1339,7 +1339,7 @@ class FlexBoxAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets background
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexBoxBackground|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexBoxBackground|null
      */
     public function getBackground()
     {
@@ -1349,7 +1349,7 @@ class FlexBoxAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets background
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexBoxBackground|null $background background
+     * @param \LINE\Clients\MessagingApi\Model\FlexBoxBackground|null $background background
      *
      * @return self
      */

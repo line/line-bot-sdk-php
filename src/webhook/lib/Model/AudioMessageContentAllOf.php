@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,17 +41,17 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
+namespace LINE\Webhook\Model;
 
 use \ArrayAccess;
-use \LINE\\Webhook\ObjectSerializer;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * AudioMessageContentAllOf Class Doc Comment
  *
  * @category Class
  * @description Message object which contains the audio content sent from the source.
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -74,7 +74,7 @@ class AudioMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'contentProvider' => '\LINE\\Webhook\Model\ContentProvider',
+        'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
         'duration' => 'int'
     ];
 
@@ -355,7 +355,7 @@ class AudioMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets contentProvider
      *
-     * @return \LINE\\Webhook\Model\ContentProvider
+     * @return \LINE\Webhook\Model\ContentProvider
      */
     public function getContentProvider()
     {
@@ -365,7 +365,7 @@ class AudioMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets contentProvider
      *
-     * @param \LINE\\Webhook\Model\ContentProvider $contentProvider contentProvider
+     * @param \LINE\Webhook\Model\ContentProvider $contentProvider contentProvider
      *
      * @return self
      */

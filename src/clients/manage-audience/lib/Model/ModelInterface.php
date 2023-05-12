@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience\Model
+ * @package  LINE\Clients\ManageAudience\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,12 +41,12 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ManageAudience\Model;
+namespace LINE\Clients\ManageAudience\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package LINE\\Clients\\ManageAudience\Model
+ * @package LINE\Clients\ManageAudience\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

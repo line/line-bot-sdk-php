@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * QuickReplyItem Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class QuickReplyItem implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'imageUrl' => 'string',
-        'action' => '\LINE\\Clients\\MessagingApi\Model\Action',
+        'action' => '\LINE\Clients\MessagingApi\Model\Action',
         'type' => 'string'
     ];
 
@@ -356,7 +356,7 @@ class QuickReplyItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets action
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Action|null
+     * @return \LINE\Clients\MessagingApi\Model\Action|null
      */
     public function getAction()
     {
@@ -366,7 +366,7 @@ class QuickReplyItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Action|null $action action
+     * @param \LINE\Clients\MessagingApi\Model\Action|null $action action
      *
      * @return self
      */

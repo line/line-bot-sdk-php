@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
+namespace LINE\Webhook\Model;
 
 use \ArrayAccess;
-use \LINE\\Webhook\ObjectSerializer;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * MemberLeftEventAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class MemberLeftEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'left' => '\LINE\\Webhook\Model\LeftMembers'
+        'left' => '\LINE\Webhook\Model\LeftMembers'
     ];
 
     /**
@@ -310,7 +310,7 @@ class MemberLeftEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets left
      *
-     * @return \LINE\\Webhook\Model\LeftMembers
+     * @return \LINE\Webhook\Model\LeftMembers
      */
     public function getLeft()
     {
@@ -320,7 +320,7 @@ class MemberLeftEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets left
      *
-     * @param \LINE\\Webhook\Model\LeftMembers $left left
+     * @param \LINE\Webhook\Model\LeftMembers $left left
      *
      * @return self
      */

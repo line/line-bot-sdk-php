@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
+namespace LINE\Webhook\Model;
 
 use \ArrayAccess;
-use \LINE\\Webhook\ObjectSerializer;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * ThingsEventAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class ThingsEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'replyToken' => 'string',
-        'things' => '\LINE\\Webhook\Model\ThingsContent'
+        'things' => '\LINE\Webhook\Model\ThingsContent'
     ];
 
     /**
@@ -347,7 +347,7 @@ class ThingsEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets things
      *
-     * @return \LINE\\Webhook\Model\ThingsContent
+     * @return \LINE\Webhook\Model\ThingsContent
      */
     public function getThings()
     {
@@ -357,7 +357,7 @@ class ThingsEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets things
      *
-     * @param \LINE\\Webhook\Model\ThingsContent $things things
+     * @param \LINE\Webhook\Model\ThingsContent $things things
      *
      * @return self
      */

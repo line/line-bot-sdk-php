@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\Insight
+ * @package  LINE\Clients\Insight
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,17 +41,17 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\Insight\Model;
+namespace LINE\Clients\Insight\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\Insight\ObjectSerializer;
+use \LINE\Clients\Insight\ObjectSerializer;
 
 /**
  * GetMessageEventResponseOverview Class Doc Comment
  *
  * @category Class
  * @description Summary of message statistics.
- * @package  LINE\\Clients\\Insight
+ * @package  LINE\Clients\Insight
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>

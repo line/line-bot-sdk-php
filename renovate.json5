@@ -5,15 +5,7 @@
   ],
   "packageRules": [
     {
-      "excludePackagePatterns": [
-        // For support php7.x
-        "phpunit/phpunit",
-        // For support php7.x
-        "orchestra/testbench",
-      ]
-    },
-    {
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
       "automerge": true,
       "platformAutomerge": true,
     }

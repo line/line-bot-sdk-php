@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,17 +41,17 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ManageAudience\Model;
+namespace LINE\Clients\ManageAudience\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\ManageAudience\ObjectSerializer;
+use \LINE\Clients\ManageAudience\ObjectSerializer;
 
 /**
  * AudienceGroup Class Doc Comment
  *
  * @category Class
  * @description Audience group
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -74,17 +74,17 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'audienceGroupId' => 'int',
-        'type' => '\LINE\\Clients\\ManageAudience\Model\AudienceGroupType',
+        'type' => '\LINE\Clients\ManageAudience\Model\AudienceGroupType',
         'description' => 'string',
-        'status' => '\LINE\\Clients\\ManageAudience\Model\AudienceGroupStatus',
-        'failedType' => '\LINE\\Clients\\ManageAudience\Model\AudienceGroupFailedType',
+        'status' => '\LINE\Clients\ManageAudience\Model\AudienceGroupStatus',
+        'failedType' => '\LINE\Clients\ManageAudience\Model\AudienceGroupFailedType',
         'audienceCount' => 'int',
         'created' => 'int',
         'requestId' => 'string',
         'clickUrl' => 'string',
         'isIfaAudience' => 'bool',
-        'permission' => '\LINE\\Clients\\ManageAudience\Model\AudienceGroupPermission',
-        'createRoute' => '\LINE\\Clients\\ManageAudience\Model\AudienceGroupCreateRoute'
+        'permission' => '\LINE\Clients\ManageAudience\Model\AudienceGroupPermission',
+        'createRoute' => '\LINE\Clients\ManageAudience\Model\AudienceGroupCreateRoute'
     ];
 
     /**
@@ -412,7 +412,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \LINE\\Clients\\ManageAudience\Model\AudienceGroupType|null
+     * @return \LINE\Clients\ManageAudience\Model\AudienceGroupType|null
      */
     public function getType()
     {
@@ -422,7 +422,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \LINE\\Clients\\ManageAudience\Model\AudienceGroupType|null $type type
+     * @param \LINE\Clients\ManageAudience\Model\AudienceGroupType|null $type type
      *
      * @return self
      */
@@ -466,7 +466,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \LINE\\Clients\\ManageAudience\Model\AudienceGroupStatus|null
+     * @return \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null
      */
     public function getStatus()
     {
@@ -476,7 +476,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \LINE\\Clients\\ManageAudience\Model\AudienceGroupStatus|null $status status
+     * @param \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status status
      *
      * @return self
      */
@@ -493,7 +493,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets failedType
      *
-     * @return \LINE\\Clients\\ManageAudience\Model\AudienceGroupFailedType|null
+     * @return \LINE\Clients\ManageAudience\Model\AudienceGroupFailedType|null
      */
     public function getFailedType()
     {
@@ -503,7 +503,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets failedType
      *
-     * @param \LINE\\Clients\\ManageAudience\Model\AudienceGroupFailedType|null $failedType failedType
+     * @param \LINE\Clients\ManageAudience\Model\AudienceGroupFailedType|null $failedType failedType
      *
      * @return self
      */
@@ -662,7 +662,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets permission
      *
-     * @return \LINE\\Clients\\ManageAudience\Model\AudienceGroupPermission|null
+     * @return \LINE\Clients\ManageAudience\Model\AudienceGroupPermission|null
      */
     public function getPermission()
     {
@@ -672,7 +672,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets permission
      *
-     * @param \LINE\\Clients\\ManageAudience\Model\AudienceGroupPermission|null $permission permission
+     * @param \LINE\Clients\ManageAudience\Model\AudienceGroupPermission|null $permission permission
      *
      * @return self
      */
@@ -689,7 +689,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets createRoute
      *
-     * @return \LINE\\Clients\\ManageAudience\Model\AudienceGroupCreateRoute|null
+     * @return \LINE\Clients\ManageAudience\Model\AudienceGroupCreateRoute|null
      */
     public function getCreateRoute()
     {
@@ -699,7 +699,7 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets createRoute
      *
-     * @param \LINE\\Clients\\ManageAudience\Model\AudienceGroupCreateRoute|null $createRoute createRoute
+     * @param \LINE\Clients\ManageAudience\Model\AudienceGroupCreateRoute|null $createRoute createRoute
      *
      * @return self
      */

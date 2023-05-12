@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * AreaDemographicFilter Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -70,7 +70,7 @@ class AreaDemographicFilter extends DemographicFilter
       * @var string[]
       */
     protected static $openAPITypes = [
-        'oneOf' => '\LINE\\Clients\\MessagingApi\Model\AreaDemographic[]'
+        'oneOf' => '\LINE\Clients\MessagingApi\Model\AreaDemographic[]'
     ];
 
     /**
@@ -301,7 +301,7 @@ class AreaDemographicFilter extends DemographicFilter
     /**
      * Gets oneOf
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\AreaDemographic[]|null
+     * @return \LINE\Clients\MessagingApi\Model\AreaDemographic[]|null
      */
     public function getOneOf()
     {
@@ -311,7 +311,7 @@ class AreaDemographicFilter extends DemographicFilter
     /**
      * Sets oneOf
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\AreaDemographic[]|null $oneOf oneOf
+     * @param \LINE\Clients\MessagingApi\Model\AreaDemographic[]|null $oneOf oneOf
      *
      * @return self
      */

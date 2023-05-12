@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
-use \LINE\\Webhook\ObjectSerializer;
+namespace LINE\Webhook\Model;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * VideoMessageContent Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class VideoMessageContent extends MessageContent
     protected static $openAPITypes = [
         'id' => 'string',
         'duration' => 'int',
-        'contentProvider' => '\LINE\\Webhook\Model\ContentProvider'
+        'contentProvider' => '\LINE\Webhook\Model\ContentProvider'
     ];
 
     /**
@@ -375,7 +375,7 @@ class VideoMessageContent extends MessageContent
     /**
      * Gets contentProvider
      *
-     * @return \LINE\\Webhook\Model\ContentProvider
+     * @return \LINE\Webhook\Model\ContentProvider
      */
     public function getContentProvider()
     {
@@ -385,7 +385,7 @@ class VideoMessageContent extends MessageContent
     /**
      * Sets contentProvider
      *
-     * @param \LINE\\Webhook\Model\ContentProvider $contentProvider contentProvider
+     * @param \LINE\Webhook\Model\ContentProvider $contentProvider contentProvider
      *
      * @return self
      */

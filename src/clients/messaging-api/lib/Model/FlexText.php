@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * FlexText Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -87,9 +87,9 @@ class FlexText extends FlexComponent
         'offsetBottom' => 'string',
         'offsetStart' => 'string',
         'offsetEnd' => 'string',
-        'action' => '\LINE\\Clients\\MessagingApi\Model\Action',
+        'action' => '\LINE\Clients\MessagingApi\Model\Action',
         'maxLines' => 'int',
-        'contents' => '\LINE\\Clients\\MessagingApi\Model\FlexSpan[]',
+        'contents' => '\LINE\Clients\MessagingApi\Model\FlexSpan[]',
         'adjustMode' => 'string'
     ];
 
@@ -1132,7 +1132,7 @@ class FlexText extends FlexComponent
     /**
      * Gets action
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Action|null
+     * @return \LINE\Clients\MessagingApi\Model\Action|null
      */
     public function getAction()
     {
@@ -1142,7 +1142,7 @@ class FlexText extends FlexComponent
     /**
      * Sets action
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Action|null $action action
+     * @param \LINE\Clients\MessagingApi\Model\Action|null $action action
      *
      * @return self
      */
@@ -1186,7 +1186,7 @@ class FlexText extends FlexComponent
     /**
      * Gets contents
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexSpan[]|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexSpan[]|null
      */
     public function getContents()
     {
@@ -1196,7 +1196,7 @@ class FlexText extends FlexComponent
     /**
      * Sets contents
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexSpan[]|null $contents contents
+     * @param \LINE\Clients\MessagingApi\Model\FlexSpan[]|null $contents contents
      *
      * @return self
      */

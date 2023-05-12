@@ -19,7 +19,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ChannelAccessToken
+ * @package  LINE\Clients\ChannelAccessToken
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -40,7 +40,7 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ChannelAccessToken;
+namespace LINE\Clients\ChannelAccessToken;
 
 use \Exception;
 
@@ -48,7 +48,7 @@ use \Exception;
  * ApiException Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\ChannelAccessToken
+ * @package  LINE\Clients\ChannelAccessToken
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * MarkMessagesAsReadRequest Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class MarkMessagesAsReadRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'chat' => '\LINE\\Clients\\MessagingApi\Model\ChatReference'
+        'chat' => '\LINE\Clients\MessagingApi\Model\ChatReference'
     ];
 
     /**
@@ -310,7 +310,7 @@ class MarkMessagesAsReadRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets chat
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\ChatReference
+     * @return \LINE\Clients\MessagingApi\Model\ChatReference
      */
     public function getChat()
     {
@@ -320,7 +320,7 @@ class MarkMessagesAsReadRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets chat
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\ChatReference $chat chat
+     * @param \LINE\Clients\MessagingApi\Model\ChatReference $chat chat
      *
      * @return self
      */

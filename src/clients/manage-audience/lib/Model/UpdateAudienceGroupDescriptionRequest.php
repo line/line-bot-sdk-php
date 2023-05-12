@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,17 +41,17 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ManageAudience\Model;
+namespace LINE\Clients\ManageAudience\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\ManageAudience\ObjectSerializer;
+use \LINE\Clients\ManageAudience\ObjectSerializer;
 
 /**
  * UpdateAudienceGroupDescriptionRequest Class Doc Comment
  *
  * @category Class
  * @description Rename an audience
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>

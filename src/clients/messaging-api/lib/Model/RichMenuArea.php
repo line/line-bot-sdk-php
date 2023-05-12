@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,17 +41,17 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * RichMenuArea Class Doc Comment
  *
  * @category Class
  * @description Rich menu area
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,8 +73,8 @@ class RichMenuArea implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bounds' => '\LINE\\Clients\\MessagingApi\Model\RichMenuBounds',
-        'action' => '\LINE\\Clients\\MessagingApi\Model\Action'
+        'bounds' => '\LINE\Clients\MessagingApi\Model\RichMenuBounds',
+        'action' => '\LINE\Clients\MessagingApi\Model\Action'
     ];
 
     /**
@@ -315,7 +315,7 @@ class RichMenuArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets bounds
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\RichMenuBounds|null
+     * @return \LINE\Clients\MessagingApi\Model\RichMenuBounds|null
      */
     public function getBounds()
     {
@@ -325,7 +325,7 @@ class RichMenuArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bounds
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\RichMenuBounds|null $bounds bounds
+     * @param \LINE\Clients\MessagingApi\Model\RichMenuBounds|null $bounds bounds
      *
      * @return self
      */
@@ -342,7 +342,7 @@ class RichMenuArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets action
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Action|null
+     * @return \LINE\Clients\MessagingApi\Model\Action|null
      */
     public function getAction()
     {
@@ -352,7 +352,7 @@ class RichMenuArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Action|null $action action
+     * @param \LINE\Clients\MessagingApi\Model\Action|null $action action
      *
      * @return self
      */

@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * ImageCarouselTemplateAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class ImageCarouselTemplateAllOf implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'columns' => '\LINE\\Clients\\MessagingApi\Model\ImageCarouselColumn[]'
+        'columns' => '\LINE\Clients\MessagingApi\Model\ImageCarouselColumn[]'
     ];
 
     /**
@@ -307,7 +307,7 @@ class ImageCarouselTemplateAllOf implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets columns
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\ImageCarouselColumn[]|null
+     * @return \LINE\Clients\MessagingApi\Model\ImageCarouselColumn[]|null
      */
     public function getColumns()
     {
@@ -317,7 +317,7 @@ class ImageCarouselTemplateAllOf implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets columns
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\ImageCarouselColumn[]|null $columns columns
+     * @param \LINE\Clients\MessagingApi\Model\ImageCarouselColumn[]|null $columns columns
      *
      * @return self
      */

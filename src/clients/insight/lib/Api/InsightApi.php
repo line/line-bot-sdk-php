@@ -19,7 +19,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\Insight
+ * @package  LINE\Clients\Insight
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -40,7 +40,7 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\Insight\Api;
+namespace LINE\Clients\Insight\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -49,16 +49,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use LINE\\Clients\\Insight\ApiException;
-use LINE\\Clients\\Insight\Configuration;
-use LINE\\Clients\\Insight\HeaderSelector;
-use LINE\\Clients\\Insight\ObjectSerializer;
+use LINE\Clients\Insight\ApiException;
+use LINE\Clients\Insight\Configuration;
+use LINE\Clients\Insight\HeaderSelector;
+use LINE\Clients\Insight\ObjectSerializer;
 
 /**
  * InsightApi Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\Insight
+ * @package  LINE\Clients\Insight
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -154,9 +154,9 @@ class InsightApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFriendsDemographics'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \LINE\\Clients\\Insight\Model\GetFriendsDemographicsResponse
+     * @return \LINE\Clients\Insight\Model\GetFriendsDemographicsResponse
      */
     public function getFriendsDemographics(string $contentType = self::contentTypes['getFriendsDemographics'][0])
     {
@@ -169,9 +169,9 @@ class InsightApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFriendsDemographics'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \LINE\\Clients\\Insight\Model\GetFriendsDemographicsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LINE\Clients\Insight\Model\GetFriendsDemographicsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFriendsDemographicsWithHttpInfo(string $contentType = self::contentTypes['getFriendsDemographics'][0])
     {
@@ -214,23 +214,23 @@ class InsightApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\LINE\\Clients\\Insight\Model\GetFriendsDemographicsResponse' === '\SplFileObject') {
+                    if ('\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\LINE\\Clients\\Insight\Model\GetFriendsDemographicsResponse' !== 'string') {
+                        if ('\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\LINE\\Clients\\Insight\Model\GetFriendsDemographicsResponse', []),
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\LINE\\Clients\\Insight\Model\GetFriendsDemographicsResponse';
+            $returnType = '\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -251,7 +251,7 @@ class InsightApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\LINE\\Clients\\Insight\Model\GetFriendsDemographicsResponse',
+                        '\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -289,7 +289,7 @@ class InsightApi
      */
     public function getFriendsDemographicsAsyncWithHttpInfo(string $contentType = self::contentTypes['getFriendsDemographics'][0])
     {
-        $returnType = '\LINE\\Clients\\Insight\Model\GetFriendsDemographicsResponse';
+        $returnType = '\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse';
         $request = $this->getFriendsDemographicsRequest($contentType);
 
         return $this->client
@@ -416,9 +416,9 @@ class InsightApi
      * @param  string $requestId Request ID of a narrowcast message or broadcast message. Each Messaging API request has a request ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessageEvent'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \LINE\\Clients\\Insight\Model\GetMessageEventResponse
+     * @return \LINE\Clients\Insight\Model\GetMessageEventResponse
      */
     public function getMessageEvent($requestId, string $contentType = self::contentTypes['getMessageEvent'][0])
     {
@@ -434,9 +434,9 @@ class InsightApi
      * @param  string $requestId Request ID of a narrowcast message or broadcast message. Each Messaging API request has a request ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessageEvent'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \LINE\\Clients\\Insight\Model\GetMessageEventResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LINE\Clients\Insight\Model\GetMessageEventResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMessageEventWithHttpInfo($requestId, string $contentType = self::contentTypes['getMessageEvent'][0])
     {
@@ -479,23 +479,23 @@ class InsightApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\LINE\\Clients\\Insight\Model\GetMessageEventResponse' === '\SplFileObject') {
+                    if ('\LINE\Clients\Insight\Model\GetMessageEventResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\LINE\\Clients\\Insight\Model\GetMessageEventResponse' !== 'string') {
+                        if ('\LINE\Clients\Insight\Model\GetMessageEventResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\LINE\\Clients\\Insight\Model\GetMessageEventResponse', []),
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\Insight\Model\GetMessageEventResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\LINE\\Clients\\Insight\Model\GetMessageEventResponse';
+            $returnType = '\LINE\Clients\Insight\Model\GetMessageEventResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -516,7 +516,7 @@ class InsightApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\LINE\\Clients\\Insight\Model\GetMessageEventResponse',
+                        '\LINE\Clients\Insight\Model\GetMessageEventResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -560,7 +560,7 @@ class InsightApi
      */
     public function getMessageEventAsyncWithHttpInfo($requestId, string $contentType = self::contentTypes['getMessageEvent'][0])
     {
-        $returnType = '\LINE\\Clients\\Insight\Model\GetMessageEventResponse';
+        $returnType = '\LINE\Clients\Insight\Model\GetMessageEventResponse';
         $request = $this->getMessageEventRequest($requestId, $contentType);
 
         return $this->client
@@ -707,9 +707,9 @@ class InsightApi
      * @param  string $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberOfFollowers'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \LINE\\Clients\\Insight\Model\GetNumberOfFollowersResponse
+     * @return \LINE\Clients\Insight\Model\GetNumberOfFollowersResponse
      */
     public function getNumberOfFollowers($date = null, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
     {
@@ -725,9 +725,9 @@ class InsightApi
      * @param  string $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberOfFollowers'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \LINE\\Clients\\Insight\Model\GetNumberOfFollowersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LINE\Clients\Insight\Model\GetNumberOfFollowersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getNumberOfFollowersWithHttpInfo($date = null, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
     {
@@ -770,23 +770,23 @@ class InsightApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\LINE\\Clients\\Insight\Model\GetNumberOfFollowersResponse' === '\SplFileObject') {
+                    if ('\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\LINE\\Clients\\Insight\Model\GetNumberOfFollowersResponse' !== 'string') {
+                        if ('\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\LINE\\Clients\\Insight\Model\GetNumberOfFollowersResponse', []),
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\LINE\\Clients\\Insight\Model\GetNumberOfFollowersResponse';
+            $returnType = '\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -807,7 +807,7 @@ class InsightApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\LINE\\Clients\\Insight\Model\GetNumberOfFollowersResponse',
+                        '\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -851,7 +851,7 @@ class InsightApi
      */
     public function getNumberOfFollowersAsyncWithHttpInfo($date = null, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
     {
-        $returnType = '\LINE\\Clients\\Insight\Model\GetNumberOfFollowersResponse';
+        $returnType = '\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse';
         $request = $this->getNumberOfFollowersRequest($date, $contentType);
 
         return $this->client
@@ -998,9 +998,9 @@ class InsightApi
      * @param  string $date Date for which to retrieve number of sent messages. - Format: yyyyMMdd (e.g. 20191231) - Timezone: UTC+9 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberOfMessageDeliveries'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \LINE\\Clients\\Insight\Model\GetNumberOfMessageDeliveriesResponse
+     * @return \LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse
      */
     public function getNumberOfMessageDeliveries($date, string $contentType = self::contentTypes['getNumberOfMessageDeliveries'][0])
     {
@@ -1016,9 +1016,9 @@ class InsightApi
      * @param  string $date Date for which to retrieve number of sent messages. - Format: yyyyMMdd (e.g. 20191231) - Timezone: UTC+9 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberOfMessageDeliveries'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \LINE\\Clients\\Insight\Model\GetNumberOfMessageDeliveriesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getNumberOfMessageDeliveriesWithHttpInfo($date, string $contentType = self::contentTypes['getNumberOfMessageDeliveries'][0])
     {
@@ -1061,23 +1061,23 @@ class InsightApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\LINE\\Clients\\Insight\Model\GetNumberOfMessageDeliveriesResponse' === '\SplFileObject') {
+                    if ('\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\LINE\\Clients\\Insight\Model\GetNumberOfMessageDeliveriesResponse' !== 'string') {
+                        if ('\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\LINE\\Clients\\Insight\Model\GetNumberOfMessageDeliveriesResponse', []),
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\LINE\\Clients\\Insight\Model\GetNumberOfMessageDeliveriesResponse';
+            $returnType = '\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1098,7 +1098,7 @@ class InsightApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\LINE\\Clients\\Insight\Model\GetNumberOfMessageDeliveriesResponse',
+                        '\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1142,7 +1142,7 @@ class InsightApi
      */
     public function getNumberOfMessageDeliveriesAsyncWithHttpInfo($date, string $contentType = self::contentTypes['getNumberOfMessageDeliveries'][0])
     {
-        $returnType = '\LINE\\Clients\\Insight\Model\GetNumberOfMessageDeliveriesResponse';
+        $returnType = '\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse';
         $request = $this->getNumberOfMessageDeliveriesRequest($date, $contentType);
 
         return $this->client
@@ -1295,9 +1295,9 @@ class InsightApi
      * @param  string $to End date of aggregation period. The end date can be specified for up to 30 days later. For example, if the start date is 20210301, the latest end date is 20210331.  Format: yyyyMMdd (e.g. 20210301) Time zone: UTC+9 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatisticsPerUnit'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \LINE\\Clients\\Insight\Model\GetStatisticsPerUnitResponse
+     * @return \LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse
      */
     public function getStatisticsPerUnit($customAggregationUnit, $from, $to, string $contentType = self::contentTypes['getStatisticsPerUnit'][0])
     {
@@ -1313,9 +1313,9 @@ class InsightApi
      * @param  string $to End date of aggregation period. The end date can be specified for up to 30 days later. For example, if the start date is 20210301, the latest end date is 20210331.  Format: yyyyMMdd (e.g. 20210301) Time zone: UTC+9 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatisticsPerUnit'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Insight\ApiException on non-2xx response
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \LINE\\Clients\\Insight\Model\GetStatisticsPerUnitResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStatisticsPerUnitWithHttpInfo($customAggregationUnit, $from, $to, string $contentType = self::contentTypes['getStatisticsPerUnit'][0])
     {
@@ -1358,23 +1358,23 @@ class InsightApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\LINE\\Clients\\Insight\Model\GetStatisticsPerUnitResponse' === '\SplFileObject') {
+                    if ('\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\LINE\\Clients\\Insight\Model\GetStatisticsPerUnitResponse' !== 'string') {
+                        if ('\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\LINE\\Clients\\Insight\Model\GetStatisticsPerUnitResponse', []),
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\LINE\\Clients\\Insight\Model\GetStatisticsPerUnitResponse';
+            $returnType = '\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1395,7 +1395,7 @@ class InsightApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\LINE\\Clients\\Insight\Model\GetStatisticsPerUnitResponse',
+                        '\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1439,7 +1439,7 @@ class InsightApi
      */
     public function getStatisticsPerUnitAsyncWithHttpInfo($customAggregationUnit, $from, $to, string $contentType = self::contentTypes['getStatisticsPerUnit'][0])
     {
-        $returnType = '\LINE\\Clients\\Insight\Model\GetStatisticsPerUnitResponse';
+        $returnType = '\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse';
         $request = $this->getStatisticsPerUnitRequest($customAggregationUnit, $from, $to, $contentType);
 
         return $this->client

@@ -19,7 +19,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -40,14 +40,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi;
+namespace LINE\Clients\MessagingApi;
 
 /**
  * Configuration Class Doc Comment
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -444,7 +444,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (LINE\\Clients\\MessagingApi) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (LINE\Clients\MessagingApi) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 0.0.1' . PHP_EOL;

@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ManageAudience\Model;
+namespace LINE\Clients\ManageAudience\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\ManageAudience\ObjectSerializer;
+use \LINE\Clients\ManageAudience\ObjectSerializer;
 
 /**
  * ErrorResponse Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'message' => 'string',
-        'details' => '\LINE\\Clients\\ManageAudience\Model\ErrorDetail[]'
+        'details' => '\LINE\Clients\ManageAudience\Model\ErrorDetail[]'
     ];
 
     /**
@@ -344,7 +344,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets details
      *
-     * @return \LINE\\Clients\\ManageAudience\Model\ErrorDetail[]|null
+     * @return \LINE\Clients\ManageAudience\Model\ErrorDetail[]|null
      */
     public function getDetails()
     {
@@ -354,7 +354,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets details
      *
-     * @param \LINE\\Clients\\ManageAudience\Model\ErrorDetail[]|null $details An array of error details. If the array is empty, this property will not be included in the response.
+     * @param \LINE\Clients\ManageAudience\Model\ErrorDetail[]|null $details An array of error details. If the array is empty, this property will not be included in the response.
      *
      * @return self
      */

@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * ReplyMessageRequest Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class ReplyMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'replyToken' => 'string',
-        'messages' => '\LINE\\Clients\\MessagingApi\Model\Message[]',
+        'messages' => '\LINE\Clients\MessagingApi\Model\Message[]',
         'notificationDisabled' => 'bool'
     ];
 
@@ -362,7 +362,7 @@ class ReplyMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets messages
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Message[]
+     * @return \LINE\Clients\MessagingApi\Model\Message[]
      */
     public function getMessages()
     {
@@ -372,7 +372,7 @@ class ReplyMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets messages
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Message[] $messages List of messages.
+     * @param \LINE\Clients\MessagingApi\Model\Message[] $messages List of messages.
      *
      * @return self
      */

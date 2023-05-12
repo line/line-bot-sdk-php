@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * AgeDemographicFilter Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -70,8 +70,8 @@ class AgeDemographicFilter extends DemographicFilter
       * @var string[]
       */
     protected static $openAPITypes = [
-        'gte' => '\LINE\\Clients\\MessagingApi\Model\AgeDemographic',
-        'lt' => '\LINE\\Clients\\MessagingApi\Model\AgeDemographic'
+        'gte' => '\LINE\Clients\MessagingApi\Model\AgeDemographic',
+        'lt' => '\LINE\Clients\MessagingApi\Model\AgeDemographic'
     ];
 
     /**
@@ -308,7 +308,7 @@ class AgeDemographicFilter extends DemographicFilter
     /**
      * Gets gte
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\AgeDemographic|null
+     * @return \LINE\Clients\MessagingApi\Model\AgeDemographic|null
      */
     public function getGte()
     {
@@ -318,7 +318,7 @@ class AgeDemographicFilter extends DemographicFilter
     /**
      * Sets gte
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\AgeDemographic|null $gte gte
+     * @param \LINE\Clients\MessagingApi\Model\AgeDemographic|null $gte gte
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class AgeDemographicFilter extends DemographicFilter
     /**
      * Gets lt
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\AgeDemographic|null
+     * @return \LINE\Clients\MessagingApi\Model\AgeDemographic|null
      */
     public function getLt()
     {
@@ -345,7 +345,7 @@ class AgeDemographicFilter extends DemographicFilter
     /**
      * Sets lt
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\AgeDemographic|null $lt lt
+     * @param \LINE\Clients\MessagingApi\Model\AgeDemographic|null $lt lt
      *
      * @return self
      */

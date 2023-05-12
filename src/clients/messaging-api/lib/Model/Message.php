@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * Message Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,8 +73,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'quickReply' => '\LINE\\Clients\\MessagingApi\Model\QuickReply',
-        'sender' => '\LINE\\Clients\\MessagingApi\Model\Sender'
+        'quickReply' => '\LINE\Clients\MessagingApi\Model\QuickReply',
+        'sender' => '\LINE\Clients\MessagingApi\Model\Sender'
     ];
 
     /**
@@ -351,7 +351,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets quickReply
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\QuickReply|null
+     * @return \LINE\Clients\MessagingApi\Model\QuickReply|null
      */
     public function getQuickReply()
     {
@@ -361,7 +361,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets quickReply
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\QuickReply|null $quickReply quickReply
+     * @param \LINE\Clients\MessagingApi\Model\QuickReply|null $quickReply quickReply
      *
      * @return self
      */
@@ -378,7 +378,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets sender
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Sender|null
+     * @return \LINE\Clients\MessagingApi\Model\Sender|null
      */
     public function getSender()
     {
@@ -388,7 +388,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sender
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Sender|null $sender sender
+     * @param \LINE\Clients\MessagingApi\Model\Sender|null $sender sender
      *
      * @return self
      */

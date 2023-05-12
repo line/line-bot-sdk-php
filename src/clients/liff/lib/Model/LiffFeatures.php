@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\Liff
+ * @package  LINE\Clients\Liff
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\Liff\Model;
+namespace LINE\Clients\Liff\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\Liff\ObjectSerializer;
+use \LINE\Clients\Liff\ObjectSerializer;
 
 /**
  * LiffFeatures Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\Liff
+ * @package  LINE\Clients\Liff
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>

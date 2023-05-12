@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
+namespace LINE\Webhook\Model;
 
 use \ArrayAccess;
-use \LINE\\Webhook\ObjectSerializer;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * VideoPlayCompleteEventAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class VideoPlayCompleteEventAllOf implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPITypes = [
         'replyToken' => 'string',
-        'videoPlayComplete' => '\LINE\\Webhook\Model\VideoPlayComplete'
+        'videoPlayComplete' => '\LINE\Webhook\Model\VideoPlayComplete'
     ];
 
     /**
@@ -347,7 +347,7 @@ class VideoPlayCompleteEventAllOf implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets videoPlayComplete
      *
-     * @return \LINE\\Webhook\Model\VideoPlayComplete
+     * @return \LINE\Webhook\Model\VideoPlayComplete
      */
     public function getVideoPlayComplete()
     {
@@ -357,7 +357,7 @@ class VideoPlayCompleteEventAllOf implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets videoPlayComplete
      *
-     * @param \LINE\\Webhook\Model\VideoPlayComplete $videoPlayComplete videoPlayComplete
+     * @param \LINE\Webhook\Model\VideoPlayComplete $videoPlayComplete videoPlayComplete
      *
      * @return self
      */

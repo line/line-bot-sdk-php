@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
-use \LINE\\Webhook\ObjectSerializer;
+namespace LINE\Webhook\Model;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * TextMessageContent Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,8 +72,8 @@ class TextMessageContent extends MessageContent
     protected static $openAPITypes = [
         'id' => 'string',
         'text' => 'string',
-        'emojis' => '\LINE\\Webhook\Model\Emoji[]',
-        'mention' => '\LINE\\Webhook\Model\Mention'
+        'emojis' => '\LINE\Webhook\Model\Emoji[]',
+        'mention' => '\LINE\Webhook\Model\Mention'
     ];
 
     /**
@@ -382,7 +382,7 @@ class TextMessageContent extends MessageContent
     /**
      * Gets emojis
      *
-     * @return \LINE\\Webhook\Model\Emoji[]|null
+     * @return \LINE\Webhook\Model\Emoji[]|null
      */
     public function getEmojis()
     {
@@ -392,7 +392,7 @@ class TextMessageContent extends MessageContent
     /**
      * Sets emojis
      *
-     * @param \LINE\\Webhook\Model\Emoji[]|null $emojis Array of one or more LINE emoji objects. Only included in the message event when the text property contains a LINE emoji.
+     * @param \LINE\Webhook\Model\Emoji[]|null $emojis Array of one or more LINE emoji objects. Only included in the message event when the text property contains a LINE emoji.
      *
      * @return self
      */
@@ -409,7 +409,7 @@ class TextMessageContent extends MessageContent
     /**
      * Gets mention
      *
-     * @return \LINE\\Webhook\Model\Mention|null
+     * @return \LINE\Webhook\Model\Mention|null
      */
     public function getMention()
     {
@@ -419,7 +419,7 @@ class TextMessageContent extends MessageContent
     /**
      * Sets mention
      *
-     * @param \LINE\\Webhook\Model\Mention|null $mention mention
+     * @param \LINE\Webhook\Model\Mention|null $mention mention
      *
      * @return self
      */

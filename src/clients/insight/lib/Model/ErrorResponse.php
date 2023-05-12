@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\Insight
+ * @package  LINE\Clients\Insight
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\Insight\Model;
+namespace LINE\Clients\Insight\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\Insight\ObjectSerializer;
+use \LINE\Clients\Insight\ObjectSerializer;
 
 /**
  * ErrorResponse Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\Insight
+ * @package  LINE\Clients\Insight
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'message' => 'string',
-        'details' => '\LINE\\Clients\\Insight\Model\ErrorDetail[]'
+        'details' => '\LINE\Clients\Insight\Model\ErrorDetail[]'
     ];
 
     /**
@@ -344,7 +344,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets details
      *
-     * @return \LINE\\Clients\\Insight\Model\ErrorDetail[]|null
+     * @return \LINE\Clients\Insight\Model\ErrorDetail[]|null
      */
     public function getDetails()
     {
@@ -354,7 +354,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets details
      *
-     * @param \LINE\\Clients\\Insight\Model\ErrorDetail[]|null $details An array of error details. If the array is empty, this property will not be included in the response.
+     * @param \LINE\Clients\Insight\Model\ErrorDetail[]|null $details An array of error details. If the array is empty, this property will not be included in the response.
      *
      * @return self
      */

@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * AgeDemographicFilterAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,8 +72,8 @@ class AgeDemographicFilterAllOf implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'gte' => '\LINE\\Clients\\MessagingApi\Model\AgeDemographic',
-        'lt' => '\LINE\\Clients\\MessagingApi\Model\AgeDemographic'
+        'gte' => '\LINE\Clients\MessagingApi\Model\AgeDemographic',
+        'lt' => '\LINE\Clients\MessagingApi\Model\AgeDemographic'
     ];
 
     /**
@@ -314,7 +314,7 @@ class AgeDemographicFilterAllOf implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets gte
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\AgeDemographic|null
+     * @return \LINE\Clients\MessagingApi\Model\AgeDemographic|null
      */
     public function getGte()
     {
@@ -324,7 +324,7 @@ class AgeDemographicFilterAllOf implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets gte
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\AgeDemographic|null $gte gte
+     * @param \LINE\Clients\MessagingApi\Model\AgeDemographic|null $gte gte
      *
      * @return self
      */
@@ -341,7 +341,7 @@ class AgeDemographicFilterAllOf implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets lt
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\AgeDemographic|null
+     * @return \LINE\Clients\MessagingApi\Model\AgeDemographic|null
      */
     public function getLt()
     {
@@ -351,7 +351,7 @@ class AgeDemographicFilterAllOf implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets lt
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\AgeDemographic|null $lt lt
+     * @param \LINE\Clients\MessagingApi\Model\AgeDemographic|null $lt lt
      *
      * @return self
      */

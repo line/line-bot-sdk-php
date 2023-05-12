@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * FlexVideo Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,9 +72,9 @@ class FlexVideo extends FlexComponent
     protected static $openAPITypes = [
         'url' => 'string',
         'previewUrl' => 'string',
-        'altContent' => '\LINE\\Clients\\MessagingApi\Model\FlexComponent',
+        'altContent' => '\LINE\Clients\MessagingApi\Model\FlexComponent',
         'aspectRatio' => 'string',
-        'action' => '\LINE\\Clients\\MessagingApi\Model\Action'
+        'action' => '\LINE\Clients\MessagingApi\Model\Action'
     ];
 
     /**
@@ -383,7 +383,7 @@ class FlexVideo extends FlexComponent
     /**
      * Gets altContent
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexComponent|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexComponent|null
      */
     public function getAltContent()
     {
@@ -393,7 +393,7 @@ class FlexVideo extends FlexComponent
     /**
      * Sets altContent
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexComponent|null $altContent altContent
+     * @param \LINE\Clients\MessagingApi\Model\FlexComponent|null $altContent altContent
      *
      * @return self
      */
@@ -437,7 +437,7 @@ class FlexVideo extends FlexComponent
     /**
      * Gets action
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Action|null
+     * @return \LINE\Clients\MessagingApi\Model\Action|null
      */
     public function getAction()
     {
@@ -447,7 +447,7 @@ class FlexVideo extends FlexComponent
     /**
      * Sets action
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Action|null $action action
+     * @param \LINE\Clients\MessagingApi\Model\Action|null $action action
      *
      * @return self
      */

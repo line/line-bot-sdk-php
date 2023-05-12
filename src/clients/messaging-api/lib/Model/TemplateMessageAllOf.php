@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * TemplateMessageAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class TemplateMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'altText' => 'string',
-        'template' => '\LINE\\Clients\\MessagingApi\Model\Template'
+        'template' => '\LINE\Clients\MessagingApi\Model\Template'
     ];
 
     /**
@@ -341,7 +341,7 @@ class TemplateMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets template
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\Template|null
+     * @return \LINE\Clients\MessagingApi\Model\Template|null
      */
     public function getTemplate()
     {
@@ -351,7 +351,7 @@ class TemplateMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets template
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\Template|null $template template
+     * @param \LINE\Clients\MessagingApi\Model\Template|null $template template
      *
      * @return self
      */

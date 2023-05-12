@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,15 +41,15 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
-use \LINE\\Webhook\ObjectSerializer;
+namespace LINE\Webhook\Model;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * AccountLinkEvent Class Doc Comment
  *
  * @category Class
  * @description Event object for when a user has linked their LINE account with a provider&#39;s service account. You can reply to account link events.
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class AccountLinkEvent extends Event
       */
     protected static $openAPITypes = [
         'replyToken' => 'string',
-        'link' => '\LINE\\Webhook\Model\LinkContent'
+        'link' => '\LINE\Webhook\Model\LinkContent'
     ];
 
     /**
@@ -339,7 +339,7 @@ class AccountLinkEvent extends Event
     /**
      * Gets link
      *
-     * @return \LINE\\Webhook\Model\LinkContent
+     * @return \LINE\Webhook\Model\LinkContent
      */
     public function getLink()
     {
@@ -349,7 +349,7 @@ class AccountLinkEvent extends Event
     /**
      * Sets link
      *
-     * @param \LINE\\Webhook\Model\LinkContent $link link
+     * @param \LINE\Webhook\Model\LinkContent $link link
      *
      * @return self
      */

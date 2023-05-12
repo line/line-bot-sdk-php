@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
+namespace LINE\Webhook\Model;
 
 use \ArrayAccess;
-use \LINE\\Webhook\ObjectSerializer;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * ScenarioResult Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -77,7 +77,7 @@ class ScenarioResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'startTime' => 'int',
         'endTime' => 'int',
         'resultCode' => 'string',
-        'actionResults' => '\LINE\\Webhook\Model\ActionResult[]',
+        'actionResults' => '\LINE\Webhook\Model\ActionResult[]',
         'bleNotificationPayload' => 'string',
         'errorReason' => 'string'
     ];
@@ -500,7 +500,7 @@ class ScenarioResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets actionResults
      *
-     * @return \LINE\\Webhook\Model\ActionResult[]|null
+     * @return \LINE\Webhook\Model\ActionResult[]|null
      */
     public function getActionResults()
     {
@@ -510,7 +510,7 @@ class ScenarioResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets actionResults
      *
-     * @param \LINE\\Webhook\Model\ActionResult[]|null $actionResults Execution result of individual operations specified in action. Only included when things.result.resultCode is success.
+     * @param \LINE\Webhook\Model\ActionResult[]|null $actionResults Execution result of individual operations specified in action. Only included when things.result.resultCode is success.
      *
      * @return self
      */

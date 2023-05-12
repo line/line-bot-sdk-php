@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,7 +41,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace LINE\\Webhook\Test\Model;
+namespace LINE\Webhook\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -50,7 +50,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This event indicates that the LINE Official Account has been suspended (Suspend). Sent to the webhook URL server of the module channel.
- * @package     LINE\\Webhook
+ * @package     LINE\Webhook
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

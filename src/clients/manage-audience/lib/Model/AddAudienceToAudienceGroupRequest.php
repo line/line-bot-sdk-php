@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,17 +41,17 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ManageAudience\Model;
+namespace LINE\Clients\ManageAudience\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\ManageAudience\ObjectSerializer;
+use \LINE\Clients\ManageAudience\ObjectSerializer;
 
 /**
  * AddAudienceToAudienceGroupRequest Class Doc Comment
  *
  * @category Class
  * @description Add user IDs or Identifiers for Advertisers (IFAs) to an audience for uploading user IDs (by JSON)
- * @package  LINE\\Clients\\ManageAudience
+ * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -75,7 +75,7 @@ class AddAudienceToAudienceGroupRequest implements ModelInterface, ArrayAccess, 
     protected static $openAPITypes = [
         'audienceGroupId' => 'int',
         'uploadDescription' => 'string',
-        'audiences' => '\LINE\\Clients\\ManageAudience\Model\Audience[]'
+        'audiences' => '\LINE\Clients\ManageAudience\Model\Audience[]'
     ];
 
     /**
@@ -380,7 +380,7 @@ class AddAudienceToAudienceGroupRequest implements ModelInterface, ArrayAccess, 
     /**
      * Gets audiences
      *
-     * @return \LINE\\Clients\\ManageAudience\Model\Audience[]|null
+     * @return \LINE\Clients\ManageAudience\Model\Audience[]|null
      */
     public function getAudiences()
     {
@@ -390,7 +390,7 @@ class AddAudienceToAudienceGroupRequest implements ModelInterface, ArrayAccess, 
     /**
      * Sets audiences
      *
-     * @param \LINE\\Clients\\ManageAudience\Model\Audience[]|null $audiences An array of up to 10,000 user IDs or IFAs.
+     * @param \LINE\Clients\ManageAudience\Model\Audience[]|null $audiences An array of up to 10,000 user IDs or IFAs.
      *
      * @return self
      */

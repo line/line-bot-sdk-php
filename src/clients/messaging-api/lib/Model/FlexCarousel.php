@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * FlexCarousel Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -70,7 +70,7 @@ class FlexCarousel extends FlexContainer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contents' => '\LINE\\Clients\\MessagingApi\Model\FlexBubble[]'
+        'contents' => '\LINE\Clients\MessagingApi\Model\FlexBubble[]'
     ];
 
     /**
@@ -301,7 +301,7 @@ class FlexCarousel extends FlexContainer
     /**
      * Gets contents
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexBubble[]|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexBubble[]|null
      */
     public function getContents()
     {
@@ -311,7 +311,7 @@ class FlexCarousel extends FlexContainer
     /**
      * Sets contents
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexBubble[]|null $contents contents
+     * @param \LINE\Clients\MessagingApi\Model\FlexBubble[]|null $contents contents
      *
      * @return self
      */

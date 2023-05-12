@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Webhook\Model;
+namespace LINE\Webhook\Model;
 
 use \ArrayAccess;
-use \LINE\\Webhook\ObjectSerializer;
+use \LINE\Webhook\ObjectSerializer;
 
 /**
  * ModuleEventAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Webhook
+ * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class ModuleEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'module' => '\LINE\\Webhook\Model\ModuleContent'
+        'module' => '\LINE\Webhook\Model\ModuleContent'
     ];
 
     /**
@@ -310,7 +310,7 @@ class ModuleEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets module
      *
-     * @return \LINE\\Webhook\Model\ModuleContent
+     * @return \LINE\Webhook\Model\ModuleContent
      */
     public function getModule()
     {
@@ -320,7 +320,7 @@ class ModuleEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets module
      *
-     * @param \LINE\\Webhook\Model\ModuleContent $module module
+     * @param \LINE\Webhook\Model\ModuleContent $module module
      *
      * @return self
      */

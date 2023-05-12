@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,16 +41,16 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
+namespace LINE\Clients\MessagingApi\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * URIActionAllOf Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -73,7 +73,7 @@ class URIActionAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'uri' => 'string',
-        'altUri' => '\LINE\\Clients\\MessagingApi\Model\AltUri'
+        'altUri' => '\LINE\Clients\MessagingApi\Model\AltUri'
     ];
 
     /**
@@ -341,7 +341,7 @@ class URIActionAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets altUri
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\AltUri|null
+     * @return \LINE\Clients\MessagingApi\Model\AltUri|null
      */
     public function getAltUri()
     {
@@ -351,7 +351,7 @@ class URIActionAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets altUri
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\AltUri|null $altUri altUri
+     * @param \LINE\Clients\MessagingApi\Model\AltUri|null $altUri altUri
      *
      * @return self
      */

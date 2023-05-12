@@ -19,7 +19,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\Insight
+ * @package  LINE\Clients\Insight
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -40,13 +40,13 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\Insight;
+namespace LINE\Clients\Insight;
 
 /**
  * HeaderSelector Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\Insight
+ * @package  LINE\Clients\Insight
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

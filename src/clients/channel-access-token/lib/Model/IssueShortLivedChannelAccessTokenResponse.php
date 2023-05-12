@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\ChannelAccessToken
+ * @package  LINE\Clients\ChannelAccessToken
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,17 +41,17 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\ChannelAccessToken\Model;
+namespace LINE\Clients\ChannelAccessToken\Model;
 
 use \ArrayAccess;
-use \LINE\\Clients\\ChannelAccessToken\ObjectSerializer;
+use \LINE\Clients\ChannelAccessToken\ObjectSerializer;
 
 /**
  * IssueShortLivedChannelAccessTokenResponse Class Doc Comment
  *
  * @category Class
  * @description Issued short-lived channel access token
- * @package  LINE\\Clients\\ChannelAccessToken
+ * @package  LINE\Clients\ChannelAccessToken
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>

@@ -20,7 +20,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -41,14 +41,14 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\MessagingApi\Model;
-use \LINE\\Clients\\MessagingApi\ObjectSerializer;
+namespace LINE\Clients\MessagingApi\Model;
+use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
  * FlexMessage Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\MessagingApi
+ * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -71,7 +71,7 @@ class FlexMessage extends Message
       */
     protected static $openAPITypes = [
         'altText' => 'string',
-        'contents' => '\LINE\\Clients\\MessagingApi\Model\FlexContainer'
+        'contents' => '\LINE\Clients\MessagingApi\Model\FlexContainer'
     ];
 
     /**
@@ -335,7 +335,7 @@ class FlexMessage extends Message
     /**
      * Gets contents
      *
-     * @return \LINE\\Clients\\MessagingApi\Model\FlexContainer|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexContainer|null
      */
     public function getContents()
     {
@@ -345,7 +345,7 @@ class FlexMessage extends Message
     /**
      * Sets contents
      *
-     * @param \LINE\\Clients\\MessagingApi\Model\FlexContainer|null $contents contents
+     * @param \LINE\Clients\MessagingApi\Model\FlexContainer|null $contents contents
      *
      * @return self
      */

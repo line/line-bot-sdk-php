@@ -19,7 +19,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  LINE\\Clients\\Liff
+ * @package  LINE\Clients\Liff
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -40,7 +40,7 @@
  * Do not edit the class manually.
  */
 
-namespace LINE\\Clients\\Liff\Api;
+namespace LINE\Clients\Liff\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -49,16 +49,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use LINE\\Clients\\Liff\ApiException;
-use LINE\\Clients\\Liff\Configuration;
-use LINE\\Clients\\Liff\HeaderSelector;
-use LINE\\Clients\\Liff\ObjectSerializer;
+use LINE\Clients\Liff\ApiException;
+use LINE\Clients\Liff\Configuration;
+use LINE\Clients\Liff\HeaderSelector;
+use LINE\Clients\Liff\ObjectSerializer;
 
 /**
  * LiffApi Class Doc Comment
  *
  * @category Class
- * @package  LINE\\Clients\\Liff
+ * @package  LINE\Clients\Liff
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -153,9 +153,9 @@ class LiffApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsGet'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Liff\ApiException on non-2xx response
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \LINE\\Clients\\Liff\Model\GetAllLiffAppsResponse
+     * @return \LINE\Clients\Liff\Model\GetAllLiffAppsResponse
      */
     public function liffV1AppsGet(string $contentType = self::contentTypes['liffV1AppsGet'][0])
     {
@@ -170,9 +170,9 @@ class LiffApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsGet'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Liff\ApiException on non-2xx response
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \LINE\\Clients\\Liff\Model\GetAllLiffAppsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LINE\Clients\Liff\Model\GetAllLiffAppsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function liffV1AppsGetWithHttpInfo(string $contentType = self::contentTypes['liffV1AppsGet'][0])
     {
@@ -215,23 +215,23 @@ class LiffApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\LINE\\Clients\\Liff\Model\GetAllLiffAppsResponse' === '\SplFileObject') {
+                    if ('\LINE\Clients\Liff\Model\GetAllLiffAppsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\LINE\\Clients\\Liff\Model\GetAllLiffAppsResponse' !== 'string') {
+                        if ('\LINE\Clients\Liff\Model\GetAllLiffAppsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\LINE\\Clients\\Liff\Model\GetAllLiffAppsResponse', []),
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\LINE\\Clients\\Liff\Model\GetAllLiffAppsResponse';
+            $returnType = '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -252,7 +252,7 @@ class LiffApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\LINE\\Clients\\Liff\Model\GetAllLiffAppsResponse',
+                        '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -294,7 +294,7 @@ class LiffApi
      */
     public function liffV1AppsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['liffV1AppsGet'][0])
     {
-        $returnType = '\LINE\\Clients\\Liff\Model\GetAllLiffAppsResponse';
+        $returnType = '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse';
         $request = $this->liffV1AppsGetRequest($contentType);
 
         return $this->client
@@ -421,7 +421,7 @@ class LiffApi
      * @param  string $liffId ID of the LIFF app to be updated (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdDelete'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Liff\ApiException on non-2xx response
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -438,7 +438,7 @@ class LiffApi
      * @param  string $liffId ID of the LIFF app to be updated (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdDelete'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Liff\ApiException on non-2xx response
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -650,10 +650,10 @@ class LiffApi
      * Operation liffV1AppsLiffIdPut
      *
      * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\\Clients\\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest updateLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest updateLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Liff\ApiException on non-2xx response
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -666,10 +666,10 @@ class LiffApi
      * Operation liffV1AppsLiffIdPutWithHttpInfo
      *
      * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\\Clients\\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Liff\ApiException on non-2xx response
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -725,7 +725,7 @@ class LiffApi
      * Operation liffV1AppsLiffIdPutAsync
      *
      * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\\Clients\\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -745,7 +745,7 @@ class LiffApi
      * Operation liffV1AppsLiffIdPutAsyncWithHttpInfo
      *
      * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\\Clients\\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -783,7 +783,7 @@ class LiffApi
      * Create request for operation 'liffV1AppsLiffIdPut'
      *
      * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\\Clients\\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -893,12 +893,12 @@ class LiffApi
     /**
      * Operation liffV1AppsPost
      *
-     * @param  \LINE\\Clients\\Liff\Model\AddLiffAppRequest $addLiffAppRequest addLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest addLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Liff\ApiException on non-2xx response
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \LINE\\Clients\\Liff\Model\AddLiffAppResponse
+     * @return \LINE\Clients\Liff\Model\AddLiffAppResponse
      */
     public function liffV1AppsPost($addLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsPost'][0])
     {
@@ -909,12 +909,12 @@ class LiffApi
     /**
      * Operation liffV1AppsPostWithHttpInfo
      *
-     * @param  \LINE\\Clients\\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
      *
-     * @throws \LINE\\Clients\\Liff\ApiException on non-2xx response
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \LINE\\Clients\\Liff\Model\AddLiffAppResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LINE\Clients\Liff\Model\AddLiffAppResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function liffV1AppsPostWithHttpInfo($addLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsPost'][0])
     {
@@ -957,23 +957,23 @@ class LiffApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\LINE\\Clients\\Liff\Model\AddLiffAppResponse' === '\SplFileObject') {
+                    if ('\LINE\Clients\Liff\Model\AddLiffAppResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\LINE\\Clients\\Liff\Model\AddLiffAppResponse' !== 'string') {
+                        if ('\LINE\Clients\Liff\Model\AddLiffAppResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\LINE\\Clients\\Liff\Model\AddLiffAppResponse', []),
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\Liff\Model\AddLiffAppResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\LINE\\Clients\\Liff\Model\AddLiffAppResponse';
+            $returnType = '\LINE\Clients\Liff\Model\AddLiffAppResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -994,7 +994,7 @@ class LiffApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\LINE\\Clients\\Liff\Model\AddLiffAppResponse',
+                        '\LINE\Clients\Liff\Model\AddLiffAppResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1007,7 +1007,7 @@ class LiffApi
     /**
      * Operation liffV1AppsPostAsync
      *
-     * @param  \LINE\\Clients\\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1026,7 +1026,7 @@ class LiffApi
     /**
      * Operation liffV1AppsPostAsyncWithHttpInfo
      *
-     * @param  \LINE\\Clients\\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1034,7 +1034,7 @@ class LiffApi
      */
     public function liffV1AppsPostAsyncWithHttpInfo($addLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsPost'][0])
     {
-        $returnType = '\LINE\\Clients\\Liff\Model\AddLiffAppResponse';
+        $returnType = '\LINE\Clients\Liff\Model\AddLiffAppResponse';
         $request = $this->liffV1AppsPostRequest($addLiffAppRequest, $contentType);
 
         return $this->client
@@ -1076,7 +1076,7 @@ class LiffApi
     /**
      * Create request for operation 'liffV1AppsPost'
      *
-     * @param  \LINE\\Clients\\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
+     * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
