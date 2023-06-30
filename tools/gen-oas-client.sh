@@ -19,6 +19,7 @@ for schema in "${CLIENT_SCHEMAS[@]}"; do
     -i $REPO_ROOT_DIR/line-openapi/$schema.yml \
     -g php \
     -o $REPO_ROOT_DIR/src/clients/$schema \
+    --http-user-agent LINE-BotSDK-PHP/8 \
     --additional-properties="invokerPackage=LINE\Clients\\$camelSchemaName" \
     --additional-properties="variableNamingConvention=camelCase"
 done
