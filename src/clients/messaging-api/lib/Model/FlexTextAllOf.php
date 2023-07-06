@@ -92,7 +92,8 @@ class FlexTextAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => '\LINE\Clients\MessagingApi\Model\Action',
         'maxLines' => 'int',
         'contents' => '\LINE\Clients\MessagingApi\Model\FlexSpan[]',
-        'adjustMode' => 'string'
+        'adjustMode' => 'string',
+        'scaling' => 'bool'
     ];
 
     /**
@@ -123,7 +124,8 @@ class FlexTextAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => null,
         'maxLines' => 'int32',
         'contents' => null,
-        'adjustMode' => null
+        'adjustMode' => null,
+        'scaling' => null
     ];
 
     /**
@@ -152,7 +154,8 @@ class FlexTextAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
 		'action' => false,
 		'maxLines' => false,
 		'contents' => false,
-		'adjustMode' => false
+		'adjustMode' => false,
+		'scaling' => false
     ];
 
     /**
@@ -261,7 +264,8 @@ class FlexTextAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => 'action',
         'maxLines' => 'maxLines',
         'contents' => 'contents',
-        'adjustMode' => 'adjustMode'
+        'adjustMode' => 'adjustMode',
+        'scaling' => 'scaling'
     ];
 
     /**
@@ -290,7 +294,8 @@ class FlexTextAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => 'setAction',
         'maxLines' => 'setMaxLines',
         'contents' => 'setContents',
-        'adjustMode' => 'setAdjustMode'
+        'adjustMode' => 'setAdjustMode',
+        'scaling' => 'setScaling'
     ];
 
     /**
@@ -319,7 +324,8 @@ class FlexTextAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => 'getAction',
         'maxLines' => 'getMaxLines',
         'contents' => 'getContents',
-        'adjustMode' => 'getAdjustMode'
+        'adjustMode' => 'getAdjustMode',
+        'scaling' => 'getScaling'
     ];
 
     /**
@@ -509,6 +515,7 @@ class FlexTextAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('maxLines', $data ?? [], null);
         $this->setIfExists('contents', $data ?? [], null);
         $this->setIfExists('adjustMode', $data ?? [], null);
+        $this->setIfExists('scaling', $data ?? [], null);
     }
 
     /**
@@ -1249,6 +1256,33 @@ class FlexTextAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['adjustMode'] = $adjustMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets scaling
+     *
+     * @return bool|null
+     */
+    public function getScaling()
+    {
+        return $this->container['scaling'];
+    }
+
+    /**
+     * Sets scaling
+     *
+     * @param bool|null $scaling scaling
+     *
+     * @return self
+     */
+    public function setScaling($scaling)
+    {
+        if (is_null($scaling)) {
+            throw new \InvalidArgumentException('non-nullable scaling cannot be null');
+        }
+        $this->container['scaling'] = $scaling;
 
         return $this;
     }

@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * UserProfileResponse
+ * RichMenuBatchOperation
  *
  * PHP version 7.4
  *
@@ -47,24 +47,25 @@ use \ArrayAccess;
 use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
- * UserProfileResponse Class Doc Comment
+ * RichMenuBatchOperation Class Doc Comment
  *
  * @category Class
+ * @description Rich menu operation object represents the batch operation to the rich menu linked to the user.
  * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class RichMenuBatchOperation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UserProfileResponse';
+    protected static $openAPIModelName = 'RichMenuBatchOperation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,11 +73,7 @@ class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'displayName' => 'string',
-        'userId' => 'string',
-        'pictureUrl' => 'string',
-        'statusMessage' => 'string',
-        'language' => 'string'
+        'type' => 'string'
     ];
 
     /**
@@ -87,11 +84,7 @@ class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'displayName' => null,
-        'userId' => null,
-        'pictureUrl' => 'uri',
-        'statusMessage' => null,
-        'language' => null
+        'type' => null
     ];
 
     /**
@@ -100,11 +93,7 @@ class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'displayName' => false,
-		'userId' => false,
-		'pictureUrl' => false,
-		'statusMessage' => false,
-		'language' => false
+        'type' => false
     ];
 
     /**
@@ -193,11 +182,7 @@ class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'displayName' => 'displayName',
-        'userId' => 'userId',
-        'pictureUrl' => 'pictureUrl',
-        'statusMessage' => 'statusMessage',
-        'language' => 'language'
+        'type' => 'type'
     ];
 
     /**
@@ -206,11 +191,7 @@ class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'displayName' => 'setDisplayName',
-        'userId' => 'setUserId',
-        'pictureUrl' => 'setPictureUrl',
-        'statusMessage' => 'setStatusMessage',
-        'language' => 'setLanguage'
+        'type' => 'setType'
     ];
 
     /**
@@ -219,11 +200,7 @@ class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'displayName' => 'getDisplayName',
-        'userId' => 'getUserId',
-        'pictureUrl' => 'getPictureUrl',
-        'statusMessage' => 'getStatusMessage',
-        'language' => 'getLanguage'
+        'type' => 'getType'
     ];
 
     /**
@@ -283,11 +260,7 @@ class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('displayName', $data ?? [], null);
-        $this->setIfExists('userId', $data ?? [], null);
-        $this->setIfExists('pictureUrl', $data ?? [], null);
-        $this->setIfExists('statusMessage', $data ?? [], null);
-        $this->setIfExists('language', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -317,11 +290,8 @@ class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['displayName'] === null) {
-            $invalidProperties[] = "'displayName' can't be null";
-        }
-        if ($this->container['userId'] === null) {
-            $invalidProperties[] = "'userId' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -339,136 +309,28 @@ class UserProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets displayName
+     * Gets type
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getType()
     {
-        return $this->container['displayName'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets displayName
+     * Sets type
      *
-     * @param string $displayName User's display name
+     * @param string $type The type of operation to the rich menu linked to the user. One of link, unlink, or unlinkAll.
      *
      * @return self
      */
-    public function setDisplayName($displayName)
+    public function setType($type)
     {
-        if (is_null($displayName)) {
-            throw new \InvalidArgumentException('non-nullable displayName cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['displayName'] = $displayName;
-
-        return $this;
-    }
-
-    /**
-     * Gets userId
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['userId'];
-    }
-
-    /**
-     * Sets userId
-     *
-     * @param string $userId User ID
-     *
-     * @return self
-     */
-    public function setUserId($userId)
-    {
-        if (is_null($userId)) {
-            throw new \InvalidArgumentException('non-nullable userId cannot be null');
-        }
-        $this->container['userId'] = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Gets pictureUrl
-     *
-     * @return string|null
-     */
-    public function getPictureUrl()
-    {
-        return $this->container['pictureUrl'];
-    }
-
-    /**
-     * Sets pictureUrl
-     *
-     * @param string|null $pictureUrl Profile image URL. `https` image URL. Not included in the response if the user doesn't have a profile image.
-     *
-     * @return self
-     */
-    public function setPictureUrl($pictureUrl)
-    {
-        if (is_null($pictureUrl)) {
-            throw new \InvalidArgumentException('non-nullable pictureUrl cannot be null');
-        }
-        $this->container['pictureUrl'] = $pictureUrl;
-
-        return $this;
-    }
-
-    /**
-     * Gets statusMessage
-     *
-     * @return string|null
-     */
-    public function getStatusMessage()
-    {
-        return $this->container['statusMessage'];
-    }
-
-    /**
-     * Sets statusMessage
-     *
-     * @param string|null $statusMessage User's status message. Not included in the response if the user doesn't have a status message.
-     *
-     * @return self
-     */
-    public function setStatusMessage($statusMessage)
-    {
-        if (is_null($statusMessage)) {
-            throw new \InvalidArgumentException('non-nullable statusMessage cannot be null');
-        }
-        $this->container['statusMessage'] = $statusMessage;
-
-        return $this;
-    }
-
-    /**
-     * Gets language
-     *
-     * @return string|null
-     */
-    public function getLanguage()
-    {
-        return $this->container['language'];
-    }
-
-    /**
-     * Sets language
-     *
-     * @param string|null $language User's language, as a BCP 47 language tag. Not included in the response if the user hasn't yet consented to the LINE Privacy Policy.
-     *
-     * @return self
-     */
-    public function setLanguage($language)
-    {
-        if (is_null($language)) {
-            throw new \InvalidArgumentException('non-nullable language cannot be null');
-        }
-        $this->container['language'] = $language;
+        $this->container['type'] = $type;
 
         return $this;
     }

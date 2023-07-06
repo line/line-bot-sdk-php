@@ -173,6 +173,9 @@ class MessagingApiApi
         'getRichMenuAliasList' => [
             'application/json',
         ],
+        'getRichMenuBatchProgress' => [
+            'application/json',
+        ],
         'getRichMenuIdOfUser' => [
             'application/json',
         ],
@@ -224,6 +227,9 @@ class MessagingApiApi
         'replyMessage' => [
             'application/json',
         ],
+        'richMenuBatch' => [
+            'application/json',
+        ],
         'setDefaultRichMenu' => [
             'application/json',
         ],
@@ -255,6 +261,9 @@ class MessagingApiApi
             'application/json',
         ],
         'validateReply' => [
+            'application/json',
+        ],
+        'validateRichMenuBatchRequest' => [
             'application/json',
         ],
         'validateRichMenuObject' => [
@@ -8058,6 +8067,286 @@ class MessagingApiApi
     }
 
     /**
+     * Operation getRichMenuBatchProgress
+     *
+     * @param  string $requestId A request ID used to batch control the rich menu linked to the user. Each Messaging API request has a request ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuBatchProgress'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\MessagingApi\Model\RichMenuBatchProgressResponse
+     */
+    public function getRichMenuBatchProgress($requestId, string $contentType = self::contentTypes['getRichMenuBatchProgress'][0])
+    {
+        list($response) = $this->getRichMenuBatchProgressWithHttpInfo($requestId, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getRichMenuBatchProgressWithHttpInfo
+     *
+     * @param  string $requestId A request ID used to batch control the rich menu linked to the user. Each Messaging API request has a request ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuBatchProgress'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \LINE\Clients\MessagingApi\Model\RichMenuBatchProgressResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRichMenuBatchProgressWithHttpInfo($requestId, string $contentType = self::contentTypes['getRichMenuBatchProgress'][0])
+    {
+        $request = $this->getRichMenuBatchProgressRequest($requestId, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\LINE\Clients\MessagingApi\Model\RichMenuBatchProgressResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\RichMenuBatchProgressResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\RichMenuBatchProgressResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\LINE\Clients\MessagingApi\Model\RichMenuBatchProgressResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\RichMenuBatchProgressResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getRichMenuBatchProgressAsync
+     *
+     * @param  string $requestId A request ID used to batch control the rich menu linked to the user. Each Messaging API request has a request ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuBatchProgress'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRichMenuBatchProgressAsync($requestId, string $contentType = self::contentTypes['getRichMenuBatchProgress'][0])
+    {
+        return $this->getRichMenuBatchProgressAsyncWithHttpInfo($requestId, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getRichMenuBatchProgressAsyncWithHttpInfo
+     *
+     * @param  string $requestId A request ID used to batch control the rich menu linked to the user. Each Messaging API request has a request ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuBatchProgress'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRichMenuBatchProgressAsyncWithHttpInfo($requestId, string $contentType = self::contentTypes['getRichMenuBatchProgress'][0])
+    {
+        $returnType = '\LINE\Clients\MessagingApi\Model\RichMenuBatchProgressResponse';
+        $request = $this->getRichMenuBatchProgressRequest($requestId, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getRichMenuBatchProgress'
+     *
+     * @param  string $requestId A request ID used to batch control the rich menu linked to the user. Each Messaging API request has a request ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuBatchProgress'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRichMenuBatchProgressRequest($requestId, string $contentType = self::contentTypes['getRichMenuBatchProgress'][0])
+    {
+
+        // verify the required parameter 'requestId' is set
+        if ($requestId === null || (is_array($requestId) && count($requestId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $requestId when calling getRichMenuBatchProgress'
+            );
+        }
+
+
+        $resourcePath = '/v2/bot/richmenu/progress/batch';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $requestId,
+            'requestId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getRichMenuIdOfUser
      *
      * @param  string $userId User ID. Found in the &#x60;source&#x60; object of webhook event objects. Do not use the LINE ID used in LINE. (required)
@@ -12451,6 +12740,230 @@ class MessagingApiApi
     }
 
     /**
+     * Operation richMenuBatch
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['richMenuBatch'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function richMenuBatch($richMenuBatchRequest, string $contentType = self::contentTypes['richMenuBatch'][0])
+    {
+        $this->richMenuBatchWithHttpInfo($richMenuBatchRequest, $contentType);
+    }
+
+    /**
+     * Operation richMenuBatchWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['richMenuBatch'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function richMenuBatchWithHttpInfo($richMenuBatchRequest, string $contentType = self::contentTypes['richMenuBatch'][0])
+    {
+        $request = $this->richMenuBatchRequest($richMenuBatchRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation richMenuBatchAsync
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['richMenuBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function richMenuBatchAsync($richMenuBatchRequest, string $contentType = self::contentTypes['richMenuBatch'][0])
+    {
+        return $this->richMenuBatchAsyncWithHttpInfo($richMenuBatchRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation richMenuBatchAsyncWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['richMenuBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function richMenuBatchAsyncWithHttpInfo($richMenuBatchRequest, string $contentType = self::contentTypes['richMenuBatch'][0])
+    {
+        $returnType = '';
+        $request = $this->richMenuBatchRequest($richMenuBatchRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'richMenuBatch'
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['richMenuBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function richMenuBatchRequest($richMenuBatchRequest, string $contentType = self::contentTypes['richMenuBatch'][0])
+    {
+
+        // verify the required parameter 'richMenuBatchRequest' is set
+        if ($richMenuBatchRequest === null || (is_array($richMenuBatchRequest) && count($richMenuBatchRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $richMenuBatchRequest when calling richMenuBatch'
+            );
+        }
+
+
+        $resourcePath = '/v2/bot/richmenu/batch';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($richMenuBatchRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($richMenuBatchRequest));
+            } else {
+                $httpBody = $richMenuBatchRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation setDefaultRichMenu
      *
      * @param  string $richMenuId ID of a rich menu (required)
@@ -14941,6 +15454,230 @@ class MessagingApiApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($validateMessageRequest));
             } else {
                 $httpBody = $validateMessageRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation validateRichMenuBatchRequest
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateRichMenuBatchRequest'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function validateRichMenuBatchRequest($richMenuBatchRequest, string $contentType = self::contentTypes['validateRichMenuBatchRequest'][0])
+    {
+        $this->validateRichMenuBatchRequestWithHttpInfo($richMenuBatchRequest, $contentType);
+    }
+
+    /**
+     * Operation validateRichMenuBatchRequestWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateRichMenuBatchRequest'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function validateRichMenuBatchRequestWithHttpInfo($richMenuBatchRequest, string $contentType = self::contentTypes['validateRichMenuBatchRequest'][0])
+    {
+        $request = $this->validateRichMenuBatchRequestRequest($richMenuBatchRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation validateRichMenuBatchRequestAsync
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateRichMenuBatchRequest'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function validateRichMenuBatchRequestAsync($richMenuBatchRequest, string $contentType = self::contentTypes['validateRichMenuBatchRequest'][0])
+    {
+        return $this->validateRichMenuBatchRequestAsyncWithHttpInfo($richMenuBatchRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation validateRichMenuBatchRequestAsyncWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateRichMenuBatchRequest'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function validateRichMenuBatchRequestAsyncWithHttpInfo($richMenuBatchRequest, string $contentType = self::contentTypes['validateRichMenuBatchRequest'][0])
+    {
+        $returnType = '';
+        $request = $this->validateRichMenuBatchRequestRequest($richMenuBatchRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'validateRichMenuBatchRequest'
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\RichMenuBatchRequest $richMenuBatchRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateRichMenuBatchRequest'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function validateRichMenuBatchRequestRequest($richMenuBatchRequest, string $contentType = self::contentTypes['validateRichMenuBatchRequest'][0])
+    {
+
+        // verify the required parameter 'richMenuBatchRequest' is set
+        if ($richMenuBatchRequest === null || (is_array($richMenuBatchRequest) && count($richMenuBatchRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $richMenuBatchRequest when calling validateRichMenuBatchRequest'
+            );
+        }
+
+
+        $resourcePath = '/v2/bot/richmenu/validate/batch';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($richMenuBatchRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($richMenuBatchRequest));
+            } else {
+                $httpBody = $richMenuBatchRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

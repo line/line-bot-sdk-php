@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * BotInfoResponse
+ * RichMenuBatchLinkOperationAllOf
  *
  * PHP version 7.4
  *
@@ -47,7 +47,7 @@ use \ArrayAccess;
 use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
- * BotInfoResponse Class Doc Comment
+ * RichMenuBatchLinkOperationAllOf Class Doc Comment
  *
  * @category Class
  * @package  LINE\Clients\MessagingApi
@@ -55,7 +55,7 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class RichMenuBatchLinkOperationAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BotInfoResponse';
+    protected static $openAPIModelName = 'RichMenuBatchLinkOperation_allOf';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,13 +72,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'userId' => 'string',
-        'basicId' => 'string',
-        'premiumId' => 'string',
-        'displayName' => 'string',
-        'pictureUrl' => 'string',
-        'chatMode' => 'string',
-        'markAsReadMode' => 'string'
+        'from' => 'string',
+        'to' => 'string'
     ];
 
     /**
@@ -89,13 +84,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'userId' => null,
-        'basicId' => null,
-        'premiumId' => null,
-        'displayName' => null,
-        'pictureUrl' => 'uri',
-        'chatMode' => null,
-        'markAsReadMode' => null
+        'from' => null,
+        'to' => null
     ];
 
     /**
@@ -104,13 +94,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'userId' => false,
-		'basicId' => false,
-		'premiumId' => false,
-		'displayName' => false,
-		'pictureUrl' => false,
-		'chatMode' => false,
-		'markAsReadMode' => false
+        'from' => false,
+		'to' => false
     ];
 
     /**
@@ -199,13 +184,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'userId' => 'userId',
-        'basicId' => 'basicId',
-        'premiumId' => 'premiumId',
-        'displayName' => 'displayName',
-        'pictureUrl' => 'pictureUrl',
-        'chatMode' => 'chatMode',
-        'markAsReadMode' => 'markAsReadMode'
+        'from' => 'from',
+        'to' => 'to'
     ];
 
     /**
@@ -214,13 +194,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'userId' => 'setUserId',
-        'basicId' => 'setBasicId',
-        'premiumId' => 'setPremiumId',
-        'displayName' => 'setDisplayName',
-        'pictureUrl' => 'setPictureUrl',
-        'chatMode' => 'setChatMode',
-        'markAsReadMode' => 'setMarkAsReadMode'
+        'from' => 'setFrom',
+        'to' => 'setTo'
     ];
 
     /**
@@ -229,13 +204,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'userId' => 'getUserId',
-        'basicId' => 'getBasicId',
-        'premiumId' => 'getPremiumId',
-        'displayName' => 'getDisplayName',
-        'pictureUrl' => 'getPictureUrl',
-        'chatMode' => 'getChatMode',
-        'markAsReadMode' => 'getMarkAsReadMode'
+        'from' => 'getFrom',
+        'to' => 'getTo'
     ];
 
     /**
@@ -279,36 +249,6 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const CHAT_MODE_CHAT = 'chat';
-    public const CHAT_MODE_BOT = 'bot';
-    public const MARK_AS_READ_MODE_AUTO = 'auto';
-    public const MARK_AS_READ_MODE_MANUAL = 'manual';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getChatModeAllowableValues()
-    {
-        return [
-            self::CHAT_MODE_CHAT,
-            self::CHAT_MODE_BOT,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMarkAsReadModeAllowableValues()
-    {
-        return [
-            self::MARK_AS_READ_MODE_AUTO,
-            self::MARK_AS_READ_MODE_MANUAL,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -325,13 +265,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('userId', $data ?? [], null);
-        $this->setIfExists('basicId', $data ?? [], null);
-        $this->setIfExists('premiumId', $data ?? [], null);
-        $this->setIfExists('displayName', $data ?? [], null);
-        $this->setIfExists('pictureUrl', $data ?? [], null);
-        $this->setIfExists('chatMode', $data ?? [], null);
-        $this->setIfExists('markAsReadMode', $data ?? [], null);
+        $this->setIfExists('from', $data ?? [], null);
+        $this->setIfExists('to', $data ?? [], null);
     }
 
     /**
@@ -361,39 +296,6 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['userId'] === null) {
-            $invalidProperties[] = "'userId' can't be null";
-        }
-        if ($this->container['basicId'] === null) {
-            $invalidProperties[] = "'basicId' can't be null";
-        }
-        if ($this->container['displayName'] === null) {
-            $invalidProperties[] = "'displayName' can't be null";
-        }
-        if ($this->container['chatMode'] === null) {
-            $invalidProperties[] = "'chatMode' can't be null";
-        }
-        $allowedValues = $this->getChatModeAllowableValues();
-        if (!is_null($this->container['chatMode']) && !in_array($this->container['chatMode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'chatMode', must be one of '%s'",
-                $this->container['chatMode'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['markAsReadMode'] === null) {
-            $invalidProperties[] = "'markAsReadMode' can't be null";
-        }
-        $allowedValues = $this->getMarkAsReadModeAllowableValues();
-        if (!is_null($this->container['markAsReadMode']) && !in_array($this->container['markAsReadMode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'markAsReadMode', must be one of '%s'",
-                $this->container['markAsReadMode'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -410,210 +312,55 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets userId
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['userId'];
-    }
-
-    /**
-     * Sets userId
-     *
-     * @param string $userId Bot's user ID
-     *
-     * @return self
-     */
-    public function setUserId($userId)
-    {
-        if (is_null($userId)) {
-            throw new \InvalidArgumentException('non-nullable userId cannot be null');
-        }
-        $this->container['userId'] = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Gets basicId
-     *
-     * @return string
-     */
-    public function getBasicId()
-    {
-        return $this->container['basicId'];
-    }
-
-    /**
-     * Sets basicId
-     *
-     * @param string $basicId Bot's basic ID
-     *
-     * @return self
-     */
-    public function setBasicId($basicId)
-    {
-        if (is_null($basicId)) {
-            throw new \InvalidArgumentException('non-nullable basicId cannot be null');
-        }
-        $this->container['basicId'] = $basicId;
-
-        return $this;
-    }
-
-    /**
-     * Gets premiumId
+     * Gets from
      *
      * @return string|null
      */
-    public function getPremiumId()
+    public function getFrom()
     {
-        return $this->container['premiumId'];
+        return $this->container['from'];
     }
 
     /**
-     * Sets premiumId
+     * Sets from
      *
-     * @param string|null $premiumId Bot's premium ID. Not included in the response if the premium ID isn't set.
+     * @param string|null $from from
      *
      * @return self
      */
-    public function setPremiumId($premiumId)
+    public function setFrom($from)
     {
-        if (is_null($premiumId)) {
-            throw new \InvalidArgumentException('non-nullable premiumId cannot be null');
+        if (is_null($from)) {
+            throw new \InvalidArgumentException('non-nullable from cannot be null');
         }
-        $this->container['premiumId'] = $premiumId;
+        $this->container['from'] = $from;
 
         return $this;
     }
 
     /**
-     * Gets displayName
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['displayName'];
-    }
-
-    /**
-     * Sets displayName
-     *
-     * @param string $displayName Bot's display name
-     *
-     * @return self
-     */
-    public function setDisplayName($displayName)
-    {
-        if (is_null($displayName)) {
-            throw new \InvalidArgumentException('non-nullable displayName cannot be null');
-        }
-        $this->container['displayName'] = $displayName;
-
-        return $this;
-    }
-
-    /**
-     * Gets pictureUrl
+     * Gets to
      *
      * @return string|null
      */
-    public function getPictureUrl()
+    public function getTo()
     {
-        return $this->container['pictureUrl'];
+        return $this->container['to'];
     }
 
     /**
-     * Sets pictureUrl
+     * Sets to
      *
-     * @param string|null $pictureUrl Profile image URL. `https` image URL. Not included in the response if the bot doesn't have a profile image.
+     * @param string|null $to to
      *
      * @return self
      */
-    public function setPictureUrl($pictureUrl)
+    public function setTo($to)
     {
-        if (is_null($pictureUrl)) {
-            throw new \InvalidArgumentException('non-nullable pictureUrl cannot be null');
+        if (is_null($to)) {
+            throw new \InvalidArgumentException('non-nullable to cannot be null');
         }
-        $this->container['pictureUrl'] = $pictureUrl;
-
-        return $this;
-    }
-
-    /**
-     * Gets chatMode
-     *
-     * @return string
-     */
-    public function getChatMode()
-    {
-        return $this->container['chatMode'];
-    }
-
-    /**
-     * Sets chatMode
-     *
-     * @param string $chatMode Chat settings set in the LINE Official Account Manager. One of:  `chat`: Chat is set to \"On\". `bot`: Chat is set to \"Off\".
-     *
-     * @return self
-     */
-    public function setChatMode($chatMode)
-    {
-        if (is_null($chatMode)) {
-            throw new \InvalidArgumentException('non-nullable chatMode cannot be null');
-        }
-        $allowedValues = $this->getChatModeAllowableValues();
-        if (!in_array($chatMode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'chatMode', must be one of '%s'",
-                    $chatMode,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['chatMode'] = $chatMode;
-
-        return $this;
-    }
-
-    /**
-     * Gets markAsReadMode
-     *
-     * @return string
-     */
-    public function getMarkAsReadMode()
-    {
-        return $this->container['markAsReadMode'];
-    }
-
-    /**
-     * Sets markAsReadMode
-     *
-     * @param string $markAsReadMode Automatic read setting for messages. If the chat is set to \"Off\", auto is returned. If the chat is set to \"On\", manual is returned.  `auto`: Auto read setting is enabled. `manual`: Auto read setting is disabled.
-     *
-     * @return self
-     */
-    public function setMarkAsReadMode($markAsReadMode)
-    {
-        if (is_null($markAsReadMode)) {
-            throw new \InvalidArgumentException('non-nullable markAsReadMode cannot be null');
-        }
-        $allowedValues = $this->getMarkAsReadModeAllowableValues();
-        if (!in_array($markAsReadMode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'markAsReadMode', must be one of '%s'",
-                    $markAsReadMode,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['markAsReadMode'] = $markAsReadMode;
+        $this->container['to'] = $to;
 
         return $this;
     }

@@ -78,7 +78,8 @@ class FlexIcon extends FlexComponent
         'offsetTop' => 'string',
         'offsetBottom' => 'string',
         'offsetStart' => 'string',
-        'offsetEnd' => 'string'
+        'offsetEnd' => 'string',
+        'scaling' => 'bool'
     ];
 
     /**
@@ -97,7 +98,8 @@ class FlexIcon extends FlexComponent
         'offsetTop' => null,
         'offsetBottom' => null,
         'offsetStart' => null,
-        'offsetEnd' => null
+        'offsetEnd' => null,
+        'scaling' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class FlexIcon extends FlexComponent
 		'offsetTop' => false,
 		'offsetBottom' => false,
 		'offsetStart' => false,
-		'offsetEnd' => false
+		'offsetEnd' => false,
+		'scaling' => false
     ];
 
     /**
@@ -211,7 +214,8 @@ class FlexIcon extends FlexComponent
         'offsetTop' => 'offsetTop',
         'offsetBottom' => 'offsetBottom',
         'offsetStart' => 'offsetStart',
-        'offsetEnd' => 'offsetEnd'
+        'offsetEnd' => 'offsetEnd',
+        'scaling' => 'scaling'
     ];
 
     /**
@@ -228,7 +232,8 @@ class FlexIcon extends FlexComponent
         'offsetTop' => 'setOffsetTop',
         'offsetBottom' => 'setOffsetBottom',
         'offsetStart' => 'setOffsetStart',
-        'offsetEnd' => 'setOffsetEnd'
+        'offsetEnd' => 'setOffsetEnd',
+        'scaling' => 'setScaling'
     ];
 
     /**
@@ -245,7 +250,8 @@ class FlexIcon extends FlexComponent
         'offsetTop' => 'getOffsetTop',
         'offsetBottom' => 'getOffsetBottom',
         'offsetStart' => 'getOffsetStart',
-        'offsetEnd' => 'getOffsetEnd'
+        'offsetEnd' => 'getOffsetEnd',
+        'scaling' => 'getScaling'
     ];
 
     /**
@@ -325,6 +331,7 @@ class FlexIcon extends FlexComponent
         $this->setIfExists('offsetBottom', $data ?? [], null);
         $this->setIfExists('offsetStart', $data ?? [], null);
         $this->setIfExists('offsetEnd', $data ?? [], null);
+        $this->setIfExists('scaling', $data ?? [], null);
     }
 
     /**
@@ -627,6 +634,33 @@ class FlexIcon extends FlexComponent
             throw new \InvalidArgumentException('non-nullable offsetEnd cannot be null');
         }
         $this->container['offsetEnd'] = $offsetEnd;
+
+        return $this;
+    }
+
+    /**
+     * Gets scaling
+     *
+     * @return bool|null
+     */
+    public function getScaling()
+    {
+        return $this->container['scaling'];
+    }
+
+    /**
+     * Sets scaling
+     *
+     * @param bool|null $scaling scaling
+     *
+     * @return self
+     */
+    public function setScaling($scaling)
+    {
+        if (is_null($scaling)) {
+            throw new \InvalidArgumentException('non-nullable scaling cannot be null');
+        }
+        $this->container['scaling'] = $scaling;
 
         return $this;
     }

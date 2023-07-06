@@ -90,7 +90,8 @@ class FlexText extends FlexComponent
         'action' => '\LINE\Clients\MessagingApi\Model\Action',
         'maxLines' => 'int',
         'contents' => '\LINE\Clients\MessagingApi\Model\FlexSpan[]',
-        'adjustMode' => 'string'
+        'adjustMode' => 'string',
+        'scaling' => 'bool'
     ];
 
     /**
@@ -121,7 +122,8 @@ class FlexText extends FlexComponent
         'action' => null,
         'maxLines' => 'int32',
         'contents' => null,
-        'adjustMode' => null
+        'adjustMode' => null,
+        'scaling' => null
     ];
 
     /**
@@ -150,7 +152,8 @@ class FlexText extends FlexComponent
 		'action' => false,
 		'maxLines' => false,
 		'contents' => false,
-		'adjustMode' => false
+		'adjustMode' => false,
+		'scaling' => false
     ];
 
     /**
@@ -259,7 +262,8 @@ class FlexText extends FlexComponent
         'action' => 'action',
         'maxLines' => 'maxLines',
         'contents' => 'contents',
-        'adjustMode' => 'adjustMode'
+        'adjustMode' => 'adjustMode',
+        'scaling' => 'scaling'
     ];
 
     /**
@@ -288,7 +292,8 @@ class FlexText extends FlexComponent
         'action' => 'setAction',
         'maxLines' => 'setMaxLines',
         'contents' => 'setContents',
-        'adjustMode' => 'setAdjustMode'
+        'adjustMode' => 'setAdjustMode',
+        'scaling' => 'setScaling'
     ];
 
     /**
@@ -317,7 +322,8 @@ class FlexText extends FlexComponent
         'action' => 'getAction',
         'maxLines' => 'getMaxLines',
         'contents' => 'getContents',
-        'adjustMode' => 'getAdjustMode'
+        'adjustMode' => 'getAdjustMode',
+        'scaling' => 'getScaling'
     ];
 
     /**
@@ -503,6 +509,7 @@ class FlexText extends FlexComponent
         $this->setIfExists('maxLines', $data ?? [], null);
         $this->setIfExists('contents', $data ?? [], null);
         $this->setIfExists('adjustMode', $data ?? [], null);
+        $this->setIfExists('scaling', $data ?? [], null);
     }
 
     /**
@@ -1243,6 +1250,33 @@ class FlexText extends FlexComponent
             );
         }
         $this->container['adjustMode'] = $adjustMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets scaling
+     *
+     * @return bool|null
+     */
+    public function getScaling()
+    {
+        return $this->container['scaling'];
+    }
+
+    /**
+     * Sets scaling
+     *
+     * @param bool|null $scaling scaling
+     *
+     * @return self
+     */
+    public function setScaling($scaling)
+    {
+        if (is_null($scaling)) {
+            throw new \InvalidArgumentException('non-nullable scaling cannot be null');
+        }
+        $this->container['scaling'] = $scaling;
 
         return $this;
     }

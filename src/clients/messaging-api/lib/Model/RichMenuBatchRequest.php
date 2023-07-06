@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * BotInfoResponse
+ * RichMenuBatchRequest
  *
  * PHP version 7.4
  *
@@ -47,7 +47,7 @@ use \ArrayAccess;
 use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
- * BotInfoResponse Class Doc Comment
+ * RichMenuBatchRequest Class Doc Comment
  *
  * @category Class
  * @package  LINE\Clients\MessagingApi
@@ -55,7 +55,7 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class RichMenuBatchRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BotInfoResponse';
+    protected static $openAPIModelName = 'RichMenuBatchRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,13 +72,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'userId' => 'string',
-        'basicId' => 'string',
-        'premiumId' => 'string',
-        'displayName' => 'string',
-        'pictureUrl' => 'string',
-        'chatMode' => 'string',
-        'markAsReadMode' => 'string'
+        'operations' => '\LINE\Clients\MessagingApi\Model\RichMenuBatchOperation[]',
+        'resumeRequestKey' => 'string'
     ];
 
     /**
@@ -89,13 +84,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'userId' => null,
-        'basicId' => null,
-        'premiumId' => null,
-        'displayName' => null,
-        'pictureUrl' => 'uri',
-        'chatMode' => null,
-        'markAsReadMode' => null
+        'operations' => null,
+        'resumeRequestKey' => null
     ];
 
     /**
@@ -104,13 +94,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'userId' => false,
-		'basicId' => false,
-		'premiumId' => false,
-		'displayName' => false,
-		'pictureUrl' => false,
-		'chatMode' => false,
-		'markAsReadMode' => false
+        'operations' => false,
+		'resumeRequestKey' => false
     ];
 
     /**
@@ -199,13 +184,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'userId' => 'userId',
-        'basicId' => 'basicId',
-        'premiumId' => 'premiumId',
-        'displayName' => 'displayName',
-        'pictureUrl' => 'pictureUrl',
-        'chatMode' => 'chatMode',
-        'markAsReadMode' => 'markAsReadMode'
+        'operations' => 'operations',
+        'resumeRequestKey' => 'resumeRequestKey'
     ];
 
     /**
@@ -214,13 +194,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'userId' => 'setUserId',
-        'basicId' => 'setBasicId',
-        'premiumId' => 'setPremiumId',
-        'displayName' => 'setDisplayName',
-        'pictureUrl' => 'setPictureUrl',
-        'chatMode' => 'setChatMode',
-        'markAsReadMode' => 'setMarkAsReadMode'
+        'operations' => 'setOperations',
+        'resumeRequestKey' => 'setResumeRequestKey'
     ];
 
     /**
@@ -229,13 +204,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'userId' => 'getUserId',
-        'basicId' => 'getBasicId',
-        'premiumId' => 'getPremiumId',
-        'displayName' => 'getDisplayName',
-        'pictureUrl' => 'getPictureUrl',
-        'chatMode' => 'getChatMode',
-        'markAsReadMode' => 'getMarkAsReadMode'
+        'operations' => 'getOperations',
+        'resumeRequestKey' => 'getResumeRequestKey'
     ];
 
     /**
@@ -279,36 +249,6 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const CHAT_MODE_CHAT = 'chat';
-    public const CHAT_MODE_BOT = 'bot';
-    public const MARK_AS_READ_MODE_AUTO = 'auto';
-    public const MARK_AS_READ_MODE_MANUAL = 'manual';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getChatModeAllowableValues()
-    {
-        return [
-            self::CHAT_MODE_CHAT,
-            self::CHAT_MODE_BOT,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMarkAsReadModeAllowableValues()
-    {
-        return [
-            self::MARK_AS_READ_MODE_AUTO,
-            self::MARK_AS_READ_MODE_MANUAL,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -325,13 +265,8 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('userId', $data ?? [], null);
-        $this->setIfExists('basicId', $data ?? [], null);
-        $this->setIfExists('premiumId', $data ?? [], null);
-        $this->setIfExists('displayName', $data ?? [], null);
-        $this->setIfExists('pictureUrl', $data ?? [], null);
-        $this->setIfExists('chatMode', $data ?? [], null);
-        $this->setIfExists('markAsReadMode', $data ?? [], null);
+        $this->setIfExists('operations', $data ?? [], null);
+        $this->setIfExists('resumeRequestKey', $data ?? [], null);
     }
 
     /**
@@ -361,37 +296,23 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['userId'] === null) {
-            $invalidProperties[] = "'userId' can't be null";
+        if ($this->container['operations'] === null) {
+            $invalidProperties[] = "'operations' can't be null";
         }
-        if ($this->container['basicId'] === null) {
-            $invalidProperties[] = "'basicId' can't be null";
-        }
-        if ($this->container['displayName'] === null) {
-            $invalidProperties[] = "'displayName' can't be null";
-        }
-        if ($this->container['chatMode'] === null) {
-            $invalidProperties[] = "'chatMode' can't be null";
-        }
-        $allowedValues = $this->getChatModeAllowableValues();
-        if (!is_null($this->container['chatMode']) && !in_array($this->container['chatMode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'chatMode', must be one of '%s'",
-                $this->container['chatMode'],
-                implode("', '", $allowedValues)
-            );
+        if ((count($this->container['operations']) > 1000)) {
+            $invalidProperties[] = "invalid value for 'operations', number of items must be less than or equal to 1000.";
         }
 
-        if ($this->container['markAsReadMode'] === null) {
-            $invalidProperties[] = "'markAsReadMode' can't be null";
+        if (!is_null($this->container['resumeRequestKey']) && (mb_strlen($this->container['resumeRequestKey']) > 100)) {
+            $invalidProperties[] = "invalid value for 'resumeRequestKey', the character length must be smaller than or equal to 100.";
         }
-        $allowedValues = $this->getMarkAsReadModeAllowableValues();
-        if (!is_null($this->container['markAsReadMode']) && !in_array($this->container['markAsReadMode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'markAsReadMode', must be one of '%s'",
-                $this->container['markAsReadMode'],
-                implode("', '", $allowedValues)
-            );
+
+        if (!is_null($this->container['resumeRequestKey']) && (mb_strlen($this->container['resumeRequestKey']) < 1)) {
+            $invalidProperties[] = "invalid value for 'resumeRequestKey', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['resumeRequestKey']) && !preg_match("/^[a-zA-Z0-9_-]{1,100}$/", $this->container['resumeRequestKey'])) {
+            $invalidProperties[] = "invalid value for 'resumeRequestKey', must be conform to the pattern /^[a-zA-Z0-9_-]{1,100}$/.";
         }
 
         return $invalidProperties;
@@ -410,210 +331,69 @@ class BotInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets userId
+     * Gets operations
      *
-     * @return string
+     * @return \LINE\Clients\MessagingApi\Model\RichMenuBatchOperation[]
      */
-    public function getUserId()
+    public function getOperations()
     {
-        return $this->container['userId'];
+        return $this->container['operations'];
     }
 
     /**
-     * Sets userId
+     * Sets operations
      *
-     * @param string $userId Bot's user ID
+     * @param \LINE\Clients\MessagingApi\Model\RichMenuBatchOperation[] $operations Array of Rich menu operation object...
      *
      * @return self
      */
-    public function setUserId($userId)
+    public function setOperations($operations)
     {
-        if (is_null($userId)) {
-            throw new \InvalidArgumentException('non-nullable userId cannot be null');
+        if (is_null($operations)) {
+            throw new \InvalidArgumentException('non-nullable operations cannot be null');
         }
-        $this->container['userId'] = $userId;
+
+        if ((count($operations) > 1000)) {
+            throw new \InvalidArgumentException('invalid value for $operations when calling RichMenuBatchRequest., number of items must be less than or equal to 1000.');
+        }
+        $this->container['operations'] = $operations;
 
         return $this;
     }
 
     /**
-     * Gets basicId
-     *
-     * @return string
-     */
-    public function getBasicId()
-    {
-        return $this->container['basicId'];
-    }
-
-    /**
-     * Sets basicId
-     *
-     * @param string $basicId Bot's basic ID
-     *
-     * @return self
-     */
-    public function setBasicId($basicId)
-    {
-        if (is_null($basicId)) {
-            throw new \InvalidArgumentException('non-nullable basicId cannot be null');
-        }
-        $this->container['basicId'] = $basicId;
-
-        return $this;
-    }
-
-    /**
-     * Gets premiumId
+     * Gets resumeRequestKey
      *
      * @return string|null
      */
-    public function getPremiumId()
+    public function getResumeRequestKey()
     {
-        return $this->container['premiumId'];
+        return $this->container['resumeRequestKey'];
     }
 
     /**
-     * Sets premiumId
+     * Sets resumeRequestKey
      *
-     * @param string|null $premiumId Bot's premium ID. Not included in the response if the premium ID isn't set.
+     * @param string|null $resumeRequestKey Key for retry. Key value is a string matching the regular expression pattern
      *
      * @return self
      */
-    public function setPremiumId($premiumId)
+    public function setResumeRequestKey($resumeRequestKey)
     {
-        if (is_null($premiumId)) {
-            throw new \InvalidArgumentException('non-nullable premiumId cannot be null');
+        if (is_null($resumeRequestKey)) {
+            throw new \InvalidArgumentException('non-nullable resumeRequestKey cannot be null');
         }
-        $this->container['premiumId'] = $premiumId;
-
-        return $this;
-    }
-
-    /**
-     * Gets displayName
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['displayName'];
-    }
-
-    /**
-     * Sets displayName
-     *
-     * @param string $displayName Bot's display name
-     *
-     * @return self
-     */
-    public function setDisplayName($displayName)
-    {
-        if (is_null($displayName)) {
-            throw new \InvalidArgumentException('non-nullable displayName cannot be null');
+        if ((mb_strlen($resumeRequestKey) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $resumeRequestKey when calling RichMenuBatchRequest., must be smaller than or equal to 100.');
         }
-        $this->container['displayName'] = $displayName;
-
-        return $this;
-    }
-
-    /**
-     * Gets pictureUrl
-     *
-     * @return string|null
-     */
-    public function getPictureUrl()
-    {
-        return $this->container['pictureUrl'];
-    }
-
-    /**
-     * Sets pictureUrl
-     *
-     * @param string|null $pictureUrl Profile image URL. `https` image URL. Not included in the response if the bot doesn't have a profile image.
-     *
-     * @return self
-     */
-    public function setPictureUrl($pictureUrl)
-    {
-        if (is_null($pictureUrl)) {
-            throw new \InvalidArgumentException('non-nullable pictureUrl cannot be null');
+        if ((mb_strlen($resumeRequestKey) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $resumeRequestKey when calling RichMenuBatchRequest., must be bigger than or equal to 1.');
         }
-        $this->container['pictureUrl'] = $pictureUrl;
-
-        return $this;
-    }
-
-    /**
-     * Gets chatMode
-     *
-     * @return string
-     */
-    public function getChatMode()
-    {
-        return $this->container['chatMode'];
-    }
-
-    /**
-     * Sets chatMode
-     *
-     * @param string $chatMode Chat settings set in the LINE Official Account Manager. One of:  `chat`: Chat is set to \"On\". `bot`: Chat is set to \"Off\".
-     *
-     * @return self
-     */
-    public function setChatMode($chatMode)
-    {
-        if (is_null($chatMode)) {
-            throw new \InvalidArgumentException('non-nullable chatMode cannot be null');
+        if ((!preg_match("/^[a-zA-Z0-9_-]{1,100}$/", $resumeRequestKey))) {
+            throw new \InvalidArgumentException("invalid value for \$resumeRequestKey when calling RichMenuBatchRequest., must conform to the pattern /^[a-zA-Z0-9_-]{1,100}$/.");
         }
-        $allowedValues = $this->getChatModeAllowableValues();
-        if (!in_array($chatMode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'chatMode', must be one of '%s'",
-                    $chatMode,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['chatMode'] = $chatMode;
 
-        return $this;
-    }
-
-    /**
-     * Gets markAsReadMode
-     *
-     * @return string
-     */
-    public function getMarkAsReadMode()
-    {
-        return $this->container['markAsReadMode'];
-    }
-
-    /**
-     * Sets markAsReadMode
-     *
-     * @param string $markAsReadMode Automatic read setting for messages. If the chat is set to \"Off\", auto is returned. If the chat is set to \"On\", manual is returned.  `auto`: Auto read setting is enabled. `manual`: Auto read setting is disabled.
-     *
-     * @return self
-     */
-    public function setMarkAsReadMode($markAsReadMode)
-    {
-        if (is_null($markAsReadMode)) {
-            throw new \InvalidArgumentException('non-nullable markAsReadMode cannot be null');
-        }
-        $allowedValues = $this->getMarkAsReadModeAllowableValues();
-        if (!in_array($markAsReadMode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'markAsReadMode', must be one of '%s'",
-                    $markAsReadMode,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['markAsReadMode'] = $markAsReadMode;
+        $this->container['resumeRequestKey'] = $resumeRequestKey;
 
         return $this;
     }

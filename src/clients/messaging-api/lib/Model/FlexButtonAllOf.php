@@ -84,7 +84,8 @@ class FlexButtonAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'offsetStart' => 'string',
         'offsetEnd' => 'string',
         'height' => 'string',
-        'adjustMode' => 'string'
+        'adjustMode' => 'string',
+        'scaling' => 'bool'
     ];
 
     /**
@@ -107,7 +108,8 @@ class FlexButtonAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'offsetStart' => null,
         'offsetEnd' => null,
         'height' => null,
-        'adjustMode' => null
+        'adjustMode' => null,
+        'scaling' => null
     ];
 
     /**
@@ -128,7 +130,8 @@ class FlexButtonAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
 		'offsetStart' => false,
 		'offsetEnd' => false,
 		'height' => false,
-		'adjustMode' => false
+		'adjustMode' => false,
+		'scaling' => false
     ];
 
     /**
@@ -229,7 +232,8 @@ class FlexButtonAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'offsetStart' => 'offsetStart',
         'offsetEnd' => 'offsetEnd',
         'height' => 'height',
-        'adjustMode' => 'adjustMode'
+        'adjustMode' => 'adjustMode',
+        'scaling' => 'scaling'
     ];
 
     /**
@@ -250,7 +254,8 @@ class FlexButtonAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'offsetStart' => 'setOffsetStart',
         'offsetEnd' => 'setOffsetEnd',
         'height' => 'setHeight',
-        'adjustMode' => 'setAdjustMode'
+        'adjustMode' => 'setAdjustMode',
+        'scaling' => 'setScaling'
     ];
 
     /**
@@ -271,7 +276,8 @@ class FlexButtonAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'offsetStart' => 'getOffsetStart',
         'offsetEnd' => 'getOffsetEnd',
         'height' => 'getHeight',
-        'adjustMode' => 'getAdjustMode'
+        'adjustMode' => 'getAdjustMode',
+        'scaling' => 'getScaling'
     ];
 
     /**
@@ -421,6 +427,7 @@ class FlexButtonAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('offsetEnd', $data ?? [], null);
         $this->setIfExists('height', $data ?? [], null);
         $this->setIfExists('adjustMode', $data ?? [], null);
+        $this->setIfExists('scaling', $data ?? [], null);
     }
 
     /**
@@ -907,6 +914,33 @@ class FlexButtonAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['adjustMode'] = $adjustMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets scaling
+     *
+     * @return bool|null
+     */
+    public function getScaling()
+    {
+        return $this->container['scaling'];
+    }
+
+    /**
+     * Sets scaling
+     *
+     * @param bool|null $scaling scaling
+     *
+     * @return self
+     */
+    public function setScaling($scaling)
+    {
+        if (is_null($scaling)) {
+            throw new \InvalidArgumentException('non-nullable scaling cannot be null');
+        }
+        $this->container['scaling'] = $scaling;
 
         return $this;
     }
