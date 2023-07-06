@@ -572,7 +572,7 @@ class NarrowcastProgressResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets acceptedTime
      *
-     * @param \DateTime $acceptedTime Narrowcast message request accepted time in milliseconds.  Format: ISO 8601 (opens new window)(e.g. 2020-12-03T10:15:30.121Z) Timezone: UTC
+     * @param \DateTime $acceptedTime Narrowcast message request accepted time in milliseconds.  Format: ISO 8601 (e.g. 2020-12-03T10:15:30.121Z) Timezone: UTC
      *
      * @return self
      */
@@ -599,7 +599,7 @@ class NarrowcastProgressResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets completedTime
      *
-     * @param \DateTime|null $completedTime Processing of narrowcast message request completion time in milliseconds. Returned when the phase property is succeeded or failed.  Format: ISO 8601 (opens new window)(e.g. 2020-12-03T10:15:30.121Z) Timezone: UTC
+     * @param \DateTime|null $completedTime Processing of narrowcast message request completion time in milliseconds. Returned when the phase property is succeeded or failed.  Format: ISO 8601 (e.g. 2020-12-03T10:15:30.121Z) Timezone: UTC
      *
      * @return self
      */

@@ -82,7 +82,8 @@ class FlexButton extends FlexComponent
         'offsetStart' => 'string',
         'offsetEnd' => 'string',
         'height' => 'string',
-        'adjustMode' => 'string'
+        'adjustMode' => 'string',
+        'scaling' => 'bool'
     ];
 
     /**
@@ -105,7 +106,8 @@ class FlexButton extends FlexComponent
         'offsetStart' => null,
         'offsetEnd' => null,
         'height' => null,
-        'adjustMode' => null
+        'adjustMode' => null,
+        'scaling' => null
     ];
 
     /**
@@ -126,7 +128,8 @@ class FlexButton extends FlexComponent
 		'offsetStart' => false,
 		'offsetEnd' => false,
 		'height' => false,
-		'adjustMode' => false
+		'adjustMode' => false,
+		'scaling' => false
     ];
 
     /**
@@ -227,7 +230,8 @@ class FlexButton extends FlexComponent
         'offsetStart' => 'offsetStart',
         'offsetEnd' => 'offsetEnd',
         'height' => 'height',
-        'adjustMode' => 'adjustMode'
+        'adjustMode' => 'adjustMode',
+        'scaling' => 'scaling'
     ];
 
     /**
@@ -248,7 +252,8 @@ class FlexButton extends FlexComponent
         'offsetStart' => 'setOffsetStart',
         'offsetEnd' => 'setOffsetEnd',
         'height' => 'setHeight',
-        'adjustMode' => 'setAdjustMode'
+        'adjustMode' => 'setAdjustMode',
+        'scaling' => 'setScaling'
     ];
 
     /**
@@ -269,7 +274,8 @@ class FlexButton extends FlexComponent
         'offsetStart' => 'getOffsetStart',
         'offsetEnd' => 'getOffsetEnd',
         'height' => 'getHeight',
-        'adjustMode' => 'getAdjustMode'
+        'adjustMode' => 'getAdjustMode',
+        'scaling' => 'getScaling'
     ];
 
     /**
@@ -415,6 +421,7 @@ class FlexButton extends FlexComponent
         $this->setIfExists('offsetEnd', $data ?? [], null);
         $this->setIfExists('height', $data ?? [], null);
         $this->setIfExists('adjustMode', $data ?? [], null);
+        $this->setIfExists('scaling', $data ?? [], null);
     }
 
     /**
@@ -901,6 +908,33 @@ class FlexButton extends FlexComponent
             );
         }
         $this->container['adjustMode'] = $adjustMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets scaling
+     *
+     * @return bool|null
+     */
+    public function getScaling()
+    {
+        return $this->container['scaling'];
+    }
+
+    /**
+     * Sets scaling
+     *
+     * @param bool|null $scaling scaling
+     *
+     * @return self
+     */
+    public function setScaling($scaling)
+    {
+        if (is_null($scaling)) {
+            throw new \InvalidArgumentException('non-nullable scaling cannot be null');
+        }
+        $this->container['scaling'] = $scaling;
 
         return $this;
     }

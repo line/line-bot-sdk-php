@@ -287,6 +287,8 @@ class FlexBubble extends FlexContainer
     public const DIRECTION_RTL = 'rtl';
     public const SIZE_NANO = 'nano';
     public const SIZE_MICRO = 'micro';
+    public const SIZE_DECA = 'deca';
+    public const SIZE_HECTO = 'hecto';
     public const SIZE_KILO = 'kilo';
     public const SIZE_MEGA = 'mega';
     public const SIZE_GIGA = 'giga';
@@ -314,6 +316,8 @@ class FlexBubble extends FlexContainer
         return [
             self::SIZE_NANO,
             self::SIZE_MICRO,
+            self::SIZE_DECA,
+            self::SIZE_HECTO,
             self::SIZE_KILO,
             self::SIZE_MEGA,
             self::SIZE_GIGA,
