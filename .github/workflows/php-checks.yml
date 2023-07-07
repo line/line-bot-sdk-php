@@ -59,8 +59,3 @@ jobs:
       - name: Run unit tests
         if: matrix.analysis
         run: ./vendor/bin/phpunit --debug --test-suffix=Test.php
-
-      - name: Document (test)
-        run: |
-          wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar
-          php phpDocumentor.phar run -d src -t docs
