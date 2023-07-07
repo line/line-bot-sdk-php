@@ -126,7 +126,7 @@ https://line.github.io/line-bot-sdk-php/
 
 This library provides PHPDoc to describe how to use the methods. You can generate the documentation using phpDocumenter using the following command.
 
-$ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.0.0/phpDocumentor.phar
+$ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar
 $ php phpDocumentor.phar run -d src -t docs
 The HTML files are generated in docs/.
 
