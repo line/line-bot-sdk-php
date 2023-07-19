@@ -86,16 +86,16 @@ class LiffApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'liffV1AppsGet' => [
+        'addLIFFApp' => [
             'application/json',
         ],
-        'liffV1AppsLiffIdDelete' => [
+        'deleteLIFFApp' => [
             'application/json',
         ],
-        'liffV1AppsLiffIdPut' => [
+        'getAllLIFFApps' => [
             'application/json',
         ],
-        'liffV1AppsPost' => [
+        'updateLIFFApp' => [
             'application/json',
         ],
     ];
@@ -147,778 +147,34 @@ class LiffApi
     }
 
     /**
-     * Operation liffV1AppsGet
-     *
-     * Get all LIFF apps
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsGet'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \LINE\Clients\Liff\Model\GetAllLiffAppsResponse
-     */
-    public function liffV1AppsGet(string $contentType = self::contentTypes['liffV1AppsGet'][0])
-    {
-        list($response) = $this->liffV1AppsGetWithHttpInfo($contentType);
-        return $response;
-    }
-
-    /**
-     * Operation liffV1AppsGetWithHttpInfo
-     *
-     * Get all LIFF apps
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsGet'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \LINE\Clients\Liff\Model\GetAllLiffAppsResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function liffV1AppsGetWithHttpInfo(string $contentType = self::contentTypes['liffV1AppsGet'][0])
-    {
-        $request = $this->liffV1AppsGetRequest($contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\LINE\Clients\Liff\Model\GetAllLiffAppsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\LINE\Clients\Liff\Model\GetAllLiffAppsResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation liffV1AppsGetAsync
-     *
-     * Get all LIFF apps
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function liffV1AppsGetAsync(string $contentType = self::contentTypes['liffV1AppsGet'][0])
-    {
-        return $this->liffV1AppsGetAsyncWithHttpInfo($contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation liffV1AppsGetAsyncWithHttpInfo
-     *
-     * Get all LIFF apps
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function liffV1AppsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['liffV1AppsGet'][0])
-    {
-        $returnType = '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse';
-        $request = $this->liffV1AppsGetRequest($contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'liffV1AppsGet'
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function liffV1AppsGetRequest(string $contentType = self::contentTypes['liffV1AppsGet'][0])
-    {
-
-
-        $resourcePath = '/liff/v1/apps';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation liffV1AppsLiffIdDelete
-     *
-     * Delete LIFF app from a channel
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdDelete'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function liffV1AppsLiffIdDelete($liffId, string $contentType = self::contentTypes['liffV1AppsLiffIdDelete'][0])
-    {
-        $this->liffV1AppsLiffIdDeleteWithHttpInfo($liffId, $contentType);
-    }
-
-    /**
-     * Operation liffV1AppsLiffIdDeleteWithHttpInfo
-     *
-     * Delete LIFF app from a channel
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdDelete'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function liffV1AppsLiffIdDeleteWithHttpInfo($liffId, string $contentType = self::contentTypes['liffV1AppsLiffIdDelete'][0])
-    {
-        $request = $this->liffV1AppsLiffIdDeleteRequest($liffId, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation liffV1AppsLiffIdDeleteAsync
-     *
-     * Delete LIFF app from a channel
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function liffV1AppsLiffIdDeleteAsync($liffId, string $contentType = self::contentTypes['liffV1AppsLiffIdDelete'][0])
-    {
-        return $this->liffV1AppsLiffIdDeleteAsyncWithHttpInfo($liffId, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation liffV1AppsLiffIdDeleteAsyncWithHttpInfo
-     *
-     * Delete LIFF app from a channel
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function liffV1AppsLiffIdDeleteAsyncWithHttpInfo($liffId, string $contentType = self::contentTypes['liffV1AppsLiffIdDelete'][0])
-    {
-        $returnType = '';
-        $request = $this->liffV1AppsLiffIdDeleteRequest($liffId, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'liffV1AppsLiffIdDelete'
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function liffV1AppsLiffIdDeleteRequest($liffId, string $contentType = self::contentTypes['liffV1AppsLiffIdDelete'][0])
-    {
-
-        // verify the required parameter 'liffId' is set
-        if ($liffId === null || (is_array($liffId) && count($liffId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $liffId when calling liffV1AppsLiffIdDelete'
-            );
-        }
-
-
-        $resourcePath = '/liff/v1/apps/{liffId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($liffId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'liffId' . '}',
-                ObjectSerializer::toPathValue($liffId),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation liffV1AppsLiffIdPut
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest updateLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function liffV1AppsLiffIdPut($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsLiffIdPut'][0])
-    {
-        $this->liffV1AppsLiffIdPutWithHttpInfo($liffId, $updateLiffAppRequest, $contentType);
-    }
-
-    /**
-     * Operation liffV1AppsLiffIdPutWithHttpInfo
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function liffV1AppsLiffIdPutWithHttpInfo($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsLiffIdPut'][0])
-    {
-        $request = $this->liffV1AppsLiffIdPutRequest($liffId, $updateLiffAppRequest, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation liffV1AppsLiffIdPutAsync
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function liffV1AppsLiffIdPutAsync($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsLiffIdPut'][0])
-    {
-        return $this->liffV1AppsLiffIdPutAsyncWithHttpInfo($liffId, $updateLiffAppRequest, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation liffV1AppsLiffIdPutAsyncWithHttpInfo
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function liffV1AppsLiffIdPutAsyncWithHttpInfo($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsLiffIdPut'][0])
-    {
-        $returnType = '';
-        $request = $this->liffV1AppsLiffIdPutRequest($liffId, $updateLiffAppRequest, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'liffV1AppsLiffIdPut'
-     *
-     * @param  string $liffId ID of the LIFF app to be updated (required)
-     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsLiffIdPut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function liffV1AppsLiffIdPutRequest($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsLiffIdPut'][0])
-    {
-
-        // verify the required parameter 'liffId' is set
-        if ($liffId === null || (is_array($liffId) && count($liffId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $liffId when calling liffV1AppsLiffIdPut'
-            );
-        }
-
-        // verify the required parameter 'updateLiffAppRequest' is set
-        if ($updateLiffAppRequest === null || (is_array($updateLiffAppRequest) && count($updateLiffAppRequest) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $updateLiffAppRequest when calling liffV1AppsLiffIdPut'
-            );
-        }
-
-
-        $resourcePath = '/liff/v1/apps/{liffId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($liffId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'liffId' . '}',
-                ObjectSerializer::toPathValue($liffId),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($updateLiffAppRequest)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($updateLiffAppRequest));
-            } else {
-                $httpBody = $updateLiffAppRequest;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation liffV1AppsPost
+     * Operation addLIFFApp
      *
      * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest addLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addLIFFApp'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \LINE\Clients\Liff\Model\AddLiffAppResponse
      */
-    public function liffV1AppsPost($addLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsPost'][0])
+    public function addLIFFApp($addLiffAppRequest, string $contentType = self::contentTypes['addLIFFApp'][0])
     {
-        list($response) = $this->liffV1AppsPostWithHttpInfo($addLiffAppRequest, $contentType);
+        list($response) = $this->addLIFFAppWithHttpInfo($addLiffAppRequest, $contentType);
         return $response;
     }
 
     /**
-     * Operation liffV1AppsPostWithHttpInfo
+     * Operation addLIFFAppWithHttpInfo
      *
      * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addLIFFApp'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\Liff\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \LINE\Clients\Liff\Model\AddLiffAppResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function liffV1AppsPostWithHttpInfo($addLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsPost'][0])
+    public function addLIFFAppWithHttpInfo($addLiffAppRequest, string $contentType = self::contentTypes['addLIFFApp'][0])
     {
-        $request = $this->liffV1AppsPostRequest($addLiffAppRequest, $contentType);
+        $request = $this->addLIFFAppRequest($addLiffAppRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1005,17 +261,17 @@ class LiffApi
     }
 
     /**
-     * Operation liffV1AppsPostAsync
+     * Operation addLIFFAppAsync
      *
      * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addLIFFApp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function liffV1AppsPostAsync($addLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsPost'][0])
+    public function addLIFFAppAsync($addLiffAppRequest, string $contentType = self::contentTypes['addLIFFApp'][0])
     {
-        return $this->liffV1AppsPostAsyncWithHttpInfo($addLiffAppRequest, $contentType)
+        return $this->addLIFFAppAsyncWithHttpInfo($addLiffAppRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1024,18 +280,18 @@ class LiffApi
     }
 
     /**
-     * Operation liffV1AppsPostAsyncWithHttpInfo
+     * Operation addLIFFAppAsyncWithHttpInfo
      *
      * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addLIFFApp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function liffV1AppsPostAsyncWithHttpInfo($addLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsPost'][0])
+    public function addLIFFAppAsyncWithHttpInfo($addLiffAppRequest, string $contentType = self::contentTypes['addLIFFApp'][0])
     {
         $returnType = '\LINE\Clients\Liff\Model\AddLiffAppResponse';
-        $request = $this->liffV1AppsPostRequest($addLiffAppRequest, $contentType);
+        $request = $this->addLIFFAppRequest($addLiffAppRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1074,21 +330,21 @@ class LiffApi
     }
 
     /**
-     * Create request for operation 'liffV1AppsPost'
+     * Create request for operation 'addLIFFApp'
      *
      * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liffV1AppsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addLIFFApp'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function liffV1AppsPostRequest($addLiffAppRequest, string $contentType = self::contentTypes['liffV1AppsPost'][0])
+    public function addLIFFAppRequest($addLiffAppRequest, string $contentType = self::contentTypes['addLIFFApp'][0])
     {
 
         // verify the required parameter 'addLiffAppRequest' is set
         if ($addLiffAppRequest === null || (is_array($addLiffAppRequest) && count($addLiffAppRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $addLiffAppRequest when calling liffV1AppsPost'
+                'Missing the required parameter $addLiffAppRequest when calling addLIFFApp'
             );
         }
 
@@ -1162,6 +418,750 @@ class LiffApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteLIFFApp
+     *
+     * Delete LIFF app from a channel
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteLIFFApp($liffId, string $contentType = self::contentTypes['deleteLIFFApp'][0])
+    {
+        $this->deleteLIFFAppWithHttpInfo($liffId, $contentType);
+    }
+
+    /**
+     * Operation deleteLIFFAppWithHttpInfo
+     *
+     * Delete LIFF app from a channel
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteLIFFAppWithHttpInfo($liffId, string $contentType = self::contentTypes['deleteLIFFApp'][0])
+    {
+        $request = $this->deleteLIFFAppRequest($liffId, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteLIFFAppAsync
+     *
+     * Delete LIFF app from a channel
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteLIFFAppAsync($liffId, string $contentType = self::contentTypes['deleteLIFFApp'][0])
+    {
+        return $this->deleteLIFFAppAsyncWithHttpInfo($liffId, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteLIFFAppAsyncWithHttpInfo
+     *
+     * Delete LIFF app from a channel
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteLIFFAppAsyncWithHttpInfo($liffId, string $contentType = self::contentTypes['deleteLIFFApp'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteLIFFAppRequest($liffId, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteLIFFApp'
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteLIFFAppRequest($liffId, string $contentType = self::contentTypes['deleteLIFFApp'][0])
+    {
+
+        // verify the required parameter 'liffId' is set
+        if ($liffId === null || (is_array($liffId) && count($liffId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $liffId when calling deleteLIFFApp'
+            );
+        }
+
+
+        $resourcePath = '/liff/v1/apps/{liffId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($liffId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'liffId' . '}',
+                ObjectSerializer::toPathValue($liffId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAllLIFFApps
+     *
+     * Get all LIFF apps
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllLIFFApps'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\Liff\Model\GetAllLiffAppsResponse
+     */
+    public function getAllLIFFApps(string $contentType = self::contentTypes['getAllLIFFApps'][0])
+    {
+        list($response) = $this->getAllLIFFAppsWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getAllLIFFAppsWithHttpInfo
+     *
+     * Get all LIFF apps
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllLIFFApps'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \LINE\Clients\Liff\Model\GetAllLiffAppsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAllLIFFAppsWithHttpInfo(string $contentType = self::contentTypes['getAllLIFFApps'][0])
+    {
+        $request = $this->getAllLIFFAppsRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\LINE\Clients\Liff\Model\GetAllLiffAppsResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\Liff\Model\GetAllLiffAppsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAllLIFFAppsAsync
+     *
+     * Get all LIFF apps
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllLIFFApps'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllLIFFAppsAsync(string $contentType = self::contentTypes['getAllLIFFApps'][0])
+    {
+        return $this->getAllLIFFAppsAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAllLIFFAppsAsyncWithHttpInfo
+     *
+     * Get all LIFF apps
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllLIFFApps'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllLIFFAppsAsyncWithHttpInfo(string $contentType = self::contentTypes['getAllLIFFApps'][0])
+    {
+        $returnType = '\LINE\Clients\Liff\Model\GetAllLiffAppsResponse';
+        $request = $this->getAllLIFFAppsRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAllLIFFApps'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllLIFFApps'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAllLIFFAppsRequest(string $contentType = self::contentTypes['getAllLIFFApps'][0])
+    {
+
+
+        $resourcePath = '/liff/v1/apps';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateLIFFApp
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest updateLiffAppRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateLIFFApp($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['updateLIFFApp'][0])
+    {
+        $this->updateLIFFAppWithHttpInfo($liffId, $updateLiffAppRequest, $contentType);
+    }
+
+    /**
+     * Operation updateLIFFAppWithHttpInfo
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Liff\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateLIFFAppWithHttpInfo($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['updateLIFFApp'][0])
+    {
+        $request = $this->updateLIFFAppRequest($liffId, $updateLiffAppRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateLIFFAppAsync
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateLIFFAppAsync($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['updateLIFFApp'][0])
+    {
+        return $this->updateLIFFAppAsyncWithHttpInfo($liffId, $updateLiffAppRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateLIFFAppAsyncWithHttpInfo
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateLIFFAppAsyncWithHttpInfo($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['updateLIFFApp'][0])
+    {
+        $returnType = '';
+        $request = $this->updateLIFFAppRequest($liffId, $updateLiffAppRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateLIFFApp'
+     *
+     * @param  string $liffId ID of the LIFF app to be updated (required)
+     * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLIFFApp'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateLIFFAppRequest($liffId, $updateLiffAppRequest, string $contentType = self::contentTypes['updateLIFFApp'][0])
+    {
+
+        // verify the required parameter 'liffId' is set
+        if ($liffId === null || (is_array($liffId) && count($liffId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $liffId when calling updateLIFFApp'
+            );
+        }
+
+        // verify the required parameter 'updateLiffAppRequest' is set
+        if ($updateLiffAppRequest === null || (is_array($updateLiffAppRequest) && count($updateLiffAppRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $updateLiffAppRequest when calling updateLIFFApp'
+            );
+        }
+
+
+        $resourcePath = '/liff/v1/apps/{liffId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($liffId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'liffId' . '}',
+                ObjectSerializer::toPathValue($liffId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($updateLiffAppRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($updateLiffAppRequest));
+            } else {
+                $httpBody = $updateLiffAppRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
