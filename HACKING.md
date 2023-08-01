@@ -31,7 +31,6 @@ Release Flow
 
 Install `phpDocumenter` before releasing new version.
 
-1. Update VERSION constant varialbe at `Constant/Meta.php`
 1. Generate HTML phpdoc `php phpDocumentor.phar`
 1. Make a git tag (this project uses [semantic versioning](http://semver.org/))
 1. Push the tag to origin
