@@ -2240,18 +2240,18 @@ class ManageAudienceApi
      * Operation getAudienceGroups
      *
      * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
-     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)
-     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)
-     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (required)
-     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)
-     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (required)
+     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
+     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
+     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (optional)
+     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)
+     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroups'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \LINE\Clients\ManageAudience\Model\GetAudienceGroupsResponse
      */
-    public function getAudienceGroups($page, $description, $status, $size, $includesExternalPublicGroups, $createRoute, string $contentType = self::contentTypes['getAudienceGroups'][0])
+    public function getAudienceGroups($page, $description = null, $status = null, $size = null, $includesExternalPublicGroups = null, $createRoute = null, string $contentType = self::contentTypes['getAudienceGroups'][0])
     {
         list($response) = $this->getAudienceGroupsWithHttpInfo($page, $description, $status, $size, $includesExternalPublicGroups, $createRoute, $contentType);
         return $response;
@@ -2261,18 +2261,18 @@ class ManageAudienceApi
      * Operation getAudienceGroupsWithHttpInfo
      *
      * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
-     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)
-     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)
-     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (required)
-     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)
-     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (required)
+     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
+     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
+     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (optional)
+     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)
+     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroups'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \LINE\Clients\ManageAudience\Model\GetAudienceGroupsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAudienceGroupsWithHttpInfo($page, $description, $status, $size, $includesExternalPublicGroups, $createRoute, string $contentType = self::contentTypes['getAudienceGroups'][0])
+    public function getAudienceGroupsWithHttpInfo($page, $description = null, $status = null, $size = null, $includesExternalPublicGroups = null, $createRoute = null, string $contentType = self::contentTypes['getAudienceGroups'][0])
     {
         $request = $this->getAudienceGroupsRequest($page, $description, $status, $size, $includesExternalPublicGroups, $createRoute, $contentType);
 
@@ -2364,17 +2364,17 @@ class ManageAudienceApi
      * Operation getAudienceGroupsAsync
      *
      * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
-     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)
-     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)
-     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (required)
-     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)
-     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (required)
+     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
+     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
+     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (optional)
+     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)
+     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAudienceGroupsAsync($page, $description, $status, $size, $includesExternalPublicGroups, $createRoute, string $contentType = self::contentTypes['getAudienceGroups'][0])
+    public function getAudienceGroupsAsync($page, $description = null, $status = null, $size = null, $includesExternalPublicGroups = null, $createRoute = null, string $contentType = self::contentTypes['getAudienceGroups'][0])
     {
         return $this->getAudienceGroupsAsyncWithHttpInfo($page, $description, $status, $size, $includesExternalPublicGroups, $createRoute, $contentType)
             ->then(
@@ -2388,17 +2388,17 @@ class ManageAudienceApi
      * Operation getAudienceGroupsAsyncWithHttpInfo
      *
      * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
-     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)
-     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)
-     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (required)
-     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)
-     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (required)
+     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
+     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
+     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (optional)
+     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)
+     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAudienceGroupsAsyncWithHttpInfo($page, $description, $status, $size, $includesExternalPublicGroups, $createRoute, string $contentType = self::contentTypes['getAudienceGroups'][0])
+    public function getAudienceGroupsAsyncWithHttpInfo($page, $description = null, $status = null, $size = null, $includesExternalPublicGroups = null, $createRoute = null, string $contentType = self::contentTypes['getAudienceGroups'][0])
     {
         $returnType = '\LINE\Clients\ManageAudience\Model\GetAudienceGroupsResponse';
         $request = $this->getAudienceGroupsRequest($page, $description, $status, $size, $includesExternalPublicGroups, $createRoute, $contentType);
@@ -2443,17 +2443,17 @@ class ManageAudienceApi
      * Create request for operation 'getAudienceGroups'
      *
      * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
-     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)
-     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)
-     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (required)
-     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)
-     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (required)
+     * @param  string $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
+     * @param  AudienceGroupStatus $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
+     * @param  int $size The number of audiences per page. Default: 20 Max: 40 (optional)
+     * @param  bool $includesExternalPublicGroups true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)
+     * @param  AudienceGroupCreateRoute $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAudienceGroupsRequest($page, $description, $status, $size, $includesExternalPublicGroups, $createRoute, string $contentType = self::contentTypes['getAudienceGroups'][0])
+    public function getAudienceGroupsRequest($page, $description = null, $status = null, $size = null, $includesExternalPublicGroups = null, $createRoute = null, string $contentType = self::contentTypes['getAudienceGroups'][0])
     {
 
         // verify the required parameter 'page' is set
@@ -2466,43 +2466,13 @@ class ManageAudienceApi
             throw new \InvalidArgumentException('invalid value for "$page" when calling ManageAudienceApi.getAudienceGroups, must be bigger than or equal to 1.');
         }
         
-        // verify the required parameter 'description' is set
-        if ($description === null || (is_array($description) && count($description) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $description when calling getAudienceGroups'
-            );
-        }
 
-        // verify the required parameter 'status' is set
-        if ($status === null || (is_array($status) && count($status) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $status when calling getAudienceGroups'
-            );
-        }
 
-        // verify the required parameter 'size' is set
-        if ($size === null || (is_array($size) && count($size) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $size when calling getAudienceGroups'
-            );
-        }
-        if ($size > 40) {
+        if ($size !== null && $size > 40) {
             throw new \InvalidArgumentException('invalid value for "$size" when calling ManageAudienceApi.getAudienceGroups, must be smaller than or equal to 40.');
         }
         
-        // verify the required parameter 'includesExternalPublicGroups' is set
-        if ($includesExternalPublicGroups === null || (is_array($includesExternalPublicGroups) && count($includesExternalPublicGroups) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $includesExternalPublicGroups when calling getAudienceGroups'
-            );
-        }
 
-        // verify the required parameter 'createRoute' is set
-        if ($createRoute === null || (is_array($createRoute) && count($createRoute) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $createRoute when calling getAudienceGroups'
-            );
-        }
 
 
         $resourcePath = '/v2/bot/audienceGroup/list';
@@ -2528,7 +2498,7 @@ class ManageAudienceApi
             'string', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2537,7 +2507,7 @@ class ManageAudienceApi
             'AudienceGroupStatus', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2546,7 +2516,7 @@ class ManageAudienceApi
             'integer', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2555,7 +2525,7 @@ class ManageAudienceApi
             'boolean', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2564,7 +2534,7 @@ class ManageAudienceApi
             'AudienceGroupCreateRoute', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
 
 
