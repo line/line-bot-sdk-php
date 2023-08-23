@@ -3778,7 +3778,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getAudienceGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-ManageAudience-Model-GetAudienceGroupsResponse.html"><abbr title="\LINE\Clients\ManageAudience\Model\GetAudienceGroupsResponse">GetAudienceGroupsResponse</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">getAudienceGroups</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-ManageAudience-Model-GetAudienceGroupsResponse.html"><abbr title="\LINE\Clients\ManageAudience\Model\GetAudienceGroupsResponse">GetAudienceGroupsResponse</abbr></a></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -3795,45 +3795,45 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$description</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$status</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$size</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (required)</p>
+                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)</p>
+                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$createRoute</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (required)</p>
+                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (optional)</p>
 </section>
 
             </dd>
@@ -3901,7 +3901,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getAudienceGroupsAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">getAudienceGroupsAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -3918,45 +3918,45 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$description</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$status</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$size</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (required)</p>
+                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)</p>
+                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$createRoute</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (required)</p>
+                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (optional)</p>
 </section>
 
             </dd>
@@ -4014,7 +4014,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getAudienceGroupsAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">getAudienceGroupsAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -4031,45 +4031,45 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$description</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$status</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$size</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (required)</p>
+                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)</p>
+                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$createRoute</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (required)</p>
+                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (optional)</p>
 </section>
 
             </dd>
@@ -4127,7 +4127,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getAudienceGroupsRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">getAudienceGroupsRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -4144,45 +4144,45 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$description</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$status</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$size</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (required)</p>
+                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)</p>
+                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$createRoute</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (required)</p>
+                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (optional)</p>
 </section>
 
             </dd>
@@ -4240,7 +4240,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getAudienceGroupsWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">getAudienceGroupsWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$description</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createRoute</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getAudienceGroups&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -4257,45 +4257,45 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$description</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$status</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupStatus">AudienceGroupStatus</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (required)</p>
+                    <section class="phpdocumentor-description"><p>The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$size</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (required)</p>
+                    <section class="phpdocumentor-description"><p>The number of audiences per page. Default: 20 Max: 40 (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$includesExternalPublicGroups</span>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (required)</p>
+                    <section class="phpdocumentor-description"><p>true (default): Get public audiences created in all channels linked to the same bot. false: Get audiences created in the same channel. (optional)</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$createRoute</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\LINE\Clients\ManageAudience\Api\AudienceGroupCreateRoute">AudienceGroupCreateRoute</abbr></span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (required)</p>
+                    <section class="phpdocumentor-description"><p>How the audience was created. If omitted, all audiences are included.  `OA_MANAGER`: Return only audiences created with LINE Official Account Manager (opens new window). `MESSAGING_API`: Return only audiences created with Messaging API. (optional)</p>
 </section>
 
             </dd>
@@ -4469,7 +4469,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2640</span>
+    <span class="phpdocumentor-element-found-in__line">2610</span>
 
     </aside>
 
@@ -4547,7 +4547,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2712</span>
+    <span class="phpdocumentor-element-found-in__line">2682</span>
 
     </aside>
 
@@ -4615,7 +4615,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2731</span>
+    <span class="phpdocumentor-element-found-in__line">2701</span>
 
     </aside>
 
@@ -4683,7 +4683,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2768</span>
+    <span class="phpdocumentor-element-found-in__line">2738</span>
 
     </aside>
 
@@ -4751,7 +4751,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2655</span>
+    <span class="phpdocumentor-element-found-in__line">2625</span>
 
     </aside>
 
@@ -4831,7 +4831,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2865</span>
+    <span class="phpdocumentor-element-found-in__line">2835</span>
 
     </aside>
 
@@ -4918,7 +4918,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2939</span>
+    <span class="phpdocumentor-element-found-in__line">2909</span>
 
     </aside>
 
@@ -4995,7 +4995,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2959</span>
+    <span class="phpdocumentor-element-found-in__line">2929</span>
 
     </aside>
 
@@ -5072,7 +5072,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2997</span>
+    <span class="phpdocumentor-element-found-in__line">2967</span>
 
     </aside>
 
@@ -5149,7 +5149,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2881</span>
+    <span class="phpdocumentor-element-found-in__line">2851</span>
 
     </aside>
 
@@ -5238,7 +5238,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php"><a href="files/src-clients-manage-audience-lib-api-manageaudienceapi.html"><abbr title="src/clients/manage-audience/lib/Api/ManageAudienceApi.php">ManageAudienceApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3104</span>
+    <span class="phpdocumentor-element-found-in__line">3074</span>
 
     </aside>
 
