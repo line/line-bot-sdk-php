@@ -78,6 +78,10 @@ class AudienceGroupType
 
     public const IMAGE_CLICK = 'IMAGE_CLICK';
 
+    public const RICHMENU_IMP = 'RICHMENU_IMP';
+
+    public const RICHMENU_CLICK = 'RICHMENU_CLICK';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -94,7 +98,9 @@ class AudienceGroupType
             self::APP_EVENT,
             self::VIDEO_VIEW,
             self::WEBTRAFFIC,
-            self::IMAGE_CLICK
+            self::IMAGE_CLICK,
+            self::RICHMENU_IMP,
+            self::RICHMENU_CLICK
         ];
     }
 }
