@@ -3,17 +3,22 @@
   "extends": [
     "config:base"
   ],
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "automerge": true,
-      "platformAutomerge": true,
-    }
-  ],
   "ignorePaths": [
     "docs/",
   ],
   "git-submodules": {
     "enabled": true
-  }
+  },
+  "labels": [ "dependency upgrade" ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "platformAutomerge": true,
+    },
+    {
+      "matchPackagePatterns": ["^line-openapi$"],
+      "labels": ["dependency upgrade", "line-openapi-update"]
+    }
+  ]
 }
