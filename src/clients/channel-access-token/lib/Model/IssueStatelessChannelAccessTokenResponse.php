@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * IssueShortLivedChannelAccessTokenResponse
+ * IssueStatelessChannelAccessTokenResponse
  *
  * PHP version 7.4
  *
@@ -47,16 +47,16 @@ use \ArrayAccess;
 use \LINE\Clients\ChannelAccessToken\ObjectSerializer;
 
 /**
- * IssueShortLivedChannelAccessTokenResponse Class Doc Comment
+ * IssueStatelessChannelAccessTokenResponse Class Doc Comment
  *
  * @category Class
- * @description Issued short-lived channel access token
+ * @description Issued stateless channel access token
  * @package  LINE\Clients\ChannelAccessToken
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class IssueShortLivedChannelAccessTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class IssueStatelessChannelAccessTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -65,7 +65,7 @@ class IssueShortLivedChannelAccessTokenResponse implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $openAPIModelName = 'IssueShortLivedChannelAccessTokenResponse';
+    protected static $openAPIModelName = 'IssueStatelessChannelAccessTokenResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -341,7 +341,7 @@ class IssueShortLivedChannelAccessTokenResponse implements ModelInterface, Array
     /**
      * Sets accessToken
      *
-     * @param string $accessToken A short-lived channel access token. Valid for 30 days. Note: Channel access tokens cannot be refreshed.
+     * @param string $accessToken A stateless channel access token. The token is an opaque string which means its format is an implementation detail and the consumer of this token should never try to use the data parsed from the token.
      *
      * @return self
      */
@@ -368,7 +368,7 @@ class IssueShortLivedChannelAccessTokenResponse implements ModelInterface, Array
     /**
      * Sets expiresIn
      *
-     * @param int $expiresIn Time until channel access token expires in seconds from time the token is issued.
+     * @param int $expiresIn Duration in seconds after which the issued access token expires
      *
      * @return self
      */
