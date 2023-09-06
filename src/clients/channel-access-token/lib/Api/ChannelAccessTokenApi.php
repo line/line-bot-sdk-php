@@ -95,6 +95,9 @@ class ChannelAccessTokenApi
         'issueChannelTokenByJWT' => [
             'application/x-www-form-urlencoded',
         ],
+        'issueStatelessChannelToken' => [
+            'application/x-www-form-urlencoded',
+        ],
         'revokeChannelToken' => [
             'application/x-www-form-urlencoded',
         ],
@@ -998,6 +1001,315 @@ class ChannelAccessTokenApi
         // form params
         if ($clientAssertion !== null) {
             $formParams['client_assertion'] = ObjectSerializer::toFormValue($clientAssertion);
+        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation issueStatelessChannelToken
+     *
+     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
+     * @param  string $clientAssertionType URL-encoded value of &#x60;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&#x60; (optional)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $clientId Channel ID. (optional)
+     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse
+     */
+    public function issueStatelessChannelToken($grantType = null, $clientAssertionType = null, $clientAssertion = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        list($response) = $this->issueStatelessChannelTokenWithHttpInfo($grantType, $clientAssertionType, $clientAssertion, $clientId, $clientSecret, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation issueStatelessChannelTokenWithHttpInfo
+     *
+     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
+     * @param  string $clientAssertionType URL-encoded value of &#x60;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&#x60; (optional)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $clientId Channel ID. (optional)
+     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function issueStatelessChannelTokenWithHttpInfo($grantType = null, $clientAssertionType = null, $clientAssertion = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        $request = $this->issueStatelessChannelTokenRequest($grantType, $clientAssertionType, $clientAssertion, $clientId, $clientSecret, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation issueStatelessChannelTokenAsync
+     *
+     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
+     * @param  string $clientAssertionType URL-encoded value of &#x60;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&#x60; (optional)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $clientId Channel ID. (optional)
+     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenAsync($grantType = null, $clientAssertionType = null, $clientAssertion = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelTokenAsyncWithHttpInfo($grantType, $clientAssertionType, $clientAssertion, $clientId, $clientSecret, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation issueStatelessChannelTokenAsyncWithHttpInfo
+     *
+     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
+     * @param  string $clientAssertionType URL-encoded value of &#x60;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&#x60; (optional)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $clientId Channel ID. (optional)
+     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenAsyncWithHttpInfo($grantType = null, $clientAssertionType = null, $clientAssertion = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        $returnType = '\LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse';
+        $request = $this->issueStatelessChannelTokenRequest($grantType, $clientAssertionType, $clientAssertion, $clientId, $clientSecret, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'issueStatelessChannelToken'
+     *
+     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
+     * @param  string $clientAssertionType URL-encoded value of &#x60;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&#x60; (optional)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $clientId Channel ID. (optional)
+     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function issueStatelessChannelTokenRequest($grantType = null, $clientAssertionType = null, $clientAssertion = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+
+
+
+
+
+
+
+        $resourcePath = '/oauth2/v3/token';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // form params
+        if ($grantType !== null) {
+            $formParams['grant_type'] = ObjectSerializer::toFormValue($grantType);
+        }
+        // form params
+        if ($clientAssertionType !== null) {
+            $formParams['client_assertion_type'] = ObjectSerializer::toFormValue($clientAssertionType);
+        }
+        // form params
+        if ($clientAssertion !== null) {
+            $formParams['client_assertion'] = ObjectSerializer::toFormValue($clientAssertion);
+        }
+        // form params
+        if ($clientId !== null) {
+            $formParams['client_id'] = ObjectSerializer::toFormValue($clientId);
+        }
+        // form params
+        if ($clientSecret !== null) {
+            $formParams['client_secret'] = ObjectSerializer::toFormValue($clientSecret);
         }
 
         $headers = $this->headerSelector->selectHeaders(

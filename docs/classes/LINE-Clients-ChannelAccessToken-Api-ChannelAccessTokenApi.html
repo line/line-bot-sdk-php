@@ -203,7 +203,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#constant_contentTypes">contentTypes</a>
     <span>
-        &nbsp;= [&#039;getsAllValidChannelAccessTokenKeyIds&#039; =&gt; [&#039;application/json&#039;], &#039;issueChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;issueChannelTokenByJWT&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;revokeChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;revokeChannelTokenByJWT&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;verifyChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;verifyChannelTokenByJWT&#039; =&gt; [&#039;application/json&#039;]]                            </span>
+        &nbsp;= [&#039;getsAllValidChannelAccessTokenKeyIds&#039; =&gt; [&#039;application/json&#039;], &#039;issueChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;issueChannelTokenByJWT&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;issueStatelessChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;revokeChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;revokeChannelTokenByJWT&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;verifyChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;verifyChannelTokenByJWT&#039; =&gt; [&#039;application/json&#039;]]                            </span>
 </dt>
 <dd></dd>
 
@@ -360,6 +360,41 @@
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation issueChannelTokenWithHttpInfo</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelToken">issueStatelessChannelToken()</a>
+    <span>
+                                &nbsp;: <a href="classes/LINE-Clients-ChannelAccessToken-Model-IssueStatelessChannelAccessTokenResponse.html"><abbr title="\LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse">IssueStatelessChannelAccessTokenResponse</abbr></a>    </span>
+</dt>
+<dd>Operation issueStatelessChannelToken</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelTokenAsync">issueStatelessChannelTokenAsync()</a>
+    <span>
+                                &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
+</dt>
+<dd>Operation issueStatelessChannelTokenAsync</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelTokenAsyncWithHttpInfo">issueStatelessChannelTokenAsyncWithHttpInfo()</a>
+    <span>
+                                &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
+</dt>
+<dd>Operation issueStatelessChannelTokenAsyncWithHttpInfo</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelTokenRequest">issueStatelessChannelTokenRequest()</a>
+    <span>
+                                &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
+</dt>
+<dd>Create request for operation &#039;issueStatelessChannelToken&#039;</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelTokenWithHttpInfo">issueStatelessChannelTokenWithHttpInfo()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Operation issueStatelessChannelTokenWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_revokeChannelToken">revokeChannelToken()</a>
@@ -543,7 +578,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">contentTypes</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;getsAllValidChannelAccessTokenKeyIds&#039; =&gt; [&#039;application/json&#039;], &#039;issueChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;issueChannelTokenByJWT&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;revokeChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;revokeChannelTokenByJWT&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;verifyChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;verifyChannelTokenByJWT&#039; =&gt; [&#039;application/json&#039;]]</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;getsAllValidChannelAccessTokenKeyIds&#039; =&gt; [&#039;application/json&#039;], &#039;issueChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;issueChannelTokenByJWT&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;issueStatelessChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;revokeChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;revokeChannelTokenByJWT&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;verifyChannelToken&#039; =&gt; [&#039;application/x-www-form-urlencoded&#039;], &#039;verifyChannelTokenByJWT&#039; =&gt; [&#039;application/json&#039;]]</span>
 </code>
 
 
@@ -714,7 +749,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
     </aside>
 
@@ -779,7 +814,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">153</span>
+    <span class="phpdocumentor-element-found-in__line">156</span>
 
     </aside>
 
@@ -811,7 +846,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">145</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 
     </aside>
 
@@ -846,7 +881,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">169</span>
+    <span class="phpdocumentor-element-found-in__line">172</span>
 
     </aside>
 
@@ -933,7 +968,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">284</span>
+    <span class="phpdocumentor-element-found-in__line">287</span>
 
     </aside>
 
@@ -1010,7 +1045,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">304</span>
+    <span class="phpdocumentor-element-found-in__line">307</span>
 
     </aside>
 
@@ -1087,7 +1122,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">355</span>
+    <span class="phpdocumentor-element-found-in__line">358</span>
 
     </aside>
 
@@ -1164,7 +1199,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">186</span>
+    <span class="phpdocumentor-element-found-in__line">189</span>
 
     </aside>
 
@@ -1253,7 +1288,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">471</span>
+    <span class="phpdocumentor-element-found-in__line">474</span>
 
     </aside>
 
@@ -1349,7 +1384,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">611</span>
+    <span class="phpdocumentor-element-found-in__line">614</span>
 
     </aside>
 
@@ -1435,7 +1470,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">632</span>
+    <span class="phpdocumentor-element-found-in__line">635</span>
 
     </aside>
 
@@ -1521,7 +1556,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">783</span>
+    <span class="phpdocumentor-element-found-in__line">786</span>
 
     </aside>
 
@@ -1617,7 +1652,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">900</span>
+    <span class="phpdocumentor-element-found-in__line">903</span>
 
     </aside>
 
@@ -1703,7 +1738,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">921</span>
+    <span class="phpdocumentor-element-found-in__line">924</span>
 
     </aside>
 
@@ -1789,7 +1824,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">973</span>
+    <span class="phpdocumentor-element-found-in__line">976</span>
 
     </aside>
 
@@ -1875,7 +1910,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">801</span>
+    <span class="phpdocumentor-element-found-in__line">804</span>
 
     </aside>
 
@@ -1973,7 +2008,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">684</span>
+    <span class="phpdocumentor-element-found-in__line">687</span>
 
     </aside>
 
@@ -2059,7 +2094,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">489</span>
+    <span class="phpdocumentor-element-found-in__line">492</span>
 
     </aside>
 
@@ -2150,6 +2185,548 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_issueStatelessChannelToken">
+        issueStatelessChannelToken()
+        <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelToken" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1077</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Operation issueStatelessChannelToken</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">issueStatelessChannelToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$grantType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertionType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertion</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientId</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientSecret</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-ChannelAccessToken-Model-IssueStatelessChannelAccessTokenResponse.html"><abbr title="\LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse">IssueStatelessChannelAccessTokenResponse</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$grantType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>`client_credentials` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertionType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>URL-encoded value of `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertion</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel ID. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientSecret</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel secret. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/LINE-Clients-ChannelAccessToken-ApiException.html"><abbr title="\LINE\Clients\ChannelAccessToken\ApiException">ApiException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>on non-2xx response</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-ChannelAccessToken-Model-IssueStatelessChannelAccessTokenResponse.html"><abbr title="\LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse">IssueStatelessChannelAccessTokenResponse</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_issueStatelessChannelTokenAsync">
+        issueStatelessChannelTokenAsync()
+        <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelTokenAsync" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1198</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Operation issueStatelessChannelTokenAsync</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">issueStatelessChannelTokenAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$grantType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertionType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertion</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientId</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientSecret</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$grantType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>`client_credentials` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertionType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>URL-encoded value of `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertion</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel ID. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientSecret</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel secret. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_issueStatelessChannelTokenAsyncWithHttpInfo">
+        issueStatelessChannelTokenAsyncWithHttpInfo()
+        <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelTokenAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1221</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Operation issueStatelessChannelTokenAsyncWithHttpInfo</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">issueStatelessChannelTokenAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$grantType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertionType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertion</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientId</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientSecret</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$grantType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>`client_credentials` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertionType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>URL-encoded value of `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertion</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel ID. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientSecret</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel secret. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_issueStatelessChannelTokenRequest">
+        issueStatelessChannelTokenRequest()
+        <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelTokenRequest" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1275</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Create request for operation &#039;issueStatelessChannelToken&#039;</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">issueStatelessChannelTokenRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$grantType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertionType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertion</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientId</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientSecret</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$grantType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>`client_credentials` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertionType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>URL-encoded value of `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertion</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel ID. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientSecret</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel secret. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_issueStatelessChannelTokenWithHttpInfo">
+        issueStatelessChannelTokenWithHttpInfo()
+        <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_issueStatelessChannelTokenWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1097</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Operation issueStatelessChannelTokenWithHttpInfo</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">issueStatelessChannelTokenWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$grantType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertionType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientAssertion</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientId</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clientSecret</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$grantType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>`client_credentials` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertionType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>URL-encoded value of `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientAssertion</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel ID. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clientSecret</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Channel secret. (optional)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;issueStatelessChannelToken&#039;][0]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The value for the Content-Type header. Check self::contentTypes['issueStatelessChannelToken'] to see the possible values for this operation</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/LINE-Clients-ChannelAccessToken-ApiException.html"><abbr title="\LINE\Clients\ChannelAccessToken\ApiException">ApiException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>on non-2xx response</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>of \LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_revokeChannelToken">
         revokeChannelToken()
         <a href="classes/LINE-Clients-ChannelAccessToken-Api-ChannelAccessTokenApi.html#method_revokeChannelToken" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2157,7 +2734,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1070</span>
+    <span class="phpdocumentor-element-found-in__line">1382</span>
 
     </aside>
 
@@ -2235,7 +2812,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1142</span>
+    <span class="phpdocumentor-element-found-in__line">1454</span>
 
     </aside>
 
@@ -2303,7 +2880,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1161</span>
+    <span class="phpdocumentor-element-found-in__line">1473</span>
 
     </aside>
 
@@ -2371,7 +2948,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1287</span>
+    <span class="phpdocumentor-element-found-in__line">1599</span>
 
     </aside>
 
@@ -2467,7 +3044,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1363</span>
+    <span class="phpdocumentor-element-found-in__line">1675</span>
 
     </aside>
 
@@ -2553,7 +3130,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1384</span>
+    <span class="phpdocumentor-element-found-in__line">1696</span>
 
     </aside>
 
@@ -2639,7 +3216,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1423</span>
+    <span class="phpdocumentor-element-found-in__line">1735</span>
 
     </aside>
 
@@ -2725,7 +3302,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1304</span>
+    <span class="phpdocumentor-element-found-in__line">1616</span>
 
     </aside>
 
@@ -2823,7 +3400,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1198</span>
+    <span class="phpdocumentor-element-found-in__line">1510</span>
 
     </aside>
 
@@ -2891,7 +3468,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1085</span>
+    <span class="phpdocumentor-element-found-in__line">1397</span>
 
     </aside>
 
@@ -2971,7 +3548,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">135</span>
+    <span class="phpdocumentor-element-found-in__line">138</span>
 
     </aside>
 
@@ -3016,7 +3593,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1520</span>
+    <span class="phpdocumentor-element-found-in__line">1832</span>
 
     </aside>
 
@@ -3094,7 +3671,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1633</span>
+    <span class="phpdocumentor-element-found-in__line">1945</span>
 
     </aside>
 
@@ -3162,7 +3739,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1652</span>
+    <span class="phpdocumentor-element-found-in__line">1964</span>
 
     </aside>
 
@@ -3230,7 +3807,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1789</span>
+    <span class="phpdocumentor-element-found-in__line">2101</span>
 
     </aside>
 
@@ -3308,7 +3885,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1902</span>
+    <span class="phpdocumentor-element-found-in__line">2214</span>
 
     </aside>
 
@@ -3376,7 +3953,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1921</span>
+    <span class="phpdocumentor-element-found-in__line">2233</span>
 
     </aside>
 
@@ -3444,7 +4021,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1971</span>
+    <span class="phpdocumentor-element-found-in__line">2283</span>
 
     </aside>
 
@@ -3512,7 +4089,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1805</span>
+    <span class="phpdocumentor-element-found-in__line">2117</span>
 
     </aside>
 
@@ -3592,7 +4169,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1702</span>
+    <span class="phpdocumentor-element-found-in__line">2014</span>
 
     </aside>
 
@@ -3660,7 +4237,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1536</span>
+    <span class="phpdocumentor-element-found-in__line">1848</span>
 
     </aside>
 
@@ -3740,7 +4317,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php"><a href="files/src-clients-channel-access-token-lib-api-channelaccesstokenapi.html"><abbr title="src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php">ChannelAccessTokenApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2065</span>
+    <span class="phpdocumentor-element-found-in__line">2377</span>
 
     </aside>
 

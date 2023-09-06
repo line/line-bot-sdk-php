@@ -395,7 +395,7 @@ class IssueShortLivedChannelAccessTokenResponse implements ModelInterface, Array
     /**
      * Sets tokenType
      *
-     * @param string $tokenType A token type. `Bearer`
+     * @param string $tokenType Token type. The value is always `Bearer`.
      *
      * @return self
      */
