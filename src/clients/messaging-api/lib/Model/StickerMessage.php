@@ -71,7 +71,8 @@ class StickerMessage extends Message
       */
     protected static $openAPITypes = [
         'packageId' => 'string',
-        'stickerId' => 'string'
+        'stickerId' => 'string',
+        'quoteToken' => 'string'
     ];
 
     /**
@@ -83,7 +84,8 @@ class StickerMessage extends Message
       */
     protected static $openAPIFormats = [
         'packageId' => null,
-        'stickerId' => null
+        'stickerId' => null,
+        'quoteToken' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class StickerMessage extends Message
       */
     protected static array $openAPINullables = [
         'packageId' => false,
-		'stickerId' => false
+		'stickerId' => false,
+		'quoteToken' => false
     ];
 
     /**
@@ -183,7 +186,8 @@ class StickerMessage extends Message
      */
     protected static $attributeMap = [
         'packageId' => 'packageId',
-        'stickerId' => 'stickerId'
+        'stickerId' => 'stickerId',
+        'quoteToken' => 'quoteToken'
     ];
 
     /**
@@ -193,7 +197,8 @@ class StickerMessage extends Message
      */
     protected static $setters = [
         'packageId' => 'setPackageId',
-        'stickerId' => 'setStickerId'
+        'stickerId' => 'setStickerId',
+        'quoteToken' => 'setQuoteToken'
     ];
 
     /**
@@ -203,7 +208,8 @@ class StickerMessage extends Message
      */
     protected static $getters = [
         'packageId' => 'getPackageId',
-        'stickerId' => 'getStickerId'
+        'stickerId' => 'getStickerId',
+        'quoteToken' => 'getQuoteToken'
     ];
 
     /**
@@ -261,6 +267,7 @@ class StickerMessage extends Message
 
         $this->setIfExists('packageId', $data ?? [], null);
         $this->setIfExists('stickerId', $data ?? [], null);
+        $this->setIfExists('quoteToken', $data ?? [], null);
     }
 
     /**
@@ -355,6 +362,33 @@ class StickerMessage extends Message
             throw new \InvalidArgumentException('non-nullable stickerId cannot be null');
         }
         $this->container['stickerId'] = $stickerId;
+
+        return $this;
+    }
+
+    /**
+     * Gets quoteToken
+     *
+     * @return string|null
+     */
+    public function getQuoteToken()
+    {
+        return $this->container['quoteToken'];
+    }
+
+    /**
+     * Sets quoteToken
+     *
+     * @param string|null $quoteToken Quote token of the message you want to quote.
+     *
+     * @return self
+     */
+    public function setQuoteToken($quoteToken)
+    {
+        if (is_null($quoteToken)) {
+            throw new \InvalidArgumentException('non-nullable quoteToken cannot be null');
+        }
+        $this->container['quoteToken'] = $quoteToken;
 
         return $this;
     }

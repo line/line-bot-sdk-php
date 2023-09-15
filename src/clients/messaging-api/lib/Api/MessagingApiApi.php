@@ -550,11 +550,12 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse
      */
     public function broadcast($broadcastRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['broadcast'][0])
     {
-        $this->broadcastWithHttpInfo($broadcastRequest, $xLineRetryKey, $contentType);
+        list($response) = $this->broadcastWithHttpInfo($broadcastRequest, $xLineRetryKey, $contentType);
+        return $response;
     }
 
     /**
@@ -566,7 +567,7 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function broadcastWithHttpInfo($broadcastRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['broadcast'][0])
     {
@@ -607,10 +608,110 @@ class MessagingApiApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -680,14 +781,27 @@ class MessagingApiApi
      */
     public function broadcastAsyncWithHttpInfo($broadcastRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['broadcast'][0])
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->broadcastRequest($broadcastRequest, $xLineRetryKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -11462,11 +11576,12 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse
      */
     public function multicast($multicastRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['multicast'][0])
     {
-        $this->multicastWithHttpInfo($multicastRequest, $xLineRetryKey, $contentType);
+        list($response) = $this->multicastWithHttpInfo($multicastRequest, $xLineRetryKey, $contentType);
+        return $response;
     }
 
     /**
@@ -11478,7 +11593,7 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function multicastWithHttpInfo($multicastRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['multicast'][0])
     {
@@ -11519,10 +11634,110 @@ class MessagingApiApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -11592,14 +11807,27 @@ class MessagingApiApi
      */
     public function multicastAsyncWithHttpInfo($multicastRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['multicast'][0])
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->multicastRequest($multicastRequest, $xLineRetryKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -11728,11 +11956,12 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse
      */
     public function narrowcast($narrowcastRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['narrowcast'][0])
     {
-        $this->narrowcastWithHttpInfo($narrowcastRequest, $xLineRetryKey, $contentType);
+        list($response) = $this->narrowcastWithHttpInfo($narrowcastRequest, $xLineRetryKey, $contentType);
+        return $response;
     }
 
     /**
@@ -11744,7 +11973,7 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function narrowcastWithHttpInfo($narrowcastRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['narrowcast'][0])
     {
@@ -11785,10 +12014,110 @@ class MessagingApiApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 202:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -11858,14 +12187,27 @@ class MessagingApiApi
      */
     public function narrowcastAsyncWithHttpInfo($narrowcastRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['narrowcast'][0])
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->narrowcastRequest($narrowcastRequest, $xLineRetryKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -11994,11 +12336,12 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \LINE\Clients\MessagingApi\Model\PushMessageResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse
      */
     public function pushMessage($pushMessageRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['pushMessage'][0])
     {
-        $this->pushMessageWithHttpInfo($pushMessageRequest, $xLineRetryKey, $contentType);
+        list($response) = $this->pushMessageWithHttpInfo($pushMessageRequest, $xLineRetryKey, $contentType);
+        return $response;
     }
 
     /**
@@ -12010,7 +12353,7 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LINE\Clients\MessagingApi\Model\PushMessageResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function pushMessageWithHttpInfo($pushMessageRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['pushMessage'][0])
     {
@@ -12051,10 +12394,110 @@ class MessagingApiApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\LINE\Clients\MessagingApi\Model\PushMessageResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\PushMessageResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\PushMessageResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\LINE\Clients\MessagingApi\Model\PushMessageResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\PushMessageResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -12124,14 +12567,27 @@ class MessagingApiApi
      */
     public function pushMessageAsyncWithHttpInfo($pushMessageRequest, $xLineRetryKey = null, string $contentType = self::contentTypes['pushMessage'][0])
     {
-        $returnType = '';
+        $returnType = '\LINE\Clients\MessagingApi\Model\PushMessageResponse';
         $request = $this->pushMessageRequest($pushMessageRequest, $xLineRetryKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -12507,11 +12963,12 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \LINE\Clients\MessagingApi\Model\ReplyMessageResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse
      */
     public function replyMessage($replyMessageRequest, string $contentType = self::contentTypes['replyMessage'][0])
     {
-        $this->replyMessageWithHttpInfo($replyMessageRequest, $contentType);
+        list($response) = $this->replyMessageWithHttpInfo($replyMessageRequest, $contentType);
+        return $response;
     }
 
     /**
@@ -12522,7 +12979,7 @@ class MessagingApiApi
      *
      * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LINE\Clients\MessagingApi\Model\ReplyMessageResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function replyMessageWithHttpInfo($replyMessageRequest, string $contentType = self::contentTypes['replyMessage'][0])
     {
@@ -12563,10 +13020,80 @@ class MessagingApiApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\LINE\Clients\MessagingApi\Model\ReplyMessageResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ReplyMessageResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ReplyMessageResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\LINE\Clients\MessagingApi\Model\ReplyMessageResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ReplyMessageResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -12618,14 +13145,27 @@ class MessagingApiApi
      */
     public function replyMessageAsyncWithHttpInfo($replyMessageRequest, string $contentType = self::contentTypes['replyMessage'][0])
     {
-        $returnType = '';
+        $returnType = '\LINE\Clients\MessagingApi\Model\ReplyMessageResponse';
         $request = $this->replyMessageRequest($replyMessageRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();

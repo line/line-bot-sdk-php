@@ -73,7 +73,8 @@ class TextMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'text' => 'string',
-        'emojis' => '\LINE\Clients\MessagingApi\Model\Emoji[]'
+        'emojis' => '\LINE\Clients\MessagingApi\Model\Emoji[]',
+        'quoteToken' => 'string'
     ];
 
     /**
@@ -85,7 +86,8 @@ class TextMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'text' => null,
-        'emojis' => null
+        'emojis' => null,
+        'quoteToken' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class TextMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'text' => false,
-		'emojis' => false
+		'emojis' => false,
+		'quoteToken' => false
     ];
 
     /**
@@ -185,7 +188,8 @@ class TextMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'text' => 'text',
-        'emojis' => 'emojis'
+        'emojis' => 'emojis',
+        'quoteToken' => 'quoteToken'
     ];
 
     /**
@@ -195,7 +199,8 @@ class TextMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'text' => 'setText',
-        'emojis' => 'setEmojis'
+        'emojis' => 'setEmojis',
+        'quoteToken' => 'setQuoteToken'
     ];
 
     /**
@@ -205,7 +210,8 @@ class TextMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'text' => 'getText',
-        'emojis' => 'getEmojis'
+        'emojis' => 'getEmojis',
+        'quoteToken' => 'getQuoteToken'
     ];
 
     /**
@@ -267,6 +273,7 @@ class TextMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('emojis', $data ?? [], null);
+        $this->setIfExists('quoteToken', $data ?? [], null);
     }
 
     /**
@@ -361,6 +368,33 @@ class TextMessageAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable emojis cannot be null');
         }
         $this->container['emojis'] = $emojis;
+
+        return $this;
+    }
+
+    /**
+     * Gets quoteToken
+     *
+     * @return string|null
+     */
+    public function getQuoteToken()
+    {
+        return $this->container['quoteToken'];
+    }
+
+    /**
+     * Sets quoteToken
+     *
+     * @param string|null $quoteToken Quote token of the message you want to quote.
+     *
+     * @return self
+     */
+    public function setQuoteToken($quoteToken)
+    {
+        if (is_null($quoteToken)) {
+            throw new \InvalidArgumentException('non-nullable quoteToken cannot be null');
+        }
+        $this->container['quoteToken'] = $quoteToken;
 
         return $this;
     }

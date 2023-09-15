@@ -78,7 +78,9 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
         'stickerId' => 'string',
         'stickerResourceType' => 'string',
         'keywords' => 'string[]',
-        'text' => 'string'
+        'text' => 'string',
+        'quoteToken' => 'string',
+        'quotedMessageId' => 'string'
     ];
 
     /**
@@ -94,7 +96,9 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
         'stickerId' => null,
         'stickerResourceType' => null,
         'keywords' => null,
-        'text' => null
+        'text' => null,
+        'quoteToken' => null,
+        'quotedMessageId' => null
     ];
 
     /**
@@ -108,7 +112,9 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
 		'stickerId' => false,
 		'stickerResourceType' => false,
 		'keywords' => false,
-		'text' => false
+		'text' => false,
+		'quoteToken' => false,
+		'quotedMessageId' => false
     ];
 
     /**
@@ -202,7 +208,9 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
         'stickerId' => 'stickerId',
         'stickerResourceType' => 'stickerResourceType',
         'keywords' => 'keywords',
-        'text' => 'text'
+        'text' => 'text',
+        'quoteToken' => 'quoteToken',
+        'quotedMessageId' => 'quotedMessageId'
     ];
 
     /**
@@ -216,7 +224,9 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
         'stickerId' => 'setStickerId',
         'stickerResourceType' => 'setStickerResourceType',
         'keywords' => 'setKeywords',
-        'text' => 'setText'
+        'text' => 'setText',
+        'quoteToken' => 'setQuoteToken',
+        'quotedMessageId' => 'setQuotedMessageId'
     ];
 
     /**
@@ -230,7 +240,9 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
         'stickerId' => 'getStickerId',
         'stickerResourceType' => 'getStickerResourceType',
         'keywords' => 'getKeywords',
-        'text' => 'getText'
+        'text' => 'getText',
+        'quoteToken' => 'getQuoteToken',
+        'quotedMessageId' => 'getQuotedMessageId'
     ];
 
     /**
@@ -327,6 +339,8 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('stickerResourceType', $data ?? [], null);
         $this->setIfExists('keywords', $data ?? [], null);
         $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('quoteToken', $data ?? [], null);
+        $this->setIfExists('quotedMessageId', $data ?? [], null);
     }
 
     /**
@@ -385,6 +399,9 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
             $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 100.";
         }
 
+        if ($this->container['quoteToken'] === null) {
+            $invalidProperties[] = "'quoteToken' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -576,6 +593,60 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
         }
 
         $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets quoteToken
+     *
+     * @return string
+     */
+    public function getQuoteToken()
+    {
+        return $this->container['quoteToken'];
+    }
+
+    /**
+     * Sets quoteToken
+     *
+     * @param string $quoteToken Quote token to quote this message.
+     *
+     * @return self
+     */
+    public function setQuoteToken($quoteToken)
+    {
+        if (is_null($quoteToken)) {
+            throw new \InvalidArgumentException('non-nullable quoteToken cannot be null');
+        }
+        $this->container['quoteToken'] = $quoteToken;
+
+        return $this;
+    }
+
+    /**
+     * Gets quotedMessageId
+     *
+     * @return string|null
+     */
+    public function getQuotedMessageId()
+    {
+        return $this->container['quotedMessageId'];
+    }
+
+    /**
+     * Sets quotedMessageId
+     *
+     * @param string|null $quotedMessageId Message ID of a quoted message. Only included when the received message quotes a past message.
+     *
+     * @return self
+     */
+    public function setQuotedMessageId($quotedMessageId)
+    {
+        if (is_null($quotedMessageId)) {
+            throw new \InvalidArgumentException('non-nullable quotedMessageId cannot be null');
+        }
+        $this->container['quotedMessageId'] = $quotedMessageId;
 
         return $this;
     }
