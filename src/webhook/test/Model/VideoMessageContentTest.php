@@ -120,4 +120,13 @@ class VideoMessageContentTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "quoteToken"
+     */
+    public function testPropertyQuoteToken()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -72,7 +72,8 @@ class ImageMessageContent extends MessageContent
     protected static $openAPITypes = [
         'id' => 'string',
         'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
-        'imageSet' => '\LINE\Webhook\Model\ImageSet'
+        'imageSet' => '\LINE\Webhook\Model\ImageSet',
+        'quoteToken' => 'string'
     ];
 
     /**
@@ -85,7 +86,8 @@ class ImageMessageContent extends MessageContent
     protected static $openAPIFormats = [
         'id' => null,
         'contentProvider' => null,
-        'imageSet' => null
+        'imageSet' => null,
+        'quoteToken' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class ImageMessageContent extends MessageContent
     protected static array $openAPINullables = [
         'id' => false,
 		'contentProvider' => false,
-		'imageSet' => false
+		'imageSet' => false,
+		'quoteToken' => false
     ];
 
     /**
@@ -187,7 +190,8 @@ class ImageMessageContent extends MessageContent
     protected static $attributeMap = [
         'id' => 'id',
         'contentProvider' => 'contentProvider',
-        'imageSet' => 'imageSet'
+        'imageSet' => 'imageSet',
+        'quoteToken' => 'quoteToken'
     ];
 
     /**
@@ -198,7 +202,8 @@ class ImageMessageContent extends MessageContent
     protected static $setters = [
         'id' => 'setId',
         'contentProvider' => 'setContentProvider',
-        'imageSet' => 'setImageSet'
+        'imageSet' => 'setImageSet',
+        'quoteToken' => 'setQuoteToken'
     ];
 
     /**
@@ -209,7 +214,8 @@ class ImageMessageContent extends MessageContent
     protected static $getters = [
         'id' => 'getId',
         'contentProvider' => 'getContentProvider',
-        'imageSet' => 'getImageSet'
+        'imageSet' => 'getImageSet',
+        'quoteToken' => 'getQuoteToken'
     ];
 
     /**
@@ -268,6 +274,7 @@ class ImageMessageContent extends MessageContent
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('contentProvider', $data ?? [], null);
         $this->setIfExists('imageSet', $data ?? [], null);
+        $this->setIfExists('quoteToken', $data ?? [], null);
     }
 
     /**
@@ -302,6 +309,9 @@ class ImageMessageContent extends MessageContent
         }
         if ($this->container['contentProvider'] === null) {
             $invalidProperties[] = "'contentProvider' can't be null";
+        }
+        if ($this->container['quoteToken'] === null) {
+            $invalidProperties[] = "'quoteToken' can't be null";
         }
         return $invalidProperties;
     }
@@ -395,6 +405,33 @@ class ImageMessageContent extends MessageContent
             throw new \InvalidArgumentException('non-nullable imageSet cannot be null');
         }
         $this->container['imageSet'] = $imageSet;
+
+        return $this;
+    }
+
+    /**
+     * Gets quoteToken
+     *
+     * @return string
+     */
+    public function getQuoteToken()
+    {
+        return $this->container['quoteToken'];
+    }
+
+    /**
+     * Sets quoteToken
+     *
+     * @param string $quoteToken Quote token to quote this message.
+     *
+     * @return self
+     */
+    public function setQuoteToken($quoteToken)
+    {
+        if (is_null($quoteToken)) {
+            throw new \InvalidArgumentException('non-nullable quoteToken cannot be null');
+        }
+        $this->container['quoteToken'] = $quoteToken;
 
         return $this;
     }

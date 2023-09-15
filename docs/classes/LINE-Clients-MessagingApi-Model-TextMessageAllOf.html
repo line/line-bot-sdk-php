@@ -336,6 +336,13 @@ and the value is the original name</dd>
 <dd>The original name of the model.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-TextMessageAllOf.html#method_getQuoteToken">getQuoteToken()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Gets quoteToken</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-MessagingApi-Model-TextMessageAllOf.html#method_getters">getters()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
@@ -425,6 +432,13 @@ and the value is the original name</dd>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets emojis</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Clients-MessagingApi-Model-TextMessageAllOf.html#method_setQuoteToken">setQuoteToken()</a>
+    <span>
+                                &nbsp;: self    </span>
+</dt>
+<dd>Sets quoteToken</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-MessagingApi-Model-TextMessageAllOf.html#method_setters">setters()</a>
@@ -548,7 +562,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">186</span>
+    <span class="phpdocumentor-element-found-in__line">189</span>
 
     </aside>
 
@@ -559,7 +573,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$attributeMap</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; &#039;text&#039;, &#039;emojis&#039; =&gt; &#039;emojis&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; &#039;text&#039;, &#039;emojis&#039; =&gt; &#039;emojis&#039;, &#039;quoteToken&#039; =&gt; &#039;quoteToken&#039;]</span></code>
 
     
     
@@ -582,7 +596,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">258</span>
+    <span class="phpdocumentor-element-found-in__line">264</span>
 
     </aside>
 
@@ -615,7 +629,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">206</span>
+    <span class="phpdocumentor-element-found-in__line">211</span>
 
     </aside>
 
@@ -625,7 +639,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$getters</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; &#039;getText&#039;, &#039;emojis&#039; =&gt; &#039;getEmojis&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; &#039;getText&#039;, &#039;emojis&#039; =&gt; &#039;getEmojis&#039;, &#039;quoteToken&#039; =&gt; &#039;getQuoteToken&#039;]</span></code>
 
     
     
@@ -648,7 +662,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
@@ -658,7 +672,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPIFormats</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; null, &#039;emojis&#039; =&gt; null]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; null, &#039;emojis&#039; =&gt; null, &#039;quoteToken&#039; =&gt; null]</span></code>
 
     
     
@@ -738,7 +752,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 
     </aside>
 
@@ -748,7 +762,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPINullables</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; false, &#039;emojis&#039; =&gt; false]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; false, &#039;emojis&#039; =&gt; false, &#039;quoteToken&#039; =&gt; false]</span></code>
 
     
     
@@ -771,7 +785,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
@@ -814,7 +828,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPITypes</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; &#039;string&#039;, &#039;emojis&#039; =&gt; &#039;\\LINE\\Clients\\MessagingApi\\Model\\Emoji[]&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; &#039;string&#039;, &#039;emojis&#039; =&gt; &#039;\\LINE\\Clients\\MessagingApi\\Model\\Emoji[]&#039;, &#039;quoteToken&#039; =&gt; &#039;string&#039;]</span></code>
 
     
     
@@ -837,7 +851,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">196</span>
+    <span class="phpdocumentor-element-found-in__line">200</span>
 
     </aside>
 
@@ -847,7 +861,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$setters</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; &#039;setText&#039;, &#039;emojis&#039; =&gt; &#039;setEmojis&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;text&#039; =&gt; &#039;setText&#039;, &#039;emojis&#039; =&gt; &#039;setEmojis&#039;, &#039;quoteToken&#039; =&gt; &#039;setQuoteToken&#039;]</span></code>
 
     
     
@@ -874,7 +888,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">266</span>
+    <span class="phpdocumentor-element-found-in__line">272</span>
 
     </aside>
 
@@ -920,7 +934,7 @@ initializing the model</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">439</span>
+    <span class="phpdocumentor-element-found-in__line">473</span>
 
     </aside>
 
@@ -953,7 +967,7 @@ initializing the model</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">217</span>
+    <span class="phpdocumentor-element-found-in__line">223</span>
 
     </aside>
 
@@ -987,7 +1001,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">346</span>
+    <span class="phpdocumentor-element-found-in__line">353</span>
 
     </aside>
 
@@ -1020,7 +1034,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">247</span>
+    <span class="phpdocumentor-element-found-in__line">253</span>
 
     </aside>
 
@@ -1044,6 +1058,39 @@ and the value is the original name</p>
         class="phpdocumentor-element
             -method
             -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getQuoteToken">
+        getQuoteToken()
+        <a href="classes/LINE-Clients-MessagingApi-Model-TextMessageAllOf.html#method_getQuoteToken" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">380</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets quoteToken</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getQuoteToken</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
                                     -static                    "
 >
     <h4 class="phpdocumentor-element__name" id="method_getters">
@@ -1053,7 +1100,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">237</span>
+    <span class="phpdocumentor-element-found-in__line">243</span>
 
     </aside>
 
@@ -1086,7 +1133,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">319</span>
+    <span class="phpdocumentor-element-found-in__line">326</span>
 
     </aside>
 
@@ -1119,7 +1166,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">164</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 
     </aside>
 
@@ -1162,7 +1209,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">175</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
@@ -1205,7 +1252,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">428</span>
+    <span class="phpdocumentor-element-found-in__line">462</span>
 
     </aside>
 
@@ -1254,7 +1301,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">295</span>
+    <span class="phpdocumentor-element-found-in__line">302</span>
 
     </aside>
 
@@ -1289,7 +1336,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">374</span>
+    <span class="phpdocumentor-element-found-in__line">408</span>
 
     </aside>
 
@@ -1334,7 +1381,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">386</span>
+    <span class="phpdocumentor-element-found-in__line">420</span>
 
     </aside>
 
@@ -1379,7 +1426,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">400</span>
+    <span class="phpdocumentor-element-found-in__line">434</span>
 
     </aside>
 
@@ -1433,7 +1480,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">416</span>
+    <span class="phpdocumentor-element-found-in__line">450</span>
 
     </aside>
 
@@ -1478,7 +1525,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -1511,7 +1558,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -1544,7 +1591,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">358</span>
+    <span class="phpdocumentor-element-found-in__line">365</span>
 
     </aside>
 
@@ -1580,6 +1627,51 @@ of any type other than a resource.</p>
         class="phpdocumentor-element
             -method
             -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setQuoteToken">
+        setQuoteToken()
+        <a href="classes/LINE-Clients-MessagingApi-Model-TextMessageAllOf.html#method_setQuoteToken" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">392</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Sets quoteToken</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setQuoteToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$quoteToken</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$quoteToken</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Quote token of the message you want to quote.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">self</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
                                     -static                    "
 >
     <h4 class="phpdocumentor-element__name" id="method_setters">
@@ -1589,7 +1681,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">227</span>
+    <span class="phpdocumentor-element-found-in__line">233</span>
 
     </aside>
 
@@ -1622,7 +1714,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">331</span>
+    <span class="phpdocumentor-element-found-in__line">338</span>
 
     </aside>
 
@@ -1667,7 +1759,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">452</span>
+    <span class="phpdocumentor-element-found-in__line">486</span>
 
     </aside>
 
@@ -1700,7 +1792,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">308</span>
+    <span class="phpdocumentor-element-found-in__line">315</span>
 
     </aside>
 
@@ -1736,7 +1828,7 @@ return true if all passed</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">133</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -1769,7 +1861,7 @@ return true if all passed</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">146</span>
 
     </aside>
 
@@ -1802,7 +1894,7 @@ return true if all passed</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">281</span>
+    <span class="phpdocumentor-element-found-in__line">288</span>
 
     </aside>
 
@@ -1861,7 +1953,7 @@ $this-&gt;openAPINullablesSetToNull array</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php"><a href="files/src-clients-messaging-api-lib-model-textmessageallof.html"><abbr title="src/clients/messaging-api/lib/Model/TextMessageAllOf.php">TextMessageAllOf.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">153</span>
+    <span class="phpdocumentor-element-found-in__line">156</span>
 
     </aside>
 

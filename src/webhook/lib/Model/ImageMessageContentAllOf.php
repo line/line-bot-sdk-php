@@ -74,7 +74,8 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'id' => 'string',
         'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
-        'imageSet' => '\LINE\Webhook\Model\ImageSet'
+        'imageSet' => '\LINE\Webhook\Model\ImageSet',
+        'quoteToken' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'id' => null,
         'contentProvider' => null,
-        'imageSet' => null
+        'imageSet' => null,
+        'quoteToken' => null
     ];
 
     /**
@@ -98,7 +100,8 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     protected static array $openAPINullables = [
         'id' => false,
 		'contentProvider' => false,
-		'imageSet' => false
+		'imageSet' => false,
+		'quoteToken' => false
     ];
 
     /**
@@ -189,7 +192,8 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'id' => 'id',
         'contentProvider' => 'contentProvider',
-        'imageSet' => 'imageSet'
+        'imageSet' => 'imageSet',
+        'quoteToken' => 'quoteToken'
     ];
 
     /**
@@ -200,7 +204,8 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'id' => 'setId',
         'contentProvider' => 'setContentProvider',
-        'imageSet' => 'setImageSet'
+        'imageSet' => 'setImageSet',
+        'quoteToken' => 'setQuoteToken'
     ];
 
     /**
@@ -211,7 +216,8 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'id' => 'getId',
         'contentProvider' => 'getContentProvider',
-        'imageSet' => 'getImageSet'
+        'imageSet' => 'getImageSet',
+        'quoteToken' => 'getQuoteToken'
     ];
 
     /**
@@ -274,6 +280,7 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('contentProvider', $data ?? [], null);
         $this->setIfExists('imageSet', $data ?? [], null);
+        $this->setIfExists('quoteToken', $data ?? [], null);
     }
 
     /**
@@ -308,6 +315,9 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
         }
         if ($this->container['contentProvider'] === null) {
             $invalidProperties[] = "'contentProvider' can't be null";
+        }
+        if ($this->container['quoteToken'] === null) {
+            $invalidProperties[] = "'quoteToken' can't be null";
         }
         return $invalidProperties;
     }
@@ -401,6 +411,33 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable imageSet cannot be null');
         }
         $this->container['imageSet'] = $imageSet;
+
+        return $this;
+    }
+
+    /**
+     * Gets quoteToken
+     *
+     * @return string
+     */
+    public function getQuoteToken()
+    {
+        return $this->container['quoteToken'];
+    }
+
+    /**
+     * Sets quoteToken
+     *
+     * @param string $quoteToken Quote token to quote this message.
+     *
+     * @return self
+     */
+    public function setQuoteToken($quoteToken)
+    {
+        if (is_null($quoteToken)) {
+            throw new \InvalidArgumentException('non-nullable quoteToken cannot be null');
+        }
+        $this->container['quoteToken'] = $quoteToken;
 
         return $this;
     }

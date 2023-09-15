@@ -73,7 +73,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'message' => 'string',
-        'details' => '\LINE\Clients\MessagingApi\Model\ErrorDetail[]'
+        'details' => '\LINE\Clients\MessagingApi\Model\ErrorDetail[]',
+        'sentMessages' => '\LINE\Clients\MessagingApi\Model\SentMessage[]'
     ];
 
     /**
@@ -85,7 +86,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'message' => null,
-        'details' => null
+        'details' => null,
+        'sentMessages' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'message' => false,
-		'details' => false
+		'details' => false,
+		'sentMessages' => false
     ];
 
     /**
@@ -185,7 +188,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'message' => 'message',
-        'details' => 'details'
+        'details' => 'details',
+        'sentMessages' => 'sentMessages'
     ];
 
     /**
@@ -195,7 +199,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'message' => 'setMessage',
-        'details' => 'setDetails'
+        'details' => 'setDetails',
+        'sentMessages' => 'setSentMessages'
     ];
 
     /**
@@ -205,7 +210,8 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'message' => 'getMessage',
-        'details' => 'getDetails'
+        'details' => 'getDetails',
+        'sentMessages' => 'getSentMessages'
     ];
 
     /**
@@ -267,6 +273,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('details', $data ?? [], null);
+        $this->setIfExists('sentMessages', $data ?? [], null);
     }
 
     /**
@@ -299,6 +306,14 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['message'] === null) {
             $invalidProperties[] = "'message' can't be null";
         }
+        if (!is_null($this->container['sentMessages']) && (count($this->container['sentMessages']) > 5)) {
+            $invalidProperties[] = "invalid value for 'sentMessages', number of items must be less than or equal to 5.";
+        }
+
+        if (!is_null($this->container['sentMessages']) && (count($this->container['sentMessages']) < 1)) {
+            $invalidProperties[] = "invalid value for 'sentMessages', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -364,6 +379,40 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable details cannot be null');
         }
         $this->container['details'] = $details;
+
+        return $this;
+    }
+
+    /**
+     * Gets sentMessages
+     *
+     * @return \LINE\Clients\MessagingApi\Model\SentMessage[]|null
+     */
+    public function getSentMessages()
+    {
+        return $this->container['sentMessages'];
+    }
+
+    /**
+     * Sets sentMessages
+     *
+     * @param \LINE\Clients\MessagingApi\Model\SentMessage[]|null $sentMessages Array of sent messages.
+     *
+     * @return self
+     */
+    public function setSentMessages($sentMessages)
+    {
+        if (is_null($sentMessages)) {
+            throw new \InvalidArgumentException('non-nullable sentMessages cannot be null');
+        }
+
+        if ((count($sentMessages) > 5)) {
+            throw new \InvalidArgumentException('invalid value for $sentMessages when calling ErrorResponse., number of items must be less than or equal to 5.');
+        }
+        if ((count($sentMessages) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $sentMessages when calling ErrorResponse., number of items must be greater than or equal to 1.');
+        }
+        $this->container['sentMessages'] = $sentMessages;
 
         return $this;
     }

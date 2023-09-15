@@ -73,7 +73,9 @@ class TextMessageContent extends MessageContent
         'id' => 'string',
         'text' => 'string',
         'emojis' => '\LINE\Webhook\Model\Emoji[]',
-        'mention' => '\LINE\Webhook\Model\Mention'
+        'mention' => '\LINE\Webhook\Model\Mention',
+        'quoteToken' => 'string',
+        'quotedMessageId' => 'string'
     ];
 
     /**
@@ -87,7 +89,9 @@ class TextMessageContent extends MessageContent
         'id' => null,
         'text' => null,
         'emojis' => null,
-        'mention' => null
+        'mention' => null,
+        'quoteToken' => null,
+        'quotedMessageId' => null
     ];
 
     /**
@@ -99,7 +103,9 @@ class TextMessageContent extends MessageContent
         'id' => false,
 		'text' => false,
 		'emojis' => false,
-		'mention' => false
+		'mention' => false,
+		'quoteToken' => false,
+		'quotedMessageId' => false
     ];
 
     /**
@@ -191,7 +197,9 @@ class TextMessageContent extends MessageContent
         'id' => 'id',
         'text' => 'text',
         'emojis' => 'emojis',
-        'mention' => 'mention'
+        'mention' => 'mention',
+        'quoteToken' => 'quoteToken',
+        'quotedMessageId' => 'quotedMessageId'
     ];
 
     /**
@@ -203,7 +211,9 @@ class TextMessageContent extends MessageContent
         'id' => 'setId',
         'text' => 'setText',
         'emojis' => 'setEmojis',
-        'mention' => 'setMention'
+        'mention' => 'setMention',
+        'quoteToken' => 'setQuoteToken',
+        'quotedMessageId' => 'setQuotedMessageId'
     ];
 
     /**
@@ -215,7 +225,9 @@ class TextMessageContent extends MessageContent
         'id' => 'getId',
         'text' => 'getText',
         'emojis' => 'getEmojis',
-        'mention' => 'getMention'
+        'mention' => 'getMention',
+        'quoteToken' => 'getQuoteToken',
+        'quotedMessageId' => 'getQuotedMessageId'
     ];
 
     /**
@@ -275,6 +287,8 @@ class TextMessageContent extends MessageContent
         $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('emojis', $data ?? [], null);
         $this->setIfExists('mention', $data ?? [], null);
+        $this->setIfExists('quoteToken', $data ?? [], null);
+        $this->setIfExists('quotedMessageId', $data ?? [], null);
     }
 
     /**
@@ -309,6 +323,9 @@ class TextMessageContent extends MessageContent
         }
         if ($this->container['text'] === null) {
             $invalidProperties[] = "'text' can't be null";
+        }
+        if ($this->container['quoteToken'] === null) {
+            $invalidProperties[] = "'quoteToken' can't be null";
         }
         return $invalidProperties;
     }
@@ -429,6 +446,60 @@ class TextMessageContent extends MessageContent
             throw new \InvalidArgumentException('non-nullable mention cannot be null');
         }
         $this->container['mention'] = $mention;
+
+        return $this;
+    }
+
+    /**
+     * Gets quoteToken
+     *
+     * @return string
+     */
+    public function getQuoteToken()
+    {
+        return $this->container['quoteToken'];
+    }
+
+    /**
+     * Sets quoteToken
+     *
+     * @param string $quoteToken Quote token to quote this message.
+     *
+     * @return self
+     */
+    public function setQuoteToken($quoteToken)
+    {
+        if (is_null($quoteToken)) {
+            throw new \InvalidArgumentException('non-nullable quoteToken cannot be null');
+        }
+        $this->container['quoteToken'] = $quoteToken;
+
+        return $this;
+    }
+
+    /**
+     * Gets quotedMessageId
+     *
+     * @return string|null
+     */
+    public function getQuotedMessageId()
+    {
+        return $this->container['quotedMessageId'];
+    }
+
+    /**
+     * Sets quotedMessageId
+     *
+     * @param string|null $quotedMessageId Message ID of a quoted message. Only included when the received message quotes a past message.
+     *
+     * @return self
+     */
+    public function setQuotedMessageId($quotedMessageId)
+    {
+        if (is_null($quotedMessageId)) {
+            throw new \InvalidArgumentException('non-nullable quotedMessageId cannot be null');
+        }
+        $this->container['quotedMessageId'] = $quotedMessageId;
 
         return $this;
     }

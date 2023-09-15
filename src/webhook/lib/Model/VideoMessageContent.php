@@ -72,7 +72,8 @@ class VideoMessageContent extends MessageContent
     protected static $openAPITypes = [
         'id' => 'string',
         'duration' => 'int',
-        'contentProvider' => '\LINE\Webhook\Model\ContentProvider'
+        'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
+        'quoteToken' => 'string'
     ];
 
     /**
@@ -85,7 +86,8 @@ class VideoMessageContent extends MessageContent
     protected static $openAPIFormats = [
         'id' => null,
         'duration' => 'int64',
-        'contentProvider' => null
+        'contentProvider' => null,
+        'quoteToken' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class VideoMessageContent extends MessageContent
     protected static array $openAPINullables = [
         'id' => false,
 		'duration' => false,
-		'contentProvider' => false
+		'contentProvider' => false,
+		'quoteToken' => false
     ];
 
     /**
@@ -187,7 +190,8 @@ class VideoMessageContent extends MessageContent
     protected static $attributeMap = [
         'id' => 'id',
         'duration' => 'duration',
-        'contentProvider' => 'contentProvider'
+        'contentProvider' => 'contentProvider',
+        'quoteToken' => 'quoteToken'
     ];
 
     /**
@@ -198,7 +202,8 @@ class VideoMessageContent extends MessageContent
     protected static $setters = [
         'id' => 'setId',
         'duration' => 'setDuration',
-        'contentProvider' => 'setContentProvider'
+        'contentProvider' => 'setContentProvider',
+        'quoteToken' => 'setQuoteToken'
     ];
 
     /**
@@ -209,7 +214,8 @@ class VideoMessageContent extends MessageContent
     protected static $getters = [
         'id' => 'getId',
         'duration' => 'getDuration',
-        'contentProvider' => 'getContentProvider'
+        'contentProvider' => 'getContentProvider',
+        'quoteToken' => 'getQuoteToken'
     ];
 
     /**
@@ -268,6 +274,7 @@ class VideoMessageContent extends MessageContent
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('duration', $data ?? [], null);
         $this->setIfExists('contentProvider', $data ?? [], null);
+        $this->setIfExists('quoteToken', $data ?? [], null);
     }
 
     /**
@@ -302,6 +309,9 @@ class VideoMessageContent extends MessageContent
         }
         if ($this->container['contentProvider'] === null) {
             $invalidProperties[] = "'contentProvider' can't be null";
+        }
+        if ($this->container['quoteToken'] === null) {
+            $invalidProperties[] = "'quoteToken' can't be null";
         }
         return $invalidProperties;
     }
@@ -395,6 +405,33 @@ class VideoMessageContent extends MessageContent
             throw new \InvalidArgumentException('non-nullable contentProvider cannot be null');
         }
         $this->container['contentProvider'] = $contentProvider;
+
+        return $this;
+    }
+
+    /**
+     * Gets quoteToken
+     *
+     * @return string
+     */
+    public function getQuoteToken()
+    {
+        return $this->container['quoteToken'];
+    }
+
+    /**
+     * Sets quoteToken
+     *
+     * @param string $quoteToken Quote token to quote this message.
+     *
+     * @return self
+     */
+    public function setQuoteToken($quoteToken)
+    {
+        if (is_null($quoteToken)) {
+            throw new \InvalidArgumentException('non-nullable quoteToken cannot be null');
+        }
+        $this->container['quoteToken'] = $quoteToken;
 
         return $this;
     }

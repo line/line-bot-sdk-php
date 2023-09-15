@@ -147,4 +147,22 @@ class StickerMessageContentAllOfTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "quoteToken"
+     */
+    public function testPropertyQuoteToken()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "quotedMessageId"
+     */
+    public function testPropertyQuotedMessageId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
