@@ -280,7 +280,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_broadcast">broadcast()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: object|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a>    </span>
 </dt>
 <dd>Operation broadcast</dd>
 
@@ -1729,7 +1729,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_multicast">multicast()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: object|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a>    </span>
 </dt>
 <dd>Operation multicast</dd>
 
@@ -1764,7 +1764,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_narrowcast">narrowcast()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: object|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a>    </span>
 </dt>
 <dd>Operation narrowcast</dd>
 
@@ -1799,7 +1799,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_pushMessage">pushMessage()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Model-PushMessageResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\PushMessageResponse">PushMessageResponse</abbr></a>|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a>    </span>
 </dt>
 <dd>Operation pushMessage</dd>
 
@@ -1869,7 +1869,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_replyMessage">replyMessage()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Model-ReplyMessageResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ReplyMessageResponse">ReplyMessageResponse</abbr></a>|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a>    </span>
 </dt>
 <dd>Operation replyMessage</dd>
 
@@ -3039,7 +3039,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">broadcast</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-BroadcastRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\BroadcastRequest">BroadcastRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$broadcastRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$xLineRetryKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;broadcast&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">broadcast</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-BroadcastRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\BroadcastRequest">BroadcastRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$broadcastRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$xLineRetryKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;broadcast&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -3100,7 +3100,7 @@
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type">object|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span>
             &mdash;
         
     
@@ -3118,7 +3118,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">661</span>
+    <span class="phpdocumentor-element-found-in__line">762</span>
 
     </aside>
 
@@ -3195,7 +3195,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">681</span>
+    <span class="phpdocumentor-element-found-in__line">782</span>
 
     </aside>
 
@@ -3272,7 +3272,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">719</span>
+    <span class="phpdocumentor-element-found-in__line">833</span>
 
     </aside>
 
@@ -3349,7 +3349,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">571</span>
+    <span class="phpdocumentor-element-found-in__line">572</span>
 
     </aside>
 
@@ -3420,7 +3420,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+            <section class="phpdocumentor-description"><p>of object|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)</p>
 </section>
 
     
@@ -3438,7 +3438,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">819</span>
+    <span class="phpdocumentor-element-found-in__line">933</span>
 
     </aside>
 
@@ -3507,7 +3507,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">889</span>
+    <span class="phpdocumentor-element-found-in__line">1003</span>
 
     </aside>
 
@@ -3566,7 +3566,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">907</span>
+    <span class="phpdocumentor-element-found-in__line">1021</span>
 
     </aside>
 
@@ -3625,7 +3625,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">943</span>
+    <span class="phpdocumentor-element-found-in__line">1057</span>
 
     </aside>
 
@@ -3684,7 +3684,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">833</span>
+    <span class="phpdocumentor-element-found-in__line">947</span>
 
     </aside>
 
@@ -3755,7 +3755,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1025</span>
+    <span class="phpdocumentor-element-found-in__line">1139</span>
 
     </aside>
 
@@ -3833,7 +3833,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1303</span>
+    <span class="phpdocumentor-element-found-in__line">1417</span>
 
     </aside>
 
@@ -3911,7 +3911,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1383</span>
+    <span class="phpdocumentor-element-found-in__line">1497</span>
 
     </aside>
 
@@ -3979,7 +3979,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1402</span>
+    <span class="phpdocumentor-element-found-in__line">1516</span>
 
     </aside>
 
@@ -4047,7 +4047,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1439</span>
+    <span class="phpdocumentor-element-found-in__line">1553</span>
 
     </aside>
 
@@ -4115,7 +4115,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1318</span>
+    <span class="phpdocumentor-element-found-in__line">1432</span>
 
     </aside>
 
@@ -4195,7 +4195,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1138</span>
+    <span class="phpdocumentor-element-found-in__line">1252</span>
 
     </aside>
 
@@ -4263,7 +4263,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1157</span>
+    <span class="phpdocumentor-element-found-in__line">1271</span>
 
     </aside>
 
@@ -4331,7 +4331,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1207</span>
+    <span class="phpdocumentor-element-found-in__line">1321</span>
 
     </aside>
 
@@ -4399,7 +4399,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1041</span>
+    <span class="phpdocumentor-element-found-in__line">1155</span>
 
     </aside>
 
@@ -4479,7 +4479,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1535</span>
+    <span class="phpdocumentor-element-found-in__line">1649</span>
 
     </aside>
 
@@ -4557,7 +4557,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1760</span>
+    <span class="phpdocumentor-element-found-in__line">1874</span>
 
     </aside>
 
@@ -4635,7 +4635,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1840</span>
+    <span class="phpdocumentor-element-found-in__line">1954</span>
 
     </aside>
 
@@ -4703,7 +4703,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1859</span>
+    <span class="phpdocumentor-element-found-in__line">1973</span>
 
     </aside>
 
@@ -4771,7 +4771,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1896</span>
+    <span class="phpdocumentor-element-found-in__line">2010</span>
 
     </aside>
 
@@ -4839,7 +4839,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1775</span>
+    <span class="phpdocumentor-element-found-in__line">1889</span>
 
     </aside>
 
@@ -4919,7 +4919,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1607</span>
+    <span class="phpdocumentor-element-found-in__line">1721</span>
 
     </aside>
 
@@ -4987,7 +4987,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1626</span>
+    <span class="phpdocumentor-element-found-in__line">1740</span>
 
     </aside>
 
@@ -5055,7 +5055,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1663</span>
+    <span class="phpdocumentor-element-found-in__line">1777</span>
 
     </aside>
 
@@ -5123,7 +5123,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1550</span>
+    <span class="phpdocumentor-element-found-in__line">1664</span>
 
     </aside>
 
@@ -5203,7 +5203,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1993</span>
+    <span class="phpdocumentor-element-found-in__line">2107</span>
 
     </aside>
 
@@ -5281,7 +5281,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2106</span>
+    <span class="phpdocumentor-element-found-in__line">2220</span>
 
     </aside>
 
@@ -5349,7 +5349,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2125</span>
+    <span class="phpdocumentor-element-found-in__line">2239</span>
 
     </aside>
 
@@ -5417,7 +5417,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2175</span>
+    <span class="phpdocumentor-element-found-in__line">2289</span>
 
     </aside>
 
@@ -5485,7 +5485,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2009</span>
+    <span class="phpdocumentor-element-found-in__line">2123</span>
 
     </aside>
 
@@ -5565,7 +5565,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2274</span>
+    <span class="phpdocumentor-element-found-in__line">2388</span>
 
     </aside>
 
@@ -5652,7 +5652,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2389</span>
+    <span class="phpdocumentor-element-found-in__line">2503</span>
 
     </aside>
 
@@ -5729,7 +5729,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2409</span>
+    <span class="phpdocumentor-element-found-in__line">2523</span>
 
     </aside>
 
@@ -5806,7 +5806,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2460</span>
+    <span class="phpdocumentor-element-found-in__line">2574</span>
 
     </aside>
 
@@ -5883,7 +5883,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2291</span>
+    <span class="phpdocumentor-element-found-in__line">2405</span>
 
     </aside>
 
@@ -5972,7 +5972,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2561</span>
+    <span class="phpdocumentor-element-found-in__line">2675</span>
 
     </aside>
 
@@ -6041,7 +6041,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2672</span>
+    <span class="phpdocumentor-element-found-in__line">2786</span>
 
     </aside>
 
@@ -6100,7 +6100,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2690</span>
+    <span class="phpdocumentor-element-found-in__line">2804</span>
 
     </aside>
 
@@ -6159,7 +6159,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2739</span>
+    <span class="phpdocumentor-element-found-in__line">2853</span>
 
     </aside>
 
@@ -6218,7 +6218,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2576</span>
+    <span class="phpdocumentor-element-found-in__line">2690</span>
 
     </aside>
 
@@ -6289,7 +6289,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2820</span>
+    <span class="phpdocumentor-element-found-in__line">2934</span>
 
     </aside>
 
@@ -6358,7 +6358,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2931</span>
+    <span class="phpdocumentor-element-found-in__line">3045</span>
 
     </aside>
 
@@ -6417,7 +6417,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2949</span>
+    <span class="phpdocumentor-element-found-in__line">3063</span>
 
     </aside>
 
@@ -6476,7 +6476,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2998</span>
+    <span class="phpdocumentor-element-found-in__line">3112</span>
 
     </aside>
 
@@ -6535,7 +6535,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2835</span>
+    <span class="phpdocumentor-element-found-in__line">2949</span>
 
     </aside>
 
@@ -6638,7 +6638,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3079</span>
+    <span class="phpdocumentor-element-found-in__line">3193</span>
 
     </aside>
 
@@ -6707,7 +6707,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3190</span>
+    <span class="phpdocumentor-element-found-in__line">3304</span>
 
     </aside>
 
@@ -6766,7 +6766,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3208</span>
+    <span class="phpdocumentor-element-found-in__line">3322</span>
 
     </aside>
 
@@ -6825,7 +6825,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3257</span>
+    <span class="phpdocumentor-element-found-in__line">3371</span>
 
     </aside>
 
@@ -6884,7 +6884,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3094</span>
+    <span class="phpdocumentor-element-found-in__line">3208</span>
 
     </aside>
 
@@ -6955,7 +6955,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3340</span>
+    <span class="phpdocumentor-element-found-in__line">3454</span>
 
     </aside>
 
@@ -7042,7 +7042,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3455</span>
+    <span class="phpdocumentor-element-found-in__line">3569</span>
 
     </aside>
 
@@ -7119,7 +7119,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3475</span>
+    <span class="phpdocumentor-element-found-in__line">3589</span>
 
     </aside>
 
@@ -7196,7 +7196,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3526</span>
+    <span class="phpdocumentor-element-found-in__line">3640</span>
 
     </aside>
 
@@ -7273,7 +7273,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3357</span>
+    <span class="phpdocumentor-element-found-in__line">3471</span>
 
     </aside>
 
@@ -7362,7 +7362,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3631</span>
+    <span class="phpdocumentor-element-found-in__line">3745</span>
 
     </aside>
 
@@ -7440,7 +7440,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3744</span>
+    <span class="phpdocumentor-element-found-in__line">3858</span>
 
     </aside>
 
@@ -7508,7 +7508,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3763</span>
+    <span class="phpdocumentor-element-found-in__line">3877</span>
 
     </aside>
 
@@ -7576,7 +7576,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3813</span>
+    <span class="phpdocumentor-element-found-in__line">3927</span>
 
     </aside>
 
@@ -7644,7 +7644,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3647</span>
+    <span class="phpdocumentor-element-found-in__line">3761</span>
 
     </aside>
 
@@ -7724,7 +7724,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3911</span>
+    <span class="phpdocumentor-element-found-in__line">4025</span>
 
     </aside>
 
@@ -7811,7 +7811,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4026</span>
+    <span class="phpdocumentor-element-found-in__line">4140</span>
 
     </aside>
 
@@ -7888,7 +7888,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4046</span>
+    <span class="phpdocumentor-element-found-in__line">4160</span>
 
     </aside>
 
@@ -7965,7 +7965,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4097</span>
+    <span class="phpdocumentor-element-found-in__line">4211</span>
 
     </aside>
 
@@ -8042,7 +8042,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3928</span>
+    <span class="phpdocumentor-element-found-in__line">4042</span>
 
     </aside>
 
@@ -8131,7 +8131,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4210</span>
+    <span class="phpdocumentor-element-found-in__line">4324</span>
 
     </aside>
 
@@ -8218,7 +8218,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4325</span>
+    <span class="phpdocumentor-element-found-in__line">4439</span>
 
     </aside>
 
@@ -8295,7 +8295,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4345</span>
+    <span class="phpdocumentor-element-found-in__line">4459</span>
 
     </aside>
 
@@ -8372,7 +8372,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4396</span>
+    <span class="phpdocumentor-element-found-in__line">4510</span>
 
     </aside>
 
@@ -8449,7 +8449,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4227</span>
+    <span class="phpdocumentor-element-found-in__line">4341</span>
 
     </aside>
 
@@ -8538,7 +8538,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4503</span>
+    <span class="phpdocumentor-element-found-in__line">4617</span>
 
     </aside>
 
@@ -8616,7 +8616,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4616</span>
+    <span class="phpdocumentor-element-found-in__line">4730</span>
 
     </aside>
 
@@ -8684,7 +8684,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4635</span>
+    <span class="phpdocumentor-element-found-in__line">4749</span>
 
     </aside>
 
@@ -8752,7 +8752,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4685</span>
+    <span class="phpdocumentor-element-found-in__line">4799</span>
 
     </aside>
 
@@ -8820,7 +8820,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4519</span>
+    <span class="phpdocumentor-element-found-in__line">4633</span>
 
     </aside>
 
@@ -8935,7 +8935,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4781</span>
+    <span class="phpdocumentor-element-found-in__line">4895</span>
 
     </aside>
 
@@ -9004,7 +9004,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4892</span>
+    <span class="phpdocumentor-element-found-in__line">5006</span>
 
     </aside>
 
@@ -9063,7 +9063,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4910</span>
+    <span class="phpdocumentor-element-found-in__line">5024</span>
 
     </aside>
 
@@ -9122,7 +9122,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5040</span>
+    <span class="phpdocumentor-element-found-in__line">5154</span>
 
     </aside>
 
@@ -9191,7 +9191,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5151</span>
+    <span class="phpdocumentor-element-found-in__line">5265</span>
 
     </aside>
 
@@ -9250,7 +9250,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5169</span>
+    <span class="phpdocumentor-element-found-in__line">5283</span>
 
     </aside>
 
@@ -9309,7 +9309,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5218</span>
+    <span class="phpdocumentor-element-found-in__line">5332</span>
 
     </aside>
 
@@ -9368,7 +9368,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5055</span>
+    <span class="phpdocumentor-element-found-in__line">5169</span>
 
     </aside>
 
@@ -9439,7 +9439,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4959</span>
+    <span class="phpdocumentor-element-found-in__line">5073</span>
 
     </aside>
 
@@ -9498,7 +9498,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4796</span>
+    <span class="phpdocumentor-element-found-in__line">4910</span>
 
     </aside>
 
@@ -9569,7 +9569,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5300</span>
+    <span class="phpdocumentor-element-found-in__line">5414</span>
 
     </aside>
 
@@ -9647,7 +9647,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5413</span>
+    <span class="phpdocumentor-element-found-in__line">5527</span>
 
     </aside>
 
@@ -9715,7 +9715,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5432</span>
+    <span class="phpdocumentor-element-found-in__line">5546</span>
 
     </aside>
 
@@ -9783,7 +9783,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5482</span>
+    <span class="phpdocumentor-element-found-in__line">5596</span>
 
     </aside>
 
@@ -9851,7 +9851,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5316</span>
+    <span class="phpdocumentor-element-found-in__line">5430</span>
 
     </aside>
 
@@ -9931,7 +9931,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5580</span>
+    <span class="phpdocumentor-element-found-in__line">5694</span>
 
     </aside>
 
@@ -10009,7 +10009,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5693</span>
+    <span class="phpdocumentor-element-found-in__line">5807</span>
 
     </aside>
 
@@ -10077,7 +10077,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5712</span>
+    <span class="phpdocumentor-element-found-in__line">5826</span>
 
     </aside>
 
@@ -10145,7 +10145,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5762</span>
+    <span class="phpdocumentor-element-found-in__line">5876</span>
 
     </aside>
 
@@ -10213,7 +10213,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5596</span>
+    <span class="phpdocumentor-element-found-in__line">5710</span>
 
     </aside>
 
@@ -10293,7 +10293,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5860</span>
+    <span class="phpdocumentor-element-found-in__line">5974</span>
 
     </aside>
 
@@ -10371,7 +10371,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5973</span>
+    <span class="phpdocumentor-element-found-in__line">6087</span>
 
     </aside>
 
@@ -10439,7 +10439,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5992</span>
+    <span class="phpdocumentor-element-found-in__line">6106</span>
 
     </aside>
 
@@ -10507,7 +10507,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6042</span>
+    <span class="phpdocumentor-element-found-in__line">6156</span>
 
     </aside>
 
@@ -10575,7 +10575,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5876</span>
+    <span class="phpdocumentor-element-found-in__line">5990</span>
 
     </aside>
 
@@ -10655,7 +10655,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6140</span>
+    <span class="phpdocumentor-element-found-in__line">6254</span>
 
     </aside>
 
@@ -10733,7 +10733,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6253</span>
+    <span class="phpdocumentor-element-found-in__line">6367</span>
 
     </aside>
 
@@ -10801,7 +10801,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6272</span>
+    <span class="phpdocumentor-element-found-in__line">6386</span>
 
     </aside>
 
@@ -10869,7 +10869,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6322</span>
+    <span class="phpdocumentor-element-found-in__line">6436</span>
 
     </aside>
 
@@ -10937,7 +10937,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6156</span>
+    <span class="phpdocumentor-element-found-in__line">6270</span>
 
     </aside>
 
@@ -11017,7 +11017,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6420</span>
+    <span class="phpdocumentor-element-found-in__line">6534</span>
 
     </aside>
 
@@ -11095,7 +11095,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6533</span>
+    <span class="phpdocumentor-element-found-in__line">6647</span>
 
     </aside>
 
@@ -11163,7 +11163,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6552</span>
+    <span class="phpdocumentor-element-found-in__line">6666</span>
 
     </aside>
 
@@ -11231,7 +11231,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6602</span>
+    <span class="phpdocumentor-element-found-in__line">6716</span>
 
     </aside>
 
@@ -11299,7 +11299,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6436</span>
+    <span class="phpdocumentor-element-found-in__line">6550</span>
 
     </aside>
 
@@ -11379,7 +11379,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6700</span>
+    <span class="phpdocumentor-element-found-in__line">6814</span>
 
     </aside>
 
@@ -11457,7 +11457,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6813</span>
+    <span class="phpdocumentor-element-found-in__line">6927</span>
 
     </aside>
 
@@ -11525,7 +11525,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6832</span>
+    <span class="phpdocumentor-element-found-in__line">6946</span>
 
     </aside>
 
@@ -11593,7 +11593,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6882</span>
+    <span class="phpdocumentor-element-found-in__line">6996</span>
 
     </aside>
 
@@ -11661,7 +11661,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6716</span>
+    <span class="phpdocumentor-element-found-in__line">6830</span>
 
     </aside>
 
@@ -11741,7 +11741,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6983</span>
+    <span class="phpdocumentor-element-found-in__line">7097</span>
 
     </aside>
 
@@ -11819,7 +11819,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7096</span>
+    <span class="phpdocumentor-element-found-in__line">7210</span>
 
     </aside>
 
@@ -11887,7 +11887,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7115</span>
+    <span class="phpdocumentor-element-found-in__line">7229</span>
 
     </aside>
 
@@ -11955,7 +11955,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7165</span>
+    <span class="phpdocumentor-element-found-in__line">7279</span>
 
     </aside>
 
@@ -12023,7 +12023,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6999</span>
+    <span class="phpdocumentor-element-found-in__line">7113</span>
 
     </aside>
 
@@ -12103,7 +12103,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7262</span>
+    <span class="phpdocumentor-element-found-in__line">7376</span>
 
     </aside>
 
@@ -12181,7 +12181,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7541</span>
+    <span class="phpdocumentor-element-found-in__line">7655</span>
 
     </aside>
 
@@ -12259,7 +12259,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7654</span>
+    <span class="phpdocumentor-element-found-in__line">7768</span>
 
     </aside>
 
@@ -12327,7 +12327,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7673</span>
+    <span class="phpdocumentor-element-found-in__line">7787</span>
 
     </aside>
 
@@ -12395,7 +12395,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7819</span>
+    <span class="phpdocumentor-element-found-in__line">7933</span>
 
     </aside>
 
@@ -12464,7 +12464,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7930</span>
+    <span class="phpdocumentor-element-found-in__line">8044</span>
 
     </aside>
 
@@ -12523,7 +12523,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7948</span>
+    <span class="phpdocumentor-element-found-in__line">8062</span>
 
     </aside>
 
@@ -12582,7 +12582,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7997</span>
+    <span class="phpdocumentor-element-found-in__line">8111</span>
 
     </aside>
 
@@ -12641,7 +12641,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7834</span>
+    <span class="phpdocumentor-element-found-in__line">7948</span>
 
     </aside>
 
@@ -12712,7 +12712,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7723</span>
+    <span class="phpdocumentor-element-found-in__line">7837</span>
 
     </aside>
 
@@ -12780,7 +12780,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7557</span>
+    <span class="phpdocumentor-element-found-in__line">7671</span>
 
     </aside>
 
@@ -12860,7 +12860,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7375</span>
+    <span class="phpdocumentor-element-found-in__line">7489</span>
 
     </aside>
 
@@ -12928,7 +12928,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7394</span>
+    <span class="phpdocumentor-element-found-in__line">7508</span>
 
     </aside>
 
@@ -12996,7 +12996,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8079</span>
+    <span class="phpdocumentor-element-found-in__line">8193</span>
 
     </aside>
 
@@ -13074,7 +13074,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8192</span>
+    <span class="phpdocumentor-element-found-in__line">8306</span>
 
     </aside>
 
@@ -13142,7 +13142,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8211</span>
+    <span class="phpdocumentor-element-found-in__line">8325</span>
 
     </aside>
 
@@ -13210,7 +13210,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8261</span>
+    <span class="phpdocumentor-element-found-in__line">8375</span>
 
     </aside>
 
@@ -13278,7 +13278,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8095</span>
+    <span class="phpdocumentor-element-found-in__line">8209</span>
 
     </aside>
 
@@ -13358,7 +13358,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8359</span>
+    <span class="phpdocumentor-element-found-in__line">8473</span>
 
     </aside>
 
@@ -13436,7 +13436,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8472</span>
+    <span class="phpdocumentor-element-found-in__line">8586</span>
 
     </aside>
 
@@ -13504,7 +13504,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8491</span>
+    <span class="phpdocumentor-element-found-in__line">8605</span>
 
     </aside>
 
@@ -13572,7 +13572,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8541</span>
+    <span class="phpdocumentor-element-found-in__line">8655</span>
 
     </aside>
 
@@ -13640,7 +13640,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8375</span>
+    <span class="phpdocumentor-element-found-in__line">8489</span>
 
     </aside>
 
@@ -13720,7 +13720,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8637</span>
+    <span class="phpdocumentor-element-found-in__line">8751</span>
 
     </aside>
 
@@ -13789,7 +13789,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8748</span>
+    <span class="phpdocumentor-element-found-in__line">8862</span>
 
     </aside>
 
@@ -13848,7 +13848,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8766</span>
+    <span class="phpdocumentor-element-found-in__line">8880</span>
 
     </aside>
 
@@ -13907,7 +13907,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8815</span>
+    <span class="phpdocumentor-element-found-in__line">8929</span>
 
     </aside>
 
@@ -13966,7 +13966,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8652</span>
+    <span class="phpdocumentor-element-found-in__line">8766</span>
 
     </aside>
 
@@ -14037,7 +14037,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7444</span>
+    <span class="phpdocumentor-element-found-in__line">7558</span>
 
     </aside>
 
@@ -14105,7 +14105,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7278</span>
+    <span class="phpdocumentor-element-found-in__line">7392</span>
 
     </aside>
 
@@ -14185,7 +14185,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8897</span>
+    <span class="phpdocumentor-element-found-in__line">9011</span>
 
     </aside>
 
@@ -14263,7 +14263,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9010</span>
+    <span class="phpdocumentor-element-found-in__line">9124</span>
 
     </aside>
 
@@ -14331,7 +14331,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9029</span>
+    <span class="phpdocumentor-element-found-in__line">9143</span>
 
     </aside>
 
@@ -14399,7 +14399,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9079</span>
+    <span class="phpdocumentor-element-found-in__line">9193</span>
 
     </aside>
 
@@ -14467,7 +14467,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8913</span>
+    <span class="phpdocumentor-element-found-in__line">9027</span>
 
     </aside>
 
@@ -14547,7 +14547,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9177</span>
+    <span class="phpdocumentor-element-found-in__line">9291</span>
 
     </aside>
 
@@ -14634,7 +14634,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9292</span>
+    <span class="phpdocumentor-element-found-in__line">9406</span>
 
     </aside>
 
@@ -14711,7 +14711,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9312</span>
+    <span class="phpdocumentor-element-found-in__line">9426</span>
 
     </aside>
 
@@ -14788,7 +14788,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9363</span>
+    <span class="phpdocumentor-element-found-in__line">9477</span>
 
     </aside>
 
@@ -14865,7 +14865,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9194</span>
+    <span class="phpdocumentor-element-found-in__line">9308</span>
 
     </aside>
 
@@ -14954,7 +14954,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9476</span>
+    <span class="phpdocumentor-element-found-in__line">9590</span>
 
     </aside>
 
@@ -15041,7 +15041,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9591</span>
+    <span class="phpdocumentor-element-found-in__line">9705</span>
 
     </aside>
 
@@ -15118,7 +15118,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9611</span>
+    <span class="phpdocumentor-element-found-in__line">9725</span>
 
     </aside>
 
@@ -15195,7 +15195,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9662</span>
+    <span class="phpdocumentor-element-found-in__line">9776</span>
 
     </aside>
 
@@ -15272,7 +15272,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9493</span>
+    <span class="phpdocumentor-element-found-in__line">9607</span>
 
     </aside>
 
@@ -15361,7 +15361,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9768</span>
+    <span class="phpdocumentor-element-found-in__line">9882</span>
 
     </aside>
 
@@ -15430,7 +15430,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9879</span>
+    <span class="phpdocumentor-element-found-in__line">9993</span>
 
     </aside>
 
@@ -15489,7 +15489,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9897</span>
+    <span class="phpdocumentor-element-found-in__line">10011</span>
 
     </aside>
 
@@ -15548,7 +15548,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9946</span>
+    <span class="phpdocumentor-element-found-in__line">10060</span>
 
     </aside>
 
@@ -15607,7 +15607,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9783</span>
+    <span class="phpdocumentor-element-found-in__line">9897</span>
 
     </aside>
 
@@ -15678,7 +15678,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10028</span>
+    <span class="phpdocumentor-element-found-in__line">10142</span>
 
     </aside>
 
@@ -15756,7 +15756,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10141</span>
+    <span class="phpdocumentor-element-found-in__line">10255</span>
 
     </aside>
 
@@ -15824,7 +15824,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10160</span>
+    <span class="phpdocumentor-element-found-in__line">10274</span>
 
     </aside>
 
@@ -15892,7 +15892,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10210</span>
+    <span class="phpdocumentor-element-found-in__line">10324</span>
 
     </aside>
 
@@ -15960,7 +15960,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10044</span>
+    <span class="phpdocumentor-element-found-in__line">10158</span>
 
     </aside>
 
@@ -16040,7 +16040,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10307</span>
+    <span class="phpdocumentor-element-found-in__line">10421</span>
 
     </aside>
 
@@ -16118,7 +16118,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10395</span>
+    <span class="phpdocumentor-element-found-in__line">10509</span>
 
     </aside>
 
@@ -16186,7 +16186,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10414</span>
+    <span class="phpdocumentor-element-found-in__line">10528</span>
 
     </aside>
 
@@ -16254,7 +16254,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10451</span>
+    <span class="phpdocumentor-element-found-in__line">10565</span>
 
     </aside>
 
@@ -16322,7 +16322,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10322</span>
+    <span class="phpdocumentor-element-found-in__line">10436</span>
 
     </aside>
 
@@ -16402,7 +16402,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10548</span>
+    <span class="phpdocumentor-element-found-in__line">10662</span>
 
     </aside>
 
@@ -16480,7 +16480,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10620</span>
+    <span class="phpdocumentor-element-found-in__line">10734</span>
 
     </aside>
 
@@ -16548,7 +16548,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10639</span>
+    <span class="phpdocumentor-element-found-in__line">10753</span>
 
     </aside>
 
@@ -16616,7 +16616,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10676</span>
+    <span class="phpdocumentor-element-found-in__line">10790</span>
 
     </aside>
 
@@ -16684,7 +16684,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10563</span>
+    <span class="phpdocumentor-element-found-in__line">10677</span>
 
     </aside>
 
@@ -16764,7 +16764,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10774</span>
+    <span class="phpdocumentor-element-found-in__line">10888</span>
 
     </aside>
 
@@ -16851,7 +16851,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10848</span>
+    <span class="phpdocumentor-element-found-in__line">10962</span>
 
     </aside>
 
@@ -16928,7 +16928,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10868</span>
+    <span class="phpdocumentor-element-found-in__line">10982</span>
 
     </aside>
 
@@ -17005,7 +17005,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10906</span>
+    <span class="phpdocumentor-element-found-in__line">11020</span>
 
     </aside>
 
@@ -17082,7 +17082,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11018</span>
+    <span class="phpdocumentor-element-found-in__line">11132</span>
 
     </aside>
 
@@ -17160,7 +17160,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11090</span>
+    <span class="phpdocumentor-element-found-in__line">11204</span>
 
     </aside>
 
@@ -17228,7 +17228,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11109</span>
+    <span class="phpdocumentor-element-found-in__line">11223</span>
 
     </aside>
 
@@ -17296,7 +17296,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11146</span>
+    <span class="phpdocumentor-element-found-in__line">11260</span>
 
     </aside>
 
@@ -17364,7 +17364,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11033</span>
+    <span class="phpdocumentor-element-found-in__line">11147</span>
 
     </aside>
 
@@ -17444,7 +17444,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10790</span>
+    <span class="phpdocumentor-element-found-in__line">10904</span>
 
     </aside>
 
@@ -17533,7 +17533,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11242</span>
+    <span class="phpdocumentor-element-found-in__line">11356</span>
 
     </aside>
 
@@ -17611,7 +17611,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11314</span>
+    <span class="phpdocumentor-element-found-in__line">11428</span>
 
     </aside>
 
@@ -17679,7 +17679,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11333</span>
+    <span class="phpdocumentor-element-found-in__line">11447</span>
 
     </aside>
 
@@ -17747,7 +17747,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11370</span>
+    <span class="phpdocumentor-element-found-in__line">11484</span>
 
     </aside>
 
@@ -17815,7 +17815,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11257</span>
+    <span class="phpdocumentor-element-found-in__line">11371</span>
 
     </aside>
 
@@ -17895,7 +17895,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11467</span>
+    <span class="phpdocumentor-element-found-in__line">11581</span>
 
     </aside>
 
@@ -17903,7 +17903,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">multicast</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-MulticastRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\MulticastRequest">MulticastRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$multicastRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$xLineRetryKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;multicast&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">multicast</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-MulticastRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\MulticastRequest">MulticastRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$multicastRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$xLineRetryKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;multicast&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -17964,7 +17964,7 @@
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type">object|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span>
             &mdash;
         
     
@@ -17982,7 +17982,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11573</span>
+    <span class="phpdocumentor-element-found-in__line">11788</span>
 
     </aside>
 
@@ -18059,7 +18059,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11593</span>
+    <span class="phpdocumentor-element-found-in__line">11808</span>
 
     </aside>
 
@@ -18136,7 +18136,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11631</span>
+    <span class="phpdocumentor-element-found-in__line">11859</span>
 
     </aside>
 
@@ -18213,7 +18213,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11483</span>
+    <span class="phpdocumentor-element-found-in__line">11598</span>
 
     </aside>
 
@@ -18284,7 +18284,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+            <section class="phpdocumentor-description"><p>of object|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)</p>
 </section>
 
     
@@ -18302,7 +18302,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11733</span>
+    <span class="phpdocumentor-element-found-in__line">11961</span>
 
     </aside>
 
@@ -18310,7 +18310,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">narrowcast</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-NarrowcastRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\NarrowcastRequest">NarrowcastRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$narrowcastRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$xLineRetryKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;narrowcast&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">narrowcast</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-NarrowcastRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\NarrowcastRequest">NarrowcastRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$narrowcastRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$xLineRetryKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;narrowcast&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -18371,7 +18371,7 @@
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type">object|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span>
             &mdash;
         
     
@@ -18389,7 +18389,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11839</span>
+    <span class="phpdocumentor-element-found-in__line">12168</span>
 
     </aside>
 
@@ -18466,7 +18466,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11859</span>
+    <span class="phpdocumentor-element-found-in__line">12188</span>
 
     </aside>
 
@@ -18543,7 +18543,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11897</span>
+    <span class="phpdocumentor-element-found-in__line">12239</span>
 
     </aside>
 
@@ -18620,7 +18620,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11749</span>
+    <span class="phpdocumentor-element-found-in__line">11978</span>
 
     </aside>
 
@@ -18691,7 +18691,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+            <section class="phpdocumentor-description"><p>of object|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)</p>
 </section>
 
     
@@ -18709,7 +18709,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11999</span>
+    <span class="phpdocumentor-element-found-in__line">12341</span>
 
     </aside>
 
@@ -18717,7 +18717,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">pushMessage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-PushMessageRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\PushMessageRequest">PushMessageRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pushMessageRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$xLineRetryKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;pushMessage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">pushMessage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-PushMessageRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\PushMessageRequest">PushMessageRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pushMessageRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$xLineRetryKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;pushMessage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-PushMessageResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\PushMessageResponse">PushMessageResponse</abbr></a>|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -18778,7 +18778,7 @@
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-PushMessageResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\PushMessageResponse">PushMessageResponse</abbr></a>|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span>
             &mdash;
         
     
@@ -18796,7 +18796,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12105</span>
+    <span class="phpdocumentor-element-found-in__line">12548</span>
 
     </aside>
 
@@ -18873,7 +18873,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12125</span>
+    <span class="phpdocumentor-element-found-in__line">12568</span>
 
     </aside>
 
@@ -18950,7 +18950,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12163</span>
+    <span class="phpdocumentor-element-found-in__line">12619</span>
 
     </aside>
 
@@ -19027,7 +19027,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12265</span>
+    <span class="phpdocumentor-element-found-in__line">12721</span>
 
     </aside>
 
@@ -19114,7 +19114,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12347</span>
+    <span class="phpdocumentor-element-found-in__line">12803</span>
 
     </aside>
 
@@ -19191,7 +19191,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12367</span>
+    <span class="phpdocumentor-element-found-in__line">12823</span>
 
     </aside>
 
@@ -19268,7 +19268,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12405</span>
+    <span class="phpdocumentor-element-found-in__line">12861</span>
 
     </aside>
 
@@ -19345,7 +19345,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12281</span>
+    <span class="phpdocumentor-element-found-in__line">12737</span>
 
     </aside>
 
@@ -19434,7 +19434,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12015</span>
+    <span class="phpdocumentor-element-found-in__line">12358</span>
 
     </aside>
 
@@ -19505,7 +19505,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+            <section class="phpdocumentor-description"><p>of \LINE\Clients\MessagingApi\Model\PushMessageResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)</p>
 </section>
 
     
@@ -19523,7 +19523,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12512</span>
+    <span class="phpdocumentor-element-found-in__line">12968</span>
 
     </aside>
 
@@ -19531,7 +19531,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">replyMessage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-ReplyMessageRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\ReplyMessageRequest">ReplyMessageRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$replyMessageRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;replyMessage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">replyMessage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-ReplyMessageRequest.html"><abbr title="\LINE\Clients\MessagingApi\Model\ReplyMessageRequest">ReplyMessageRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$replyMessageRequest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;replyMessage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-ReplyMessageResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ReplyMessageResponse">ReplyMessageResponse</abbr></a>|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -19583,7 +19583,7 @@
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-ReplyMessageResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ReplyMessageResponse">ReplyMessageResponse</abbr></a>|<a href="classes/LINE-Clients-MessagingApi-Model-ErrorResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\ErrorResponse">ErrorResponse</abbr></a></span>
             &mdash;
         
     
@@ -19601,7 +19601,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12600</span>
+    <span class="phpdocumentor-element-found-in__line">13127</span>
 
     </aside>
 
@@ -19669,7 +19669,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12619</span>
+    <span class="phpdocumentor-element-found-in__line">13146</span>
 
     </aside>
 
@@ -19737,7 +19737,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12656</span>
+    <span class="phpdocumentor-element-found-in__line">13196</span>
 
     </aside>
 
@@ -19805,7 +19805,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12527</span>
+    <span class="phpdocumentor-element-found-in__line">12984</span>
 
     </aside>
 
@@ -19867,7 +19867,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+            <section class="phpdocumentor-description"><p>of \LINE\Clients\MessagingApi\Model\ReplyMessageResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)</p>
 </section>
 
     
@@ -19885,7 +19885,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12752</span>
+    <span class="phpdocumentor-element-found-in__line">13292</span>
 
     </aside>
 
@@ -19963,7 +19963,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12824</span>
+    <span class="phpdocumentor-element-found-in__line">13364</span>
 
     </aside>
 
@@ -20031,7 +20031,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12843</span>
+    <span class="phpdocumentor-element-found-in__line">13383</span>
 
     </aside>
 
@@ -20099,7 +20099,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12880</span>
+    <span class="phpdocumentor-element-found-in__line">13420</span>
 
     </aside>
 
@@ -20167,7 +20167,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12767</span>
+    <span class="phpdocumentor-element-found-in__line">13307</span>
 
     </aside>
 
@@ -20247,7 +20247,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12976</span>
+    <span class="phpdocumentor-element-found-in__line">13516</span>
 
     </aside>
 
@@ -20325,7 +20325,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13048</span>
+    <span class="phpdocumentor-element-found-in__line">13588</span>
 
     </aside>
 
@@ -20393,7 +20393,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13067</span>
+    <span class="phpdocumentor-element-found-in__line">13607</span>
 
     </aside>
 
@@ -20461,7 +20461,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13104</span>
+    <span class="phpdocumentor-element-found-in__line">13644</span>
 
     </aside>
 
@@ -20529,7 +20529,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12991</span>
+    <span class="phpdocumentor-element-found-in__line">13531</span>
 
     </aside>
 
@@ -20654,7 +20654,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13201</span>
+    <span class="phpdocumentor-element-found-in__line">13741</span>
 
     </aside>
 
@@ -20732,7 +20732,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13273</span>
+    <span class="phpdocumentor-element-found-in__line">13813</span>
 
     </aside>
 
@@ -20800,7 +20800,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13292</span>
+    <span class="phpdocumentor-element-found-in__line">13832</span>
 
     </aside>
 
@@ -20868,7 +20868,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13329</span>
+    <span class="phpdocumentor-element-found-in__line">13869</span>
 
     </aside>
 
@@ -20936,7 +20936,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13216</span>
+    <span class="phpdocumentor-element-found-in__line">13756</span>
 
     </aside>
 
@@ -21016,7 +21016,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13425</span>
+    <span class="phpdocumentor-element-found-in__line">13965</span>
 
     </aside>
 
@@ -21094,7 +21094,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13538</span>
+    <span class="phpdocumentor-element-found-in__line">14078</span>
 
     </aside>
 
@@ -21162,7 +21162,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13557</span>
+    <span class="phpdocumentor-element-found-in__line">14097</span>
 
     </aside>
 
@@ -21230,7 +21230,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13607</span>
+    <span class="phpdocumentor-element-found-in__line">14147</span>
 
     </aside>
 
@@ -21298,7 +21298,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13441</span>
+    <span class="phpdocumentor-element-found-in__line">13981</span>
 
     </aside>
 
@@ -21378,7 +21378,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13697</span>
+    <span class="phpdocumentor-element-found-in__line">14237</span>
 
     </aside>
 
@@ -21456,7 +21456,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13769</span>
+    <span class="phpdocumentor-element-found-in__line">14309</span>
 
     </aside>
 
@@ -21524,7 +21524,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13788</span>
+    <span class="phpdocumentor-element-found-in__line">14328</span>
 
     </aside>
 
@@ -21592,7 +21592,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13825</span>
+    <span class="phpdocumentor-element-found-in__line">14365</span>
 
     </aside>
 
@@ -21660,7 +21660,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13922</span>
+    <span class="phpdocumentor-element-found-in__line">14462</span>
 
     </aside>
 
@@ -21738,7 +21738,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13994</span>
+    <span class="phpdocumentor-element-found-in__line">14534</span>
 
     </aside>
 
@@ -21806,7 +21806,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14013</span>
+    <span class="phpdocumentor-element-found-in__line">14553</span>
 
     </aside>
 
@@ -21874,7 +21874,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14050</span>
+    <span class="phpdocumentor-element-found-in__line">14590</span>
 
     </aside>
 
@@ -21942,7 +21942,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13937</span>
+    <span class="phpdocumentor-element-found-in__line">14477</span>
 
     </aside>
 
@@ -22022,7 +22022,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13712</span>
+    <span class="phpdocumentor-element-found-in__line">14252</span>
 
     </aside>
 
@@ -22102,7 +22102,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14147</span>
+    <span class="phpdocumentor-element-found-in__line">14687</span>
 
     </aside>
 
@@ -22189,7 +22189,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14229</span>
+    <span class="phpdocumentor-element-found-in__line">14769</span>
 
     </aside>
 
@@ -22266,7 +22266,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14249</span>
+    <span class="phpdocumentor-element-found-in__line">14789</span>
 
     </aside>
 
@@ -22343,7 +22343,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14287</span>
+    <span class="phpdocumentor-element-found-in__line">14827</span>
 
     </aside>
 
@@ -22420,7 +22420,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14163</span>
+    <span class="phpdocumentor-element-found-in__line">14703</span>
 
     </aside>
 
@@ -22509,7 +22509,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14398</span>
+    <span class="phpdocumentor-element-found-in__line">14938</span>
 
     </aside>
 
@@ -22587,7 +22587,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14470</span>
+    <span class="phpdocumentor-element-found-in__line">15010</span>
 
     </aside>
 
@@ -22655,7 +22655,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14489</span>
+    <span class="phpdocumentor-element-found-in__line">15029</span>
 
     </aside>
 
@@ -22723,7 +22723,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14526</span>
+    <span class="phpdocumentor-element-found-in__line">15066</span>
 
     </aside>
 
@@ -22791,7 +22791,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14413</span>
+    <span class="phpdocumentor-element-found-in__line">14953</span>
 
     </aside>
 
@@ -22871,7 +22871,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14622</span>
+    <span class="phpdocumentor-element-found-in__line">15162</span>
 
     </aside>
 
@@ -22949,7 +22949,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14694</span>
+    <span class="phpdocumentor-element-found-in__line">15234</span>
 
     </aside>
 
@@ -23017,7 +23017,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14713</span>
+    <span class="phpdocumentor-element-found-in__line">15253</span>
 
     </aside>
 
@@ -23085,7 +23085,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14750</span>
+    <span class="phpdocumentor-element-found-in__line">15290</span>
 
     </aside>
 
@@ -23153,7 +23153,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14637</span>
+    <span class="phpdocumentor-element-found-in__line">15177</span>
 
     </aside>
 
@@ -23233,7 +23233,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14846</span>
+    <span class="phpdocumentor-element-found-in__line">15386</span>
 
     </aside>
 
@@ -23311,7 +23311,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14918</span>
+    <span class="phpdocumentor-element-found-in__line">15458</span>
 
     </aside>
 
@@ -23379,7 +23379,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14937</span>
+    <span class="phpdocumentor-element-found-in__line">15477</span>
 
     </aside>
 
@@ -23447,7 +23447,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14974</span>
+    <span class="phpdocumentor-element-found-in__line">15514</span>
 
     </aside>
 
@@ -23515,7 +23515,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14861</span>
+    <span class="phpdocumentor-element-found-in__line">15401</span>
 
     </aside>
 
@@ -23595,7 +23595,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15070</span>
+    <span class="phpdocumentor-element-found-in__line">15610</span>
 
     </aside>
 
@@ -23673,7 +23673,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15142</span>
+    <span class="phpdocumentor-element-found-in__line">15682</span>
 
     </aside>
 
@@ -23741,7 +23741,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15161</span>
+    <span class="phpdocumentor-element-found-in__line">15701</span>
 
     </aside>
 
@@ -23809,7 +23809,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15198</span>
+    <span class="phpdocumentor-element-found-in__line">15738</span>
 
     </aside>
 
@@ -23877,7 +23877,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15085</span>
+    <span class="phpdocumentor-element-found-in__line">15625</span>
 
     </aside>
 
@@ -23957,7 +23957,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15294</span>
+    <span class="phpdocumentor-element-found-in__line">15834</span>
 
     </aside>
 
@@ -24035,7 +24035,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15366</span>
+    <span class="phpdocumentor-element-found-in__line">15906</span>
 
     </aside>
 
@@ -24103,7 +24103,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15385</span>
+    <span class="phpdocumentor-element-found-in__line">15925</span>
 
     </aside>
 
@@ -24171,7 +24171,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15422</span>
+    <span class="phpdocumentor-element-found-in__line">15962</span>
 
     </aside>
 
@@ -24239,7 +24239,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15309</span>
+    <span class="phpdocumentor-element-found-in__line">15849</span>
 
     </aside>
 
@@ -24319,7 +24319,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15518</span>
+    <span class="phpdocumentor-element-found-in__line">16058</span>
 
     </aside>
 
@@ -24397,7 +24397,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15590</span>
+    <span class="phpdocumentor-element-found-in__line">16130</span>
 
     </aside>
 
@@ -24465,7 +24465,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15609</span>
+    <span class="phpdocumentor-element-found-in__line">16149</span>
 
     </aside>
 
@@ -24533,7 +24533,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15646</span>
+    <span class="phpdocumentor-element-found-in__line">16186</span>
 
     </aside>
 
@@ -24601,7 +24601,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15533</span>
+    <span class="phpdocumentor-element-found-in__line">16073</span>
 
     </aside>
 
@@ -24681,7 +24681,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15742</span>
+    <span class="phpdocumentor-element-found-in__line">16282</span>
 
     </aside>
 
@@ -24759,7 +24759,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15814</span>
+    <span class="phpdocumentor-element-found-in__line">16354</span>
 
     </aside>
 
@@ -24827,7 +24827,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15833</span>
+    <span class="phpdocumentor-element-found-in__line">16373</span>
 
     </aside>
 
@@ -24895,7 +24895,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15870</span>
+    <span class="phpdocumentor-element-found-in__line">16410</span>
 
     </aside>
 
@@ -24963,7 +24963,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15757</span>
+    <span class="phpdocumentor-element-found-in__line">16297</span>
 
     </aside>
 
@@ -25043,7 +25043,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiApi.php">MessagingApiApi.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15962</span>
+    <span class="phpdocumentor-element-found-in__line">16502</span>
 
     </aside>
 

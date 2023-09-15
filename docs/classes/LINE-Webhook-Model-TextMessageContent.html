@@ -332,6 +332,20 @@ and the value is the original name</dd>
 <dd>The original name of the model.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_getQuotedMessageId">getQuotedMessageId()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Gets quotedMessageId</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_getQuoteToken">getQuoteToken()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Gets quoteToken</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_getters">getters()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
@@ -442,6 +456,20 @@ and the value is the original name</dd>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets mention</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_setQuotedMessageId">setQuotedMessageId()</a>
+    <span>
+                                &nbsp;: self    </span>
+</dt>
+<dd>Sets quotedMessageId</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_setQuoteToken">setQuoteToken()</a>
+    <span>
+                                &nbsp;: self    </span>
+</dt>
+<dd>Sets quoteToken</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_setters">setters()</a>
@@ -572,7 +600,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">190</span>
+    <span class="phpdocumentor-element-found-in__line">196</span>
 
     </aside>
 
@@ -583,7 +611,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$attributeMap</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; &#039;id&#039;, &#039;text&#039; =&gt; &#039;text&#039;, &#039;emojis&#039; =&gt; &#039;emojis&#039;, &#039;mention&#039; =&gt; &#039;mention&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; &#039;id&#039;, &#039;text&#039; =&gt; &#039;text&#039;, &#039;emojis&#039; =&gt; &#039;emojis&#039;, &#039;mention&#039; =&gt; &#039;mention&#039;, &#039;quoteToken&#039; =&gt; &#039;quoteToken&#039;, &#039;quotedMessageId&#039; =&gt; &#039;quotedMessageId&#039;]</span></code>
 
     
     
@@ -639,7 +667,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">214</span>
+    <span class="phpdocumentor-element-found-in__line">224</span>
 
     </aside>
 
@@ -649,7 +677,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$getters</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; &#039;getId&#039;, &#039;text&#039; =&gt; &#039;getText&#039;, &#039;emojis&#039; =&gt; &#039;getEmojis&#039;, &#039;mention&#039; =&gt; &#039;getMention&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; &#039;getId&#039;, &#039;text&#039; =&gt; &#039;getText&#039;, &#039;emojis&#039; =&gt; &#039;getEmojis&#039;, &#039;mention&#039; =&gt; &#039;getMention&#039;, &#039;quoteToken&#039; =&gt; &#039;getQuoteToken&#039;, &#039;quotedMessageId&#039; =&gt; &#039;getQuotedMessageId&#039;]</span></code>
 
     
     
@@ -672,7 +700,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
@@ -682,7 +710,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPIFormats</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; null, &#039;text&#039; =&gt; null, &#039;emojis&#039; =&gt; null, &#039;mention&#039; =&gt; null]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; null, &#039;text&#039; =&gt; null, &#039;emojis&#039; =&gt; null, &#039;mention&#039; =&gt; null, &#039;quoteToken&#039; =&gt; null, &#039;quotedMessageId&#039; =&gt; null]</span></code>
 
     
     
@@ -762,7 +790,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 
     </aside>
 
@@ -772,7 +800,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPINullables</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; false, &#039;text&#039; =&gt; false, &#039;emojis&#039; =&gt; false, &#039;mention&#039; =&gt; false]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; false, &#039;text&#039; =&gt; false, &#039;emojis&#039; =&gt; false, &#039;mention&#039; =&gt; false, &#039;quoteToken&#039; =&gt; false, &#039;quotedMessageId&#039; =&gt; false]</span></code>
 
     
     
@@ -795,7 +823,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -838,7 +866,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPITypes</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; &#039;string&#039;, &#039;text&#039; =&gt; &#039;string&#039;, &#039;emojis&#039; =&gt; &#039;\\LINE\\Webhook\\Model\\Emoji[]&#039;, &#039;mention&#039; =&gt; &#039;\\LINE\\Webhook\\Model\\Mention&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; &#039;string&#039;, &#039;text&#039; =&gt; &#039;string&#039;, &#039;emojis&#039; =&gt; &#039;\\LINE\\Webhook\\Model\\Emoji[]&#039;, &#039;mention&#039; =&gt; &#039;\\LINE\\Webhook\\Model\\Mention&#039;, &#039;quoteToken&#039; =&gt; &#039;string&#039;, &#039;quotedMessageId&#039; =&gt; &#039;string&#039;]</span></code>
 
     
     
@@ -861,7 +889,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">202</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 
     </aside>
 
@@ -871,7 +899,7 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$setters</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; &#039;setId&#039;, &#039;text&#039; =&gt; &#039;setText&#039;, &#039;emojis&#039; =&gt; &#039;setEmojis&#039;, &#039;mention&#039; =&gt; &#039;setMention&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;id&#039; =&gt; &#039;setId&#039;, &#039;text&#039; =&gt; &#039;setText&#039;, &#039;emojis&#039; =&gt; &#039;setEmojis&#039;, &#039;mention&#039; =&gt; &#039;setMention&#039;, &#039;quoteToken&#039; =&gt; &#039;setQuoteToken&#039;, &#039;quotedMessageId&#039; =&gt; &#039;setQuotedMessageId&#039;]</span></code>
 
     
     
@@ -898,7 +926,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">270</span>
+    <span class="phpdocumentor-element-found-in__line">282</span>
 
     </aside>
 
@@ -944,7 +972,7 @@ initializing the model</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">507</span>
+    <span class="phpdocumentor-element-found-in__line">578</span>
 
     </aside>
 
@@ -977,7 +1005,7 @@ initializing the model</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">227</span>
+    <span class="phpdocumentor-element-found-in__line">239</span>
 
     </aside>
 
@@ -1011,7 +1039,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">387</span>
+    <span class="phpdocumentor-element-found-in__line">404</span>
 
     </aside>
 
@@ -1044,7 +1072,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">333</span>
+    <span class="phpdocumentor-element-found-in__line">350</span>
 
     </aside>
 
@@ -1077,7 +1105,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">414</span>
+    <span class="phpdocumentor-element-found-in__line">431</span>
 
     </aside>
 
@@ -1110,7 +1138,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">257</span>
+    <span class="phpdocumentor-element-found-in__line">269</span>
 
     </aside>
 
@@ -1119,6 +1147,72 @@ and the value is the original name</p>
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getModelName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getQuotedMessageId">
+        getQuotedMessageId()
+        <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_getQuotedMessageId" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">485</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets quotedMessageId</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getQuotedMessageId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getQuoteToken">
+        getQuoteToken()
+        <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_getQuoteToken" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">458</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets quoteToken</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getQuoteToken</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     
     
@@ -1143,7 +1237,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">247</span>
+    <span class="phpdocumentor-element-found-in__line">259</span>
 
     </aside>
 
@@ -1176,7 +1270,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">360</span>
+    <span class="phpdocumentor-element-found-in__line">377</span>
 
     </aside>
 
@@ -1242,7 +1336,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">168</span>
+    <span class="phpdocumentor-element-found-in__line">174</span>
 
     </aside>
 
@@ -1285,7 +1379,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">179</span>
+    <span class="phpdocumentor-element-found-in__line">185</span>
 
     </aside>
 
@@ -1328,7 +1422,7 @@ and the value is the original name</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">496</span>
+    <span class="phpdocumentor-element-found-in__line">567</span>
 
     </aside>
 
@@ -1377,7 +1471,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">303</span>
+    <span class="phpdocumentor-element-found-in__line">317</span>
 
     </aside>
 
@@ -1412,7 +1506,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">442</span>
+    <span class="phpdocumentor-element-found-in__line">513</span>
 
     </aside>
 
@@ -1457,7 +1551,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">454</span>
+    <span class="phpdocumentor-element-found-in__line">525</span>
 
     </aside>
 
@@ -1502,7 +1596,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">468</span>
+    <span class="phpdocumentor-element-found-in__line">539</span>
 
     </aside>
 
@@ -1556,7 +1650,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">484</span>
+    <span class="phpdocumentor-element-found-in__line">555</span>
 
     </aside>
 
@@ -1601,7 +1695,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">133</span>
 
     </aside>
 
@@ -1634,7 +1728,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
     </aside>
 
@@ -1667,7 +1761,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">399</span>
+    <span class="phpdocumentor-element-found-in__line">416</span>
 
     </aside>
 
@@ -1712,7 +1806,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">345</span>
+    <span class="phpdocumentor-element-found-in__line">362</span>
 
     </aside>
 
@@ -1757,7 +1851,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">426</span>
+    <span class="phpdocumentor-element-found-in__line">443</span>
 
     </aside>
 
@@ -1793,6 +1887,96 @@ of any type other than a resource.</p>
         class="phpdocumentor-element
             -method
             -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setQuotedMessageId">
+        setQuotedMessageId()
+        <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_setQuotedMessageId" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">497</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Sets quotedMessageId</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setQuotedMessageId</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$quotedMessageId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$quotedMessageId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Message ID of a quoted message. Only included when the received message quotes a past message.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">self</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setQuoteToken">
+        setQuoteToken()
+        <a href="classes/LINE-Webhook-Model-TextMessageContent.html#method_setQuoteToken" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">470</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Sets quoteToken</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setQuoteToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$quoteToken</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$quoteToken</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Quote token to quote this message.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">self</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
                                     -static                    "
 >
     <h4 class="phpdocumentor-element__name" id="method_setters">
@@ -1802,7 +1986,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">237</span>
+    <span class="phpdocumentor-element-found-in__line">249</span>
 
     </aside>
 
@@ -1835,7 +2019,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">372</span>
+    <span class="phpdocumentor-element-found-in__line">389</span>
 
     </aside>
 
@@ -1925,7 +2109,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">520</span>
+    <span class="phpdocumentor-element-found-in__line">591</span>
 
     </aside>
 
@@ -1958,7 +2142,7 @@ of any type other than a resource.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">322</span>
+    <span class="phpdocumentor-element-found-in__line">339</span>
 
     </aside>
 
@@ -1994,7 +2178,7 @@ return true if all passed</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">143</span>
 
     </aside>
 
@@ -2027,7 +2211,7 @@ return true if all passed</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 
     </aside>
 
@@ -2060,7 +2244,7 @@ return true if all passed</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">289</span>
+    <span class="phpdocumentor-element-found-in__line">303</span>
 
     </aside>
 
@@ -2119,7 +2303,7 @@ $this-&gt;openAPINullablesSetToNull array</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/webhook/lib/Model/TextMessageContent.php"><a href="files/src-webhook-lib-model-textmessagecontent.html"><abbr title="src/webhook/lib/Model/TextMessageContent.php">TextMessageContent.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">157</span>
+    <span class="phpdocumentor-element-found-in__line">163</span>
 
     </aside>
 
