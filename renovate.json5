@@ -6,19 +6,16 @@
   "ignorePaths": [
     "docs/",
   ],
+  "automerge": true,
+  "platformAutomerge": true,
   "git-submodules": {
     "enabled": true
   },
   "labels": [ "dependency upgrade" ],
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "automerge": true,
-      "platformAutomerge": true,
-    },
-    {
-      "matchPackagePatterns": ["^line-openapi$"],
-      "labels": ["dependency upgrade", "line-openapi-update"]
+        "matchPackagePatterns": ["^line-openapi$"],
+        "labels": ["dependency upgrade", "line-openapi-update"]
     }
   ]
 }
