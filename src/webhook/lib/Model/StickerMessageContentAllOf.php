@@ -73,7 +73,6 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'packageId' => 'string',
         'stickerId' => 'string',
         'stickerResourceType' => 'string',
@@ -91,7 +90,6 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'packageId' => null,
         'stickerId' => null,
         'stickerResourceType' => null,
@@ -107,8 +105,7 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'packageId' => false,
+        'packageId' => false,
 		'stickerId' => false,
 		'stickerResourceType' => false,
 		'keywords' => false,
@@ -203,7 +200,6 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'packageId' => 'packageId',
         'stickerId' => 'stickerId',
         'stickerResourceType' => 'stickerResourceType',
@@ -219,7 +215,6 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'packageId' => 'setPackageId',
         'stickerId' => 'setStickerId',
         'stickerResourceType' => 'setStickerResourceType',
@@ -235,7 +230,6 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'packageId' => 'getPackageId',
         'stickerId' => 'getStickerId',
         'stickerResourceType' => 'getStickerResourceType',
@@ -333,7 +327,6 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('packageId', $data ?? [], null);
         $this->setIfExists('stickerId', $data ?? [], null);
         $this->setIfExists('stickerResourceType', $data ?? [], null);
@@ -370,9 +363,6 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['packageId'] === null) {
             $invalidProperties[] = "'packageId' can't be null";
         }
@@ -416,33 +406,6 @@ class StickerMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Message ID
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets packageId

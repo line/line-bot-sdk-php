@@ -70,7 +70,6 @@ class AudioMessageContent extends MessageContent
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
         'duration' => 'int'
     ];
@@ -83,7 +82,6 @@ class AudioMessageContent extends MessageContent
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'contentProvider' => null,
         'duration' => 'int64'
     ];
@@ -94,8 +92,7 @@ class AudioMessageContent extends MessageContent
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'contentProvider' => false,
+        'contentProvider' => false,
 		'duration' => false
     ];
 
@@ -185,7 +182,6 @@ class AudioMessageContent extends MessageContent
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'contentProvider' => 'contentProvider',
         'duration' => 'duration'
     ];
@@ -196,7 +192,6 @@ class AudioMessageContent extends MessageContent
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'contentProvider' => 'setContentProvider',
         'duration' => 'setDuration'
     ];
@@ -207,7 +202,6 @@ class AudioMessageContent extends MessageContent
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'contentProvider' => 'getContentProvider',
         'duration' => 'getDuration'
     ];
@@ -265,7 +259,6 @@ class AudioMessageContent extends MessageContent
     {
         parent::__construct($data);
 
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('contentProvider', $data ?? [], null);
         $this->setIfExists('duration', $data ?? [], null);
     }
@@ -297,9 +290,6 @@ class AudioMessageContent extends MessageContent
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['contentProvider'] === null) {
             $invalidProperties[] = "'contentProvider' can't be null";
         }
@@ -317,33 +307,6 @@ class AudioMessageContent extends MessageContent
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Message ID
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets contentProvider

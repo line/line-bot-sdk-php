@@ -70,7 +70,6 @@ class TextMessageContent extends MessageContent
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'text' => 'string',
         'emojis' => '\LINE\Webhook\Model\Emoji[]',
         'mention' => '\LINE\Webhook\Model\Mention',
@@ -86,7 +85,6 @@ class TextMessageContent extends MessageContent
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'text' => null,
         'emojis' => null,
         'mention' => null,
@@ -100,8 +98,7 @@ class TextMessageContent extends MessageContent
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'text' => false,
+        'text' => false,
 		'emojis' => false,
 		'mention' => false,
 		'quoteToken' => false,
@@ -194,7 +191,6 @@ class TextMessageContent extends MessageContent
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'text' => 'text',
         'emojis' => 'emojis',
         'mention' => 'mention',
@@ -208,7 +204,6 @@ class TextMessageContent extends MessageContent
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'text' => 'setText',
         'emojis' => 'setEmojis',
         'mention' => 'setMention',
@@ -222,7 +217,6 @@ class TextMessageContent extends MessageContent
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'text' => 'getText',
         'emojis' => 'getEmojis',
         'mention' => 'getMention',
@@ -283,7 +277,6 @@ class TextMessageContent extends MessageContent
     {
         parent::__construct($data);
 
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('emojis', $data ?? [], null);
         $this->setIfExists('mention', $data ?? [], null);
@@ -318,9 +311,6 @@ class TextMessageContent extends MessageContent
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['text'] === null) {
             $invalidProperties[] = "'text' can't be null";
         }
@@ -341,33 +331,6 @@ class TextMessageContent extends MessageContent
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Message ID
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets text

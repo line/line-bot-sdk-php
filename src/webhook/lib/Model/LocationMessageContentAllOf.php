@@ -73,7 +73,6 @@ class LocationMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'title' => 'string',
         'address' => 'string',
         'latitude' => 'float',
@@ -88,7 +87,6 @@ class LocationMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'title' => null,
         'address' => null,
         'latitude' => 'double',
@@ -101,8 +99,7 @@ class LocationMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'title' => false,
+        'title' => false,
 		'address' => false,
 		'latitude' => false,
 		'longitude' => false
@@ -194,7 +191,6 @@ class LocationMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'title' => 'title',
         'address' => 'address',
         'latitude' => 'latitude',
@@ -207,7 +203,6 @@ class LocationMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'title' => 'setTitle',
         'address' => 'setAddress',
         'latitude' => 'setLatitude',
@@ -220,7 +215,6 @@ class LocationMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'title' => 'getTitle',
         'address' => 'getAddress',
         'latitude' => 'getLatitude',
@@ -284,7 +278,6 @@ class LocationMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('latitude', $data ?? [], null);
@@ -318,9 +311,6 @@ class LocationMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['latitude'] === null) {
             $invalidProperties[] = "'latitude' can't be null";
         }
@@ -341,33 +331,6 @@ class LocationMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonS
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Message ID
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets title
