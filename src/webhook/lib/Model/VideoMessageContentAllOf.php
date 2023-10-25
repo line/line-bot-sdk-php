@@ -73,7 +73,6 @@ class VideoMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'duration' => 'int',
         'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
         'quoteToken' => 'string'
@@ -87,7 +86,6 @@ class VideoMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'duration' => 'int64',
         'contentProvider' => null,
         'quoteToken' => null
@@ -99,8 +97,7 @@ class VideoMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'duration' => false,
+        'duration' => false,
 		'contentProvider' => false,
 		'quoteToken' => false
     ];
@@ -191,7 +188,6 @@ class VideoMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'duration' => 'duration',
         'contentProvider' => 'contentProvider',
         'quoteToken' => 'quoteToken'
@@ -203,7 +199,6 @@ class VideoMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'duration' => 'setDuration',
         'contentProvider' => 'setContentProvider',
         'quoteToken' => 'setQuoteToken'
@@ -215,7 +210,6 @@ class VideoMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'duration' => 'getDuration',
         'contentProvider' => 'getContentProvider',
         'quoteToken' => 'getQuoteToken'
@@ -278,7 +272,6 @@ class VideoMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('duration', $data ?? [], null);
         $this->setIfExists('contentProvider', $data ?? [], null);
         $this->setIfExists('quoteToken', $data ?? [], null);
@@ -311,9 +304,6 @@ class VideoMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['contentProvider'] === null) {
             $invalidProperties[] = "'contentProvider' can't be null";
         }
@@ -334,33 +324,6 @@ class VideoMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Message ID
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets duration

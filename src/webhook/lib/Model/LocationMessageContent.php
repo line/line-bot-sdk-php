@@ -70,7 +70,6 @@ class LocationMessageContent extends MessageContent
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'title' => 'string',
         'address' => 'string',
         'latitude' => 'float',
@@ -85,7 +84,6 @@ class LocationMessageContent extends MessageContent
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'title' => null,
         'address' => null,
         'latitude' => 'double',
@@ -98,8 +96,7 @@ class LocationMessageContent extends MessageContent
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'title' => false,
+        'title' => false,
 		'address' => false,
 		'latitude' => false,
 		'longitude' => false
@@ -191,7 +188,6 @@ class LocationMessageContent extends MessageContent
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'title' => 'title',
         'address' => 'address',
         'latitude' => 'latitude',
@@ -204,7 +200,6 @@ class LocationMessageContent extends MessageContent
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'title' => 'setTitle',
         'address' => 'setAddress',
         'latitude' => 'setLatitude',
@@ -217,7 +212,6 @@ class LocationMessageContent extends MessageContent
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'title' => 'getTitle',
         'address' => 'getAddress',
         'latitude' => 'getLatitude',
@@ -277,7 +271,6 @@ class LocationMessageContent extends MessageContent
     {
         parent::__construct($data);
 
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('latitude', $data ?? [], null);
@@ -311,9 +304,6 @@ class LocationMessageContent extends MessageContent
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['latitude'] === null) {
             $invalidProperties[] = "'latitude' can't be null";
         }
@@ -334,33 +324,6 @@ class LocationMessageContent extends MessageContent
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Message ID
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets title
