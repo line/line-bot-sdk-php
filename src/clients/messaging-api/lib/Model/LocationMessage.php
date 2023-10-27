@@ -304,6 +304,18 @@ class LocationMessage extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['latitude'] === null) {
+            $invalidProperties[] = "'latitude' can't be null";
+        }
+        if ($this->container['longitude'] === null) {
+            $invalidProperties[] = "'longitude' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -322,7 +334,7 @@ class LocationMessage extends Message
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -332,7 +344,7 @@ class LocationMessage extends Message
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string $title title
      *
      * @return self
      */
@@ -349,7 +361,7 @@ class LocationMessage extends Message
     /**
      * Gets address
      *
-     * @return string|null
+     * @return string
      */
     public function getAddress()
     {
@@ -359,7 +371,7 @@ class LocationMessage extends Message
     /**
      * Sets address
      *
-     * @param string|null $address address
+     * @param string $address address
      *
      * @return self
      */
@@ -376,7 +388,7 @@ class LocationMessage extends Message
     /**
      * Gets latitude
      *
-     * @return float|null
+     * @return float
      */
     public function getLatitude()
     {
@@ -386,7 +398,7 @@ class LocationMessage extends Message
     /**
      * Sets latitude
      *
-     * @param float|null $latitude latitude
+     * @param float $latitude latitude
      *
      * @return self
      */
@@ -403,7 +415,7 @@ class LocationMessage extends Message
     /**
      * Gets longitude
      *
-     * @return float|null
+     * @return float
      */
     public function getLongitude()
     {
@@ -413,7 +425,7 @@ class LocationMessage extends Message
     /**
      * Sets longitude
      *
-     * @param float|null $longitude longitude
+     * @param float $longitude longitude
      *
      * @return self
      */

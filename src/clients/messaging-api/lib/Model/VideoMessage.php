@@ -297,6 +297,12 @@ class VideoMessage extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['originalContentUrl'] === null) {
+            $invalidProperties[] = "'originalContentUrl' can't be null";
+        }
+        if ($this->container['previewImageUrl'] === null) {
+            $invalidProperties[] = "'previewImageUrl' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -315,7 +321,7 @@ class VideoMessage extends Message
     /**
      * Gets originalContentUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getOriginalContentUrl()
     {
@@ -325,7 +331,7 @@ class VideoMessage extends Message
     /**
      * Sets originalContentUrl
      *
-     * @param string|null $originalContentUrl originalContentUrl
+     * @param string $originalContentUrl originalContentUrl
      *
      * @return self
      */
@@ -342,7 +348,7 @@ class VideoMessage extends Message
     /**
      * Gets previewImageUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getPreviewImageUrl()
     {
@@ -352,7 +358,7 @@ class VideoMessage extends Message
     /**
      * Sets previewImageUrl
      *
-     * @param string|null $previewImageUrl previewImageUrl
+     * @param string $previewImageUrl previewImageUrl
      *
      * @return self
      */
