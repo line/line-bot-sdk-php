@@ -361,6 +361,9 @@ class FlexIcon extends FlexComponent
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
         $allowedValues = $this->getPositionAllowableValues();
         if (!is_null($this->container['position']) && !in_array($this->container['position'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -388,7 +391,7 @@ class FlexIcon extends FlexComponent
     /**
      * Gets url
      *
-     * @return string|null
+     * @return string
      */
     public function getUrl()
     {
@@ -398,7 +401,7 @@ class FlexIcon extends FlexComponent
     /**
      * Sets url
      *
-     * @param string|null $url url
+     * @param string $url url
      *
      * @return self
      */

@@ -299,6 +299,9 @@ class ImagemapAction implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        if ($this->container['area'] === null) {
+            $invalidProperties[] = "'area' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -344,7 +347,7 @@ class ImagemapAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets area
      *
-     * @return \LINE\Clients\MessagingApi\Model\ImagemapArea|null
+     * @return \LINE\Clients\MessagingApi\Model\ImagemapArea
      */
     public function getArea()
     {
@@ -354,7 +357,7 @@ class ImagemapAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets area
      *
-     * @param \LINE\Clients\MessagingApi\Model\ImagemapArea|null $area area
+     * @param \LINE\Clients\MessagingApi\Model\ImagemapArea $area area
      *
      * @return self
      */

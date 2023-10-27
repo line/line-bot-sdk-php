@@ -311,6 +311,18 @@ class ImagemapMessage extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['baseUrl'] === null) {
+            $invalidProperties[] = "'baseUrl' can't be null";
+        }
+        if ($this->container['altText'] === null) {
+            $invalidProperties[] = "'altText' can't be null";
+        }
+        if ($this->container['baseSize'] === null) {
+            $invalidProperties[] = "'baseSize' can't be null";
+        }
+        if ($this->container['actions'] === null) {
+            $invalidProperties[] = "'actions' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -329,7 +341,7 @@ class ImagemapMessage extends Message
     /**
      * Gets baseUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getBaseUrl()
     {
@@ -339,7 +351,7 @@ class ImagemapMessage extends Message
     /**
      * Sets baseUrl
      *
-     * @param string|null $baseUrl baseUrl
+     * @param string $baseUrl baseUrl
      *
      * @return self
      */
@@ -356,7 +368,7 @@ class ImagemapMessage extends Message
     /**
      * Gets altText
      *
-     * @return string|null
+     * @return string
      */
     public function getAltText()
     {
@@ -366,7 +378,7 @@ class ImagemapMessage extends Message
     /**
      * Sets altText
      *
-     * @param string|null $altText altText
+     * @param string $altText altText
      *
      * @return self
      */
@@ -383,7 +395,7 @@ class ImagemapMessage extends Message
     /**
      * Gets baseSize
      *
-     * @return \LINE\Clients\MessagingApi\Model\ImagemapBaseSize|null
+     * @return \LINE\Clients\MessagingApi\Model\ImagemapBaseSize
      */
     public function getBaseSize()
     {
@@ -393,7 +405,7 @@ class ImagemapMessage extends Message
     /**
      * Sets baseSize
      *
-     * @param \LINE\Clients\MessagingApi\Model\ImagemapBaseSize|null $baseSize baseSize
+     * @param \LINE\Clients\MessagingApi\Model\ImagemapBaseSize $baseSize baseSize
      *
      * @return self
      */
@@ -410,7 +422,7 @@ class ImagemapMessage extends Message
     /**
      * Gets actions
      *
-     * @return \LINE\Clients\MessagingApi\Model\ImagemapAction[]|null
+     * @return \LINE\Clients\MessagingApi\Model\ImagemapAction[]
      */
     public function getActions()
     {
@@ -420,7 +432,7 @@ class ImagemapMessage extends Message
     /**
      * Sets actions
      *
-     * @param \LINE\Clients\MessagingApi\Model\ImagemapAction[]|null $actions actions
+     * @param \LINE\Clients\MessagingApi\Model\ImagemapAction[] $actions actions
      *
      * @return self
      */

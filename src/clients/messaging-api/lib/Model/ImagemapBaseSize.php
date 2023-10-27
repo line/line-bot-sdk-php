@@ -296,6 +296,12 @@ class ImagemapBaseSize implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -314,7 +320,7 @@ class ImagemapBaseSize implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets height
      *
-     * @return int|null
+     * @return int
      */
     public function getHeight()
     {
@@ -324,7 +330,7 @@ class ImagemapBaseSize implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets height
      *
-     * @param int|null $height height
+     * @param int $height height
      *
      * @return self
      */
@@ -341,7 +347,7 @@ class ImagemapBaseSize implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets width
      *
-     * @return int|null
+     * @return int
      */
     public function getWidth()
     {
@@ -351,7 +357,7 @@ class ImagemapBaseSize implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets width
      *
-     * @param int|null $width width
+     * @param int $width width
      *
      * @return self
      */

@@ -311,6 +311,15 @@ class FlexVideo extends FlexComponent
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
+        if ($this->container['previewUrl'] === null) {
+            $invalidProperties[] = "'previewUrl' can't be null";
+        }
+        if ($this->container['altContent'] === null) {
+            $invalidProperties[] = "'altContent' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -329,7 +338,7 @@ class FlexVideo extends FlexComponent
     /**
      * Gets url
      *
-     * @return string|null
+     * @return string
      */
     public function getUrl()
     {
@@ -339,7 +348,7 @@ class FlexVideo extends FlexComponent
     /**
      * Sets url
      *
-     * @param string|null $url url
+     * @param string $url url
      *
      * @return self
      */
@@ -356,7 +365,7 @@ class FlexVideo extends FlexComponent
     /**
      * Gets previewUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getPreviewUrl()
     {
@@ -366,7 +375,7 @@ class FlexVideo extends FlexComponent
     /**
      * Sets previewUrl
      *
-     * @param string|null $previewUrl previewUrl
+     * @param string $previewUrl previewUrl
      *
      * @return self
      */
@@ -383,7 +392,7 @@ class FlexVideo extends FlexComponent
     /**
      * Gets altContent
      *
-     * @return \LINE\Clients\MessagingApi\Model\FlexComponent|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexComponent
      */
     public function getAltContent()
     {
@@ -393,7 +402,7 @@ class FlexVideo extends FlexComponent
     /**
      * Sets altContent
      *
-     * @param \LINE\Clients\MessagingApi\Model\FlexComponent|null $altContent altContent
+     * @param \LINE\Clients\MessagingApi\Model\FlexComponent $altContent altContent
      *
      * @return self
      */

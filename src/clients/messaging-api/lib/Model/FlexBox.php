@@ -537,6 +537,9 @@ class FlexBox extends FlexComponent
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['layout'] === null) {
+            $invalidProperties[] = "'layout' can't be null";
+        }
         $allowedValues = $this->getLayoutAllowableValues();
         if (!is_null($this->container['layout']) && !in_array($this->container['layout'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -546,6 +549,9 @@ class FlexBox extends FlexComponent
             );
         }
 
+        if ($this->container['contents'] === null) {
+            $invalidProperties[] = "'contents' can't be null";
+        }
         $allowedValues = $this->getPositionAllowableValues();
         if (!is_null($this->container['position']) && !in_array($this->container['position'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -591,7 +597,7 @@ class FlexBox extends FlexComponent
     /**
      * Gets layout
      *
-     * @return string|null
+     * @return string
      */
     public function getLayout()
     {
@@ -601,7 +607,7 @@ class FlexBox extends FlexComponent
     /**
      * Sets layout
      *
-     * @param string|null $layout layout
+     * @param string $layout layout
      *
      * @return self
      */
@@ -655,7 +661,7 @@ class FlexBox extends FlexComponent
     /**
      * Gets contents
      *
-     * @return \LINE\Clients\MessagingApi\Model\FlexComponent[]|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexComponent[]
      */
     public function getContents()
     {
@@ -665,7 +671,7 @@ class FlexBox extends FlexComponent
     /**
      * Sets contents
      *
-     * @param \LINE\Clients\MessagingApi\Model\FlexComponent[]|null $contents contents
+     * @param \LINE\Clients\MessagingApi\Model\FlexComponent[] $contents contents
      *
      * @return self
      */
