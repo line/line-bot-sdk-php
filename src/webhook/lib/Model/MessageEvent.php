@@ -291,6 +291,9 @@ class MessageEvent extends Event
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -336,7 +339,7 @@ class MessageEvent extends Event
     /**
      * Gets message
      *
-     * @return \LINE\Webhook\Model\MessageContent|null
+     * @return \LINE\Webhook\Model\MessageContent
      */
     public function getMessage()
     {
@@ -346,7 +349,7 @@ class MessageEvent extends Event
     /**
      * Sets message
      *
-     * @param \LINE\Webhook\Model\MessageContent|null $message message
+     * @param \LINE\Webhook\Model\MessageContent $message message
      *
      * @return self
      */

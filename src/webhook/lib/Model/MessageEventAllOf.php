@@ -296,6 +296,9 @@ class MessageEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -341,7 +344,7 @@ class MessageEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets message
      *
-     * @return \LINE\Webhook\Model\MessageContent|null
+     * @return \LINE\Webhook\Model\MessageContent
      */
     public function getMessage()
     {
@@ -351,7 +354,7 @@ class MessageEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets message
      *
-     * @param \LINE\Webhook\Model\MessageContent|null $message message
+     * @param \LINE\Webhook\Model\MessageContent $message message
      *
      * @return self
      */
