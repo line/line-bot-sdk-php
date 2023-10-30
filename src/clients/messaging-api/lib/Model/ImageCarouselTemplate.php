@@ -283,6 +283,9 @@ class ImageCarouselTemplate extends Template
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['columns'] === null) {
+            $invalidProperties[] = "'columns' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -301,7 +304,7 @@ class ImageCarouselTemplate extends Template
     /**
      * Gets columns
      *
-     * @return \LINE\Clients\MessagingApi\Model\ImageCarouselColumn[]|null
+     * @return \LINE\Clients\MessagingApi\Model\ImageCarouselColumn[]
      */
     public function getColumns()
     {
@@ -311,7 +314,7 @@ class ImageCarouselTemplate extends Template
     /**
      * Sets columns
      *
-     * @param \LINE\Clients\MessagingApi\Model\ImageCarouselColumn[]|null $columns columns
+     * @param \LINE\Clients\MessagingApi\Model\ImageCarouselColumn[] $columns columns
      *
      * @return self
      */

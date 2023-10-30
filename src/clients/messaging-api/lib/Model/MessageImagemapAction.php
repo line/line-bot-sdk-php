@@ -290,6 +290,9 @@ class MessageImagemapAction extends ImagemapAction
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -308,7 +311,7 @@ class MessageImagemapAction extends ImagemapAction
     /**
      * Gets text
      *
-     * @return string|null
+     * @return string
      */
     public function getText()
     {
@@ -318,7 +321,7 @@ class MessageImagemapAction extends ImagemapAction
     /**
      * Sets text
      *
-     * @param string|null $text text
+     * @param string $text text
      *
      * @return self
      */

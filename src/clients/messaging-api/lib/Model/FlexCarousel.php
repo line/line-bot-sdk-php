@@ -283,6 +283,9 @@ class FlexCarousel extends FlexContainer
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['contents'] === null) {
+            $invalidProperties[] = "'contents' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -301,7 +304,7 @@ class FlexCarousel extends FlexContainer
     /**
      * Gets contents
      *
-     * @return \LINE\Clients\MessagingApi\Model\FlexBubble[]|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexBubble[]
      */
     public function getContents()
     {
@@ -311,7 +314,7 @@ class FlexCarousel extends FlexContainer
     /**
      * Sets contents
      *
-     * @param \LINE\Clients\MessagingApi\Model\FlexBubble[]|null $contents contents
+     * @param \LINE\Clients\MessagingApi\Model\FlexBubble[] $contents contents
      *
      * @return self
      */

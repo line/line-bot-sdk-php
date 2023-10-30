@@ -290,6 +290,12 @@ class TemplateMessage extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['altText'] === null) {
+            $invalidProperties[] = "'altText' can't be null";
+        }
+        if ($this->container['template'] === null) {
+            $invalidProperties[] = "'template' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -308,7 +314,7 @@ class TemplateMessage extends Message
     /**
      * Gets altText
      *
-     * @return string|null
+     * @return string
      */
     public function getAltText()
     {
@@ -318,7 +324,7 @@ class TemplateMessage extends Message
     /**
      * Sets altText
      *
-     * @param string|null $altText altText
+     * @param string $altText altText
      *
      * @return self
      */
@@ -335,7 +341,7 @@ class TemplateMessage extends Message
     /**
      * Gets template
      *
-     * @return \LINE\Clients\MessagingApi\Model\Template|null
+     * @return \LINE\Clients\MessagingApi\Model\Template
      */
     public function getTemplate()
     {
@@ -345,7 +351,7 @@ class TemplateMessage extends Message
     /**
      * Sets template
      *
-     * @param \LINE\Clients\MessagingApi\Model\Template|null $template template
+     * @param \LINE\Clients\MessagingApi\Model\Template $template template
      *
      * @return self
      */

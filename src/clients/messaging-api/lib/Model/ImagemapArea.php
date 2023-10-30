@@ -310,6 +310,18 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['x'] === null) {
+            $invalidProperties[] = "'x' can't be null";
+        }
+        if ($this->container['y'] === null) {
+            $invalidProperties[] = "'y' can't be null";
+        }
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -328,7 +340,7 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets x
      *
-     * @return int|null
+     * @return int
      */
     public function getX()
     {
@@ -338,7 +350,7 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets x
      *
-     * @param int|null $x x
+     * @param int $x x
      *
      * @return self
      */
@@ -355,7 +367,7 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets y
      *
-     * @return int|null
+     * @return int
      */
     public function getY()
     {
@@ -365,7 +377,7 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets y
      *
-     * @param int|null $y y
+     * @param int $y y
      *
      * @return self
      */
@@ -382,7 +394,7 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets width
      *
-     * @return int|null
+     * @return int
      */
     public function getWidth()
     {
@@ -392,7 +404,7 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets width
      *
-     * @param int|null $width width
+     * @param int $width width
      *
      * @return self
      */
@@ -409,7 +421,7 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets height
      *
-     * @return int|null
+     * @return int
      */
     public function getHeight()
     {
@@ -419,7 +431,7 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets height
      *
-     * @param int|null $height height
+     * @param int $height height
      *
      * @return self
      */

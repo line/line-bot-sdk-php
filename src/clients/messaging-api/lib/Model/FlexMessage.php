@@ -290,6 +290,12 @@ class FlexMessage extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['altText'] === null) {
+            $invalidProperties[] = "'altText' can't be null";
+        }
+        if ($this->container['contents'] === null) {
+            $invalidProperties[] = "'contents' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -308,7 +314,7 @@ class FlexMessage extends Message
     /**
      * Gets altText
      *
-     * @return string|null
+     * @return string
      */
     public function getAltText()
     {
@@ -318,7 +324,7 @@ class FlexMessage extends Message
     /**
      * Sets altText
      *
-     * @param string|null $altText altText
+     * @param string $altText altText
      *
      * @return self
      */
@@ -335,7 +341,7 @@ class FlexMessage extends Message
     /**
      * Gets contents
      *
-     * @return \LINE\Clients\MessagingApi\Model\FlexContainer|null
+     * @return \LINE\Clients\MessagingApi\Model\FlexContainer
      */
     public function getContents()
     {
@@ -345,7 +351,7 @@ class FlexMessage extends Message
     /**
      * Sets contents
      *
-     * @param \LINE\Clients\MessagingApi\Model\FlexContainer|null $contents contents
+     * @param \LINE\Clients\MessagingApi\Model\FlexContainer $contents contents
      *
      * @return self
      */

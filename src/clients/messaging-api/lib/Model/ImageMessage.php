@@ -290,6 +290,12 @@ class ImageMessage extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['originalContentUrl'] === null) {
+            $invalidProperties[] = "'originalContentUrl' can't be null";
+        }
+        if ($this->container['previewImageUrl'] === null) {
+            $invalidProperties[] = "'previewImageUrl' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -308,7 +314,7 @@ class ImageMessage extends Message
     /**
      * Gets originalContentUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getOriginalContentUrl()
     {
@@ -318,7 +324,7 @@ class ImageMessage extends Message
     /**
      * Sets originalContentUrl
      *
-     * @param string|null $originalContentUrl originalContentUrl
+     * @param string $originalContentUrl originalContentUrl
      *
      * @return self
      */
@@ -335,7 +341,7 @@ class ImageMessage extends Message
     /**
      * Gets previewImageUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getPreviewImageUrl()
     {
@@ -345,7 +351,7 @@ class ImageMessage extends Message
     /**
      * Sets previewImageUrl
      *
-     * @param string|null $previewImageUrl previewImageUrl
+     * @param string $previewImageUrl previewImageUrl
      *
      * @return self
      */
