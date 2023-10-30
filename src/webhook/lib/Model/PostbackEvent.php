@@ -291,6 +291,9 @@ class PostbackEvent extends Event
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['postback'] === null) {
+            $invalidProperties[] = "'postback' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -336,7 +339,7 @@ class PostbackEvent extends Event
     /**
      * Gets postback
      *
-     * @return \LINE\Webhook\Model\PostbackContent|null
+     * @return \LINE\Webhook\Model\PostbackContent
      */
     public function getPostback()
     {
@@ -346,7 +349,7 @@ class PostbackEvent extends Event
     /**
      * Sets postback
      *
-     * @param \LINE\Webhook\Model\PostbackContent|null $postback postback
+     * @param \LINE\Webhook\Model\PostbackContent $postback postback
      *
      * @return self
      */

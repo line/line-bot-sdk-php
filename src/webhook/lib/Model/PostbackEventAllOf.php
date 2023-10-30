@@ -296,6 +296,9 @@ class PostbackEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['postback'] === null) {
+            $invalidProperties[] = "'postback' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -341,7 +344,7 @@ class PostbackEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets postback
      *
-     * @return \LINE\Webhook\Model\PostbackContent|null
+     * @return \LINE\Webhook\Model\PostbackContent
      */
     public function getPostback()
     {
@@ -351,7 +354,7 @@ class PostbackEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets postback
      *
-     * @param \LINE\Webhook\Model\PostbackContent|null $postback postback
+     * @param \LINE\Webhook\Model\PostbackContent $postback postback
      *
      * @return self
      */

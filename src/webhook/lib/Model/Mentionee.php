@@ -303,6 +303,9 @@ class Mentionee implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         if ($this->container['index'] === null) {
             $invalidProperties[] = "'index' can't be null";
         }
@@ -327,7 +330,7 @@ class Mentionee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string|null
+     * @return string
      */
     public function getType()
     {
@@ -337,7 +340,7 @@ class Mentionee implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string|null $type Mentioned target.
+     * @param string $type Mentioned target.
      *
      * @return self
      */
