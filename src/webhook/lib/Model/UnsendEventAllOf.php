@@ -289,6 +289,9 @@ class UnsendEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['unsend'] === null) {
+            $invalidProperties[] = "'unsend' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -307,7 +310,7 @@ class UnsendEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets unsend
      *
-     * @return \LINE\Webhook\Model\UnsendDetail|null
+     * @return \LINE\Webhook\Model\UnsendDetail
      */
     public function getUnsend()
     {
@@ -317,7 +320,7 @@ class UnsendEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets unsend
      *
-     * @param \LINE\Webhook\Model\UnsendDetail|null $unsend unsend
+     * @param \LINE\Webhook\Model\UnsendDetail $unsend unsend
      *
      * @return self
      */

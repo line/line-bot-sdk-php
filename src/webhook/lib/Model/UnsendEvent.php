@@ -284,6 +284,9 @@ class UnsendEvent extends Event
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['unsend'] === null) {
+            $invalidProperties[] = "'unsend' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -302,7 +305,7 @@ class UnsendEvent extends Event
     /**
      * Gets unsend
      *
-     * @return \LINE\Webhook\Model\UnsendDetail|null
+     * @return \LINE\Webhook\Model\UnsendDetail
      */
     public function getUnsend()
     {
@@ -312,7 +315,7 @@ class UnsendEvent extends Event
     /**
      * Sets unsend
      *
-     * @param \LINE\Webhook\Model\UnsendDetail|null $unsend unsend
+     * @param \LINE\Webhook\Model\UnsendDetail $unsend unsend
      *
      * @return self
      */
