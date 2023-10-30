@@ -290,6 +290,12 @@ class AudioMessage extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['originalContentUrl'] === null) {
+            $invalidProperties[] = "'originalContentUrl' can't be null";
+        }
+        if ($this->container['duration'] === null) {
+            $invalidProperties[] = "'duration' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -308,7 +314,7 @@ class AudioMessage extends Message
     /**
      * Gets originalContentUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getOriginalContentUrl()
     {
@@ -318,7 +324,7 @@ class AudioMessage extends Message
     /**
      * Sets originalContentUrl
      *
-     * @param string|null $originalContentUrl originalContentUrl
+     * @param string $originalContentUrl originalContentUrl
      *
      * @return self
      */
@@ -335,7 +341,7 @@ class AudioMessage extends Message
     /**
      * Gets duration
      *
-     * @return int|null
+     * @return int
      */
     public function getDuration()
     {
@@ -345,7 +351,7 @@ class AudioMessage extends Message
     /**
      * Sets duration
      *
-     * @param int|null $duration duration
+     * @param int $duration duration
      *
      * @return self
      */

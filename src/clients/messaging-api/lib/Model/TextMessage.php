@@ -297,6 +297,9 @@ class TextMessage extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -315,7 +318,7 @@ class TextMessage extends Message
     /**
      * Gets text
      *
-     * @return string|null
+     * @return string
      */
     public function getText()
     {
@@ -325,7 +328,7 @@ class TextMessage extends Message
     /**
      * Sets text
      *
-     * @param string|null $text text
+     * @param string $text text
      *
      * @return self
      */

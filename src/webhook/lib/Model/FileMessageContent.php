@@ -70,7 +70,6 @@ class FileMessageContent extends MessageContent
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'fileName' => 'string',
         'fileSize' => 'int'
     ];
@@ -83,7 +82,6 @@ class FileMessageContent extends MessageContent
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'fileName' => null,
         'fileSize' => null
     ];
@@ -94,8 +92,7 @@ class FileMessageContent extends MessageContent
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'fileName' => false,
+        'fileName' => false,
 		'fileSize' => false
     ];
 
@@ -185,7 +182,6 @@ class FileMessageContent extends MessageContent
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'fileName' => 'fileName',
         'fileSize' => 'fileSize'
     ];
@@ -196,7 +192,6 @@ class FileMessageContent extends MessageContent
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'fileName' => 'setFileName',
         'fileSize' => 'setFileSize'
     ];
@@ -207,7 +202,6 @@ class FileMessageContent extends MessageContent
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'fileName' => 'getFileName',
         'fileSize' => 'getFileSize'
     ];
@@ -265,7 +259,6 @@ class FileMessageContent extends MessageContent
     {
         parent::__construct($data);
 
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('fileName', $data ?? [], null);
         $this->setIfExists('fileSize', $data ?? [], null);
     }
@@ -297,9 +290,6 @@ class FileMessageContent extends MessageContent
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['fileName'] === null) {
             $invalidProperties[] = "'fileName' can't be null";
         }
@@ -320,33 +310,6 @@ class FileMessageContent extends MessageContent
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Message ID
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets fileName

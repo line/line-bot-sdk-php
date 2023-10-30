@@ -95,15 +95,6 @@ class AudioMessageContentTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "contentProvider"
      */
     public function testPropertyContentProvider()

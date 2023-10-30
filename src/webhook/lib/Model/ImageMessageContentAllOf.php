@@ -72,7 +72,6 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
         'imageSet' => '\LINE\Webhook\Model\ImageSet',
         'quoteToken' => 'string'
@@ -86,7 +85,6 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'contentProvider' => null,
         'imageSet' => null,
         'quoteToken' => null
@@ -98,8 +96,7 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'contentProvider' => false,
+        'contentProvider' => false,
 		'imageSet' => false,
 		'quoteToken' => false
     ];
@@ -190,7 +187,6 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'contentProvider' => 'contentProvider',
         'imageSet' => 'imageSet',
         'quoteToken' => 'quoteToken'
@@ -202,7 +198,6 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'contentProvider' => 'setContentProvider',
         'imageSet' => 'setImageSet',
         'quoteToken' => 'setQuoteToken'
@@ -214,7 +209,6 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'contentProvider' => 'getContentProvider',
         'imageSet' => 'getImageSet',
         'quoteToken' => 'getQuoteToken'
@@ -277,7 +271,6 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('contentProvider', $data ?? [], null);
         $this->setIfExists('imageSet', $data ?? [], null);
         $this->setIfExists('quoteToken', $data ?? [], null);
@@ -310,9 +303,6 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['contentProvider'] === null) {
             $invalidProperties[] = "'contentProvider' can't be null";
         }
@@ -333,33 +323,6 @@ class ImageMessageContentAllOf implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Message ID
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets contentProvider

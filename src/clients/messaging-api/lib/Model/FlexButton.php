@@ -460,6 +460,9 @@ class FlexButton extends FlexComponent
             );
         }
 
+        if ($this->container['action'] === null) {
+            $invalidProperties[] = "'action' can't be null";
+        }
         $allowedValues = $this->getGravityAllowableValues();
         if (!is_null($this->container['gravity']) && !in_array($this->container['gravity'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -605,7 +608,7 @@ class FlexButton extends FlexComponent
     /**
      * Gets action
      *
-     * @return \LINE\Clients\MessagingApi\Model\Action|null
+     * @return \LINE\Clients\MessagingApi\Model\Action
      */
     public function getAction()
     {
@@ -615,7 +618,7 @@ class FlexButton extends FlexComponent
     /**
      * Sets action
      *
-     * @param \LINE\Clients\MessagingApi\Model\Action|null $action action
+     * @param \LINE\Clients\MessagingApi\Model\Action $action action
      *
      * @return self
      */

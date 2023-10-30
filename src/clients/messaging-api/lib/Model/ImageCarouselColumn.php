@@ -296,6 +296,12 @@ class ImageCarouselColumn implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['imageUrl'] === null) {
+            $invalidProperties[] = "'imageUrl' can't be null";
+        }
+        if ($this->container['action'] === null) {
+            $invalidProperties[] = "'action' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -314,7 +320,7 @@ class ImageCarouselColumn implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets imageUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getImageUrl()
     {
@@ -324,7 +330,7 @@ class ImageCarouselColumn implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets imageUrl
      *
-     * @param string|null $imageUrl imageUrl
+     * @param string $imageUrl imageUrl
      *
      * @return self
      */
@@ -341,7 +347,7 @@ class ImageCarouselColumn implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets action
      *
-     * @return \LINE\Clients\MessagingApi\Model\Action|null
+     * @return \LINE\Clients\MessagingApi\Model\Action
      */
     public function getAction()
     {
@@ -351,7 +357,7 @@ class ImageCarouselColumn implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets action
      *
-     * @param \LINE\Clients\MessagingApi\Model\Action|null $action action
+     * @param \LINE\Clients\MessagingApi\Model\Action $action action
      *
      * @return self
      */

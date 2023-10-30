@@ -290,6 +290,9 @@ class URIImagemapAction extends ImagemapAction
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['linkUri'] === null) {
+            $invalidProperties[] = "'linkUri' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -308,7 +311,7 @@ class URIImagemapAction extends ImagemapAction
     /**
      * Gets linkUri
      *
-     * @return string|null
+     * @return string
      */
     public function getLinkUri()
     {
@@ -318,7 +321,7 @@ class URIImagemapAction extends ImagemapAction
     /**
      * Sets linkUri
      *
-     * @param string|null $linkUri linkUri
+     * @param string $linkUri linkUri
      *
      * @return self
      */

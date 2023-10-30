@@ -290,6 +290,12 @@ class ConfirmTemplate extends Template
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
+        }
+        if ($this->container['actions'] === null) {
+            $invalidProperties[] = "'actions' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -308,7 +314,7 @@ class ConfirmTemplate extends Template
     /**
      * Gets text
      *
-     * @return string|null
+     * @return string
      */
     public function getText()
     {
@@ -318,7 +324,7 @@ class ConfirmTemplate extends Template
     /**
      * Sets text
      *
-     * @param string|null $text text
+     * @param string $text text
      *
      * @return self
      */
@@ -335,7 +341,7 @@ class ConfirmTemplate extends Template
     /**
      * Gets actions
      *
-     * @return \LINE\Clients\MessagingApi\Model\Action[]|null
+     * @return \LINE\Clients\MessagingApi\Model\Action[]
      */
     public function getActions()
     {
@@ -345,7 +351,7 @@ class ConfirmTemplate extends Template
     /**
      * Sets actions
      *
-     * @param \LINE\Clients\MessagingApi\Model\Action[]|null $actions actions
+     * @param \LINE\Clients\MessagingApi\Model\Action[] $actions actions
      *
      * @return self
      */

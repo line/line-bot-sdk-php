@@ -297,6 +297,12 @@ class StickerMessage extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['packageId'] === null) {
+            $invalidProperties[] = "'packageId' can't be null";
+        }
+        if ($this->container['stickerId'] === null) {
+            $invalidProperties[] = "'stickerId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -315,7 +321,7 @@ class StickerMessage extends Message
     /**
      * Gets packageId
      *
-     * @return string|null
+     * @return string
      */
     public function getPackageId()
     {
@@ -325,7 +331,7 @@ class StickerMessage extends Message
     /**
      * Sets packageId
      *
-     * @param string|null $packageId packageId
+     * @param string $packageId packageId
      *
      * @return self
      */
@@ -342,7 +348,7 @@ class StickerMessage extends Message
     /**
      * Gets stickerId
      *
-     * @return string|null
+     * @return string
      */
     public function getStickerId()
     {
@@ -352,7 +358,7 @@ class StickerMessage extends Message
     /**
      * Sets stickerId
      *
-     * @param string|null $stickerId stickerId
+     * @param string $stickerId stickerId
      *
      * @return self
      */
