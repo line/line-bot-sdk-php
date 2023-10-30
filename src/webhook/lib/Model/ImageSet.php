@@ -303,6 +303,9 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -321,7 +324,7 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return string|null
+     * @return string
      */
     public function getId()
     {
@@ -331,7 +334,7 @@ class ImageSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id Image set ID. Only included when multiple images are sent simultaneously.
+     * @param string $id Image set ID. Only included when multiple images are sent simultaneously.
      *
      * @return self
      */

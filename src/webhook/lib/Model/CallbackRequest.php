@@ -297,18 +297,24 @@ class CallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['destination']) && (mb_strlen($this->container['destination']) > 33)) {
+        if ($this->container['destination'] === null) {
+            $invalidProperties[] = "'destination' can't be null";
+        }
+        if ((mb_strlen($this->container['destination']) > 33)) {
             $invalidProperties[] = "invalid value for 'destination', the character length must be smaller than or equal to 33.";
         }
 
-        if (!is_null($this->container['destination']) && (mb_strlen($this->container['destination']) < 33)) {
+        if ((mb_strlen($this->container['destination']) < 33)) {
             $invalidProperties[] = "invalid value for 'destination', the character length must be bigger than or equal to 33.";
         }
 
-        if (!is_null($this->container['destination']) && !preg_match("/^U[0-9a-f]{32}$/", $this->container['destination'])) {
+        if (!preg_match("/^U[0-9a-f]{32}$/", $this->container['destination'])) {
             $invalidProperties[] = "invalid value for 'destination', must be conform to the pattern /^U[0-9a-f]{32}$/.";
         }
 
+        if ($this->container['events'] === null) {
+            $invalidProperties[] = "'events' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -327,7 +333,7 @@ class CallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets destination
      *
-     * @return string|null
+     * @return string
      */
     public function getDestination()
     {
@@ -337,7 +343,7 @@ class CallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets destination
      *
-     * @param string|null $destination User ID of a bot that should receive webhook events. The user ID value is a string that matches the regular expression, `U[0-9a-f]{32}`.
+     * @param string $destination User ID of a bot that should receive webhook events. The user ID value is a string that matches the regular expression, `U[0-9a-f]{32}`.
      *
      * @return self
      */
@@ -364,7 +370,7 @@ class CallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets events
      *
-     * @return \LINE\Webhook\Model\Event[]|null
+     * @return \LINE\Webhook\Model\Event[]
      */
     public function getEvents()
     {
@@ -374,7 +380,7 @@ class CallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets events
      *
-     * @param \LINE\Webhook\Model\Event[]|null $events Array of webhook event objects. The LINE Platform may send an empty array that doesn't include a webhook event object to confirm communication.
+     * @param \LINE\Webhook\Model\Event[] $events Array of webhook event objects. The LINE Platform may send an empty array that doesn't include a webhook event object to confirm communication.
      *
      * @return self
      */
