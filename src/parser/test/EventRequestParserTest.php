@@ -1673,7 +1673,7 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertInstanceOf(\LINE\Webhook\Model\ModuleEvent::class, $event);
-            /** @var \LINE\Webhook\Model\AttachedModuleContent $things */
+            /** @var \LINE\Webhook\Model\AttachedModuleContent $module */
             $module = $event->getModule();
 
             $actualClassName = get_class($module);

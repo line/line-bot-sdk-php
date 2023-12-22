@@ -273,16 +273,28 @@ class EventRequestParser
     }
 
     /**
-     * Gets type
+     * @param array $eventData
      * @return ModuleContent
      */
     private static function parseModuleContent($eventData): ModuleContent
     {
         $moduleContentType = $eventData['module']['type'];
+
+        // Debug: Output the module content type
+        error_log("Module content type: $moduleContentType");
+
         if (!isset(self::$moduleContentType2class[$moduleContentType])) {
             return new ModuleContent($eventData['module']);
         }
         $moduleContentClass = self::$moduleContentType2class[$moduleContentType];
+
+        // Debug: Output the class name
+        error_log("Instantiating class: $moduleContentClass");
+
+        $instance = new $moduleContentClass($eventData['module']);
+
+        // Debug: Output the instance class
+        error_log("Instance is of class: " . get_class($instance));
         return new $moduleContentClass($eventData['module']);
     }
 }
