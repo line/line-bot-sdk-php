@@ -1673,9 +1673,11 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertInstanceOf(\LINE\Webhook\Model\ModuleEvent::class, $event);
-            $this->assertInstanceOf(\LINE\Webhook\Model\AttachedModuleContent::class, $event->getModule());
-            $this->assertEquals('botid', $event->getModule()->getBotId());
-            $this->assertEquals('b', $event->getModule()->getScopes()[1]);
+            /** @var \LINE\Webhook\Model\AttachedModuleContent $things */
+            $module = $event->getModule();
+            $this->assertInstanceOf(\LINE\Webhook\Model\AttachedModuleContent::class, $module);
+            $this->assertEquals('botid', $module->getBotId());
+            $this->assertEquals('b', $module->getScopes()[1]);
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
         }
