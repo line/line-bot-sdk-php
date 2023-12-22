@@ -33,6 +33,8 @@ use LINE\Webhook\Model\ImageSet;
 use LINE\Webhook\Model\Mention;
 use LINE\Webhook\Model\Mentionee;
 use LINE\Webhook\Model\MessageContent;
+use LINE\Webhook\Model\ModuleContent;
+use LINE\Webhook\Model\ModuleEvent;
 use LINE\Webhook\Model\ScenarioResult;
 use LINE\Webhook\Model\ScenarioResultThingsContent;
 use LINE\Webhook\Model\Source;
@@ -103,6 +105,11 @@ class EventRequestParser
         'delivery' => \LINE\Webhook\Model\PnpDelivery::class,
     ];
 
+    private static $moduleContentType2class = [
+        'attached' => \LINE\Webhook\Model\AttachedModuleContent::class,
+        'detached' => \LINE\Webhook\Model\DetachedModuleContent::class,
+    ];
+
     /**
      * @param string $body
      * @param string $channelSecret
@@ -148,6 +155,11 @@ class EventRequestParser
         if ($event instanceof ThingsEvent) {
             $content = self::parseThingsContent($eventData);
             $event->setThings($content);
+        }
+
+        if ($event instanceof ModuleEvent) {
+            $content = self::parseModuleContent($eventData);
+            $event->setModule($content);
         }
 
         foreach (array_keys($eventData) as $key) {
@@ -243,7 +255,7 @@ class EventRequestParser
     {
         $thingsContentType = $eventData['things']['type'];
         if (!isset(self::$thingsContentType2class[$thingsContentType])) {
-            return new ThingsContent($eventData['source']);
+            return new ThingsContent($eventData['things']);
         }
 
         $thingsContentClass = self::$thingsContentType2class[$thingsContentType];
@@ -258,5 +270,19 @@ class EventRequestParser
         $result->setActionResults($actionResults);
         $content->setResult($result);
         return $content;
+    }
+
+    /**
+     * Gets type
+     * @return ModuleContent
+     */
+    private static function parseModuleContent($eventData): ModuleContent
+    {
+        $moduleContentType = $eventData['module']['type'];
+        if (!isset(self::$moduleContentType2class[$moduleContentType])) {
+            return new ModuleContent($eventData['module']);
+        }
+        $moduleContentClass = self::$moduleContentType2class[$moduleContentType];
+        return new $moduleContentClass($eventData['module']);
     }
 }
