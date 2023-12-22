@@ -903,6 +903,34 @@ class EventRequestParserTest extends TestCase
         "deliveryContext": {
           "isRedelivery": false
         }
+      },
+      {
+        "type": "module",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "module": {
+          "type": "attached",
+          "botId": "botid",
+          "scopes": ["a", "b"]
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        }
+      },
+      {
+        "type": "module",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "module": {
+          "type": "detached",
+          "botId": "botid",
+          "reason": "bot deleted"
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        }
       }
      ]
     }
@@ -925,7 +953,7 @@ class EventRequestParserTest extends TestCase
         $this->assertEquals($parsedEvents->getDestination(), 'U0123456789abcdef0123456789abcd');
 
         $events = $parsedEvents->getEvents();
-        $this->assertEquals(count($events), 44);
+        $this->assertEquals(count($events), 46);
 
         {
             // text
@@ -1635,6 +1663,32 @@ class EventRequestParserTest extends TestCase
             $this->assertInstanceOf(\LINE\Webhook\Model\PnpDeliveryCompletionEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\PnpDelivery::class, $event->getDelivery());
             $this->assertEquals('deliverydata', $event->getDelivery()->getData());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // module (attached)
+            $event = $events[44];
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(\LINE\Webhook\Model\ModuleEvent::class, $event);
+            $this->assertInstanceOf(\LINE\Webhook\Model\AttachedModuleContent::class, $event->getModule());
+            $this->assertEquals('botid', $event->getModule()->getBotId());
+            $this->assertEquals('b', $event->getModule()->getScopes()[1]);
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // module (detached)
+            $event = $events[45];
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(\LINE\Webhook\Model\ModuleEvent::class, $event);
+            $this->assertInstanceOf(\LINE\Webhook\Model\DetachedModuleContent::class, $event->getModule());
+            $this->assertEquals('botid', $event->getModule()->getBotId());
+            $this->assertEquals('bot deleted', $event->getModule()->getReason());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
         }
