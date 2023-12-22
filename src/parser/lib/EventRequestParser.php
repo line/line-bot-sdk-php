@@ -100,7 +100,6 @@ class EventRequestParser
         'left' => \LINE\Webhook\Model\LeftMembers::class,
         'unsend' => \LINE\Webhook\Model\UnsendDetail::class,
         'videoPlayComplete' => \LINE\Webhook\Model\VideoPlayComplete::class,
-        'module' => \LINE\Webhook\Model\ModuleContent::class,
         'chatControl' => \LINE\Webhook\Model\ChatControl::class,
         'delivery' => \LINE\Webhook\Model\PnpDelivery::class,
     ];
