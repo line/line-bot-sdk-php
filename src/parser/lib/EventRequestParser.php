@@ -60,6 +60,12 @@ class EventRequestParser
         'memberJoined' => \LINE\Webhook\Model\MemberJoinedEvent::class,
         'memberLeft' => \LINE\Webhook\Model\MemberLeftEvent::class,
         'things' => \LINE\Webhook\Model\ThingsEvent::class,
+        'module' => \LINE\Webhook\Model\ModuleEvent::class,
+        'activated' => \LINE\Webhook\Model\ActivatedEvent::class,
+        'deactivated' => \LINE\Webhook\Model\DeactivatedEvent::class,
+        'botSuspended' => \LINE\Webhook\Model\BotSuspendedEvent::class,
+        'botResumed' => \LINE\Webhook\Model\BotResumedEvent::class,
+        'delivery' => \LINE\Webhook\Model\PnpDeliveryCompletionEvent::class,
     ];
 
     private static $messageType2class = [
@@ -92,6 +98,9 @@ class EventRequestParser
         'left' => \LINE\Webhook\Model\LeftMembers::class,
         'unsend' => \LINE\Webhook\Model\UnsendDetail::class,
         'videoPlayComplete' => \LINE\Webhook\Model\VideoPlayComplete::class,
+        'module' => \LINE\Webhook\Model\ModuleContent::class,
+        'chatControl' => \LINE\Webhook\Model\ChatControl::class,
+        'delivery' => \LINE\Webhook\Model\PnpDelivery::class,
     ];
 
     /**

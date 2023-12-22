@@ -840,7 +840,70 @@ class EventRequestParserTest extends TestCase
           }
         ]
        }
-      }
+      },
+              {
+          "type": "activated",
+          "timestamp": 12345678901234,
+          "mode": "active",
+          "source": {
+            "type": "user",
+            "userId": "userid"
+          },
+          "chatControl": {
+            "expireAt": 1462629479860
+          },
+          "webhookEventId": "testwebhookeventid",
+          "deliveryContext": {
+            "isRedelivery": false
+          }
+        },
+                {
+          "type": "deactivated",
+          "timestamp": 12345678901234,
+          "mode": "active",
+          "source": {
+            "type": "user",
+            "userId": "userid"
+          },
+          "webhookEventId": "testwebhookeventid",
+          "deliveryContext": {
+            "isRedelivery": false
+          }
+        },
+                        {
+                  "type": "botSuspended",
+                  "timestamp": 12345678901234,
+                  "mode": "active",
+                  "webhookEventId": "testwebhookeventid",
+                  "deliveryContext": {
+                    "isRedelivery": false
+                  }
+                },
+        {
+                  "type": "botResumed",
+                  "timestamp": 12345678901234,
+                  "mode": "active",
+                  "webhookEventId": "testwebhookeventid",
+                  "deliveryContext": {
+                    "isRedelivery": false
+                  }
+                },
+                {
+                  "type": "delivery",
+                  "timestamp": 12345678901234,
+                  "mode": "active",
+                  "source": {
+                    "type": "user",
+                    "userId": "userid"
+                  },
+                  "delivery": {
+                    "data": "aaaaaaaaaa"
+                  },
+                  "webhookEventId": "testwebhookeventid",
+                  "deliveryContext": {
+                    "isRedelivery": false
+                  }
+                }
      ]
     }
     JSON;
