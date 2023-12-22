@@ -223,6 +223,9 @@ class EventRequestParser
      */
     private static function parseSource($eventData): Source
     {
+        if (!isset($eventData['source'])) {
+            return new Source([]);
+        }
         $sourceType = $eventData['source']['type'];
         if (!isset(self::$sourceType2class[$sourceType])) {
             return new Source($eventData['source']);

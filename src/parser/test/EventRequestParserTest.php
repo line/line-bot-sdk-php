@@ -925,7 +925,7 @@ class EventRequestParserTest extends TestCase
         $this->assertEquals($parsedEvents->getDestination(), 'U0123456789abcdef0123456789abcd');
 
         $events = $parsedEvents->getEvents();
-        $this->assertEquals(count($events), 39);
+        $this->assertEquals(count($events), 44);
 
         {
             // text
@@ -1636,7 +1636,7 @@ class EventRequestParserTest extends TestCase
             $this->assertInstanceOf(\LINE\Webhook\Model\PnpDelivery::class, $event->getDelivery());
             $this->assertEquals('deliverydata', $event->getDelivery()->getData());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
-            $this->assertTrue($event->getDeliveryContext()->getIsRedelivery());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
         }
     }
 
