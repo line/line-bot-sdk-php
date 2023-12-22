@@ -1678,8 +1678,8 @@ class EventRequestParserTest extends TestCase
 
             $actualClassName = get_class($module);
 
-//            $this->assertInstanceOf(\LINE\Webhook\Model\AttachedModuleContent::class, $module);
-//            $this->assertInstanceOf(\LINE\Webhook\Model\AttachedModuleContent::class, $module, "Expected 'LINE\Webhook\Model\AttachedModuleContent', got '$actualClassName'");
+            $this->assertInstanceOf(\LINE\Webhook\Model\AttachedModuleContent::class, $module);
+            $this->assertInstanceOf(\LINE\Webhook\Model\AttachedModuleContent::class, $module, "Expected 'LINE\Webhook\Model\AttachedModuleContent', got '$actualClassName'");
             $this->assertEquals('botid', $module->getBotId());
             $this->assertEquals('b', $module->getScopes()[1]);
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
@@ -1695,7 +1695,7 @@ class EventRequestParserTest extends TestCase
             /** @var \LINE\Webhook\Model\DetachedModuleContent $module */
             $module = $event->getModule();
 
-//            $this->assertInstanceOf(\LINE\Webhook\Model\DetachedModuleContent::class, $event->getModule());
+            $this->assertInstanceOf(\LINE\Webhook\Model\DetachedModuleContent::class, $event->getModule());
             $this->assertEquals('botid', $module->getBotId());
             $this->assertEquals('bot deleted', $module->getReason());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
