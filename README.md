@@ -76,11 +76,47 @@ $request = (new ReplyMessageRequest)
 try {
   $messagingApi->replyMessage($request);
   // Success
-} catch (\LINE\Clients\MessagingApi $e) {
+} catch (\LINE\Clients\MessagingApi\ApiException $e) {
   // Failed
   echo $e->getCode() . ' ' . $e->getResponseBody();
 }
 ```
+
+## How to get x-line-request-id header and error message
+
+You may need to store the `x-line-request-id` header obtained as a response from several APIs. In this case, please use `~WithHttpInfo` functions. You can get headers and status codes. The `x-line-accepted-request-id` or `content-type` header can also be obtained in the same way.
+
+```php
+$request = new ReplyMessageRequest([
+    'replyToken' => $replyToken,
+    'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info', 'type' => MessageType::TEXT]))],
+]);
+$response = $messagingApi->replyMessageWithHttpInfo($request);
+$this->logger->info('body:' . $response[0]);
+$this->logger->info('http status code:' . $response[1]);
+$this->logger->info('headers(x-line-request-id):' . $response[2]['x-line-request-id'][0]);
+```
+
+You can get error messages from `\LINE\Clients\MessagingApi\ApiException` when you use `MessagingApiApi`. Each client defines its own exception class.
+
+```php
+try {
+    $profile = $messagingApi->getProfile("invalid-userId");
+} catch (\LINE\Clients\MessagingApi\ApiException $e) {
+    $headers = $e->getResponseHeaders();
+    $lineRequestId = isset($headers['x-line-request-id']) ? $headers['x-line-request-id'][0] : 'Not Available';
+    $httpStatusCode = $e->getCode();
+    $errorMessage = $e->getResponseBody();
+
+    $this->logger->info("x-line-request-id: $lineRequestId");
+    $this->logger->info("http status code: $httpStatusCode");
+    $this->logger->info("error response: $errorMessage");
+}
+```
+
+When you need to get `x-line-accepted-request-id` header from error response, you can get it: `$headers['x-line-accepted-request-id'][0]`.
+
+
 
 ## Components
 
@@ -151,7 +187,7 @@ then you can use facades like following.
 $profile = \LINEMessagingApi::pushMessage(....);
 ```
 
-Facade uses `\GuzzleHttp\Client` by default. If you want to change the config, run 
+Facade uses `\GuzzleHttp\Client` by default. If you want to change the config, run
 
 ```bash
 $ php artisan vendor:publish --tag=config
@@ -204,15 +240,15 @@ For hacking instructions, please refer [HACKING.md](/HACKING.md).
 ```
 Copyright 2016 LINE Corporation
 
-Licensed under the Apache License, version 2.0 (the "License"); 
-you may not use this file except in compliance with the License. 
+Licensed under the Apache License, version 2.0 (the "License");
+you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
   https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, 
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-See the License for the specific language governing permissions and 
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
 limitations under the License.
 ```
