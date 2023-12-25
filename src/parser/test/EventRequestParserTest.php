@@ -840,6 +840,97 @@ class EventRequestParserTest extends TestCase
           }
         ]
        }
+      },
+      {
+        "type": "activated",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "user",
+          "userId": "userid"
+        },
+        "chatControl": {
+          "expireAt": 1462629479860
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        }
+      },
+      {
+        "type": "deactivated",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "user",
+          "userId": "userid"
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        }
+      },
+      {
+        "type": "botSuspended",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        }
+      },
+      {
+        "type": "botResumed",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        }
+      },
+      {
+        "type": "delivery",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "user",
+          "userId": "userid"
+        },
+        "delivery": {
+          "data": "deliverydata"
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        }
+      },
+      {
+        "type": "module",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "module": {
+          "type": "attached",
+          "botId": "botid",
+          "scopes": ["a", "b"]
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        }
+      },
+      {
+        "type": "module",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "module": {
+          "type": "detached",
+          "botId": "botid",
+          "reason": "bot deleted"
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        }
       }
      ]
     }
@@ -862,7 +953,7 @@ class EventRequestParserTest extends TestCase
         $this->assertEquals($parsedEvents->getDestination(), 'U0123456789abcdef0123456789abcd');
 
         $events = $parsedEvents->getEvents();
-        $this->assertEquals(count($events), 39);
+        $this->assertEquals(count($events), 46);
 
         {
             // text
@@ -1511,6 +1602,101 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals(6, $emojiInfo->getLength());
             $this->assertEquals('5ac1bfd5040ab15980c9b435', $emojiInfo->getProductId());
             $this->assertEquals('001', $emojiInfo->getEmojiId());
+        }
+
+        {
+            // activated
+            $event = $events[39];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($source instanceof UserSource);
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertInstanceOf(\LINE\Webhook\Model\ActivatedEvent::class, $event);
+            $this->assertInstanceOf(\LINE\Webhook\Model\ChatControl::class, $event->getChatControl());
+            $this->assertEquals(1462629479860, $event->getChatControl()->getExpireAt());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // deactivated
+            $event = $events[40];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($source instanceof UserSource);
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertInstanceOf(\LINE\Webhook\Model\DeactivatedEvent::class, $event);
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // botSuspended
+            $event = $events[41];
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(\LINE\Webhook\Model\BotSuspendedEvent::class, $event);
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // botResumed
+            $event = $events[42];
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(\LINE\Webhook\Model\BotResumedEvent::class, $event);
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // delivery
+            $event = $events[43];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($source instanceof UserSource);
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertInstanceOf(\LINE\Webhook\Model\PnpDeliveryCompletionEvent::class, $event);
+            $this->assertInstanceOf(\LINE\Webhook\Model\PnpDelivery::class, $event->getDelivery());
+            $this->assertEquals('deliverydata', $event->getDelivery()->getData());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // module (attached)
+            $event = $events[44];
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(\LINE\Webhook\Model\ModuleEvent::class, $event);
+            /** @var \LINE\Webhook\Model\AttachedModuleContent $module */
+            $module = $event->getModule();
+
+            $this->assertInstanceOf(\LINE\Webhook\Model\AttachedModuleContent::class, $module);
+            $this->assertEquals('botid', $module->getBotId());
+            $this->assertEquals('b', $module->getScopes()[1]);
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // module (detached)
+            $event = $events[45];
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(\LINE\Webhook\Model\ModuleEvent::class, $event);
+            /** @var \LINE\Webhook\Model\DetachedModuleContent $module */
+            $module = $event->getModule();
+
+            $this->assertInstanceOf(\LINE\Webhook\Model\DetachedModuleContent::class, $event->getModule());
+            $this->assertEquals('botid', $module->getBotId());
+            $this->assertEquals('bot deleted', $module->getReason());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
         }
     }
 
