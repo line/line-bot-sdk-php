@@ -429,6 +429,12 @@ class TextMessageHandler implements EventHandler
                 ]);
                 $this->bot->replyMessage($request);
                 break;
+            case 'error':
+                $this->errorCase($replyToken, $userId);
+                break;
+            case 'http info':
+                $this->replyMessageWithHttpInfo($replyToken);
+                break;
             default:
                 $this->echoBack($replyToken, $text);
                 break;
@@ -460,7 +466,7 @@ class TextMessageHandler implements EventHandler
 
         try {
             $profile = $this->bot->getProfile($userId);
-        } catch (\LINE\Webhook\ApiException $e) {
+        } catch (\LINE\Clients\MessagingApi\ApiException $e) {
             $this->replyText($replyToken, json_encode($e->getResponseBody()));
             return;
         }
@@ -490,5 +496,35 @@ class TextMessageHandler implements EventHandler
             $this->logger->info('BODY:' . $e->getResponseBody());
             throw $e;
         }
+    }
+
+    private function errorCase(string $replyToken)
+    {
+        try {
+            $profile = $this->bot->getProfile("invalid-userId");
+        } catch (\LINE\Clients\MessagingApi\ApiException $e) {
+            $headers = $e->getResponseHeaders();
+            $lineRequestId = isset($headers['x-line-request-id']) ? $headers['x-line-request-id'][0] : 'Not Available';
+            $httpStatusCode = $e->getCode();
+            $errorMessage = $e->getResponseBody();
+
+            $this->logger->info("x-line-request-id: $lineRequestId");
+            $this->logger->info("http status code: $httpStatusCode");
+            $this->logger->info("error response: $errorMessage");
+            $this->replyText($replyToken, $errorMessage);
+            return;
+        }
+    }
+
+    private function replyMessageWithHttpInfo(string $replyToken)
+    {
+        $request = new ReplyMessageRequest([
+            'replyToken' => $replyToken,
+            'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info', 'type' => MessageType::TEXT]))],
+        ]);
+        $response = $this->bot->replyMessageWithHttpInfo($request);
+        $this->logger->info('body:' . $response[0]);
+        $this->logger->info('http status code:' . $response[1]);
+        $this->logger->info('headers(x-line-request-id):' . $response[2]['x-line-request-id'][0]);
     }
 }
