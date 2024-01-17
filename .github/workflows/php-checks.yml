@@ -31,7 +31,7 @@ jobs:
 
       - name: Install openapi-generator-cli
         run: echo "OPENAPI_GENERATOR_VERSION=6.6.0" >> $GITHUB_ENV
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: openapi-generator-cache
         env:
           cache-name: openapi-generator-cache
@@ -56,7 +56,7 @@ jobs:
         run: |
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-php-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
