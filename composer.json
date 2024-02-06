@@ -65,6 +65,11 @@
       "LINE\\Webhook\\Tests\\": "src/webhook/test/"
     }
   },
+  "config": {
+    "allow-plugins": {
+      "kylekatarnls/update-helper": true
+    }
+  },
   "scripts": {
     "test": "phpunit --debug --test-suffix=Test.php",
     "cs": "phpcs",
