@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * FollowEvent
+ * JoinEventAllOf
  *
  * PHP version 7.4
  *
@@ -42,19 +42,20 @@
  */
 
 namespace LINE\Webhook\Model;
+
+use \ArrayAccess;
 use \LINE\Webhook\ObjectSerializer;
 
 /**
- * FollowEvent Class Doc Comment
+ * JoinEventAllOf Class Doc Comment
  *
  * @category Class
- * @description Event object for when your LINE Official Account is added as a friend (or unblocked). You can reply to follow events.
  * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FollowEvent extends Event
+class JoinEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +64,7 @@ class FollowEvent extends Event
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FollowEvent';
+    protected static $openAPIModelName = 'JoinEvent_allOf';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,8 +72,7 @@ class FollowEvent extends Event
       * @var string[]
       */
     protected static $openAPITypes = [
-        'replyToken' => 'string',
-        'follow' => '\LINE\Webhook\Model\FollowDetail'
+        'replyToken' => 'string'
     ];
 
     /**
@@ -83,8 +83,7 @@ class FollowEvent extends Event
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'replyToken' => null,
-        'follow' => null
+        'replyToken' => null
     ];
 
     /**
@@ -93,8 +92,7 @@ class FollowEvent extends Event
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'replyToken' => false,
-		'follow' => false
+        'replyToken' => false
     ];
 
     /**
@@ -111,7 +109,7 @@ class FollowEvent extends Event
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes + parent::openAPITypes();
+        return self::$openAPITypes;
     }
 
     /**
@@ -121,7 +119,7 @@ class FollowEvent extends Event
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats + parent::openAPIFormats();
+        return self::$openAPIFormats;
     }
 
     /**
@@ -131,7 +129,7 @@ class FollowEvent extends Event
      */
     protected static function openAPINullables(): array
     {
-        return self::$openAPINullables + parent::openAPINullables();
+        return self::$openAPINullables;
     }
 
     /**
@@ -183,8 +181,7 @@ class FollowEvent extends Event
      * @var string[]
      */
     protected static $attributeMap = [
-        'replyToken' => 'replyToken',
-        'follow' => 'follow'
+        'replyToken' => 'replyToken'
     ];
 
     /**
@@ -193,8 +190,7 @@ class FollowEvent extends Event
      * @var string[]
      */
     protected static $setters = [
-        'replyToken' => 'setReplyToken',
-        'follow' => 'setFollow'
+        'replyToken' => 'setReplyToken'
     ];
 
     /**
@@ -203,8 +199,7 @@ class FollowEvent extends Event
      * @var string[]
      */
     protected static $getters = [
-        'replyToken' => 'getReplyToken',
-        'follow' => 'getFollow'
+        'replyToken' => 'getReplyToken'
     ];
 
     /**
@@ -215,7 +210,7 @@ class FollowEvent extends Event
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -225,7 +220,7 @@ class FollowEvent extends Event
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -235,7 +230,7 @@ class FollowEvent extends Event
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -249,6 +244,12 @@ class FollowEvent extends Event
     }
 
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -258,10 +259,7 @@ class FollowEvent extends Event
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
         $this->setIfExists('replyToken', $data ?? [], null);
-        $this->setIfExists('follow', $data ?? [], null);
     }
 
     /**
@@ -289,13 +287,10 @@ class FollowEvent extends Event
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         if ($this->container['replyToken'] === null) {
             $invalidProperties[] = "'replyToken' can't be null";
-        }
-        if ($this->container['follow'] === null) {
-            $invalidProperties[] = "'follow' can't be null";
         }
         return $invalidProperties;
     }
@@ -335,33 +330,6 @@ class FollowEvent extends Event
             throw new \InvalidArgumentException('non-nullable replyToken cannot be null');
         }
         $this->container['replyToken'] = $replyToken;
-
-        return $this;
-    }
-
-    /**
-     * Gets follow
-     *
-     * @return \LINE\Webhook\Model\FollowDetail
-     */
-    public function getFollow()
-    {
-        return $this->container['follow'];
-    }
-
-    /**
-     * Sets follow
-     *
-     * @param \LINE\Webhook\Model\FollowDetail $follow follow
-     *
-     * @return self
-     */
-    public function setFollow($follow)
-    {
-        if (is_null($follow)) {
-            throw new \InvalidArgumentException('non-nullable follow cannot be null');
-        }
-        $this->container['follow'] = $follow;
 
         return $this;
     }

@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * FollowEventTest
+ * FollowDetailTest
  *
  * PHP version 7.4
  *
@@ -46,15 +46,15 @@ namespace LINE\Webhook\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * FollowEventTest Class Doc Comment
+ * FollowDetailTest Class Doc Comment
  *
  * @category    Class
- * @description Event object for when your LINE Official Account is added as a friend (or unblocked). You can reply to follow events.
+ * @description FollowDetail
  * @package     LINE\Webhook
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FollowEventTest extends TestCase
+class FollowDetailTest extends TestCase
 {
 
     /**
@@ -86,27 +86,18 @@ class FollowEventTest extends TestCase
     }
 
     /**
-     * Test "FollowEvent"
+     * Test "FollowDetail"
      */
-    public function testFollowEvent()
+    public function testFollowDetail()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "replyToken"
+     * Test attribute "isUnblocked"
      */
-    public function testPropertyReplyToken()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "follow"
-     */
-    public function testPropertyFollow()
+    public function testPropertyIsUnblocked()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
