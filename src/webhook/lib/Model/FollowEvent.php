@@ -71,7 +71,8 @@ class FollowEvent extends Event
       * @var string[]
       */
     protected static $openAPITypes = [
-        'replyToken' => 'string'
+        'replyToken' => 'string',
+        'follow' => '\LINE\Webhook\Model\FollowDetail'
     ];
 
     /**
@@ -82,7 +83,8 @@ class FollowEvent extends Event
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'replyToken' => null
+        'replyToken' => null,
+        'follow' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class FollowEvent extends Event
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'replyToken' => false
+        'replyToken' => false,
+		'follow' => false
     ];
 
     /**
@@ -180,7 +183,8 @@ class FollowEvent extends Event
      * @var string[]
      */
     protected static $attributeMap = [
-        'replyToken' => 'replyToken'
+        'replyToken' => 'replyToken',
+        'follow' => 'follow'
     ];
 
     /**
@@ -189,7 +193,8 @@ class FollowEvent extends Event
      * @var string[]
      */
     protected static $setters = [
-        'replyToken' => 'setReplyToken'
+        'replyToken' => 'setReplyToken',
+        'follow' => 'setFollow'
     ];
 
     /**
@@ -198,7 +203,8 @@ class FollowEvent extends Event
      * @var string[]
      */
     protected static $getters = [
-        'replyToken' => 'getReplyToken'
+        'replyToken' => 'getReplyToken',
+        'follow' => 'getFollow'
     ];
 
     /**
@@ -255,6 +261,7 @@ class FollowEvent extends Event
         parent::__construct($data);
 
         $this->setIfExists('replyToken', $data ?? [], null);
+        $this->setIfExists('follow', $data ?? [], null);
     }
 
     /**
@@ -286,6 +293,9 @@ class FollowEvent extends Event
 
         if ($this->container['replyToken'] === null) {
             $invalidProperties[] = "'replyToken' can't be null";
+        }
+        if ($this->container['follow'] === null) {
+            $invalidProperties[] = "'follow' can't be null";
         }
         return $invalidProperties;
     }
@@ -325,6 +335,33 @@ class FollowEvent extends Event
             throw new \InvalidArgumentException('non-nullable replyToken cannot be null');
         }
         $this->container['replyToken'] = $replyToken;
+
+        return $this;
+    }
+
+    /**
+     * Gets follow
+     *
+     * @return \LINE\Webhook\Model\FollowDetail
+     */
+    public function getFollow()
+    {
+        return $this->container['follow'];
+    }
+
+    /**
+     * Sets follow
+     *
+     * @param \LINE\Webhook\Model\FollowDetail $follow follow
+     *
+     * @return self
+     */
+    public function setFollow($follow)
+    {
+        if (is_null($follow)) {
+            throw new \InvalidArgumentException('non-nullable follow cannot be null');
+        }
+        $this->container['follow'] = $follow;
 
         return $this;
     }

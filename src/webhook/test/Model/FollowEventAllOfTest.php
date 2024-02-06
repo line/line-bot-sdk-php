@@ -102,4 +102,13 @@ class FollowEventAllOfTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "follow"
+     */
+    public function testPropertyFollow()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
