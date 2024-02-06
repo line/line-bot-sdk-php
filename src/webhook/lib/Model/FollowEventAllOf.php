@@ -72,7 +72,8 @@ class FollowEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'replyToken' => 'string'
+        'replyToken' => 'string',
+        'follow' => '\LINE\Webhook\Model\FollowDetail'
     ];
 
     /**
@@ -83,7 +84,8 @@ class FollowEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'replyToken' => null
+        'replyToken' => null,
+        'follow' => null
     ];
 
     /**
@@ -92,7 +94,8 @@ class FollowEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'replyToken' => false
+        'replyToken' => false,
+		'follow' => false
     ];
 
     /**
@@ -181,7 +184,8 @@ class FollowEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'replyToken' => 'replyToken'
+        'replyToken' => 'replyToken',
+        'follow' => 'follow'
     ];
 
     /**
@@ -190,7 +194,8 @@ class FollowEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'replyToken' => 'setReplyToken'
+        'replyToken' => 'setReplyToken',
+        'follow' => 'setFollow'
     ];
 
     /**
@@ -199,7 +204,8 @@ class FollowEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'replyToken' => 'getReplyToken'
+        'replyToken' => 'getReplyToken',
+        'follow' => 'getFollow'
     ];
 
     /**
@@ -260,6 +266,7 @@ class FollowEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('replyToken', $data ?? [], null);
+        $this->setIfExists('follow', $data ?? [], null);
     }
 
     /**
@@ -291,6 +298,9 @@ class FollowEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['replyToken'] === null) {
             $invalidProperties[] = "'replyToken' can't be null";
+        }
+        if ($this->container['follow'] === null) {
+            $invalidProperties[] = "'follow' can't be null";
         }
         return $invalidProperties;
     }
@@ -330,6 +340,33 @@ class FollowEventAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable replyToken cannot be null');
         }
         $this->container['replyToken'] = $replyToken;
+
+        return $this;
+    }
+
+    /**
+     * Gets follow
+     *
+     * @return \LINE\Webhook\Model\FollowDetail
+     */
+    public function getFollow()
+    {
+        return $this->container['follow'];
+    }
+
+    /**
+     * Sets follow
+     *
+     * @param \LINE\Webhook\Model\FollowDetail $follow follow
+     *
+     * @return self
+     */
+    public function setFollow($follow)
+    {
+        if (is_null($follow)) {
+            throw new \InvalidArgumentException('non-nullable follow cannot be null');
+        }
+        $this->container['follow'] = $follow;
 
         return $this;
     }
