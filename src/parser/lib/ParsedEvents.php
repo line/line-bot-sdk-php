@@ -50,7 +50,7 @@ class ParsedEvents
     /**
      * Get events
      *
-     * @return array
+     * @return Event[]
      */
     public function getEvents(): array
     {
