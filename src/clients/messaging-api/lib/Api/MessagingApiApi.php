@@ -242,6 +242,9 @@ class MessagingApiApi
         'setWebhookEndpoint' => [
             'application/json',
         ],
+        'showLoadingAnimation' => [
+            'application/json',
+        ],
         'testWebhookEndpoint' => [
             'application/json',
         ],
@@ -14559,6 +14562,307 @@ class MessagingApiApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation showLoadingAnimation
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\ShowLoadingAnimationRequest $showLoadingAnimationRequest showLoadingAnimationRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showLoadingAnimation'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object|\LINE\Clients\MessagingApi\Model\ErrorResponse
+     */
+    public function showLoadingAnimation($showLoadingAnimationRequest, string $contentType = self::contentTypes['showLoadingAnimation'][0])
+    {
+        list($response) = $this->showLoadingAnimationWithHttpInfo($showLoadingAnimationRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation showLoadingAnimationWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\ShowLoadingAnimationRequest $showLoadingAnimationRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showLoadingAnimation'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function showLoadingAnimationWithHttpInfo($showLoadingAnimationRequest, string $contentType = self::contentTypes['showLoadingAnimation'][0])
+    {
+        $request = $this->showLoadingAnimationRequest($showLoadingAnimationRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 202:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation showLoadingAnimationAsync
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\ShowLoadingAnimationRequest $showLoadingAnimationRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showLoadingAnimation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function showLoadingAnimationAsync($showLoadingAnimationRequest, string $contentType = self::contentTypes['showLoadingAnimation'][0])
+    {
+        return $this->showLoadingAnimationAsyncWithHttpInfo($showLoadingAnimationRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation showLoadingAnimationAsyncWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\ShowLoadingAnimationRequest $showLoadingAnimationRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showLoadingAnimation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function showLoadingAnimationAsyncWithHttpInfo($showLoadingAnimationRequest, string $contentType = self::contentTypes['showLoadingAnimation'][0])
+    {
+        $returnType = 'object';
+        $request = $this->showLoadingAnimationRequest($showLoadingAnimationRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'showLoadingAnimation'
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\ShowLoadingAnimationRequest $showLoadingAnimationRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showLoadingAnimation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function showLoadingAnimationRequest($showLoadingAnimationRequest, string $contentType = self::contentTypes['showLoadingAnimation'][0])
+    {
+
+        // verify the required parameter 'showLoadingAnimationRequest' is set
+        if ($showLoadingAnimationRequest === null || (is_array($showLoadingAnimationRequest) && count($showLoadingAnimationRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $showLoadingAnimationRequest when calling showLoadingAnimation'
+            );
+        }
+
+
+        $resourcePath = '/v2/bot/chat/loading/start';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($showLoadingAnimationRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($showLoadingAnimationRequest));
+            } else {
+                $httpBody = $showLoadingAnimationRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
