@@ -149,6 +149,8 @@ class LiffApi
     /**
      * Operation addLIFFApp
      *
+     * Create LIFF app
+     *
      * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest addLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addLIFFApp'] to see the possible values for this operation
      *
@@ -164,6 +166,8 @@ class LiffApi
 
     /**
      * Operation addLIFFAppWithHttpInfo
+     *
+     * Create LIFF app
      *
      * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addLIFFApp'] to see the possible values for this operation
@@ -263,6 +267,8 @@ class LiffApi
     /**
      * Operation addLIFFAppAsync
      *
+     * Create LIFF app
+     *
      * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addLIFFApp'] to see the possible values for this operation
      *
@@ -281,6 +287,8 @@ class LiffApi
 
     /**
      * Operation addLIFFAppAsyncWithHttpInfo
+     *
+     * Create LIFF app
      *
      * @param  \LINE\Clients\Liff\Model\AddLiffAppRequest $addLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addLIFFApp'] to see the possible values for this operation
@@ -927,6 +935,8 @@ class LiffApi
     /**
      * Operation updateLIFFApp
      *
+     * Update LIFF app from a channel
+     *
      * @param  string $liffId ID of the LIFF app to be updated (required)
      * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest updateLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLIFFApp'] to see the possible values for this operation
@@ -942,6 +952,8 @@ class LiffApi
 
     /**
      * Operation updateLIFFAppWithHttpInfo
+     *
+     * Update LIFF app from a channel
      *
      * @param  string $liffId ID of the LIFF app to be updated (required)
      * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
@@ -1002,6 +1014,8 @@ class LiffApi
     /**
      * Operation updateLIFFAppAsync
      *
+     * Update LIFF app from a channel
+     *
      * @param  string $liffId ID of the LIFF app to be updated (required)
      * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLIFFApp'] to see the possible values for this operation
@@ -1021,6 +1035,8 @@ class LiffApi
 
     /**
      * Operation updateLIFFAppAsyncWithHttpInfo
+     *
+     * Update LIFF app from a channel
      *
      * @param  string $liffId ID of the LIFF app to be updated (required)
      * @param  \LINE\Clients\Liff\Model\UpdateLiffAppRequest $updateLiffAppRequest (required)
