@@ -458,16 +458,16 @@ class ChannelAccessTokenApi
     /**
      * Operation issueChannelToken
      *
-     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
-     * @param  string $clientId Channel ID. (optional)
-     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $grantType &#x60;client_credentials&#x60; (required)
+     * @param  string $clientId Channel ID. (required)
+     * @param  string $clientSecret Channel secret. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelToken'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \LINE\Clients\ChannelAccessToken\Model\IssueShortLivedChannelAccessTokenResponse|\LINE\Clients\ChannelAccessToken\Model\ErrorResponse
      */
-    public function issueChannelToken($grantType = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueChannelToken'][0])
+    public function issueChannelToken($grantType, $clientId, $clientSecret, string $contentType = self::contentTypes['issueChannelToken'][0])
     {
         list($response) = $this->issueChannelTokenWithHttpInfo($grantType, $clientId, $clientSecret, $contentType);
         return $response;
@@ -476,16 +476,16 @@ class ChannelAccessTokenApi
     /**
      * Operation issueChannelTokenWithHttpInfo
      *
-     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
-     * @param  string $clientId Channel ID. (optional)
-     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $grantType &#x60;client_credentials&#x60; (required)
+     * @param  string $clientId Channel ID. (required)
+     * @param  string $clientSecret Channel secret. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelToken'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \LINE\Clients\ChannelAccessToken\Model\IssueShortLivedChannelAccessTokenResponse|\LINE\Clients\ChannelAccessToken\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function issueChannelTokenWithHttpInfo($grantType = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueChannelToken'][0])
+    public function issueChannelTokenWithHttpInfo($grantType, $clientId, $clientSecret, string $contentType = self::contentTypes['issueChannelToken'][0])
     {
         $request = $this->issueChannelTokenRequest($grantType, $clientId, $clientSecret, $contentType);
 
@@ -599,15 +599,15 @@ class ChannelAccessTokenApi
     /**
      * Operation issueChannelTokenAsync
      *
-     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
-     * @param  string $clientId Channel ID. (optional)
-     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $grantType &#x60;client_credentials&#x60; (required)
+     * @param  string $clientId Channel ID. (required)
+     * @param  string $clientSecret Channel secret. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function issueChannelTokenAsync($grantType = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueChannelToken'][0])
+    public function issueChannelTokenAsync($grantType, $clientId, $clientSecret, string $contentType = self::contentTypes['issueChannelToken'][0])
     {
         return $this->issueChannelTokenAsyncWithHttpInfo($grantType, $clientId, $clientSecret, $contentType)
             ->then(
@@ -620,15 +620,15 @@ class ChannelAccessTokenApi
     /**
      * Operation issueChannelTokenAsyncWithHttpInfo
      *
-     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
-     * @param  string $clientId Channel ID. (optional)
-     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $grantType &#x60;client_credentials&#x60; (required)
+     * @param  string $clientId Channel ID. (required)
+     * @param  string $clientSecret Channel secret. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function issueChannelTokenAsyncWithHttpInfo($grantType = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueChannelToken'][0])
+    public function issueChannelTokenAsyncWithHttpInfo($grantType, $clientId, $clientSecret, string $contentType = self::contentTypes['issueChannelToken'][0])
     {
         $returnType = '\LINE\Clients\ChannelAccessToken\Model\IssueShortLivedChannelAccessTokenResponse';
         $request = $this->issueChannelTokenRequest($grantType, $clientId, $clientSecret, $contentType);
@@ -672,19 +672,37 @@ class ChannelAccessTokenApi
     /**
      * Create request for operation 'issueChannelToken'
      *
-     * @param  string $grantType &#x60;client_credentials&#x60; (optional)
-     * @param  string $clientId Channel ID. (optional)
-     * @param  string $clientSecret Channel secret. (optional)
+     * @param  string $grantType &#x60;client_credentials&#x60; (required)
+     * @param  string $clientId Channel ID. (required)
+     * @param  string $clientSecret Channel secret. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function issueChannelTokenRequest($grantType = null, $clientId = null, $clientSecret = null, string $contentType = self::contentTypes['issueChannelToken'][0])
+    public function issueChannelTokenRequest($grantType, $clientId, $clientSecret, string $contentType = self::contentTypes['issueChannelToken'][0])
     {
 
+        // verify the required parameter 'grantType' is set
+        if ($grantType === null || (is_array($grantType) && count($grantType) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $grantType when calling issueChannelToken'
+            );
+        }
 
+        // verify the required parameter 'clientId' is set
+        if ($clientId === null || (is_array($clientId) && count($clientId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $clientId when calling issueChannelToken'
+            );
+        }
 
+        // verify the required parameter 'clientSecret' is set
+        if ($clientSecret === null || (is_array($clientSecret) && count($clientSecret) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $clientSecret when calling issueChannelToken'
+            );
+        }
 
 
         $resourcePath = '/v2/oauth/accessToken';
@@ -766,16 +784,16 @@ class ChannelAccessTokenApi
     /**
      * Operation issueChannelTokenByJWT
      *
-     * @param  string $grantType client_credentials (optional)
-     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (optional)
-     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $grantType client_credentials (required)
+     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (required)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \LINE\Clients\ChannelAccessToken\Model\IssueChannelAccessTokenResponse
      */
-    public function issueChannelTokenByJWT($grantType = null, $clientAssertionType = null, $clientAssertion = null, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
+    public function issueChannelTokenByJWT($grantType, $clientAssertionType, $clientAssertion, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
     {
         list($response) = $this->issueChannelTokenByJWTWithHttpInfo($grantType, $clientAssertionType, $clientAssertion, $contentType);
         return $response;
@@ -784,16 +802,16 @@ class ChannelAccessTokenApi
     /**
      * Operation issueChannelTokenByJWTWithHttpInfo
      *
-     * @param  string $grantType client_credentials (optional)
-     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (optional)
-     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $grantType client_credentials (required)
+     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (required)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \LINE\Clients\ChannelAccessToken\Model\IssueChannelAccessTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function issueChannelTokenByJWTWithHttpInfo($grantType = null, $clientAssertionType = null, $clientAssertion = null, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
+    public function issueChannelTokenByJWTWithHttpInfo($grantType, $clientAssertionType, $clientAssertion, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
     {
         $request = $this->issueChannelTokenByJWTRequest($grantType, $clientAssertionType, $clientAssertion, $contentType);
 
@@ -884,15 +902,15 @@ class ChannelAccessTokenApi
     /**
      * Operation issueChannelTokenByJWTAsync
      *
-     * @param  string $grantType client_credentials (optional)
-     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (optional)
-     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $grantType client_credentials (required)
+     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (required)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function issueChannelTokenByJWTAsync($grantType = null, $clientAssertionType = null, $clientAssertion = null, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
+    public function issueChannelTokenByJWTAsync($grantType, $clientAssertionType, $clientAssertion, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
     {
         return $this->issueChannelTokenByJWTAsyncWithHttpInfo($grantType, $clientAssertionType, $clientAssertion, $contentType)
             ->then(
@@ -905,15 +923,15 @@ class ChannelAccessTokenApi
     /**
      * Operation issueChannelTokenByJWTAsyncWithHttpInfo
      *
-     * @param  string $grantType client_credentials (optional)
-     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (optional)
-     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $grantType client_credentials (required)
+     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (required)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function issueChannelTokenByJWTAsyncWithHttpInfo($grantType = null, $clientAssertionType = null, $clientAssertion = null, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
+    public function issueChannelTokenByJWTAsyncWithHttpInfo($grantType, $clientAssertionType, $clientAssertion, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
     {
         $returnType = '\LINE\Clients\ChannelAccessToken\Model\IssueChannelAccessTokenResponse';
         $request = $this->issueChannelTokenByJWTRequest($grantType, $clientAssertionType, $clientAssertion, $contentType);
@@ -957,19 +975,37 @@ class ChannelAccessTokenApi
     /**
      * Create request for operation 'issueChannelTokenByJWT'
      *
-     * @param  string $grantType client_credentials (optional)
-     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (optional)
-     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
+     * @param  string $grantType client_credentials (required)
+     * @param  string $clientAssertionType urn:ietf:params:oauth:client-assertion-type:jwt-bearer (required)
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['issueChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function issueChannelTokenByJWTRequest($grantType = null, $clientAssertionType = null, $clientAssertion = null, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
+    public function issueChannelTokenByJWTRequest($grantType, $clientAssertionType, $clientAssertion, string $contentType = self::contentTypes['issueChannelTokenByJWT'][0])
     {
 
+        // verify the required parameter 'grantType' is set
+        if ($grantType === null || (is_array($grantType) && count($grantType) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $grantType when calling issueChannelTokenByJWT'
+            );
+        }
 
+        // verify the required parameter 'clientAssertionType' is set
+        if ($clientAssertionType === null || (is_array($clientAssertionType) && count($clientAssertionType) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $clientAssertionType when calling issueChannelTokenByJWT'
+            );
+        }
 
+        // verify the required parameter 'clientAssertion' is set
+        if ($clientAssertion === null || (is_array($clientAssertion) && count($clientAssertion) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $clientAssertion when calling issueChannelTokenByJWT'
+            );
+        }
 
 
         $resourcePath = '/oauth2/v2.1/token';
@@ -1356,14 +1392,14 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelToken
      *
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function revokeChannelToken($accessToken = null, string $contentType = self::contentTypes['revokeChannelToken'][0])
+    public function revokeChannelToken($accessToken, string $contentType = self::contentTypes['revokeChannelToken'][0])
     {
         $this->revokeChannelTokenWithHttpInfo($accessToken, $contentType);
     }
@@ -1371,14 +1407,14 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenWithHttpInfo
      *
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function revokeChannelTokenWithHttpInfo($accessToken = null, string $contentType = self::contentTypes['revokeChannelToken'][0])
+    public function revokeChannelTokenWithHttpInfo($accessToken, string $contentType = self::contentTypes['revokeChannelToken'][0])
     {
         $request = $this->revokeChannelTokenRequest($accessToken, $contentType);
 
@@ -1429,13 +1465,13 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenAsync
      *
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeChannelTokenAsync($accessToken = null, string $contentType = self::contentTypes['revokeChannelToken'][0])
+    public function revokeChannelTokenAsync($accessToken, string $contentType = self::contentTypes['revokeChannelToken'][0])
     {
         return $this->revokeChannelTokenAsyncWithHttpInfo($accessToken, $contentType)
             ->then(
@@ -1448,13 +1484,13 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenAsyncWithHttpInfo
      *
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeChannelTokenAsyncWithHttpInfo($accessToken = null, string $contentType = self::contentTypes['revokeChannelToken'][0])
+    public function revokeChannelTokenAsyncWithHttpInfo($accessToken, string $contentType = self::contentTypes['revokeChannelToken'][0])
     {
         $returnType = '';
         $request = $this->revokeChannelTokenRequest($accessToken, $contentType);
@@ -1485,15 +1521,21 @@ class ChannelAccessTokenApi
     /**
      * Create request for operation 'revokeChannelToken'
      *
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function revokeChannelTokenRequest($accessToken = null, string $contentType = self::contentTypes['revokeChannelToken'][0])
+    public function revokeChannelTokenRequest($accessToken, string $contentType = self::contentTypes['revokeChannelToken'][0])
     {
 
+        // verify the required parameter 'accessToken' is set
+        if ($accessToken === null || (is_array($accessToken) && count($accessToken) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accessToken when calling revokeChannelToken'
+            );
+        }
 
 
         $resourcePath = '/v2/oauth/revoke';
@@ -1567,16 +1609,16 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenByJWT
      *
-     * @param  string $clientId Channel ID (optional)
-     * @param  string $clientSecret Channel Secret (optional)
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $clientId Channel ID (required)
+     * @param  string $clientSecret Channel Secret (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function revokeChannelTokenByJWT($clientId = null, $clientSecret = null, $accessToken = null, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
+    public function revokeChannelTokenByJWT($clientId, $clientSecret, $accessToken, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
     {
         $this->revokeChannelTokenByJWTWithHttpInfo($clientId, $clientSecret, $accessToken, $contentType);
     }
@@ -1584,16 +1626,16 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenByJWTWithHttpInfo
      *
-     * @param  string $clientId Channel ID (optional)
-     * @param  string $clientSecret Channel Secret (optional)
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $clientId Channel ID (required)
+     * @param  string $clientSecret Channel Secret (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function revokeChannelTokenByJWTWithHttpInfo($clientId = null, $clientSecret = null, $accessToken = null, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
+    public function revokeChannelTokenByJWTWithHttpInfo($clientId, $clientSecret, $accessToken, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
     {
         $request = $this->revokeChannelTokenByJWTRequest($clientId, $clientSecret, $accessToken, $contentType);
 
@@ -1644,15 +1686,15 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenByJWTAsync
      *
-     * @param  string $clientId Channel ID (optional)
-     * @param  string $clientSecret Channel Secret (optional)
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $clientId Channel ID (required)
+     * @param  string $clientSecret Channel Secret (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeChannelTokenByJWTAsync($clientId = null, $clientSecret = null, $accessToken = null, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
+    public function revokeChannelTokenByJWTAsync($clientId, $clientSecret, $accessToken, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
     {
         return $this->revokeChannelTokenByJWTAsyncWithHttpInfo($clientId, $clientSecret, $accessToken, $contentType)
             ->then(
@@ -1665,15 +1707,15 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenByJWTAsyncWithHttpInfo
      *
-     * @param  string $clientId Channel ID (optional)
-     * @param  string $clientSecret Channel Secret (optional)
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $clientId Channel ID (required)
+     * @param  string $clientSecret Channel Secret (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeChannelTokenByJWTAsyncWithHttpInfo($clientId = null, $clientSecret = null, $accessToken = null, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
+    public function revokeChannelTokenByJWTAsyncWithHttpInfo($clientId, $clientSecret, $accessToken, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
     {
         $returnType = '';
         $request = $this->revokeChannelTokenByJWTRequest($clientId, $clientSecret, $accessToken, $contentType);
@@ -1704,19 +1746,37 @@ class ChannelAccessTokenApi
     /**
      * Create request for operation 'revokeChannelTokenByJWT'
      *
-     * @param  string $clientId Channel ID (optional)
-     * @param  string $clientSecret Channel Secret (optional)
-     * @param  string $accessToken Channel access token (optional)
+     * @param  string $clientId Channel ID (required)
+     * @param  string $clientSecret Channel Secret (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelTokenByJWT'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function revokeChannelTokenByJWTRequest($clientId = null, $clientSecret = null, $accessToken = null, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
+    public function revokeChannelTokenByJWTRequest($clientId, $clientSecret, $accessToken, string $contentType = self::contentTypes['revokeChannelTokenByJWT'][0])
     {
 
+        // verify the required parameter 'clientId' is set
+        if ($clientId === null || (is_array($clientId) && count($clientId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $clientId when calling revokeChannelTokenByJWT'
+            );
+        }
 
+        // verify the required parameter 'clientSecret' is set
+        if ($clientSecret === null || (is_array($clientSecret) && count($clientSecret) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $clientSecret when calling revokeChannelTokenByJWT'
+            );
+        }
 
+        // verify the required parameter 'accessToken' is set
+        if ($accessToken === null || (is_array($accessToken) && count($accessToken) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accessToken when calling revokeChannelTokenByJWT'
+            );
+        }
 
 
         $resourcePath = '/oauth2/v2.1/revoke';
@@ -1798,14 +1858,14 @@ class ChannelAccessTokenApi
     /**
      * Operation verifyChannelToken
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (optional)
+     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyChannelToken'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \LINE\Clients\ChannelAccessToken\Model\VerifyChannelAccessTokenResponse
      */
-    public function verifyChannelToken($accessToken = null, string $contentType = self::contentTypes['verifyChannelToken'][0])
+    public function verifyChannelToken($accessToken, string $contentType = self::contentTypes['verifyChannelToken'][0])
     {
         list($response) = $this->verifyChannelTokenWithHttpInfo($accessToken, $contentType);
         return $response;
@@ -1814,14 +1874,14 @@ class ChannelAccessTokenApi
     /**
      * Operation verifyChannelTokenWithHttpInfo
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (optional)
+     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyChannelToken'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \LINE\Clients\ChannelAccessToken\Model\VerifyChannelAccessTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function verifyChannelTokenWithHttpInfo($accessToken = null, string $contentType = self::contentTypes['verifyChannelToken'][0])
+    public function verifyChannelTokenWithHttpInfo($accessToken, string $contentType = self::contentTypes['verifyChannelToken'][0])
     {
         $request = $this->verifyChannelTokenRequest($accessToken, $contentType);
 
@@ -1912,13 +1972,13 @@ class ChannelAccessTokenApi
     /**
      * Operation verifyChannelTokenAsync
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (optional)
+     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function verifyChannelTokenAsync($accessToken = null, string $contentType = self::contentTypes['verifyChannelToken'][0])
+    public function verifyChannelTokenAsync($accessToken, string $contentType = self::contentTypes['verifyChannelToken'][0])
     {
         return $this->verifyChannelTokenAsyncWithHttpInfo($accessToken, $contentType)
             ->then(
@@ -1931,13 +1991,13 @@ class ChannelAccessTokenApi
     /**
      * Operation verifyChannelTokenAsyncWithHttpInfo
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (optional)
+     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function verifyChannelTokenAsyncWithHttpInfo($accessToken = null, string $contentType = self::contentTypes['verifyChannelToken'][0])
+    public function verifyChannelTokenAsyncWithHttpInfo($accessToken, string $contentType = self::contentTypes['verifyChannelToken'][0])
     {
         $returnType = '\LINE\Clients\ChannelAccessToken\Model\VerifyChannelAccessTokenResponse';
         $request = $this->verifyChannelTokenRequest($accessToken, $contentType);
@@ -1981,15 +2041,21 @@ class ChannelAccessTokenApi
     /**
      * Create request for operation 'verifyChannelToken'
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (optional)
+     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function verifyChannelTokenRequest($accessToken = null, string $contentType = self::contentTypes['verifyChannelToken'][0])
+    public function verifyChannelTokenRequest($accessToken, string $contentType = self::contentTypes['verifyChannelToken'][0])
     {
 
+        // verify the required parameter 'accessToken' is set
+        if ($accessToken === null || (is_array($accessToken) && count($accessToken) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accessToken when calling verifyChannelToken'
+            );
+        }
 
 
         $resourcePath = '/v2/oauth/verify';
