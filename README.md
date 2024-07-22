@@ -190,7 +190,7 @@ $profile = \LINEMessagingApi::pushMessage(....);
 Facade uses `\GuzzleHttp\Client` by default. If you want to change the config, run
 
 ```bash
-$ php artisan vendor:publish --tag=config
+$ php artisan vendor:publish --provider="LINE\Laravel\LINEBotServiceProvider" --tag=config
 ```
 
 Then `line-bot.php` will be published to `config/` dir.

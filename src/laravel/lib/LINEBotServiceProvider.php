@@ -53,6 +53,27 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
         ],
     ];
 
+    private const CONFIG_PATH = __DIR__ . '/config/line-bot.php';
+
+    /**
+     * Bootstrap any package services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes(
+                paths: [
+                    self::CONFIG_PATH => config_path('line-bot.php'),
+                ],
+                groups: [
+                    'config',
+                ],
+            );
+        }
+    }
+
     /**
      * Register bindings in the container.
      *
@@ -61,7 +82,7 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/config/line-bot.php',
+            self::CONFIG_PATH,
             'line-bot'
         );
         $this->app->bind('line-bot-http-client', function () {
