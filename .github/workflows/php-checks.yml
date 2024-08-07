@@ -82,6 +82,11 @@ jobs:
         if: matrix.analysis
         run: vendor/bin/phpstan analyse
 
+      # TMP: GitHub Actionsのジョブでディレクトリ構造を確認するためのステップを追加
+      - name: List directory structure
+        run: |
+          ls -R ./src/clients/messaging-api/
+
       - name: Run unit tests
         if: matrix.analysis
         run: ./vendor/bin/phpunit --test-suffix=Test.php --testdox
