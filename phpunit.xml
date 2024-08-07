@@ -11,5 +11,11 @@
         <testsuite name="Parser">
             <directory suffix="Test.php">./src/parser/</directory>
         </testsuite>
+        <testsuite name="MessagingApi">
+            <directory suffix="Test.php">./src/clients/messaging-api/</directory>
+        </testsuite>
+        <testsuite name="Webhook">
+            <directory suffix="Test.php">./src/webhook/</directory>
+        </testsuite>
     </testsuites>
 </phpunit>
