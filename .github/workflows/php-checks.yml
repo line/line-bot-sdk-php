@@ -84,4 +84,4 @@ jobs:
 
       - name: Run unit tests
         if: matrix.analysis
-        run: ./vendor/bin/phpunit --test-suffix=Test.php
+        run: ./vendor/bin/phpunit --test-suffix=Test.php --testdox
