@@ -15,7 +15,7 @@
  * under the License.
  */
 
-namespace LINE\Clients\MessagingApi\Tests\Api;
+namespace LINE\Tests\Clients\MessagingApi\Api;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
