@@ -46,11 +46,6 @@ jobs:
           export PATH=$PATH:~/bin/openapitools/
           OPENAPI_GENERATOR_VERSION=${{ env.OPENAPI_GENERATOR_VERSION }} openapi-generator-cli version
 
-      - name: Generate code
-        run: |
-          export PATH=$PATH:~/bin/openapitools/
-          bash tools/gen-oas-client.sh
-
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
@@ -81,11 +76,6 @@ jobs:
       - name: Check with PHPStan
         if: matrix.analysis
         run: vendor/bin/phpstan analyse
-
-      # TMP: GitHub Actionsのジョブでディレクトリ構造を確認するためのステップを追加
-      - name: List directory structure
-        run: |
-          ls -R ./src/clients/messaging-api/
 
       - name: Run unit tests
         if: matrix.analysis
