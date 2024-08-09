@@ -11,5 +11,8 @@
         <testsuite name="Parser">
             <directory suffix="Test.php">./src/parser/</directory>
         </testsuite>
+        <testsuite name="Test">
+            <directory suffix="Test.php">./test/</directory>
+        </testsuite>
     </testsuites>
 </phpunit>

@@ -8,9 +8,9 @@ Run `make` or `make check` to check comprehensively. Following tests will run.
 
 - [PHPUnit](https://github.com/sebastianbergmann/phpunit) `make test`
 - Copyright check `make copyright`
-- [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) `make cs`
-- [PHPMD](https://phpmd.org/) `make md`
-- [PHPStan](https://phpstan.org/) `make stan`
+- [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) `make phpcs`
+- [PHPMD](https://phpmd.org/) `make phpmd`
+- [PHPStan](https://phpstan.org/) `make phpstan`
 
 Pull request policy
 --
