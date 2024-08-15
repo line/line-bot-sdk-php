@@ -20,6 +20,7 @@ namespace LINE\Tests\Clients\MessagingApi\Api;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use Mockery;
 use PHPUnit\Framework\TestCase;
@@ -50,8 +51,38 @@ class MessagingApiApiTest extends TestCase
                 body: json_encode(['userIds' => ["Uaaaaaaaa...", "Ubbbbbbbb...", "Ucccccccc..."], 'next' => "yANU9IA.."]),
             ));
         $api = new MessagingApiApi($client);
-        $followers = $api->getFollowers(limit:  99);
+        $followers = $api->getFollowers(limit: 99);
         $this->assertEquals(["Uaaaaaaaa...", "Ubbbbbbbb...", "Ucccccccc..."], $followers->getUserIds());
         $this->assertEquals("yANU9IA..", $followers->getNext());
+    }
+
+    public function testIssueStatelessChannelToken(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/oauth2/v3/token', (string)$request->getUri());
+                    $this->assertEquals('grant_type=client_credentials&client_id=1234&client_secret=clientSecret', (string)$request->getBody());
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['access_token' => 'accessToken', 'expires_in' => 30, 'token_type' => 'Bearer',]),
+            ));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->issueStatelessChannelToken("client_credentials",
+            null,
+            null,
+            "1234",
+            "clientSecret");
+        $this->assertEquals('accessToken', $response->getAccessToken());
+        $this->assertEquals(30, $response->getExpiresIn());
+        $this->assertEquals('Bearer', $response->getTokenType());
     }
 }
