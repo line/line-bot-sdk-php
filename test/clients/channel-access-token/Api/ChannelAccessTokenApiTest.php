@@ -15,30 +15,31 @@
  * under the License.
  */
 
-namespace LINE\Tests\Clients\MessagingApi\Api;
+namespace LINE\Tests\Clients\ChannelAccessToken\Api;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use LINE\Clients\MessagingApi\Api\MessagingApiApi;
+use LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 
-class MessagingApiApiTest extends TestCase
+class ChannelAccessTokenApiTest extends TestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
     }
 
-    public function testGetFollowers(): void
+    public function testIssueStatelessChannelToken(): void
     {
         $client = Mockery::mock(ClientInterface::class);
         $client->shouldReceive('send')
             ->with(
                 Mockery::on(function (Request $request) {
-                    $this->assertEquals('GET', $request->getMethod());
-                    $this->assertEquals('https://api.line.me/v2/bot/followers/ids?limit=99', (string)$request->getUri());
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/oauth2/v3/token', (string)$request->getUri());
+                    $this->assertEquals('grant_type=client_credentials&client_id=1234&client_secret=clientSecret', (string)$request->getBody());
                     return true;
                 }),
                 []
@@ -47,11 +48,12 @@ class MessagingApiApiTest extends TestCase
             ->andReturn(new Response(
                 status: 200,
                 headers: [],
-                body: json_encode(['userIds' => ["Uaaaaaaaa...", "Ubbbbbbbb...", "Ucccccccc..."], 'next' => "yANU9IA.."]),
+                body: json_encode(['access_token' => 'accessToken', 'expires_in' => 30, 'token_type' => 'Bearer',]),
             ));
-        $api = new MessagingApiApi($client);
-        $followers = $api->getFollowers(limit: 99);
-        $this->assertEquals(["Uaaaaaaaa...", "Ubbbbbbbb...", "Ucccccccc..."], $followers->getUserIds());
-        $this->assertEquals("yANU9IA..", $followers->getNext());
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->issueStatelessChannelToken(grantType: "client_credentials", clientId: "1234", clientSecret: "channelSecret");
+        $this->assertEquals('accessToken', $response->getAccessToken());
+        $this->assertEquals(30, $response->getExpiresIn());
+        $this->assertEquals('Bearer', $response->getTokenType());
     }
 }
