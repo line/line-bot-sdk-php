@@ -51,7 +51,7 @@ class ChannelAccessTokenApiTest extends TestCase
                 body: json_encode(['access_token' => 'accessToken', 'expires_in' => 30, 'token_type' => 'Bearer',]),
             ));
         $api = new ChannelAccessTokenApi($client);
-        $response = $api->issueStatelessChannelToken(grantType: "client_credentials", clientId: "1234", clientSecret: "channelSecret");
+        $response = $api->issueStatelessChannelToken(grantType: "client_credentials", clientId: "1234", clientSecret: "clientSecret");
         $this->assertEquals('accessToken', $response->getAccessToken());
         $this->assertEquals(30, $response->getExpiresIn());
         $this->assertEquals('Bearer', $response->getTokenType());
