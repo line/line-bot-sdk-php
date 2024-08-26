@@ -73,6 +73,14 @@ class AgeDemographic
 
     public const _50 = 'age_50';
 
+    public const _55 = 'age_55';
+
+    public const _60 = 'age_60';
+
+    public const _65 = 'age_65';
+
+    public const _70 = 'age_70';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -87,7 +95,11 @@ class AgeDemographic
             self::_35,
             self::_40,
             self::_45,
-            self::_50
+            self::_50,
+            self::_55,
+            self::_60,
+            self::_65,
+            self::_70
         ];
     }
 }
