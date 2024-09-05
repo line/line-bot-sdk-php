@@ -258,6 +258,11 @@ class AgeTile implements ModelInterface, ArrayAccess, \JsonSerializable
     public const AGE_FROM40TO44 = 'from40to44';
     public const AGE_FROM45TO49 = 'from45to49';
     public const AGE_FROM50 = 'from50';
+    public const AGE_FROM50TO54 = 'from50to54';
+    public const AGE_FROM55TO59 = 'from55to59';
+    public const AGE_FROM60TO64 = 'from60to64';
+    public const AGE_FROM65TO69 = 'from65to69';
+    public const AGE_FROM70 = 'from70';
     public const AGE_UNKNOWN = 'unknown';
 
     /**
@@ -277,6 +282,11 @@ class AgeTile implements ModelInterface, ArrayAccess, \JsonSerializable
             self::AGE_FROM40TO44,
             self::AGE_FROM45TO49,
             self::AGE_FROM50,
+            self::AGE_FROM50TO54,
+            self::AGE_FROM55TO59,
+            self::AGE_FROM60TO64,
+            self::AGE_FROM65TO69,
+            self::AGE_FROM70,
             self::AGE_UNKNOWN,
         ];
     }
