@@ -72,7 +72,7 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'view' => '\LINE\Clients\Liff\Model\LiffView',
+        'view' => '\LINE\Clients\Liff\Model\UpdateLiffView',
         'description' => 'string',
         'features' => '\LINE\Clients\Liff\Model\LiffFeatures',
         'permanentLinkPattern' => 'string',
@@ -342,7 +342,7 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets view
      *
-     * @return \LINE\Clients\Liff\Model\LiffView|null
+     * @return \LINE\Clients\Liff\Model\UpdateLiffView|null
      */
     public function getView()
     {
@@ -352,7 +352,7 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets view
      *
-     * @param \LINE\Clients\Liff\Model\LiffView|null $view view
+     * @param \LINE\Clients\Liff\Model\UpdateLiffView|null $view view
      *
      * @return self
      */
