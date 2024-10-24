@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * UpdateLiffAppRequest
+ * UpdateLiffView
  *
  * PHP version 7.4
  *
@@ -47,7 +47,7 @@ use \ArrayAccess;
 use \LINE\Clients\Liff\ObjectSerializer;
 
 /**
- * UpdateLiffAppRequest Class Doc Comment
+ * UpdateLiffView Class Doc Comment
  *
  * @category Class
  * @package  LINE\Clients\Liff
@@ -55,7 +55,7 @@ use \LINE\Clients\Liff\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class UpdateLiffView implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UpdateLiffAppRequest';
+    protected static $openAPIModelName = 'UpdateLiffView';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,12 +72,9 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'view' => '\LINE\Clients\Liff\Model\UpdateLiffView',
-        'description' => 'string',
-        'features' => '\LINE\Clients\Liff\Model\LiffFeatures',
-        'permanentLinkPattern' => 'string',
-        'scope' => '\LINE\Clients\Liff\Model\LiffScope[]',
-        'botPrompt' => '\LINE\Clients\Liff\Model\LiffBotPrompt'
+        'type' => 'string',
+        'url' => 'string',
+        'moduleMode' => 'bool'
     ];
 
     /**
@@ -88,12 +85,9 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'view' => null,
-        'description' => null,
-        'features' => null,
-        'permanentLinkPattern' => null,
-        'scope' => null,
-        'botPrompt' => null
+        'type' => null,
+        'url' => 'uri',
+        'moduleMode' => null
     ];
 
     /**
@@ -102,12 +96,9 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'view' => false,
-		'description' => false,
-		'features' => false,
-		'permanentLinkPattern' => false,
-		'scope' => false,
-		'botPrompt' => false
+        'type' => false,
+		'url' => false,
+		'moduleMode' => false
     ];
 
     /**
@@ -196,12 +187,9 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'view' => 'view',
-        'description' => 'description',
-        'features' => 'features',
-        'permanentLinkPattern' => 'permanentLinkPattern',
-        'scope' => 'scope',
-        'botPrompt' => 'botPrompt'
+        'type' => 'type',
+        'url' => 'url',
+        'moduleMode' => 'moduleMode'
     ];
 
     /**
@@ -210,12 +198,9 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'view' => 'setView',
-        'description' => 'setDescription',
-        'features' => 'setFeatures',
-        'permanentLinkPattern' => 'setPermanentLinkPattern',
-        'scope' => 'setScope',
-        'botPrompt' => 'setBotPrompt'
+        'type' => 'setType',
+        'url' => 'setUrl',
+        'moduleMode' => 'setModuleMode'
     ];
 
     /**
@@ -224,12 +209,9 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'view' => 'getView',
-        'description' => 'getDescription',
-        'features' => 'getFeatures',
-        'permanentLinkPattern' => 'getPermanentLinkPattern',
-        'scope' => 'getScope',
-        'botPrompt' => 'getBotPrompt'
+        'type' => 'getType',
+        'url' => 'getUrl',
+        'moduleMode' => 'getModuleMode'
     ];
 
     /**
@@ -273,6 +255,23 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const TYPE_COMPACT = 'compact';
+    public const TYPE_TALL = 'tall';
+    public const TYPE_FULL = 'full';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_COMPACT,
+            self::TYPE_TALL,
+            self::TYPE_FULL,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -289,12 +288,9 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('view', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('features', $data ?? [], null);
-        $this->setIfExists('permanentLinkPattern', $data ?? [], null);
-        $this->setIfExists('scope', $data ?? [], null);
-        $this->setIfExists('botPrompt', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('moduleMode', $data ?? [], null);
     }
 
     /**
@@ -324,6 +320,15 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -340,163 +345,92 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets view
-     *
-     * @return \LINE\Clients\Liff\Model\UpdateLiffView|null
-     */
-    public function getView()
-    {
-        return $this->container['view'];
-    }
-
-    /**
-     * Sets view
-     *
-     * @param \LINE\Clients\Liff\Model\UpdateLiffView|null $view view
-     *
-     * @return self
-     */
-    public function setView($view)
-    {
-        if (is_null($view)) {
-            throw new \InvalidArgumentException('non-nullable view cannot be null');
-        }
-        $this->container['view'] = $view;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets type
      *
      * @return string|null
      */
-    public function getDescription()
+    public function getType()
     {
-        return $this->container['description'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets description
+     * Sets type
      *
-     * @param string|null $description Name of the LIFF app.  The LIFF app name can't include \"LINE\" or similar strings, or inappropriate strings.
+     * @param string|null $type Size of the LIFF app view. Specify one of these values: - compact - tall - full
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setType($type)
     {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['description'] = $description;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets features
-     *
-     * @return \LINE\Clients\Liff\Model\LiffFeatures|null
-     */
-    public function getFeatures()
-    {
-        return $this->container['features'];
-    }
-
-    /**
-     * Sets features
-     *
-     * @param \LINE\Clients\Liff\Model\LiffFeatures|null $features features
-     *
-     * @return self
-     */
-    public function setFeatures($features)
-    {
-        if (is_null($features)) {
-            throw new \InvalidArgumentException('non-nullable features cannot be null');
-        }
-        $this->container['features'] = $features;
-
-        return $this;
-    }
-
-    /**
-     * Gets permanentLinkPattern
+     * Gets url
      *
      * @return string|null
      */
-    public function getPermanentLinkPattern()
+    public function getUrl()
     {
-        return $this->container['permanentLinkPattern'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets permanentLinkPattern
+     * Sets url
      *
-     * @param string|null $permanentLinkPattern How additional information in LIFF URLs is handled. Specify `concat`.
+     * @param string|null $url Endpoint URL. This is the URL of the web app that implements the LIFF app (e.g. https://example.com). Used when the LIFF app is launched using the LIFF URL. The URL scheme must be https. URL fragments (#URL-fragment) can't be specified.
      *
      * @return self
      */
-    public function setPermanentLinkPattern($permanentLinkPattern)
+    public function setUrl($url)
     {
-        if (is_null($permanentLinkPattern)) {
-            throw new \InvalidArgumentException('non-nullable permanentLinkPattern cannot be null');
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['permanentLinkPattern'] = $permanentLinkPattern;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets scope
+     * Gets moduleMode
      *
-     * @return \LINE\Clients\Liff\Model\LiffScope[]|null
+     * @return bool|null
      */
-    public function getScope()
+    public function getModuleMode()
     {
-        return $this->container['scope'];
+        return $this->container['moduleMode'];
     }
 
     /**
-     * Sets scope
+     * Sets moduleMode
      *
-     * @param \LINE\Clients\Liff\Model\LiffScope[]|null $scope scope
+     * @param bool|null $moduleMode `true` to use the LIFF app in modular mode. When in modular mode, the action button in the header is not displayed.
      *
      * @return self
      */
-    public function setScope($scope)
+    public function setModuleMode($moduleMode)
     {
-        if (is_null($scope)) {
-            throw new \InvalidArgumentException('non-nullable scope cannot be null');
+        if (is_null($moduleMode)) {
+            throw new \InvalidArgumentException('non-nullable moduleMode cannot be null');
         }
-        $this->container['scope'] = $scope;
-
-        return $this;
-    }
-
-    /**
-     * Gets botPrompt
-     *
-     * @return \LINE\Clients\Liff\Model\LiffBotPrompt|null
-     */
-    public function getBotPrompt()
-    {
-        return $this->container['botPrompt'];
-    }
-
-    /**
-     * Sets botPrompt
-     *
-     * @param \LINE\Clients\Liff\Model\LiffBotPrompt|null $botPrompt botPrompt
-     *
-     * @return self
-     */
-    public function setBotPrompt($botPrompt)
-    {
-        if (is_null($botPrompt)) {
-            throw new \InvalidArgumentException('non-nullable botPrompt cannot be null');
-        }
-        $this->container['botPrompt'] = $botPrompt;
+        $this->container['moduleMode'] = $moduleMode;
 
         return $this;
     }
