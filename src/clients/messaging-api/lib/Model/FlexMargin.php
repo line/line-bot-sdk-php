@@ -48,7 +48,7 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * FlexMargin Class Doc Comment
  *
  * @category Class
- * @description You can specify the minimum space before a child component with the &#x60;margin&#x60; property of the child component, in pixels or with a keyword.  FlexMargin just provides only keywords.
+ * @description You can specify the minimum space before a child component with the &#x60;margin&#x60; property of the child component, in pixels or with a keyword. FlexMargin just provides only keywords.
  * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

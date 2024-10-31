@@ -48,7 +48,7 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * FlexBoxSpacing Class Doc Comment
  *
  * @category Class
- * @description You can specify the minimum space between two components with the &#x60;spacing&#x60; property of the parent box component, in pixels or with a keyword.  FlexBoxSpacing just provides only keywords.
+ * @description You can specify the minimum space between two components with the &#x60;spacing&#x60; property of the parent box component, in pixels or with a keyword. FlexBoxSpacing just provides only keywords.
  * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -48,7 +48,7 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * FlexSpanSize Class Doc Comment
  *
  * @category Class
- * @description Font size in the &#x60;size&#x60; property of the Flex span component. You can specify the size in pixels or with a keyword.  FlexSpanSize just provides only keywords.
+ * @description Font size in the &#x60;size&#x60; property of the Flex span component. You can specify the size in pixels or with a keyword. FlexSpanSize just provides only keywords.
  * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
