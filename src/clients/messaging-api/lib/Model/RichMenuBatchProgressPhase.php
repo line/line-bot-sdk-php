@@ -48,7 +48,7 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * RichMenuBatchProgressPhase Class Doc Comment
  *
  * @category Class
- * @description The current status. One of:  &#x60;ongoing&#x60;: Rich menu batch control is in progress. &#x60;succeeded&#x60;: Rich menu batch control is complete. &#x60;failed&#x60;: Rich menu batch control failed.           This means that the rich menu for one or more users couldn&#39;t be controlled.            There may also be users whose operations have been successfully completed.
+ * @description The current status. One of:  &#x60;ongoing&#x60;: Rich menu batch control is in progress. &#x60;succeeded&#x60;: Rich menu batch control is complete. &#x60;failed&#x60;: Rich menu batch control failed.           This means that the rich menu for one or more users couldn&#39;t be controlled.           There may also be users whose operations have been successfully completed.
  * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

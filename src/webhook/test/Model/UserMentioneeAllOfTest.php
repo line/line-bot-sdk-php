@@ -102,4 +102,13 @@ class UserMentioneeAllOfTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "isSelf"
+     */
+    public function testPropertyIsSelf()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

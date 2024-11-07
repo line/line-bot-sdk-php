@@ -71,7 +71,8 @@ class UserMentionee extends Mentionee
       * @var string[]
       */
     protected static $openAPITypes = [
-        'userId' => 'string'
+        'userId' => 'string',
+        'isSelf' => 'bool'
     ];
 
     /**
@@ -82,7 +83,8 @@ class UserMentionee extends Mentionee
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'userId' => null
+        'userId' => null,
+        'isSelf' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class UserMentionee extends Mentionee
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'userId' => false
+        'userId' => false,
+		'isSelf' => false
     ];
 
     /**
@@ -180,7 +183,8 @@ class UserMentionee extends Mentionee
      * @var string[]
      */
     protected static $attributeMap = [
-        'userId' => 'userId'
+        'userId' => 'userId',
+        'isSelf' => 'isSelf'
     ];
 
     /**
@@ -189,7 +193,8 @@ class UserMentionee extends Mentionee
      * @var string[]
      */
     protected static $setters = [
-        'userId' => 'setUserId'
+        'userId' => 'setUserId',
+        'isSelf' => 'setIsSelf'
     ];
 
     /**
@@ -198,7 +203,8 @@ class UserMentionee extends Mentionee
      * @var string[]
      */
     protected static $getters = [
-        'userId' => 'getUserId'
+        'userId' => 'getUserId',
+        'isSelf' => 'getIsSelf'
     ];
 
     /**
@@ -255,6 +261,7 @@ class UserMentionee extends Mentionee
         parent::__construct($data);
 
         $this->setIfExists('userId', $data ?? [], null);
+        $this->setIfExists('isSelf', $data ?? [], null);
     }
 
     /**
@@ -322,6 +329,33 @@ class UserMentionee extends Mentionee
             throw new \InvalidArgumentException('non-nullable userId cannot be null');
         }
         $this->container['userId'] = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Gets isSelf
+     *
+     * @return bool|null
+     */
+    public function getIsSelf()
+    {
+        return $this->container['isSelf'];
+    }
+
+    /**
+     * Sets isSelf
+     *
+     * @param bool|null $isSelf Whether the mentioned user is the bot that receives the webhook.
+     *
+     * @return self
+     */
+    public function setIsSelf($isSelf)
+    {
+        if (is_null($isSelf)) {
+            throw new \InvalidArgumentException('non-nullable isSelf cannot be null');
+        }
+        $this->container['isSelf'] = $isSelf;
 
         return $this;
     }
