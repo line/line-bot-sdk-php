@@ -1234,7 +1234,7 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('__unknown__', $event->jsonSerialize()->type); // with unprocessed event body
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());

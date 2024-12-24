@@ -43,7 +43,7 @@ use LINE\Constants\Flex\ContainerType;
 use LINE\Constants\MessageType;
 
 /**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  */
 class FlexSampleShopping
 {
