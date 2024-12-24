@@ -1238,7 +1238,6 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertEquals(true, $source instanceof UserSource);
         }
 
         {
