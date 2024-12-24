@@ -57,9 +57,9 @@ use LINE\Webhook\Model\RoomSource;
 use LINE\Webhook\Model\TextMessageContent;
 
 /**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @SuppressWarnings(PHPMD.CyclomaticComplexity)
- * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+ * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
+ * @SuppressWarnings("PHPMD.CyclomaticComplexity")
+ * @SuppressWarnings("PHPMD.ExcessiveMethodLength")
  */
 class TextMessageHandler implements EventHandler
 {
