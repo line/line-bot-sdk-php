@@ -19,14 +19,14 @@
 namespace LINE\Laravel\Tests\Facades;
 
 /**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  */
 class FacadesTest extends \Orchestra\Testbench\TestCase
 {
     /**
      * Load package service provider
      *
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      * @param  \Illuminate\Foundation\Application $app
      * @return array
      */
@@ -38,7 +38,7 @@ class FacadesTest extends \Orchestra\Testbench\TestCase
     /**
      * Load package alias
      *
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      * @param  \Illuminate\Foundation\Application $app
      * @return array
      */
@@ -69,7 +69,7 @@ class FacadesTest extends \Orchestra\Testbench\TestCase
     /**
      * Testing LINEBot facade instance
      *
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      * @return void
      */
     public function testLINEBotFacadeInstance()
