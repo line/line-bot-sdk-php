@@ -32,7 +32,7 @@ jobs:
           php-version: ${{ matrix.php }}
 
       - name: Install openapi-generator-cli
-        run: echo "OPENAPI_GENERATOR_VERSION=6.6.0" >> $GITHUB_ENV
+        run: echo "OPENAPI_GENERATOR_VERSION=7.10.0" >> $GITHUB_ENV
       - uses: actions/cache@v4
         id: openapi-generator-cache
         env:
