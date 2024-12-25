@@ -211,7 +211,7 @@
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Native `http_build_query` wrapper.</dd>
+<dd>Build a query string from an array of key value pairs.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-Insight-ObjectSerializer.html#method_convertBoolToQueryStringFormat">convertBoolToQueryStringFormat()</a>
@@ -377,72 +377,48 @@ If it&#039;s a boolean, convert it to &quot;true&quot; or &quot;false&quot;.</dd
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/ObjectSerializer.php"><a href="files/src-clients-insight-lib-objectserializer.html"><abbr title="src/clients/insight/lib/ObjectSerializer.php">ObjectSerializer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">574</span>
+    <span class="phpdocumentor-element-found-in__line">586</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Native `http_build_query` wrapper.</p>
+        <p class="phpdocumentor-summary">Build a query string from an array of key value pairs.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buildQuery</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$numeric_prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$arg_separator</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$encoding_type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">PHP_QUERY_RFC3986</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buildQuery</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|false&nbsp;</span><span class="phpdocumentor-signature__argument__name">$encoding</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">PHP_QUERY_RFC3986</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
-    
+        <section class="phpdocumentor-description"><p>This function can use the return value of <code class="prettyprint">parse()</code> to build a query
+string. This function does not modify the provided keys when an array is
+encountered (like <code class="prettyprint">http_build_query()</code> would).</p>
+<p>The function is copied from https://github.com/guzzle/psr7/blob/a243f80a1ca7fe8ceed4deee17f12c1930efe662/src/Query.php#L59-L112
+with a modification which is described in https://github.com/guzzle/psr7/pull/603</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
+                <span class="phpdocumentor-signature__argument__name">$params</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>May be an array or object containing properties.</p>
+                    <section class="phpdocumentor-description"><p>Query string parameters.</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$numeric_prefix</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>If numeric indices are used in the base array and this parameter is provided, it will be prepended to the numeric index for elements in the base array only.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$arg_separator</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>arg_separator.output is used to separate arguments but may be overridden by specifying this parameter.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$encoding_type</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                <span class="phpdocumentor-signature__argument__name">$encoding</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|false</span>
                  = <span class="phpdocumentor-signature__argument__default-value">PHP_QUERY_RFC3986</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Encoding type. By default, PHP_QUERY_RFC1738.</p>
+                    <section class="phpdocumentor-description"><p>Set to false to not encode, PHP_QUERY_RFC3986
+to encode using RFC3986, or PHP_QUERY_RFC1738
+to encode using RFC1738.</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://www.php.net/manual/en/function.http-build-query"><abbr title="https://www.php.net/manual/en/function.http-build-query">https://www.php.net/manual/en/function.http-build-query</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string</span>
@@ -463,7 +439,7 @@ If it&#039;s a boolean, convert it to &quot;true&quot; or &quot;false&quot;.</dd
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/ObjectSerializer.php"><a href="files/src-clients-insight-lib-objectserializer.html"><abbr title="src/clients/insight/lib/ObjectSerializer.php">ObjectSerializer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">304</span>
+    <span class="phpdocumentor-element-found-in__line">313</span>
 
     </aside>
 
@@ -510,7 +486,7 @@ If it&#039;s a boolean, convert it to &quot;true&quot; or &quot;false&quot;.</dd
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/ObjectSerializer.php"><a href="files/src-clients-insight-lib-objectserializer.html"><abbr title="src/clients/insight/lib/ObjectSerializer.php">ObjectSerializer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">418</span>
+    <span class="phpdocumentor-element-found-in__line">426</span>
 
     </aside>
 
@@ -736,7 +712,7 @@ If it&#039;s a boolean, convert it to &quot;true&quot; or &quot;false&quot;.</dd
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/ObjectSerializer.php"><a href="files/src-clients-insight-lib-objectserializer.html"><abbr title="src/clients/insight/lib/ObjectSerializer.php">ObjectSerializer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">381</span>
+    <span class="phpdocumentor-element-found-in__line">390</span>
 
     </aside>
 
@@ -845,7 +821,7 @@ ssv, tsv, pipes, multi)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/ObjectSerializer.php"><a href="files/src-clients-insight-lib-objectserializer.html"><abbr title="src/clients/insight/lib/ObjectSerializer.php">ObjectSerializer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">341</span>
+    <span class="phpdocumentor-element-found-in__line">350</span>
 
     </aside>
 
@@ -894,7 +870,7 @@ If it&#039;s a datetime object, format it in ISO8601</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/ObjectSerializer.php"><a href="files/src-clients-insight-lib-objectserializer.html"><abbr title="src/clients/insight/lib/ObjectSerializer.php">ObjectSerializer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">322</span>
+    <span class="phpdocumentor-element-found-in__line">331</span>
 
     </aside>
 
@@ -991,7 +967,7 @@ the path, by url-encoding.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/ObjectSerializer.php"><a href="files/src-clients-insight-lib-objectserializer.html"><abbr title="src/clients/insight/lib/ObjectSerializer.php">ObjectSerializer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">231</span>
+    <span class="phpdocumentor-element-found-in__line">235</span>
 
     </aside>
 
@@ -1082,7 +1058,7 @@ native http_build_query or GuzzleHttp\Psr7\Query::build.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/ObjectSerializer.php"><a href="files/src-clients-insight-lib-objectserializer.html"><abbr title="src/clients/insight/lib/ObjectSerializer.php">ObjectSerializer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">360</span>
+    <span class="phpdocumentor-element-found-in__line">369</span>
 
     </aside>
 
@@ -1093,14 +1069,14 @@ If it&#039;s a boolean, convert it to &quot;true&quot; or &quot;false&quot;.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">toString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|bool|<abbr title="\DateTime">DateTime</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">toString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">float|int|bool|<abbr title="\DateTime">DateTime</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|bool|<abbr title="\DateTime">DateTime</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type">float|int|bool|<abbr title="\DateTime">DateTime</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>the value of the parameter</p>
