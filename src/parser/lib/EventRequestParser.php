@@ -44,7 +44,7 @@ use LINE\Webhook\Model\ThingsEvent;
 use LINE\Webhook\Model\UserMentionee;
 
 /**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  */
 class EventRequestParser
 {

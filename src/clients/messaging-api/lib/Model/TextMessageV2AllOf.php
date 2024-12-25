@@ -358,7 +358,7 @@ class TextMessageV2AllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets substitution
      *
-     * @param array<string,\LINE\Clients\MessagingApi\Model\SubstitutionObject>|null $substitution A mapping that specifies substitutions for parts enclosed in {} within the 'text' field.
+     * @param array<string,\LINE\Clients\MessagingApi\Model\SubstitutionObject>|null $substitution A mapping that specifies substitutions for parts enclosed in {} within the `text` field.
      *
      * @return self
      */

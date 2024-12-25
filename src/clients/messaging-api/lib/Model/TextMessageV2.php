@@ -355,7 +355,7 @@ class TextMessageV2 extends Message
     /**
      * Sets substitution
      *
-     * @param array<string,\LINE\Clients\MessagingApi\Model\SubstitutionObject>|null $substitution A mapping that specifies substitutions for parts enclosed in {} within the 'text' field.
+     * @param array<string,\LINE\Clients\MessagingApi\Model\SubstitutionObject>|null $substitution A mapping that specifies substitutions for parts enclosed in {} within the `text` field.
      *
      * @return self
      */
