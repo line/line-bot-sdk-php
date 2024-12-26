@@ -207,6 +207,13 @@
 <dd>Calculate the next weight, based on the current one.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/LINE-Clients-Insight-HeaderSelector.html#method_isJsonMime">isJsonMime()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Detects whether a string contains a valid JSON mime type</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/LINE-Clients-Insight-HeaderSelector.html#method_selectHeaders">selectHeaders()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
@@ -248,6 +255,13 @@
 </dt>
 <dd>Return the header &#039;Accept&#039; based on an array of Accept provided.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/LINE-Clients-Insight-HeaderSelector.html#method_selectJsonMimeList">selectJsonMimeList()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Select all items from a list containing a JSON mime type</dd>
+
         </dl>
 
 
@@ -274,7 +288,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/HeaderSelector.php"><a href="files/src-clients-insight-lib-headerselector.html"><abbr title="src/clients/insight/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">248</span>
+    <span class="phpdocumentor-element-found-in__line">276</span>
 
     </aside>
 
@@ -319,6 +333,49 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">int</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isJsonMime">
+        isJsonMime()
+        <a href="classes/LINE-Clients-Insight-HeaderSelector.html#method_isJsonMime" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/HeaderSelector.php"><a href="files/src-clients-insight-lib-headerselector.html"><abbr title="src/clients/insight/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">119</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Detects whether a string contains a valid JSON mime type</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isJsonMime</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$searchString</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$searchString</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
             &mdash;
         
     
@@ -392,7 +449,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/HeaderSelector.php"><a href="files/src-clients-insight-lib-headerselector.html"><abbr title="src/clients/insight/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">217</span>
 
     </aside>
 
@@ -450,7 +507,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/HeaderSelector.php"><a href="files/src-clients-insight-lib-headerselector.html"><abbr title="src/clients/insight/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">217</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 
     </aside>
 
@@ -499,7 +556,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/HeaderSelector.php"><a href="files/src-clients-insight-lib-headerselector.html"><abbr title="src/clients/insight/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">149</span>
 
     </aside>
 
@@ -555,7 +612,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/HeaderSelector.php"><a href="files/src-clients-insight-lib-headerselector.html"><abbr title="src/clients/insight/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">165</span>
+    <span class="phpdocumentor-element-found-in__line">193</span>
 
     </aside>
 
@@ -634,6 +691,49 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
             <section class="phpdocumentor-description"><p>Accept (e.g. application/json)</p>
 </section>
 
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_selectJsonMimeList">
+        selectJsonMimeList()
+        <a href="classes/LINE-Clients-Insight-HeaderSelector.html#method_selectJsonMimeList" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/HeaderSelector.php"><a href="files/src-clients-insight-lib-headerselector.html"><abbr title="src/clients/insight/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">130</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Select all items from a list containing a JSON mime type</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">selectJsonMimeList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mimeList</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$mimeList</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+        
     
 </article>
             </section>
