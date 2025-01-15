@@ -1,4 +1,4 @@
-name: Diff check
+name: Generate code and open pull request
 
 on:
   workflow_dispatch:
