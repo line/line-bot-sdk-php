@@ -5,7 +5,7 @@
   ],
   "timezone": "Asia/Tokyo",
   "ignorePaths": [
-    'docs/',
+    "docs/",
   ],
   "automerge": true,
   "platformAutomerge": true,
