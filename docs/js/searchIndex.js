@@ -12286,31 +12286,6 @@ Search.appendIndex(
             "summary": "Create\u0020request\u0020for\u0020operation\u0020\u0027deleteRichMenuAlias\u0027",
             "url": "classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_deleteRichMenuAliasRequest"
         },                {
-            "fqsen": "\\LINE\\Clients\\MessagingApi\\Api\\MessagingApiApi\u003A\u003AgetAdPhoneMessageStatistics\u0028\u0029",
-            "name": "getAdPhoneMessageStatistics",
-            "summary": "Operation\u0020getAdPhoneMessageStatistics",
-            "url": "classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_getAdPhoneMessageStatistics"
-        },                {
-            "fqsen": "\\LINE\\Clients\\MessagingApi\\Api\\MessagingApiApi\u003A\u003AgetAdPhoneMessageStatisticsWithHttpInfo\u0028\u0029",
-            "name": "getAdPhoneMessageStatisticsWithHttpInfo",
-            "summary": "Operation\u0020getAdPhoneMessageStatisticsWithHttpInfo",
-            "url": "classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_getAdPhoneMessageStatisticsWithHttpInfo"
-        },                {
-            "fqsen": "\\LINE\\Clients\\MessagingApi\\Api\\MessagingApiApi\u003A\u003AgetAdPhoneMessageStatisticsAsync\u0028\u0029",
-            "name": "getAdPhoneMessageStatisticsAsync",
-            "summary": "Operation\u0020getAdPhoneMessageStatisticsAsync",
-            "url": "classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_getAdPhoneMessageStatisticsAsync"
-        },                {
-            "fqsen": "\\LINE\\Clients\\MessagingApi\\Api\\MessagingApiApi\u003A\u003AgetAdPhoneMessageStatisticsAsyncWithHttpInfo\u0028\u0029",
-            "name": "getAdPhoneMessageStatisticsAsyncWithHttpInfo",
-            "summary": "Operation\u0020getAdPhoneMessageStatisticsAsyncWithHttpInfo",
-            "url": "classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_getAdPhoneMessageStatisticsAsyncWithHttpInfo"
-        },                {
-            "fqsen": "\\LINE\\Clients\\MessagingApi\\Api\\MessagingApiApi\u003A\u003AgetAdPhoneMessageStatisticsRequest\u0028\u0029",
-            "name": "getAdPhoneMessageStatisticsRequest",
-            "summary": "Create\u0020request\u0020for\u0020operation\u0020\u0027getAdPhoneMessageStatistics\u0027",
-            "url": "classes/LINE-Clients-MessagingApi-Api-MessagingApiApi.html#method_getAdPhoneMessageStatisticsRequest"
-        },                {
             "fqsen": "\\LINE\\Clients\\MessagingApi\\Api\\MessagingApiApi\u003A\u003AgetAggregationUnitNameList\u0028\u0029",
             "name": "getAggregationUnitNameList",
             "summary": "Operation\u0020getAggregationUnitNameList",
