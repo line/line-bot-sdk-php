@@ -19,6 +19,8 @@
 namespace LINE\Parser;
 
 use LINE\Constants\MentioneeType;
+use LINE\Webhook\Model\MembershipContent;
+use LINE\Webhook\Model\MembershipEvent;
 use LINE\Webhook\Model\MessageEvent;
 use LINE\Parser\Exception\InvalidEventRequestException;
 use LINE\Parser\Exception\InvalidSignatureException;
@@ -68,6 +70,7 @@ class EventRequestParser
         'botSuspended' => \LINE\Webhook\Model\BotSuspendedEvent::class,
         'botResumed' => \LINE\Webhook\Model\BotResumedEvent::class,
         'delivery' => \LINE\Webhook\Model\PnpDeliveryCompletionEvent::class,
+        'membership' => \LINE\Webhook\Model\MembershipEvent::class,
     ];
 
     private static $messageType2class = [
@@ -107,6 +110,12 @@ class EventRequestParser
     private static $moduleContentType2class = [
         'attached' => \LINE\Webhook\Model\AttachedModuleContent::class,
         'detached' => \LINE\Webhook\Model\DetachedModuleContent::class,
+    ];
+
+    private static $membershipContentType2class = [
+        'joined' => \LINE\Webhook\Model\JoinedMembershipContent::class,
+        'left' => \LINE\Webhook\Model\LeftMembershipContent::class,
+        'renewed' => \LINE\Webhook\Model\RenewedMembershipContent::class,
     ];
 
     /**
@@ -159,6 +168,11 @@ class EventRequestParser
         if ($event instanceof ModuleEvent) {
             $content = self::parseModuleContent($eventData);
             $event->setModule($content);
+        }
+
+        if ($event instanceof MembershipEvent) {
+            $content = self::parseMembershipContent($eventData);
+            $event->setMembership($content);
         }
 
         foreach (array_keys($eventData) as $key) {
@@ -284,5 +298,20 @@ class EventRequestParser
         }
         $moduleContentClass = self::$moduleContentType2class[$moduleContentType];
         return new $moduleContentClass($eventData['module']);
+    }
+
+    /**
+     * @param array $eventData
+     * @return MembershipContent
+     */
+    private static function parseMembershipContent($eventData): MembershipContent
+    {
+        $membershipContentType = $eventData['membership']['type'];
+
+        if (!isset(self::$membershipContentType2class[$membershipContentType])) {
+            return new MembershipContent($eventData['membership']);
+        }
+        $membershipContentClass = self::$membershipContentType2class[$membershipContentType];
+        return new $membershipContentClass($eventData['membership']);
     }
 }

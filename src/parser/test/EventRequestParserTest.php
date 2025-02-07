@@ -931,6 +931,60 @@ class EventRequestParserTest extends TestCase
         "deliveryContext": {
           "isRedelivery": false
         }
+      },
+      {
+        "type": "membership",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "user",
+          "userId": "userid"
+        },
+        "membership": {
+          "type": "joined",
+          "membershipId": 1234567890
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        },
+        "replyToken": "replytoken"
+      },
+      {
+        "type": "membership",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "user",
+          "userId": "userid"
+        },
+        "membership": {
+          "type": "left",
+          "membershipId": 1234567890
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        },
+        "replyToken": "replytoken"  
+      },
+      {
+        "type": "membership",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "user",
+          "userId": "userid"
+        },
+        "membership": {
+          "type": "renewed",
+          "membershipId": 1234567890
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        },
+        "replyToken": "replytoken"  
       }
      ]
     }
@@ -953,7 +1007,7 @@ class EventRequestParserTest extends TestCase
         $this->assertEquals($parsedEvents->getDestination(), 'U0123456789abcdef0123456789abcd');
 
         $events = $parsedEvents->getEvents();
-        $this->assertEquals(count($events), 46);
+        $this->assertEquals(count($events), 49);
 
         {
             // text
@@ -1708,6 +1762,66 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('bot deleted', $module->getReason());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // membership (joined)
+            $event = $events[46];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($source instanceof UserSource);
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertInstanceOf(\LINE\Webhook\Model\MembershipEvent::class, $event);
+            /** @var \LINE\Webhook\Model\JoinedMembershipContent $membership */
+            $membership = $event->getMembership();
+
+            $this->assertInstanceOf(\LINE\Webhook\Model\JoinedMembershipContent::class, $membership);
+            $this->assertEquals('joined', $membership->getType());
+            $this->assertEquals(1234567890, $membership->getMembershipId());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+            $this->assertEquals('replytoken', $event->getReplyToken());
+        }
+
+        {
+            // membership (left)
+            $event = $events[47];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($source instanceof UserSource);
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertInstanceOf(\LINE\Webhook\Model\MembershipEvent::class, $event);
+            /** @var \LINE\Webhook\Model\LeftMembershipContent $membership */
+            $membership = $event->getMembership();
+
+            $this->assertInstanceOf(\LINE\Webhook\Model\LeftMembershipContent::class, $membership);
+            $this->assertEquals('left', $membership->getType());
+            $this->assertEquals(1234567890, $membership->getMembershipId());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+            $this->assertEquals('replytoken', $event->getReplyToken());
+        }
+
+        {
+            // membership (renewed)
+            $event = $events[48];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertTrue($source instanceof UserSource);
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertInstanceOf(\LINE\Webhook\Model\MembershipEvent::class, $event);
+            /** @var \LINE\Webhook\Model\RenewedMembershipContent $membership */
+            $membership = $event->getMembership();
+
+            $this->assertInstanceOf(\LINE\Webhook\Model\RenewedMembershipContent::class, $membership);
+            $this->assertEquals('renewed', $membership->getType());
+            $this->assertEquals(1234567890, $membership->getMembershipId());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+            $this->assertEquals('replytoken', $event->getReplyToken());
         }
     }
 
