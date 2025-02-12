@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * GetAudienceDataResponse
+ * Adaccount
  *
  * PHP version 7.4
  *
@@ -47,16 +47,16 @@ use \ArrayAccess;
 use \LINE\Clients\ManageAudience\ObjectSerializer;
 
 /**
- * GetAudienceDataResponse Class Doc Comment
+ * Adaccount Class Doc Comment
  *
  * @category Class
- * @description Get audience data
+ * @description Adaccount
  * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class Adaccount implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -65,7 +65,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetAudienceDataResponse';
+    protected static $openAPIModelName = 'Adaccount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -73,9 +73,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'audienceGroup' => '\LINE\Clients\ManageAudience\Model\AudienceGroup',
-        'jobs' => '\LINE\Clients\ManageAudience\Model\AudienceGroupJob[]',
-        'adaccount' => '\LINE\Clients\ManageAudience\Model\Adaccount'
+        'name' => 'string'
     ];
 
     /**
@@ -86,9 +84,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'audienceGroup' => null,
-        'jobs' => null,
-        'adaccount' => null
+        'name' => null
     ];
 
     /**
@@ -97,9 +93,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'audienceGroup' => false,
-        'jobs' => false,
-        'adaccount' => false
+        'name' => false
     ];
 
     /**
@@ -188,9 +182,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'audienceGroup' => 'audienceGroup',
-        'jobs' => 'jobs',
-        'adaccount' => 'adaccount'
+        'name' => 'name'
     ];
 
     /**
@@ -199,9 +191,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'audienceGroup' => 'setAudienceGroup',
-        'jobs' => 'setJobs',
-        'adaccount' => 'setAdaccount'
+        'name' => 'setName'
     ];
 
     /**
@@ -210,9 +200,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'audienceGroup' => 'getAudienceGroup',
-        'jobs' => 'getJobs',
-        'adaccount' => 'getAdaccount'
+        'name' => 'getName'
     ];
 
     /**
@@ -272,9 +260,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('audienceGroup', $data ?? [], null);
-        $this->setIfExists('jobs', $data ?? [], null);
-        $this->setIfExists('adaccount', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -304,10 +290,6 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['jobs']) && (count($this->container['jobs']) > 50)) {
-            $invalidProperties[] = "invalid value for 'jobs', number of items must be less than or equal to 50.";
-        }
-
         return $invalidProperties;
     }
 
@@ -324,86 +306,28 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets audienceGroup
+     * Gets name
      *
-     * @return \LINE\Clients\ManageAudience\Model\AudienceGroup|null
+     * @return string|null
      */
-    public function getAudienceGroup()
+    public function getName()
     {
-        return $this->container['audienceGroup'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets audienceGroup
+     * Sets name
      *
-     * @param \LINE\Clients\ManageAudience\Model\AudienceGroup|null $audienceGroup audienceGroup
+     * @param string|null $name Ad account name.
      *
      * @return self
      */
-    public function setAudienceGroup($audienceGroup)
+    public function setName($name)
     {
-        if (is_null($audienceGroup)) {
-            throw new \InvalidArgumentException('non-nullable audienceGroup cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['audienceGroup'] = $audienceGroup;
-
-        return $this;
-    }
-
-    /**
-     * Gets jobs
-     *
-     * @return \LINE\Clients\ManageAudience\Model\AudienceGroupJob[]|null
-     */
-    public function getJobs()
-    {
-        return $this->container['jobs'];
-    }
-
-    /**
-     * Sets jobs
-     *
-     * @param \LINE\Clients\ManageAudience\Model\AudienceGroupJob[]|null $jobs An array of jobs. This array is used to keep track of each attempt to add new user IDs or IFAs to an audience for uploading user IDs. Empty array is returned for any other type of audience. Max: 50
-     *
-     * @return self
-     */
-    public function setJobs($jobs)
-    {
-        if (is_null($jobs)) {
-            throw new \InvalidArgumentException('non-nullable jobs cannot be null');
-        }
-
-        if ((count($jobs) > 50)) {
-            throw new \InvalidArgumentException('invalid value for $jobs when calling GetAudienceDataResponse., number of items must be less than or equal to 50.');
-        }
-        $this->container['jobs'] = $jobs;
-
-        return $this;
-    }
-
-    /**
-     * Gets adaccount
-     *
-     * @return \LINE\Clients\ManageAudience\Model\Adaccount|null
-     */
-    public function getAdaccount()
-    {
-        return $this->container['adaccount'];
-    }
-
-    /**
-     * Sets adaccount
-     *
-     * @param \LINE\Clients\ManageAudience\Model\Adaccount|null $adaccount adaccount
-     *
-     * @return self
-     */
-    public function setAdaccount($adaccount)
-    {
-        if (is_null($adaccount)) {
-            throw new \InvalidArgumentException('non-nullable adaccount cannot be null');
-        }
-        $this->container['adaccount'] = $adaccount;
+        $this->container['name'] = $name;
 
         return $this;
     }

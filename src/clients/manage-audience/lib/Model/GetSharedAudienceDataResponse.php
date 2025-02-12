@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * GetAudienceDataResponse
+ * GetSharedAudienceDataResponse
  *
  * PHP version 7.4
  *
@@ -47,7 +47,7 @@ use \ArrayAccess;
 use \LINE\Clients\ManageAudience\ObjectSerializer;
 
 /**
- * GetAudienceDataResponse Class Doc Comment
+ * GetSharedAudienceDataResponse Class Doc Comment
  *
  * @category Class
  * @description Get audience data
@@ -56,7 +56,7 @@ use \LINE\Clients\ManageAudience\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetSharedAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -65,7 +65,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetAudienceDataResponse';
+    protected static $openAPIModelName = 'GetSharedAudienceDataResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -75,7 +75,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'audienceGroup' => '\LINE\Clients\ManageAudience\Model\AudienceGroup',
         'jobs' => '\LINE\Clients\ManageAudience\Model\AudienceGroupJob[]',
-        'adaccount' => '\LINE\Clients\ManageAudience\Model\Adaccount'
+        'owner' => '\LINE\Clients\ManageAudience\Model\DetailedOwner'
     ];
 
     /**
@@ -88,7 +88,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPIFormats = [
         'audienceGroup' => null,
         'jobs' => null,
-        'adaccount' => null
+        'owner' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'audienceGroup' => false,
         'jobs' => false,
-        'adaccount' => false
+        'owner' => false
     ];
 
     /**
@@ -190,7 +190,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $attributeMap = [
         'audienceGroup' => 'audienceGroup',
         'jobs' => 'jobs',
-        'adaccount' => 'adaccount'
+        'owner' => 'owner'
     ];
 
     /**
@@ -201,7 +201,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $setters = [
         'audienceGroup' => 'setAudienceGroup',
         'jobs' => 'setJobs',
-        'adaccount' => 'setAdaccount'
+        'owner' => 'setOwner'
     ];
 
     /**
@@ -212,7 +212,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $getters = [
         'audienceGroup' => 'getAudienceGroup',
         'jobs' => 'getJobs',
-        'adaccount' => 'getAdaccount'
+        'owner' => 'getOwner'
     ];
 
     /**
@@ -274,7 +274,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $this->setIfExists('audienceGroup', $data ?? [], null);
         $this->setIfExists('jobs', $data ?? [], null);
-        $this->setIfExists('adaccount', $data ?? [], null);
+        $this->setIfExists('owner', $data ?? [], null);
     }
 
     /**
@@ -374,7 +374,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
         }
 
         if ((count($jobs) > 50)) {
-            throw new \InvalidArgumentException('invalid value for $jobs when calling GetAudienceDataResponse., number of items must be less than or equal to 50.');
+            throw new \InvalidArgumentException('invalid value for $jobs when calling GetSharedAudienceDataResponse., number of items must be less than or equal to 50.');
         }
         $this->container['jobs'] = $jobs;
 
@@ -382,28 +382,28 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets adaccount
+     * Gets owner
      *
-     * @return \LINE\Clients\ManageAudience\Model\Adaccount|null
+     * @return \LINE\Clients\ManageAudience\Model\DetailedOwner|null
      */
-    public function getAdaccount()
+    public function getOwner()
     {
-        return $this->container['adaccount'];
+        return $this->container['owner'];
     }
 
     /**
-     * Sets adaccount
+     * Sets owner
      *
-     * @param \LINE\Clients\ManageAudience\Model\Adaccount|null $adaccount adaccount
+     * @param \LINE\Clients\ManageAudience\Model\DetailedOwner|null $owner owner
      *
      * @return self
      */
-    public function setAdaccount($adaccount)
+    public function setOwner($owner)
     {
-        if (is_null($adaccount)) {
-            throw new \InvalidArgumentException('non-nullable adaccount cannot be null');
+        if (is_null($owner)) {
+            throw new \InvalidArgumentException('non-nullable owner cannot be null');
         }
-        $this->container['adaccount'] = $adaccount;
+        $this->container['owner'] = $owner;
 
         return $this;
     }
