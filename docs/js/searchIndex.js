@@ -40811,6 +40811,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LINE-Parser-EventRequestParser.html#method_parseModuleContent"
         },                {
+            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003AparseMembershipContent\u0028\u0029",
+            "name": "parseMembershipContent",
+            "summary": "",
+            "url": "classes/LINE-Parser-EventRequestParser.html#method_parseMembershipContent"
+        },                {
             "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003A\u0024eventType2class",
             "name": "eventType2class",
             "summary": "",
@@ -40840,6 +40845,11 @@ Search.appendIndex(
             "name": "moduleContentType2class",
             "summary": "",
             "url": "classes/LINE-Parser-EventRequestParser.html#property_moduleContentType2class"
+        },                {
+            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003A\u0024membershipContentType2class",
+            "name": "membershipContentType2class",
+            "summary": "",
+            "url": "classes/LINE-Parser-EventRequestParser.html#property_membershipContentType2class"
         },                {
             "fqsen": "\\LINE\\Parser\\Exception\\InvalidEventRequestException",
             "name": "InvalidEventRequestException",
