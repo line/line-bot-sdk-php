@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * GetAudienceDataResponse
+ * GetSharedAudienceGroupsResponse
  *
  * PHP version 7.4
  *
@@ -47,16 +47,16 @@ use \ArrayAccess;
 use \LINE\Clients\ManageAudience\ObjectSerializer;
 
 /**
- * GetAudienceDataResponse Class Doc Comment
+ * GetSharedAudienceGroupsResponse Class Doc Comment
  *
  * @category Class
- * @description Get audience data
+ * @description Gets data for more than one audience.
  * @package  LINE\Clients\ManageAudience
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetSharedAudienceGroupsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -65,7 +65,7 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetAudienceDataResponse';
+    protected static $openAPIModelName = 'GetSharedAudienceGroupsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -73,9 +73,12 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'audienceGroup' => '\LINE\Clients\ManageAudience\Model\AudienceGroup',
-        'jobs' => '\LINE\Clients\ManageAudience\Model\AudienceGroupJob[]',
-        'adaccount' => '\LINE\Clients\ManageAudience\Model\Adaccount'
+        'audienceGroups' => '\LINE\Clients\ManageAudience\Model\AudienceGroup[]',
+        'hasNextPage' => 'bool',
+        'totalCount' => 'int',
+        'readWriteAudienceGroupTotalCount' => 'int',
+        'page' => 'int',
+        'size' => 'int'
     ];
 
     /**
@@ -86,9 +89,12 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'audienceGroup' => null,
-        'jobs' => null,
-        'adaccount' => null
+        'audienceGroups' => null,
+        'hasNextPage' => null,
+        'totalCount' => 'int64',
+        'readWriteAudienceGroupTotalCount' => 'int64',
+        'page' => 'int64',
+        'size' => 'int64'
     ];
 
     /**
@@ -97,9 +103,12 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'audienceGroup' => false,
-        'jobs' => false,
-        'adaccount' => false
+        'audienceGroups' => false,
+        'hasNextPage' => false,
+        'totalCount' => false,
+        'readWriteAudienceGroupTotalCount' => false,
+        'page' => false,
+        'size' => false
     ];
 
     /**
@@ -188,9 +197,12 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'audienceGroup' => 'audienceGroup',
-        'jobs' => 'jobs',
-        'adaccount' => 'adaccount'
+        'audienceGroups' => 'audienceGroups',
+        'hasNextPage' => 'hasNextPage',
+        'totalCount' => 'totalCount',
+        'readWriteAudienceGroupTotalCount' => 'readWriteAudienceGroupTotalCount',
+        'page' => 'page',
+        'size' => 'size'
     ];
 
     /**
@@ -199,9 +211,12 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'audienceGroup' => 'setAudienceGroup',
-        'jobs' => 'setJobs',
-        'adaccount' => 'setAdaccount'
+        'audienceGroups' => 'setAudienceGroups',
+        'hasNextPage' => 'setHasNextPage',
+        'totalCount' => 'setTotalCount',
+        'readWriteAudienceGroupTotalCount' => 'setReadWriteAudienceGroupTotalCount',
+        'page' => 'setPage',
+        'size' => 'setSize'
     ];
 
     /**
@@ -210,9 +225,12 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'audienceGroup' => 'getAudienceGroup',
-        'jobs' => 'getJobs',
-        'adaccount' => 'getAdaccount'
+        'audienceGroups' => 'getAudienceGroups',
+        'hasNextPage' => 'getHasNextPage',
+        'totalCount' => 'getTotalCount',
+        'readWriteAudienceGroupTotalCount' => 'getReadWriteAudienceGroupTotalCount',
+        'page' => 'getPage',
+        'size' => 'getSize'
     ];
 
     /**
@@ -272,9 +290,12 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('audienceGroup', $data ?? [], null);
-        $this->setIfExists('jobs', $data ?? [], null);
-        $this->setIfExists('adaccount', $data ?? [], null);
+        $this->setIfExists('audienceGroups', $data ?? [], null);
+        $this->setIfExists('hasNextPage', $data ?? [], null);
+        $this->setIfExists('totalCount', $data ?? [], null);
+        $this->setIfExists('readWriteAudienceGroupTotalCount', $data ?? [], null);
+        $this->setIfExists('page', $data ?? [], null);
+        $this->setIfExists('size', $data ?? [], null);
     }
 
     /**
@@ -304,10 +325,6 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['jobs']) && (count($this->container['jobs']) > 50)) {
-            $invalidProperties[] = "invalid value for 'jobs', number of items must be less than or equal to 50.";
-        }
-
         return $invalidProperties;
     }
 
@@ -324,86 +341,163 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets audienceGroup
+     * Gets audienceGroups
      *
-     * @return \LINE\Clients\ManageAudience\Model\AudienceGroup|null
+     * @return \LINE\Clients\ManageAudience\Model\AudienceGroup[]|null
      */
-    public function getAudienceGroup()
+    public function getAudienceGroups()
     {
-        return $this->container['audienceGroup'];
+        return $this->container['audienceGroups'];
     }
 
     /**
-     * Sets audienceGroup
+     * Sets audienceGroups
      *
-     * @param \LINE\Clients\ManageAudience\Model\AudienceGroup|null $audienceGroup audienceGroup
+     * @param \LINE\Clients\ManageAudience\Model\AudienceGroup[]|null $audienceGroups An array of audience data. If there are no audiences that match the specified filter, an empty array will be returned.
      *
      * @return self
      */
-    public function setAudienceGroup($audienceGroup)
+    public function setAudienceGroups($audienceGroups)
     {
-        if (is_null($audienceGroup)) {
-            throw new \InvalidArgumentException('non-nullable audienceGroup cannot be null');
+        if (is_null($audienceGroups)) {
+            throw new \InvalidArgumentException('non-nullable audienceGroups cannot be null');
         }
-        $this->container['audienceGroup'] = $audienceGroup;
+        $this->container['audienceGroups'] = $audienceGroups;
 
         return $this;
     }
 
     /**
-     * Gets jobs
+     * Gets hasNextPage
      *
-     * @return \LINE\Clients\ManageAudience\Model\AudienceGroupJob[]|null
+     * @return bool|null
      */
-    public function getJobs()
+    public function getHasNextPage()
     {
-        return $this->container['jobs'];
+        return $this->container['hasNextPage'];
     }
 
     /**
-     * Sets jobs
+     * Sets hasNextPage
      *
-     * @param \LINE\Clients\ManageAudience\Model\AudienceGroupJob[]|null $jobs An array of jobs. This array is used to keep track of each attempt to add new user IDs or IFAs to an audience for uploading user IDs. Empty array is returned for any other type of audience. Max: 50
+     * @param bool|null $hasNextPage true when this is not the last page.
      *
      * @return self
      */
-    public function setJobs($jobs)
+    public function setHasNextPage($hasNextPage)
     {
-        if (is_null($jobs)) {
-            throw new \InvalidArgumentException('non-nullable jobs cannot be null');
+        if (is_null($hasNextPage)) {
+            throw new \InvalidArgumentException('non-nullable hasNextPage cannot be null');
         }
-
-        if ((count($jobs) > 50)) {
-            throw new \InvalidArgumentException('invalid value for $jobs when calling GetAudienceDataResponse., number of items must be less than or equal to 50.');
-        }
-        $this->container['jobs'] = $jobs;
+        $this->container['hasNextPage'] = $hasNextPage;
 
         return $this;
     }
 
     /**
-     * Gets adaccount
+     * Gets totalCount
      *
-     * @return \LINE\Clients\ManageAudience\Model\Adaccount|null
+     * @return int|null
      */
-    public function getAdaccount()
+    public function getTotalCount()
     {
-        return $this->container['adaccount'];
+        return $this->container['totalCount'];
     }
 
     /**
-     * Sets adaccount
+     * Sets totalCount
      *
-     * @param \LINE\Clients\ManageAudience\Model\Adaccount|null $adaccount adaccount
+     * @param int|null $totalCount The total number of audiences that can be returned with the specified filter.
      *
      * @return self
      */
-    public function setAdaccount($adaccount)
+    public function setTotalCount($totalCount)
     {
-        if (is_null($adaccount)) {
-            throw new \InvalidArgumentException('non-nullable adaccount cannot be null');
+        if (is_null($totalCount)) {
+            throw new \InvalidArgumentException('non-nullable totalCount cannot be null');
         }
-        $this->container['adaccount'] = $adaccount;
+        $this->container['totalCount'] = $totalCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets readWriteAudienceGroupTotalCount
+     *
+     * @return int|null
+     */
+    public function getReadWriteAudienceGroupTotalCount()
+    {
+        return $this->container['readWriteAudienceGroupTotalCount'];
+    }
+
+    /**
+     * Sets readWriteAudienceGroupTotalCount
+     *
+     * @param int|null $readWriteAudienceGroupTotalCount Of the audiences you can get with the specified filter, the number of audiences with the update permission set to READ_WRITE.
+     *
+     * @return self
+     */
+    public function setReadWriteAudienceGroupTotalCount($readWriteAudienceGroupTotalCount)
+    {
+        if (is_null($readWriteAudienceGroupTotalCount)) {
+            throw new \InvalidArgumentException('non-nullable readWriteAudienceGroupTotalCount cannot be null');
+        }
+        $this->container['readWriteAudienceGroupTotalCount'] = $readWriteAudienceGroupTotalCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets page
+     *
+     * @return int|null
+     */
+    public function getPage()
+    {
+        return $this->container['page'];
+    }
+
+    /**
+     * Sets page
+     *
+     * @param int|null $page The current page number.
+     *
+     * @return self
+     */
+    public function setPage($page)
+    {
+        if (is_null($page)) {
+            throw new \InvalidArgumentException('non-nullable page cannot be null');
+        }
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets size
+     *
+     * @return int|null
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /**
+     * Sets size
+     *
+     * @param int|null $size The maximum number of audiences on the current page.
+     *
+     * @return self
+     */
+    public function setSize($size)
+    {
+        if (is_null($size)) {
+            throw new \InvalidArgumentException('non-nullable size cannot be null');
+        }
+        $this->container['size'] = $size;
 
         return $this;
     }
