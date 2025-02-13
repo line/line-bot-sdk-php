@@ -145,7 +145,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -194,6 +194,13 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/LINE-Parser-EventRequestParser.html#property_membershipContentType2class">$membershipContentType2class</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/LINE-Parser-EventRequestParser.html#property_messageType2class">$messageType2class</a>
     <span>
                         &nbsp;: mixed            </span>
@@ -232,6 +239,13 @@
     <a href="classes/LINE-Parser-EventRequestParser.html#method_parseEvent">parseEvent()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Webhook-Model-Event.html"><abbr title="\LINE\Webhook\Model\Event">Event</abbr></a>    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/LINE-Parser-EventRequestParser.html#method_parseMembershipContent">parseMembershipContent()</a>
+    <span>
+                                &nbsp;: <a href="classes/LINE-Webhook-Model-MembershipContent.html"><abbr title="\LINE\Webhook\Model\MembershipContent">MembershipContent</abbr></a>    </span>
 </dt>
 <dd></dd>
 
@@ -291,7 +305,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 
     </aside>
 
@@ -325,7 +339,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -334,7 +348,41 @@
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$eventType2class</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;message&#039; =&gt; \LINE\Webhook\Model\MessageEvent::class, &#039;unsend&#039; =&gt; \LINE\Webhook\Model\UnsendEvent::class, &#039;follow&#039; =&gt; \LINE\Webhook\Model\FollowEvent::class, &#039;unfollow&#039; =&gt; \LINE\Webhook\Model\UnfollowEvent::class, &#039;join&#039; =&gt; \LINE\Webhook\Model\JoinEvent::class, &#039;leave&#039; =&gt; \LINE\Webhook\Model\LeaveEvent::class, &#039;postback&#039; =&gt; \LINE\Webhook\Model\PostbackEvent::class, &#039;videoPlayComplete&#039; =&gt; \LINE\Webhook\Model\VideoPlayCompleteEvent::class, &#039;beacon&#039; =&gt; \LINE\Webhook\Model\BeaconEvent::class, &#039;accountLink&#039; =&gt; \LINE\Webhook\Model\AccountLinkEvent::class, &#039;memberJoined&#039; =&gt; \LINE\Webhook\Model\MemberJoinedEvent::class, &#039;memberLeft&#039; =&gt; \LINE\Webhook\Model\MemberLeftEvent::class, &#039;things&#039; =&gt; \LINE\Webhook\Model\ThingsEvent::class, &#039;module&#039; =&gt; \LINE\Webhook\Model\ModuleEvent::class, &#039;activated&#039; =&gt; \LINE\Webhook\Model\ActivatedEvent::class, &#039;deactivated&#039; =&gt; \LINE\Webhook\Model\DeactivatedEvent::class, &#039;botSuspended&#039; =&gt; \LINE\Webhook\Model\BotSuspendedEvent::class, &#039;botResumed&#039; =&gt; \LINE\Webhook\Model\BotResumedEvent::class, &#039;delivery&#039; =&gt; \LINE\Webhook\Model\PnpDeliveryCompletionEvent::class]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;message&#039; =&gt; \LINE\Webhook\Model\MessageEvent::class, &#039;unsend&#039; =&gt; \LINE\Webhook\Model\UnsendEvent::class, &#039;follow&#039; =&gt; \LINE\Webhook\Model\FollowEvent::class, &#039;unfollow&#039; =&gt; \LINE\Webhook\Model\UnfollowEvent::class, &#039;join&#039; =&gt; \LINE\Webhook\Model\JoinEvent::class, &#039;leave&#039; =&gt; \LINE\Webhook\Model\LeaveEvent::class, &#039;postback&#039; =&gt; \LINE\Webhook\Model\PostbackEvent::class, &#039;videoPlayComplete&#039; =&gt; \LINE\Webhook\Model\VideoPlayCompleteEvent::class, &#039;beacon&#039; =&gt; \LINE\Webhook\Model\BeaconEvent::class, &#039;accountLink&#039; =&gt; \LINE\Webhook\Model\AccountLinkEvent::class, &#039;memberJoined&#039; =&gt; \LINE\Webhook\Model\MemberJoinedEvent::class, &#039;memberLeft&#039; =&gt; \LINE\Webhook\Model\MemberLeftEvent::class, &#039;things&#039; =&gt; \LINE\Webhook\Model\ThingsEvent::class, &#039;module&#039; =&gt; \LINE\Webhook\Model\ModuleEvent::class, &#039;activated&#039; =&gt; \LINE\Webhook\Model\ActivatedEvent::class, &#039;deactivated&#039; =&gt; \LINE\Webhook\Model\DeactivatedEvent::class, &#039;botSuspended&#039; =&gt; \LINE\Webhook\Model\BotSuspendedEvent::class, &#039;botResumed&#039; =&gt; \LINE\Webhook\Model\BotResumedEvent::class, &#039;delivery&#039; =&gt; \LINE\Webhook\Model\PnpDeliveryCompletionEvent::class, &#039;membership&#039; =&gt; \LINE\Webhook\Model\MembershipEvent::class]</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_membershipContentType2class">
+        $membershipContentType2class
+        <a href="classes/LINE-Parser-EventRequestParser.html#property_membershipContentType2class" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">115</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$membershipContentType2class</span>
+     = <span class="phpdocumentor-signature__default-value">[&#039;joined&#039; =&gt; \LINE\Webhook\Model\JoinedMembershipContent::class, &#039;left&#039; =&gt; \LINE\Webhook\Model\LeftMembershipContent::class, &#039;renewed&#039; =&gt; \LINE\Webhook\Model\RenewedMembershipContent::class]</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -359,7 +407,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
     </aside>
 
@@ -393,7 +441,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">107</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
     </aside>
 
@@ -427,7 +475,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -461,7 +509,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
@@ -499,7 +547,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">120</span>
+    <span class="phpdocumentor-element-found-in__line">129</span>
 
     </aside>
 
@@ -577,7 +625,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
     </aside>
 
@@ -614,6 +662,48 @@
             -private
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_parseMembershipContent">
+        parseMembershipContent()
+        <a href="classes/LINE-Parser-EventRequestParser.html#method_parseMembershipContent" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">307</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parseMembershipContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$eventData</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Webhook-Model-MembershipContent.html"><abbr title="\LINE\Webhook\Model\MembershipContent">MembershipContent</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$eventData</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Webhook-Model-MembershipContent.html"><abbr title="\LINE\Webhook\Model\MembershipContent">MembershipContent</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_parseMessageContent">
         parseMessageContent()
         <a href="classes/LINE-Parser-EventRequestParser.html#method_parseMessageContent" class="headerlink"><i class="fas fa-link"></i></a>
@@ -621,7 +711,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">186</span>
+    <span class="phpdocumentor-element-found-in__line">200</span>
 
     </aside>
 
@@ -663,7 +753,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">278</span>
+    <span class="phpdocumentor-element-found-in__line">292</span>
 
     </aside>
 
@@ -705,7 +795,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">235</span>
+    <span class="phpdocumentor-element-found-in__line">249</span>
 
     </aside>
 
@@ -747,7 +837,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">253</span>
+    <span class="phpdocumentor-element-found-in__line">267</span>
 
     </aside>
 
