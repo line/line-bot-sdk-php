@@ -504,7 +504,7 @@ class ManageAudienceBlobApi
 
 
             switch($statusCode) {
-                case 200:
+                case 202:
                     if ('\LINE\Clients\ManageAudience\Model\CreateAudienceGroupResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -576,7 +576,7 @@ class ManageAudienceBlobApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\LINE\Clients\ManageAudience\Model\CreateAudienceGroupResponse',
