@@ -28,7 +28,6 @@ use LINE\Webhook\Model\GroupSource;
 use LINE\Webhook\Model\RoomSource;
 use LINE\Webhook\Model\UserSource;
 use PHPUnit\Framework\TestCase;
-use function PHPUnit\Framework\assertInstanceOf;
 
 class EventRequestParserTest extends TestCase
 {
