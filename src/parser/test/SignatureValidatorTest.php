@@ -23,8 +23,8 @@ use PHPUnit\Framework\TestCase;
 
 class SignatureValidatorTest extends TestCase
 {
-    private static $channelSecret = 'testsecret';
-    private static $json = <<<JSON
+    private static string $channelSecret = 'testsecret';
+    private static string $json = <<<JSON
 {
  "events":[
   {
@@ -178,7 +178,7 @@ JSON;
     /**
      * @throws \LINE\Parser\Exception\InvalidSignatureException
      */
-    public function testValidateSignature()
+    public function testValidateSignature(): void
     {
         $this->assertTrue(SignatureValidator::validateSignature(
             self::$json,
