@@ -19,7 +19,6 @@
 namespace LINE\Laravel;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
-use LINE\Clients\Liff\Configuration;
 
 class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
 {
