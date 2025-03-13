@@ -28,9 +28,9 @@ class FacadesTest extends \Orchestra\Testbench\TestCase
      *
      * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      * @param  \Illuminate\Foundation\Application $app
-     * @return array
+     * @return array<string>
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return ['LINE\Laravel\LINEBotServiceProvider'];
     }
@@ -40,9 +40,9 @@ class FacadesTest extends \Orchestra\Testbench\TestCase
      *
      * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      * @param  \Illuminate\Foundation\Application $app
-     * @return array
+     * @return array<string, class-string>
      */
-    protected function getPackageAliases($app)
+    protected function getPackageAliases($app): array
     {
         return [
             'LINEChannelAccessTokenApi' => \LINE\Laravel\Facades\LINEChannelAccessTokenApi::class,
@@ -60,7 +60,7 @@ class FacadesTest extends \Orchestra\Testbench\TestCase
      *
      * @return void
      */
-    public function testConfigLoaded()
+    public function testConfigLoaded(): void
     {
         $this->assertEquals('test_channel_access_token', config('line-bot.channel_access_token'));
         $this->assertEquals('test_channel_secret', config('line-bot.channel_secret'));
@@ -72,7 +72,7 @@ class FacadesTest extends \Orchestra\Testbench\TestCase
      * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      * @return void
      */
-    public function testLINEBotFacadeInstance()
+    public function testLINEBotFacadeInstance(): void
     {
         $this->assertInstanceOf(\LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::class, \LINEChannelAccessTokenApi::getFacadeRoot());
         $this->assertInstanceOf(\LINE\Clients\Insight\Api\InsightApi::class, \LINEInsightApi::getFacadeRoot());

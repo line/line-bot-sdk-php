@@ -22,7 +22,10 @@ use GuzzleHttp\Client as GuzzleHttpClient;
 
 class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    private static $apiBindings = [
+    /**
+     * @var array<string, array{config: class-string, api: class-string}>
+     */
+    private static array $apiBindings = [
         'line-bot-channel-access-token-api' => [
             'config' => \LINE\Clients\ChannelAccessToken\Configuration::class,
             'api' => \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::class,
@@ -60,7 +63,7 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes(
@@ -79,7 +82,7 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(
             self::CONFIG_PATH,
@@ -95,11 +98,11 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
         }
     }
 
-    private function bindApis($facadeName, $clientClass, $configClass)
+    private function bindApis(string $facadeName, string $clientClass, string $configClass): void
     {
         $this->app->bind($facadeName, function ($app) use ($clientClass, $configClass) {
             $httpClient = $app->make('line-bot-http-client');
-            $config = new $configClass();
+            $config = new $configClass();   // @phpstan-ignore-next-line
             $config->setAccessToken(config('line-bot.channel_access_token'));
             return new $clientClass(
                 client: $httpClient,

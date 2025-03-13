@@ -35,6 +35,7 @@ use LINE\Webhook\Model\ImageSet;
 use LINE\Webhook\Model\Mention;
 use LINE\Webhook\Model\Mentionee;
 use LINE\Webhook\Model\MessageContent;
+use LINE\Webhook\Model\ModelInterface;
 use LINE\Webhook\Model\ModuleContent;
 use LINE\Webhook\Model\ModuleEvent;
 use LINE\Webhook\Model\ScenarioResult;
@@ -50,6 +51,9 @@ use LINE\Webhook\Model\UserMentionee;
  */
 class EventRequestParser
 {
+    /**
+     * @var array<string, class-string<Event>>
+     */
     private static $eventType2class = [
         'message' => \LINE\Webhook\Model\MessageEvent::class,
         'unsend' => \LINE\Webhook\Model\UnsendEvent::class,
@@ -73,6 +77,9 @@ class EventRequestParser
         'membership' => \LINE\Webhook\Model\MembershipEvent::class,
     ];
 
+    /**
+     * @var array<string, class-string<MessageContent>>
+     */
     private static $messageType2class = [
         'text' => \LINE\Webhook\Model\TextMessageContent::class,
         'image' => \LINE\Webhook\Model\ImageMessageContent::class,
@@ -83,18 +90,27 @@ class EventRequestParser
         'sticker' => \LINE\Webhook\Model\StickerMessageContent::class,
     ];
 
+    /**
+     * @var array<string, class-string<Source>>
+     */
     private static $sourceType2class = [
         'user' => \LINE\Webhook\Model\UserSource::class,
         'group' => \LINE\Webhook\Model\GroupSource::class,
         'room' => \LINE\Webhook\Model\RoomSource::class,
     ];
 
+    /**
+     * @var array<string, class-string<ThingsContent>>
+     */
     private static $thingsContentType2class = [
         'link' => \LINE\Webhook\Model\LinkThingsContent::class,
         'unlink' => \LINE\Webhook\Model\UnlinkThingsContent::class,
         'scenarioResult' => \LINE\Webhook\Model\ScenarioResultThingsContent::class,
     ];
 
+    /**
+     * @var array<string, class-string>
+     */
     private static $contentType2class = [
         'postback' => \LINE\Webhook\Model\PostbackContent::class,
         'beacon' => \LINE\Webhook\Model\BeaconContent::class,
@@ -107,11 +123,17 @@ class EventRequestParser
         'delivery' => \LINE\Webhook\Model\PnpDelivery::class,
     ];
 
+    /**
+     * @var array<string, class-string<ModuleContent>>
+     */
     private static $moduleContentType2class = [
         'attached' => \LINE\Webhook\Model\AttachedModuleContent::class,
         'detached' => \LINE\Webhook\Model\DetachedModuleContent::class,
     ];
 
+    /**
+     * @var array<string, class-string<MembershipContent>>
+     */
     private static $membershipContentType2class = [
         'joined' => \LINE\Webhook\Model\JoinedMembershipContent::class,
         'left' => \LINE\Webhook\Model\LeftMembershipContent::class,
@@ -149,6 +171,10 @@ class EventRequestParser
         return new ParsedEvents($parsedReq['destination'] ?? null, $events);
     }
 
+    /**
+     * @param array<string, mixed> $eventData
+     * @return Event
+     */
     private static function parseEvent($eventData): Event
     {
         $eventType = $eventData['type'];
@@ -194,7 +220,7 @@ class EventRequestParser
     }
 
     /**
-     * @param array $eventData
+     * @param array<string, mixed> $eventData
      * @return MessageContent
      */
     private static function parseMessageContent($eventData): MessageContent
@@ -243,7 +269,7 @@ class EventRequestParser
     }
 
     /**
-     * @param array $eventData
+     * @param array<string, mixed> $eventData
      * @return Source
      */
     private static function parseSource($eventData): Source
@@ -261,7 +287,7 @@ class EventRequestParser
     }
 
     /**
-     * @param array $eventData
+     * @param array<string, mixed> $eventData
      * @return ThingsContent
      */
     private static function parseThingsContent($eventData): ThingsContent
@@ -286,7 +312,7 @@ class EventRequestParser
     }
 
     /**
-     * @param array $eventData
+     * @param array<string, mixed> $eventData
      * @return ModuleContent
      */
     private static function parseModuleContent($eventData): ModuleContent
@@ -301,7 +327,7 @@ class EventRequestParser
     }
 
     /**
-     * @param array $eventData
+     * @param array<string, mixed> $eventData
      * @return MembershipContent
      */
     private static function parseMembershipContent($eventData): MembershipContent
