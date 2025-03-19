@@ -695,6 +695,51 @@ class StickerMessageContent extends MessageContent
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of StickerMessageContent from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['id'])) {
+            $instance->setid($data['id']);
+        }
+        if (isset($data['packageId'])) {
+            $instance->setpackageId($data['packageId']);
+        }
+        if (isset($data['stickerId'])) {
+            $instance->setstickerId($data['stickerId']);
+        }
+        if (isset($data['stickerResourceType'])) {
+            $instance->setstickerResourceType($data['stickerResourceType']);
+        }
+        if (isset($data['keywords'])) {
+            $instance->setkeywords($data['keywords']);
+        }
+        if (isset($data['text'])) {
+            $instance->settext($data['text']);
+        }
+        if (isset($data['quoteToken'])) {
+            $instance->setquoteToken($data['quoteToken']);
+        }
+        if (isset($data['quotedMessageId'])) {
+            $instance->setquotedMessageId($data['quotedMessageId']);
+        }
+
+        return $instance;
+    }
 }
 
 

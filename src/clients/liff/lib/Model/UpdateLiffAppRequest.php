@@ -589,6 +589,42 @@ class UpdateLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of UpdateLiffAppRequest from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['view'])) {
+            $instance->setview(\LINE\Clients\Liff\Model\UpdateLiffView::fromAssocArray($data['view']));
+        }
+        if (isset($data['description'])) {
+            $instance->setdescription($data['description']);
+        }
+        if (isset($data['features'])) {
+            $instance->setfeatures(\LINE\Clients\Liff\Model\LiffFeatures::fromAssocArray($data['features']));
+        }
+        if (isset($data['permanentLinkPattern'])) {
+            $instance->setpermanentLinkPattern($data['permanentLinkPattern']);
+        }
+        if (isset($data['scope'])) {
+            $instance->setscope($data['scope']);
+        }
+        if (isset($data['botPrompt'])) {
+            $instance->setbotPrompt($data['botPrompt']);
+        }
+
+        return $instance;
+    }
 }
 
 

@@ -602,6 +602,45 @@ class PostbackAction extends Action
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of PostbackAction from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['label'])) {
+            $instance->setlabel($data['label']);
+        }
+        if (isset($data['data'])) {
+            $instance->setdata($data['data']);
+        }
+        if (isset($data['displayText'])) {
+            $instance->setdisplayText($data['displayText']);
+        }
+        if (isset($data['text'])) {
+            $instance->settext($data['text']);
+        }
+        if (isset($data['inputOption'])) {
+            $instance->setinputOption($data['inputOption']);
+        }
+        if (isset($data['fillInText'])) {
+            $instance->setfillInText($data['fillInText']);
+        }
+
+        return $instance;
+    }
 }
 
 

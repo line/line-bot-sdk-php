@@ -460,6 +460,30 @@ class Subscription implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of Subscription from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['membership'])) {
+            $instance->setmembership(\LINE\Clients\MessagingApi\Model\SubscribedMembershipPlan::fromAssocArray($data['membership']));
+        }
+        if (isset($data['user'])) {
+            $instance->setuser(\LINE\Clients\MessagingApi\Model\SubscribedMembershipUser::fromAssocArray($data['user']));
+        }
+
+        return $instance;
+    }
 }
 
 

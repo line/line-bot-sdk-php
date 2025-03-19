@@ -521,6 +521,36 @@ class ImagemapVideo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of ImagemapVideo from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['originalContentUrl'])) {
+            $instance->setoriginalContentUrl($data['originalContentUrl']);
+        }
+        if (isset($data['previewImageUrl'])) {
+            $instance->setpreviewImageUrl($data['previewImageUrl']);
+        }
+        if (isset($data['area'])) {
+            $instance->setarea(\LINE\Clients\MessagingApi\Model\ImagemapArea::fromAssocArray($data['area']));
+        }
+        if (isset($data['externalLink'])) {
+            $instance->setexternalLink(\LINE\Clients\MessagingApi\Model\ImagemapExternalLink::fromAssocArray($data['externalLink']));
+        }
+
+        return $instance;
+    }
 }
 
 

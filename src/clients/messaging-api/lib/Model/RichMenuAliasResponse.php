@@ -459,6 +459,30 @@ class RichMenuAliasResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of RichMenuAliasResponse from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['richMenuAliasId'])) {
+            $instance->setrichMenuAliasId($data['richMenuAliasId']);
+        }
+        if (isset($data['richMenuId'])) {
+            $instance->setrichMenuId($data['richMenuId']);
+        }
+
+        return $instance;
+    }
 }
 
 

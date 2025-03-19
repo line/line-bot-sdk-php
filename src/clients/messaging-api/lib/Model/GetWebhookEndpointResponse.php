@@ -459,6 +459,30 @@ class GetWebhookEndpointResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetWebhookEndpointResponse from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['endpoint'])) {
+            $instance->setendpoint($data['endpoint']);
+        }
+        if (isset($data['active'])) {
+            $instance->setactive($data['active']);
+        }
+
+        return $instance;
+    }
 }
 
 

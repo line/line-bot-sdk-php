@@ -1451,6 +1451,112 @@ class FlexBox extends FlexComponent
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexBox from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['layout'])) {
+            $instance->setlayout($data['layout']);
+        }
+        if (isset($data['flex'])) {
+            $instance->setflex($data['flex']);
+        }
+        if (isset($data['contents'])) {
+            $contents = [];
+            foreach ($data['contents'] as $item) {
+                $contents[] = \LINE\Clients\MessagingApi\Model\FlexComponent::fromAssocArray($item);
+            }
+            $instance->setcontents($contents);
+        }
+        if (isset($data['spacing'])) {
+            $instance->setspacing($data['spacing']);
+        }
+        if (isset($data['margin'])) {
+            $instance->setmargin($data['margin']);
+        }
+        if (isset($data['position'])) {
+            $instance->setposition($data['position']);
+        }
+        if (isset($data['offsetTop'])) {
+            $instance->setoffsetTop($data['offsetTop']);
+        }
+        if (isset($data['offsetBottom'])) {
+            $instance->setoffsetBottom($data['offsetBottom']);
+        }
+        if (isset($data['offsetStart'])) {
+            $instance->setoffsetStart($data['offsetStart']);
+        }
+        if (isset($data['offsetEnd'])) {
+            $instance->setoffsetEnd($data['offsetEnd']);
+        }
+        if (isset($data['backgroundColor'])) {
+            $instance->setbackgroundColor($data['backgroundColor']);
+        }
+        if (isset($data['borderColor'])) {
+            $instance->setborderColor($data['borderColor']);
+        }
+        if (isset($data['borderWidth'])) {
+            $instance->setborderWidth($data['borderWidth']);
+        }
+        if (isset($data['cornerRadius'])) {
+            $instance->setcornerRadius($data['cornerRadius']);
+        }
+        if (isset($data['width'])) {
+            $instance->setwidth($data['width']);
+        }
+        if (isset($data['maxWidth'])) {
+            $instance->setmaxWidth($data['maxWidth']);
+        }
+        if (isset($data['height'])) {
+            $instance->setheight($data['height']);
+        }
+        if (isset($data['maxHeight'])) {
+            $instance->setmaxHeight($data['maxHeight']);
+        }
+        if (isset($data['paddingAll'])) {
+            $instance->setpaddingAll($data['paddingAll']);
+        }
+        if (isset($data['paddingTop'])) {
+            $instance->setpaddingTop($data['paddingTop']);
+        }
+        if (isset($data['paddingBottom'])) {
+            $instance->setpaddingBottom($data['paddingBottom']);
+        }
+        if (isset($data['paddingStart'])) {
+            $instance->setpaddingStart($data['paddingStart']);
+        }
+        if (isset($data['paddingEnd'])) {
+            $instance->setpaddingEnd($data['paddingEnd']);
+        }
+        if (isset($data['action'])) {
+            $instance->setaction(\LINE\Clients\MessagingApi\Model\Action::fromAssocArray($data['action']));
+        }
+        if (isset($data['justifyContent'])) {
+            $instance->setjustifyContent($data['justifyContent']);
+        }
+        if (isset($data['alignItems'])) {
+            $instance->setalignItems($data['alignItems']);
+        }
+        if (isset($data['background'])) {
+            $instance->setbackground(\LINE\Clients\MessagingApi\Model\FlexBoxBackground::fromAssocArray($data['background']));
+        }
+
+        return $instance;
+    }
 }
 
 

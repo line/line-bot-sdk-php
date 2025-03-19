@@ -432,6 +432,31 @@ class GetMembershipSubscriptionResponse implements ModelInterface, ArrayAccess, 
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetMembershipSubscriptionResponse from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['subscriptions'])) {
+            $subscriptions = [];
+            foreach ($data['subscriptions'] as $item) {
+                $subscriptions[] = \LINE\Clients\MessagingApi\Model\Subscription::fromAssocArray($item);
+            }
+            $instance->setsubscriptions($subscriptions);
+        }
+
+        return $instance;
+    }
 }
 
 

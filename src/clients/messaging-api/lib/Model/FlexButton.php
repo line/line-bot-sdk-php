@@ -1030,6 +1030,69 @@ class FlexButton extends FlexComponent
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexButton from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['flex'])) {
+            $instance->setflex($data['flex']);
+        }
+        if (isset($data['color'])) {
+            $instance->setcolor($data['color']);
+        }
+        if (isset($data['style'])) {
+            $instance->setstyle($data['style']);
+        }
+        if (isset($data['action'])) {
+            $instance->setaction(\LINE\Clients\MessagingApi\Model\Action::fromAssocArray($data['action']));
+        }
+        if (isset($data['gravity'])) {
+            $instance->setgravity($data['gravity']);
+        }
+        if (isset($data['margin'])) {
+            $instance->setmargin($data['margin']);
+        }
+        if (isset($data['position'])) {
+            $instance->setposition($data['position']);
+        }
+        if (isset($data['offsetTop'])) {
+            $instance->setoffsetTop($data['offsetTop']);
+        }
+        if (isset($data['offsetBottom'])) {
+            $instance->setoffsetBottom($data['offsetBottom']);
+        }
+        if (isset($data['offsetStart'])) {
+            $instance->setoffsetStart($data['offsetStart']);
+        }
+        if (isset($data['offsetEnd'])) {
+            $instance->setoffsetEnd($data['offsetEnd']);
+        }
+        if (isset($data['height'])) {
+            $instance->setheight($data['height']);
+        }
+        if (isset($data['adjustMode'])) {
+            $instance->setadjustMode($data['adjustMode']);
+        }
+        if (isset($data['scaling'])) {
+            $instance->setscaling($data['scaling']);
+        }
+
+        return $instance;
+    }
 }
 
 

@@ -453,6 +453,39 @@ class FlexMessage extends Message
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexMessage from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['quickReply'])) {
+            $instance->setquickReply(\LINE\Clients\MessagingApi\Model\QuickReply::fromAssocArray($data['quickReply']));
+        }
+        if (isset($data['sender'])) {
+            $instance->setsender(\LINE\Clients\MessagingApi\Model\Sender::fromAssocArray($data['sender']));
+        }
+        if (isset($data['altText'])) {
+            $instance->setaltText($data['altText']);
+        }
+        if (isset($data['contents'])) {
+            $instance->setcontents(\LINE\Clients\MessagingApi\Model\FlexContainer::fromAssocArray($data['contents']));
+        }
+
+        return $instance;
+    }
 }
 
 

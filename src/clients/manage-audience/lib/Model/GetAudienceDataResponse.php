@@ -496,6 +496,37 @@ class GetAudienceDataResponse implements ModelInterface, ArrayAccess, \JsonSeria
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetAudienceDataResponse from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['audienceGroup'])) {
+            $instance->setaudienceGroup(\LINE\Clients\ManageAudience\Model\AudienceGroup::fromAssocArray($data['audienceGroup']));
+        }
+        if (isset($data['jobs'])) {
+            $jobs = [];
+            foreach ($data['jobs'] as $item) {
+                $jobs[] = \LINE\Clients\ManageAudience\Model\AudienceGroupJob::fromAssocArray($item);
+            }
+            $instance->setjobs($jobs);
+        }
+        if (isset($data['adaccount'])) {
+            $instance->setadaccount(\LINE\Clients\ManageAudience\Model\Adaccount::fromAssocArray($data['adaccount']));
+        }
+
+        return $instance;
+    }
 }
 
 

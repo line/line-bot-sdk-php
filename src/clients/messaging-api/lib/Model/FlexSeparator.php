@@ -447,6 +447,33 @@ class FlexSeparator extends FlexComponent
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexSeparator from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['margin'])) {
+            $instance->setmargin($data['margin']);
+        }
+        if (isset($data['color'])) {
+            $instance->setcolor($data['color']);
+        }
+
+        return $instance;
+    }
 }
 
 

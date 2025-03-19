@@ -533,6 +533,36 @@ class ImagemapArea implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of ImagemapArea from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['x'])) {
+            $instance->setx($data['x']);
+        }
+        if (isset($data['y'])) {
+            $instance->sety($data['y']);
+        }
+        if (isset($data['width'])) {
+            $instance->setwidth($data['width']);
+        }
+        if (isset($data['height'])) {
+            $instance->setheight($data['height']);
+        }
+
+        return $instance;
+    }
 }
 
 

@@ -549,6 +549,42 @@ class FlexBoxLinearGradient extends FlexBoxBackground
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexBoxLinearGradient from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['angle'])) {
+            $instance->setangle($data['angle']);
+        }
+        if (isset($data['startColor'])) {
+            $instance->setstartColor($data['startColor']);
+        }
+        if (isset($data['endColor'])) {
+            $instance->setendColor($data['endColor']);
+        }
+        if (isset($data['centerColor'])) {
+            $instance->setcenterColor($data['centerColor']);
+        }
+        if (isset($data['centerPosition'])) {
+            $instance->setcenterPosition($data['centerPosition']);
+        }
+
+        return $instance;
+    }
 }
 
 

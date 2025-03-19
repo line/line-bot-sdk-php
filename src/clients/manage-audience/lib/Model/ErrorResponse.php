@@ -456,6 +456,34 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of ErrorResponse from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['message'])) {
+            $instance->setmessage($data['message']);
+        }
+        if (isset($data['details'])) {
+            $details = [];
+            foreach ($data['details'] as $item) {
+                $details[] = \LINE\Clients\ManageAudience\Model\ErrorDetail::fromAssocArray($item);
+            }
+            $instance->setdetails($details);
+        }
+
+        return $instance;
+    }
 }
 
 

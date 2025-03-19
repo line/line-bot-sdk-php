@@ -596,6 +596,46 @@ class CarouselColumn implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of CarouselColumn from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['thumbnailImageUrl'])) {
+            $instance->setthumbnailImageUrl($data['thumbnailImageUrl']);
+        }
+        if (isset($data['imageBackgroundColor'])) {
+            $instance->setimageBackgroundColor($data['imageBackgroundColor']);
+        }
+        if (isset($data['title'])) {
+            $instance->settitle($data['title']);
+        }
+        if (isset($data['text'])) {
+            $instance->settext($data['text']);
+        }
+        if (isset($data['defaultAction'])) {
+            $instance->setdefaultAction(\LINE\Clients\MessagingApi\Model\Action::fromAssocArray($data['defaultAction']));
+        }
+        if (isset($data['actions'])) {
+            $actions = [];
+            foreach ($data['actions'] as $item) {
+                $actions[] = \LINE\Clients\MessagingApi\Model\Action::fromAssocArray($item);
+            }
+            $instance->setactions($actions);
+        }
+
+        return $instance;
+    }
 }
 
 

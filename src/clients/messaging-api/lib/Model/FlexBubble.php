@@ -729,6 +729,51 @@ class FlexBubble extends FlexContainer
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexBubble from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['direction'])) {
+            $instance->setdirection($data['direction']);
+        }
+        if (isset($data['styles'])) {
+            $instance->setstyles(\LINE\Clients\MessagingApi\Model\FlexBubbleStyles::fromAssocArray($data['styles']));
+        }
+        if (isset($data['header'])) {
+            $instance->setheader(\LINE\Clients\MessagingApi\Model\FlexBox::fromAssocArray($data['header']));
+        }
+        if (isset($data['hero'])) {
+            $instance->sethero(\LINE\Clients\MessagingApi\Model\FlexComponent::fromAssocArray($data['hero']));
+        }
+        if (isset($data['body'])) {
+            $instance->setbody(\LINE\Clients\MessagingApi\Model\FlexBox::fromAssocArray($data['body']));
+        }
+        if (isset($data['footer'])) {
+            $instance->setfooter(\LINE\Clients\MessagingApi\Model\FlexBox::fromAssocArray($data['footer']));
+        }
+        if (isset($data['size'])) {
+            $instance->setsize($data['size']);
+        }
+        if (isset($data['action'])) {
+            $instance->setaction(\LINE\Clients\MessagingApi\Model\Action::fromAssocArray($data['action']));
+        }
+
+        return $instance;
+    }
 }
 
 

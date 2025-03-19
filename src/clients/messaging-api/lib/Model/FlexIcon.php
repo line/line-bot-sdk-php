@@ -756,6 +756,57 @@ class FlexIcon extends FlexComponent
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexIcon from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['url'])) {
+            $instance->seturl($data['url']);
+        }
+        if (isset($data['size'])) {
+            $instance->setsize($data['size']);
+        }
+        if (isset($data['aspectRatio'])) {
+            $instance->setaspectRatio($data['aspectRatio']);
+        }
+        if (isset($data['margin'])) {
+            $instance->setmargin($data['margin']);
+        }
+        if (isset($data['position'])) {
+            $instance->setposition($data['position']);
+        }
+        if (isset($data['offsetTop'])) {
+            $instance->setoffsetTop($data['offsetTop']);
+        }
+        if (isset($data['offsetBottom'])) {
+            $instance->setoffsetBottom($data['offsetBottom']);
+        }
+        if (isset($data['offsetStart'])) {
+            $instance->setoffsetStart($data['offsetStart']);
+        }
+        if (isset($data['offsetEnd'])) {
+            $instance->setoffsetEnd($data['offsetEnd']);
+        }
+        if (isset($data['scaling'])) {
+            $instance->setscaling($data['scaling']);
+        }
+
+        return $instance;
+    }
 }
 
 

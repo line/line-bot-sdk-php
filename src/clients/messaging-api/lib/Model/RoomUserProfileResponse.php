@@ -493,6 +493,33 @@ class RoomUserProfileResponse implements ModelInterface, ArrayAccess, \JsonSeria
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of RoomUserProfileResponse from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['displayName'])) {
+            $instance->setdisplayName($data['displayName']);
+        }
+        if (isset($data['userId'])) {
+            $instance->setuserId($data['userId']);
+        }
+        if (isset($data['pictureUrl'])) {
+            $instance->setpictureUrl($data['pictureUrl']);
+        }
+
+        return $instance;
+    }
 }
 
 

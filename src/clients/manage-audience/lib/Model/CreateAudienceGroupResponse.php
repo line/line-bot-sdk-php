@@ -724,6 +724,48 @@ class CreateAudienceGroupResponse implements ModelInterface, ArrayAccess, \JsonS
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of CreateAudienceGroupResponse from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['audienceGroupId'])) {
+            $instance->setaudienceGroupId($data['audienceGroupId']);
+        }
+        if (isset($data['createRoute'])) {
+            $instance->setcreateRoute($data['createRoute']);
+        }
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['description'])) {
+            $instance->setdescription($data['description']);
+        }
+        if (isset($data['created'])) {
+            $instance->setcreated($data['created']);
+        }
+        if (isset($data['permission'])) {
+            $instance->setpermission($data['permission']);
+        }
+        if (isset($data['expireTimestamp'])) {
+            $instance->setexpireTimestamp($data['expireTimestamp']);
+        }
+        if (isset($data['isIfaAudience'])) {
+            $instance->setisIfaAudience($data['isIfaAudience']);
+        }
+
+        return $instance;
+    }
 }
 
 

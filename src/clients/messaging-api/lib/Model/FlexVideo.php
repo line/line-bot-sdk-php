@@ -558,6 +558,42 @@ class FlexVideo extends FlexComponent
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexVideo from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['url'])) {
+            $instance->seturl($data['url']);
+        }
+        if (isset($data['previewUrl'])) {
+            $instance->setpreviewUrl($data['previewUrl']);
+        }
+        if (isset($data['altContent'])) {
+            $instance->setaltContent(\LINE\Clients\MessagingApi\Model\FlexComponent::fromAssocArray($data['altContent']));
+        }
+        if (isset($data['aspectRatio'])) {
+            $instance->setaspectRatio($data['aspectRatio']);
+        }
+        if (isset($data['action'])) {
+            $instance->setaction(\LINE\Clients\MessagingApi\Model\Action::fromAssocArray($data['action']));
+        }
+
+        return $instance;
+    }
 }
 
 

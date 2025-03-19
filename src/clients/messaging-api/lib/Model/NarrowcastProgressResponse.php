@@ -701,6 +701,48 @@ class NarrowcastProgressResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of NarrowcastProgressResponse from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['phase'])) {
+            $instance->setphase($data['phase']);
+        }
+        if (isset($data['successCount'])) {
+            $instance->setsuccessCount($data['successCount']);
+        }
+        if (isset($data['failureCount'])) {
+            $instance->setfailureCount($data['failureCount']);
+        }
+        if (isset($data['targetCount'])) {
+            $instance->settargetCount($data['targetCount']);
+        }
+        if (isset($data['failedDescription'])) {
+            $instance->setfailedDescription($data['failedDescription']);
+        }
+        if (isset($data['errorCode'])) {
+            $instance->seterrorCode($data['errorCode']);
+        }
+        if (isset($data['acceptedTime'])) {
+            $instance->setacceptedTime($data['acceptedTime']);
+        }
+        if (isset($data['completedTime'])) {
+            $instance->setcompletedTime($data['completedTime']);
+        }
+
+        return $instance;
+    }
 }
 
 

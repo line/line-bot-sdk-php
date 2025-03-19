@@ -796,6 +796,57 @@ class GetNumberOfMessageDeliveriesResponse implements ModelInterface, ArrayAcces
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetNumberOfMessageDeliveriesResponse from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['status'])) {
+            $instance->setstatus($data['status']);
+        }
+        if (isset($data['broadcast'])) {
+            $instance->setbroadcast($data['broadcast']);
+        }
+        if (isset($data['targeting'])) {
+            $instance->settargeting($data['targeting']);
+        }
+        if (isset($data['autoResponse'])) {
+            $instance->setautoResponse($data['autoResponse']);
+        }
+        if (isset($data['welcomeResponse'])) {
+            $instance->setwelcomeResponse($data['welcomeResponse']);
+        }
+        if (isset($data['chat'])) {
+            $instance->setchat($data['chat']);
+        }
+        if (isset($data['apiBroadcast'])) {
+            $instance->setapiBroadcast($data['apiBroadcast']);
+        }
+        if (isset($data['apiPush'])) {
+            $instance->setapiPush($data['apiPush']);
+        }
+        if (isset($data['apiMulticast'])) {
+            $instance->setapiMulticast($data['apiMulticast']);
+        }
+        if (isset($data['apiNarrowcast'])) {
+            $instance->setapiNarrowcast($data['apiNarrowcast']);
+        }
+        if (isset($data['apiReply'])) {
+            $instance->setapiReply($data['apiReply']);
+        }
+
+        return $instance;
+    }
 }
 
 

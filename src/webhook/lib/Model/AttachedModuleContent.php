@@ -453,6 +453,33 @@ class AttachedModuleContent extends ModuleContent
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of AttachedModuleContent from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['botId'])) {
+            $instance->setbotId($data['botId']);
+        }
+        if (isset($data['scopes'])) {
+            $instance->setscopes($data['scopes']);
+        }
+
+        return $instance;
+    }
 }
 
 

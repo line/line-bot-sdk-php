@@ -453,6 +453,37 @@ class ConfirmTemplate extends Template
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of ConfirmTemplate from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['text'])) {
+            $instance->settext($data['text']);
+        }
+        if (isset($data['actions'])) {
+            $actions = [];
+            foreach ($data['actions'] as $item) {
+                $actions[] = \LINE\Clients\MessagingApi\Model\Action::fromAssocArray($item);
+            }
+            $instance->setactions($actions);
+        }
+
+        return $instance;
+    }
 }
 
 

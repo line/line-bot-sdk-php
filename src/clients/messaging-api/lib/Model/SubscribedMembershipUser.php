@@ -534,6 +534,36 @@ class SubscribedMembershipUser implements ModelInterface, ArrayAccess, \JsonSeri
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of SubscribedMembershipUser from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['membershipNo'])) {
+            $instance->setmembershipNo($data['membershipNo']);
+        }
+        if (isset($data['joinedTime'])) {
+            $instance->setjoinedTime($data['joinedTime']);
+        }
+        if (isset($data['nextBillingDate'])) {
+            $instance->setnextBillingDate($data['nextBillingDate']);
+        }
+        if (isset($data['totalSubscriptionMonths'])) {
+            $instance->settotalSubscriptionMonths($data['totalSubscriptionMonths']);
+        }
+
+        return $instance;
+    }
 }
 
 

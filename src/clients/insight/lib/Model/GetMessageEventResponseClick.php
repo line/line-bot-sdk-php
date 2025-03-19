@@ -576,6 +576,39 @@ class GetMessageEventResponseClick implements ModelInterface, ArrayAccess, \Json
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetMessageEventResponseClick from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['seq'])) {
+            $instance->setseq($data['seq']);
+        }
+        if (isset($data['url'])) {
+            $instance->seturl($data['url']);
+        }
+        if (isset($data['click'])) {
+            $instance->setclick($data['click']);
+        }
+        if (isset($data['uniqueClick'])) {
+            $instance->setuniqueClick($data['uniqueClick']);
+        }
+        if (isset($data['uniqueClickOfRequest'])) {
+            $instance->setuniqueClickOfRequest($data['uniqueClickOfRequest']);
+        }
+
+        return $instance;
+    }
 }
 
 

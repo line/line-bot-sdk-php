@@ -482,6 +482,34 @@ class CallbackRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of CallbackRequest from a dict (associative array)
+     *
+     * @param array|null $data Associative array of property values
+     * @return static
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['destination'])) {
+            $instance->setdestination($data['destination']);
+        }
+        if (isset($data['events'])) {
+            $events = [];
+            foreach ($data['events'] as $item) {
+                $events[] = \LINE\Webhook\Model\Event::fromAssocArray($item);
+            }
+            $instance->setevents($events);
+        }
+
+        return $instance;
+    }
 }
 
 
