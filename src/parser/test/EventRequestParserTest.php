@@ -926,7 +926,7 @@ class EventRequestParserTest extends TestCase
         "module": {
           "type": "detached",
           "botId": "botid",
-          "reason": "bot deleted"
+          "reason": "bot_deleted"
         },
         "webhookEventId": "testwebhookeventid",
         "deliveryContext": {
@@ -1411,8 +1411,13 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $members = $event->getJoined()->getMembers();
-            $this->assertEquals(["type" => "user", "userId" => "U4af4980629..."], $members[0]);
-            $this->assertEquals(["type" => "user", "userId" => "U91eeaf62d9..."], $members[1]);
+            $this->assertEquals(count($members), 2);
+            $this->assertInstanceOf(UserSource::class, $members[0]);
+            $this->assertEquals("user", $members[0]->getType());
+            $this->assertEquals("U4af4980629...", $members[0]->getUserId());
+            $this->assertInstanceOf(UserSource::class, $members[1]);
+            $this->assertEquals("user", $members[1]->getType());
+            $this->assertEquals("U91eeaf62d9...", $members[1]->getUserId());
         }
 
         {
@@ -1425,8 +1430,12 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $members = $event->getLeft()->getMembers();
-            $this->assertEquals(["type" => "user", "userId" => "U4af4980629..."], $members[0]);
-            $this->assertEquals(["type" => "user", "userId" => "U91eeaf62d9..."], $members[1]);
+            $this->assertInstanceOf(UserSource::class, $members[0]);
+            $this->assertEquals("user", $members[0]->getType());
+            $this->assertEquals("U4af4980629...", $members[0]->getUserId());
+            $this->assertInstanceOf(UserSource::class, $members[1]);
+            $this->assertEquals("user", $members[1]->getType());
+            $this->assertEquals("U91eeaf62d9...", $members[1]->getUserId());
         }
 
         {
@@ -1502,7 +1511,7 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('contentid', $event->getMessage()->getId());
             $this->assertEquals('text', $event->getMessage()->getType());
             $this->assertEquals('message without emoji', $event->getMessage()->getText());
-            $this->assertEquals([], $event->getMessage()->getEmojis());
+            $this->assertEquals(null, $event->getMessage()->getEmojis());
         }
 
         {
@@ -1765,7 +1774,7 @@ class EventRequestParserTest extends TestCase
 
             $this->assertInstanceOf(\LINE\Webhook\Model\DetachedModuleContent::class, $event->getModule());
             $this->assertEquals('botid', $module->getBotId());
-            $this->assertEquals('bot deleted', $module->getReason());
+            $this->assertEquals('bot_deleted', $module->getReason());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
         }
