@@ -26,6 +26,7 @@ use LINE\LINEBot\KitchenSink\EventHandler\BeaconEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\FollowEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\JoinEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\LeaveEventHandler;
+use LINE\LINEBot\KitchenSink\EventHandler\MemberJoinedEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\AudioMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\ImageMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\LocationMessageHandler;
@@ -38,6 +39,7 @@ use LINE\LINEBot\KitchenSink\EventHandler\UnfollowEventHandler;
 use LINE\Constants\HTTPHeader;
 use LINE\Parser\Event\UnknownEvent;
 use LINE\Parser\EventRequestParser;
+use LINE\Webhook\Model\MemberJoinedEvent;
 use LINE\Webhook\Model\MessageEvent;
 use LINE\Parser\Exception\InvalidEventRequestException;
 use LINE\Parser\Exception\InvalidSignatureException;
@@ -121,6 +123,8 @@ class Route
                     $handler = new JoinEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof LeaveEvent) {
                     $handler = new LeaveEventHandler($bot, $logger, $event);
+                } elseif ($event instanceof MemberJoinedEvent) {
+                    $handler = new MemberJoinedEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof PostbackEvent) {
                     $handler = new PostbackEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof BeaconEvent) {
