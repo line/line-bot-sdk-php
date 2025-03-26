@@ -40783,7 +40783,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003AparseEventRequest\u0028\u0029",
             "name": "parseEventRequest",
-            "summary": "",
+            "summary": "Validate\u0020signature\u0020and\u0020parse\u0020Webhook\u0020event\u0020request.",
             "url": "classes/LINE-Parser-EventRequestParser.html#method_parseEventRequest"
         },                {
             "fqsen": "\\LINE\\Parser\\Exception\\InvalidEventRequestException",

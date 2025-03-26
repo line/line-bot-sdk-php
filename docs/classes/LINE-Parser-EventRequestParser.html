@@ -184,7 +184,7 @@
     <span>
                                 &nbsp;: <a href="classes/LINE-Parser-ParsedEvents.html"><abbr title="\LINE\Parser\ParsedEvents">ParsedEvents</abbr></a>    </span>
 </dt>
-<dd></dd>
+<dd>Validate signature and parse Webhook event request.</dd>
 
         </dl>
 
@@ -212,16 +212,21 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/parser/lib/EventRequestParser.php"><a href="files/src-parser-lib-eventrequestparser.html"><abbr title="src/parser/lib/EventRequestParser.php">EventRequestParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Validate signature and parse Webhook event request.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parseEventRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$channelSecret</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$signature</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Parser-ParsedEvents.html"><abbr title="\LINE\Parser\ParsedEvents">ParsedEvents</abbr></a></span></code>
 
-    
+        <section class="phpdocumentor-description"><p>When discriminator is not unknown, Webhook event will be parsed to the corresponding superclass.
+For example, <code class="prettyprint">&quot;type&quot;:&quot;unknown&quot;</code> will be parsed to LINE\Webhook\Model\Event and
+&quot;type&quot;:&quot;message&quot;, &quot;message.type&quot;:&quot;unknown&quot; will be parsed to LINE\Webhook\Model\MessageContent.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
