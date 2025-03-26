@@ -9,6 +9,9 @@ on:
 jobs:
   check-eol-newrelease:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Check out code
         uses: actions/checkout@v4
