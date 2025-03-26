@@ -21,7 +21,7 @@ for schema in "${CLIENT_SCHEMAS[@]}"; do
     -g php \
     -o $REPO_ROOT_DIR/src/clients/$schema \
     --template-dir $TEMPLATE_DIR \
-    --http-user-agent LINE-BotSDK-PHP/8 \
+    --http-user-agent LINE-BotSDK-PHP/11 \
     --additional-properties="invokerPackage=LINE\Clients\\$camelSchemaName" \
     --additional-properties="variableNamingConvention=camelCase"
 done
