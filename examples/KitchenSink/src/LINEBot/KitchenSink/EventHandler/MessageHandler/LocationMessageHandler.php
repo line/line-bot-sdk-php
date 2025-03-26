@@ -57,8 +57,8 @@ class LocationMessageHandler implements EventHandler
 
         $message = new LocationMessage([
             'type' => MessageType::LOCATION,
-            'title' => $this->locationMessage->getTitle(),
-            'address' => $this->locationMessage->getAddress(),
+            'title' => $this->locationMessage->getTitle() ?? "default title",
+            'address' => $this->locationMessage->getAddress() ?? "default address",
             'latitude' => $this->locationMessage->getLatitude(),
             'longitude' => $this->locationMessage->getLongitude(),
         ]);
