@@ -421,8 +421,10 @@ class ModuleEvent extends Event
     /**
      * Create an instance of ModuleEvent from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return ModuleEvent
      */
     public static function fromAssocArray(?array $data): self
     {

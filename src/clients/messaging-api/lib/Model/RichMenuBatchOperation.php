@@ -427,8 +427,10 @@ class RichMenuBatchOperation implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Create an instance of RichMenuBatchOperation from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return RichMenuBatchOperation
      */
     public static function fromAssocArray(?array $data): self
     {

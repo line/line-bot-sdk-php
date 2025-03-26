@@ -565,8 +565,10 @@ class ImagemapMessage extends Message
     /**
      * Create an instance of ImagemapMessage from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return ImagemapMessage
      */
     public static function fromAssocArray(?array $data): self
     {

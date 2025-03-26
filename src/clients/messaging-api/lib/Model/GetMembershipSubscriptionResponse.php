@@ -436,8 +436,10 @@ class GetMembershipSubscriptionResponse implements ModelInterface, ArrayAccess, 
     /**
      * Create an instance of GetMembershipSubscriptionResponse from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return GetMembershipSubscriptionResponse
      */
     public static function fromAssocArray(?array $data): self
     {

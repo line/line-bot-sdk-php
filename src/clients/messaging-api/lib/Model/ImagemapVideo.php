@@ -525,8 +525,10 @@ class ImagemapVideo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Create an instance of ImagemapVideo from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return ImagemapVideo
      */
     public static function fromAssocArray(?array $data): self
     {

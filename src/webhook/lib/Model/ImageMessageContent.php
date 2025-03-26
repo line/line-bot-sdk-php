@@ -491,8 +491,10 @@ class ImageMessageContent extends MessageContent
     /**
      * Create an instance of ImageMessageContent from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return ImageMessageContent
      */
     public static function fromAssocArray(?array $data): self
     {

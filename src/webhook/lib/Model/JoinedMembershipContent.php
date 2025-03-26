@@ -420,8 +420,10 @@ class JoinedMembershipContent extends MembershipContent
     /**
      * Create an instance of JoinedMembershipContent from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return JoinedMembershipContent
      */
     public static function fromAssocArray(?array $data): self
     {

@@ -420,8 +420,10 @@ class FlexCarousel extends FlexContainer
     /**
      * Create an instance of FlexCarousel from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return FlexCarousel
      */
     public static function fromAssocArray(?array $data): self
     {

@@ -577,8 +577,10 @@ class NarrowcastRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Create an instance of NarrowcastRequest from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return NarrowcastRequest
      */
     public static function fromAssocArray(?array $data): self
     {

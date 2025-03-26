@@ -421,8 +421,10 @@ class MentionSubstitutionObject extends SubstitutionObject
     /**
      * Create an instance of MentionSubstitutionObject from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return MentionSubstitutionObject
      */
     public static function fromAssocArray(?array $data): self
     {

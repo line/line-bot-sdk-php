@@ -733,8 +733,10 @@ class FlexBubble extends FlexContainer
     /**
      * Create an instance of FlexBubble from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return FlexBubble
      */
     public static function fromAssocArray(?array $data): self
     {

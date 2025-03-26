@@ -512,8 +512,10 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Create an instance of PnpMessagesRequest from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return PnpMessagesRequest
      */
     public static function fromAssocArray(?array $data): self
     {

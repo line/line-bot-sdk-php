@@ -491,8 +491,10 @@ class VideoMessage extends Message
     /**
      * Create an instance of VideoMessage from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return VideoMessage
      */
     public static function fromAssocArray(?array $data): self
     {

@@ -435,8 +435,10 @@ class ClipboardAction extends Action
     /**
      * Create an instance of ClipboardAction from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return ClipboardAction
      */
     public static function fromAssocArray(?array $data): self
     {

@@ -424,8 +424,10 @@ class UpdateAudienceGroupAuthorityLevelRequest implements ModelInterface, ArrayA
     /**
      * Create an instance of UpdateAudienceGroupAuthorityLevelRequest from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return UpdateAudienceGroupAuthorityLevelRequest
      */
     public static function fromAssocArray(?array $data): self
     {

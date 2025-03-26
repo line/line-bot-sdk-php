@@ -491,8 +491,10 @@ class StickerMessage extends Message
     /**
      * Create an instance of StickerMessage from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return StickerMessage
      */
     public static function fromAssocArray(?array $data): self
     {

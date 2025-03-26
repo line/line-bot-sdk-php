@@ -492,8 +492,10 @@ class GetMessageEventResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Create an instance of GetMessageEventResponse from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return GetMessageEventResponse
      */
     public static function fromAssocArray(?array $data): self
     {

@@ -501,8 +501,10 @@ class IssueShortLivedChannelAccessTokenResponse implements ModelInterface, Array
     /**
      * Create an instance of IssueShortLivedChannelAccessTokenResponse from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return IssueShortLivedChannelAccessTokenResponse
      */
     public static function fromAssocArray(?array $data): self
     {

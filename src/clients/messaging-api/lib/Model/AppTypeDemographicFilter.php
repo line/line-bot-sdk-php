@@ -417,8 +417,10 @@ class AppTypeDemographicFilter extends DemographicFilter
     /**
      * Create an instance of AppTypeDemographicFilter from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return AppTypeDemographicFilter
      */
     public static function fromAssocArray(?array $data): self
     {

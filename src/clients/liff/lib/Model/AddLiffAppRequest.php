@@ -596,8 +596,10 @@ class AddLiffAppRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Create an instance of AddLiffAppRequest from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return AddLiffAppRequest
      */
     public static function fromAssocArray(?array $data): self
     {

@@ -488,8 +488,10 @@ class CarouselTemplate extends Template
     /**
      * Create an instance of CarouselTemplate from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return CarouselTemplate
      */
     public static function fromAssocArray(?array $data): self
     {

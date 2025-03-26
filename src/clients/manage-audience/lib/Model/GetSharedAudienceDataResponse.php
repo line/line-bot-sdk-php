@@ -500,8 +500,10 @@ class GetSharedAudienceDataResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Create an instance of GetSharedAudienceDataResponse from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return GetSharedAudienceDataResponse
      */
     public static function fromAssocArray(?array $data): self
     {

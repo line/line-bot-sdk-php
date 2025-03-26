@@ -538,8 +538,10 @@ class IssueChannelAccessTokenResponse implements ModelInterface, ArrayAccess, \J
     /**
      * Create an instance of IssueChannelAccessTokenResponse from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return IssueChannelAccessTokenResponse
      */
     public static function fromAssocArray(?array $data): self
     {

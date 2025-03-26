@@ -458,8 +458,10 @@ class FollowEvent extends Event
     /**
      * Create an instance of FollowEvent from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return FollowEvent
      */
     public static function fromAssocArray(?array $data): self
     {

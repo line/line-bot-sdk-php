@@ -452,8 +452,10 @@ class UserMentionee extends Mentionee
     /**
      * Create an instance of UserMentionee from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return UserMentionee
      */
     public static function fromAssocArray(?array $data): self
     {

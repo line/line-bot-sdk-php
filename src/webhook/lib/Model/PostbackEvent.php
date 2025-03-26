@@ -455,8 +455,10 @@ class PostbackEvent extends Event
     /**
      * Create an instance of PostbackEvent from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return PostbackEvent
      */
     public static function fromAssocArray(?array $data): self
     {

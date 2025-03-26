@@ -457,8 +457,10 @@ class TemplateMessage extends Message
     /**
      * Create an instance of TemplateMessage from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return TemplateMessage
      */
     public static function fromAssocArray(?array $data): self
     {

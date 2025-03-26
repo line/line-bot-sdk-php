@@ -455,8 +455,10 @@ class MessageEvent extends Event
     /**
      * Create an instance of MessageEvent from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return MessageEvent
      */
     public static function fromAssocArray(?array $data): self
     {

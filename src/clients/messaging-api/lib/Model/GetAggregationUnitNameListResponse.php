@@ -460,8 +460,10 @@ class GetAggregationUnitNameListResponse implements ModelInterface, ArrayAccess,
     /**
      * Create an instance of GetAggregationUnitNameListResponse from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return GetAggregationUnitNameListResponse
      */
     public static function fromAssocArray(?array $data): self
     {

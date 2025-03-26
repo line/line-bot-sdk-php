@@ -438,8 +438,10 @@ class TestWebhookEndpointRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Create an instance of TestWebhookEndpointRequest from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return TestWebhookEndpointRequest
      */
     public static function fromAssocArray(?array $data): self
     {

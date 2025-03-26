@@ -488,8 +488,10 @@ class TextMessageV2 extends Message
     /**
      * Create an instance of TextMessageV2 from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return TextMessageV2
      */
     public static function fromAssocArray(?array $data): self
     {

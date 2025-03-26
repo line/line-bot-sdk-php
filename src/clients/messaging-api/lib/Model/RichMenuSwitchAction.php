@@ -481,8 +481,10 @@ class RichMenuSwitchAction extends Action
     /**
      * Create an instance of RichMenuSwitchAction from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return RichMenuSwitchAction
      */
     public static function fromAssocArray(?array $data): self
     {

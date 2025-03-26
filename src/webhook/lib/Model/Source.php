@@ -424,8 +424,10 @@ class Source implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Create an instance of Source from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return Source
      */
     public static function fromAssocArray(?array $data): self
     {
