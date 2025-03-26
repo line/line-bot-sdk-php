@@ -5,19 +5,11 @@ on:
     types: [ published ]
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
 
 jobs:
   # Single deploy job since we're just deploying
@@ -26,6 +18,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,3 +35,21 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Create GitHub Issue on Failure
+        if: failure()
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issueTitle = `deploy-page job failed`;
+            const issueBody = `The deploy-page job failed. Please check the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.`;
+            const assignees = [context.actor];
+
+            await github.rest.issues.create({
+              owner,
+              repo,
+              title: issueTitle,
+              body: issueBody,
+              assignees
+            });
