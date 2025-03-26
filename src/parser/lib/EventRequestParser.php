@@ -28,6 +28,11 @@ use LINE\Webhook\Model\Event;
 class EventRequestParser
 {
     /**
+     * Validate signature and parse Webhook event request.
+     * When discriminator is not unknown, Webhook event will be parsed to the corresponding superclass.
+     * For example, `"type":"unknown"` will be parsed to LINE\Webhook\Model\Event and
+     * "type":"message", "message.type":"unknown" will be parsed to LINE\Webhook\Model\MessageContent.
+     *
      * @param string $body
      * @param string $channelSecret
      * @param string $signature

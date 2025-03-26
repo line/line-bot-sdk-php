@@ -26,6 +26,7 @@ use LINE\Parser\EventRequestParser;
 use LINE\Webhook\Model\Event;
 use LINE\Webhook\Model\GroupSource;
 use LINE\Webhook\Model\RoomSource;
+use LINE\Webhook\Model\Source;
 use LINE\Webhook\Model\UserSource;
 use PHPUnit\Framework\TestCase;
 
@@ -1306,6 +1307,7 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('__unknown__', $event->jsonSerialize()->type); // with unprocessed event body
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(Source::class, $source);
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
         }
