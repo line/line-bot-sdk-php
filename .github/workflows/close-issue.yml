@@ -11,6 +11,7 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
+    if: github.repository == 'line/line-bot-sdk-php'
     steps:
       - uses: actions/stale@v9
         with:

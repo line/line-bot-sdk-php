@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: read
       issues: write
+    if: github.repository == 'line/line-bot-sdk-php'
     steps:
       - name: Check out code
         uses: actions/checkout@v4
