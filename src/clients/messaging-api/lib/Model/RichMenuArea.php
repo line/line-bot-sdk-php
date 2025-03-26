@@ -454,6 +454,32 @@ class RichMenuArea implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of RichMenuArea from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return RichMenuArea
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['bounds'])) {
+            $instance->setbounds(\LINE\Clients\MessagingApi\Model\RichMenuBounds::fromAssocArray($data['bounds']));
+        }
+        if (isset($data['action'])) {
+            $instance->setaction(\LINE\Clients\MessagingApi\Model\Action::fromAssocArray($data['action']));
+        }
+
+        return $instance;
+    }
 }
 
 

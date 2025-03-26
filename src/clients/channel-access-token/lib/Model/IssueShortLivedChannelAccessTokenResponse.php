@@ -497,6 +497,35 @@ class IssueShortLivedChannelAccessTokenResponse implements ModelInterface, Array
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of IssueShortLivedChannelAccessTokenResponse from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return IssueShortLivedChannelAccessTokenResponse
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['access_token'])) {
+            $instance->setaccessToken($data['access_token']);
+        }
+        if (isset($data['expires_in'])) {
+            $instance->setexpiresIn($data['expires_in']);
+        }
+        if (isset($data['token_type'])) {
+            $instance->settokenType($data['token_type']);
+        }
+
+        return $instance;
+    }
 }
 
 

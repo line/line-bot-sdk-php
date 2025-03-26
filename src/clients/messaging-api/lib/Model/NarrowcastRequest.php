@@ -573,6 +573,45 @@ class NarrowcastRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of NarrowcastRequest from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return NarrowcastRequest
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['messages'])) {
+            $messages = [];
+            foreach ($data['messages'] as $item) {
+                $messages[] = \LINE\Clients\MessagingApi\Model\Message::fromAssocArray($item);
+            }
+            $instance->setmessages($messages);
+        }
+        if (isset($data['recipient'])) {
+            $instance->setrecipient(\LINE\Clients\MessagingApi\Model\Recipient::fromAssocArray($data['recipient']));
+        }
+        if (isset($data['filter'])) {
+            $instance->setfilter(\LINE\Clients\MessagingApi\Model\Filter::fromAssocArray($data['filter']));
+        }
+        if (isset($data['limit'])) {
+            $instance->setlimit(\LINE\Clients\MessagingApi\Model\Limit::fromAssocArray($data['limit']));
+        }
+        if (isset($data['notificationDisabled'])) {
+            $instance->setnotificationDisabled($data['notificationDisabled']);
+        }
+
+        return $instance;
+    }
 }
 
 

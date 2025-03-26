@@ -2,6 +2,7 @@
 cd `dirname $0`
 
 REPO_ROOT_DIR=$PWD/..
+TEMPLATE_DIR=$PWD/custom-template
 CLIENT_SCHEMAS=(
     "channel-access-token"
     "insight"
@@ -19,7 +20,8 @@ for schema in "${CLIENT_SCHEMAS[@]}"; do
     -i $REPO_ROOT_DIR/line-openapi/$schema.yml \
     -g php \
     -o $REPO_ROOT_DIR/src/clients/$schema \
-    --http-user-agent LINE-BotSDK-PHP/8 \
+    --template-dir $TEMPLATE_DIR \
+    --http-user-agent LINE-BotSDK-PHP/11 \
     --additional-properties="invokerPackage=LINE\Clients\\$camelSchemaName" \
     --additional-properties="variableNamingConvention=camelCase"
 done
@@ -29,6 +31,7 @@ openapi-generator-cli generate \
 -i $REPO_ROOT_DIR/line-openapi/webhook.yml \
 -g php \
 -o $REPO_ROOT_DIR/src/webhook \
+--template-dir $TEMPLATE_DIR \
 --additional-properties="invokerPackage=LINE\Webhook" \
 --additional-properties="variableNamingConvention=camelCase"
 

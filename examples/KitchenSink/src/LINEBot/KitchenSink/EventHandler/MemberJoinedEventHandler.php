@@ -24,7 +24,6 @@ use LINE\Clients\MessagingApi\Model\TextMessage;
 use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Webhook\Model\GroupSource;
-use LINE\Webhook\Model\JoinEvent;
 use LINE\Webhook\Model\MemberJoinedEvent;
 use LINE\Webhook\Model\RoomSource;
 
@@ -38,7 +37,7 @@ class MemberJoinedEventHandler implements EventHandler
     private $memberJoinedEvent;
 
     /**
-     * JoinEventHandler constructor.
+     * MemberJoinedEventHandler constructor.
      * @param MessagingApiApi $bot
      * @param \Psr\Log\LoggerInterface $logger
      * @param MemberJoinedEvent $memberJoinedEvent
@@ -68,7 +67,7 @@ class MemberJoinedEventHandler implements EventHandler
 
         $joinedMembers = $this->memberJoinedEvent->getJoined()->getMembers();
         $joinedMemberIds = array_map(function ($member) {
-            return $member["userId"];
+            return $member->getUserId();
         }, $joinedMembers);
 
         $request = new ReplyMessageRequest([

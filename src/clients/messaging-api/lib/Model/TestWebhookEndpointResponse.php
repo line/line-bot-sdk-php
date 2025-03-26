@@ -567,6 +567,41 @@ class TestWebhookEndpointResponse implements ModelInterface, ArrayAccess, \JsonS
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of TestWebhookEndpointResponse from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return TestWebhookEndpointResponse
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['success'])) {
+            $instance->setsuccess($data['success']);
+        }
+        if (isset($data['timestamp'])) {
+            $instance->settimestamp($data['timestamp']);
+        }
+        if (isset($data['statusCode'])) {
+            $instance->setstatusCode($data['statusCode']);
+        }
+        if (isset($data['reason'])) {
+            $instance->setreason($data['reason']);
+        }
+        if (isset($data['detail'])) {
+            $instance->setdetail($data['detail']);
+        }
+
+        return $instance;
+    }
 }
 
 

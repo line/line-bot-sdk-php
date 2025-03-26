@@ -490,6 +490,54 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of Message from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return Message
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $discriminatorValue = $data[self::DISCRIMINATOR] ?? null;
+        $discriminatorMap = [
+            'audio' => AudioMessage::class,
+'flex' => FlexMessage::class,
+'image' => ImageMessage::class,
+'imagemap' => ImagemapMessage::class,
+'location' => LocationMessage::class,
+'sticker' => StickerMessage::class,
+'template' => TemplateMessage::class,
+'text' => TextMessage::class,
+'textV2' => TextMessageV2::class,
+'video' => VideoMessage::class,
+        ];
+
+        if (isset($discriminatorValue) && isset($discriminatorMap[$discriminatorValue])) {
+            $modelClass = $discriminatorMap[$discriminatorValue];
+            return $modelClass::fromAssocArray($data);
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['quickReply'])) {
+            $instance->setquickReply(\LINE\Clients\MessagingApi\Model\QuickReply::fromAssocArray($data['quickReply']));
+        }
+        if (isset($data['sender'])) {
+            $instance->setsender(\LINE\Clients\MessagingApi\Model\Sender::fromAssocArray($data['sender']));
+        }
+
+        return $instance;
+    }
 }
 
 

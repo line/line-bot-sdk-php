@@ -496,6 +496,39 @@ class GetSharedAudienceDataResponse implements ModelInterface, ArrayAccess, \Jso
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetSharedAudienceDataResponse from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return GetSharedAudienceDataResponse
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['audienceGroup'])) {
+            $instance->setaudienceGroup(\LINE\Clients\ManageAudience\Model\AudienceGroup::fromAssocArray($data['audienceGroup']));
+        }
+        if (isset($data['jobs'])) {
+            $jobs = [];
+            foreach ($data['jobs'] as $item) {
+                $jobs[] = \LINE\Clients\ManageAudience\Model\AudienceGroupJob::fromAssocArray($item);
+            }
+            $instance->setjobs($jobs);
+        }
+        if (isset($data['owner'])) {
+            $instance->setowner(\LINE\Clients\ManageAudience\Model\DetailedOwner::fromAssocArray($data['owner']));
+        }
+
+        return $instance;
+    }
 }
 
 

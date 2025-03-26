@@ -494,6 +494,32 @@ class LinkContent implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of LinkContent from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return LinkContent
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['result'])) {
+            $instance->setresult($data['result']);
+        }
+        if (isset($data['nonce'])) {
+            $instance->setnonce($data['nonce']);
+        }
+
+        return $instance;
+    }
 }
 
 

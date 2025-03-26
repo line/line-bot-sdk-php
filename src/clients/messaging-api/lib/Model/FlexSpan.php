@@ -687,6 +687,47 @@ class FlexSpan extends FlexComponent
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexSpan from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return FlexSpan
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['text'])) {
+            $instance->settext($data['text']);
+        }
+        if (isset($data['size'])) {
+            $instance->setsize($data['size']);
+        }
+        if (isset($data['color'])) {
+            $instance->setcolor($data['color']);
+        }
+        if (isset($data['weight'])) {
+            $instance->setweight($data['weight']);
+        }
+        if (isset($data['style'])) {
+            $instance->setstyle($data['style']);
+        }
+        if (isset($data['decoration'])) {
+            $instance->setdecoration($data['decoration']);
+        }
+
+        return $instance;
+    }
 }
 
 

@@ -590,6 +590,48 @@ class GetSharedAudienceGroupsResponse implements ModelInterface, ArrayAccess, \J
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetSharedAudienceGroupsResponse from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return GetSharedAudienceGroupsResponse
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['audienceGroups'])) {
+            $audienceGroups = [];
+            foreach ($data['audienceGroups'] as $item) {
+                $audienceGroups[] = \LINE\Clients\ManageAudience\Model\AudienceGroup::fromAssocArray($item);
+            }
+            $instance->setaudienceGroups($audienceGroups);
+        }
+        if (isset($data['hasNextPage'])) {
+            $instance->sethasNextPage($data['hasNextPage']);
+        }
+        if (isset($data['totalCount'])) {
+            $instance->settotalCount($data['totalCount']);
+        }
+        if (isset($data['readWriteAudienceGroupTotalCount'])) {
+            $instance->setreadWriteAudienceGroupTotalCount($data['readWriteAudienceGroupTotalCount']);
+        }
+        if (isset($data['page'])) {
+            $instance->setpage($data['page']);
+        }
+        if (isset($data['size'])) {
+            $instance->setsize($data['size']);
+        }
+
+        return $instance;
+    }
 }
 
 

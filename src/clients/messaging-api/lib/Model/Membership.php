@@ -807,6 +807,56 @@ class Membership implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of Membership from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return Membership
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['membershipId'])) {
+            $instance->setmembershipId($data['membershipId']);
+        }
+        if (isset($data['title'])) {
+            $instance->settitle($data['title']);
+        }
+        if (isset($data['description'])) {
+            $instance->setdescription($data['description']);
+        }
+        if (isset($data['benefits'])) {
+            $instance->setbenefits($data['benefits']);
+        }
+        if (isset($data['price'])) {
+            $instance->setprice($data['price']);
+        }
+        if (isset($data['currency'])) {
+            $instance->setcurrency($data['currency']);
+        }
+        if (isset($data['memberCount'])) {
+            $instance->setmemberCount($data['memberCount']);
+        }
+        if (isset($data['memberLimit'])) {
+            $instance->setmemberLimit($data['memberLimit']);
+        }
+        if (isset($data['isInAppPurchase'])) {
+            $instance->setisInAppPurchase($data['isInAppPurchase']);
+        }
+        if (isset($data['isPublished'])) {
+            $instance->setisPublished($data['isPublished']);
+        }
+
+        return $instance;
+    }
 }
 
 

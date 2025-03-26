@@ -419,6 +419,33 @@ class GetAllLiffAppsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetAllLiffAppsResponse from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return GetAllLiffAppsResponse
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['apps'])) {
+            $apps = [];
+            foreach ($data['apps'] as $item) {
+                $apps[] = \LINE\Clients\Liff\Model\LiffApp::fromAssocArray($item);
+            }
+            $instance->setapps($apps);
+        }
+
+        return $instance;
+    }
 }
 
 

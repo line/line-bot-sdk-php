@@ -521,6 +521,44 @@ class LocationMessageContent extends MessageContent
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of LocationMessageContent from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return LocationMessageContent
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['id'])) {
+            $instance->setid($data['id']);
+        }
+        if (isset($data['title'])) {
+            $instance->settitle($data['title']);
+        }
+        if (isset($data['address'])) {
+            $instance->setaddress($data['address']);
+        }
+        if (isset($data['latitude'])) {
+            $instance->setlatitude($data['latitude']);
+        }
+        if (isset($data['longitude'])) {
+            $instance->setlongitude($data['longitude']);
+        }
+
+        return $instance;
+    }
 }
 
 

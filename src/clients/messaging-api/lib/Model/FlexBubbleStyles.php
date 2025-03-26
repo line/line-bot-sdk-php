@@ -521,6 +521,38 @@ class FlexBubbleStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of FlexBubbleStyles from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return FlexBubbleStyles
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['header'])) {
+            $instance->setheader(\LINE\Clients\MessagingApi\Model\FlexBlockStyle::fromAssocArray($data['header']));
+        }
+        if (isset($data['hero'])) {
+            $instance->sethero(\LINE\Clients\MessagingApi\Model\FlexBlockStyle::fromAssocArray($data['hero']));
+        }
+        if (isset($data['body'])) {
+            $instance->setbody(\LINE\Clients\MessagingApi\Model\FlexBlockStyle::fromAssocArray($data['body']));
+        }
+        if (isset($data['footer'])) {
+            $instance->setfooter(\LINE\Clients\MessagingApi\Model\FlexBlockStyle::fromAssocArray($data['footer']));
+        }
+
+        return $instance;
+    }
 }
 
 

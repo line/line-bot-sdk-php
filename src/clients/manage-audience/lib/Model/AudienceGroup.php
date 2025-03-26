@@ -801,6 +801,62 @@ class AudienceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of AudienceGroup from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return AudienceGroup
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['audienceGroupId'])) {
+            $instance->setaudienceGroupId($data['audienceGroupId']);
+        }
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['description'])) {
+            $instance->setdescription($data['description']);
+        }
+        if (isset($data['status'])) {
+            $instance->setstatus($data['status']);
+        }
+        if (isset($data['failedType'])) {
+            $instance->setfailedType($data['failedType']);
+        }
+        if (isset($data['audienceCount'])) {
+            $instance->setaudienceCount($data['audienceCount']);
+        }
+        if (isset($data['created'])) {
+            $instance->setcreated($data['created']);
+        }
+        if (isset($data['requestId'])) {
+            $instance->setrequestId($data['requestId']);
+        }
+        if (isset($data['clickUrl'])) {
+            $instance->setclickUrl($data['clickUrl']);
+        }
+        if (isset($data['isIfaAudience'])) {
+            $instance->setisIfaAudience($data['isIfaAudience']);
+        }
+        if (isset($data['permission'])) {
+            $instance->setpermission($data['permission']);
+        }
+        if (isset($data['createRoute'])) {
+            $instance->setcreateRoute($data['createRoute']);
+        }
+
+        return $instance;
+    }
 }
 
 

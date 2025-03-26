@@ -653,6 +653,44 @@ class SubscribedMembershipPlan implements ModelInterface, ArrayAccess, \JsonSeri
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of SubscribedMembershipPlan from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return SubscribedMembershipPlan
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['membershipId'])) {
+            $instance->setmembershipId($data['membershipId']);
+        }
+        if (isset($data['title'])) {
+            $instance->settitle($data['title']);
+        }
+        if (isset($data['description'])) {
+            $instance->setdescription($data['description']);
+        }
+        if (isset($data['benefits'])) {
+            $instance->setbenefits($data['benefits']);
+        }
+        if (isset($data['price'])) {
+            $instance->setprice($data['price']);
+        }
+        if (isset($data['currency'])) {
+            $instance->setcurrency($data['currency']);
+        }
+
+        return $instance;
+    }
 }
 
 

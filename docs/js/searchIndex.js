@@ -40783,73 +40783,8 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003AparseEventRequest\u0028\u0029",
             "name": "parseEventRequest",
-            "summary": "",
+            "summary": "Validate\u0020signature\u0020and\u0020parse\u0020Webhook\u0020event\u0020request.",
             "url": "classes/LINE-Parser-EventRequestParser.html#method_parseEventRequest"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003AparseEvent\u0028\u0029",
-            "name": "parseEvent",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#method_parseEvent"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003AparseMessageContent\u0028\u0029",
-            "name": "parseMessageContent",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#method_parseMessageContent"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003AparseSource\u0028\u0029",
-            "name": "parseSource",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#method_parseSource"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003AparseThingsContent\u0028\u0029",
-            "name": "parseThingsContent",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#method_parseThingsContent"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003AparseModuleContent\u0028\u0029",
-            "name": "parseModuleContent",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#method_parseModuleContent"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003AparseMembershipContent\u0028\u0029",
-            "name": "parseMembershipContent",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#method_parseMembershipContent"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003A\u0024eventType2class",
-            "name": "eventType2class",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#property_eventType2class"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003A\u0024messageType2class",
-            "name": "messageType2class",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#property_messageType2class"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003A\u0024sourceType2class",
-            "name": "sourceType2class",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#property_sourceType2class"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003A\u0024thingsContentType2class",
-            "name": "thingsContentType2class",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#property_thingsContentType2class"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003A\u0024contentType2class",
-            "name": "contentType2class",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#property_contentType2class"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003A\u0024moduleContentType2class",
-            "name": "moduleContentType2class",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#property_moduleContentType2class"
-        },                {
-            "fqsen": "\\LINE\\Parser\\EventRequestParser\u003A\u003A\u0024membershipContentType2class",
-            "name": "membershipContentType2class",
-            "summary": "",
-            "url": "classes/LINE-Parser-EventRequestParser.html#property_membershipContentType2class"
         },                {
             "fqsen": "\\LINE\\Parser\\Exception\\InvalidEventRequestException",
             "name": "InvalidEventRequestException",

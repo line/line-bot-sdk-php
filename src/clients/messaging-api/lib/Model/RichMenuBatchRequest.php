@@ -486,6 +486,36 @@ class RichMenuBatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of RichMenuBatchRequest from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return RichMenuBatchRequest
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['operations'])) {
+            $operations = [];
+            foreach ($data['operations'] as $item) {
+                $operations[] = \LINE\Clients\MessagingApi\Model\RichMenuBatchOperation::fromAssocArray($item);
+            }
+            $instance->setoperations($operations);
+        }
+        if (isset($data['resumeRequestKey'])) {
+            $instance->setresumeRequestKey($data['resumeRequestKey']);
+        }
+
+        return $instance;
+    }
 }
 
 

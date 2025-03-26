@@ -447,6 +447,35 @@ class SubscriptionPeriodDemographicFilter extends DemographicFilter
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of SubscriptionPeriodDemographicFilter from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return SubscriptionPeriodDemographicFilter
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['gte'])) {
+            $instance->setgte($data['gte']);
+        }
+        if (isset($data['lt'])) {
+            $instance->setlt($data['lt']);
+        }
+
+        return $instance;
+    }
 }
 
 

@@ -459,6 +459,44 @@ class ImagemapAction implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of ImagemapAction from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return ImagemapAction
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $discriminatorValue = $data[self::DISCRIMINATOR] ?? null;
+        $discriminatorMap = [
+            'clipboard' => ClipboardImagemapAction::class,
+'message' => MessageImagemapAction::class,
+'uri' => URIImagemapAction::class,
+        ];
+
+        if (isset($discriminatorValue) && isset($discriminatorMap[$discriminatorValue])) {
+            $modelClass = $discriminatorMap[$discriminatorValue];
+            return $modelClass::fromAssocArray($data);
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['area'])) {
+            $instance->setarea(\LINE\Clients\MessagingApi\Model\ImagemapArea::fromAssocArray($data['area']));
+        }
+
+        return $instance;
+    }
 }
 
 

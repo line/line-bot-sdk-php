@@ -454,6 +454,35 @@ class RichMenuBatchLinkOperation extends RichMenuBatchOperation
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of RichMenuBatchLinkOperation from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return RichMenuBatchLinkOperation
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['from'])) {
+            $instance->setfrom($data['from']);
+        }
+        if (isset($data['to'])) {
+            $instance->setto($data['to']);
+        }
+
+        return $instance;
+    }
 }
 
 

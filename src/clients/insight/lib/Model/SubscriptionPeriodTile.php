@@ -497,6 +497,32 @@ class SubscriptionPeriodTile implements ModelInterface, ArrayAccess, \JsonSerial
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of SubscriptionPeriodTile from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return SubscriptionPeriodTile
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['subscriptionPeriod'])) {
+            $instance->setsubscriptionPeriod($data['subscriptionPeriod']);
+        }
+        if (isset($data['percentage'])) {
+            $instance->setpercentage($data['percentage']);
+        }
+
+        return $instance;
+    }
 }
 
 

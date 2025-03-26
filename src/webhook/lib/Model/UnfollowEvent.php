@@ -386,6 +386,44 @@ class UnfollowEvent extends Event
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of UnfollowEvent from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return UnfollowEvent
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['source'])) {
+            $instance->setsource(\LINE\Webhook\Model\Source::fromAssocArray($data['source']));
+        }
+        if (isset($data['timestamp'])) {
+            $instance->settimestamp($data['timestamp']);
+        }
+        if (isset($data['mode'])) {
+            $instance->setmode($data['mode']);
+        }
+        if (isset($data['webhookEventId'])) {
+            $instance->setwebhookEventId($data['webhookEventId']);
+        }
+        if (isset($data['deliveryContext'])) {
+            $instance->setdeliveryContext(\LINE\Webhook\Model\DeliveryContext::fromAssocArray($data['deliveryContext']));
+        }
+
+        return $instance;
+    }
 }
 
 

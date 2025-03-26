@@ -487,6 +487,44 @@ class VideoMessage extends Message
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of VideoMessage from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return VideoMessage
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['quickReply'])) {
+            $instance->setquickReply(\LINE\Clients\MessagingApi\Model\QuickReply::fromAssocArray($data['quickReply']));
+        }
+        if (isset($data['sender'])) {
+            $instance->setsender(\LINE\Clients\MessagingApi\Model\Sender::fromAssocArray($data['sender']));
+        }
+        if (isset($data['originalContentUrl'])) {
+            $instance->setoriginalContentUrl($data['originalContentUrl']);
+        }
+        if (isset($data['previewImageUrl'])) {
+            $instance->setpreviewImageUrl($data['previewImageUrl']);
+        }
+        if (isset($data['trackingId'])) {
+            $instance->settrackingId($data['trackingId']);
+        }
+
+        return $instance;
+    }
 }
 
 

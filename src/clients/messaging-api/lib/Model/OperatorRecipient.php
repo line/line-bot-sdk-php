@@ -481,6 +481,46 @@ class OperatorRecipient extends Recipient
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of OperatorRecipient from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return OperatorRecipient
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['and'])) {
+            $and = [];
+            foreach ($data['and'] as $item) {
+                $and[] = \LINE\Clients\MessagingApi\Model\Recipient::fromAssocArray($item);
+            }
+            $instance->setand($and);
+        }
+        if (isset($data['or'])) {
+            $or = [];
+            foreach ($data['or'] as $item) {
+                $or[] = \LINE\Clients\MessagingApi\Model\Recipient::fromAssocArray($item);
+            }
+            $instance->setor($or);
+        }
+        if (isset($data['not'])) {
+            $instance->setnot(\LINE\Clients\MessagingApi\Model\Recipient::fromAssocArray($data['not']));
+        }
+
+        return $instance;
+    }
 }
 
 

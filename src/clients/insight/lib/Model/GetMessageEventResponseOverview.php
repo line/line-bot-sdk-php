@@ -652,6 +652,47 @@ class GetMessageEventResponseOverview implements ModelInterface, ArrayAccess, \J
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetMessageEventResponseOverview from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return GetMessageEventResponseOverview
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['requestId'])) {
+            $instance->setrequestId($data['requestId']);
+        }
+        if (isset($data['timestamp'])) {
+            $instance->settimestamp($data['timestamp']);
+        }
+        if (isset($data['delivered'])) {
+            $instance->setdelivered($data['delivered']);
+        }
+        if (isset($data['uniqueImpression'])) {
+            $instance->setuniqueImpression($data['uniqueImpression']);
+        }
+        if (isset($data['uniqueClick'])) {
+            $instance->setuniqueClick($data['uniqueClick']);
+        }
+        if (isset($data['uniqueMediaPlayed'])) {
+            $instance->setuniqueMediaPlayed($data['uniqueMediaPlayed']);
+        }
+        if (isset($data['uniqueMediaPlayed100Percent'])) {
+            $instance->setuniqueMediaPlayed100Percent($data['uniqueMediaPlayed100Percent']);
+        }
+
+        return $instance;
+    }
 }
 
 

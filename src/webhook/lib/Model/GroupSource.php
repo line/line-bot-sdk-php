@@ -450,6 +450,35 @@ class GroupSource extends Source
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GroupSource from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return GroupSource
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['type'])) {
+            $instance->settype($data['type']);
+        }
+        if (isset($data['groupId'])) {
+            $instance->setgroupId($data['groupId']);
+        }
+        if (isset($data['userId'])) {
+            $instance->setuserId($data['userId']);
+        }
+
+        return $instance;
+    }
 }
 
 

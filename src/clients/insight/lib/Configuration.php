@@ -115,7 +115,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'LINE-BotSDK-PHP/8';
+    protected $userAgent = 'LINE-BotSDK-PHP/11';
 
     /**
      * Debug switch (default set to false)

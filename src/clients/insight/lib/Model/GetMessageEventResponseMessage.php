@@ -870,6 +870,62 @@ class GetMessageEventResponseMessage implements ModelInterface, ArrayAccess, \Js
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetMessageEventResponseMessage from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return GetMessageEventResponseMessage
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['seq'])) {
+            $instance->setseq($data['seq']);
+        }
+        if (isset($data['impression'])) {
+            $instance->setimpression($data['impression']);
+        }
+        if (isset($data['mediaPlayed'])) {
+            $instance->setmediaPlayed($data['mediaPlayed']);
+        }
+        if (isset($data['mediaPlayed25Percent'])) {
+            $instance->setmediaPlayed25Percent($data['mediaPlayed25Percent']);
+        }
+        if (isset($data['mediaPlayed50Percent'])) {
+            $instance->setmediaPlayed50Percent($data['mediaPlayed50Percent']);
+        }
+        if (isset($data['mediaPlayed75Percent'])) {
+            $instance->setmediaPlayed75Percent($data['mediaPlayed75Percent']);
+        }
+        if (isset($data['mediaPlayed100Percent'])) {
+            $instance->setmediaPlayed100Percent($data['mediaPlayed100Percent']);
+        }
+        if (isset($data['uniqueMediaPlayed'])) {
+            $instance->setuniqueMediaPlayed($data['uniqueMediaPlayed']);
+        }
+        if (isset($data['uniqueMediaPlayed25Percent'])) {
+            $instance->setuniqueMediaPlayed25Percent($data['uniqueMediaPlayed25Percent']);
+        }
+        if (isset($data['uniqueMediaPlayed50Percent'])) {
+            $instance->setuniqueMediaPlayed50Percent($data['uniqueMediaPlayed50Percent']);
+        }
+        if (isset($data['uniqueMediaPlayed75Percent'])) {
+            $instance->setuniqueMediaPlayed75Percent($data['uniqueMediaPlayed75Percent']);
+        }
+        if (isset($data['uniqueMediaPlayed100Percent'])) {
+            $instance->setuniqueMediaPlayed100Percent($data['uniqueMediaPlayed100Percent']);
+        }
+
+        return $instance;
+    }
 }
 
 

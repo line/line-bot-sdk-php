@@ -434,6 +434,29 @@ class TestWebhookEndpointRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of TestWebhookEndpointRequest from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return TestWebhookEndpointRequest
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['endpoint'])) {
+            $instance->setendpoint($data['endpoint']);
+        }
+
+        return $instance;
+    }
 }
 
 

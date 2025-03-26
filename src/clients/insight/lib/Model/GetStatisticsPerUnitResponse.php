@@ -497,6 +497,43 @@ class GetStatisticsPerUnitResponse implements ModelInterface, ArrayAccess, \Json
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Create an instance of GetStatisticsPerUnitResponse from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return GetStatisticsPerUnitResponse
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+
+        $instance = new static();
+
+        if (isset($data['overview'])) {
+            $instance->setoverview(\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponseOverview::fromAssocArray($data['overview']));
+        }
+        if (isset($data['messages'])) {
+            $messages = [];
+            foreach ($data['messages'] as $item) {
+                $messages[] = \LINE\Clients\Insight\Model\GetStatisticsPerUnitResponseMessage::fromAssocArray($item);
+            }
+            $instance->setmessages($messages);
+        }
+        if (isset($data['clicks'])) {
+            $clicks = [];
+            foreach ($data['clicks'] as $item) {
+                $clicks[] = \LINE\Clients\Insight\Model\GetStatisticsPerUnitResponseClick::fromAssocArray($item);
+            }
+            $instance->setclicks($clicks);
+        }
+
+        return $instance;
+    }
 }
 
 
