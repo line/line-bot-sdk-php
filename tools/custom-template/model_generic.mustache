@@ -561,8 +561,10 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     /**
      * Create an instance of {{{classname}}} from a dict (associative array)
      *
+     * @internal This method is intended to be used internally only for now.
+     *
      * @param array|null $data Associative array of property values
-     * @return static
+     * @return {{{classname}}}
      */
     public static function fromAssocArray(?array $data): self
     {
