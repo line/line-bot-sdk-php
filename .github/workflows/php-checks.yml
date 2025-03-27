@@ -9,6 +9,8 @@ jobs:
   tests:
     name: Run checks on PHP ${{ matrix.php }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:
