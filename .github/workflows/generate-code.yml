@@ -12,7 +12,9 @@ jobs:
   tests:
     name: Generate OpenAPI based code
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       # Setup
       - uses: actions/checkout@v4
