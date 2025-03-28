@@ -56,8 +56,13 @@ jobs:
           wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar
           php phpDocumentor.phar run -d src -t docs
       - run: |
-          diff=$(git --no-pager diff --name-only HEAD)
-          echo "DIFF_IS_EMPTY=$([[ -z "$diff" ]] && echo 'true' || echo 'false')" >> $GITHUB_ENV
+          diff_files=$(git --no-pager diff --name-only)
+          diff_excluding_submodule=$(echo "$diff_files" | grep -v '^line-openapi$' || true)
+
+          echo "diff files: $diff_files"
+          echo "diff excluding submodule: $diff_excluding_submodule"
+
+          echo "DIFF_IS_EMPTY=$([[ -z "$diff_excluding_submodule" ]] && echo 'true' || echo 'false')" >> $GITHUB_ENV
           echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
       ## Run if diff exists and pull request, and make CI status failure (but allow renovate bot)
       - if: ${{ github.event_name == 'pull_request' && env.DIFF_IS_EMPTY != 'true' && github.actor != 'renovate[bot]' }}
