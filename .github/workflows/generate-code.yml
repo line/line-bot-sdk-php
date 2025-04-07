@@ -1,12 +1,10 @@
 name: Generate code and open pull request
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - master
   pull_request:
   merge_group:
+  workflow_dispatch:
 
 jobs:
   tests:
