@@ -86,9 +86,6 @@ class ManageAudienceApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'activateAudienceGroup' => [
-            'application/json',
-        ],
         'addAudienceToAudienceGroup' => [
             'application/json',
         ],
@@ -107,9 +104,6 @@ class ManageAudienceApi
         'getAudienceData' => [
             'application/json',
         ],
-        'getAudienceGroupAuthorityLevel' => [
-            'application/json',
-        ],
         'getAudienceGroups' => [
             'application/json',
         ],
@@ -117,9 +111,6 @@ class ManageAudienceApi
             'application/json',
         ],
         'getSharedAudienceGroups' => [
-            'application/json',
-        ],
-        'updateAudienceGroupAuthorityLevel' => [
             'application/json',
         ],
         'updateAudienceGroupDescription' => [
@@ -171,219 +162,6 @@ class ManageAudienceApi
     public function getConfig()
     {
         return $this->config;
-    }
-
-    /**
-     * Operation activateAudienceGroup
-     *
-     * @param  int $audienceGroupId The audience ID. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['activateAudienceGroup'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function activateAudienceGroup($audienceGroupId, string $contentType = self::contentTypes['activateAudienceGroup'][0])
-    {
-        $this->activateAudienceGroupWithHttpInfo($audienceGroupId, $contentType);
-    }
-
-    /**
-     * Operation activateAudienceGroupWithHttpInfo
-     *
-     * @param  int $audienceGroupId The audience ID. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['activateAudienceGroup'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function activateAudienceGroupWithHttpInfo($audienceGroupId, string $contentType = self::contentTypes['activateAudienceGroup'][0])
-    {
-        $request = $this->activateAudienceGroupRequest($audienceGroupId, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation activateAudienceGroupAsync
-     *
-     * @param  int $audienceGroupId The audience ID. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['activateAudienceGroup'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function activateAudienceGroupAsync($audienceGroupId, string $contentType = self::contentTypes['activateAudienceGroup'][0])
-    {
-        return $this->activateAudienceGroupAsyncWithHttpInfo($audienceGroupId, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation activateAudienceGroupAsyncWithHttpInfo
-     *
-     * @param  int $audienceGroupId The audience ID. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['activateAudienceGroup'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function activateAudienceGroupAsyncWithHttpInfo($audienceGroupId, string $contentType = self::contentTypes['activateAudienceGroup'][0])
-    {
-        $returnType = '';
-        $request = $this->activateAudienceGroupRequest($audienceGroupId, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'activateAudienceGroup'
-     *
-     * @param  int $audienceGroupId The audience ID. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['activateAudienceGroup'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function activateAudienceGroupRequest($audienceGroupId, string $contentType = self::contentTypes['activateAudienceGroup'][0])
-    {
-
-        // verify the required parameter 'audienceGroupId' is set
-        if ($audienceGroupId === null || (is_array($audienceGroupId) && count($audienceGroupId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $audienceGroupId when calling activateAudienceGroup'
-            );
-        }
-
-
-        $resourcePath = '/v2/bot/audienceGroup/{audienceGroupId}/activate';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($audienceGroupId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'audienceGroupId' . '}',
-                ObjectSerializer::toPathValue($audienceGroupId),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -2060,290 +1838,6 @@ class ManageAudienceApi
     }
 
     /**
-     * Operation getAudienceGroupAuthorityLevel
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \LINE\Clients\ManageAudience\Model\GetAudienceGroupAuthorityLevelResponse
-     */
-    public function getAudienceGroupAuthorityLevel(string $contentType = self::contentTypes['getAudienceGroupAuthorityLevel'][0])
-    {
-        list($response) = $this->getAudienceGroupAuthorityLevelWithHttpInfo($contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getAudienceGroupAuthorityLevelWithHttpInfo
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \LINE\Clients\ManageAudience\Model\GetAudienceGroupAuthorityLevelResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAudienceGroupAuthorityLevelWithHttpInfo(string $contentType = self::contentTypes['getAudienceGroupAuthorityLevel'][0])
-    {
-        $request = $this->getAudienceGroupAuthorityLevelRequest($contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    if ('\LINE\Clients\ManageAudience\Model\GetAudienceGroupAuthorityLevelResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\LINE\Clients\ManageAudience\Model\GetAudienceGroupAuthorityLevelResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\LINE\Clients\ManageAudience\Model\GetAudienceGroupAuthorityLevelResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            $returnType = '\LINE\Clients\ManageAudience\Model\GetAudienceGroupAuthorityLevelResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\LINE\Clients\ManageAudience\Model\GetAudienceGroupAuthorityLevelResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAudienceGroupAuthorityLevelAsync
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAudienceGroupAuthorityLevelAsync(string $contentType = self::contentTypes['getAudienceGroupAuthorityLevel'][0])
-    {
-        return $this->getAudienceGroupAuthorityLevelAsyncWithHttpInfo($contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAudienceGroupAuthorityLevelAsyncWithHttpInfo
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAudienceGroupAuthorityLevelAsyncWithHttpInfo(string $contentType = self::contentTypes['getAudienceGroupAuthorityLevel'][0])
-    {
-        $returnType = '\LINE\Clients\ManageAudience\Model\GetAudienceGroupAuthorityLevelResponse';
-        $request = $this->getAudienceGroupAuthorityLevelRequest($contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAudienceGroupAuthorityLevel'
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getAudienceGroupAuthorityLevelRequest(string $contentType = self::contentTypes['getAudienceGroupAuthorityLevel'][0])
-    {
-
-
-        $resourcePath = '/v2/bot/audienceGroup/authorityLevel';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getAudienceGroups
      *
      * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
@@ -3076,15 +2570,16 @@ class ManageAudienceApi
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupCreateRoute|null $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
+     * @param  bool|null $includesOwnedAudienceGroups true: Include audienceGroups owned by LINE Official Account Manager false: Respond only audienceGroups shared by Business Manager (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSharedAudienceGroups'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \LINE\Clients\ManageAudience\Model\GetSharedAudienceGroupsResponse
      */
-    public function getSharedAudienceGroups($page, $description = null, $status = null, $size = null, $createRoute = null, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroups($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
-        list($response) = $this->getSharedAudienceGroupsWithHttpInfo($page, $description, $status, $size, $createRoute, $contentType);
+        list($response) = $this->getSharedAudienceGroupsWithHttpInfo($page, $description, $status, $size, $createRoute, $includesOwnedAudienceGroups, $contentType);
         return $response;
     }
 
@@ -3096,15 +2591,16 @@ class ManageAudienceApi
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupCreateRoute|null $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
+     * @param  bool|null $includesOwnedAudienceGroups true: Include audienceGroups owned by LINE Official Account Manager false: Respond only audienceGroups shared by Business Manager (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSharedAudienceGroups'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \LINE\Clients\ManageAudience\Model\GetSharedAudienceGroupsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSharedAudienceGroupsWithHttpInfo($page, $description = null, $status = null, $size = null, $createRoute = null, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroupsWithHttpInfo($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
-        $request = $this->getSharedAudienceGroupsRequest($page, $description, $status, $size, $createRoute, $contentType);
+        $request = $this->getSharedAudienceGroupsRequest($page, $description, $status, $size, $createRoute, $includesOwnedAudienceGroups, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3223,14 +2719,15 @@ class ManageAudienceApi
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupCreateRoute|null $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
+     * @param  bool|null $includesOwnedAudienceGroups true: Include audienceGroups owned by LINE Official Account Manager false: Respond only audienceGroups shared by Business Manager (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSharedAudienceGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSharedAudienceGroupsAsync($page, $description = null, $status = null, $size = null, $createRoute = null, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroupsAsync($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
-        return $this->getSharedAudienceGroupsAsyncWithHttpInfo($page, $description, $status, $size, $createRoute, $contentType)
+        return $this->getSharedAudienceGroupsAsyncWithHttpInfo($page, $description, $status, $size, $createRoute, $includesOwnedAudienceGroups, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3246,15 +2743,16 @@ class ManageAudienceApi
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupCreateRoute|null $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
+     * @param  bool|null $includesOwnedAudienceGroups true: Include audienceGroups owned by LINE Official Account Manager false: Respond only audienceGroups shared by Business Manager (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSharedAudienceGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSharedAudienceGroupsAsyncWithHttpInfo($page, $description = null, $status = null, $size = null, $createRoute = null, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroupsAsyncWithHttpInfo($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
         $returnType = '\LINE\Clients\ManageAudience\Model\GetSharedAudienceGroupsResponse';
-        $request = $this->getSharedAudienceGroupsRequest($page, $description, $status, $size, $createRoute, $contentType);
+        $request = $this->getSharedAudienceGroupsRequest($page, $description, $status, $size, $createRoute, $includesOwnedAudienceGroups, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3300,12 +2798,13 @@ class ManageAudienceApi
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupCreateRoute|null $createRoute How the audience was created. If omitted, all audiences are included.  &#x60;OA_MANAGER&#x60;: Return only audiences created with LINE Official Account Manager (opens new window). &#x60;MESSAGING_API&#x60;: Return only audiences created with Messaging API. (optional)
+     * @param  bool|null $includesOwnedAudienceGroups true: Include audienceGroups owned by LINE Official Account Manager false: Respond only audienceGroups shared by Business Manager (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSharedAudienceGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSharedAudienceGroupsRequest($page, $description = null, $status = null, $size = null, $createRoute = null, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroupsRequest($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
 
         // verify the required parameter 'page' is set
@@ -3324,6 +2823,7 @@ class ManageAudienceApi
             throw new \InvalidArgumentException('invalid value for "$size" when calling ManageAudienceApi.getSharedAudienceGroups, must be smaller than or equal to 40.');
         }
         
+
 
 
         $resourcePath = '/v2/bot/audienceGroup/shared/list';
@@ -3374,6 +2874,15 @@ class ManageAudienceApi
             $createRoute,
             'createRoute', // param base name
             'AudienceGroupCreateRoute', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $includesOwnedAudienceGroups,
+            'includesOwnedAudienceGroups', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -3433,218 +2942,6 @@ class ManageAudienceApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateAudienceGroupAuthorityLevel
-     *
-     * @param  \LINE\Clients\ManageAudience\Model\UpdateAudienceGroupAuthorityLevelRequest $updateAudienceGroupAuthorityLevelRequest updateAudienceGroupAuthorityLevelRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function updateAudienceGroupAuthorityLevel($updateAudienceGroupAuthorityLevelRequest, string $contentType = self::contentTypes['updateAudienceGroupAuthorityLevel'][0])
-    {
-        $this->updateAudienceGroupAuthorityLevelWithHttpInfo($updateAudienceGroupAuthorityLevelRequest, $contentType);
-    }
-
-    /**
-     * Operation updateAudienceGroupAuthorityLevelWithHttpInfo
-     *
-     * @param  \LINE\Clients\ManageAudience\Model\UpdateAudienceGroupAuthorityLevelRequest $updateAudienceGroupAuthorityLevelRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \LINE\Clients\ManageAudience\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateAudienceGroupAuthorityLevelWithHttpInfo($updateAudienceGroupAuthorityLevelRequest, string $contentType = self::contentTypes['updateAudienceGroupAuthorityLevel'][0])
-    {
-        $request = $this->updateAudienceGroupAuthorityLevelRequest($updateAudienceGroupAuthorityLevelRequest, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateAudienceGroupAuthorityLevelAsync
-     *
-     * @param  \LINE\Clients\ManageAudience\Model\UpdateAudienceGroupAuthorityLevelRequest $updateAudienceGroupAuthorityLevelRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateAudienceGroupAuthorityLevelAsync($updateAudienceGroupAuthorityLevelRequest, string $contentType = self::contentTypes['updateAudienceGroupAuthorityLevel'][0])
-    {
-        return $this->updateAudienceGroupAuthorityLevelAsyncWithHttpInfo($updateAudienceGroupAuthorityLevelRequest, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateAudienceGroupAuthorityLevelAsyncWithHttpInfo
-     *
-     * @param  \LINE\Clients\ManageAudience\Model\UpdateAudienceGroupAuthorityLevelRequest $updateAudienceGroupAuthorityLevelRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateAudienceGroupAuthorityLevelAsyncWithHttpInfo($updateAudienceGroupAuthorityLevelRequest, string $contentType = self::contentTypes['updateAudienceGroupAuthorityLevel'][0])
-    {
-        $returnType = '';
-        $request = $this->updateAudienceGroupAuthorityLevelRequest($updateAudienceGroupAuthorityLevelRequest, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateAudienceGroupAuthorityLevel'
-     *
-     * @param  \LINE\Clients\ManageAudience\Model\UpdateAudienceGroupAuthorityLevelRequest $updateAudienceGroupAuthorityLevelRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAudienceGroupAuthorityLevel'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function updateAudienceGroupAuthorityLevelRequest($updateAudienceGroupAuthorityLevelRequest, string $contentType = self::contentTypes['updateAudienceGroupAuthorityLevel'][0])
-    {
-
-        // verify the required parameter 'updateAudienceGroupAuthorityLevelRequest' is set
-        if ($updateAudienceGroupAuthorityLevelRequest === null || (is_array($updateAudienceGroupAuthorityLevelRequest) && count($updateAudienceGroupAuthorityLevelRequest) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $updateAudienceGroupAuthorityLevelRequest when calling updateAudienceGroupAuthorityLevel'
-            );
-        }
-
-
-        $resourcePath = '/v2/bot/audienceGroup/authorityLevel';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($updateAudienceGroupAuthorityLevelRequest)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($updateAudienceGroupAuthorityLevelRequest));
-            } else {
-                $httpBody = $updateAudienceGroupAuthorityLevelRequest;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
