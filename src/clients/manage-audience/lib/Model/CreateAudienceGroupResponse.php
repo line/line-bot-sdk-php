@@ -79,7 +79,7 @@ class CreateAudienceGroupResponse implements ModelInterface, ArrayAccess, \JsonS
         'description' => 'string',
         'created' => 'int',
         'permission' => 'string',
-        'expireTimestamp' => 'float',
+        'expireTimestamp' => 'int',
         'isIfaAudience' => 'bool'
     ];
 
@@ -585,7 +585,7 @@ class CreateAudienceGroupResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets expireTimestamp
      *
-     * @return float|null
+     * @return int|null
      */
     public function getExpireTimestamp()
     {
@@ -595,7 +595,7 @@ class CreateAudienceGroupResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets expireTimestamp
      *
-     * @param float|null $expireTimestamp Time of audience expiration. Only returned for specific audiences.
+     * @param int|null $expireTimestamp Time of audience expiration. Only returned for specific audiences.
      *
      * @return self
      */
