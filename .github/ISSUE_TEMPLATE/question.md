@@ -17,6 +17,7 @@ title: "Question"
 -->
 
 ## Have You Checked the Following?
+- [ ] [Documentation](https://line.github.io/line-bot-sdk-php/)
 - [ ] [Examples](https://github.com/line/line-bot-sdk-php/tree/master/examples/)
 - [ ] [Developer Documentation - LINE Developers](https://developers.line.biz/en/docs/)
 - [ ] [FAQ - LINE Developers](https://developers.line.biz/en/faq/tags/messaging-api/)
