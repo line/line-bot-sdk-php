@@ -66,10 +66,18 @@
     }
   },
   "scripts": {
-    "test": "phpunit --debug --test-suffix=Test.php",
+    "test": "phpunit --test-suffix=Test.php --testdox",
     "cs": "phpcs",
     "md": "phpmd --ignore-violations-on-exit src/constants,src/laravel,src/parser,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
-    "stan": "phpstan analyse --memory-limit=-1"
+    "stan": "phpstan analyse",
+    "copyright": "tools/check_copyright.sh",
+    "check": [
+      "@test",
+      "@cs",
+      "@md",
+      "@stan",
+      "@copyright"
+    ]
   },
   "extra": {
     "laravel": {
