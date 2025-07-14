@@ -12,7 +12,7 @@ It will be amazing if you could help us by doing any of the following:
 
 ### Install dependencies
 
-Run `make install` to install all dependencies for development.
+Run `composer install` to install all dependencies for development.
 
 ### Understand the project structure
 
@@ -52,13 +52,13 @@ You can use the [example projects](examples/) to test your changes locally befor
 
 ### Run CI tasks in your local
 
-Run `make` or `make check` to check comprehensively. Following tests will run.
+Run `composer check` to check comprehensively. Following tests will run.
 
-- [PHPUnit](https://github.com/sebastianbergmann/phpunit) `make test`
-- Copyright check `make copyright`
-- [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) `make phpcs`
-- [PHPMD](https://phpmd.org/) `make phpmd`
-- [PHPStan](https://phpstan.org/) `make phpstan`
+- [PHPUnit](https://github.com/sebastianbergmann/phpunit) `composer test`
+- [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) `composer cs`
+- [PHPMD](https://phpmd.org/) `composer md`
+- [PHPStan](https://phpstan.org/) `composer stan`
+- Copyright check `composer copyright`
 
 ### Documentation
 

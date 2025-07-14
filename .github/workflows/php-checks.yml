@@ -75,7 +75,7 @@ jobs:
 
       - name: Check copyrights
         if: matrix.analysis
-        run: bash tools/check_copyright.sh
+        run: composer copyright
 
       - name: Check code style with PHP_CodeSniffer
         if: matrix.analysis
@@ -87,11 +87,11 @@ jobs:
 
       - name: Check with PHPStan
         if: matrix.analysis
-        run: vendor/bin/phpstan analyse
+        run: composer stan
 
       - name: Run unit tests
         if: matrix.analysis
-        run: ./vendor/bin/phpunit --test-suffix=Test.php --testdox
+        run: composer test
 
   pinact:
     runs-on: ubuntu-latest
