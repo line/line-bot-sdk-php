@@ -15,6 +15,8 @@ See the official API documentation for more information.
 - English: https://developers.line.biz/en/docs/messaging-api/overview/
 - Japanese: https://developers.line.biz/ja/docs/messaging-api/overview/
 
+PHPDoc
+- https://line.github.io/line-bot-sdk-php/
 
 ## Requirements
 
