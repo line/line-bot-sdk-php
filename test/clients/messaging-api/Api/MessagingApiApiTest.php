@@ -258,14 +258,16 @@ JSON;
         $this->assertEquals(1699990000, $response->getCreatedTimestamp());
         $this->assertEquals('RUNNING', $response->getStatus());
 
-        /* $reward = $response->getReward(); */
-        /* if ($reward instanceof CouponCashBackRewardResponse) { */
-        /*     $priceInfo = $reward->getPriceInfo(); */
-        /*     $this->assertEquals('percentage', $priceInfo->getType()); */
-        /*     $this->assertEquals(10, $priceInfo->getPercentage()); */
-        /* } else { */
-        /*     $this->fail('Reward is not of type CouponCashBackRewardResponse'); */
-        /* } */
+        // TODO: This test should be enabled after we support automatic polymorphism parsing outside of webhook.
+        // Right now, polymorphism is only handled automatically in webhook, so this code is commented out for now.
+        // $reward = $response->getReward();
+        // if ($reward instanceof CouponCashBackRewardResponse) {
+        //     $priceInfo = $reward->getPriceInfo();
+        //     $this->assertEquals('percentage', $priceInfo->getType());
+        //     $this->assertEquals(10, $priceInfo->getPercentage());
+        // } else {
+        //     $this->fail('Reward is not of type CouponCashBackRewardResponse');
+        // }
     }
 
     public function testListCoupon(): void
