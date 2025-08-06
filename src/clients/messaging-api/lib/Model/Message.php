@@ -508,6 +508,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
         $discriminatorValue = $data[self::DISCRIMINATOR] ?? null;
         $discriminatorMap = [
             'audio' => AudioMessage::class,
+'coupon' => CouponMessage::class,
 'flex' => FlexMessage::class,
 'image' => ImageMessage::class,
 'imagemap' => ImagemapMessage::class,

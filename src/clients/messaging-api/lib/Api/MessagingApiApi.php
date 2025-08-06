@@ -92,6 +92,12 @@ class MessagingApiApi
         'cancelDefaultRichMenu' => [
             'application/json',
         ],
+        'closeCoupon' => [
+            'application/json',
+        ],
+        'createCoupon' => [
+            'application/json',
+        ],
         'createRichMenu' => [
             'application/json',
         ],
@@ -111,6 +117,9 @@ class MessagingApiApi
             'application/json',
         ],
         'getBotInfo' => [
+            'application/json',
+        ],
+        'getCouponDetail' => [
             'application/json',
         ],
         'getDefaultRichMenuId' => [
@@ -210,6 +219,9 @@ class MessagingApiApi
             'application/json',
         ],
         'linkRichMenuIdToUsers' => [
+            'application/json',
+        ],
+        'listCoupon' => [
             'application/json',
         ],
         'markMessagesAsRead' => [
@@ -963,6 +975,575 @@ class MessagingApiApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation closeCoupon
+     *
+     * @param  string $couponId couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['closeCoupon'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function closeCoupon($couponId, string $contentType = self::contentTypes['closeCoupon'][0])
+    {
+        $this->closeCouponWithHttpInfo($couponId, $contentType);
+    }
+
+    /**
+     * Operation closeCouponWithHttpInfo
+     *
+     * @param  string $couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['closeCoupon'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function closeCouponWithHttpInfo($couponId, string $contentType = self::contentTypes['closeCoupon'][0])
+    {
+        $request = $this->closeCouponRequest($couponId, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation closeCouponAsync
+     *
+     * @param  string $couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['closeCoupon'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function closeCouponAsync($couponId, string $contentType = self::contentTypes['closeCoupon'][0])
+    {
+        return $this->closeCouponAsyncWithHttpInfo($couponId, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation closeCouponAsyncWithHttpInfo
+     *
+     * @param  string $couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['closeCoupon'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function closeCouponAsyncWithHttpInfo($couponId, string $contentType = self::contentTypes['closeCoupon'][0])
+    {
+        $returnType = '';
+        $request = $this->closeCouponRequest($couponId, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'closeCoupon'
+     *
+     * @param  string $couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['closeCoupon'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function closeCouponRequest($couponId, string $contentType = self::contentTypes['closeCoupon'][0])
+    {
+
+        // verify the required parameter 'couponId' is set
+        if ($couponId === null || (is_array($couponId) && count($couponId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $couponId when calling closeCoupon'
+            );
+        }
+
+
+        $resourcePath = '/v2/bot/coupon/{couponId}/close';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($couponId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'couponId' . '}',
+                ObjectSerializer::toPathValue($couponId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createCoupon
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\CouponCreateRequest|null $couponCreateRequest couponCreateRequest (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCoupon'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\MessagingApi\Model\CouponCreateResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse
+     */
+    public function createCoupon($couponCreateRequest = null, string $contentType = self::contentTypes['createCoupon'][0])
+    {
+        list($response) = $this->createCouponWithHttpInfo($couponCreateRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createCouponWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\CouponCreateRequest|null $couponCreateRequest (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCoupon'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \LINE\Clients\MessagingApi\Model\CouponCreateResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createCouponWithHttpInfo($couponCreateRequest = null, string $contentType = self::contentTypes['createCoupon'][0])
+    {
+        $request = $this->createCouponRequest($couponCreateRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\LINE\Clients\MessagingApi\Model\CouponCreateResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\CouponCreateResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\CouponCreateResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\LINE\Clients\MessagingApi\Model\CouponCreateResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\CouponCreateResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createCouponAsync
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\CouponCreateRequest|null $couponCreateRequest (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCoupon'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createCouponAsync($couponCreateRequest = null, string $contentType = self::contentTypes['createCoupon'][0])
+    {
+        return $this->createCouponAsyncWithHttpInfo($couponCreateRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createCouponAsyncWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\CouponCreateRequest|null $couponCreateRequest (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCoupon'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createCouponAsyncWithHttpInfo($couponCreateRequest = null, string $contentType = self::contentTypes['createCoupon'][0])
+    {
+        $returnType = '\LINE\Clients\MessagingApi\Model\CouponCreateResponse';
+        $request = $this->createCouponRequest($couponCreateRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createCoupon'
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\CouponCreateRequest|null $couponCreateRequest (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCoupon'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createCouponRequest($couponCreateRequest = null, string $contentType = self::contentTypes['createCoupon'][0])
+    {
+
+
+
+        $resourcePath = '/v2/bot/coupon';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($couponCreateRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($couponCreateRequest));
+            } else {
+                $httpBody = $couponCreateRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2749,6 +3330,380 @@ class MessagingApiApi
 
 
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCouponDetail
+     *
+     * @param  string $couponId couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponDetail'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\MessagingApi\Model\CouponResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse
+     */
+    public function getCouponDetail($couponId, string $contentType = self::contentTypes['getCouponDetail'][0])
+    {
+        list($response) = $this->getCouponDetailWithHttpInfo($couponId, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getCouponDetailWithHttpInfo
+     *
+     * @param  string $couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponDetail'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \LINE\Clients\MessagingApi\Model\CouponResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCouponDetailWithHttpInfo($couponId, string $contentType = self::contentTypes['getCouponDetail'][0])
+    {
+        $request = $this->getCouponDetailRequest($couponId, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\LINE\Clients\MessagingApi\Model\CouponResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\CouponResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\CouponResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\LINE\Clients\MessagingApi\Model\CouponResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\CouponResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCouponDetailAsync
+     *
+     * @param  string $couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponDetail'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCouponDetailAsync($couponId, string $contentType = self::contentTypes['getCouponDetail'][0])
+    {
+        return $this->getCouponDetailAsyncWithHttpInfo($couponId, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCouponDetailAsyncWithHttpInfo
+     *
+     * @param  string $couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponDetail'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCouponDetailAsyncWithHttpInfo($couponId, string $contentType = self::contentTypes['getCouponDetail'][0])
+    {
+        $returnType = '\LINE\Clients\MessagingApi\Model\CouponResponse';
+        $request = $this->getCouponDetailRequest($couponId, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCouponDetail'
+     *
+     * @param  string $couponId (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponDetail'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCouponDetailRequest($couponId, string $contentType = self::contentTypes['getCouponDetail'][0])
+    {
+
+        // verify the required parameter 'couponId' is set
+        if ($couponId === null || (is_array($couponId) && count($couponId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $couponId when calling getCouponDetail'
+            );
+        }
+
+
+        $resourcePath = '/v2/bot/coupon/{couponId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($couponId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'couponId' . '}',
+                ObjectSerializer::toPathValue($couponId),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -12669,6 +13624,376 @@ class MessagingApiApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listCoupon
+     *
+     * @param  string[]|null $status Filter coupons by their status. (optional)
+     * @param  string|null $start Pagination token to retrieve the next page of results. (optional)
+     * @param  int|null $limit Maximum number of coupons to return per request. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCoupon'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\MessagingApi\Model\MessagingApiPagerCouponListResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse
+     */
+    public function listCoupon($status = null, $start = null, $limit = 20, string $contentType = self::contentTypes['listCoupon'][0])
+    {
+        list($response) = $this->listCouponWithHttpInfo($status, $start, $limit, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation listCouponWithHttpInfo
+     *
+     * @param  string[]|null $status Filter coupons by their status. (optional)
+     * @param  string|null $start Pagination token to retrieve the next page of results. (optional)
+     * @param  int|null $limit Maximum number of coupons to return per request. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCoupon'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \LINE\Clients\MessagingApi\Model\MessagingApiPagerCouponListResponse|\LINE\Clients\MessagingApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listCouponWithHttpInfo($status = null, $start = null, $limit = 20, string $contentType = self::contentTypes['listCoupon'][0])
+    {
+        $request = $this->listCouponRequest($status, $start, $limit, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\LINE\Clients\MessagingApi\Model\MessagingApiPagerCouponListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\MessagingApiPagerCouponListResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\MessagingApiPagerCouponListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\LINE\Clients\MessagingApi\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\LINE\Clients\MessagingApi\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\LINE\Clients\MessagingApi\Model\MessagingApiPagerCouponListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\MessagingApiPagerCouponListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listCouponAsync
+     *
+     * @param  string[]|null $status Filter coupons by their status. (optional)
+     * @param  string|null $start Pagination token to retrieve the next page of results. (optional)
+     * @param  int|null $limit Maximum number of coupons to return per request. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCoupon'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listCouponAsync($status = null, $start = null, $limit = 20, string $contentType = self::contentTypes['listCoupon'][0])
+    {
+        return $this->listCouponAsyncWithHttpInfo($status, $start, $limit, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listCouponAsyncWithHttpInfo
+     *
+     * @param  string[]|null $status Filter coupons by their status. (optional)
+     * @param  string|null $start Pagination token to retrieve the next page of results. (optional)
+     * @param  int|null $limit Maximum number of coupons to return per request. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCoupon'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listCouponAsyncWithHttpInfo($status = null, $start = null, $limit = 20, string $contentType = self::contentTypes['listCoupon'][0])
+    {
+        $returnType = '\LINE\Clients\MessagingApi\Model\MessagingApiPagerCouponListResponse';
+        $request = $this->listCouponRequest($status, $start, $limit, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listCoupon'
+     *
+     * @param  string[]|null $status Filter coupons by their status. (optional)
+     * @param  string|null $start Pagination token to retrieve the next page of results. (optional)
+     * @param  int|null $limit Maximum number of coupons to return per request. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCoupon'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listCouponRequest($status = null, $start = null, $limit = 20, string $contentType = self::contentTypes['listCoupon'][0])
+    {
+
+        
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling MessagingApiApi.listCoupon, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling MessagingApiApi.listCoupon, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/v2/bot/coupon';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start,
+            'start', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
