@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * Message
+ * CouponMessage
  *
  * PHP version 7.4
  *
@@ -42,12 +42,10 @@
  */
 
 namespace LINE\Clients\MessagingApi\Model;
-
-use \ArrayAccess;
 use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
- * Message Class Doc Comment
+ * CouponMessage Class Doc Comment
  *
  * @category Class
  * @package  LINE\Clients\MessagingApi
@@ -55,16 +53,16 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Message implements ModelInterface, ArrayAccess, \JsonSerializable
+class CouponMessage extends Message
 {
-    public const DISCRIMINATOR = 'type';
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Message';
+    protected static $openAPIModelName = 'CouponMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,9 +70,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'quickReply' => '\LINE\Clients\MessagingApi\Model\QuickReply',
-        'sender' => '\LINE\Clients\MessagingApi\Model\Sender'
+        'couponId' => 'string',
+        'deliveryTag' => 'string'
     ];
 
     /**
@@ -85,9 +82,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'quickReply' => null,
-        'sender' => null
+        'couponId' => null,
+        'deliveryTag' => null
     ];
 
     /**
@@ -96,9 +92,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'quickReply' => false,
-        'sender' => false
+        'couponId' => false,
+        'deliveryTag' => false
     ];
 
     /**
@@ -115,7 +110,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -125,7 +120,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -135,7 +130,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static function openAPINullables(): array
     {
-        return self::$openAPINullables;
+        return self::$openAPINullables + parent::openAPINullables();
     }
 
     /**
@@ -187,9 +182,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'quickReply' => 'quickReply',
-        'sender' => 'sender'
+        'couponId' => 'couponId',
+        'deliveryTag' => 'deliveryTag'
     ];
 
     /**
@@ -198,9 +192,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'quickReply' => 'setQuickReply',
-        'sender' => 'setSender'
+        'couponId' => 'setCouponId',
+        'deliveryTag' => 'setDeliveryTag'
     ];
 
     /**
@@ -209,9 +202,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'quickReply' => 'getQuickReply',
-        'sender' => 'getSender'
+        'couponId' => 'getCouponId',
+        'deliveryTag' => 'getDeliveryTag'
     ];
 
     /**
@@ -222,7 +214,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -232,7 +224,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -242,7 +234,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -256,12 +248,6 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -271,9 +257,10 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('quickReply', $data ?? [], null);
-        $this->setIfExists('sender', $data ?? [], null);
+        parent::__construct($data);
+
+        $this->setIfExists('couponId', $data ?? [], null);
+        $this->setIfExists('deliveryTag', $data ?? [], null);
     }
 
     /**
@@ -301,11 +288,15 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['couponId'] === null) {
+            $invalidProperties[] = "'couponId' can't be null";
         }
+        if (!is_null($this->container['deliveryTag']) && (mb_strlen($this->container['deliveryTag']) > 30)) {
+            $invalidProperties[] = "invalid value for 'deliveryTag', the character length must be smaller than or equal to 30.";
+        }
+
         return $invalidProperties;
     }
 
@@ -322,82 +313,59 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets couponId
      *
      * @return string
      */
-    public function getType()
+    public function getCouponId()
     {
-        return $this->container['type'];
+        return $this->container['couponId'];
     }
 
     /**
-     * Sets type
+     * Sets couponId
      *
-     * @param string $type Type of message
+     * @param string $couponId Unique identifier of the coupon.
      *
      * @return self
      */
-    public function setType($type)
+    public function setCouponId($couponId)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($couponId)) {
+            throw new \InvalidArgumentException('non-nullable couponId cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['couponId'] = $couponId;
 
         return $this;
     }
 
     /**
-     * Gets quickReply
+     * Gets deliveryTag
      *
-     * @return \LINE\Clients\MessagingApi\Model\QuickReply|null
+     * @return string|null
      */
-    public function getQuickReply()
+    public function getDeliveryTag()
     {
-        return $this->container['quickReply'];
+        return $this->container['deliveryTag'];
     }
 
     /**
-     * Sets quickReply
+     * Sets deliveryTag
      *
-     * @param \LINE\Clients\MessagingApi\Model\QuickReply|null $quickReply quickReply
+     * @param string|null $deliveryTag Delivery route tag information. It can be used for analysis in LINE OA Manager.
      *
      * @return self
      */
-    public function setQuickReply($quickReply)
+    public function setDeliveryTag($deliveryTag)
     {
-        if (is_null($quickReply)) {
-            throw new \InvalidArgumentException('non-nullable quickReply cannot be null');
+        if (is_null($deliveryTag)) {
+            throw new \InvalidArgumentException('non-nullable deliveryTag cannot be null');
         }
-        $this->container['quickReply'] = $quickReply;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender
-     *
-     * @return \LINE\Clients\MessagingApi\Model\Sender|null
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param \LINE\Clients\MessagingApi\Model\Sender|null $sender sender
-     *
-     * @return self
-     */
-    public function setSender($sender)
-    {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        if ((mb_strlen($deliveryTag) > 30)) {
+            throw new \InvalidArgumentException('invalid length for $deliveryTag when calling CouponMessage., must be smaller than or equal to 30.');
         }
-        $this->container['sender'] = $sender;
+
+        $this->container['deliveryTag'] = $deliveryTag;
 
         return $this;
     }
@@ -492,37 +460,17 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Create an instance of Message from a dict (associative array)
+     * Create an instance of CouponMessage from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.
      *
      * @param array|null $data Associative array of property values
-     * @return Message
+     * @return CouponMessage
      */
     public static function fromAssocArray(?array $data): self
     {
         if ($data === null) {
             return new static();
-        }
-
-        $discriminatorValue = $data[self::DISCRIMINATOR] ?? null;
-        $discriminatorMap = [
-            'audio' => AudioMessage::class,
-'coupon' => CouponMessage::class,
-'flex' => FlexMessage::class,
-'image' => ImageMessage::class,
-'imagemap' => ImagemapMessage::class,
-'location' => LocationMessage::class,
-'sticker' => StickerMessage::class,
-'template' => TemplateMessage::class,
-'text' => TextMessage::class,
-'textV2' => TextMessageV2::class,
-'video' => VideoMessage::class,
-        ];
-
-        if (isset($discriminatorValue) && isset($discriminatorMap[$discriminatorValue])) {
-            $modelClass = $discriminatorMap[$discriminatorValue];
-            return $modelClass::fromAssocArray($data);
         }
 
         $instance = new static();
@@ -535,6 +483,12 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (isset($data['sender'])) {
             $instance->setsender(\LINE\Clients\MessagingApi\Model\Sender::fromAssocArray($data['sender']));
+        }
+        if (isset($data['couponId'])) {
+            $instance->setcouponId($data['couponId']);
+        }
+        if (isset($data['deliveryTag'])) {
+            $instance->setdeliveryTag($data['deliveryTag']);
         }
 
         return $instance;

@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * Message
+ * CouponCreateResponse
  *
  * PHP version 7.4
  *
@@ -47,24 +47,25 @@ use \ArrayAccess;
 use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
- * Message Class Doc Comment
+ * CouponCreateResponse Class Doc Comment
  *
  * @category Class
+ * @description Response object returned after creating a coupon. Contains the coupon ID.
  * @package  LINE\Clients\MessagingApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Message implements ModelInterface, ArrayAccess, \JsonSerializable
+class CouponCreateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = 'type';
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Message';
+    protected static $openAPIModelName = 'CouponCreateResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,9 +73,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'quickReply' => '\LINE\Clients\MessagingApi\Model\QuickReply',
-        'sender' => '\LINE\Clients\MessagingApi\Model\Sender'
+        'couponId' => 'string'
     ];
 
     /**
@@ -85,9 +84,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'quickReply' => null,
-        'sender' => null
+        'couponId' => null
     ];
 
     /**
@@ -96,9 +93,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'quickReply' => false,
-        'sender' => false
+        'couponId' => false
     ];
 
     /**
@@ -187,9 +182,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'quickReply' => 'quickReply',
-        'sender' => 'sender'
+        'couponId' => 'couponId'
     ];
 
     /**
@@ -198,9 +191,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'quickReply' => 'setQuickReply',
-        'sender' => 'setSender'
+        'couponId' => 'setCouponId'
     ];
 
     /**
@@ -209,9 +200,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'quickReply' => 'getQuickReply',
-        'sender' => 'getSender'
+        'couponId' => 'getCouponId'
     ];
 
     /**
@@ -271,9 +260,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('quickReply', $data ?? [], null);
-        $this->setIfExists('sender', $data ?? [], null);
+        $this->setIfExists('couponId', $data ?? [], null);
     }
 
     /**
@@ -303,8 +290,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['couponId'] === null) {
+            $invalidProperties[] = "'couponId' can't be null";
         }
         return $invalidProperties;
     }
@@ -322,82 +309,28 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets couponId
      *
      * @return string
      */
-    public function getType()
+    public function getCouponId()
     {
-        return $this->container['type'];
+        return $this->container['couponId'];
     }
 
     /**
-     * Sets type
+     * Sets couponId
      *
-     * @param string $type Type of message
+     * @param string $couponId Unique identifier of the coupon.
      *
      * @return self
      */
-    public function setType($type)
+    public function setCouponId($couponId)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($couponId)) {
+            throw new \InvalidArgumentException('non-nullable couponId cannot be null');
         }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets quickReply
-     *
-     * @return \LINE\Clients\MessagingApi\Model\QuickReply|null
-     */
-    public function getQuickReply()
-    {
-        return $this->container['quickReply'];
-    }
-
-    /**
-     * Sets quickReply
-     *
-     * @param \LINE\Clients\MessagingApi\Model\QuickReply|null $quickReply quickReply
-     *
-     * @return self
-     */
-    public function setQuickReply($quickReply)
-    {
-        if (is_null($quickReply)) {
-            throw new \InvalidArgumentException('non-nullable quickReply cannot be null');
-        }
-        $this->container['quickReply'] = $quickReply;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender
-     *
-     * @return \LINE\Clients\MessagingApi\Model\Sender|null
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param \LINE\Clients\MessagingApi\Model\Sender|null $sender sender
-     *
-     * @return self
-     */
-    public function setSender($sender)
-    {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
-        }
-        $this->container['sender'] = $sender;
+        $this->container['couponId'] = $couponId;
 
         return $this;
     }
@@ -492,12 +425,12 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Create an instance of Message from a dict (associative array)
+     * Create an instance of CouponCreateResponse from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.
      *
      * @param array|null $data Associative array of property values
-     * @return Message
+     * @return CouponCreateResponse
      */
     public static function fromAssocArray(?array $data): self
     {
@@ -505,36 +438,10 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
             return new static();
         }
 
-        $discriminatorValue = $data[self::DISCRIMINATOR] ?? null;
-        $discriminatorMap = [
-            'audio' => AudioMessage::class,
-'coupon' => CouponMessage::class,
-'flex' => FlexMessage::class,
-'image' => ImageMessage::class,
-'imagemap' => ImagemapMessage::class,
-'location' => LocationMessage::class,
-'sticker' => StickerMessage::class,
-'template' => TemplateMessage::class,
-'text' => TextMessage::class,
-'textV2' => TextMessageV2::class,
-'video' => VideoMessage::class,
-        ];
-
-        if (isset($discriminatorValue) && isset($discriminatorMap[$discriminatorValue])) {
-            $modelClass = $discriminatorMap[$discriminatorValue];
-            return $modelClass::fromAssocArray($data);
-        }
-
         $instance = new static();
 
-        if (isset($data['type'])) {
-            $instance->settype($data['type']);
-        }
-        if (isset($data['quickReply'])) {
-            $instance->setquickReply(\LINE\Clients\MessagingApi\Model\QuickReply::fromAssocArray($data['quickReply']));
-        }
-        if (isset($data['sender'])) {
-            $instance->setsender(\LINE\Clients\MessagingApi\Model\Sender::fromAssocArray($data['sender']));
+        if (isset($data['couponId'])) {
+            $instance->setcouponId($data['couponId']);
         }
 
         return $instance;

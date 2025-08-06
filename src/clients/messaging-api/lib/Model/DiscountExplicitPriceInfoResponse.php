@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * Message
+ * DiscountExplicitPriceInfoResponse
  *
  * PHP version 7.4
  *
@@ -42,12 +42,10 @@
  */
 
 namespace LINE\Clients\MessagingApi\Model;
-
-use \ArrayAccess;
 use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
- * Message Class Doc Comment
+ * DiscountExplicitPriceInfoResponse Class Doc Comment
  *
  * @category Class
  * @package  LINE\Clients\MessagingApi
@@ -55,16 +53,16 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Message implements ModelInterface, ArrayAccess, \JsonSerializable
+class DiscountExplicitPriceInfoResponse extends DiscountPriceInfoResponse
 {
-    public const DISCRIMINATOR = 'type';
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Message';
+    protected static $openAPIModelName = 'DiscountExplicitPriceInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,9 +70,9 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'quickReply' => '\LINE\Clients\MessagingApi\Model\QuickReply',
-        'sender' => '\LINE\Clients\MessagingApi\Model\Sender'
+        'currency' => 'string',
+        'priceAfterDiscount' => 'int',
+        'originalPrice' => 'int'
     ];
 
     /**
@@ -85,9 +83,9 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'quickReply' => null,
-        'sender' => null
+        'currency' => null,
+        'priceAfterDiscount' => 'int64',
+        'originalPrice' => 'int64'
     ];
 
     /**
@@ -96,9 +94,9 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'quickReply' => false,
-        'sender' => false
+        'currency' => false,
+        'priceAfterDiscount' => false,
+        'originalPrice' => false
     ];
 
     /**
@@ -115,7 +113,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -125,7 +123,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -135,7 +133,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static function openAPINullables(): array
     {
-        return self::$openAPINullables;
+        return self::$openAPINullables + parent::openAPINullables();
     }
 
     /**
@@ -187,9 +185,9 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'quickReply' => 'quickReply',
-        'sender' => 'sender'
+        'currency' => 'currency',
+        'priceAfterDiscount' => 'priceAfterDiscount',
+        'originalPrice' => 'originalPrice'
     ];
 
     /**
@@ -198,9 +196,9 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'quickReply' => 'setQuickReply',
-        'sender' => 'setSender'
+        'currency' => 'setCurrency',
+        'priceAfterDiscount' => 'setPriceAfterDiscount',
+        'originalPrice' => 'setOriginalPrice'
     ];
 
     /**
@@ -209,9 +207,9 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'quickReply' => 'getQuickReply',
-        'sender' => 'getSender'
+        'currency' => 'getCurrency',
+        'priceAfterDiscount' => 'getPriceAfterDiscount',
+        'originalPrice' => 'getOriginalPrice'
     ];
 
     /**
@@ -222,7 +220,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -232,7 +230,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -242,7 +240,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -255,13 +253,24 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const CURRENCY_JPY = 'JPY';
+    public const CURRENCY_THB = 'THB';
+    public const CURRENCY_TWD = 'TWD';
 
     /**
-     * Associative array for storing property values
+     * Gets allowable values of the enum
      *
-     * @var mixed[]
+     * @return string[]
      */
-    protected $container = [];
+    public function getCurrencyAllowableValues()
+    {
+        return [
+            self::CURRENCY_JPY,
+            self::CURRENCY_THB,
+            self::CURRENCY_TWD,
+        ];
+    }
+
 
     /**
      * Constructor
@@ -271,9 +280,11 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('quickReply', $data ?? [], null);
-        $this->setIfExists('sender', $data ?? [], null);
+        parent::__construct($data);
+
+        $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('priceAfterDiscount', $data ?? [], null);
+        $this->setIfExists('originalPrice', $data ?? [], null);
     }
 
     /**
@@ -301,11 +312,17 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        $allowedValues = $this->getCurrencyAllowableValues();
+        if (!is_null($this->container['currency']) && !in_array($this->container['currency'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'currency', must be one of '%s'",
+                $this->container['currency'],
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -322,82 +339,92 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets currency
      *
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getCurrency()
     {
-        return $this->container['type'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets type
+     * Sets currency
      *
-     * @param string $type Type of message
+     * @param string|null $currency Currency code (e.g., JPY, THB, TWD).
      *
      * @return self
      */
-    public function setType($type)
+    public function setCurrency($currency)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
         }
-        $this->container['type'] = $type;
+        $allowedValues = $this->getCurrencyAllowableValues();
+        if (!in_array($currency, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'currency', must be one of '%s'",
+                    $currency,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets quickReply
+     * Gets priceAfterDiscount
      *
-     * @return \LINE\Clients\MessagingApi\Model\QuickReply|null
+     * @return int|null
      */
-    public function getQuickReply()
+    public function getPriceAfterDiscount()
     {
-        return $this->container['quickReply'];
+        return $this->container['priceAfterDiscount'];
     }
 
     /**
-     * Sets quickReply
+     * Sets priceAfterDiscount
      *
-     * @param \LINE\Clients\MessagingApi\Model\QuickReply|null $quickReply quickReply
+     * @param int|null $priceAfterDiscount priceAfterDiscount
      *
      * @return self
      */
-    public function setQuickReply($quickReply)
+    public function setPriceAfterDiscount($priceAfterDiscount)
     {
-        if (is_null($quickReply)) {
-            throw new \InvalidArgumentException('non-nullable quickReply cannot be null');
+        if (is_null($priceAfterDiscount)) {
+            throw new \InvalidArgumentException('non-nullable priceAfterDiscount cannot be null');
         }
-        $this->container['quickReply'] = $quickReply;
+        $this->container['priceAfterDiscount'] = $priceAfterDiscount;
 
         return $this;
     }
 
     /**
-     * Gets sender
+     * Gets originalPrice
      *
-     * @return \LINE\Clients\MessagingApi\Model\Sender|null
+     * @return int|null
      */
-    public function getSender()
+    public function getOriginalPrice()
     {
-        return $this->container['sender'];
+        return $this->container['originalPrice'];
     }
 
     /**
-     * Sets sender
+     * Sets originalPrice
      *
-     * @param \LINE\Clients\MessagingApi\Model\Sender|null $sender sender
+     * @param int|null $originalPrice originalPrice
      *
      * @return self
      */
-    public function setSender($sender)
+    public function setOriginalPrice($originalPrice)
     {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        if (is_null($originalPrice)) {
+            throw new \InvalidArgumentException('non-nullable originalPrice cannot be null');
         }
-        $this->container['sender'] = $sender;
+        $this->container['originalPrice'] = $originalPrice;
 
         return $this;
     }
@@ -492,12 +519,12 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Create an instance of Message from a dict (associative array)
+     * Create an instance of DiscountExplicitPriceInfoResponse from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.
      *
      * @param array|null $data Associative array of property values
-     * @return Message
+     * @return DiscountExplicitPriceInfoResponse
      */
     public static function fromAssocArray(?array $data): self
     {
@@ -505,36 +532,19 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
             return new static();
         }
 
-        $discriminatorValue = $data[self::DISCRIMINATOR] ?? null;
-        $discriminatorMap = [
-            'audio' => AudioMessage::class,
-'coupon' => CouponMessage::class,
-'flex' => FlexMessage::class,
-'image' => ImageMessage::class,
-'imagemap' => ImagemapMessage::class,
-'location' => LocationMessage::class,
-'sticker' => StickerMessage::class,
-'template' => TemplateMessage::class,
-'text' => TextMessage::class,
-'textV2' => TextMessageV2::class,
-'video' => VideoMessage::class,
-        ];
-
-        if (isset($discriminatorValue) && isset($discriminatorMap[$discriminatorValue])) {
-            $modelClass = $discriminatorMap[$discriminatorValue];
-            return $modelClass::fromAssocArray($data);
-        }
-
         $instance = new static();
 
         if (isset($data['type'])) {
             $instance->settype($data['type']);
         }
-        if (isset($data['quickReply'])) {
-            $instance->setquickReply(\LINE\Clients\MessagingApi\Model\QuickReply::fromAssocArray($data['quickReply']));
+        if (isset($data['currency'])) {
+            $instance->setcurrency($data['currency']);
         }
-        if (isset($data['sender'])) {
-            $instance->setsender(\LINE\Clients\MessagingApi\Model\Sender::fromAssocArray($data['sender']));
+        if (isset($data['priceAfterDiscount'])) {
+            $instance->setpriceAfterDiscount($data['priceAfterDiscount']);
+        }
+        if (isset($data['originalPrice'])) {
+            $instance->setoriginalPrice($data['originalPrice']);
         }
 
         return $instance;

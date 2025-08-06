@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * Message
+ * LotteryAcquisitionConditionRequest
  *
  * PHP version 7.4
  *
@@ -42,12 +42,10 @@
  */
 
 namespace LINE\Clients\MessagingApi\Model;
-
-use \ArrayAccess;
 use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
- * Message Class Doc Comment
+ * LotteryAcquisitionConditionRequest Class Doc Comment
  *
  * @category Class
  * @package  LINE\Clients\MessagingApi
@@ -55,16 +53,16 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Message implements ModelInterface, ArrayAccess, \JsonSerializable
+class LotteryAcquisitionConditionRequest extends AcquisitionConditionRequest
 {
-    public const DISCRIMINATOR = 'type';
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Message';
+    protected static $openAPIModelName = 'LotteryAcquisitionConditionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,9 +70,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'quickReply' => '\LINE\Clients\MessagingApi\Model\QuickReply',
-        'sender' => '\LINE\Clients\MessagingApi\Model\Sender'
+        'lotteryProbability' => 'int',
+        'maxAcquireCount' => 'int'
     ];
 
     /**
@@ -85,9 +82,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'quickReply' => null,
-        'sender' => null
+        'lotteryProbability' => 'int32',
+        'maxAcquireCount' => 'int32'
     ];
 
     /**
@@ -96,9 +92,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'quickReply' => false,
-        'sender' => false
+        'lotteryProbability' => false,
+        'maxAcquireCount' => false
     ];
 
     /**
@@ -115,7 +110,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -125,7 +120,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -135,7 +130,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static function openAPINullables(): array
     {
-        return self::$openAPINullables;
+        return self::$openAPINullables + parent::openAPINullables();
     }
 
     /**
@@ -187,9 +182,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'quickReply' => 'quickReply',
-        'sender' => 'sender'
+        'lotteryProbability' => 'lotteryProbability',
+        'maxAcquireCount' => 'maxAcquireCount'
     ];
 
     /**
@@ -198,9 +192,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'quickReply' => 'setQuickReply',
-        'sender' => 'setSender'
+        'lotteryProbability' => 'setLotteryProbability',
+        'maxAcquireCount' => 'setMaxAcquireCount'
     ];
 
     /**
@@ -209,9 +202,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'quickReply' => 'getQuickReply',
-        'sender' => 'getSender'
+        'lotteryProbability' => 'getLotteryProbability',
+        'maxAcquireCount' => 'getMaxAcquireCount'
     ];
 
     /**
@@ -222,7 +214,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -232,7 +224,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -242,7 +234,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -256,12 +248,6 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -271,9 +257,10 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('quickReply', $data ?? [], null);
-        $this->setIfExists('sender', $data ?? [], null);
+        parent::__construct($data);
+
+        $this->setIfExists('lotteryProbability', $data ?? [], null);
+        $this->setIfExists('maxAcquireCount', $data ?? [], null);
     }
 
     /**
@@ -301,11 +288,26 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['lotteryProbability'] === null) {
+            $invalidProperties[] = "'lotteryProbability' can't be null";
         }
+        if (($this->container['lotteryProbability'] > 99)) {
+            $invalidProperties[] = "invalid value for 'lotteryProbability', must be smaller than or equal to 99.";
+        }
+
+        if (($this->container['lotteryProbability'] < 1)) {
+            $invalidProperties[] = "invalid value for 'lotteryProbability', must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['maxAcquireCount'] === null) {
+            $invalidProperties[] = "'maxAcquireCount' can't be null";
+        }
+        if (($this->container['maxAcquireCount'] > 999999)) {
+            $invalidProperties[] = "invalid value for 'maxAcquireCount', must be smaller than or equal to 999999.";
+        }
+
         return $invalidProperties;
     }
 
@@ -322,82 +324,68 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets lotteryProbability
      *
-     * @return string
+     * @return int
      */
-    public function getType()
+    public function getLotteryProbability()
     {
-        return $this->container['type'];
+        return $this->container['lotteryProbability'];
     }
 
     /**
-     * Sets type
+     * Sets lotteryProbability
      *
-     * @param string $type Type of message
+     * @param int $lotteryProbability Probability (1-99) of winning the coupon in lottery-type campaigns.
      *
      * @return self
      */
-    public function setType($type)
+    public function setLotteryProbability($lotteryProbability)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($lotteryProbability)) {
+            throw new \InvalidArgumentException('non-nullable lotteryProbability cannot be null');
         }
-        $this->container['type'] = $type;
+
+        if (($lotteryProbability > 99)) {
+            throw new \InvalidArgumentException('invalid value for $lotteryProbability when calling LotteryAcquisitionConditionRequest., must be smaller than or equal to 99.');
+        }
+        if (($lotteryProbability < 1)) {
+            throw new \InvalidArgumentException('invalid value for $lotteryProbability when calling LotteryAcquisitionConditionRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['lotteryProbability'] = $lotteryProbability;
 
         return $this;
     }
 
     /**
-     * Gets quickReply
+     * Gets maxAcquireCount
      *
-     * @return \LINE\Clients\MessagingApi\Model\QuickReply|null
+     * @return int
      */
-    public function getQuickReply()
+    public function getMaxAcquireCount()
     {
-        return $this->container['quickReply'];
+        return $this->container['maxAcquireCount'];
     }
 
     /**
-     * Sets quickReply
+     * Sets maxAcquireCount
      *
-     * @param \LINE\Clients\MessagingApi\Model\QuickReply|null $quickReply quickReply
+     * @param int $maxAcquireCount Maximum number of coupons that can be issued in total. Use -1 to indicate no limit
      *
      * @return self
      */
-    public function setQuickReply($quickReply)
+    public function setMaxAcquireCount($maxAcquireCount)
     {
-        if (is_null($quickReply)) {
-            throw new \InvalidArgumentException('non-nullable quickReply cannot be null');
+        if (is_null($maxAcquireCount)) {
+            throw new \InvalidArgumentException('non-nullable maxAcquireCount cannot be null');
         }
-        $this->container['quickReply'] = $quickReply;
 
-        return $this;
-    }
-
-    /**
-     * Gets sender
-     *
-     * @return \LINE\Clients\MessagingApi\Model\Sender|null
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param \LINE\Clients\MessagingApi\Model\Sender|null $sender sender
-     *
-     * @return self
-     */
-    public function setSender($sender)
-    {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        if (($maxAcquireCount > 999999)) {
+            throw new \InvalidArgumentException('invalid value for $maxAcquireCount when calling LotteryAcquisitionConditionRequest., must be smaller than or equal to 999999.');
         }
-        $this->container['sender'] = $sender;
+
+        $this->container['maxAcquireCount'] = $maxAcquireCount;
 
         return $this;
     }
@@ -492,12 +480,12 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Create an instance of Message from a dict (associative array)
+     * Create an instance of LotteryAcquisitionConditionRequest from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.
      *
      * @param array|null $data Associative array of property values
-     * @return Message
+     * @return LotteryAcquisitionConditionRequest
      */
     public static function fromAssocArray(?array $data): self
     {
@@ -505,36 +493,16 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
             return new static();
         }
 
-        $discriminatorValue = $data[self::DISCRIMINATOR] ?? null;
-        $discriminatorMap = [
-            'audio' => AudioMessage::class,
-'coupon' => CouponMessage::class,
-'flex' => FlexMessage::class,
-'image' => ImageMessage::class,
-'imagemap' => ImagemapMessage::class,
-'location' => LocationMessage::class,
-'sticker' => StickerMessage::class,
-'template' => TemplateMessage::class,
-'text' => TextMessage::class,
-'textV2' => TextMessageV2::class,
-'video' => VideoMessage::class,
-        ];
-
-        if (isset($discriminatorValue) && isset($discriminatorMap[$discriminatorValue])) {
-            $modelClass = $discriminatorMap[$discriminatorValue];
-            return $modelClass::fromAssocArray($data);
-        }
-
         $instance = new static();
 
         if (isset($data['type'])) {
             $instance->settype($data['type']);
         }
-        if (isset($data['quickReply'])) {
-            $instance->setquickReply(\LINE\Clients\MessagingApi\Model\QuickReply::fromAssocArray($data['quickReply']));
+        if (isset($data['lotteryProbability'])) {
+            $instance->setlotteryProbability($data['lotteryProbability']);
         }
-        if (isset($data['sender'])) {
-            $instance->setsender(\LINE\Clients\MessagingApi\Model\Sender::fromAssocArray($data['sender']));
+        if (isset($data['maxAcquireCount'])) {
+            $instance->setmaxAcquireCount($data['maxAcquireCount']);
         }
 
         return $instance;
