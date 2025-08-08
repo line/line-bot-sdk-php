@@ -301,8 +301,6 @@ JSON;
                     $this->assertStringContainsString('https://api.line.me/v2/bot/coupon?', (string)$request->getUri());
                     $this->assertEquals($contentType, $request->getHeaderLine('Content-Type'));
                     $this->assertEquals('status=RUNNING&status=CLOSED&start=startToken&limit=10', (string)$request->getUri()->getQuery());
-                    $this->assertStringContainsString('start=startToken', (string)$request->getUri()->getQuery());
-                    $this->assertStringContainsString('limit=10', (string)$request->getUri()->getQuery());
                     return true;
                 }),
                 []
