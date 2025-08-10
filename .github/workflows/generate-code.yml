@@ -25,7 +25,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         id: setup_node_id
         with:
-          node-version: 18
+          node-version: 22
       - uses: shivammathur/setup-php@20529878ed81ef8e78ddf08b480401e6101a850f # 2.35.3
         with:
           php-version: 8.2
