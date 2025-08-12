@@ -72,6 +72,9 @@ jobs:
             && github.actor != 'renovate[bot]'
           }}
         run: |
+          # TODO: Delete this
+          git add docs/**
+          git commit --allow-empty -m "Update document"
           echo "There are changes in the generated codes. Please run 'generate-code.py' and commit the changes." >&2
           echo "The files with differences are as follows." >&2
           echo "$(git --no-pager diff --name-only HEAD)" >&2
