@@ -638,7 +638,6 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
 'message' => MessageEvent::class,
 'module' => ModuleEvent::class,
 'postback' => PostbackEvent::class,
-'things' => ThingsEvent::class,
 'unfollow' => UnfollowEvent::class,
 'unsend' => UnsendEvent::class,
 'videoPlayComplete' => VideoPlayCompleteEvent::class,
