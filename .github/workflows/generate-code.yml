@@ -20,7 +20,6 @@ jobs:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           submodules: recursive
-          depth: 0
       - name: Update submodules
         run: git submodule update --remote --recursive
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -73,22 +72,6 @@ jobs:
             && github.actor != 'renovate[bot]'
           }}
         run: |
-          # TODO: Delete this
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-
-          if git ls-remote --exit-code --heads origin "$GITHUB_HEAD_REF"; then
-            git fetch origin "$GITHUB_HEAD_REF"
-            git checkout -B "$GITHUB_HEAD_REF" "origin/$GITHUB_HEAD_REF"
-          else
-            git checkout -B "$GITHUB_HEAD_REF"
-          fi
-
-          git add docs/**
-          git commit --allow-empty -m "Update document"
-
-          git push origin "$GITHUB_HEAD_REF"
-
           echo "There are changes in the generated codes. Please run 'generate-code.py' and commit the changes." >&2
           echo "The files with differences are as follows." >&2
           echo "$(git --no-pager diff --name-only HEAD)" >&2
