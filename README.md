@@ -1,6 +1,7 @@
 # LINE Messaging API SDK for PHP
 
 [![Build Status](https://github.com/line/line-bot-sdk-php/actions/workflows/php-checks.yml/badge.svg?branch=master)](https://github.com/line/line-bot-sdk-php/actions)
+[![Packagist Version](https://img.shields.io/packagist/v/linecorp/line-bot-sdk)](https://packagist.org/packages/linecorp/line-bot-sdk)
 
 
 ## Introduction

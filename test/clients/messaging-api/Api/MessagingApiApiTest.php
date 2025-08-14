@@ -18,6 +18,7 @@
 namespace LINE\Tests\Clients\MessagingApi\Api;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
@@ -30,12 +31,32 @@ use LINE\Clients\MessagingApi\Model\LotteryAcquisitionConditionRequest;
 use LINE\Clients\MessagingApi\Model\MessagingApiPagerCouponListResponse;
 use Mockery;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\UriInterface;
 
 class MessagingApiApiTest extends TestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+    }
+
+    private function assertQueryEquals(array $expected, UriInterface $uri): void
+    {
+        $actual = Query::parse($uri->getQuery());
+
+        $normalize = function (array &$arr): void {
+            foreach ($arr as &$v) {
+                if (is_array($v)) {
+                    sort($v);
+                }
+            }
+            ksort($arr);
+        };
+
+        $normalize($expected);
+        $normalize($actual);
+
+        $this->assertSame($expected, $actual, 'Query parameters mismatch');
     }
 
     public function testGetFollowers(): void
@@ -276,6 +297,11 @@ JSON;
         $start = 'startToken';
         $limit = 10;
         $contentType = 'application/json';
+        $expectedQuery = [
+            'status' => $status,
+            'start'  => $start,
+            'limit'  => (string)$limit,
+        ];
         $expectedRequestBody = <<<JSON
         {
             "status": ["RUNNING", "CLOSED"],
@@ -296,14 +322,11 @@ JSON;
         $client = Mockery::mock(ClientInterface::class);
         $client->shouldReceive('send')
             ->with(
-                Mockery::on(function (Request $request) use ($status, $start, $limit, $contentType) {
+                Mockery::on(function (Request $request) use ($status, $start, $limit, $contentType, $expectedQuery) {
                     $this->assertEquals('GET', $request->getMethod());
                     $this->assertStringContainsString('https://api.line.me/v2/bot/coupon?', (string)$request->getUri());
                     $this->assertEquals($contentType, $request->getHeaderLine('Content-Type'));
-                    $this->assertStringContainsString('status=RUNNING', (string)$request->getUri()->getQuery());
-                    $this->assertStringContainsString('status=CLOSED', (string)$request->getUri()->getQuery());
-                    $this->assertStringContainsString('start=startToken', (string)$request->getUri()->getQuery());
-                    $this->assertStringContainsString('limit=10', (string)$request->getUri()->getQuery());
+                    $this->assertQueryEquals($expectedQuery, $request->getUri());
                     return true;
                 }),
                 []
