@@ -89,32 +89,32 @@ class MessagingApiApiTest extends TestCase
         $endTimestamp = $startTimestamp + 3600;
 
         $expectedRequestBody = <<<JSON
-    {
-        "acquisitionCondition": {
-            "type": "lottery",
-            "lotteryProbability": 50,
-            "maxAcquireCount": 100
-        },
-        "barcodeImageUrl": "https://example.com/barcode.png",
-        "couponCode": "UNIQUECODE123",
-        "description": "Test coupon description",
-        "endTimestamp": $endTimestamp,
-        "imageUrl": "https://example.com/image.png",
-        "maxUseCountPerTicket": 1,
-        "startTimestamp": $startTimestamp,
-        "title": "Test Coupon",
-        "usageCondition": "Valid at all stores",
-        "reward": {
-            "type": "discount",
-            "priceInfo": {
-                "type": "fixed",
-                "fixedAmount": 100
-            }
-        },
-        "visibility": "PUBLIC",
-        "timezone": "ASIA_TOKYO"
-    }
-JSON;
+        {
+            "acquisitionCondition": {
+                "type": "lottery",
+                "lotteryProbability": 50,
+                "maxAcquireCount": 100
+            },
+            "barcodeImageUrl": "https://example.com/barcode.png",
+            "couponCode": "UNIQUECODE123",
+            "description": "Test coupon description",
+            "endTimestamp": $endTimestamp,
+            "imageUrl": "https://example.com/image.png",
+            "maxUseCountPerTicket": 1,
+            "startTimestamp": $startTimestamp,
+            "title": "Test Coupon",
+            "usageCondition": "Valid at all stores",
+            "reward": {
+                "type": "discount",
+                "priceInfo": {
+                    "type": "fixed",
+                    "fixedAmount": 100
+                }
+            },
+            "visibility": "PUBLIC",
+            "timezone": "ASIA_TOKYO"
+        }
+        JSON;
 
         $couponCreateRequest = new CouponCreateRequest([
             'acquisitionCondition' => new LotteryAcquisitionConditionRequest([
@@ -302,13 +302,6 @@ JSON;
             'start'  => $start,
             'limit'  => (string)$limit,
         ];
-        $expectedRequestBody = <<<JSON
-        {
-            "status": ["RUNNING", "CLOSED"],
-            "start": "startToken",
-            "limit": 10
-        }
-        JSON;
         $expectedResponseBody = <<<JSON
         {
             "items": [
