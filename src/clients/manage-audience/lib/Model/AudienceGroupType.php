@@ -82,6 +82,8 @@ class AudienceGroupType
 
     public const RICHMENU_CLICK = 'RICHMENU_CLICK';
 
+    public const POP_AD_IMP = 'POP_AD_IMP';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -100,7 +102,8 @@ class AudienceGroupType
             self::WEBTRAFFIC,
             self::IMAGE_CLICK,
             self::RICHMENU_IMP,
-            self::RICHMENU_CLICK
+            self::RICHMENU_CLICK,
+            self::POP_AD_IMP
         ];
     }
 }
