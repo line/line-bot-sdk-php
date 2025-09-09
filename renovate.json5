@@ -16,6 +16,7 @@
   labels: [
     'dependency upgrade',
   ],
+  minimumReleaseAge : "7 days",
   packageRules: [
     {
       labels: [
