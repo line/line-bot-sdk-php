@@ -28,6 +28,35 @@ use LINE\Webhook\Model\Event;
 class EventRequestParser
 {
     /**
+     * Function to control whether signature verification is skipped
+     * @var callable
+     */
+    private static $skipSignatureVerification;
+
+    /**
+     * Set function to determine whether to skip signature verification
+     *
+     * @param callable $skipFunc Function that returns boolean
+     * @return void
+     */
+    public static function setSkipSignatureVerification(callable $skipFunc): void
+    {
+        self::$skipSignatureVerification = $skipFunc;
+    }
+
+    /**
+     * Get current skipSignatureVerification function
+     *
+     * @return callable Current function
+     */
+    public static function getSkipSignatureVerification(): callable
+    {
+        if (!isset(self::$skipSignatureVerification)) {
+            self::$skipSignatureVerification = function() { return false; };
+        }
+        return self::$skipSignatureVerification;
+    }
+    /**
      * Validate signature and parse Webhook event request.
      * When discriminator is not unknown, Webhook event will be parsed to the corresponding superclass.
      * For example, `"type":"unknown"` will be parsed to LINE\Webhook\Model\Event and
@@ -42,12 +71,15 @@ class EventRequestParser
      */
     public static function parseEventRequest(string $body, string $channelSecret, string $signature): ParsedEvents
     {
-        if (trim($signature) === '') {
-            throw new InvalidSignatureException('Request does not contain signature');
-        }
+        $skipFunc = self::getSkipSignatureVerification();
+        if (!$skipFunc()) {
+            if (trim($signature) === '') {
+                throw new InvalidSignatureException('Request does not contain signature');
+            }
 
-        if (!SignatureValidator::validateSignature($body, $channelSecret, $signature)) {
-            throw new InvalidSignatureException('Invalid signature has given');
+            if (!SignatureValidator::validateSignature($body, $channelSecret, $signature)) {
+                throw new InvalidSignatureException('Invalid signature has given');
+            }
         }
 
         $parsedReq = json_decode($body, true);
