@@ -21,6 +21,7 @@ namespace LINE\Parser\Tests;
 use LINE\Constants\MessageContentProviderType;
 use LINE\Constants\StickerResourceType;
 use LINE\Parser\EventRequestParser;
+use LINE\Parser\Exception\InvalidSignatureException;
 use LINE\Webhook\Model\Event;
 use LINE\Webhook\Model\GroupSource;
 use LINE\Webhook\Model\RoomSource;
@@ -1713,6 +1714,56 @@ class EventRequestParserTest extends TestCase
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
             $this->assertEquals('replytoken', $event->getReplyToken());
         }
+    }
+
+    /**
+     * Test that signature verification can be skipped
+     *
+     * @throws \LINE\Parser\Exception\InvalidEventRequestException
+     * @throws \LINE\Parser\Exception\InvalidEventSourceException
+     * @throws \LINE\Parser\Exception\InvalidSignatureException
+     * @throws \JsonException
+     */
+    public function testSkipSignatureVerification(): void
+    {
+        // Enable skip signature verification
+        EventRequestParser::setSkipSignatureVerification(function() { return true; });
+
+        try {
+            $parsedEvents = EventRequestParser::parseEventRequest(
+                body: self::$json,
+                channelSecret: 'testsecret',
+                signature: 'invalid-signature',
+            );
+
+            $this->assertEquals($parsedEvents->getDestination(), 'U0123456789abcdef0123456789abcd');
+            $events = $parsedEvents->getEvents();
+            $this->assertEquals(count($events), 46);
+        } finally {
+            // Reset to default for other tests
+            EventRequestParser::setSkipSignatureVerification(function() { return false; });
+        }
+    }
+
+    /**
+     * Test that invalid signature is rejected when verification is enabled
+     *
+     * @throws \LINE\Parser\Exception\InvalidEventRequestException
+     * @throws \LINE\Parser\Exception\InvalidEventSourceException
+     * @throws \JsonException
+     */
+    public function testInvalidSignatureRejected(): void
+    {
+        // Make sure skip signature verification is disabled
+        EventRequestParser::setSkipSignatureVerification(function() { return false; });
+
+        $this->expectException(InvalidSignatureException::class);
+
+        EventRequestParser::parseEventRequest(
+            body: self::$json,
+            channelSecret: 'testsecret',
+            signature: 'invalid-signature',
+        );
     }
 
     private static function getSignature(string $secret): string
