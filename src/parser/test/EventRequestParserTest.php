@@ -20,6 +20,7 @@ namespace LINE\Parser\Tests;
 
 use LINE\Constants\MessageContentProviderType;
 use LINE\Constants\StickerResourceType;
+use LINE\Parser\EventRequestOptions;
 use LINE\Parser\EventRequestParser;
 use LINE\Webhook\Model\Event;
 use LINE\Webhook\Model\GroupSource;
@@ -1718,5 +1719,30 @@ class EventRequestParserTest extends TestCase
     private static function getSignature(string $secret): string
     {
         return base64_encode(hash_hmac('sha256', self::$json, $secret, true));
+    }
+    
+    /**
+     * @throws \LINE\Parser\Exception\InvalidEventRequestException
+     * @throws \LINE\Parser\Exception\InvalidEventSourceException
+     * @throws \LINE\Parser\Exception\InvalidSignatureException
+     * @throws \JsonException
+     */
+    public function testParseEventRequestWithSkipSignatureValidation(): void
+    {
+        $invalidSignature = 'invalid_signature';
+        
+        $options = new EventRequestOptions(function() {
+            return true;
+        });
+        
+        $parsedEvents = EventRequestParser::parseEventRequest(
+            body: self::$json,
+            channelSecret: 'testsecret',
+            signature: $invalidSignature,
+            options: $options
+        );
+        
+        $this->assertEquals('U0123456789abcdef0123456789abcd', $parsedEvents->getDestination());
+        $this->assertEquals(46, count($parsedEvents->getEvents()));
     }
 }
