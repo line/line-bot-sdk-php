@@ -899,7 +899,7 @@ class EventRequestParserTest extends TestCase
         "deliveryContext": {
           "isRedelivery": false
         },
-        "replyToken": "replytoken"  
+        "replyToken": "replytoken"
       },
       {
         "type": "membership",
@@ -917,7 +917,7 @@ class EventRequestParserTest extends TestCase
         "deliveryContext": {
           "isRedelivery": false
         },
-        "replyToken": "replytoken"  
+        "replyToken": "replytoken"
       }
      ]
     }
@@ -1720,7 +1720,7 @@ class EventRequestParserTest extends TestCase
     {
         return base64_encode(hash_hmac('sha256', self::$json, $secret, true));
     }
-    
+
     /**
      * @throws \LINE\Parser\Exception\InvalidEventRequestException
      * @throws \LINE\Parser\Exception\InvalidEventSourceException
@@ -1730,18 +1730,18 @@ class EventRequestParserTest extends TestCase
     public function testParseEventRequestWithSkipSignatureValidation(): void
     {
         $invalidSignature = 'invalid_signature';
-        
+
         $options = new EventRequestOptions(function () {
             return true;
         });
-        
+
         $parsedEvents = EventRequestParser::parseEventRequest(
             body: self::$json,
             channelSecret: 'testsecret',
             signature: $invalidSignature,
             options: $options
         );
-        
+
         $this->assertEquals('U0123456789abcdef0123456789abcd', $parsedEvents->getDestination());
         $this->assertEquals(46, count($parsedEvents->getEvents()));
     }
