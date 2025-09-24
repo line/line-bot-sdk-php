@@ -1731,7 +1731,7 @@ class EventRequestParserTest extends TestCase
     {
         $invalidSignature = 'invalid_signature';
         
-        $options = new EventRequestOptions(function() {
+        $options = new EventRequestOptions(function () {
             return true;
         });
         
