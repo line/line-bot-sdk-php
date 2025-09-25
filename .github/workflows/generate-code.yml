@@ -64,6 +64,21 @@ jobs:
 
           echo "DIFF_IS_EMPTY=$([[ -z "$diff_excluding_submodule" ]] && echo 'true' || echo 'false')" >> $GITHUB_ENV
           echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+
+      # Save full diff to file and upload artifact
+      - name: Save full diff to file
+        if: env.DIFF_IS_EMPTY != 'true'
+        run: |
+          git --no-pager diff HEAD > diff.patch
+          echo "Full diff saved to diff.patch"
+
+      - name: Upload diff artifact
+        if: env.DIFF_IS_EMPTY != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: codegen-diff
+          path: diff.patch
+
       ## Run if diff exists and pull request or merge queue, and make CI status failure (but allow renovate bot)
       - if: >-
           ${{
