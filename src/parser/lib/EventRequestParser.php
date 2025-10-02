@@ -36,17 +36,19 @@ class EventRequestParser
      * @param string $body
      * @param string $channelSecret
      * @param string $signature
+     * @param EventRequestOptions|null $options Options for event request parsing
      * @return ParsedEvents
      * @throws InvalidEventRequestException
      * @throws InvalidSignatureException
      */
-    public static function parseEventRequest(string $body, string $channelSecret, string $signature): ParsedEvents
+    public static function parseEventRequest(string $body, string $channelSecret, string $signature, ?EventRequestOptions $options = null): ParsedEvents
     {
         if (trim($signature) === '') {
             throw new InvalidSignatureException('Request does not contain signature');
         }
 
-        if (!SignatureValidator::validateSignature($body, $channelSecret, $signature)) {
+        $skipValidation = $options && $options->skipSignatureValidation && ($options->skipSignatureValidation)();
+        if (!$skipValidation && !SignatureValidator::validateSignature($body, $channelSecret, $signature)) {
             throw new InvalidSignatureException('Invalid signature has given');
         }
 
