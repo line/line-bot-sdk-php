@@ -28,6 +28,7 @@ class EventRequestOptions
      *                    If the function returns true, the signature verification step is skipped.
      *                    This can be useful in scenarios such as when you're in the process of updating
      *                    the channel secret and need to temporarily bypass verification to avoid disruptions.
+     *                    The use of a callable allows dynamic control at runtime.
      */
     public $skipSignatureValidation;
 
