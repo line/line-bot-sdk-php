@@ -21,7 +21,7 @@
   },
   "require-dev": {
     "phpmd/phpmd": "2.15.0",
-    "squizlabs/php_codesniffer": "3.13.4",
+    "squizlabs/php_codesniffer": "4.0.0",
     "orchestra/testbench": "*",
     "phpstan/phpstan": "^2.0",
     "phpunit/phpunit": "^10.2"
