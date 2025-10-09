@@ -533,6 +533,10 @@ class ObjectSerializer
                 $data = (object)$data;
             }
 
+            if (is_object($data) && method_exists($class, 'fromAssocArray')) {
+                return $class::fromAssocArray(self::objectToArray($data));
+            }
+
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
@@ -628,5 +632,18 @@ class ObjectSerializer
         }
 
         return $qs ? (string) substr($qs, 0, -1) : '';
+    }
+
+
+    private static function objectToArray($obj)
+    {
+        if (is_object($obj)) {
+            $obj = (array)$obj;
+        }
+        if (is_array($obj)) {
+            return array_map(fn($x) => self::objectToArray($x), $obj);
+        } else {
+            return $obj;
+        }
     }
 }
