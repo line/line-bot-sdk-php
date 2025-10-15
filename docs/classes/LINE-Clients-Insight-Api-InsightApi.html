@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,8 +53,8 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/line.html" class="">LINE</a>
@@ -82,7 +83,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -108,21 +109,22 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line.html">LINE</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients.html">Clients</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients-insight.html">Insight</a></li>
@@ -146,6 +148,11 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
     :
@@ -157,9 +164,11 @@
 
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -187,8 +196,7 @@
                                                                                                         <a class="phpdocumentor-tag-link" href="https://openapi-generator.tech"> https://openapi-generator.tech </a>
                     
                                     </dd>
-                        </dl>
-
+                                            </dl>
 
 
 
@@ -196,256 +204,278 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#constant_contentTypes">contentTypes</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#constant_contentTypes">contentTypes</a>
     <span>
         &nbsp;= [&#039;getFriendsDemographics&#039; =&gt; [&#039;application/json&#039;], &#039;getMessageEvent&#039; =&gt; [&#039;application/json&#039;], &#039;getNumberOfFollowers&#039; =&gt; [&#039;application/json&#039;], &#039;getNumberOfMessageDeliveries&#039; =&gt; [&#039;application/json&#039;], &#039;getStatisticsPerUnit&#039; =&gt; [&#039;application/json&#039;]]                            </span>
 </dt>
-<dd></dd>
 
-                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_client">$client</a>
+    </dl>
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_client">$client</a>
     <span>
                         &nbsp;: <abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr>            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_config">$config</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_config">$config</a>
     <span>
                         &nbsp;: <a href="classes/LINE-Clients-Insight-Configuration.html"><abbr title="\LINE\Clients\Insight\Configuration">Configuration</abbr></a>            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_headerSelector">$headerSelector</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_headerSelector">$headerSelector</a>
     <span>
                         &nbsp;: <a href="classes/LINE-Clients-Insight-HeaderSelector.html"><abbr title="\LINE\Clients\Insight\HeaderSelector">HeaderSelector</abbr></a>            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_hostIndex">$hostIndex</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_hostIndex">$hostIndex</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
-<dd></dd>
 
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method___construct">__construct()</a>
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getConfig">getConfig()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getConfig">getConfig()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-Insight-Configuration.html"><abbr title="\LINE\Clients\Insight\Configuration">Configuration</abbr></a>    </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographics">getFriendsDemographics()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographics">getFriendsDemographics()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-Insight-Model-GetFriendsDemographicsResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse">GetFriendsDemographicsResponse</abbr></a>    </span>
 </dt>
 <dd>Operation getFriendsDemographics</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsync">getFriendsDemographicsAsync()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsync">getFriendsDemographicsAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getFriendsDemographicsAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsyncWithHttpInfo">getFriendsDemographicsAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsyncWithHttpInfo">getFriendsDemographicsAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getFriendsDemographicsAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsRequest">getFriendsDemographicsRequest()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsRequest">getFriendsDemographicsRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;getFriendsDemographics&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsWithHttpInfo">getFriendsDemographicsWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsWithHttpInfo">getFriendsDemographicsWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation getFriendsDemographicsWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getHostIndex">getHostIndex()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getHostIndex">getHostIndex()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Get the host index</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEvent">getMessageEvent()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEvent">getMessageEvent()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-Insight-Model-GetMessageEventResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetMessageEventResponse">GetMessageEventResponse</abbr></a>    </span>
 </dt>
 <dd>Operation getMessageEvent</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsync">getMessageEventAsync()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsync">getMessageEventAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getMessageEventAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsyncWithHttpInfo">getMessageEventAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsyncWithHttpInfo">getMessageEventAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getMessageEventAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventRequest">getMessageEventRequest()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventRequest">getMessageEventRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;getMessageEvent&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventWithHttpInfo">getMessageEventWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventWithHttpInfo">getMessageEventWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation getMessageEventWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowers">getNumberOfFollowers()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowers">getNumberOfFollowers()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-Insight-Model-GetNumberOfFollowersResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse">GetNumberOfFollowersResponse</abbr></a>    </span>
 </dt>
 <dd>Operation getNumberOfFollowers</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsync">getNumberOfFollowersAsync()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsync">getNumberOfFollowersAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getNumberOfFollowersAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsyncWithHttpInfo">getNumberOfFollowersAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsyncWithHttpInfo">getNumberOfFollowersAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getNumberOfFollowersAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersRequest">getNumberOfFollowersRequest()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersRequest">getNumberOfFollowersRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;getNumberOfFollowers&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersWithHttpInfo">getNumberOfFollowersWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersWithHttpInfo">getNumberOfFollowersWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation getNumberOfFollowersWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveries">getNumberOfMessageDeliveries()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveries">getNumberOfMessageDeliveries()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-Insight-Model-GetNumberOfMessageDeliveriesResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse">GetNumberOfMessageDeliveriesResponse</abbr></a>    </span>
 </dt>
 <dd>Operation getNumberOfMessageDeliveries</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsync">getNumberOfMessageDeliveriesAsync()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsync">getNumberOfMessageDeliveriesAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getNumberOfMessageDeliveriesAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsyncWithHttpInfo">getNumberOfMessageDeliveriesAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsyncWithHttpInfo">getNumberOfMessageDeliveriesAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getNumberOfMessageDeliveriesAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesRequest">getNumberOfMessageDeliveriesRequest()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesRequest">getNumberOfMessageDeliveriesRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;getNumberOfMessageDeliveries&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesWithHttpInfo">getNumberOfMessageDeliveriesWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesWithHttpInfo">getNumberOfMessageDeliveriesWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation getNumberOfMessageDeliveriesWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnit">getStatisticsPerUnit()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnit">getStatisticsPerUnit()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-Insight-Model-GetStatisticsPerUnitResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse">GetStatisticsPerUnitResponse</abbr></a>    </span>
 </dt>
 <dd>Operation getStatisticsPerUnit</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsync">getStatisticsPerUnitAsync()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsync">getStatisticsPerUnitAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getStatisticsPerUnitAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsyncWithHttpInfo">getStatisticsPerUnitAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsyncWithHttpInfo">getStatisticsPerUnitAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getStatisticsPerUnitAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitRequest">getStatisticsPerUnitRequest()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitRequest">getStatisticsPerUnitRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;getStatisticsPerUnit&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitWithHttpInfo">getStatisticsPerUnitWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitWithHttpInfo">getStatisticsPerUnitWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation getStatisticsPerUnitWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_setHostIndex">setHostIndex()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_setHostIndex">setHostIndex()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Set the host index</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_createHttpClientOption">createHttpClientOption()</a>
+    <a class="" href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_createHttpClientOption">createHttpClientOption()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Create http client option</dd>
 
-        </dl>
+    </dl>
 
 
 
@@ -454,11 +484,13 @@
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
             <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_contentTypes">
         contentTypes
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#constant_contentTypes" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -468,6 +500,7 @@
 
     </aside>
 
+    
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -485,6 +518,8 @@
 
     
 
+    
+
 </article>
             </section>
 
@@ -493,19 +528,21 @@
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
             <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_client">
         $client
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_client" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -515,14 +552,19 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr></span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr></span>
     <span class="phpdocumentor-signature__name">$client</span>
     </code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -531,13 +573,14 @@
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_config">
         $config
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_config" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -547,14 +590,19 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-Insight-Configuration.html"><abbr title="\LINE\Clients\Insight\Configuration">Configuration</abbr></a></span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-Insight-Configuration.html"><abbr title="\LINE\Clients\Insight\Configuration">Configuration</abbr></a></span>
     <span class="phpdocumentor-signature__name">$config</span>
     </code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -563,13 +611,14 @@
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_headerSelector">
         $headerSelector
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_headerSelector" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -579,14 +628,19 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-Insight-HeaderSelector.html"><abbr title="\LINE\Clients\Insight\HeaderSelector">HeaderSelector</abbr></a></span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-Insight-HeaderSelector.html"><abbr title="\LINE\Clients\Insight\HeaderSelector">HeaderSelector</abbr></a></span>
     <span class="phpdocumentor-signature__name">$headerSelector</span>
     </code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -595,13 +649,14 @@
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_hostIndex">
         $hostIndex
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_hostIndex" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -611,15 +666,20 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">int</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">$hostIndex</span>
     </code>
 
     
         <section class="phpdocumentor-description"><p>Host index</p>
 </section>
+
+    
+
+    
 
     
 
@@ -630,6 +690,7 @@
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -640,6 +701,7 @@
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -651,8 +713,11 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$client</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-Insight-Configuration.html"><abbr title="\LINE\Clients\Insight\Configuration">Configuration</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-Insight-HeaderSelector.html"><abbr title="\LINE\Clients\Insight\HeaderSelector">HeaderSelector</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$client</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-Insight-Configuration.html"><abbr title="\LINE\Clients\Insight\Configuration">Configuration</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-Insight-HeaderSelector.html"><abbr title="\LINE\Clients\Insight\HeaderSelector">HeaderSelector</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -680,7 +745,7 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$hostIndex</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>(Optional) host index to select the list of hosts if defined in the OpenAPI spec</p>
 </section>
@@ -690,10 +755,8 @@
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -705,6 +768,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getConfig">
         getConfig()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getConfig" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -718,15 +782,20 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getConfig</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Configuration.html"><abbr title="\LINE\Clients\Insight\Configuration">Configuration</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Configuration.html"><abbr title="\LINE\Clients\Insight\Configuration">Configuration</abbr></a></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Configuration.html"><abbr title="\LINE\Clients\Insight\Configuration">Configuration</abbr></a></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -737,6 +806,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getFriendsDemographics">
         getFriendsDemographics()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographics" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -751,6 +821,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getFriendsDemographics</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getFriendsDemographics&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetFriendsDemographicsResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse">GetFriendsDemographicsResponse</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -768,7 +841,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographics#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -789,13 +863,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetFriendsDemographicsResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse">GetFriendsDemographicsResponse</abbr></a></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetFriendsDemographicsResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetFriendsDemographicsResponse">GetFriendsDemographicsResponse</abbr></a></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -806,6 +882,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getFriendsDemographicsAsync">
         getFriendsDemographicsAsync()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -820,6 +897,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getFriendsDemographicsAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getFriendsDemographics&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -837,7 +917,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -848,13 +929,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -865,6 +948,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getFriendsDemographicsAsyncWithHttpInfo">
         getFriendsDemographicsAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -879,6 +963,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getFriendsDemographicsAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getFriendsDemographics&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -896,7 +983,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -907,13 +995,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -924,6 +1014,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getFriendsDemographicsRequest">
         getFriendsDemographicsRequest()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -938,6 +1029,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getFriendsDemographicsRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getFriendsDemographics&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -955,7 +1049,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -966,13 +1061,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -983,6 +1080,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getFriendsDemographicsWithHttpInfo">
         getFriendsDemographicsWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -997,6 +1095,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getFriendsDemographicsWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getFriendsDemographics&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1014,7 +1115,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1035,15 +1137,19 @@
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetFriendsDemographicsResponse, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetFriendsDemographicsResponse, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1054,6 +1160,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getHostIndex">
         getHostIndex()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getHostIndex" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1068,17 +1175,24 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getHostIndex</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Host index</p>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Host index</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1089,6 +1203,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getMessageEvent">
         getMessageEvent()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEvent" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1103,6 +1218,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageEvent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$requestId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageEvent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetMessageEventResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetMessageEventResponse">GetMessageEventResponse</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get user interaction statistics</p>
 </section>
 
@@ -1131,7 +1249,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEvent#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1152,13 +1271,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetMessageEventResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetMessageEventResponse">GetMessageEventResponse</abbr></a></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetMessageEventResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetMessageEventResponse">GetMessageEventResponse</abbr></a></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1169,6 +1290,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getMessageEventAsync">
         getMessageEventAsync()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1183,6 +1305,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageEventAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$requestId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageEvent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get user interaction statistics</p>
 </section>
 
@@ -1211,7 +1336,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1222,13 +1348,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1239,6 +1367,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getMessageEventAsyncWithHttpInfo">
         getMessageEventAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1253,6 +1382,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageEventAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$requestId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageEvent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get user interaction statistics</p>
 </section>
 
@@ -1281,7 +1413,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1292,13 +1425,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1309,6 +1444,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getMessageEventRequest">
         getMessageEventRequest()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1323,6 +1459,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageEventRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$requestId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageEvent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1349,7 +1488,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1360,13 +1500,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1377,6 +1519,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getMessageEventWithHttpInfo">
         getMessageEventWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1391,6 +1534,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageEventWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$requestId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageEvent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get user interaction statistics</p>
 </section>
 
@@ -1419,7 +1565,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1440,15 +1587,19 @@
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetMessageEventResponse, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetMessageEventResponse, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1459,6 +1610,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfFollowers">
         getNumberOfFollowers()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowers" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1473,6 +1625,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfFollowers</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfFollowers&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetNumberOfFollowersResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse">GetNumberOfFollowersResponse</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get number of followers</p>
 </section>
 
@@ -1501,7 +1656,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowers#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1522,13 +1678,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetNumberOfFollowersResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse">GetNumberOfFollowersResponse</abbr></a></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetNumberOfFollowersResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse">GetNumberOfFollowersResponse</abbr></a></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1539,6 +1697,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfFollowersAsync">
         getNumberOfFollowersAsync()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1553,6 +1712,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfFollowersAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfFollowers&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get number of followers</p>
 </section>
 
@@ -1581,7 +1743,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1592,13 +1755,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1609,6 +1774,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfFollowersAsyncWithHttpInfo">
         getNumberOfFollowersAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1623,6 +1789,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfFollowersAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfFollowers&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get number of followers</p>
 </section>
 
@@ -1651,7 +1820,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1662,13 +1832,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1679,6 +1851,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfFollowersRequest">
         getNumberOfFollowersRequest()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1693,6 +1866,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfFollowersRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfFollowers&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1719,7 +1895,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1730,13 +1907,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1747,6 +1926,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfFollowersWithHttpInfo">
         getNumberOfFollowersWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1761,6 +1941,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfFollowersWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfFollowers&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get number of followers</p>
 </section>
 
@@ -1789,7 +1972,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1810,15 +1994,19 @@
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetNumberOfFollowersResponse, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetNumberOfFollowersResponse, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1829,6 +2017,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfMessageDeliveries">
         getNumberOfMessageDeliveries()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveries" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1843,6 +2032,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfMessageDeliveries</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfMessageDeliveries&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetNumberOfMessageDeliveriesResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse">GetNumberOfMessageDeliveriesResponse</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get number of message deliveries</p>
 </section>
 
@@ -1871,7 +2063,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveries#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1892,13 +2085,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetNumberOfMessageDeliveriesResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse">GetNumberOfMessageDeliveriesResponse</abbr></a></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetNumberOfMessageDeliveriesResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse">GetNumberOfMessageDeliveriesResponse</abbr></a></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1909,6 +2104,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfMessageDeliveriesAsync">
         getNumberOfMessageDeliveriesAsync()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1923,6 +2119,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfMessageDeliveriesAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfMessageDeliveries&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get number of message deliveries</p>
 </section>
 
@@ -1951,7 +2150,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1962,13 +2162,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1979,6 +2181,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfMessageDeliveriesAsyncWithHttpInfo">
         getNumberOfMessageDeliveriesAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -1993,6 +2196,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfMessageDeliveriesAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfMessageDeliveries&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get number of message deliveries</p>
 </section>
 
@@ -2021,7 +2227,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2032,13 +2239,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2049,6 +2258,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfMessageDeliveriesRequest">
         getNumberOfMessageDeliveriesRequest()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -2063,6 +2273,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfMessageDeliveriesRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfMessageDeliveries&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2089,7 +2302,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2100,13 +2314,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2117,6 +2333,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfMessageDeliveriesWithHttpInfo">
         getNumberOfMessageDeliveriesWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -2131,6 +2348,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfMessageDeliveriesWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$date</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getNumberOfMessageDeliveries&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>Get number of message deliveries</p>
 </section>
 
@@ -2159,7 +2379,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2180,15 +2401,19 @@
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetNumberOfMessageDeliveriesResponse, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2199,6 +2424,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getStatisticsPerUnit">
         getStatisticsPerUnit()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnit" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -2213,6 +2439,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getStatisticsPerUnit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$customAggregationUnit</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getStatisticsPerUnit&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetStatisticsPerUnitResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse">GetStatisticsPerUnitResponse</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2257,7 +2486,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnit#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2278,13 +2508,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetStatisticsPerUnitResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse">GetStatisticsPerUnitResponse</abbr></a></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-Insight-Model-GetStatisticsPerUnitResponse.html"><abbr title="\LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse">GetStatisticsPerUnitResponse</abbr></a></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2295,6 +2527,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getStatisticsPerUnitAsync">
         getStatisticsPerUnitAsync()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -2309,6 +2542,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getStatisticsPerUnitAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$customAggregationUnit</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getStatisticsPerUnit&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2353,7 +2589,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2364,13 +2601,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2381,6 +2620,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getStatisticsPerUnitAsyncWithHttpInfo">
         getStatisticsPerUnitAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -2395,6 +2635,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getStatisticsPerUnitAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$customAggregationUnit</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getStatisticsPerUnit&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2439,7 +2682,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2450,13 +2694,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2467,6 +2713,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getStatisticsPerUnitRequest">
         getStatisticsPerUnitRequest()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -2481,6 +2728,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getStatisticsPerUnitRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$customAggregationUnit</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getStatisticsPerUnit&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2525,7 +2775,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2536,13 +2787,15 @@
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2553,6 +2806,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getStatisticsPerUnitWithHttpInfo">
         getStatisticsPerUnitWithHttpInfo()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -2567,6 +2821,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getStatisticsPerUnitWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$customAggregationUnit</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getStatisticsPerUnit&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2611,7 +2868,8 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2632,15 +2890,19 @@
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of \LINE\Clients\Insight\Model\GetStatisticsPerUnitResponse, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2651,6 +2913,7 @@
     <h4 class="phpdocumentor-element__name" id="method_setHostIndex">
         setHostIndex()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_setHostIndex" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -2665,6 +2928,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setHostIndex</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2681,10 +2947,8 @@
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -2696,6 +2960,7 @@
     <h4 class="phpdocumentor-element__name" id="method_createHttpClientOption">
         createHttpClientOption()
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_createHttpClientOption" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/insight/lib/Api/InsightApi.php"><a href="files/src-clients-insight-lib-api-insightapi.html"><abbr title="src/clients/insight/lib/Api/InsightApi.php">InsightApi.php</abbr></a></abbr>
@@ -2710,12 +2975,16 @@
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">createHttpClientOption</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_createHttpClientOption#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2728,82 +2997,190 @@
 </section>
 
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of http client options</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of http client options</p>
+</section>
+
+            </section>
+
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/clients/insight/lib/Api/InsightApi.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#constant_contentTypes">contentTypes</a></li>
+                                            </ul>
+                </li>
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_client">$client</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_config">$config</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_headerSelector">$headerSelector</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#property_hostIndex">$hostIndex</a></li>
+                                            </ul>
+                </li>
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getConfig">getConfig()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographics">getFriendsDemographics()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsync">getFriendsDemographicsAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsAsyncWithHttpInfo">getFriendsDemographicsAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsRequest">getFriendsDemographicsRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getFriendsDemographicsWithHttpInfo">getFriendsDemographicsWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getHostIndex">getHostIndex()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEvent">getMessageEvent()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsync">getMessageEventAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventAsyncWithHttpInfo">getMessageEventAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventRequest">getMessageEventRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getMessageEventWithHttpInfo">getMessageEventWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowers">getNumberOfFollowers()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsync">getNumberOfFollowersAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersAsyncWithHttpInfo">getNumberOfFollowersAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersRequest">getNumberOfFollowersRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfFollowersWithHttpInfo">getNumberOfFollowersWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveries">getNumberOfMessageDeliveries()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsync">getNumberOfMessageDeliveriesAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesAsyncWithHttpInfo">getNumberOfMessageDeliveriesAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesRequest">getNumberOfMessageDeliveriesRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getNumberOfMessageDeliveriesWithHttpInfo">getNumberOfMessageDeliveriesWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnit">getStatisticsPerUnit()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsync">getStatisticsPerUnitAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitAsyncWithHttpInfo">getStatisticsPerUnitAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitRequest">getStatisticsPerUnitRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_getStatisticsPerUnitWithHttpInfo">getStatisticsPerUnitWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_setHostIndex">setHostIndex()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-Insight-Api-InsightApi.html#method_createHttpClientOption">createHttpClientOption()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -2814,7 +3191,6 @@
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/LINE-Clients-Insight-Api-InsightApi.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
