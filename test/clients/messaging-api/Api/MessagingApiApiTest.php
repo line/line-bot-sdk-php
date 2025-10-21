@@ -23,6 +23,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\Clients\MessagingApi\Model\AcquisitionConditionResponse;
+use LINE\Clients\MessagingApi\Model\Action;
 use LINE\Clients\MessagingApi\Model\CouponCashBackRewardResponse;
 use LINE\Clients\MessagingApi\Model\CouponCreateRequest;
 use LINE\Clients\MessagingApi\Model\CouponCreateResponse;
@@ -502,5 +503,82 @@ JSON;
         $this->assertEquals('uri', $area22->getAction()->getType());
         $this->assertEquals('メニューを見る', $area22->getAction()->getLabel());
         $this->assertEquals('https://example.com/menu', $area22->getAction()->getUri());
+    }
+
+    public function testGetRichMenuListWithUnknownType(): void
+    {
+        $expectedResponseBody = <<<JSON
+{
+  "richmenus": [
+    {
+      "richMenuId": "{richMenuId}",
+      "name": "Nice rich menu",
+      "size": {
+        "width": 2500,
+        "height": 1686
+      },
+      "chatBarText": "Tap to open",
+      "selected": false,
+      "areas": [
+        {
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 2500,
+            "height": 1686
+          },
+          "action": {
+            "type": "unknown_type",
+            "data": "action=buy&itemid=123"
+          }
+        }
+      ]
+    }
+  ]
+}
+JSON;
+
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('GET', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/v2/bot/richmenu/list', (string)$request->getUri());
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: $expectedResponseBody,
+            ));
+        $api = new MessagingApiApi($client);
+        $richMenuListResponse = $api->getRichMenuList();
+        $this->assertInstanceOf(RichMenuListResponse::class, $richMenuListResponse);
+        $richMenus = $richMenuListResponse->getRichmenus();
+        $this->assertCount(1, $richMenus);
+
+        // First rich menu
+        $this->assertInstanceOf(RichMenuResponse::class, $richMenus[0]);
+        $this->assertEquals('{richMenuId}', $richMenus[0]->getRichMenuId());
+        $this->assertEquals('Nice rich menu', $richMenus[0]->getName());
+        $this->assertEquals('Tap to open', $richMenus[0]->getChatBarText());
+        $this->assertFalse($richMenus[0]->getSelected());
+        $this->assertInstanceOf(RichMenuSize::class, $richMenus[0]->getSize());
+        $this->assertEquals(2500, $richMenus[0]->getSize()->getWidth());
+        $this->assertEquals(1686, $richMenus[0]->getSize()->getHeight());
+        $this->assertCount(1, $richMenus[0]->getAreas());
+
+        // First rich menu - area check
+        $area1 = $richMenus[0]->getAreas()[0];
+        $this->assertInstanceOf(RichMenuArea::class, $area1);
+        $this->assertEquals(0, $area1->getBounds()->getX());
+        $this->assertEquals(0, $area1->getBounds()->getY());
+        $this->assertEquals(2500, $area1->getBounds()->getWidth());
+        $this->assertEquals(1686, $area1->getBounds()->getHeight());
+        $this->assertInstanceOf(Action::class, $area1->getAction());
+        $this->assertEquals('unknown_type', $area1->getAction()->getType());
     }
 }
