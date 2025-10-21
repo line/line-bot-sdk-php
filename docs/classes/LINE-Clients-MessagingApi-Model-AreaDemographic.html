@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,8 +53,8 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/line.html" class="">LINE</a>
@@ -82,7 +83,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -108,21 +109,22 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line.html">LINE</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients.html">Clients</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients-messagingapi.html">MessagingApi</a></li>
@@ -146,6 +148,11 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
     :
@@ -157,9 +164,11 @@
 
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -187,8 +196,7 @@
                                                                                                         <a class="phpdocumentor-tag-link" href="https://openapi-generator.tech"> https://openapi-generator.tech </a>
                     
                                     </dd>
-                        </dl>
-
+                                            </dl>
 
 
 
@@ -196,641 +204,663 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AICHI">AICHI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AICHI">AICHI</a>
     <span>
         &nbsp;= &#039;jp_23&#039;                            </span>
 </dt>
 <dd>jp_23: 愛知県 // Aichi</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AKITA">AKITA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AKITA">AKITA</a>
     <span>
         &nbsp;= &#039;jp_05&#039;                            </span>
 </dt>
 <dd>jp_05: 秋田県 // Akita</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AOMORI">AOMORI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AOMORI">AOMORI</a>
     <span>
         &nbsp;= &#039;jp_02&#039;                            </span>
 </dt>
 <dd>jp_02: 青森県 // Aomori</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BALI">BALI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BALI">BALI</a>
     <span>
         &nbsp;= &#039;id_01&#039;                            </span>
 </dt>
 <dd>id_01: バリ // Bali</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANDUNG">BANDUNG</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANDUNG">BANDUNG</a>
     <span>
         &nbsp;= &#039;id_02&#039;                            </span>
 </dt>
 <dd>id_02: バンドン // Bandung</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANGKOK">BANGKOK</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANGKOK">BANGKOK</a>
     <span>
         &nbsp;= &#039;th_01&#039;                            </span>
 </dt>
 <dd>th_01: バンコク // Bangkok</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANJARMASIN">BANJARMASIN</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANJARMASIN">BANJARMASIN</a>
     <span>
         &nbsp;= &#039;id_03&#039;                            </span>
 </dt>
 <dd>id_03: バンジャルマシン // Banjarmasin</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CENTRAL">CENTRAL</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CENTRAL">CENTRAL</a>
     <span>
         &nbsp;= &#039;th_04&#039;                            </span>
 </dt>
 <dd>th_04: 中央部 // Central</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHANGHUA_COUNTY">CHANGHUA_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHANGHUA_COUNTY">CHANGHUA_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_12&#039;                            </span>
 </dt>
 <dd>tw_12: 彰化県 // Changhua County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_CITY">CHIAYI_CITY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_CITY">CHIAYI_CITY</a>
     <span>
         &nbsp;= &#039;tw_09&#039;                            </span>
 </dt>
 <dd>tw_09: 嘉義市 // Chiayi City</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_COUNTY">CHIAYI_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_COUNTY">CHIAYI_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_15&#039;                            </span>
 </dt>
 <dd>tw_15: 嘉義県 // Chiayi County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIBA">CHIBA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIBA">CHIBA</a>
     <span>
         &nbsp;= &#039;jp_12&#039;                            </span>
 </dt>
 <dd>jp_12: 千葉県 // Chiba</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EASTERN">EASTERN</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EASTERN">EASTERN</a>
     <span>
         &nbsp;= &#039;th_06&#039;                            </span>
 </dt>
 <dd>th_06: 東部 // Eastern</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EHIME">EHIME</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EHIME">EHIME</a>
     <span>
         &nbsp;= &#039;jp_38&#039;                            </span>
 </dt>
 <dd>jp_38: 愛媛県 // Ehime</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUI">FUKUI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUI">FUKUI</a>
     <span>
         &nbsp;= &#039;jp_18&#039;                            </span>
 </dt>
 <dd>jp_18: 福井県 // Fukui</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUOKA">FUKUOKA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUOKA">FUKUOKA</a>
     <span>
         &nbsp;= &#039;jp_40&#039;                            </span>
 </dt>
 <dd>jp_40: 福岡県 // Fukuoka</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUSHIMA">FUKUSHIMA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUSHIMA">FUKUSHIMA</a>
     <span>
         &nbsp;= &#039;jp_07&#039;                            </span>
 </dt>
 <dd>jp_07: 福島県 // Fukushima</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GIFU">GIFU</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GIFU">GIFU</a>
     <span>
         &nbsp;= &#039;jp_21&#039;                            </span>
 </dt>
 <dd>jp_21: 岐阜県 // Gifu</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GUNMA">GUNMA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GUNMA">GUNMA</a>
     <span>
         &nbsp;= &#039;jp_10&#039;                            </span>
 </dt>
 <dd>jp_10: 群馬県 // Gunma</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HIROSHIMA">HIROSHIMA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HIROSHIMA">HIROSHIMA</a>
     <span>
         &nbsp;= &#039;jp_34&#039;                            </span>
 </dt>
 <dd>jp_34: 広島県 // Hiroshima</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HOKKAIDO">HOKKAIDO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HOKKAIDO">HOKKAIDO</a>
     <span>
         &nbsp;= &#039;jp_01&#039;                            </span>
 </dt>
 <dd>jp_01: 北海道 // Hokkaido</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_CITY">HSINCHU_CITY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_CITY">HSINCHU_CITY</a>
     <span>
         &nbsp;= &#039;tw_08&#039;                            </span>
 </dt>
 <dd>tw_08: 新竹市 // Hsinchu City</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_COUNTY">HSINCHU_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_COUNTY">HSINCHU_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_10&#039;                            </span>
 </dt>
 <dd>tw_10: 新竹県 // Hsinchu County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HUALIEN_COUNTY">HUALIEN_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HUALIEN_COUNTY">HUALIEN_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_18&#039;                            </span>
 </dt>
 <dd>tw_18: 花蓮県 // Hualien County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HYOUGO">HYOUGO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HYOUGO">HYOUGO</a>
     <span>
         &nbsp;= &#039;jp_28&#039;                            </span>
 </dt>
 <dd>jp_28: 兵庫県 // Hyougo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IBARAKI">IBARAKI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IBARAKI">IBARAKI</a>
     <span>
         &nbsp;= &#039;jp_08&#039;                            </span>
 </dt>
 <dd>jp_08: 茨城県 // Ibaraki</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_ISHIKAWA">ISHIKAWA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_ISHIKAWA">ISHIKAWA</a>
     <span>
         &nbsp;= &#039;jp_17&#039;                            </span>
 </dt>
 <dd>jp_17: 石川県 // Ishikawa</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IWATE">IWATE</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IWATE">IWATE</a>
     <span>
         &nbsp;= &#039;jp_03&#039;                            </span>
 </dt>
 <dd>jp_03: 岩手県 // Iwate</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_JABODETABEK">JABODETABEK</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_JABODETABEK">JABODETABEK</a>
     <span>
         &nbsp;= &#039;id_04&#039;                            </span>
 </dt>
 <dd>id_04: ジャボデタベック (ジャカルタ首都圏) // Jabodetabek</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGAWA">KAGAWA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGAWA">KAGAWA</a>
     <span>
         &nbsp;= &#039;jp_37&#039;                            </span>
 </dt>
 <dd>jp_37: 香川県 // Kagawa</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGOSHIMA">KAGOSHIMA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGOSHIMA">KAGOSHIMA</a>
     <span>
         &nbsp;= &#039;jp_46&#039;                            </span>
 </dt>
 <dd>jp_46: 鹿児島県 // Kagoshima</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KANAGAWA">KANAGAWA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KANAGAWA">KANAGAWA</a>
     <span>
         &nbsp;= &#039;jp_14&#039;                            </span>
 </dt>
 <dd>jp_14: 神奈川県 // Kanagawa</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAOHSIUNG_CITY">KAOHSIUNG_CITY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAOHSIUNG_CITY">KAOHSIUNG_CITY</a>
     <span>
         &nbsp;= &#039;tw_06&#039;                            </span>
 </dt>
 <dd>tw_06: 高雄市 // Kaohsiung City</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KEELUNG_CITY">KEELUNG_CITY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KEELUNG_CITY">KEELUNG_CITY</a>
     <span>
         &nbsp;= &#039;tw_07&#039;                            </span>
 </dt>
 <dd>tw_07: 基隆市 // Keelung City</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KINMEN_COUNTY">KINMEN_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KINMEN_COUNTY">KINMEN_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_21&#039;                            </span>
 </dt>
 <dd>tw_21: 金門県 // Kinmen County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KOUCHI">KOUCHI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KOUCHI">KOUCHI</a>
     <span>
         &nbsp;= &#039;jp_39&#039;                            </span>
 </dt>
 <dd>jp_39: 高知県 // Kouchi</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KUMAMOTO">KUMAMOTO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KUMAMOTO">KUMAMOTO</a>
     <span>
         &nbsp;= &#039;jp_43&#039;                            </span>
 </dt>
 <dd>jp_43: 熊本県 // Kumamoto</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KYOTO">KYOTO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KYOTO">KYOTO</a>
     <span>
         &nbsp;= &#039;jp_26&#039;                            </span>
 </dt>
 <dd>jp_26: 京都府 // Kyoto</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LAINNYA">LAINNYA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LAINNYA">LAINNYA</a>
     <span>
         &nbsp;= &#039;id_12&#039;                            </span>
 </dt>
 <dd>id_05: その他のエリア // Lainnya</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LIENCHIANG_COUNTY">LIENCHIANG_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LIENCHIANG_COUNTY">LIENCHIANG_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_22&#039;                            </span>
 </dt>
 <dd>tw_22: 連江県 // Lienchiang County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MAKASSAR">MAKASSAR</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MAKASSAR">MAKASSAR</a>
     <span>
         &nbsp;= &#039;id_05&#039;                            </span>
 </dt>
 <dd>id_06: マカッサル // Makassar</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MEDAN">MEDAN</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MEDAN">MEDAN</a>
     <span>
         &nbsp;= &#039;id_06&#039;                            </span>
 </dt>
 <dd>id_07: メダン // Medan</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIAOLI_COUNTY">MIAOLI_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIAOLI_COUNTY">MIAOLI_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_11&#039;                            </span>
 </dt>
 <dd>tw_11: 苗栗県 // Miaoli County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIE">MIE</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIE">MIE</a>
     <span>
         &nbsp;= &#039;jp_24&#039;                            </span>
 </dt>
 <dd>jp_24: 三重県 // Mie</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAGI">MIYAGI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAGI">MIYAGI</a>
     <span>
         &nbsp;= &#039;jp_04&#039;                            </span>
 </dt>
 <dd>jp_04: 宮城県 // Miyagi</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAZAKI">MIYAZAKI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAZAKI">MIYAZAKI</a>
     <span>
         &nbsp;= &#039;jp_45&#039;                            </span>
 </dt>
 <dd>jp_45: 宮崎県 // Miyazaki</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGANO">NAGANO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGANO">NAGANO</a>
     <span>
         &nbsp;= &#039;jp_20&#039;                            </span>
 </dt>
 <dd>jp_20: 長野県 // Nagano</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGASAKI">NAGASAKI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGASAKI">NAGASAKI</a>
     <span>
         &nbsp;= &#039;jp_42&#039;                            </span>
 </dt>
 <dd>jp_42: 長崎県 // Nagasaki</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NANTOU_COUNTY">NANTOU_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NANTOU_COUNTY">NANTOU_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_13&#039;                            </span>
 </dt>
 <dd>tw_13: 南投県 // Nantou County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NARA">NARA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NARA">NARA</a>
     <span>
         &nbsp;= &#039;jp_29&#039;                            </span>
 </dt>
 <dd>jp_29: 奈良県 // Nara</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NEW_TAIPEI_CITY">NEW_TAIPEI_CITY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NEW_TAIPEI_CITY">NEW_TAIPEI_CITY</a>
     <span>
         &nbsp;= &#039;tw_02&#039;                            </span>
 </dt>
 <dd>tw_02: 新北市 // New Taipei City</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NIIGATA">NIIGATA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NIIGATA">NIIGATA</a>
     <span>
         &nbsp;= &#039;jp_15&#039;                            </span>
 </dt>
 <dd>jp_15: 新潟県 // Niigata</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHEASTERN">NORTHEASTERN</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHEASTERN">NORTHEASTERN</a>
     <span>
         &nbsp;= &#039;th_07&#039;                            </span>
 </dt>
 <dd>th_07: 東北部 // NorthEastern</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHERN">NORTHERN</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHERN">NORTHERN</a>
     <span>
         &nbsp;= &#039;th_03&#039;                            </span>
 </dt>
 <dd>th_03: 北部 // Northern</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OITA">OITA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OITA">OITA</a>
     <span>
         &nbsp;= &#039;jp_44&#039;                            </span>
 </dt>
 <dd>jp_44: 大分県 // Oita</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKAYAMA">OKAYAMA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKAYAMA">OKAYAMA</a>
     <span>
         &nbsp;= &#039;jp_33&#039;                            </span>
 </dt>
 <dd>jp_33: 岡山県 // Okayama</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKINAWA">OKINAWA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKINAWA">OKINAWA</a>
     <span>
         &nbsp;= &#039;jp_47&#039;                            </span>
 </dt>
 <dd>jp_47: 沖縄県 // Okinawa</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OSAKA">OSAKA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OSAKA">OSAKA</a>
     <span>
         &nbsp;= &#039;jp_27&#039;                            </span>
 </dt>
 <dd>jp_27: 大阪府 // Osaka</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PALEMBANG">PALEMBANG</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PALEMBANG">PALEMBANG</a>
     <span>
         &nbsp;= &#039;id_07&#039;                            </span>
 </dt>
 <dd>id_08: パレンバン // Palembang</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PATTAYA">PATTAYA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PATTAYA">PATTAYA</a>
     <span>
         &nbsp;= &#039;th_02&#039;                            </span>
 </dt>
 <dd>th_02: パタヤ // Pattaya</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PENGHU_COUNTY">PENGHU_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PENGHU_COUNTY">PENGHU_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_20&#039;                            </span>
 </dt>
 <dd>tw_20: 澎湖県 // Penghu County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PINGTUNG_COUNTY">PINGTUNG_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PINGTUNG_COUNTY">PINGTUNG_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_16&#039;                            </span>
 </dt>
 <dd>tw_16: 屏東県 // Pingtung County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAGA">SAGA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAGA">SAGA</a>
     <span>
         &nbsp;= &#039;jp_41&#039;                            </span>
 </dt>
 <dd>jp_41: 佐賀県 // Saga</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAITAMA">SAITAMA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAITAMA">SAITAMA</a>
     <span>
         &nbsp;= &#039;jp_11&#039;                            </span>
 </dt>
 <dd>jp_11: 埼玉県 // Saitama</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAMARINDA">SAMARINDA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAMARINDA">SAMARINDA</a>
     <span>
         &nbsp;= &#039;id_08&#039;                            </span>
 </dt>
 <dd>id_09: サマリンダ // Samarinda</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SEMARANG">SEMARANG</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SEMARANG">SEMARANG</a>
     <span>
         &nbsp;= &#039;id_09&#039;                            </span>
 </dt>
 <dd>id_10: スマラン // Semarang</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIGA">SHIGA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIGA">SHIGA</a>
     <span>
         &nbsp;= &#039;jp_25&#039;                            </span>
 </dt>
 <dd>jp_25: 滋賀県 // Shiga</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIMANE">SHIMANE</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIMANE">SHIMANE</a>
     <span>
         &nbsp;= &#039;jp_32&#039;                            </span>
 </dt>
 <dd>jp_32: 島根県 // Shimane</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIZUOKA">SHIZUOKA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIZUOKA">SHIZUOKA</a>
     <span>
         &nbsp;= &#039;jp_22&#039;                            </span>
 </dt>
 <dd>jp_22: 静岡県 // Shizuoka</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SOUTHERN">SOUTHERN</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SOUTHERN">SOUTHERN</a>
     <span>
         &nbsp;= &#039;th_05&#039;                            </span>
 </dt>
 <dd>th_05: 南部 // Southern</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SURABAYA">SURABAYA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SURABAYA">SURABAYA</a>
     <span>
         &nbsp;= &#039;id_10&#039;                            </span>
 </dt>
 <dd>id_11: スラバヤ // Surabaya</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAICHUNG_CITY">TAICHUNG_CITY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAICHUNG_CITY">TAICHUNG_CITY</a>
     <span>
         &nbsp;= &#039;tw_04&#039;                            </span>
 </dt>
 <dd>tw_04: 台中市 // Taichung City</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAINAN_CITY">TAINAN_CITY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAINAN_CITY">TAINAN_CITY</a>
     <span>
         &nbsp;= &#039;tw_05&#039;                            </span>
 </dt>
 <dd>tw_05: 台南市 // Tainan City</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAIPEI_CITY">TAIPEI_CITY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAIPEI_CITY">TAIPEI_CITY</a>
     <span>
         &nbsp;= &#039;tw_01&#039;                            </span>
 </dt>
 <dd>tw_01: 台北市 // Taipei City</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAITUNG_COUNTY">TAITUNG_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAITUNG_COUNTY">TAITUNG_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_19&#039;                            </span>
 </dt>
 <dd>tw_19: 台東県 // Taitung County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAOYUAN_CITY">TAOYUAN_CITY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAOYUAN_CITY">TAOYUAN_CITY</a>
     <span>
         &nbsp;= &#039;tw_03&#039;                            </span>
 </dt>
 <dd>tw_03: 桃園市 // Taoyuan City</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOCHIGI">TOCHIGI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOCHIGI">TOCHIGI</a>
     <span>
         &nbsp;= &#039;jp_09&#039;                            </span>
 </dt>
 <dd>jp_09: 栃木県 // Tochigi</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKUSHIMA">TOKUSHIMA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKUSHIMA">TOKUSHIMA</a>
     <span>
         &nbsp;= &#039;jp_36&#039;                            </span>
 </dt>
 <dd>jp_36: 徳島県 // Tokushima</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKYO">TOKYO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKYO">TOKYO</a>
     <span>
         &nbsp;= &#039;jp_13&#039;                            </span>
 </dt>
 <dd>jp_13: 東京都 // Tokyo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOTTORI">TOTTORI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOTTORI">TOTTORI</a>
     <span>
         &nbsp;= &#039;jp_31&#039;                            </span>
 </dt>
 <dd>jp_31: 鳥取県 // Tottori</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOYAMA">TOYAMA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOYAMA">TOYAMA</a>
     <span>
         &nbsp;= &#039;jp_16&#039;                            </span>
 </dt>
 <dd>jp_16: 富山県 // Toyama</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WAKAYAMA">WAKAYAMA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WAKAYAMA">WAKAYAMA</a>
     <span>
         &nbsp;= &#039;jp_30&#039;                            </span>
 </dt>
 <dd>jp_30: 和歌山県 // Wakayama</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WESTERN">WESTERN</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WESTERN">WESTERN</a>
     <span>
         &nbsp;= &#039;th_08&#039;                            </span>
 </dt>
 <dd>th_08: 西部 // Western</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGATA">YAMAGATA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGATA">YAMAGATA</a>
     <span>
         &nbsp;= &#039;jp_06&#039;                            </span>
 </dt>
 <dd>jp_06: 山形県 // Yamagata</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGUCHI">YAMAGUCHI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGUCHI">YAMAGUCHI</a>
     <span>
         &nbsp;= &#039;jp_35&#039;                            </span>
 </dt>
 <dd>jp_35: 山口県 // Yamaguchi</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMANASHI">YAMANASHI</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMANASHI">YAMANASHI</a>
     <span>
         &nbsp;= &#039;jp_19&#039;                            </span>
 </dt>
 <dd>jp_19: 山梨県 // Yamanashi</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YILAN_COUNTY">YILAN_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YILAN_COUNTY">YILAN_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_17&#039;                            </span>
 </dt>
 <dd>tw_17: 宜蘭県 // Yilan County</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YOGYAKARTA">YOGYAKARTA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YOGYAKARTA">YOGYAKARTA</a>
     <span>
         &nbsp;= &#039;id_11&#039;                            </span>
 </dt>
 <dd>id_12: ジョグジャカルタ // Yogyakarta</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YUNLIN_COUNTY">YUNLIN_COUNTY</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YUNLIN_COUNTY">YUNLIN_COUNTY</a>
     <span>
         &nbsp;= &#039;tw_14&#039;                            </span>
 </dt>
 <dd>tw_14: 雲林県 // Yunlin County</dd>
 
-                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#method_getAllowableEnumValues">getAllowableEnumValues()</a>
+    </dl>
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#method_getAllowableEnumValues">getAllowableEnumValues()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Gets allowable values of the enum</dd>
 
-        </dl>
+    </dl>
 
 
 
@@ -839,11 +869,13 @@
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
             <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_AICHI">
         AICHI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AICHI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -855,6 +887,7 @@
 
         <p class="phpdocumentor-summary">jp_23: 愛知県 // Aichi</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -864,7 +897,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -873,6 +907,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_AKITA">
         AKITA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AKITA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -884,6 +919,7 @@
 
         <p class="phpdocumentor-summary">jp_05: 秋田県 // Akita</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -893,7 +929,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -902,6 +939,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_AOMORI">
         AOMORI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AOMORI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -913,6 +951,7 @@
 
         <p class="phpdocumentor-summary">jp_02: 青森県 // Aomori</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -922,7 +961,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -931,6 +971,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_BALI">
         BALI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BALI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -942,6 +983,7 @@
 
         <p class="phpdocumentor-summary">id_01: バリ // Bali</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -951,7 +993,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -960,6 +1003,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_BANDUNG">
         BANDUNG
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANDUNG" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -971,6 +1015,7 @@
 
         <p class="phpdocumentor-summary">id_02: バンドン // Bandung</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -980,7 +1025,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -989,6 +1035,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_BANGKOK">
         BANGKOK
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANGKOK" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1000,6 +1047,7 @@
 
         <p class="phpdocumentor-summary">th_01: バンコク // Bangkok</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1009,7 +1057,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1018,6 +1067,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_BANJARMASIN">
         BANJARMASIN
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANJARMASIN" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1029,6 +1079,7 @@
 
         <p class="phpdocumentor-summary">id_03: バンジャルマシン // Banjarmasin</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1038,7 +1089,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1047,6 +1099,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_CENTRAL">
         CENTRAL
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CENTRAL" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1058,6 +1111,7 @@
 
         <p class="phpdocumentor-summary">th_04: 中央部 // Central</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1067,7 +1121,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1076,6 +1131,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_CHANGHUA_COUNTY">
         CHANGHUA_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHANGHUA_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1087,6 +1143,7 @@
 
         <p class="phpdocumentor-summary">tw_12: 彰化県 // Changhua County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1096,7 +1153,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1105,6 +1163,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_CHIAYI_CITY">
         CHIAYI_CITY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1116,6 +1175,7 @@
 
         <p class="phpdocumentor-summary">tw_09: 嘉義市 // Chiayi City</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1125,7 +1185,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1134,6 +1195,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_CHIAYI_COUNTY">
         CHIAYI_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1145,6 +1207,7 @@
 
         <p class="phpdocumentor-summary">tw_15: 嘉義県 // Chiayi County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1154,7 +1217,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1163,6 +1227,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_CHIBA">
         CHIBA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIBA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1174,6 +1239,7 @@
 
         <p class="phpdocumentor-summary">jp_12: 千葉県 // Chiba</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1183,7 +1249,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1192,6 +1259,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_EASTERN">
         EASTERN
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EASTERN" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1203,6 +1271,7 @@
 
         <p class="phpdocumentor-summary">th_06: 東部 // Eastern</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1212,7 +1281,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1221,6 +1291,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_EHIME">
         EHIME
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EHIME" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1232,6 +1303,7 @@
 
         <p class="phpdocumentor-summary">jp_38: 愛媛県 // Ehime</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1241,7 +1313,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1250,6 +1323,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_FUKUI">
         FUKUI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1261,6 +1335,7 @@
 
         <p class="phpdocumentor-summary">jp_18: 福井県 // Fukui</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1270,7 +1345,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1279,6 +1355,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_FUKUOKA">
         FUKUOKA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUOKA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1290,6 +1367,7 @@
 
         <p class="phpdocumentor-summary">jp_40: 福岡県 // Fukuoka</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1299,7 +1377,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1308,6 +1387,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_FUKUSHIMA">
         FUKUSHIMA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUSHIMA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1319,6 +1399,7 @@
 
         <p class="phpdocumentor-summary">jp_07: 福島県 // Fukushima</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1328,7 +1409,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1337,6 +1419,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_GIFU">
         GIFU
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GIFU" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1348,6 +1431,7 @@
 
         <p class="phpdocumentor-summary">jp_21: 岐阜県 // Gifu</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1357,7 +1441,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1366,6 +1451,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_GUNMA">
         GUNMA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GUNMA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1377,6 +1463,7 @@
 
         <p class="phpdocumentor-summary">jp_10: 群馬県 // Gunma</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1386,7 +1473,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1395,6 +1483,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_HIROSHIMA">
         HIROSHIMA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HIROSHIMA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1406,6 +1495,7 @@
 
         <p class="phpdocumentor-summary">jp_34: 広島県 // Hiroshima</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1415,7 +1505,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1424,6 +1515,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_HOKKAIDO">
         HOKKAIDO
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HOKKAIDO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1435,6 +1527,7 @@
 
         <p class="phpdocumentor-summary">jp_01: 北海道 // Hokkaido</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1444,7 +1537,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1453,6 +1547,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_HSINCHU_CITY">
         HSINCHU_CITY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1464,6 +1559,7 @@
 
         <p class="phpdocumentor-summary">tw_08: 新竹市 // Hsinchu City</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1473,7 +1569,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1482,6 +1579,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_HSINCHU_COUNTY">
         HSINCHU_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1493,6 +1591,7 @@
 
         <p class="phpdocumentor-summary">tw_10: 新竹県 // Hsinchu County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1502,7 +1601,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1511,6 +1611,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_HUALIEN_COUNTY">
         HUALIEN_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HUALIEN_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1522,6 +1623,7 @@
 
         <p class="phpdocumentor-summary">tw_18: 花蓮県 // Hualien County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1531,7 +1633,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1540,6 +1643,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_HYOUGO">
         HYOUGO
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HYOUGO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1551,6 +1655,7 @@
 
         <p class="phpdocumentor-summary">jp_28: 兵庫県 // Hyougo</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1560,7 +1665,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1569,6 +1675,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_IBARAKI">
         IBARAKI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IBARAKI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1580,6 +1687,7 @@
 
         <p class="phpdocumentor-summary">jp_08: 茨城県 // Ibaraki</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1589,7 +1697,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1598,6 +1707,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_ISHIKAWA">
         ISHIKAWA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_ISHIKAWA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1609,6 +1719,7 @@
 
         <p class="phpdocumentor-summary">jp_17: 石川県 // Ishikawa</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1618,7 +1729,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1627,6 +1739,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_IWATE">
         IWATE
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IWATE" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1638,6 +1751,7 @@
 
         <p class="phpdocumentor-summary">jp_03: 岩手県 // Iwate</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1647,7 +1761,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1656,6 +1771,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_JABODETABEK">
         JABODETABEK
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_JABODETABEK" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1667,6 +1783,7 @@
 
         <p class="phpdocumentor-summary">id_04: ジャボデタベック (ジャカルタ首都圏) // Jabodetabek</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1676,7 +1793,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1685,6 +1803,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_KAGAWA">
         KAGAWA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGAWA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1696,6 +1815,7 @@
 
         <p class="phpdocumentor-summary">jp_37: 香川県 // Kagawa</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1705,7 +1825,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1714,6 +1835,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_KAGOSHIMA">
         KAGOSHIMA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGOSHIMA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1725,6 +1847,7 @@
 
         <p class="phpdocumentor-summary">jp_46: 鹿児島県 // Kagoshima</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1734,7 +1857,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1743,6 +1867,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_KANAGAWA">
         KANAGAWA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KANAGAWA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1754,6 +1879,7 @@
 
         <p class="phpdocumentor-summary">jp_14: 神奈川県 // Kanagawa</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1763,7 +1889,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1772,6 +1899,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_KAOHSIUNG_CITY">
         KAOHSIUNG_CITY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAOHSIUNG_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1783,6 +1911,7 @@
 
         <p class="phpdocumentor-summary">tw_06: 高雄市 // Kaohsiung City</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1792,7 +1921,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1801,6 +1931,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_KEELUNG_CITY">
         KEELUNG_CITY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KEELUNG_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1812,6 +1943,7 @@
 
         <p class="phpdocumentor-summary">tw_07: 基隆市 // Keelung City</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1821,7 +1953,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1830,6 +1963,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_KINMEN_COUNTY">
         KINMEN_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KINMEN_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1841,6 +1975,7 @@
 
         <p class="phpdocumentor-summary">tw_21: 金門県 // Kinmen County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1850,7 +1985,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1859,6 +1995,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_KOUCHI">
         KOUCHI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KOUCHI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1870,6 +2007,7 @@
 
         <p class="phpdocumentor-summary">jp_39: 高知県 // Kouchi</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1879,7 +2017,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1888,6 +2027,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_KUMAMOTO">
         KUMAMOTO
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KUMAMOTO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1899,6 +2039,7 @@
 
         <p class="phpdocumentor-summary">jp_43: 熊本県 // Kumamoto</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1908,7 +2049,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1917,6 +2059,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_KYOTO">
         KYOTO
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KYOTO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1928,6 +2071,7 @@
 
         <p class="phpdocumentor-summary">jp_26: 京都府 // Kyoto</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1937,7 +2081,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1946,6 +2091,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_LAINNYA">
         LAINNYA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LAINNYA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1957,6 +2103,7 @@
 
         <p class="phpdocumentor-summary">id_05: その他のエリア // Lainnya</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1966,7 +2113,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -1975,6 +2123,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_LIENCHIANG_COUNTY">
         LIENCHIANG_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LIENCHIANG_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -1986,6 +2135,7 @@
 
         <p class="phpdocumentor-summary">tw_22: 連江県 // Lienchiang County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1995,7 +2145,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2004,6 +2155,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_MAKASSAR">
         MAKASSAR
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MAKASSAR" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2015,6 +2167,7 @@
 
         <p class="phpdocumentor-summary">id_06: マカッサル // Makassar</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2024,7 +2177,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2033,6 +2187,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_MEDAN">
         MEDAN
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MEDAN" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2044,6 +2199,7 @@
 
         <p class="phpdocumentor-summary">id_07: メダン // Medan</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2053,7 +2209,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2062,6 +2219,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_MIAOLI_COUNTY">
         MIAOLI_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIAOLI_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2073,6 +2231,7 @@
 
         <p class="phpdocumentor-summary">tw_11: 苗栗県 // Miaoli County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2082,7 +2241,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2091,6 +2251,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_MIE">
         MIE
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIE" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2102,6 +2263,7 @@
 
         <p class="phpdocumentor-summary">jp_24: 三重県 // Mie</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2111,7 +2273,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2120,6 +2283,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_MIYAGI">
         MIYAGI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAGI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2131,6 +2295,7 @@
 
         <p class="phpdocumentor-summary">jp_04: 宮城県 // Miyagi</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2140,7 +2305,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2149,6 +2315,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_MIYAZAKI">
         MIYAZAKI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAZAKI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2160,6 +2327,7 @@
 
         <p class="phpdocumentor-summary">jp_45: 宮崎県 // Miyazaki</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2169,7 +2337,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2178,6 +2347,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_NAGANO">
         NAGANO
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGANO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2189,6 +2359,7 @@
 
         <p class="phpdocumentor-summary">jp_20: 長野県 // Nagano</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2198,7 +2369,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2207,6 +2379,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_NAGASAKI">
         NAGASAKI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGASAKI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2218,6 +2391,7 @@
 
         <p class="phpdocumentor-summary">jp_42: 長崎県 // Nagasaki</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2227,7 +2401,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2236,6 +2411,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_NANTOU_COUNTY">
         NANTOU_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NANTOU_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2247,6 +2423,7 @@
 
         <p class="phpdocumentor-summary">tw_13: 南投県 // Nantou County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2256,7 +2433,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2265,6 +2443,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_NARA">
         NARA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NARA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2276,6 +2455,7 @@
 
         <p class="phpdocumentor-summary">jp_29: 奈良県 // Nara</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2285,7 +2465,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2294,6 +2475,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_NEW_TAIPEI_CITY">
         NEW_TAIPEI_CITY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NEW_TAIPEI_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2305,6 +2487,7 @@
 
         <p class="phpdocumentor-summary">tw_02: 新北市 // New Taipei City</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2314,7 +2497,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2323,6 +2507,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_NIIGATA">
         NIIGATA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NIIGATA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2334,6 +2519,7 @@
 
         <p class="phpdocumentor-summary">jp_15: 新潟県 // Niigata</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2343,7 +2529,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2352,6 +2539,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_NORTHEASTERN">
         NORTHEASTERN
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHEASTERN" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2363,6 +2551,7 @@
 
         <p class="phpdocumentor-summary">th_07: 東北部 // NorthEastern</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2372,7 +2561,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2381,6 +2571,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_NORTHERN">
         NORTHERN
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHERN" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2392,6 +2583,7 @@
 
         <p class="phpdocumentor-summary">th_03: 北部 // Northern</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2401,7 +2593,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2410,6 +2603,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_OITA">
         OITA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OITA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2421,6 +2615,7 @@
 
         <p class="phpdocumentor-summary">jp_44: 大分県 // Oita</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2430,7 +2625,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2439,6 +2635,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_OKAYAMA">
         OKAYAMA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKAYAMA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2450,6 +2647,7 @@
 
         <p class="phpdocumentor-summary">jp_33: 岡山県 // Okayama</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2459,7 +2657,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2468,6 +2667,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_OKINAWA">
         OKINAWA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKINAWA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2479,6 +2679,7 @@
 
         <p class="phpdocumentor-summary">jp_47: 沖縄県 // Okinawa</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2488,7 +2689,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2497,6 +2699,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_OSAKA">
         OSAKA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OSAKA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2508,6 +2711,7 @@
 
         <p class="phpdocumentor-summary">jp_27: 大阪府 // Osaka</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2517,7 +2721,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2526,6 +2731,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_PALEMBANG">
         PALEMBANG
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PALEMBANG" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2537,6 +2743,7 @@
 
         <p class="phpdocumentor-summary">id_08: パレンバン // Palembang</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2546,7 +2753,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2555,6 +2763,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_PATTAYA">
         PATTAYA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PATTAYA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2566,6 +2775,7 @@
 
         <p class="phpdocumentor-summary">th_02: パタヤ // Pattaya</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2575,7 +2785,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2584,6 +2795,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_PENGHU_COUNTY">
         PENGHU_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PENGHU_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2595,6 +2807,7 @@
 
         <p class="phpdocumentor-summary">tw_20: 澎湖県 // Penghu County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2604,7 +2817,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2613,6 +2827,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_PINGTUNG_COUNTY">
         PINGTUNG_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PINGTUNG_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2624,6 +2839,7 @@
 
         <p class="phpdocumentor-summary">tw_16: 屏東県 // Pingtung County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2633,7 +2849,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2642,6 +2859,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_SAGA">
         SAGA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAGA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2653,6 +2871,7 @@
 
         <p class="phpdocumentor-summary">jp_41: 佐賀県 // Saga</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2662,7 +2881,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2671,6 +2891,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_SAITAMA">
         SAITAMA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAITAMA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2682,6 +2903,7 @@
 
         <p class="phpdocumentor-summary">jp_11: 埼玉県 // Saitama</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2691,7 +2913,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2700,6 +2923,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_SAMARINDA">
         SAMARINDA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAMARINDA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2711,6 +2935,7 @@
 
         <p class="phpdocumentor-summary">id_09: サマリンダ // Samarinda</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2720,7 +2945,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2729,6 +2955,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_SEMARANG">
         SEMARANG
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SEMARANG" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2740,6 +2967,7 @@
 
         <p class="phpdocumentor-summary">id_10: スマラン // Semarang</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2749,7 +2977,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2758,6 +2987,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_SHIGA">
         SHIGA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIGA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2769,6 +2999,7 @@
 
         <p class="phpdocumentor-summary">jp_25: 滋賀県 // Shiga</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2778,7 +3009,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2787,6 +3019,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_SHIMANE">
         SHIMANE
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIMANE" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2798,6 +3031,7 @@
 
         <p class="phpdocumentor-summary">jp_32: 島根県 // Shimane</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2807,7 +3041,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2816,6 +3051,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_SHIZUOKA">
         SHIZUOKA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIZUOKA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2827,6 +3063,7 @@
 
         <p class="phpdocumentor-summary">jp_22: 静岡県 // Shizuoka</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2836,7 +3073,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2845,6 +3083,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_SOUTHERN">
         SOUTHERN
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SOUTHERN" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2856,6 +3095,7 @@
 
         <p class="phpdocumentor-summary">th_05: 南部 // Southern</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2865,7 +3105,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2874,6 +3115,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_SURABAYA">
         SURABAYA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SURABAYA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2885,6 +3127,7 @@
 
         <p class="phpdocumentor-summary">id_11: スラバヤ // Surabaya</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2894,7 +3137,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2903,6 +3147,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TAICHUNG_CITY">
         TAICHUNG_CITY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAICHUNG_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2914,6 +3159,7 @@
 
         <p class="phpdocumentor-summary">tw_04: 台中市 // Taichung City</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2923,7 +3169,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2932,6 +3179,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TAINAN_CITY">
         TAINAN_CITY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAINAN_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2943,6 +3191,7 @@
 
         <p class="phpdocumentor-summary">tw_05: 台南市 // Tainan City</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2952,7 +3201,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2961,6 +3211,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TAIPEI_CITY">
         TAIPEI_CITY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAIPEI_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -2972,6 +3223,7 @@
 
         <p class="phpdocumentor-summary">tw_01: 台北市 // Taipei City</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2981,7 +3233,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -2990,6 +3243,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TAITUNG_COUNTY">
         TAITUNG_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAITUNG_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3001,6 +3255,7 @@
 
         <p class="phpdocumentor-summary">tw_19: 台東県 // Taitung County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3010,7 +3265,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3019,6 +3275,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TAOYUAN_CITY">
         TAOYUAN_CITY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAOYUAN_CITY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3030,6 +3287,7 @@
 
         <p class="phpdocumentor-summary">tw_03: 桃園市 // Taoyuan City</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3039,7 +3297,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3048,6 +3307,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TOCHIGI">
         TOCHIGI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOCHIGI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3059,6 +3319,7 @@
 
         <p class="phpdocumentor-summary">jp_09: 栃木県 // Tochigi</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3068,7 +3329,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3077,6 +3339,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TOKUSHIMA">
         TOKUSHIMA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKUSHIMA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3088,6 +3351,7 @@
 
         <p class="phpdocumentor-summary">jp_36: 徳島県 // Tokushima</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3097,7 +3361,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3106,6 +3371,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TOKYO">
         TOKYO
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKYO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3117,6 +3383,7 @@
 
         <p class="phpdocumentor-summary">jp_13: 東京都 // Tokyo</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3126,7 +3393,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3135,6 +3403,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TOTTORI">
         TOTTORI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOTTORI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3146,6 +3415,7 @@
 
         <p class="phpdocumentor-summary">jp_31: 鳥取県 // Tottori</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3155,7 +3425,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3164,6 +3435,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_TOYAMA">
         TOYAMA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOYAMA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3175,6 +3447,7 @@
 
         <p class="phpdocumentor-summary">jp_16: 富山県 // Toyama</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3184,7 +3457,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3193,6 +3467,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_WAKAYAMA">
         WAKAYAMA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WAKAYAMA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3204,6 +3479,7 @@
 
         <p class="phpdocumentor-summary">jp_30: 和歌山県 // Wakayama</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3213,7 +3489,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3222,6 +3499,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_WESTERN">
         WESTERN
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WESTERN" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3233,6 +3511,7 @@
 
         <p class="phpdocumentor-summary">th_08: 西部 // Western</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3242,7 +3521,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3251,6 +3531,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_YAMAGATA">
         YAMAGATA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGATA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3262,6 +3543,7 @@
 
         <p class="phpdocumentor-summary">jp_06: 山形県 // Yamagata</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3271,7 +3553,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3280,6 +3563,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_YAMAGUCHI">
         YAMAGUCHI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGUCHI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3291,6 +3575,7 @@
 
         <p class="phpdocumentor-summary">jp_35: 山口県 // Yamaguchi</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3300,7 +3585,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3309,6 +3595,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_YAMANASHI">
         YAMANASHI
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMANASHI" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3320,6 +3607,7 @@
 
         <p class="phpdocumentor-summary">jp_19: 山梨県 // Yamanashi</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3329,7 +3617,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3338,6 +3627,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_YILAN_COUNTY">
         YILAN_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YILAN_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3349,6 +3639,7 @@
 
         <p class="phpdocumentor-summary">tw_17: 宜蘭県 // Yilan County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3358,7 +3649,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3367,6 +3659,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_YOGYAKARTA">
         YOGYAKARTA
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YOGYAKARTA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3378,6 +3671,7 @@
 
         <p class="phpdocumentor-summary">id_12: ジョグジャカルタ // Yogyakarta</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3387,7 +3681,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3396,6 +3691,7 @@
     <h4 class="phpdocumentor-element__name" id="constant_YUNLIN_COUNTY">
         YUNLIN_COUNTY
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YUNLIN_COUNTY" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -3407,6 +3703,7 @@
 
         <p class="phpdocumentor-summary">tw_14: 雲林県 // Yunlin County</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -3416,7 +3713,8 @@
 
 
     
-        <section class="phpdocumentor-description"></section>
+    
+    
 
     
 
@@ -3429,6 +3727,7 @@
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -3439,6 +3738,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getAllowableEnumValues">
         getAllowableEnumValues()
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#method_getAllowableEnumValues" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/AreaDemographic.php"><a href="files/src-clients-messaging-api-lib-model-areademographic.html"><abbr title="src/clients/messaging-api/lib/Model/AreaDemographic.php">AreaDemographic.php</abbr></a></abbr>
@@ -3453,82 +3753,240 @@
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getAllowableEnumValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+            </section>
+
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/clients/messaging-api/lib/Model/AreaDemographic.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#toc-constants">Constants</a></li>
+                                                                                <li><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AICHI">AICHI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AKITA">AKITA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_AOMORI">AOMORI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BALI">BALI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANDUNG">BANDUNG</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANGKOK">BANGKOK</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_BANJARMASIN">BANJARMASIN</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CENTRAL">CENTRAL</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHANGHUA_COUNTY">CHANGHUA_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_CITY">CHIAYI_CITY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIAYI_COUNTY">CHIAYI_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_CHIBA">CHIBA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EASTERN">EASTERN</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_EHIME">EHIME</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUI">FUKUI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUOKA">FUKUOKA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_FUKUSHIMA">FUKUSHIMA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GIFU">GIFU</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_GUNMA">GUNMA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HIROSHIMA">HIROSHIMA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HOKKAIDO">HOKKAIDO</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_CITY">HSINCHU_CITY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HSINCHU_COUNTY">HSINCHU_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HUALIEN_COUNTY">HUALIEN_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_HYOUGO">HYOUGO</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IBARAKI">IBARAKI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_ISHIKAWA">ISHIKAWA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_IWATE">IWATE</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_JABODETABEK">JABODETABEK</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGAWA">KAGAWA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAGOSHIMA">KAGOSHIMA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KANAGAWA">KANAGAWA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KAOHSIUNG_CITY">KAOHSIUNG_CITY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KEELUNG_CITY">KEELUNG_CITY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KINMEN_COUNTY">KINMEN_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KOUCHI">KOUCHI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KUMAMOTO">KUMAMOTO</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_KYOTO">KYOTO</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LAINNYA">LAINNYA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_LIENCHIANG_COUNTY">LIENCHIANG_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MAKASSAR">MAKASSAR</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MEDAN">MEDAN</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIAOLI_COUNTY">MIAOLI_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIE">MIE</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAGI">MIYAGI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_MIYAZAKI">MIYAZAKI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGANO">NAGANO</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NAGASAKI">NAGASAKI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NANTOU_COUNTY">NANTOU_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NARA">NARA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NEW_TAIPEI_CITY">NEW_TAIPEI_CITY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NIIGATA">NIIGATA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHEASTERN">NORTHEASTERN</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_NORTHERN">NORTHERN</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OITA">OITA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKAYAMA">OKAYAMA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OKINAWA">OKINAWA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_OSAKA">OSAKA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PALEMBANG">PALEMBANG</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PATTAYA">PATTAYA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PENGHU_COUNTY">PENGHU_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_PINGTUNG_COUNTY">PINGTUNG_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAGA">SAGA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAITAMA">SAITAMA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SAMARINDA">SAMARINDA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SEMARANG">SEMARANG</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIGA">SHIGA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIMANE">SHIMANE</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SHIZUOKA">SHIZUOKA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SOUTHERN">SOUTHERN</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_SURABAYA">SURABAYA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAICHUNG_CITY">TAICHUNG_CITY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAINAN_CITY">TAINAN_CITY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAIPEI_CITY">TAIPEI_CITY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAITUNG_COUNTY">TAITUNG_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TAOYUAN_CITY">TAOYUAN_CITY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOCHIGI">TOCHIGI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKUSHIMA">TOKUSHIMA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOKYO">TOKYO</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOTTORI">TOTTORI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_TOYAMA">TOYAMA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WAKAYAMA">WAKAYAMA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_WESTERN">WESTERN</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGATA">YAMAGATA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMAGUCHI">YAMAGUCHI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YAMANASHI">YAMANASHI</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YILAN_COUNTY">YILAN_COUNTY</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YOGYAKARTA">YOGYAKARTA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#constant_YUNLIN_COUNTY">YUNLIN_COUNTY</a></li>
+                                            </ul>
+                </li>
+            
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#method_getAllowableEnumValues">getAllowableEnumValues()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -3539,7 +3997,6 @@
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/LINE-Clients-MessagingApi-Model-AreaDemographic.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
