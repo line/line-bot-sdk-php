@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,8 +53,8 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/line.html" class="">LINE</a>
@@ -82,7 +83,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -108,21 +109,22 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line.html">LINE</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients.html">Clients</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients-manageaudience.html">ManageAudience</a></li>
@@ -145,6 +147,11 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
@@ -157,9 +164,11 @@ PHP version 7.4</p>
 
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-ManageAudience-Configuration.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -187,8 +196,7 @@ PHP version 7.4</p>
                                                                                                         <a class="phpdocumentor-tag-link" href="https://openapi-generator.tech"> https://openapi-generator.tech </a>
                     
                                     </dd>
-                        </dl>
-
+                                            </dl>
 
 
 
@@ -196,319 +204,345 @@ PHP version 7.4</p>
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#constant_BOOLEAN_FORMAT_INT">BOOLEAN_FORMAT_INT</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#constant_BOOLEAN_FORMAT_INT">BOOLEAN_FORMAT_INT</a>
     <span>
         &nbsp;= &#039;int&#039;                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#constant_BOOLEAN_FORMAT_STRING">BOOLEAN_FORMAT_STRING</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#constant_BOOLEAN_FORMAT_STRING">BOOLEAN_FORMAT_STRING</a>
     <span>
         &nbsp;= &#039;string&#039;                            </span>
 </dt>
-<dd></dd>
 
-                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_accessToken">$accessToken</a>
+    </dl>
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_accessToken">$accessToken</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>Access token for OAuth/Bearer authentication</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_apiKeyPrefixes">$apiKeyPrefixes</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_apiKeyPrefixes">$apiKeyPrefixes</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>Associate array to store API prefix (e.g. Bearer)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_apiKeys">$apiKeys</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_apiKeys">$apiKeys</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>Associate array to store API key(s)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_booleanFormatForQueryString">$booleanFormatForQueryString</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_booleanFormatForQueryString">$booleanFormatForQueryString</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>Boolean format for query string</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_debug">$debug</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_debug">$debug</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
 <dd>Debug switch (default set to false)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_debugFile">$debugFile</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_debugFile">$debugFile</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>Debug file location (log to STDOUT by default)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_host">$host</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_host">$host</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>The host</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_password">$password</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_password">$password</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>Password for HTTP basic authentication</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_tempFolderPath">$tempFolderPath</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_tempFolderPath">$tempFolderPath</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>Debug file location (log to STDOUT by default)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_userAgent">$userAgent</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_userAgent">$userAgent</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>User agent of the HTTP request, set to &quot;OpenAPI-Generator/{version}/PHP&quot; by default</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_username">$username</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_username">$username</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>Username for HTTP basic authentication</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_defaultConfiguration">$defaultConfiguration</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#property_defaultConfiguration">$defaultConfiguration</a>
     <span>
                         &nbsp;: <a href="classes/LINE-Clients-ManageAudience-Configuration.html"><abbr title="\LINE\Clients\ManageAudience\Configuration">Configuration</abbr></a>            </span>
 </dt>
-<dd></dd>
 
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method___construct">__construct()</a>
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Constructor</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getAccessToken">getAccessToken()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getAccessToken">getAccessToken()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the access token for OAuth</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKey">getApiKey()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKey">getApiKey()</a>
     <span>
                                 &nbsp;: null|string    </span>
 </dt>
 <dd>Gets API key</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKeyPrefix">getApiKeyPrefix()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKeyPrefix">getApiKeyPrefix()</a>
     <span>
                                 &nbsp;: null|string    </span>
 </dt>
 <dd>Gets API key prefix</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKeyWithPrefix">getApiKeyWithPrefix()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKeyWithPrefix">getApiKeyWithPrefix()</a>
     <span>
                                 &nbsp;: null|string    </span>
 </dt>
 <dd>Get API key (with prefix if set)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getBooleanFormatForQueryString">getBooleanFormatForQueryString()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getBooleanFormatForQueryString">getBooleanFormatForQueryString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets boolean format for query string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDebug">getDebug()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDebug">getDebug()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Gets the debug flag</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDebugFile">getDebugFile()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDebugFile">getDebugFile()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the debug file</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDefaultConfiguration">getDefaultConfiguration()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDefaultConfiguration">getDefaultConfiguration()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-ManageAudience-Configuration.html"><abbr title="\LINE\Clients\ManageAudience\Configuration">Configuration</abbr></a>    </span>
 </dt>
 <dd>Gets the default configuration instance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHost">getHost()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHost">getHost()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the host</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostFromSettings">getHostFromSettings()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostFromSettings">getHostFromSettings()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns URL based on the index and variables</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostSettings">getHostSettings()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostSettings">getHostSettings()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Returns an array of host settings</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostString">getHostString()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostString">getHostString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns URL based on host settings, index and variables</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getPassword">getPassword()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getPassword">getPassword()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the password for HTTP basic authentication</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getTempFolderPath">getTempFolderPath()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getTempFolderPath">getTempFolderPath()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the temp folder path</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getUserAgent">getUserAgent()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getUserAgent">getUserAgent()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the user agent of the api client</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getUsername">getUsername()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getUsername">getUsername()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the username for HTTP basic authentication</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setAccessToken">setAccessToken()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setAccessToken">setAccessToken()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the access token for OAuth</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setApiKey">setApiKey()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setApiKey">setApiKey()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets API key</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setApiKeyPrefix">setApiKeyPrefix()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setApiKeyPrefix">setApiKeyPrefix()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the prefix for API key (e.g. Bearer)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setBooleanFormatForQueryString">setBooleanFormatForQueryString()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setBooleanFormatForQueryString">setBooleanFormatForQueryString()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets boolean format for query string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDebug">setDebug()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDebug">setDebug()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets debug flag</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDebugFile">setDebugFile()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDebugFile">setDebugFile()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the debug file</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDefaultConfiguration">setDefaultConfiguration()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDefaultConfiguration">setDefaultConfiguration()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Sets the default configuration instance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setHost">setHost()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setHost">setHost()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the host</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setPassword">setPassword()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setPassword">setPassword()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the password for HTTP basic authentication</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setTempFolderPath">setTempFolderPath()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setTempFolderPath">setTempFolderPath()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the temp folder path</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setUserAgent">setUserAgent()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setUserAgent">setUserAgent()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the user agent of the api client</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setUsername">setUsername()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setUsername">setUsername()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the username for HTTP basic authentication</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_toDebugReport">toDebugReport()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-Configuration.html#method_toDebugReport">toDebugReport()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the essential information for debugging</dd>
 
-        </dl>
+    </dl>
 
 
 
@@ -517,11 +551,13 @@ PHP version 7.4</p>
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
             <a href="classes/LINE-Clients-ManageAudience-Configuration.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_BOOLEAN_FORMAT_INT">
         BOOLEAN_FORMAT_INT
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#constant_BOOLEAN_FORMAT_INT" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -532,6 +568,7 @@ PHP version 7.4</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -540,9 +577,9 @@ PHP version 7.4</p>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -551,6 +588,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="constant_BOOLEAN_FORMAT_STRING">
         BOOLEAN_FORMAT_STRING
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#constant_BOOLEAN_FORMAT_STRING" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -561,6 +599,7 @@ PHP version 7.4</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -569,9 +608,9 @@ PHP version 7.4</p>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -583,19 +622,21 @@ PHP version 7.4</p>
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
             <a href="classes/LINE-Clients-ManageAudience-Configuration.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_accessToken">
         $accessToken
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_accessToken" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -606,14 +647,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">Access token for OAuth/Bearer authentication</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$accessToken</span>
      = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -622,13 +668,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_apiKeyPrefixes">
         $apiKeyPrefixes
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_apiKeyPrefixes" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -639,14 +686,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">Associate array to store API prefix (e.g. Bearer)</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$apiKeyPrefixes</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -655,13 +707,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_apiKeys">
         $apiKeys
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_apiKeys" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -672,14 +725,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">Associate array to store API key(s)</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$apiKeys</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -688,13 +746,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_booleanFormatForQueryString">
         $booleanFormatForQueryString
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_booleanFormatForQueryString" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -705,14 +764,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">Boolean format for query string</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$booleanFormatForQueryString</span>
      = <span class="phpdocumentor-signature__default-value">self::BOOLEAN_FORMAT_INT</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -721,13 +785,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_debug">
         $debug
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_debug" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -738,14 +803,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">Debug switch (default set to false)</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">bool</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">bool</span>
     <span class="phpdocumentor-signature__name">$debug</span>
      = <span class="phpdocumentor-signature__default-value">false</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -754,13 +824,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_debugFile">
         $debugFile
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_debugFile" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -771,14 +842,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">Debug file location (log to STDOUT by default)</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$debugFile</span>
      = <span class="phpdocumentor-signature__default-value">&#039;php://output&#039;</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -787,13 +863,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_host">
         $host
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_host" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -804,14 +881,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">The host</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$host</span>
      = <span class="phpdocumentor-signature__default-value">&#039;https://api.line.me&#039;</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -820,13 +902,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_password">
         $password
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_password" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -837,14 +920,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">Password for HTTP basic authentication</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$password</span>
      = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -853,13 +941,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_tempFolderPath">
         $tempFolderPath
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_tempFolderPath" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -870,14 +959,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">Debug file location (log to STDOUT by default)</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$tempFolderPath</span>
     </code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -886,13 +980,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_userAgent">
         $userAgent
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_userAgent" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -903,14 +998,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">User agent of the HTTP request, set to &quot;OpenAPI-Generator/{version}/PHP&quot; by default</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$userAgent</span>
      = <span class="phpdocumentor-signature__default-value">&#039;LINE-BotSDK-PHP/11&#039;</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -919,13 +1019,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_username">
         $username
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_username" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -936,14 +1037,19 @@ PHP version 7.4</p>
 
         <p class="phpdocumentor-summary">Username for HTTP basic authentication</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$username</span>
      = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -952,13 +1058,14 @@ PHP version 7.4</p>
             phpdocumentor-element
             -property
             -private
-            -static                                            "
+            -static                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="property_defaultConfiguration">
         $defaultConfiguration
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_defaultConfiguration" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -968,14 +1075,19 @@ PHP version 7.4</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-ManageAudience-Configuration.html"><abbr title="\LINE\Clients\ManageAudience\Configuration">Configuration</abbr></a></span>
+        <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-ManageAudience-Configuration.html"><abbr title="\LINE\Clients\ManageAudience\Configuration">Configuration</abbr></a></span>
     <span class="phpdocumentor-signature__name">$defaultConfiguration</span>
     </code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -985,6 +1097,7 @@ PHP version 7.4</p>
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/LINE-Clients-ManageAudience-Configuration.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -995,6 +1108,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1009,14 +1123,15 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -1028,6 +1143,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getAccessToken">
         getAccessToken()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1042,17 +1158,24 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getAccessToken</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Access token for OAuth</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Access token for OAuth</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1063,6 +1186,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getApiKey">
         getApiKey()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKey" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1077,6 +1201,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getApiKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$apiKeyIdentifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1093,13 +1220,17 @@ PHP version 7.4</p>
 
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">null|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>API key or token</p>
+        <span class="phpdocumentor-signature__response_type">null|string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>API key or token</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1110,6 +1241,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getApiKeyPrefix">
         getApiKeyPrefix()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKeyPrefix" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1124,6 +1256,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getApiKeyPrefix</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$apiKeyIdentifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1140,11 +1275,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">null|string</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">null|string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1155,6 +1292,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getApiKeyWithPrefix">
         getApiKeyWithPrefix()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKeyWithPrefix" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1169,6 +1307,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getApiKeyWithPrefix</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$apiKeyIdentifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1185,13 +1326,17 @@ PHP version 7.4</p>
 
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">null|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>API key with the prefix</p>
+        <span class="phpdocumentor-signature__response_type">null|string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>API key with the prefix</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1202,6 +1347,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getBooleanFormatForQueryString">
         getBooleanFormatForQueryString()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getBooleanFormatForQueryString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1216,17 +1362,24 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getBooleanFormatForQueryString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Boolean format for query string</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Boolean format for query string</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1237,6 +1390,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getDebug">
         getDebug()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDebug" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1251,15 +1405,20 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getDebug</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1270,6 +1429,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getDebugFile">
         getDebugFile()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDebugFile" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1284,15 +1444,20 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getDebugFile</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1303,6 +1468,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getDefaultConfiguration">
         getDefaultConfiguration()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDefaultConfiguration" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1317,15 +1483,20 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getDefaultConfiguration</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-ManageAudience-Configuration.html"><abbr title="\LINE\Clients\ManageAudience\Configuration">Configuration</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-ManageAudience-Configuration.html"><abbr title="\LINE\Clients\ManageAudience\Configuration">Configuration</abbr></a></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-ManageAudience-Configuration.html"><abbr title="\LINE\Clients\ManageAudience\Configuration">Configuration</abbr></a></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1336,6 +1507,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getHost">
         getHost()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHost" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1350,17 +1522,24 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getHost</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Host</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Host</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1371,6 +1550,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getHostFromSettings">
         getHostFromSettings()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostFromSettings" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1385,6 +1565,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getHostFromSettings</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$index</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1410,13 +1593,17 @@ PHP version 7.4</p>
 
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>URL based on host settings</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>URL based on host settings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1427,6 +1614,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getHostSettings">
         getHostSettings()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostSettings" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1441,17 +1629,24 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getHostSettings</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>an array of host settings</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>an array of host settings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1462,6 +1657,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getHostString">
         getHostString()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1476,6 +1672,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getHostString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostSettings</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1510,13 +1709,17 @@ PHP version 7.4</p>
 
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>URL based on host settings</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>URL based on host settings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1527,6 +1730,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getPassword">
         getPassword()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getPassword" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1541,17 +1745,24 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getPassword</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Password for HTTP basic authentication</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Password for HTTP basic authentication</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1562,6 +1773,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getTempFolderPath">
         getTempFolderPath()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getTempFolderPath" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1576,17 +1788,24 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getTempFolderPath</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Temp folder path</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Temp folder path</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1597,6 +1816,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getUserAgent">
         getUserAgent()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getUserAgent" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1611,17 +1831,24 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getUserAgent</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>user agent</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>user agent</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1632,6 +1859,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_getUsername">
         getUsername()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getUsername" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1646,17 +1874,24 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getUsername</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Username for HTTP basic authentication</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Username for HTTP basic authentication</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1667,6 +1902,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setAccessToken">
         setAccessToken()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1681,6 +1917,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$accessToken</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1697,11 +1936,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1712,6 +1953,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setApiKey">
         setApiKey()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setApiKey" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1726,6 +1968,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setApiKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$apiKeyIdentifier</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1751,11 +1996,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1766,6 +2013,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setApiKeyPrefix">
         setApiKeyPrefix()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setApiKeyPrefix" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1780,6 +2028,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setApiKeyPrefix</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$apiKeyIdentifier</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1805,11 +2056,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1820,6 +2073,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setBooleanFormatForQueryString">
         setBooleanFormatForQueryString()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setBooleanFormatForQueryString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1834,6 +2088,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setBooleanFormatForQueryString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$booleanFormat</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1850,11 +2107,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1865,6 +2124,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setDebug">
         setDebug()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDebug" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1879,6 +2139,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setDebug</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$debug</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1895,11 +2158,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1910,6 +2175,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setDebugFile">
         setDebugFile()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDebugFile" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1924,6 +2190,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setDebugFile</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$debugFile</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1940,11 +2209,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1955,6 +2226,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setDefaultConfiguration">
         setDefaultConfiguration()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDefaultConfiguration" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -1969,6 +2241,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setDefaultConfiguration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-ManageAudience-Configuration.html"><abbr title="\LINE\Clients\ManageAudience\Configuration">Configuration</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1985,10 +2260,8 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -2000,6 +2273,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setHost">
         setHost()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setHost" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -2014,6 +2288,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setHost</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2030,11 +2307,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2045,6 +2324,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setPassword">
         setPassword()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setPassword" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -2059,6 +2339,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setPassword</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2075,11 +2358,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2090,6 +2375,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setTempFolderPath">
         setTempFolderPath()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setTempFolderPath" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -2104,6 +2390,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setTempFolderPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tempFolderPath</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2120,11 +2409,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2135,6 +2426,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setUserAgent">
         setUserAgent()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setUserAgent" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -2149,6 +2441,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setUserAgent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$userAgent</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2166,7 +2461,8 @@ PHP version 7.4</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setUserAgent#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2177,13 +2473,15 @@ PHP version 7.4</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2194,6 +2492,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_setUsername">
         setUsername()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setUsername" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -2208,6 +2507,9 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setUsername</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2224,11 +2526,13 @@ PHP version 7.4</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2239,6 +2543,7 @@ PHP version 7.4</p>
     <h4 class="phpdocumentor-element__name" id="method_toDebugReport">
         toDebugReport()
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_toDebugReport" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/Configuration.php"><a href="files/src-clients-manage-audience-lib-configuration.html"><abbr title="src/clients/manage-audience/lib/Configuration.php">Configuration.php</abbr></a></abbr>
@@ -2253,84 +2558,204 @@ PHP version 7.4</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">toDebugReport</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The report for debugging</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The report for debugging</p>
 </section>
 
-    
+            </section>
+
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/clients/manage-audience/lib/Configuration.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/LINE-Clients-ManageAudience-Configuration.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/LINE-Clients-ManageAudience-Configuration.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/LINE-Clients-ManageAudience-Configuration.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#constant_BOOLEAN_FORMAT_INT">BOOLEAN_FORMAT_INT</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#constant_BOOLEAN_FORMAT_STRING">BOOLEAN_FORMAT_STRING</a></li>
+                                            </ul>
+                </li>
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_accessToken">$accessToken</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_apiKeyPrefixes">$apiKeyPrefixes</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_apiKeys">$apiKeys</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_booleanFormatForQueryString">$booleanFormatForQueryString</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_debug">$debug</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_debugFile">$debugFile</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_host">$host</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_password">$password</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_tempFolderPath">$tempFolderPath</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_userAgent">$userAgent</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_username">$username</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#property_defaultConfiguration">$defaultConfiguration</a></li>
+                                            </ul>
+                </li>
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getAccessToken">getAccessToken()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKey">getApiKey()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKeyPrefix">getApiKeyPrefix()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getApiKeyWithPrefix">getApiKeyWithPrefix()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getBooleanFormatForQueryString">getBooleanFormatForQueryString()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDebug">getDebug()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDebugFile">getDebugFile()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getDefaultConfiguration">getDefaultConfiguration()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHost">getHost()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostFromSettings">getHostFromSettings()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostSettings">getHostSettings()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getHostString">getHostString()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getPassword">getPassword()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getTempFolderPath">getTempFolderPath()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getUserAgent">getUserAgent()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_getUsername">getUsername()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setAccessToken">setAccessToken()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setApiKey">setApiKey()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setApiKeyPrefix">setApiKeyPrefix()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setBooleanFormatForQueryString">setBooleanFormatForQueryString()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDebug">setDebug()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDebugFile">setDebugFile()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setDefaultConfiguration">setDefaultConfiguration()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setHost">setHost()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setPassword">setPassword()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setTempFolderPath">setTempFolderPath()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setUserAgent">setUserAgent()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_setUsername">setUsername()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-Configuration.html#method_toDebugReport">toDebugReport()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -2341,7 +2766,6 @@ PHP version 7.4</p>
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/LINE-Clients-ManageAudience-Configuration.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

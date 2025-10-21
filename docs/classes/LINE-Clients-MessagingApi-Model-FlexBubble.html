@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,8 +53,8 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/line.html" class="">LINE</a>
@@ -82,7 +83,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -108,21 +109,22 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line.html">LINE</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients.html">Clients</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients-messagingapi.html">MessagingApi</a></li>
@@ -149,6 +151,11 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
     :
@@ -160,9 +167,11 @@
 
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -195,12 +204,9 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>\ArrayAccess&lt;string, mixed&gt;</p>
-</section>
-
+                                             
                                     </dd>
-                        </dl>
-
+                                            </dl>
 
 
 
@@ -208,82 +214,93 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DIRECTION_LTR">DIRECTION_LTR</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DIRECTION_LTR">DIRECTION_LTR</a>
     <span>
         &nbsp;= &#039;ltr&#039;                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DIRECTION_RTL">DIRECTION_RTL</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DIRECTION_RTL">DIRECTION_RTL</a>
     <span>
         &nbsp;= &#039;rtl&#039;                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DISCRIMINATOR">DISCRIMINATOR</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DISCRIMINATOR">DISCRIMINATOR</a>
     <span>
         &nbsp;= null                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_DECA">SIZE_DECA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_DECA">SIZE_DECA</a>
     <span>
         &nbsp;= &#039;deca&#039;                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_GIGA">SIZE_GIGA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_GIGA">SIZE_GIGA</a>
     <span>
         &nbsp;= &#039;giga&#039;                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_HECTO">SIZE_HECTO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_HECTO">SIZE_HECTO</a>
     <span>
         &nbsp;= &#039;hecto&#039;                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_KILO">SIZE_KILO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_KILO">SIZE_KILO</a>
     <span>
         &nbsp;= &#039;kilo&#039;                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_MEGA">SIZE_MEGA</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_MEGA">SIZE_MEGA</a>
     <span>
         &nbsp;= &#039;mega&#039;                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_MICRO">SIZE_MICRO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_MICRO">SIZE_MICRO</a>
     <span>
         &nbsp;= &#039;micro&#039;                            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_NANO">SIZE_NANO</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_NANO">SIZE_NANO</a>
     <span>
         &nbsp;= &#039;nano&#039;                            </span>
 </dt>
-<dd></dd>
 
-                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_attributeMap">$attributeMap</a>
+    </dl>
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_attributeMap">$attributeMap</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
@@ -291,77 +308,85 @@
 and the value is the original name</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#property_container">$container</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#property_container">$container</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 <dd>Associative array for storing property values</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_getters">$getters</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_getters">$getters</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>Array of attributes to getter functions (for serialization of requests)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPIFormats">$openAPIFormats</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPIFormats">$openAPIFormats</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>Array of property to format mappings. Used for (de)serialization</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPIModelName">$openAPIModelName</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPIModelName">$openAPIModelName</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>The original name of the model.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPINullables">$openAPINullables</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPINullables">$openAPINullables</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                        &nbsp;: array&lt;string|int, bool&gt;            </span>
 </dt>
 <dd>Array of nullable properties. Used for (de)serialization</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPINullablesSetToNull">$openAPINullablesSetToNull</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPINullablesSetToNull">$openAPINullablesSetToNull</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                        &nbsp;: array&lt;string|int, bool&gt;            </span>
 </dt>
 <dd>If a nullable field gets set to null, insert it here</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPITypes">$openAPITypes</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPITypes">$openAPITypes</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>Array of property to type mappings. Used for (de)serialization</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_setters">$setters</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_setters">$setters</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>Array of attributes to setter functions (for deserialization of responses)</dd>
 
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method___construct">__construct()</a>
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Constructor</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method___toString">__toString()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the string presentation of the object</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_attributeMap">attributeMap()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_attributeMap">attributeMap()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
@@ -369,245 +394,245 @@ and the value is the original name</dd>
 and the value is the original name</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getAction">getAction()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getAction">getAction()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Model-Action.html"><abbr title="\LINE\Clients\MessagingApi\Model\Action">Action</abbr></a>|null    </span>
 </dt>
 <dd>Gets action</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getBody">getBody()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getBody">getBody()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null    </span>
 </dt>
 <dd>Gets body</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getDirection">getDirection()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getDirection">getDirection()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>Gets direction</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getDirectionAllowableValues">getDirectionAllowableValues()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getDirectionAllowableValues">getDirectionAllowableValues()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Gets allowable values of the enum</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getFooter">getFooter()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getFooter">getFooter()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null    </span>
 </dt>
 <dd>Gets footer</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getHeader">getHeader()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getHeader">getHeader()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null    </span>
 </dt>
 <dd>Gets header</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getHero">getHero()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getHero">getHero()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Model-FlexComponent.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexComponent">FlexComponent</abbr></a>|null    </span>
 </dt>
 <dd>Gets hero</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getModelName">getModelName()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getModelName">getModelName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>The original name of the model.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getSize">getSize()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getSize">getSize()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>Gets size</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getSizeAllowableValues">getSizeAllowableValues()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getSizeAllowableValues">getSizeAllowableValues()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Gets allowable values of the enum</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getStyles">getStyles()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getStyles">getStyles()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubbleStyles.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBubbleStyles">FlexBubbleStyles</abbr></a>|null    </span>
 </dt>
 <dd>Gets styles</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getters">getters()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getters">getters()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Array of attributes to getter functions (for serialization of requests)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#method_getType">getType()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#method_getType">getType()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets type</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_isNullable">isNullable()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_isNullable">isNullable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks if a property is nullable</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_isNullableSetToNull">isNullableSetToNull()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_isNullableSetToNull">isNullableSetToNull()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks if a nullable property is set to null.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_jsonSerialize">jsonSerialize()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_jsonSerialize">jsonSerialize()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Serializes the object to a value that can be serialized natively by json_encode().</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_listInvalidProperties">listInvalidProperties()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_listInvalidProperties">listInvalidProperties()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Show all the invalid properties with reasons.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetExists">offsetExists()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetExists">offsetExists()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if offset exists. False otherwise.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetGet">offsetGet()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetGet">offsetGet()</a>
     <span>
                                 &nbsp;: mixed|null    </span>
 </dt>
 <dd>Gets offset.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetSet">offsetSet()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetSet">offsetSet()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Sets value based on offset.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetUnset">offsetUnset()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetUnset">offsetUnset()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Unsets offset.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPIFormats">openAPIFormats()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPIFormats">openAPIFormats()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Array of property to format mappings. Used for (de)serialization</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPITypes">openAPITypes()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPITypes">openAPITypes()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Array of property to type mappings. Used for (de)serialization</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setAction">setAction()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setAction">setAction()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets action</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setBody">setBody()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setBody">setBody()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets body</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setDirection">setDirection()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setDirection">setDirection()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets direction</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setFooter">setFooter()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setFooter">setFooter()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets footer</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setHeader">setHeader()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setHeader">setHeader()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets header</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setHero">setHero()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setHero">setHero()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets hero</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setSize">setSize()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setSize">setSize()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets size</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setStyles">setStyles()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setStyles">setStyles()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets styles</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setters">setters()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setters">setters()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Array of attributes to setter functions (for deserialization of responses)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#method_setType">setType()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#method_setType">setType()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Sets type</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_toHeaderValue">toHeaderValue()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_toHeaderValue">toHeaderValue()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets a header-safe presentation of the object</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_valid">valid()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_valid">valid()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -615,21 +640,21 @@ and the value is the original name</dd>
 return true if all passed</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPINullables">openAPINullables()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPINullables">openAPINullables()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Array of nullable properties</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getOpenAPINullablesSetToNull">getOpenAPINullablesSetToNull()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getOpenAPINullablesSetToNull">getOpenAPINullablesSetToNull()</a>
     <span>
                                 &nbsp;: array&lt;string|int, bool&gt;    </span>
 </dt>
 <dd>Array of nullable field names deliberately set to null</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setIfExists">setIfExists()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setIfExists">setIfExists()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -638,13 +663,13 @@ is nullable and its value is set to null in the $fields array, then mark it as &
 $this-&gt;openAPINullablesSetToNull array</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setOpenAPINullablesSetToNull">setOpenAPINullablesSetToNull()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setOpenAPINullablesSetToNull">setOpenAPINullablesSetToNull()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Setter - Array of nullable field names deliberately set to null</dd>
 
-        </dl>
+    </dl>
 
 
 
@@ -653,11 +678,13 @@ $this-&gt;openAPINullablesSetToNull array</dd>
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
             <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_DIRECTION_LTR">
         DIRECTION_LTR
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DIRECTION_LTR" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -668,6 +695,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -676,9 +704,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -687,6 +715,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <h4 class="phpdocumentor-element__name" id="constant_DIRECTION_RTL">
         DIRECTION_RTL
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DIRECTION_RTL" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -697,6 +726,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -705,9 +735,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -716,6 +746,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <h4 class="phpdocumentor-element__name" id="constant_DISCRIMINATOR">
         DISCRIMINATOR
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DISCRIMINATOR" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -726,6 +757,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -734,9 +766,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -745,6 +777,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <h4 class="phpdocumentor-element__name" id="constant_SIZE_DECA">
         SIZE_DECA
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_DECA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -755,6 +788,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -763,9 +797,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -774,6 +808,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <h4 class="phpdocumentor-element__name" id="constant_SIZE_GIGA">
         SIZE_GIGA
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_GIGA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -784,6 +819,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -792,9 +828,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -803,6 +839,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <h4 class="phpdocumentor-element__name" id="constant_SIZE_HECTO">
         SIZE_HECTO
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_HECTO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -813,6 +850,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -821,9 +859,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -832,6 +870,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <h4 class="phpdocumentor-element__name" id="constant_SIZE_KILO">
         SIZE_KILO
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_KILO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -842,6 +881,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -850,9 +890,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -861,6 +901,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <h4 class="phpdocumentor-element__name" id="constant_SIZE_MEGA">
         SIZE_MEGA
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_MEGA" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -871,6 +912,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -879,9 +921,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -890,6 +932,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <h4 class="phpdocumentor-element__name" id="constant_SIZE_MICRO">
         SIZE_MICRO
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_MICRO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -900,6 +943,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -908,9 +952,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -919,6 +963,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     <h4 class="phpdocumentor-element__name" id="constant_SIZE_NANO">
         SIZE_NANO
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_NANO" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -929,6 +974,7 @@ $this-&gt;openAPINullablesSetToNull array</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -937,9 +983,9 @@ $this-&gt;openAPINullablesSetToNull array</dd>
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
     
 
@@ -951,19 +997,21 @@ $this-&gt;openAPINullablesSetToNull array</dd>
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
             <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
             -protected
-            -static                                            "
+            -static                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="property_attributeMap">
         $attributeMap
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_attributeMap" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -975,14 +1023,19 @@ $this-&gt;openAPINullablesSetToNull array</dd>
         <p class="phpdocumentor-summary">Array of attributes where the key is the local name,
 and the value is the original name</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$attributeMap</span>
      = <span class="phpdocumentor-signature__default-value">[&#039;direction&#039; =&gt; &#039;direction&#039;, &#039;styles&#039; =&gt; &#039;styles&#039;, &#039;header&#039; =&gt; &#039;header&#039;, &#039;hero&#039; =&gt; &#039;hero&#039;, &#039;body&#039; =&gt; &#039;body&#039;, &#039;footer&#039; =&gt; &#039;footer&#039;, &#039;size&#039; =&gt; &#039;size&#039;, &#039;action&#039; =&gt; &#039;action&#039;]</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -991,13 +1044,14 @@ and the value is the original name</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_container">
         $container
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#property_container" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexContainer.php"><a href="files/src-clients-messaging-api-lib-model-flexcontainer.html"><abbr title="src/clients/messaging-api/lib/Model/FlexContainer.php">FlexContainer.php</abbr></a></abbr>
@@ -1008,14 +1062,19 @@ and the value is the original name</p>
 
         <p class="phpdocumentor-summary">Associative array for storing property values</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$container</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -1024,13 +1083,14 @@ and the value is the original name</p>
             phpdocumentor-element
             -property
             -protected
-            -static                                            "
+            -static                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="property_getters">
         $getters
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_getters" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1041,14 +1101,19 @@ and the value is the original name</p>
 
         <p class="phpdocumentor-summary">Array of attributes to getter functions (for serialization of requests)</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$getters</span>
      = <span class="phpdocumentor-signature__default-value">[&#039;direction&#039; =&gt; &#039;getDirection&#039;, &#039;styles&#039; =&gt; &#039;getStyles&#039;, &#039;header&#039; =&gt; &#039;getHeader&#039;, &#039;hero&#039; =&gt; &#039;getHero&#039;, &#039;body&#039; =&gt; &#039;getBody&#039;, &#039;footer&#039; =&gt; &#039;getFooter&#039;, &#039;size&#039; =&gt; &#039;getSize&#039;, &#039;action&#039; =&gt; &#039;getAction&#039;]</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -1057,13 +1122,14 @@ and the value is the original name</p>
             phpdocumentor-element
             -property
             -protected
-            -static                                            "
+            -static                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="property_openAPIFormats">
         $openAPIFormats
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPIFormats" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1074,9 +1140,10 @@ and the value is the original name</p>
 
         <p class="phpdocumentor-summary">Array of property to format mappings. Used for (de)serialization</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPIFormats</span>
      = <span class="phpdocumentor-signature__default-value">[&#039;direction&#039; =&gt; null, &#039;styles&#039; =&gt; null, &#039;header&#039; =&gt; null, &#039;hero&#039; =&gt; null, &#039;body&#039; =&gt; null, &#039;footer&#039; =&gt; null, &#039;size&#039; =&gt; null, &#039;action&#039; =&gt; null]</span></code>
 
@@ -1085,7 +1152,8 @@ and the value is the original name</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPIFormats#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1106,7 +1174,11 @@ and the value is the original name</p>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
+
+    
+
+    
 
 </article>
                     <article
@@ -1114,13 +1186,14 @@ and the value is the original name</p>
             phpdocumentor-element
             -property
             -protected
-            -static                                            "
+            -static                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="property_openAPIModelName">
         $openAPIModelName
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPIModelName" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1131,14 +1204,19 @@ and the value is the original name</p>
 
         <p class="phpdocumentor-summary">The original name of the model.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$openAPIModelName</span>
      = <span class="phpdocumentor-signature__default-value">&#039;FlexBubble&#039;</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -1147,13 +1225,14 @@ and the value is the original name</p>
             phpdocumentor-element
             -property
             -protected
-            -static                                            "
+            -static                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="property_openAPINullables">
         $openAPINullables
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPINullables" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1164,14 +1243,19 @@ and the value is the original name</p>
 
         <p class="phpdocumentor-summary">Array of nullable properties. Used for (de)serialization</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, bool&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPINullables</span>
      = <span class="phpdocumentor-signature__default-value">[&#039;direction&#039; =&gt; false, &#039;styles&#039; =&gt; false, &#039;header&#039; =&gt; false, &#039;hero&#039; =&gt; false, &#039;body&#039; =&gt; false, &#039;footer&#039; =&gt; false, &#039;size&#039; =&gt; false, &#039;action&#039; =&gt; false]</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -1180,13 +1264,14 @@ and the value is the original name</p>
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_openAPINullablesSetToNull">
         $openAPINullablesSetToNull
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPINullablesSetToNull" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1197,14 +1282,19 @@ and the value is the original name</p>
 
         <p class="phpdocumentor-summary">If a nullable field gets set to null, insert it here</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, bool&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPINullablesSetToNull</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -1213,13 +1303,14 @@ and the value is the original name</p>
             phpdocumentor-element
             -property
             -protected
-            -static                                            "
+            -static                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="property_openAPITypes">
         $openAPITypes
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPITypes" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1230,14 +1321,19 @@ and the value is the original name</p>
 
         <p class="phpdocumentor-summary">Array of property to type mappings. Used for (de)serialization</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$openAPITypes</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;direction&#039; =&gt; &#039;string&#039;, &#039;styles&#039; =&gt; &#039;\\LINE\\Clients\\MessagingApi\\Model\\FlexBubbleStyles&#039;, &#039;header&#039; =&gt; &#039;\\LINE\\Clients\\MessagingApi\\Model\\FlexBox&#039;, &#039;hero&#039; =&gt; &#039;\\LINE\\Clients\\MessagingApi\\Model\\FlexComponent&#039;, &#039;body&#039; =&gt; &#039;\\LINE\\Clients\\MessagingApi\\Model\\FlexBox&#039;, &#039;footer&#039; =&gt; &#039;\\LINE\\Clients\\MessagingApi\\Model\\FlexBox&#039;, &#039;size&#039; =&gt; &#039;string&#039;, &#039;action&#039; =&gt; &#039;\\LINE\\Clients\\MessagingApi\\Model\\Action&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;direction&#039; =&gt; &#039;string&#039;, &#039;styles&#039; =&gt; &#039;\LINE\Clients\MessagingApi\Model\FlexBubbleStyles&#039;, &#039;header&#039; =&gt; &#039;\LINE\Clients\MessagingApi\Model\FlexBox&#039;, &#039;hero&#039; =&gt; &#039;\LINE\Clients\MessagingApi\Model\FlexComponent&#039;, &#039;body&#039; =&gt; &#039;\LINE\Clients\MessagingApi\Model\FlexBox&#039;, &#039;footer&#039; =&gt; &#039;\LINE\Clients\MessagingApi\Model\FlexBox&#039;, &#039;size&#039; =&gt; &#039;string&#039;, &#039;action&#039; =&gt; &#039;\LINE\Clients\MessagingApi\Model\Action&#039;]</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -1246,13 +1342,14 @@ and the value is the original name</p>
             phpdocumentor-element
             -property
             -protected
-            -static                                            "
+            -static                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="property_setters">
         $setters
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_setters" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1263,14 +1360,19 @@ and the value is the original name</p>
 
         <p class="phpdocumentor-summary">Array of attributes to setter functions (for deserialization of responses)</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$setters</span>
      = <span class="phpdocumentor-signature__default-value">[&#039;direction&#039; =&gt; &#039;setDirection&#039;, &#039;styles&#039; =&gt; &#039;setStyles&#039;, &#039;header&#039; =&gt; &#039;setHeader&#039;, &#039;hero&#039; =&gt; &#039;setHero&#039;, &#039;body&#039; =&gt; &#039;setBody&#039;, &#039;footer&#039; =&gt; &#039;setFooter&#039;, &#039;size&#039; =&gt; &#039;setSize&#039;, &#039;action&#039; =&gt; &#039;setAction&#039;]</span></code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -1280,6 +1382,7 @@ and the value is the original name</p>
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -1290,6 +1393,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1304,6 +1408,9 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1321,10 +1428,8 @@ initializing the model</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -1336,6 +1441,7 @@ initializing the model</p>
     <h4 class="phpdocumentor-element__name" id="method___toString">
         __toString()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1350,15 +1456,20 @@ initializing the model</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1369,6 +1480,7 @@ initializing the model</p>
     <h4 class="phpdocumentor-element__name" id="method_attributeMap">
         attributeMap()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_attributeMap" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1384,15 +1496,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">attributeMap</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1403,6 +1520,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getAction">
         getAction()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getAction" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1417,15 +1535,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getAction</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-Action.html"><abbr title="\LINE\Clients\MessagingApi\Model\Action">Action</abbr></a>|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-Action.html"><abbr title="\LINE\Clients\MessagingApi\Model\Action">Action</abbr></a>|null</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-Action.html"><abbr title="\LINE\Clients\MessagingApi\Model\Action">Action</abbr></a>|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1436,6 +1559,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getBody">
         getBody()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getBody" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1450,15 +1574,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getBody</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1469,6 +1598,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getDirection">
         getDirection()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getDirection" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1483,15 +1613,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getDirection</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string|null</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1502,6 +1637,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getDirectionAllowableValues">
         getDirectionAllowableValues()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getDirectionAllowableValues" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1516,15 +1652,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getDirectionAllowableValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1535,6 +1676,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getFooter">
         getFooter()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getFooter" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1549,15 +1691,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getFooter</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1568,6 +1715,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getHeader">
         getHeader()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getHeader" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1582,15 +1730,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getHeader</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1601,6 +1754,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getHero">
         getHero()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getHero" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1615,15 +1769,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getHero</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexComponent.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexComponent">FlexComponent</abbr></a>|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexComponent.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexComponent">FlexComponent</abbr></a>|null</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexComponent.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexComponent">FlexComponent</abbr></a>|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1634,6 +1793,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getModelName">
         getModelName()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getModelName" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1648,15 +1808,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getModelName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1667,6 +1832,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getSize">
         getSize()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getSize" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1681,15 +1847,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getSize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string|null</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1700,6 +1871,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getSizeAllowableValues">
         getSizeAllowableValues()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getSizeAllowableValues" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1714,15 +1886,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getSizeAllowableValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1733,6 +1910,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getStyles">
         getStyles()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getStyles" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1747,15 +1925,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getStyles</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubbleStyles.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBubbleStyles">FlexBubbleStyles</abbr></a>|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubbleStyles.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBubbleStyles">FlexBubbleStyles</abbr></a>|null</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubbleStyles.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBubbleStyles">FlexBubbleStyles</abbr></a>|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1766,6 +1949,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getters">
         getters()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getters" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1780,15 +1964,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getters</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1799,6 +1988,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_getType">
         getType()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#method_getType" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexContainer.php"><a href="files/src-clients-messaging-api-lib-model-flexcontainer.html"><abbr title="src/clients/messaging-api/lib/Model/FlexContainer.php">FlexContainer.php</abbr></a></abbr>
@@ -1813,15 +2003,20 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getType</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1832,6 +2027,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_isNullable">
         isNullable()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_isNullable" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1846,6 +2042,9 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isNullable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1860,11 +2059,13 @@ and the value is the original name</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1875,6 +2076,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_isNullableSetToNull">
         isNullableSetToNull()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_isNullableSetToNull" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1889,6 +2091,9 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isNullableSetToNull</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1903,11 +2108,13 @@ and the value is the original name</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1918,6 +2125,7 @@ and the value is the original name</p>
     <h4 class="phpdocumentor-element__name" id="method_jsonSerialize">
         jsonSerialize()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_jsonSerialize" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1932,12 +2140,16 @@ and the value is the original name</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_jsonSerialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1947,16 +2159,31 @@ and the value is the original name</p>
                                                                                                         <a class="phpdocumentor-tag-link" href="https://www.php.net/manual/en/jsonserializable.jsonserialize.php"> https://www.php.net/manual/en/jsonserializable.jsonserialize.php </a>
                     
                                     </dd>
-                        </dl>
+                                            </dl>
 
+    
+    <section class="phpdocumentor-attributes">
+        <h5 class="phpdocumentor-elements__header" id="attributes">
+            Attributes <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_jsonSerialize#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h5>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<abbr title="\ReturnTypeWillChange">ReturnTypeWillChange</abbr>]
+    </dt>
+    </dl>
+            </section>
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Returns data which can be serialized by json_encode(), which is a value
+        <span class="phpdocumentor-signature__response_type">mixed</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns data which can be serialized by json_encode(), which is a value
 of any type other than a resource.</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1967,6 +2194,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_listInvalidProperties">
         listInvalidProperties()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_listInvalidProperties" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -1981,17 +2209,24 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">listInvalidProperties</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>invalid properties with reasons</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>invalid properties with reasons</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2002,6 +2237,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_offsetExists">
         offsetExists()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetExists" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2016,6 +2252,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">offsetExists</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2032,11 +2271,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2047,6 +2288,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_offsetGet">
         offsetGet()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetGet" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2061,6 +2303,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">offsetGet</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed|null</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2077,11 +2322,24 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed|null</span>
-            &mdash;
-        
     
+    <section class="phpdocumentor-attributes">
+        <h5 class="phpdocumentor-elements__header" id="attributes">
+            Attributes <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetGet#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h5>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<abbr title="\ReturnTypeWillChange">ReturnTypeWillChange</abbr>]
+    </dt>
+    </dl>
+            </section>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2092,6 +2350,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_offsetSet">
         offsetSet()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetSet" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2106,6 +2365,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">offsetSet</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2131,10 +2393,8 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -2146,6 +2406,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_offsetUnset">
         offsetUnset()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetUnset" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2160,6 +2421,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">offsetUnset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2176,10 +2440,8 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -2191,6 +2453,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_openAPIFormats">
         openAPIFormats()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPIFormats" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2205,15 +2468,20 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">openAPIFormats</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2224,6 +2492,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_openAPITypes">
         openAPITypes()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPITypes" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2238,15 +2507,20 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">openAPITypes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2257,6 +2531,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setAction">
         setAction()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setAction" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2271,6 +2546,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setAction</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-Action.html"><abbr title="\LINE\Clients\MessagingApi\Model\Action">Action</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$action</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2287,11 +2565,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">self</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2302,6 +2582,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setBody">
         setBody()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setBody" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2316,6 +2597,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setBody</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2332,11 +2616,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">self</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2347,6 +2633,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setDirection">
         setDirection()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setDirection" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2361,6 +2648,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setDirection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$direction</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2377,11 +2667,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">self</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2392,6 +2684,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setFooter">
         setFooter()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setFooter" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2406,6 +2699,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setFooter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$footer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2422,11 +2718,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">self</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2437,6 +2735,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setHeader">
         setHeader()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setHeader" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2451,6 +2750,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBox.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBox">FlexBox</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$header</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2467,11 +2769,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">self</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2482,6 +2786,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setHero">
         setHero()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setHero" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2496,6 +2801,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setHero</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexComponent.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexComponent">FlexComponent</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hero</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2512,11 +2820,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">self</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2527,6 +2837,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setSize">
         setSize()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setSize" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2541,6 +2852,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setSize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$size</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2557,11 +2871,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">self</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2572,6 +2888,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setStyles">
         setStyles()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setStyles" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2586,6 +2903,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setStyles</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubbleStyles.html"><abbr title="\LINE\Clients\MessagingApi\Model\FlexBubbleStyles">FlexBubbleStyles</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$styles</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2602,11 +2922,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">self</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2617,6 +2939,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setters">
         setters()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setters" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2631,15 +2954,20 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setters</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2650,6 +2978,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_setType">
         setType()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#method_setType" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexContainer.php"><a href="files/src-clients-messaging-api-lib-model-flexcontainer.html"><abbr title="src/clients/messaging-api/lib/Model/FlexContainer.php">FlexContainer.php</abbr></a></abbr>
@@ -2664,6 +2993,9 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setType</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2680,11 +3012,13 @@ of any type other than a resource.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">self</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">self</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2695,6 +3029,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_toHeaderValue">
         toHeaderValue()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_toHeaderValue" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2709,15 +3044,20 @@ of any type other than a resource.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">toHeaderValue</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2728,6 +3068,7 @@ of any type other than a resource.</p>
     <h4 class="phpdocumentor-element__name" id="method_valid">
         valid()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_valid" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2743,17 +3084,24 @@ return true if all passed</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">valid</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True if all properties are valid</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if all properties are valid</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2764,6 +3112,7 @@ return true if all passed</p>
     <h4 class="phpdocumentor-element__name" id="method_openAPINullables">
         openAPINullables()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPINullables" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2778,15 +3127,20 @@ return true if all passed</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">openAPINullables</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2797,6 +3151,7 @@ return true if all passed</p>
     <h4 class="phpdocumentor-element__name" id="method_getOpenAPINullablesSetToNull">
         getOpenAPINullablesSetToNull()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getOpenAPINullablesSetToNull" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2811,15 +3166,20 @@ return true if all passed</p>
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">getOpenAPINullablesSetToNull</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, bool&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, bool&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, bool&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2830,6 +3190,7 @@ return true if all passed</p>
     <h4 class="phpdocumentor-element__name" id="method_setIfExists">
         setIfExists()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setIfExists" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2846,6 +3207,9 @@ $this-&gt;openAPINullablesSetToNull array</p>
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">setIfExists</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variableName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$defaultValue</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2874,10 +3238,8 @@ $this-&gt;openAPINullablesSetToNull array</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -2889,6 +3251,7 @@ $this-&gt;openAPINullablesSetToNull array</p>
     <h4 class="phpdocumentor-element__name" id="method_setOpenAPINullablesSetToNull">
         setOpenAPINullablesSetToNull()
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setOpenAPINullablesSetToNull" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Model/FlexBubble.php"><a href="files/src-clients-messaging-api-lib-model-flexbubble.html"><abbr title="src/clients/messaging-api/lib/Model/FlexBubble.php">FlexBubble.php</abbr></a></abbr>
@@ -2903,6 +3266,9 @@ $this-&gt;openAPINullablesSetToNull array</p>
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">setOpenAPINullablesSetToNull</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, bool&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$openAPINullablesSetToNull</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2917,78 +3283,206 @@ $this-&gt;openAPINullablesSetToNull array</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
+    
+
     
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/clients/messaging-api/lib/Model/FlexBubble.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DIRECTION_LTR">DIRECTION_LTR</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DIRECTION_RTL">DIRECTION_RTL</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_DISCRIMINATOR">DISCRIMINATOR</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_DECA">SIZE_DECA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_GIGA">SIZE_GIGA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_HECTO">SIZE_HECTO</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_KILO">SIZE_KILO</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_MEGA">SIZE_MEGA</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_MICRO">SIZE_MICRO</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#constant_SIZE_NANO">SIZE_NANO</a></li>
+                                            </ul>
+                </li>
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_attributeMap">$attributeMap</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#property_container">$container</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_getters">$getters</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPIFormats">$openAPIFormats</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPIModelName">$openAPIModelName</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPINullables">$openAPINullables</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPINullablesSetToNull">$openAPINullablesSetToNull</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_openAPITypes">$openAPITypes</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#property_setters">$setters</a></li>
+                                            </ul>
+                </li>
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method___toString">__toString()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_attributeMap">attributeMap()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getAction">getAction()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getBody">getBody()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getDirection">getDirection()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getDirectionAllowableValues">getDirectionAllowableValues()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getFooter">getFooter()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getHeader">getHeader()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getHero">getHero()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getModelName">getModelName()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getSize">getSize()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getSizeAllowableValues">getSizeAllowableValues()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getStyles">getStyles()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getters">getters()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#method_getType">getType()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_isNullable">isNullable()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_isNullableSetToNull">isNullableSetToNull()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_jsonSerialize">jsonSerialize()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_listInvalidProperties">listInvalidProperties()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetExists">offsetExists()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetGet">offsetGet()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetSet">offsetSet()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_offsetUnset">offsetUnset()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPIFormats">openAPIFormats()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPITypes">openAPITypes()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setAction">setAction()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setBody">setBody()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setDirection">setDirection()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setFooter">setFooter()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setHeader">setHeader()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setHero">setHero()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setSize">setSize()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setStyles">setStyles()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setters">setters()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexContainer.html#method_setType">setType()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_toHeaderValue">toHeaderValue()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_valid">valid()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_openAPINullables">openAPINullables()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_getOpenAPINullablesSetToNull">getOpenAPINullablesSetToNull()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setIfExists">setIfExists()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#method_setOpenAPINullablesSetToNull">setOpenAPINullablesSetToNull()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -2999,7 +3493,6 @@ $this-&gt;openAPINullablesSetToNull array</p>
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/LINE-Clients-MessagingApi-Model-FlexBubble.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

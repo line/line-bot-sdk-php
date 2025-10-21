@@ -53,7 +53,7 @@ jobs:
           bash tools/gen-oas-client.sh
       - name: Update document
         run: |
-          wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar
+          wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.8.1/phpDocumentor.phar
           php phpDocumentor.phar run -d src -t docs
       - run: |
           diff_files=$(git --no-pager diff --name-only)
@@ -64,6 +64,21 @@ jobs:
 
           echo "DIFF_IS_EMPTY=$([[ -z "$diff_excluding_submodule" ]] && echo 'true' || echo 'false')" >> $GITHUB_ENV
           echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+
+      # Save full diff to file and upload artifact
+      - name: Save full diff to file
+        if: env.DIFF_IS_EMPTY != 'true'
+        run: |
+          git --no-pager diff HEAD > diff.patch
+          echo "Full diff saved to diff.patch"
+
+      - name: Upload diff artifact
+        if: env.DIFF_IS_EMPTY != 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: codegen-diff
+          path: diff.patch
+
       ## Run if diff exists and pull request or merge queue, and make CI status failure (but allow renovate bot)
       ## 29139614 is renovate bot's actor id
       - if: >-

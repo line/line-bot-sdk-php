@@ -71,7 +71,7 @@ Good documentation ensures that contributors and users can easily read and under
 To generate documentation locally, make sure phpDocumentor is installed, then run:
 
 ```
-$ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar
+$ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.8.1/phpDocumentor.phar
 $ php phpDocumentor.phar run -d src -t docs
 ```
 

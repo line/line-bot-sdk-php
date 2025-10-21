@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,8 +53,8 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/line.html" class="">LINE</a>
@@ -82,7 +83,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -108,21 +109,22 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line.html">LINE</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients.html">Clients</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients-messagingapi.html">MessagingApi</a></li>
@@ -146,6 +148,11 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
     :
@@ -157,9 +164,11 @@
 
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -187,8 +196,7 @@
                                                                                                         <a class="phpdocumentor-tag-link" href="https://openapi-generator.tech"> https://openapi-generator.tech </a>
                     
                                     </dd>
-                        </dl>
-
+                                            </dl>
 
 
 
@@ -196,291 +204,313 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#constant_contentTypes">contentTypes</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#constant_contentTypes">contentTypes</a>
     <span>
         &nbsp;= [&#039;getMessageContent&#039; =&gt; [&#039;application/json&#039;], &#039;getMessageContentPreview&#039; =&gt; [&#039;application/json&#039;], &#039;getMessageContentTranscodingByMessageId&#039; =&gt; [&#039;application/json&#039;], &#039;getRichMenuImage&#039; =&gt; [&#039;application/json&#039;], &#039;setRichMenuImage&#039; =&gt; [&#039;application/json&#039;]]                            </span>
 </dt>
-<dd></dd>
 
-                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_client">$client</a>
+    </dl>
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_client">$client</a>
     <span>
                         &nbsp;: <abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr>            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_config">$config</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_config">$config</a>
     <span>
                         &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Configuration.html"><abbr title="\LINE\Clients\MessagingApi\Configuration">Configuration</abbr></a>            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_headerSelector">$headerSelector</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_headerSelector">$headerSelector</a>
     <span>
                         &nbsp;: <a href="classes/LINE-Clients-MessagingApi-HeaderSelector.html"><abbr title="\LINE\Clients\MessagingApi\HeaderSelector">HeaderSelector</abbr></a>            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_hostIndex">$hostIndex</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_hostIndex">$hostIndex</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
-<dd></dd>
 
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method___construct">__construct()</a>
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getConfig">getConfig()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getConfig">getConfig()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Configuration.html"><abbr title="\LINE\Clients\MessagingApi\Configuration">Configuration</abbr></a>    </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostIndex">getHostIndex()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostIndex">getHostIndex()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Get the host index</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContent">getMessageContent()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContent">getMessageContent()</a>
     <span>
                                 &nbsp;: <abbr title="\SplFileObject">SplFileObject</abbr>    </span>
 </dt>
 <dd>Operation getMessageContent</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsync">getMessageContentAsync()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsync">getMessageContentAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getMessageContentAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsyncWithHttpInfo">getMessageContentAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsyncWithHttpInfo">getMessageContentAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getMessageContentAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreview">getMessageContentPreview()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreview">getMessageContentPreview()</a>
     <span>
                                 &nbsp;: <abbr title="\SplFileObject">SplFileObject</abbr>    </span>
 </dt>
 <dd>Operation getMessageContentPreview</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsync">getMessageContentPreviewAsync()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsync">getMessageContentPreviewAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getMessageContentPreviewAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsyncWithHttpInfo">getMessageContentPreviewAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsyncWithHttpInfo">getMessageContentPreviewAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getMessageContentPreviewAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewRequest">getMessageContentPreviewRequest()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewRequest">getMessageContentPreviewRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;getMessageContentPreview&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewWithHttpInfo">getMessageContentPreviewWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewWithHttpInfo">getMessageContentPreviewWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation getMessageContentPreviewWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentRequest">getMessageContentRequest()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentRequest">getMessageContentRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;getMessageContent&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageId">getMessageContentTranscodingByMessageId()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageId">getMessageContentTranscodingByMessageId()</a>
     <span>
                                 &nbsp;: <a href="classes/LINE-Clients-MessagingApi-Model-GetMessageContentTranscodingResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\GetMessageContentTranscodingResponse">GetMessageContentTranscodingResponse</abbr></a>    </span>
 </dt>
 <dd>Operation getMessageContentTranscodingByMessageId</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsync">getMessageContentTranscodingByMessageIdAsync()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsync">getMessageContentTranscodingByMessageIdAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getMessageContentTranscodingByMessageIdAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsyncWithHttpInfo">getMessageContentTranscodingByMessageIdAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsyncWithHttpInfo">getMessageContentTranscodingByMessageIdAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getMessageContentTranscodingByMessageIdAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdRequest">getMessageContentTranscodingByMessageIdRequest()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdRequest">getMessageContentTranscodingByMessageIdRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;getMessageContentTranscodingByMessageId&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdWithHttpInfo">getMessageContentTranscodingByMessageIdWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdWithHttpInfo">getMessageContentTranscodingByMessageIdWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation getMessageContentTranscodingByMessageIdWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentWithHttpInfo">getMessageContentWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentWithHttpInfo">getMessageContentWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation getMessageContentWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImage">getRichMenuImage()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImage">getRichMenuImage()</a>
     <span>
                                 &nbsp;: <abbr title="\SplFileObject">SplFileObject</abbr>    </span>
 </dt>
 <dd>Operation getRichMenuImage</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsync">getRichMenuImageAsync()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsync">getRichMenuImageAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getRichMenuImageAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsyncWithHttpInfo">getRichMenuImageAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsyncWithHttpInfo">getRichMenuImageAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation getRichMenuImageAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageRequest">getRichMenuImageRequest()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageRequest">getRichMenuImageRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;getRichMenuImage&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageWithHttpInfo">getRichMenuImageWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageWithHttpInfo">getRichMenuImageWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation getRichMenuImageWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setHostIndex">setHostIndex()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setHostIndex">setHostIndex()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Set the host index</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImage">setRichMenuImage()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImage">setRichMenuImage()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Operation setRichMenuImage</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsync">setRichMenuImageAsync()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsync">setRichMenuImageAsync()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation setRichMenuImageAsync</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsyncWithHttpInfo">setRichMenuImageAsyncWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsyncWithHttpInfo">setRichMenuImageAsyncWithHttpInfo()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr>    </span>
 </dt>
 <dd>Operation setRichMenuImageAsyncWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageRequest">setRichMenuImageRequest()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageRequest">setRichMenuImageRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\GuzzleHttp\Psr7\Request">Request</abbr>    </span>
 </dt>
 <dd>Create request for operation &#039;setRichMenuImage&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageWithHttpInfo">setRichMenuImageWithHttpInfo()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageWithHttpInfo">setRichMenuImageWithHttpInfo()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Operation setRichMenuImageWithHttpInfo</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_createHttpClientOption">createHttpClientOption()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_createHttpClientOption">createHttpClientOption()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Create http client option</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContent">getHostSettingsForgetMessageContent()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContent">getHostSettingsForgetMessageContent()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Returns an array of host settings for Operation getMessageContent</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContentPreview">getHostSettingsForgetMessageContentPreview()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContentPreview">getHostSettingsForgetMessageContentPreview()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Returns an array of host settings for Operation getMessageContentPreview</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContentTranscodingByMessageId">getHostSettingsForgetMessageContentTranscodingByMessageId()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContentTranscodingByMessageId">getHostSettingsForgetMessageContentTranscodingByMessageId()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Returns an array of host settings for Operation getMessageContentTranscodingByMessageId</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetRichMenuImage">getHostSettingsForgetRichMenuImage()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetRichMenuImage">getHostSettingsForgetRichMenuImage()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Returns an array of host settings for Operation getRichMenuImage</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForsetRichMenuImage">getHostSettingsForsetRichMenuImage()</a>
+    <a class="" href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForsetRichMenuImage">getHostSettingsForsetRichMenuImage()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Returns an array of host settings for Operation setRichMenuImage</dd>
 
-        </dl>
+    </dl>
 
 
 
@@ -489,11 +519,13 @@
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
             <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_contentTypes">
         contentTypes
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#constant_contentTypes" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
@@ -503,6 +535,7 @@
 
     </aside>
 
+    
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -520,6 +553,8 @@
 
     
 
+    
+
 </article>
             </section>
 
@@ -528,19 +563,21 @@
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
             <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_client">
         $client
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_client" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -550,14 +587,19 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr></span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr></span>
     <span class="phpdocumentor-signature__name">$client</span>
     </code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -566,13 +608,14 @@
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_config">
         $config
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_config" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -582,14 +625,19 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-MessagingApi-Configuration.html"><abbr title="\LINE\Clients\MessagingApi\Configuration">Configuration</abbr></a></span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-MessagingApi-Configuration.html"><abbr title="\LINE\Clients\MessagingApi\Configuration">Configuration</abbr></a></span>
     <span class="phpdocumentor-signature__name">$config</span>
     </code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -598,13 +646,14 @@
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_headerSelector">
         $headerSelector
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_headerSelector" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -614,14 +663,19 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-MessagingApi-HeaderSelector.html"><abbr title="\LINE\Clients\MessagingApi\HeaderSelector">HeaderSelector</abbr></a></span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/LINE-Clients-MessagingApi-HeaderSelector.html"><abbr title="\LINE\Clients\MessagingApi\HeaderSelector">HeaderSelector</abbr></a></span>
     <span class="phpdocumentor-signature__name">$headerSelector</span>
     </code>
 
     
     
+    
+
+    
+
     
 
 </article>
@@ -630,13 +684,14 @@
             phpdocumentor-element
             -property
             -protected
-                                                        "
+                                                                    "
 >
     <h4 class="phpdocumentor-element__name" id="property_hostIndex">
         $hostIndex
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_hostIndex" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
-                                </span>
+                                            </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -646,15 +701,20 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">int</span>
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">$hostIndex</span>
     </code>
 
     
         <section class="phpdocumentor-description"><p>Host index</p>
 </section>
+
+    
+
+    
 
     
 
@@ -665,6 +725,7 @@
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -675,6 +736,7 @@
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -686,8 +748,11 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$client</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Configuration.html"><abbr title="\LINE\Clients\MessagingApi\Configuration">Configuration</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-HeaderSelector.html"><abbr title="\LINE\Clients\MessagingApi\HeaderSelector">HeaderSelector</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$client</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-Configuration.html"><abbr title="\LINE\Clients\MessagingApi\Configuration">Configuration</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/LINE-Clients-MessagingApi-HeaderSelector.html"><abbr title="\LINE\Clients\MessagingApi\HeaderSelector">HeaderSelector</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -715,7 +780,7 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$hostIndex</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>(Optional) host index to select the list of hosts if defined in the OpenAPI spec</p>
 </section>
@@ -725,10 +790,8 @@
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -740,6 +803,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getConfig">
         getConfig()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getConfig" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -753,15 +817,20 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getConfig</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Configuration.html"><abbr title="\LINE\Clients\MessagingApi\Configuration">Configuration</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Configuration.html"><abbr title="\LINE\Clients\MessagingApi\Configuration">Configuration</abbr></a></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Configuration.html"><abbr title="\LINE\Clients\MessagingApi\Configuration">Configuration</abbr></a></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -772,6 +841,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getHostIndex">
         getHostIndex()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostIndex" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -786,17 +856,24 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getHostIndex</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Host index</p>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Host index</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -807,6 +884,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getMessageContent">
         getMessageContent()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContent" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -821,6 +899,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\SplFileObject">SplFileObject</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -869,7 +950,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContent#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -890,13 +972,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\SplFileObject">SplFileObject</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\SplFileObject">SplFileObject</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -907,6 +991,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentAsync">
         getMessageContentAsync()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -921,6 +1006,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -969,7 +1057,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -980,13 +1069,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -997,6 +1088,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentAsyncWithHttpInfo">
         getMessageContentAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1011,6 +1103,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1059,7 +1154,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1070,13 +1166,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1087,6 +1185,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentPreview">
         getMessageContentPreview()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreview" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1101,6 +1200,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentPreview</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentPreview&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\SplFileObject">SplFileObject</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1149,7 +1251,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreview#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1170,13 +1273,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\SplFileObject">SplFileObject</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\SplFileObject">SplFileObject</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1187,6 +1292,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentPreviewAsync">
         getMessageContentPreviewAsync()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1201,6 +1307,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentPreviewAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentPreview&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1249,7 +1358,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1260,13 +1370,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1277,6 +1389,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentPreviewAsyncWithHttpInfo">
         getMessageContentPreviewAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1291,6 +1404,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentPreviewAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentPreview&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1339,7 +1455,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1350,13 +1467,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1367,6 +1486,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentPreviewRequest">
         getMessageContentPreviewRequest()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1381,6 +1501,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentPreviewRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentPreview&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1429,7 +1552,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1440,13 +1564,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1457,6 +1583,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentPreviewWithHttpInfo">
         getMessageContentPreviewWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1471,6 +1598,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentPreviewWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentPreview&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1519,7 +1649,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1540,15 +1671,19 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of \SplFileObject, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of \SplFileObject, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1559,6 +1694,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentRequest">
         getMessageContentRequest()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1573,6 +1709,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1621,7 +1760,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1632,13 +1772,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1649,6 +1791,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentTranscodingByMessageId">
         getMessageContentTranscodingByMessageId()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageId" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1663,6 +1806,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentTranscodingByMessageId</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentTranscodingByMessageId&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-GetMessageContentTranscodingResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\GetMessageContentTranscodingResponse">GetMessageContentTranscodingResponse</abbr></a></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1711,7 +1857,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageId#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1732,13 +1879,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-GetMessageContentTranscodingResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\GetMessageContentTranscodingResponse">GetMessageContentTranscodingResponse</abbr></a></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/LINE-Clients-MessagingApi-Model-GetMessageContentTranscodingResponse.html"><abbr title="\LINE\Clients\MessagingApi\Model\GetMessageContentTranscodingResponse">GetMessageContentTranscodingResponse</abbr></a></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1749,6 +1898,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentTranscodingByMessageIdAsync">
         getMessageContentTranscodingByMessageIdAsync()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1763,6 +1913,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentTranscodingByMessageIdAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentTranscodingByMessageId&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1811,7 +1964,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1822,13 +1976,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1839,6 +1995,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentTranscodingByMessageIdAsyncWithHttpInfo">
         getMessageContentTranscodingByMessageIdAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1853,6 +2010,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentTranscodingByMessageIdAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentTranscodingByMessageId&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1901,7 +2061,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1912,13 +2073,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1929,6 +2092,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentTranscodingByMessageIdRequest">
         getMessageContentTranscodingByMessageIdRequest()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -1943,6 +2107,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentTranscodingByMessageIdRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentTranscodingByMessageId&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -1991,7 +2158,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2002,13 +2170,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2019,6 +2189,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentTranscodingByMessageIdWithHttpInfo">
         getMessageContentTranscodingByMessageIdWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2033,6 +2204,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentTranscodingByMessageIdWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContentTranscodingByMessageId&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -2081,7 +2255,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2102,15 +2277,19 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of \LINE\Clients\MessagingApi\Model\GetMessageContentTranscodingResponse, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of \LINE\Clients\MessagingApi\Model\GetMessageContentTranscodingResponse, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2121,6 +2300,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getMessageContentWithHttpInfo">
         getMessageContentWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2135,6 +2315,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getMessageContentWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$messageId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getMessageContent&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -2183,7 +2366,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2204,15 +2388,19 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of \SplFileObject, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of \SplFileObject, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2223,6 +2411,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getRichMenuImage">
         getRichMenuImage()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImage" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2237,6 +2426,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getRichMenuImage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\SplFileObject">SplFileObject</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -2285,7 +2477,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImage#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2306,13 +2499,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\SplFileObject">SplFileObject</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\SplFileObject">SplFileObject</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2323,6 +2518,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getRichMenuImageAsync">
         getRichMenuImageAsync()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2337,6 +2533,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getRichMenuImageAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -2385,7 +2584,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2396,13 +2596,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2413,6 +2615,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getRichMenuImageAsyncWithHttpInfo">
         getRichMenuImageAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2427,6 +2630,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getRichMenuImageAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -2475,7 +2681,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2486,13 +2693,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2503,6 +2712,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getRichMenuImageRequest">
         getRichMenuImageRequest()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2517,6 +2727,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getRichMenuImageRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -2565,7 +2778,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2576,13 +2790,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2593,6 +2809,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getRichMenuImageWithHttpInfo">
         getRichMenuImageWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2607,6 +2824,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getRichMenuImageWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;getRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -2655,7 +2875,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2676,15 +2897,19 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of \SplFileObject, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of \SplFileObject, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2695,6 +2920,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_setHostIndex">
         setHostIndex()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setHostIndex" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2709,6 +2935,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setHostIndex</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2725,10 +2954,8 @@ URL: https://api-data.line.me</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -2740,6 +2967,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_setRichMenuImage">
         setRichMenuImage()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImage" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2754,6 +2982,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setRichMenuImage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\SplFileObject">SplFileObject</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;setRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -2811,7 +3042,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImage#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2832,12 +3064,10 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
+    
+
     
 </article>
                     <article
@@ -2849,6 +3079,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_setRichMenuImageAsync">
         setRichMenuImageAsync()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsync" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2863,6 +3094,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setRichMenuImageAsync</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\SplFileObject">SplFileObject</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;setRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -2920,7 +3154,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsync#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -2931,13 +3166,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2948,6 +3185,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_setRichMenuImageAsyncWithHttpInfo">
         setRichMenuImageAsyncWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsyncWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -2962,6 +3200,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setRichMenuImageAsyncWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\SplFileObject">SplFileObject</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;setRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -3019,7 +3260,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsyncWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -3030,13 +3272,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -3047,6 +3291,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_setRichMenuImageRequest">
         setRichMenuImageRequest()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -3061,6 +3306,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setRichMenuImageRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\SplFileObject">SplFileObject</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;setRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -3118,7 +3366,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -3129,13 +3378,15 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\GuzzleHttp\Psr7\Request">Request</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -3146,6 +3397,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_setRichMenuImageWithHttpInfo">
         setRichMenuImageWithHttpInfo()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageWithHttpInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -3160,6 +3412,9 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setRichMenuImageWithHttpInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$richMenuId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\SplFileObject">SplFileObject</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hostIndex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$variables</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::contentTypes[&#039;setRichMenuImage&#039;][0]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
 if needed, use the 'variables' parameter to pass variables to the host.
 URL: https://api-data.line.me</p>
@@ -3217,7 +3472,8 @@ URL: https://api-data.line.me</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageWithHttpInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -3238,15 +3494,19 @@ URL: https://api-data.line.me</p>
                                                             
                                              
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of null, HTTP status code, HTTP response headers (array of strings)</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -3257,6 +3517,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_createHttpClientOption">
         createHttpClientOption()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_createHttpClientOption" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -3271,12 +3532,16 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">createHttpClientOption</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_createHttpClientOption#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -3289,15 +3554,19 @@ URL: https://api-data.line.me</p>
 </section>
 
                                     </dd>
-                        </dl>
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>of http client options</p>
-</section>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>of http client options</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -3308,6 +3577,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getHostSettingsForgetMessageContent">
         getHostSettingsForgetMessageContent()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContent" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -3322,17 +3592,24 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">getHostSettingsForgetMessageContent</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>an array of host settings</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>an array of host settings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -3343,6 +3620,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getHostSettingsForgetMessageContentPreview">
         getHostSettingsForgetMessageContentPreview()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContentPreview" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -3357,17 +3635,24 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">getHostSettingsForgetMessageContentPreview</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>an array of host settings</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>an array of host settings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -3378,6 +3663,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getHostSettingsForgetMessageContentTranscodingByMessageId">
         getHostSettingsForgetMessageContentTranscodingByMessageId()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContentTranscodingByMessageId" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -3392,17 +3678,24 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">getHostSettingsForgetMessageContentTranscodingByMessageId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>an array of host settings</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>an array of host settings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -3413,6 +3706,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getHostSettingsForgetRichMenuImage">
         getHostSettingsForgetRichMenuImage()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetRichMenuImage" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -3427,17 +3721,24 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">getHostSettingsForgetRichMenuImage</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>an array of host settings</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>an array of host settings</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -3448,6 +3749,7 @@ URL: https://api-data.line.me</p>
     <h4 class="phpdocumentor-element__name" id="method_getHostSettingsForsetRichMenuImage">
         getHostSettingsForsetRichMenuImage()
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForsetRichMenuImage" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php"><a href="files/src-clients-messaging-api-lib-api-messagingapiblobapi.html"><abbr title="src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php">MessagingApiBlobApi.php</abbr></a></abbr>
@@ -3462,84 +3764,200 @@ URL: https://api-data.line.me</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">getHostSettingsForsetRichMenuImage</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
     
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>an array of host settings</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>an array of host settings</p>
 </section>
 
-    
+            </section>
+
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/clients/messaging-api/lib/Api/MessagingApiBlobApi.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#constant_contentTypes">contentTypes</a></li>
+                                            </ul>
+                </li>
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_client">$client</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_config">$config</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_headerSelector">$headerSelector</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#property_hostIndex">$hostIndex</a></li>
+                                            </ul>
+                </li>
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getConfig">getConfig()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostIndex">getHostIndex()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContent">getMessageContent()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsync">getMessageContentAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentAsyncWithHttpInfo">getMessageContentAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreview">getMessageContentPreview()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsync">getMessageContentPreviewAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewAsyncWithHttpInfo">getMessageContentPreviewAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewRequest">getMessageContentPreviewRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentPreviewWithHttpInfo">getMessageContentPreviewWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentRequest">getMessageContentRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageId">getMessageContentTranscodingByMessageId()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsync">getMessageContentTranscodingByMessageIdAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdAsyncWithHttpInfo">getMessageContentTranscodingByMessageIdAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdRequest">getMessageContentTranscodingByMessageIdRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentTranscodingByMessageIdWithHttpInfo">getMessageContentTranscodingByMessageIdWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getMessageContentWithHttpInfo">getMessageContentWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImage">getRichMenuImage()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsync">getRichMenuImageAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageAsyncWithHttpInfo">getRichMenuImageAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageRequest">getRichMenuImageRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getRichMenuImageWithHttpInfo">getRichMenuImageWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setHostIndex">setHostIndex()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImage">setRichMenuImage()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsync">setRichMenuImageAsync()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageAsyncWithHttpInfo">setRichMenuImageAsyncWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageRequest">setRichMenuImageRequest()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_setRichMenuImageWithHttpInfo">setRichMenuImageWithHttpInfo()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_createHttpClientOption">createHttpClientOption()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContent">getHostSettingsForgetMessageContent()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContentPreview">getHostSettingsForgetMessageContentPreview()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetMessageContentTranscodingByMessageId">getHostSettingsForgetMessageContentTranscodingByMessageId()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForgetRichMenuImage">getHostSettingsForgetRichMenuImage()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#method_getHostSettingsForsetRichMenuImage">getHostSettingsForsetRichMenuImage()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -3550,7 +3968,6 @@ URL: https://api-data.line.me</p>
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/LINE-Clients-MessagingApi-Api-MessagingApiBlobApi.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
