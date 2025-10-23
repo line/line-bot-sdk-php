@@ -74,7 +74,8 @@ class Limit implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'max' => 'int',
-        'upToRemainingQuota' => 'bool'
+        'upToRemainingQuota' => 'bool',
+        'forbidPartialDelivery' => 'bool'
     ];
 
     /**
@@ -86,7 +87,8 @@ class Limit implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'max' => 'int32',
-        'upToRemainingQuota' => null
+        'upToRemainingQuota' => null,
+        'forbidPartialDelivery' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class Limit implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'max' => false,
-        'upToRemainingQuota' => false
+        'upToRemainingQuota' => false,
+        'forbidPartialDelivery' => false
     ];
 
     /**
@@ -186,7 +189,8 @@ class Limit implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'max' => 'max',
-        'upToRemainingQuota' => 'upToRemainingQuota'
+        'upToRemainingQuota' => 'upToRemainingQuota',
+        'forbidPartialDelivery' => 'forbidPartialDelivery'
     ];
 
     /**
@@ -196,7 +200,8 @@ class Limit implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'max' => 'setMax',
-        'upToRemainingQuota' => 'setUpToRemainingQuota'
+        'upToRemainingQuota' => 'setUpToRemainingQuota',
+        'forbidPartialDelivery' => 'setForbidPartialDelivery'
     ];
 
     /**
@@ -206,7 +211,8 @@ class Limit implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'max' => 'getMax',
-        'upToRemainingQuota' => 'getUpToRemainingQuota'
+        'upToRemainingQuota' => 'getUpToRemainingQuota',
+        'forbidPartialDelivery' => 'getForbidPartialDelivery'
     ];
 
     /**
@@ -268,6 +274,7 @@ class Limit implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('max', $data ?? [], null);
         $this->setIfExists('upToRemainingQuota', $data ?? [], false);
+        $this->setIfExists('forbidPartialDelivery', $data ?? [], false);
     }
 
     /**
@@ -371,6 +378,33 @@ class Limit implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable upToRemainingQuota cannot be null');
         }
         $this->container['upToRemainingQuota'] = $upToRemainingQuota;
+
+        return $this;
+    }
+
+    /**
+     * Gets forbidPartialDelivery
+     *
+     * @return bool|null
+     */
+    public function getForbidPartialDelivery()
+    {
+        return $this->container['forbidPartialDelivery'];
+    }
+
+    /**
+     * Sets forbidPartialDelivery
+     *
+     * @param bool|null $forbidPartialDelivery This option prevents messages from being delivered to only a subset of the target audience. If true, the narrowcast request success but fails asynchronously. You can check whether message delivery was canceled by retrieving the narrowcast message progress.  This property can be set to true only if upToRemainingQuota is set to true.
+     *
+     * @return self
+     */
+    public function setForbidPartialDelivery($forbidPartialDelivery)
+    {
+        if (is_null($forbidPartialDelivery)) {
+            throw new \InvalidArgumentException('non-nullable forbidPartialDelivery cannot be null');
+        }
+        $this->container['forbidPartialDelivery'] = $forbidPartialDelivery;
 
         return $this;
     }
@@ -485,6 +519,9 @@ class Limit implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (isset($data['upToRemainingQuota'])) {
             $instance->setupToRemainingQuota($data['upToRemainingQuota']);
+        }
+        if (isset($data['forbidPartialDelivery'])) {
+            $instance->setforbidPartialDelivery($data['forbidPartialDelivery']);
         }
 
         return $instance;
