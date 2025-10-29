@@ -275,6 +275,14 @@ class LocationMessage extends Message
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('latitude', $data ?? [], null);
         $this->setIfExists('longitude', $data ?? [], null);
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
     }
 
     /**

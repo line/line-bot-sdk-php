@@ -261,6 +261,14 @@ class FlexSeparator extends FlexComponent
 
         $this->setIfExists('margin', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
     }
 
     /**

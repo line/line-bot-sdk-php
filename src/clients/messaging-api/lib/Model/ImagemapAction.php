@@ -461,6 +461,23 @@ class ImagemapAction implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            ClipboardImagemapAction::class => 'clipboard',
+            MessageImagemapAction::class => 'message',
+            URIImagemapAction::class => 'uri',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of ImagemapAction from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.

@@ -282,6 +282,14 @@ class FlexVideo extends FlexComponent
         $this->setIfExists('altContent', $data ?? [], null);
         $this->setIfExists('aspectRatio', $data ?? [], null);
         $this->setIfExists('action', $data ?? [], null);
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
     }
 
     /**

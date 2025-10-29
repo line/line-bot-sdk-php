@@ -268,6 +268,14 @@ class TextMessage extends Message
         $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('emojis', $data ?? [], null);
         $this->setIfExists('quoteToken', $data ?? [], null);
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
     }
 
     /**

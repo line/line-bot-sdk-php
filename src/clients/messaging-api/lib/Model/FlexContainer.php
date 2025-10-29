@@ -424,6 +424,22 @@ class FlexContainer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            FlexBubble::class => 'bubble',
+            FlexCarousel::class => 'carousel',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of FlexContainer from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.

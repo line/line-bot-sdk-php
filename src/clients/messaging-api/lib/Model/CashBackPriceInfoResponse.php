@@ -424,6 +424,22 @@ class CashBackPriceInfoResponse implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            CashBackFixedPriceInfoResponse::class => 'fixed',
+            CashBackPercentagePriceInfoResponse::class => 'percentage',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of CashBackPriceInfoResponse from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.

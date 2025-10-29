@@ -336,6 +336,14 @@ class FlexSpan extends FlexComponent
         $this->setIfExists('weight', $data ?? [], null);
         $this->setIfExists('style', $data ?? [], null);
         $this->setIfExists('decoration', $data ?? [], null);
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
     }
 
     /**

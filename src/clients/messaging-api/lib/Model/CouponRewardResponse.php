@@ -424,6 +424,25 @@ class CouponRewardResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            CouponCashBackRewardResponse::class => 'cashBack',
+            CouponDiscountRewardResponse::class => 'discount',
+            CouponFreeRewardResponse::class => 'free',
+            CouponGiftRewardResponse::class => 'gift',
+            CouponOthersRewardResponse::class => 'others',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of CouponRewardResponse from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.
