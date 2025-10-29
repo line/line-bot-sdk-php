@@ -12,6 +12,7 @@
     <exclude-pattern>EchoBot/Dependency.php</exclude-pattern>
     <exclude-pattern>KitchenSink/Dependency.php</exclude-pattern>
     <exclude-pattern>test/EventRequestParserTest.php</exclude-pattern>
+    <exclude-pattern>test/MessagingApiApiTest.php</exclude-pattern>
 
     <rule ref="rulesets/cleancode.xml">
         <exclude name="ElseExpression" />

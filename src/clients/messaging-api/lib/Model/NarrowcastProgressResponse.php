@@ -545,7 +545,7 @@ class NarrowcastProgressResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets errorCode
      *
-     * @param int|null $errorCode Error summary. This is only included with a phase property value of failed. One of:  `1`: An internal error occurred. `2`: An error occurred because there weren't enough recipients. `3`: A conflict error of requests occurs because a request that has already been accepted is retried. `4`: An audience of less than 50 recipients is included as a condition of sending.
+     * @param int|null $errorCode Error summary. This is only included with a phase property value of failed. One of:  `1`: An internal error occurred. `2`: An error occurred because there weren't enough recipients. `3`: A conflict error of requests occurs because a request that has already been accepted is retried. `4`: An audience of less than 50 recipients is included as a condition of sending. `5`: Message delivery has been canceled to prevent messages from being delivered only to a subset of the target audience.
      *
      * @return self
      */
