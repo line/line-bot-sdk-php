@@ -285,6 +285,14 @@ class DiscountExplicitPriceInfoResponse extends DiscountPriceInfoResponse
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('priceAfterDiscount', $data ?? [], null);
         $this->setIfExists('originalPrice', $data ?? [], null);
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
     }
 
     /**

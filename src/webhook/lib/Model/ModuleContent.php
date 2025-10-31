@@ -424,6 +424,22 @@ class ModuleContent implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            AttachedModuleContent::class => 'attached',
+            DetachedModuleContent::class => 'detached',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of ModuleContent from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.

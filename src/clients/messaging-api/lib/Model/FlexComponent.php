@@ -424,6 +424,29 @@ class FlexComponent implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            FlexBox::class => 'box',
+            FlexButton::class => 'button',
+            FlexFiller::class => 'filler',
+            FlexIcon::class => 'icon',
+            FlexImage::class => 'image',
+            FlexSeparator::class => 'separator',
+            FlexSpan::class => 'span',
+            FlexText::class => 'text',
+            FlexVideo::class => 'video',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of FlexComponent from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.

@@ -508,6 +508,14 @@ class FlexBox extends FlexComponent
         $this->setIfExists('justifyContent', $data ?? [], null);
         $this->setIfExists('alignItems', $data ?? [], null);
         $this->setIfExists('background', $data ?? [], null);
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
     }
 
     /**

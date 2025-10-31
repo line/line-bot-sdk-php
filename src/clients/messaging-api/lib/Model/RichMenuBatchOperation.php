@@ -425,6 +425,23 @@ class RichMenuBatchOperation implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            RichMenuBatchLinkOperation::class => 'link',
+            RichMenuBatchUnlinkOperation::class => 'unlink',
+            RichMenuBatchUnlinkAllOperation::class => 'unlinkAll',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of RichMenuBatchOperation from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.

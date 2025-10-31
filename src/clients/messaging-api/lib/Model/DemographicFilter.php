@@ -422,6 +422,26 @@ class DemographicFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            AgeDemographicFilter::class => 'age',
+            AppTypeDemographicFilter::class => 'appType',
+            AreaDemographicFilter::class => 'area',
+            GenderDemographicFilter::class => 'gender',
+            OperatorDemographicFilter::class => 'operator',
+            SubscriptionPeriodDemographicFilter::class => 'subscriptionPeriod',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of DemographicFilter from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.

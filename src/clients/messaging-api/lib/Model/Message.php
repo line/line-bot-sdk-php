@@ -492,6 +492,31 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            AudioMessage::class => 'audio',
+            CouponMessage::class => 'coupon',
+            FlexMessage::class => 'flex',
+            ImageMessage::class => 'image',
+            ImagemapMessage::class => 'imagemap',
+            LocationMessage::class => 'location',
+            StickerMessage::class => 'sticker',
+            TemplateMessage::class => 'template',
+            TextMessage::class => 'text',
+            TextMessageV2::class => 'textV2',
+            VideoMessage::class => 'video',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of Message from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.

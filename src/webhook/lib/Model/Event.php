@@ -607,6 +607,39 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+            AccountLinkEvent::class => 'accountLink',
+            ActivatedEvent::class => 'activated',
+            BeaconEvent::class => 'beacon',
+            BotResumedEvent::class => 'botResumed',
+            BotSuspendedEvent::class => 'botSuspended',
+            DeactivatedEvent::class => 'deactivated',
+            PnpDeliveryCompletionEvent::class => 'delivery',
+            FollowEvent::class => 'follow',
+            JoinEvent::class => 'join',
+            LeaveEvent::class => 'leave',
+            MemberJoinedEvent::class => 'memberJoined',
+            MemberLeftEvent::class => 'memberLeft',
+            MembershipEvent::class => 'membership',
+            MessageEvent::class => 'message',
+            ModuleEvent::class => 'module',
+            PostbackEvent::class => 'postback',
+            UnfollowEvent::class => 'unfollow',
+            UnsendEvent::class => 'unsend',
+            VideoPlayCompleteEvent::class => 'videoPlayComplete',
+        ];
+
+        return $map[$className] ?? null;
+    }
+
+    /**
      * Create an instance of Event from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.

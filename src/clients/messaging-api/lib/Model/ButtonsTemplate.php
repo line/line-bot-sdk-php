@@ -303,6 +303,14 @@ class ButtonsTemplate extends Template
         $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('defaultAction', $data ?? [], null);
         $this->setIfExists('actions', $data ?? [], null);
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
     }
 
     /**
