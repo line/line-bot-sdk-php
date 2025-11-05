@@ -30,7 +30,6 @@ use LINE\Clients\MessagingApi\Model\FlexSpacer;
 use LINE\Clients\MessagingApi\Model\FlexSpan;
 use LINE\Clients\MessagingApi\Model\FlexText;
 use LINE\Clients\MessagingApi\Model\URIAction;
-use LINE\Constants\ActionType;
 use LINE\Constants\Flex\BubbleContainerSize;
 use LINE\Constants\Flex\ComponentButtonHeight;
 use LINE\Constants\Flex\ComponentButtonStyle;
@@ -80,7 +79,6 @@ class FlexSampleRestaurant
             'aspectRatio' => ComponentImageAspectRatio::R20TO13,
             'aspectMode' => ComponentImageAspectMode::COVER,
             'action' => new URIAction([
-                'type' => ActionType::URI,
                 'label' => 'cafe hero',
                 'uri' => 'https://example.com',
                 'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
@@ -217,7 +215,6 @@ class FlexSampleRestaurant
             'style' => ComponentButtonStyle::LINK,
             'height' => ComponentButtonHeight::SM,
             'action' => new URIAction([
-                'type' => ActionType::URI,
                 'label' => 'CALL',
                 'uri' => 'https://example.com',
                 'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
@@ -228,7 +225,6 @@ class FlexSampleRestaurant
             'style' => ComponentButtonStyle::LINK,
             'height' => ComponentButtonHeight::SM,
             'action' => new URIAction([
-                'type' => ActionType::URI,
                 'label' => 'WEBSITE',
                 'uri' => 'https://example.com',
                 'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),

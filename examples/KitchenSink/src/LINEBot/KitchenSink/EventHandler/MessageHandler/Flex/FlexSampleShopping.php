@@ -27,7 +27,6 @@ use LINE\Clients\MessagingApi\Model\FlexImage;
 use LINE\Clients\MessagingApi\Model\FlexMessage;
 use LINE\Clients\MessagingApi\Model\FlexText;
 use LINE\Clients\MessagingApi\Model\URIAction;
-use LINE\Constants\ActionType;
 use LINE\Constants\Flex\ComponentButtonStyle;
 use LINE\Constants\Flex\ComponentFontSize;
 use LINE\Constants\Flex\ComponentFontWeight;
@@ -166,7 +165,6 @@ class FlexSampleShopping
             'style' => ComponentButtonStyle::PRIMARY,
             'color' => $color,
             'action' => new URIAction([
-                'type' => ActionType::URI,
                 'label' => 'Add to Cart',
                 'uri' => 'https://example.com',
                 'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
@@ -176,7 +174,6 @@ class FlexSampleShopping
         $wishButton = new FlexButton([
             'type' => ComponentType::BUTTON,
             'action' => new URIAction([
-                'type' => ActionType::URI,
                 'label' => 'Add to wishlist',
                 'uri' => 'https://example.com',
                 'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
@@ -205,7 +202,6 @@ class FlexSampleShopping
                         'flex' => 1,
                         'gravity' => ComponentGravity::CENTER,
                         'action' => new URIAction([
-                            'type' => ActionType::URI,
                             'label' => 'See more',
                             'uri' => 'https://example.com',
                             'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),

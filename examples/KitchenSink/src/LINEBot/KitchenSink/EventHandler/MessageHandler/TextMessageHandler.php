@@ -48,7 +48,6 @@ use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleRestaurant;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleShopping;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
-use LINE\Constants\ActionType;
 use LINE\Constants\TemplateType;
 use LINE\Webhook\Model\GroupSource;
 use LINE\Webhook\Model\MessageEvent;
@@ -126,12 +125,10 @@ class TextMessageHandler implements EventHandler
                         'text' => 'Do it?',
                         'actions' => [
                             new MessageAction([
-                                'type' => ActionType::MESSAGE,
                                 'label' => 'Yes',
                                 'text' => 'Yes!',
                             ]),
                             new MessageAction([
-                                'type' => ActionType::MESSAGE,
                                 'label' => 'No',
                                 'text' => 'No!',
                             ]),
@@ -152,22 +149,18 @@ class TextMessageHandler implements EventHandler
                         'thumbnailImageUrl' => $imageUrl,
                         'actions' => [
                             new URIAction([
-                                'type' => ActionType::URI,
                                 'label' => 'Go to line.me',
                                 'uri' => 'https://line.me',
                             ]),
                             new PostbackAction([
-                                'type' => ActionType::POSTBACK,
                                 'label' => 'Buy',
                                 'data' => 'action=buy&itemid=123',
                             ]),
                             new PostbackAction([
-                                'type' => ActionType::POSTBACK,
                                 'label' => 'Add to cart',
                                 'data' => 'action=add&itemid=123',
                             ]),
                             new MessageAction([
-                                'type' => ActionType::MESSAGE,
                                 'label' => 'Say message',
                                 'text' => 'hello hello',
                             ]),
@@ -189,12 +182,10 @@ class TextMessageHandler implements EventHandler
                                 'thumbnailImageUrl' => $imageUrl,
                                 'actions' => [
                                     new URIAction([
-                                        'type' => ActionType::URI,
                                         'label' => 'Go to line.me',
                                         'uri' => 'https://line.me',
                                     ]),
                                     new PostbackAction([
-                                        'type' => ActionType::POSTBACK,
                                         'label' => 'Buy',
                                         'data' => 'action=buy&itemid=123',
                                     ]),
@@ -206,12 +197,10 @@ class TextMessageHandler implements EventHandler
                                 'thumbnailImageUrl' => $imageUrl,
                                 'actions' => [
                                     new PostbackAction([
-                                        'type' => ActionType::POSTBACK,
                                         'label' => 'Add to cart',
                                         'data' => 'action=add&itemid=123',
                                     ]),
                                     new MessageAction([
-                                        'type' => ActionType::MESSAGE,
                                         'label' => 'Say message',
                                         'text' => 'hello hello',
                                     ]),
@@ -233,7 +222,6 @@ class TextMessageHandler implements EventHandler
                     ]),
                     'actions' => [
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/manga/en',
                             'area' => new ImagemapArea([
                                 'x' => 0,
@@ -243,7 +231,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/music/en',
                             'area' => new ImagemapArea([
                                 'x' => 520,
@@ -253,7 +240,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/play/en',
                             'area' => new ImagemapArea([
                                 'x' => 0,
@@ -263,7 +249,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new MessageImagemapAction([
-                            'type' => ActionType::MESSAGE,
                             'text' => 'URANAI!',
                             'area' => new ImagemapArea([
                                 'x' => 520,
@@ -289,7 +274,6 @@ class TextMessageHandler implements EventHandler
                     ]),
                     'actions' => [
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/manga/en',
                             'area' => new ImagemapArea([
                                 'x' => 0,
@@ -299,7 +283,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/music/en',
                             'area' => new ImagemapArea([
                                 'x' => 520,
@@ -309,7 +292,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/play/en',
                             'area' => new ImagemapArea([
                                 'x' => 0,
@@ -319,7 +301,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new MessageImagemapAction([
-                            'type' => ActionType::MESSAGE,
                             'text' => 'URANAI!',
                             'area' => new ImagemapArea([
                                 'x' => 520,
@@ -358,28 +339,24 @@ class TextMessageHandler implements EventHandler
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new LocationAction([
-                                'type' => ActionType::LOCATION,
                                 'label' => 'Location',
                             ]),
                         ]),
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new CameraAction([
-                                'type' => ActionType::CAMERA,
                                 'label' => 'Camera',
                             ]),
                         ]),
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new CameraRollAction([
-                                'type' => ActionType::CAMERA_ROLL,
                                 'label' => 'Camera roll',
                             ]),
                         ]),
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new PostbackAction([
-                                'type' => ActionType::POSTBACK,
                                 'label' => 'Buy',
                                 'text' => 'Buy',
                                 'data' => 'action=buy&itemid=123',
@@ -388,7 +365,6 @@ class TextMessageHandler implements EventHandler
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new DatetimePickerAction([
-                                'type' => ActionType::DATETIME_PICKER,
                                 'label' => 'Select date',
                                 'data' => 'storeId=12345',
                                 'mode' => 'datetime',
