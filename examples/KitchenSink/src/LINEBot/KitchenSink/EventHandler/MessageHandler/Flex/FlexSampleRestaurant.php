@@ -46,7 +46,6 @@ use LINE\Constants\Flex\ComponentSpaceSize;
 use LINE\Constants\Flex\ComponentSpacing;
 use LINE\Constants\Flex\ComponentType;
 use LINE\Constants\Flex\ContainerType;
-use LINE\Constants\MessageType;
 
 /**
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
@@ -61,7 +60,6 @@ class FlexSampleRestaurant
     public static function get(): FlexMessage
     {
         return new FlexMessage([
-            'type' => MessageType::FLEX,
             'altText' => 'Restaurant',
             'contents' => new FlexBubble([
                 'type' => ContainerType::BUBBLE,

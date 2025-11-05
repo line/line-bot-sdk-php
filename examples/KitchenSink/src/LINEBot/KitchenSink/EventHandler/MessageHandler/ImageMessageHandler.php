@@ -23,7 +23,6 @@ use LINE\Clients\MessagingApi\Api\MessagingApiBlobApi;
 use LINE\Clients\MessagingApi\Model\ImageMessage;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
 use LINE\Constants\MessageContentProviderType;
-use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
 use LINE\Webhook\Model\ImageMessageContent;
@@ -102,7 +101,6 @@ class ImageMessageHandler implements EventHandler
     private function replyImageMessage(string $replyToken, string $original, string $preview)
     {
         $message = new ImageMessage([
-            'type' => MessageType::IMAGE,
             'originalContentUrl' => $original,
             'previewImageUrl' => $preview,
         ]);

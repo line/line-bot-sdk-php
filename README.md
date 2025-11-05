@@ -57,7 +57,7 @@ You can call an API through the messagingApi instance.
 A very simple example:
 
 ```php
-$message = new TextMessage(['type' => 'text','text' => 'hello!']);
+$message = new TextMessage(['text' => 'hello!']);
 $request = new ReplyMessageRequest([
     'replyToken' => '<reply token>',
     'messages' => [$message],
@@ -71,7 +71,6 @@ We also support setter style.
 
 ```php
 $message = (new TextMessage())
-  ->setType(\LINE\Constants\MessageType::TEXT)
   ->setText('hello!');
 $request = (new ReplyMessageRequest)
   ->setReplyToken('<reply token>')
@@ -92,7 +91,7 @@ You may need to store the `x-line-request-id` header obtained as a response from
 ```php
 $request = new ReplyMessageRequest([
     'replyToken' => $replyToken,
-    'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info', 'type' => MessageType::TEXT]))],
+    'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info']))],
 ]);
 $response = $messagingApi->replyMessageWithHttpInfo($request);
 $this->logger->info('body:' . $response[0]);

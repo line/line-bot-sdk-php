@@ -40,7 +40,6 @@ use LINE\Constants\Flex\ComponentMargin;
 use LINE\Constants\Flex\ComponentSpacing;
 use LINE\Constants\Flex\ComponentType;
 use LINE\Constants\Flex\ContainerType;
-use LINE\Constants\MessageType;
 
 /**
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
@@ -70,7 +69,6 @@ class FlexSampleShopping
     public static function get(): FlexMessage
     {
         return new FlexMessage([
-            'type' => MessageType::FLEX,
             'altText' => 'Shopping',
             'contents' => new FlexCarousel([
                 'type' => ContainerType::CAROUSEL,

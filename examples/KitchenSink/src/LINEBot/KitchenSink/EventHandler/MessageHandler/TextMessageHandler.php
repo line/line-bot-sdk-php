@@ -49,7 +49,6 @@ use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleRestaura
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleShopping;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
 use LINE\Constants\ActionType;
-use LINE\Constants\MessageType;
 use LINE\Constants\TemplateType;
 use LINE\Webhook\Model\GroupSource;
 use LINE\Webhook\Model\MessageEvent;
@@ -121,7 +120,6 @@ class TextMessageHandler implements EventHandler
                 break;
             case 'confirm':
                 $templateMessage = new TemplateMessage([
-                    'type' => MessageType::TEMPLATE,
                     'altText' => 'Confirm alt text',
                     'template' => new ConfirmTemplate([
                         'type' => TemplateType::CONFIRM,
@@ -146,7 +144,6 @@ class TextMessageHandler implements EventHandler
                 $imageUrl = UrlBuilder::buildUrl($this->req, ['static', 'buttons', '1040.jpg']);
                 $this->logger->info('imageUrl: ' . $imageUrl);
                 $templateMessage = new TemplateMessage([
-                    'type' => MessageType::TEMPLATE,
                     'altText' => 'Button alt text',
                     'template' => new ButtonsTemplate([
                         'type' => TemplateType::BUTTONS,
@@ -182,7 +179,6 @@ class TextMessageHandler implements EventHandler
             case 'carousel':
                 $imageUrl = UrlBuilder::buildUrl($this->req, ['static', 'buttons', '1040.jpg']);
                 $templateMessage = new TemplateMessage([
-                    'type' => MessageType::TEMPLATE,
                     'altText' => 'Button alt text',
                     'template' => new CarouselTemplate([
                         'type' => TemplateType::CAROUSEL,
@@ -229,7 +225,6 @@ class TextMessageHandler implements EventHandler
             case 'imagemap':
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
                 $imagemapMessage = new ImagemapMessage([
-                    'type' => MessageType::IMAGEMAP,
                     'baseUrl' => $richMessageUrl,
                     'altText' => 'This is alt text',
                     'baseSize' => new ImagemapBaseSize([
@@ -286,7 +281,6 @@ class TextMessageHandler implements EventHandler
                 $this->logger->info('static: ' . UrlBuilder::buildUrl($this->req, ['static', 'preview.jpg']));
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
                 $imagemapMessage = new ImagemapMessage([
-                    'type' => MessageType::IMAGEMAP,
                     'baseUrl' => $richMessageUrl,
                     'altText' => 'This is alt text',
                     'baseSize' => new ImagemapBaseSize([
@@ -408,7 +402,6 @@ class TextMessageHandler implements EventHandler
 
                 $message = new TextMessage([
                     'text' => '$ click button! $',
-                    'type' => MessageType::TEXT,
                     'emojis' => [
                         new Emoji([
                             'index' => 0,
@@ -480,7 +473,7 @@ class TextMessageHandler implements EventHandler
 
     private function replyText(string $replyToken, string $text)
     {
-        $textMessage = (new TextMessage(['text' => $text, 'type' => MessageType::TEXT]));
+        $textMessage = (new TextMessage(['text' => $text]));
         return $this->replyMessage($replyToken, $textMessage);
     }
 
@@ -520,7 +513,7 @@ class TextMessageHandler implements EventHandler
     {
         $request = new ReplyMessageRequest([
             'replyToken' => $replyToken,
-            'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info', 'type' => MessageType::TEXT]))],
+            'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info']))],
         ]);
         $response = $this->bot->replyMessageWithHttpInfo($request);
         $this->logger->info('body:' . $response[0]);

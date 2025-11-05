@@ -21,7 +21,6 @@ namespace LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
 use LINE\Clients\MessagingApi\Model\TextMessage;
-use LINE\Constants\MessageType;
 use LINE\Constants\ThingsEventType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Webhook\Model\ThingsEvent;
@@ -71,7 +70,7 @@ class ThingsEventHandler implements EventHandler
         $request = new ReplyMessageRequest([
             'replyToken' => $this->thingsEvent->getReplyToken(),
             'messages' => [
-                new TextMessage(['type' => MessageType::TEXT, 'text' => $text]),
+                new TextMessage(['text' => $text]),
             ],
         ]);
         $this->bot->replyMessage($request);
