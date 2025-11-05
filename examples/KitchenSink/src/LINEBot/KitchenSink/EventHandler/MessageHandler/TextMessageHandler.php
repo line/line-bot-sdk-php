@@ -48,7 +48,6 @@ use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleRestaurant;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleShopping;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
-use LINE\Constants\TemplateType;
 use LINE\Webhook\Model\GroupSource;
 use LINE\Webhook\Model\MessageEvent;
 use LINE\Webhook\Model\RoomSource;
@@ -121,7 +120,6 @@ class TextMessageHandler implements EventHandler
                 $templateMessage = new TemplateMessage([
                     'altText' => 'Confirm alt text',
                     'template' => new ConfirmTemplate([
-                        'type' => TemplateType::CONFIRM,
                         'text' => 'Do it?',
                         'actions' => [
                             new MessageAction([
@@ -143,7 +141,6 @@ class TextMessageHandler implements EventHandler
                 $templateMessage = new TemplateMessage([
                     'altText' => 'Button alt text',
                     'template' => new ButtonsTemplate([
-                        'type' => TemplateType::BUTTONS,
                         'title' => 'My button sample',
                         'text' => 'Hello my button',
                         'thumbnailImageUrl' => $imageUrl,
@@ -174,7 +171,6 @@ class TextMessageHandler implements EventHandler
                 $templateMessage = new TemplateMessage([
                     'altText' => 'Button alt text',
                     'template' => new CarouselTemplate([
-                        'type' => TemplateType::CAROUSEL,
                         'columns' => [
                             new CarouselColumn([
                                 'title' => 'foo',
