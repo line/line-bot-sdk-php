@@ -37,8 +37,6 @@ use LINE\Constants\Flex\ComponentImageSize;
 use LINE\Constants\Flex\ComponentLayout;
 use LINE\Constants\Flex\ComponentMargin;
 use LINE\Constants\Flex\ComponentSpacing;
-use LINE\Constants\Flex\ComponentType;
-use LINE\Constants\Flex\ContainerType;
 
 /**
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
@@ -70,7 +68,6 @@ class FlexSampleShopping
         return new FlexMessage([
             'altText' => 'Shopping',
             'contents' => new FlexCarousel([
-                'type' => ContainerType::CAROUSEL,
                 'contents' => [
                     self::createItemBubble(111),
                     self::createItemBubble(112),
@@ -84,7 +81,6 @@ class FlexSampleShopping
     {
         $item = self::$items[$itemId];
         return new FlexBubble([
-            'type' => ContainerType::BUBBLE,
             'hero' => self::createItemHeroBlock($item),
             'body' => self::createItemBodyBlock($item),
             'footer' => self::createItemFooterBlock($item),
@@ -94,7 +90,6 @@ class FlexSampleShopping
     private static function createItemHeroBlock($item): FlexImage
     {
         return new FlexImage([
-            'type' => ComponentType::IMAGE,
             'url' => $item['photo'],
             'size' => ComponentImageSize::FULL,
             'aspectRatio' => ComponentImageAspectRatio::R20TO13,
@@ -107,18 +102,15 @@ class FlexSampleShopping
         $price = explode('.', number_format($item['price'], 2));
         $components = [
             new FlexText([
-                'type' => ComponentType::TEXT,
                 'text' => $item['name'],
                 'wrap' => true,
                 'weight' => ComponentFontWeight::BOLD,
                 'size' => ComponentFontSize::XL,
             ]),
             new FlexBox([
-                'type' => ComponentType::BOX,
                 'layout' => ComponentLayout::BASELINE,
                 'contents' => [
                     new FlexText([
-                        'type' => ComponentType::TEXT,
                         'text' => '$' . $price[0],
                         'wrap' => true,
                         'weight' => ComponentFontWeight::BOLD,
@@ -126,7 +118,6 @@ class FlexSampleShopping
                         'flex' => 0,
                     ]),
                     new FlexText([
-                        'type' => ComponentType::TEXT,
                         'text' => '.' . $price[1],
                         'wrap' => true,
                         'weight' => ComponentFontWeight::BOLD,
@@ -139,7 +130,6 @@ class FlexSampleShopping
 
         if (!$item['stock']) {
             $components[] = new FlexText([
-                'type' => ComponentType::TEXT,
                 'text' => 'Temporarily out of stock',
                 'wrap' => true,
                 'size' => ComponentFontSize::XXS,
@@ -150,7 +140,6 @@ class FlexSampleShopping
         }
 
         return new FlexBox([
-            'type' => ComponentType::BOX,
             'layout' => ComponentLayout::VERTICAL,
             'spacing' => ComponentSpacing::SM,
             'contents' => $components,
@@ -161,7 +150,6 @@ class FlexSampleShopping
     {
         $color = $item['stock'] ? null : '#aaaaaa';
         $cartButton = new FlexButton([
-            'type' => ComponentType::BUTTON,
             'style' => ComponentButtonStyle::PRIMARY,
             'color' => $color,
             'action' => new URIAction([
@@ -172,7 +160,6 @@ class FlexSampleShopping
         ]);
 
         $wishButton = new FlexButton([
-            'type' => ComponentType::BUTTON,
             'action' => new URIAction([
                 'label' => 'Add to wishlist',
                 'uri' => 'https://example.com',
@@ -181,7 +168,6 @@ class FlexSampleShopping
         ]);
 
         return new FlexBox([
-            'type' => ComponentType::BOX,
             'layout' => ComponentLayout::VERTICAL,
             'spacing' => ComponentSpacing::SM,
             'contents' => [$cartButton, $wishButton],
@@ -191,14 +177,11 @@ class FlexSampleShopping
     private static function createMoreBubble(): FlexBubble
     {
         return new FlexBubble([
-            'type' => ContainerType::BUBBLE,
             'body' => new FlexBox([
-                'type' => ComponentType::BOX,
                 'layout' => ComponentLayout::VERTICAL,
                 'spacing' => ComponentSpacing::SM,
                 'contents' => [
                     new FlexButton([
-                        'type' => ComponentType::BUTTON,
                         'flex' => 1,
                         'gravity' => ComponentGravity::CENTER,
                         'action' => new URIAction([
