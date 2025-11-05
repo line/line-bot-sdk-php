@@ -34,7 +34,6 @@ use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\StickerMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\TextMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\VideoMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\PostbackEventHandler;
-use LINE\LINEBot\KitchenSink\EventHandler\ThingsEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\UnfollowEventHandler;
 use LINE\Constants\HTTPHeader;
 use LINE\Parser\Event\UnknownEvent;
@@ -55,7 +54,6 @@ use LINE\Webhook\Model\LocationMessageContent;
 use LINE\Webhook\Model\PostbackEvent;
 use LINE\Webhook\Model\StickerMessageContent;
 use LINE\Webhook\Model\TextMessageContent;
-use LINE\Webhook\Model\ThingsEvent;
 use LINE\Webhook\Model\UnfollowEvent;
 use LINE\Webhook\Model\VideoMessageContent;
 
@@ -132,8 +130,6 @@ class Route
                     $handler = new BeaconEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof AccountLinkEvent) {
                     $handler = new AccountLinkEventHandler($bot, $logger, $event);
-                } elseif ($event instanceof ThingsEvent) {
-                    $handler = new ThingsEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof UnknownEvent) {
                     $logger->info(sprintf('Unknown message type has come [type: %s]', $event->getType()));
                 } else {
