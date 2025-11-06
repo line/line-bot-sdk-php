@@ -21,7 +21,6 @@ namespace LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
 use LINE\Clients\MessagingApi\Model\TextMessage;
-use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Webhook\Model\FollowEvent;
 
@@ -55,7 +54,7 @@ class FollowEventHandler implements EventHandler
         $request = new ReplyMessageRequest([
             'replyToken' => $this->followEvent->getReplyToken(),
             'messages' => [
-                new TextMessage(['type' => MessageType::TEXT, 'text' => 'Got followed event']),
+                new TextMessage(['text' => 'Got followed event']),
             ],
         ]);
         $this->bot->replyMessage($request);

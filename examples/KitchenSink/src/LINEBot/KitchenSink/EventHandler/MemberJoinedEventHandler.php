@@ -21,7 +21,6 @@ namespace LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
 use LINE\Clients\MessagingApi\Model\TextMessage;
-use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Webhook\Model\GroupSource;
 use LINE\Webhook\Model\MemberJoinedEvent;
@@ -74,7 +73,6 @@ class MemberJoinedEventHandler implements EventHandler
             'replyToken' => $this->memberJoinedEvent->getReplyToken(),
             'messages' => [
                 new TextMessage([
-                    'type' => MessageType::TEXT,
                     'text' => sprintf('%s joined. %s %s', implode(", ", $joinedMemberIds), $this->memberJoinedEvent->getType(), $id),
                 ]),
             ],

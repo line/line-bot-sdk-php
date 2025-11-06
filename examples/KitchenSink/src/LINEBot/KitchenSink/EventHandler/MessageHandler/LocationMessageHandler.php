@@ -21,7 +21,6 @@ namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\Clients\MessagingApi\Model\LocationMessage;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
-use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Webhook\Model\LocationMessageContent;
 use LINE\Webhook\Model\MessageEvent;
@@ -56,7 +55,6 @@ class LocationMessageHandler implements EventHandler
         $replyToken = $this->event->getReplyToken();
 
         $message = new LocationMessage([
-            'type' => MessageType::LOCATION,
             'title' => $this->locationMessage->getTitle() ?? "default title",
             'address' => $this->locationMessage->getAddress() ?? "default address",
             'latitude' => $this->locationMessage->getLatitude(),
