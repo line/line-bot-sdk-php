@@ -71,7 +71,8 @@ class AudioMessageContent extends MessageContent
       */
     protected static $openAPITypes = [
         'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
-        'duration' => 'int'
+        'duration' => 'int',
+        'markAsReadToken' => 'string'
     ];
 
     /**
@@ -83,7 +84,8 @@ class AudioMessageContent extends MessageContent
       */
     protected static $openAPIFormats = [
         'contentProvider' => null,
-        'duration' => 'int64'
+        'duration' => 'int64',
+        'markAsReadToken' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class AudioMessageContent extends MessageContent
       */
     protected static array $openAPINullables = [
         'contentProvider' => false,
-        'duration' => false
+        'duration' => false,
+        'markAsReadToken' => false
     ];
 
     /**
@@ -183,7 +186,8 @@ class AudioMessageContent extends MessageContent
      */
     protected static $attributeMap = [
         'contentProvider' => 'contentProvider',
-        'duration' => 'duration'
+        'duration' => 'duration',
+        'markAsReadToken' => 'markAsReadToken'
     ];
 
     /**
@@ -193,7 +197,8 @@ class AudioMessageContent extends MessageContent
      */
     protected static $setters = [
         'contentProvider' => 'setContentProvider',
-        'duration' => 'setDuration'
+        'duration' => 'setDuration',
+        'markAsReadToken' => 'setMarkAsReadToken'
     ];
 
     /**
@@ -203,7 +208,8 @@ class AudioMessageContent extends MessageContent
      */
     protected static $getters = [
         'contentProvider' => 'getContentProvider',
-        'duration' => 'getDuration'
+        'duration' => 'getDuration',
+        'markAsReadToken' => 'getMarkAsReadToken'
     ];
 
     /**
@@ -261,6 +267,7 @@ class AudioMessageContent extends MessageContent
 
         $this->setIfExists('contentProvider', $data ?? [], null);
         $this->setIfExists('duration', $data ?? [], null);
+        $this->setIfExists('markAsReadToken', $data ?? [], null);
 
         // Set discriminator value automatically for child class
         if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
@@ -366,6 +373,33 @@ class AudioMessageContent extends MessageContent
             throw new \InvalidArgumentException('non-nullable duration cannot be null');
         }
         $this->container['duration'] = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets markAsReadToken
+     *
+     * @return string|null
+     */
+    public function getMarkAsReadToken()
+    {
+        return $this->container['markAsReadToken'];
+    }
+
+    /**
+     * Sets markAsReadToken
+     *
+     * @param string|null $markAsReadToken Token used to mark the message as read.
+     *
+     * @return self
+     */
+    public function setMarkAsReadToken($markAsReadToken)
+    {
+        if (is_null($markAsReadToken)) {
+            throw new \InvalidArgumentException('non-nullable markAsReadToken cannot be null');
+        }
+        $this->container['markAsReadToken'] = $markAsReadToken;
 
         return $this;
     }
@@ -486,6 +520,9 @@ class AudioMessageContent extends MessageContent
         }
         if (isset($data['duration'])) {
             $instance->setduration($data['duration']);
+        }
+        if (isset($data['markAsReadToken'])) {
+            $instance->setmarkAsReadToken($data['markAsReadToken']);
         }
 
         return $instance;

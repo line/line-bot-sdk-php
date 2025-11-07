@@ -72,7 +72,8 @@ class VideoMessageContent extends MessageContent
     protected static $openAPITypes = [
         'duration' => 'int',
         'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
-        'quoteToken' => 'string'
+        'quoteToken' => 'string',
+        'markAsReadToken' => 'string'
     ];
 
     /**
@@ -85,7 +86,8 @@ class VideoMessageContent extends MessageContent
     protected static $openAPIFormats = [
         'duration' => 'int64',
         'contentProvider' => null,
-        'quoteToken' => null
+        'quoteToken' => null,
+        'markAsReadToken' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class VideoMessageContent extends MessageContent
     protected static array $openAPINullables = [
         'duration' => false,
         'contentProvider' => false,
-        'quoteToken' => false
+        'quoteToken' => false,
+        'markAsReadToken' => false
     ];
 
     /**
@@ -187,7 +190,8 @@ class VideoMessageContent extends MessageContent
     protected static $attributeMap = [
         'duration' => 'duration',
         'contentProvider' => 'contentProvider',
-        'quoteToken' => 'quoteToken'
+        'quoteToken' => 'quoteToken',
+        'markAsReadToken' => 'markAsReadToken'
     ];
 
     /**
@@ -198,7 +202,8 @@ class VideoMessageContent extends MessageContent
     protected static $setters = [
         'duration' => 'setDuration',
         'contentProvider' => 'setContentProvider',
-        'quoteToken' => 'setQuoteToken'
+        'quoteToken' => 'setQuoteToken',
+        'markAsReadToken' => 'setMarkAsReadToken'
     ];
 
     /**
@@ -209,7 +214,8 @@ class VideoMessageContent extends MessageContent
     protected static $getters = [
         'duration' => 'getDuration',
         'contentProvider' => 'getContentProvider',
-        'quoteToken' => 'getQuoteToken'
+        'quoteToken' => 'getQuoteToken',
+        'markAsReadToken' => 'getMarkAsReadToken'
     ];
 
     /**
@@ -268,6 +274,7 @@ class VideoMessageContent extends MessageContent
         $this->setIfExists('duration', $data ?? [], null);
         $this->setIfExists('contentProvider', $data ?? [], null);
         $this->setIfExists('quoteToken', $data ?? [], null);
+        $this->setIfExists('markAsReadToken', $data ?? [], null);
 
         // Set discriminator value automatically for child class
         if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
@@ -406,6 +413,33 @@ class VideoMessageContent extends MessageContent
 
         return $this;
     }
+
+    /**
+     * Gets markAsReadToken
+     *
+     * @return string|null
+     */
+    public function getMarkAsReadToken()
+    {
+        return $this->container['markAsReadToken'];
+    }
+
+    /**
+     * Sets markAsReadToken
+     *
+     * @param string|null $markAsReadToken Token used to mark the message as read.
+     *
+     * @return self
+     */
+    public function setMarkAsReadToken($markAsReadToken)
+    {
+        if (is_null($markAsReadToken)) {
+            throw new \InvalidArgumentException('non-nullable markAsReadToken cannot be null');
+        }
+        $this->container['markAsReadToken'] = $markAsReadToken;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -526,6 +560,9 @@ class VideoMessageContent extends MessageContent
         }
         if (isset($data['quoteToken'])) {
             $instance->setquoteToken($data['quoteToken']);
+        }
+        if (isset($data['markAsReadToken'])) {
+            $instance->setmarkAsReadToken($data['markAsReadToken']);
         }
 
         return $instance;

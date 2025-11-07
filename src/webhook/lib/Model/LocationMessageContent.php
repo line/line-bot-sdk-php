@@ -73,7 +73,8 @@ class LocationMessageContent extends MessageContent
         'title' => 'string',
         'address' => 'string',
         'latitude' => 'float',
-        'longitude' => 'float'
+        'longitude' => 'float',
+        'markAsReadToken' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class LocationMessageContent extends MessageContent
         'title' => null,
         'address' => null,
         'latitude' => 'double',
-        'longitude' => 'double'
+        'longitude' => 'double',
+        'markAsReadToken' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class LocationMessageContent extends MessageContent
         'title' => false,
         'address' => false,
         'latitude' => false,
-        'longitude' => false
+        'longitude' => false,
+        'markAsReadToken' => false
     ];
 
     /**
@@ -191,7 +194,8 @@ class LocationMessageContent extends MessageContent
         'title' => 'title',
         'address' => 'address',
         'latitude' => 'latitude',
-        'longitude' => 'longitude'
+        'longitude' => 'longitude',
+        'markAsReadToken' => 'markAsReadToken'
     ];
 
     /**
@@ -203,7 +207,8 @@ class LocationMessageContent extends MessageContent
         'title' => 'setTitle',
         'address' => 'setAddress',
         'latitude' => 'setLatitude',
-        'longitude' => 'setLongitude'
+        'longitude' => 'setLongitude',
+        'markAsReadToken' => 'setMarkAsReadToken'
     ];
 
     /**
@@ -215,7 +220,8 @@ class LocationMessageContent extends MessageContent
         'title' => 'getTitle',
         'address' => 'getAddress',
         'latitude' => 'getLatitude',
-        'longitude' => 'getLongitude'
+        'longitude' => 'getLongitude',
+        'markAsReadToken' => 'getMarkAsReadToken'
     ];
 
     /**
@@ -275,6 +281,7 @@ class LocationMessageContent extends MessageContent
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('latitude', $data ?? [], null);
         $this->setIfExists('longitude', $data ?? [], null);
+        $this->setIfExists('markAsReadToken', $data ?? [], null);
 
         // Set discriminator value automatically for child class
         if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
@@ -440,6 +447,33 @@ class LocationMessageContent extends MessageContent
 
         return $this;
     }
+
+    /**
+     * Gets markAsReadToken
+     *
+     * @return string|null
+     */
+    public function getMarkAsReadToken()
+    {
+        return $this->container['markAsReadToken'];
+    }
+
+    /**
+     * Sets markAsReadToken
+     *
+     * @param string|null $markAsReadToken Token used to mark the message as read.
+     *
+     * @return self
+     */
+    public function setMarkAsReadToken($markAsReadToken)
+    {
+        if (is_null($markAsReadToken)) {
+            throw new \InvalidArgumentException('non-nullable markAsReadToken cannot be null');
+        }
+        $this->container['markAsReadToken'] = $markAsReadToken;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -563,6 +597,9 @@ class LocationMessageContent extends MessageContent
         }
         if (isset($data['longitude'])) {
             $instance->setlongitude($data['longitude']);
+        }
+        if (isset($data['markAsReadToken'])) {
+            $instance->setmarkAsReadToken($data['markAsReadToken']);
         }
 
         return $instance;

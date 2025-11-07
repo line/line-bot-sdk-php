@@ -74,7 +74,8 @@ class TextMessageContent extends MessageContent
         'emojis' => '\LINE\Webhook\Model\Emoji[]',
         'mention' => '\LINE\Webhook\Model\Mention',
         'quoteToken' => 'string',
-        'quotedMessageId' => 'string'
+        'quotedMessageId' => 'string',
+        'markAsReadToken' => 'string'
     ];
 
     /**
@@ -89,7 +90,8 @@ class TextMessageContent extends MessageContent
         'emojis' => null,
         'mention' => null,
         'quoteToken' => null,
-        'quotedMessageId' => null
+        'quotedMessageId' => null,
+        'markAsReadToken' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class TextMessageContent extends MessageContent
         'emojis' => false,
         'mention' => false,
         'quoteToken' => false,
-        'quotedMessageId' => false
+        'quotedMessageId' => false,
+        'markAsReadToken' => false
     ];
 
     /**
@@ -195,7 +198,8 @@ class TextMessageContent extends MessageContent
         'emojis' => 'emojis',
         'mention' => 'mention',
         'quoteToken' => 'quoteToken',
-        'quotedMessageId' => 'quotedMessageId'
+        'quotedMessageId' => 'quotedMessageId',
+        'markAsReadToken' => 'markAsReadToken'
     ];
 
     /**
@@ -208,7 +212,8 @@ class TextMessageContent extends MessageContent
         'emojis' => 'setEmojis',
         'mention' => 'setMention',
         'quoteToken' => 'setQuoteToken',
-        'quotedMessageId' => 'setQuotedMessageId'
+        'quotedMessageId' => 'setQuotedMessageId',
+        'markAsReadToken' => 'setMarkAsReadToken'
     ];
 
     /**
@@ -221,7 +226,8 @@ class TextMessageContent extends MessageContent
         'emojis' => 'getEmojis',
         'mention' => 'getMention',
         'quoteToken' => 'getQuoteToken',
-        'quotedMessageId' => 'getQuotedMessageId'
+        'quotedMessageId' => 'getQuotedMessageId',
+        'markAsReadToken' => 'getMarkAsReadToken'
     ];
 
     /**
@@ -282,6 +288,7 @@ class TextMessageContent extends MessageContent
         $this->setIfExists('mention', $data ?? [], null);
         $this->setIfExists('quoteToken', $data ?? [], null);
         $this->setIfExists('quotedMessageId', $data ?? [], null);
+        $this->setIfExists('markAsReadToken', $data ?? [], null);
 
         // Set discriminator value automatically for child class
         if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
@@ -474,6 +481,33 @@ class TextMessageContent extends MessageContent
 
         return $this;
     }
+
+    /**
+     * Gets markAsReadToken
+     *
+     * @return string|null
+     */
+    public function getMarkAsReadToken()
+    {
+        return $this->container['markAsReadToken'];
+    }
+
+    /**
+     * Sets markAsReadToken
+     *
+     * @param string|null $markAsReadToken Token used to mark the message as read.
+     *
+     * @return self
+     */
+    public function setMarkAsReadToken($markAsReadToken)
+    {
+        if (is_null($markAsReadToken)) {
+            throw new \InvalidArgumentException('non-nullable markAsReadToken cannot be null');
+        }
+        $this->container['markAsReadToken'] = $markAsReadToken;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -604,6 +638,9 @@ class TextMessageContent extends MessageContent
         }
         if (isset($data['quotedMessageId'])) {
             $instance->setquotedMessageId($data['quotedMessageId']);
+        }
+        if (isset($data['markAsReadToken'])) {
+            $instance->setmarkAsReadToken($data['markAsReadToken']);
         }
 
         return $instance;

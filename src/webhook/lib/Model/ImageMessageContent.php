@@ -72,7 +72,8 @@ class ImageMessageContent extends MessageContent
     protected static $openAPITypes = [
         'contentProvider' => '\LINE\Webhook\Model\ContentProvider',
         'imageSet' => '\LINE\Webhook\Model\ImageSet',
-        'quoteToken' => 'string'
+        'quoteToken' => 'string',
+        'markAsReadToken' => 'string'
     ];
 
     /**
@@ -85,7 +86,8 @@ class ImageMessageContent extends MessageContent
     protected static $openAPIFormats = [
         'contentProvider' => null,
         'imageSet' => null,
-        'quoteToken' => null
+        'quoteToken' => null,
+        'markAsReadToken' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class ImageMessageContent extends MessageContent
     protected static array $openAPINullables = [
         'contentProvider' => false,
         'imageSet' => false,
-        'quoteToken' => false
+        'quoteToken' => false,
+        'markAsReadToken' => false
     ];
 
     /**
@@ -187,7 +190,8 @@ class ImageMessageContent extends MessageContent
     protected static $attributeMap = [
         'contentProvider' => 'contentProvider',
         'imageSet' => 'imageSet',
-        'quoteToken' => 'quoteToken'
+        'quoteToken' => 'quoteToken',
+        'markAsReadToken' => 'markAsReadToken'
     ];
 
     /**
@@ -198,7 +202,8 @@ class ImageMessageContent extends MessageContent
     protected static $setters = [
         'contentProvider' => 'setContentProvider',
         'imageSet' => 'setImageSet',
-        'quoteToken' => 'setQuoteToken'
+        'quoteToken' => 'setQuoteToken',
+        'markAsReadToken' => 'setMarkAsReadToken'
     ];
 
     /**
@@ -209,7 +214,8 @@ class ImageMessageContent extends MessageContent
     protected static $getters = [
         'contentProvider' => 'getContentProvider',
         'imageSet' => 'getImageSet',
-        'quoteToken' => 'getQuoteToken'
+        'quoteToken' => 'getQuoteToken',
+        'markAsReadToken' => 'getMarkAsReadToken'
     ];
 
     /**
@@ -268,6 +274,7 @@ class ImageMessageContent extends MessageContent
         $this->setIfExists('contentProvider', $data ?? [], null);
         $this->setIfExists('imageSet', $data ?? [], null);
         $this->setIfExists('quoteToken', $data ?? [], null);
+        $this->setIfExists('markAsReadToken', $data ?? [], null);
 
         // Set discriminator value automatically for child class
         if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
@@ -406,6 +413,33 @@ class ImageMessageContent extends MessageContent
 
         return $this;
     }
+
+    /**
+     * Gets markAsReadToken
+     *
+     * @return string|null
+     */
+    public function getMarkAsReadToken()
+    {
+        return $this->container['markAsReadToken'];
+    }
+
+    /**
+     * Sets markAsReadToken
+     *
+     * @param string|null $markAsReadToken Token used to mark the message as read.
+     *
+     * @return self
+     */
+    public function setMarkAsReadToken($markAsReadToken)
+    {
+        if (is_null($markAsReadToken)) {
+            throw new \InvalidArgumentException('non-nullable markAsReadToken cannot be null');
+        }
+        $this->container['markAsReadToken'] = $markAsReadToken;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -526,6 +560,9 @@ class ImageMessageContent extends MessageContent
         }
         if (isset($data['quoteToken'])) {
             $instance->setquoteToken($data['quoteToken']);
+        }
+        if (isset($data['markAsReadToken'])) {
+            $instance->setmarkAsReadToken($data['markAsReadToken']);
         }
 
         return $instance;
