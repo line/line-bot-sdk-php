@@ -71,7 +71,8 @@ class FileMessageContent extends MessageContent
       */
     protected static $openAPITypes = [
         'fileName' => 'string',
-        'fileSize' => 'int'
+        'fileSize' => 'int',
+        'markAsReadToken' => 'string'
     ];
 
     /**
@@ -83,7 +84,8 @@ class FileMessageContent extends MessageContent
       */
     protected static $openAPIFormats = [
         'fileName' => null,
-        'fileSize' => null
+        'fileSize' => null,
+        'markAsReadToken' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class FileMessageContent extends MessageContent
       */
     protected static array $openAPINullables = [
         'fileName' => false,
-        'fileSize' => false
+        'fileSize' => false,
+        'markAsReadToken' => false
     ];
 
     /**
@@ -183,7 +186,8 @@ class FileMessageContent extends MessageContent
      */
     protected static $attributeMap = [
         'fileName' => 'fileName',
-        'fileSize' => 'fileSize'
+        'fileSize' => 'fileSize',
+        'markAsReadToken' => 'markAsReadToken'
     ];
 
     /**
@@ -193,7 +197,8 @@ class FileMessageContent extends MessageContent
      */
     protected static $setters = [
         'fileName' => 'setFileName',
-        'fileSize' => 'setFileSize'
+        'fileSize' => 'setFileSize',
+        'markAsReadToken' => 'setMarkAsReadToken'
     ];
 
     /**
@@ -203,7 +208,8 @@ class FileMessageContent extends MessageContent
      */
     protected static $getters = [
         'fileName' => 'getFileName',
-        'fileSize' => 'getFileSize'
+        'fileSize' => 'getFileSize',
+        'markAsReadToken' => 'getMarkAsReadToken'
     ];
 
     /**
@@ -261,6 +267,7 @@ class FileMessageContent extends MessageContent
 
         $this->setIfExists('fileName', $data ?? [], null);
         $this->setIfExists('fileSize', $data ?? [], null);
+        $this->setIfExists('markAsReadToken', $data ?? [], null);
 
         // Set discriminator value automatically for child class
         if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
@@ -369,6 +376,33 @@ class FileMessageContent extends MessageContent
             throw new \InvalidArgumentException('non-nullable fileSize cannot be null');
         }
         $this->container['fileSize'] = $fileSize;
+
+        return $this;
+    }
+
+    /**
+     * Gets markAsReadToken
+     *
+     * @return string|null
+     */
+    public function getMarkAsReadToken()
+    {
+        return $this->container['markAsReadToken'];
+    }
+
+    /**
+     * Sets markAsReadToken
+     *
+     * @param string|null $markAsReadToken Token used to mark the message as read.
+     *
+     * @return self
+     */
+    public function setMarkAsReadToken($markAsReadToken)
+    {
+        if (is_null($markAsReadToken)) {
+            throw new \InvalidArgumentException('non-nullable markAsReadToken cannot be null');
+        }
+        $this->container['markAsReadToken'] = $markAsReadToken;
 
         return $this;
     }
@@ -489,6 +523,9 @@ class FileMessageContent extends MessageContent
         }
         if (isset($data['fileSize'])) {
             $instance->setfileSize($data['fileSize']);
+        }
+        if (isset($data['markAsReadToken'])) {
+            $instance->setmarkAsReadToken($data['markAsReadToken']);
         }
 
         return $instance;

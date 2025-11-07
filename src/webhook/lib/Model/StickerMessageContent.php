@@ -76,7 +76,8 @@ class StickerMessageContent extends MessageContent
         'keywords' => 'string[]',
         'text' => 'string',
         'quoteToken' => 'string',
-        'quotedMessageId' => 'string'
+        'quotedMessageId' => 'string',
+        'markAsReadToken' => 'string'
     ];
 
     /**
@@ -93,7 +94,8 @@ class StickerMessageContent extends MessageContent
         'keywords' => null,
         'text' => null,
         'quoteToken' => null,
-        'quotedMessageId' => null
+        'quotedMessageId' => null,
+        'markAsReadToken' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class StickerMessageContent extends MessageContent
         'keywords' => false,
         'text' => false,
         'quoteToken' => false,
-        'quotedMessageId' => false
+        'quotedMessageId' => false,
+        'markAsReadToken' => false
     ];
 
     /**
@@ -203,7 +206,8 @@ class StickerMessageContent extends MessageContent
         'keywords' => 'keywords',
         'text' => 'text',
         'quoteToken' => 'quoteToken',
-        'quotedMessageId' => 'quotedMessageId'
+        'quotedMessageId' => 'quotedMessageId',
+        'markAsReadToken' => 'markAsReadToken'
     ];
 
     /**
@@ -218,7 +222,8 @@ class StickerMessageContent extends MessageContent
         'keywords' => 'setKeywords',
         'text' => 'setText',
         'quoteToken' => 'setQuoteToken',
-        'quotedMessageId' => 'setQuotedMessageId'
+        'quotedMessageId' => 'setQuotedMessageId',
+        'markAsReadToken' => 'setMarkAsReadToken'
     ];
 
     /**
@@ -233,7 +238,8 @@ class StickerMessageContent extends MessageContent
         'keywords' => 'getKeywords',
         'text' => 'getText',
         'quoteToken' => 'getQuoteToken',
-        'quotedMessageId' => 'getQuotedMessageId'
+        'quotedMessageId' => 'getQuotedMessageId',
+        'markAsReadToken' => 'getMarkAsReadToken'
     ];
 
     /**
@@ -327,6 +333,7 @@ class StickerMessageContent extends MessageContent
         $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('quoteToken', $data ?? [], null);
         $this->setIfExists('quotedMessageId', $data ?? [], null);
+        $this->setIfExists('markAsReadToken', $data ?? [], null);
 
         // Set discriminator value automatically for child class
         if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
@@ -614,6 +621,33 @@ class StickerMessageContent extends MessageContent
 
         return $this;
     }
+
+    /**
+     * Gets markAsReadToken
+     *
+     * @return string|null
+     */
+    public function getMarkAsReadToken()
+    {
+        return $this->container['markAsReadToken'];
+    }
+
+    /**
+     * Sets markAsReadToken
+     *
+     * @param string|null $markAsReadToken Token used to mark the message as read.
+     *
+     * @return self
+     */
+    public function setMarkAsReadToken($markAsReadToken)
+    {
+        if (is_null($markAsReadToken)) {
+            throw new \InvalidArgumentException('non-nullable markAsReadToken cannot be null');
+        }
+        $this->container['markAsReadToken'] = $markAsReadToken;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -746,6 +780,9 @@ class StickerMessageContent extends MessageContent
         }
         if (isset($data['quotedMessageId'])) {
             $instance->setquotedMessageId($data['quotedMessageId']);
+        }
+        if (isset($data['markAsReadToken'])) {
+            $instance->setmarkAsReadToken($data['markAsReadToken']);
         }
 
         return $instance;

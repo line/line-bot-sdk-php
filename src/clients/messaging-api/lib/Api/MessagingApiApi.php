@@ -227,6 +227,9 @@ class MessagingApiApi
         'markMessagesAsRead' => [
             'application/json',
         ],
+        'markMessagesAsReadByToken' => [
+            'application/json',
+        ],
         'multicast' => [
             'application/json',
         ],
@@ -14161,6 +14164,226 @@ class MessagingApiApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($markMessagesAsReadRequest));
             } else {
                 $httpBody = $markMessagesAsReadRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation markMessagesAsReadByToken
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\MarkMessagesAsReadByTokenRequest $markMessagesAsReadByTokenRequest markMessagesAsReadByTokenRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markMessagesAsReadByToken'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function markMessagesAsReadByToken($markMessagesAsReadByTokenRequest, string $contentType = self::contentTypes['markMessagesAsReadByToken'][0])
+    {
+        $this->markMessagesAsReadByTokenWithHttpInfo($markMessagesAsReadByTokenRequest, $contentType);
+    }
+
+    /**
+     * Operation markMessagesAsReadByTokenWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\MarkMessagesAsReadByTokenRequest $markMessagesAsReadByTokenRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markMessagesAsReadByToken'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function markMessagesAsReadByTokenWithHttpInfo($markMessagesAsReadByTokenRequest, string $contentType = self::contentTypes['markMessagesAsReadByToken'][0])
+    {
+        $request = $this->markMessagesAsReadByTokenRequest($markMessagesAsReadByTokenRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation markMessagesAsReadByTokenAsync
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\MarkMessagesAsReadByTokenRequest $markMessagesAsReadByTokenRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markMessagesAsReadByToken'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function markMessagesAsReadByTokenAsync($markMessagesAsReadByTokenRequest, string $contentType = self::contentTypes['markMessagesAsReadByToken'][0])
+    {
+        return $this->markMessagesAsReadByTokenAsyncWithHttpInfo($markMessagesAsReadByTokenRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation markMessagesAsReadByTokenAsyncWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\MarkMessagesAsReadByTokenRequest $markMessagesAsReadByTokenRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markMessagesAsReadByToken'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function markMessagesAsReadByTokenAsyncWithHttpInfo($markMessagesAsReadByTokenRequest, string $contentType = self::contentTypes['markMessagesAsReadByToken'][0])
+    {
+        $returnType = '';
+        $request = $this->markMessagesAsReadByTokenRequest($markMessagesAsReadByTokenRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'markMessagesAsReadByToken'
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\MarkMessagesAsReadByTokenRequest $markMessagesAsReadByTokenRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markMessagesAsReadByToken'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function markMessagesAsReadByTokenRequest($markMessagesAsReadByTokenRequest, string $contentType = self::contentTypes['markMessagesAsReadByToken'][0])
+    {
+
+        // verify the required parameter 'markMessagesAsReadByTokenRequest' is set
+        if ($markMessagesAsReadByTokenRequest === null || (is_array($markMessagesAsReadByTokenRequest) && count($markMessagesAsReadByTokenRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $markMessagesAsReadByTokenRequest when calling markMessagesAsReadByToken'
+            );
+        }
+
+
+        $resourcePath = '/v2/bot/chat/markAsRead';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($markMessagesAsReadByTokenRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($markMessagesAsReadByTokenRequest));
+            } else {
+                $httpBody = $markMessagesAsReadByTokenRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

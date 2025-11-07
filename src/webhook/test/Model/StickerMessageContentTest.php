@@ -156,4 +156,13 @@ class StickerMessageContentTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "markAsReadToken"
+     */
+    public function testPropertyMarkAsReadToken()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }
