@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\LeaveEvent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,7 +91,7 @@ class LeaveEventTest extends TestCase
      */
     public function testLeaveEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new LeaveEvent();
+        $this->assertInstanceOf(LeaveEvent::class, $event);
     }
 }

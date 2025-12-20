@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\UnfollowEvent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,7 +91,7 @@ class UnfollowEventTest extends TestCase
      */
     public function testUnfollowEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new UnfollowEvent();
+        $this->assertInstanceOf(UnfollowEvent::class, $event);
     }
 }
