@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\MembershipEvent;
+use LINE\Webhook\Model\MembershipContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class MembershipEventTest extends TestCase
      */
     public function testMembershipEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MembershipEvent();
+        $this->assertInstanceOf(MembershipEvent::class, $event);
     }
 
     /**
@@ -99,8 +101,10 @@ class MembershipEventTest extends TestCase
      */
     public function testPropertyReplyToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MembershipEvent();
+        $replyToken = 'reply_token_123';
+        $event->setReplyToken($replyToken);
+        $this->assertEquals($replyToken, $event->getReplyToken());
     }
 
     /**
@@ -108,7 +112,9 @@ class MembershipEventTest extends TestCase
      */
     public function testPropertyMembership()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MembershipEvent();
+        $membership = new MembershipContent(['type' => 'join']);
+        $event->setMembership($membership);
+        $this->assertInstanceOf(MembershipContent::class, $event->getMembership());
     }
 }

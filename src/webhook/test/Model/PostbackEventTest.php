@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\PostbackEvent;
+use LINE\Webhook\Model\PostbackContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class PostbackEventTest extends TestCase
      */
     public function testPostbackEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new PostbackEvent();
+        $this->assertInstanceOf(PostbackEvent::class, $event);
     }
 
     /**
@@ -99,8 +101,10 @@ class PostbackEventTest extends TestCase
      */
     public function testPropertyReplyToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new PostbackEvent();
+        $replyToken = 'reply_token_123';
+        $event->setReplyToken($replyToken);
+        $this->assertEquals($replyToken, $event->getReplyToken());
     }
 
     /**
@@ -108,7 +112,9 @@ class PostbackEventTest extends TestCase
      */
     public function testPropertyPostback()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new PostbackEvent();
+        $postback = new PostbackContent(['data' => 'action=test']);
+        $event->setPostback($postback);
+        $this->assertInstanceOf(PostbackContent::class, $event->getPostback());
     }
 }

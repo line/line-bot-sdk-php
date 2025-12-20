@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\MembershipContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class MembershipContentTest extends TestCase
      */
     public function testMembershipContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new MembershipContent();
+        $this->assertInstanceOf(MembershipContent::class, $content);
     }
 
     /**
@@ -99,7 +100,9 @@ class MembershipContentTest extends TestCase
      */
     public function testPropertyType()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new MembershipContent();
+        $type = 'join';
+        $content->setType($type);
+        $this->assertEquals($type, $content->getType());
     }
 }

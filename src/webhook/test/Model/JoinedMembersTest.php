@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\JoinedMembers;
+use LINE\Webhook\Model\UserSource;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class JoinedMembersTest extends TestCase
      */
     public function testJoinedMembers()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $joined = new JoinedMembers();
+        $this->assertInstanceOf(JoinedMembers::class, $joined);
     }
 
     /**
@@ -99,7 +101,10 @@ class JoinedMembersTest extends TestCase
      */
     public function testPropertyMembers()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $joined = new JoinedMembers();
+        $members = [new UserSource(['userId' => 'U0123456789abcdef0123456789abcdef'])];
+        $joined->setMembers($members);
+        $this->assertIsArray($joined->getMembers());
+        $this->assertCount(1, $joined->getMembers());
     }
 }

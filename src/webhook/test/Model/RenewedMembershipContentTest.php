@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\RenewedMembershipContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class RenewedMembershipContentTest extends TestCase
      */
     public function testRenewedMembershipContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new RenewedMembershipContent();
+        $this->assertInstanceOf(RenewedMembershipContent::class, $content);
     }
 
     /**
@@ -99,7 +100,9 @@ class RenewedMembershipContentTest extends TestCase
      */
     public function testPropertyMembershipId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new RenewedMembershipContent();
+        $membershipId = 'membership_id_123';
+        $content->setMembershipId($membershipId);
+        $this->assertEquals($membershipId, $content->getMembershipId());
     }
 }

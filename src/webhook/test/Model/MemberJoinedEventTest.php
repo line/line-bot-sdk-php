@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\MemberJoinedEvent;
+use LINE\Webhook\Model\JoinedMembers;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class MemberJoinedEventTest extends TestCase
      */
     public function testMemberJoinedEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MemberJoinedEvent();
+        $this->assertInstanceOf(MemberJoinedEvent::class, $event);
     }
 
     /**
@@ -99,8 +101,10 @@ class MemberJoinedEventTest extends TestCase
      */
     public function testPropertyReplyToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MemberJoinedEvent();
+        $replyToken = 'reply_token_123';
+        $event->setReplyToken($replyToken);
+        $this->assertEquals($replyToken, $event->getReplyToken());
     }
 
     /**
@@ -108,7 +112,9 @@ class MemberJoinedEventTest extends TestCase
      */
     public function testPropertyJoined()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MemberJoinedEvent();
+        $joined = new JoinedMembers(['members' => []]);
+        $event->setJoined($joined);
+        $this->assertInstanceOf(JoinedMembers::class, $event->getJoined());
     }
 }
