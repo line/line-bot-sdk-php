@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\RoomSource;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class RoomSourceTest extends TestCase
      */
     public function testRoomSource()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new RoomSource();
+        $this->assertInstanceOf(RoomSource::class, $source);
     }
 
     /**
@@ -99,8 +100,10 @@ class RoomSourceTest extends TestCase
      */
     public function testPropertyUserId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new RoomSource();
+        $userId = 'U0123456789abcdef0123456789abcdef';
+        $source->setUserId($userId);
+        $this->assertEquals($userId, $source->getUserId());
     }
 
     /**
@@ -108,7 +111,9 @@ class RoomSourceTest extends TestCase
      */
     public function testPropertyRoomId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new RoomSource();
+        $roomId = 'R0123456789abcdef0123456789abcdef';
+        $source->setRoomId($roomId);
+        $this->assertEquals($roomId, $source->getRoomId());
     }
 }

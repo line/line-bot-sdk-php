@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\ContentProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class ContentProviderTest extends TestCase
      */
     public function testContentProvider()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $provider = new ContentProvider();
+        $this->assertInstanceOf(ContentProvider::class, $provider);
     }
 
     /**
@@ -99,8 +100,10 @@ class ContentProviderTest extends TestCase
      */
     public function testPropertyType()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $provider = new ContentProvider();
+        $type = 'line';
+        $provider->setType($type);
+        $this->assertEquals($type, $provider->getType());
     }
 
     /**
@@ -108,8 +111,10 @@ class ContentProviderTest extends TestCase
      */
     public function testPropertyOriginalContentUrl()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $provider = new ContentProvider();
+        $url = 'https://example.com/original.jpg';
+        $provider->setOriginalContentUrl($url);
+        $this->assertEquals($url, $provider->getOriginalContentUrl());
     }
 
     /**
@@ -117,7 +122,9 @@ class ContentProviderTest extends TestCase
      */
     public function testPropertyPreviewImageUrl()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $provider = new ContentProvider();
+        $url = 'https://example.com/preview.jpg';
+        $provider->setPreviewImageUrl($url);
+        $this->assertEquals($url, $provider->getPreviewImageUrl());
     }
 }
