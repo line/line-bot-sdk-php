@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\MessageContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class MessageContentTest extends TestCase
      */
     public function testMessageContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new MessageContent();
+        $this->assertInstanceOf(MessageContent::class, $content);
     }
 
     /**
@@ -99,8 +100,10 @@ class MessageContentTest extends TestCase
      */
     public function testPropertyType()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new MessageContent();
+        $type = 'text';
+        $content->setType($type);
+        $this->assertEquals($type, $content->getType());
     }
 
     /**
@@ -108,7 +111,9 @@ class MessageContentTest extends TestCase
      */
     public function testPropertyId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new MessageContent();
+        $id = 'message_id_123';
+        $content->setId($id);
+        $this->assertEquals($id, $content->getId());
     }
 }

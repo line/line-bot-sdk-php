@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\JoinEvent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class JoinEventTest extends TestCase
      */
     public function testJoinEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new JoinEvent();
+        $this->assertInstanceOf(JoinEvent::class, $event);
     }
 
     /**
@@ -99,7 +100,9 @@ class JoinEventTest extends TestCase
      */
     public function testPropertyReplyToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new JoinEvent();
+        $replyToken = 'reply_token_123';
+        $event->setReplyToken($replyToken);
+        $this->assertEquals($replyToken, $event->getReplyToken());
     }
 }

@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\MemberLeftEvent;
+use LINE\Webhook\Model\LeftMembers;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class MemberLeftEventTest extends TestCase
      */
     public function testMemberLeftEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MemberLeftEvent();
+        $this->assertInstanceOf(MemberLeftEvent::class, $event);
     }
 
     /**
@@ -99,7 +101,9 @@ class MemberLeftEventTest extends TestCase
      */
     public function testPropertyLeft()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MemberLeftEvent();
+        $left = new LeftMembers(['members' => []]);
+        $event->setLeft($left);
+        $this->assertInstanceOf(LeftMembers::class, $event->getLeft());
     }
 }

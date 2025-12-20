@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\Source;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class SourceTest extends TestCase
      */
     public function testSource()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new Source();
+        $this->assertInstanceOf(Source::class, $source);
     }
 
     /**
@@ -99,7 +100,9 @@ class SourceTest extends TestCase
      */
     public function testPropertyType()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new Source();
+        $type = 'user';
+        $source->setType($type);
+        $this->assertEquals($type, $source->getType());
     }
 }
