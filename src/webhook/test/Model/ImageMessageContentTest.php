@@ -43,6 +43,9 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\ImageMessageContent;
+use LINE\Webhook\Model\ContentProvider;
+use LINE\Webhook\Model\ImageSet;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +93,8 @@ class ImageMessageContentTest extends TestCase
      */
     public function testImageMessageContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new ImageMessageContent();
+        $this->assertInstanceOf(ImageMessageContent::class, $content);
     }
 
     /**
@@ -99,8 +102,14 @@ class ImageMessageContentTest extends TestCase
      */
     public function testPropertyContentProvider()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new ImageMessageContent();
+        $contentProvider = new ContentProvider([
+            'type' => 'line',
+            'originalContentUrl' => 'https://example.com/image.jpg',
+            'previewImageUrl' => 'https://example.com/preview.jpg'
+        ]);
+        $content->setContentProvider($contentProvider);
+        $this->assertInstanceOf(ContentProvider::class, $content->getContentProvider());
     }
 
     /**
@@ -108,8 +117,14 @@ class ImageMessageContentTest extends TestCase
      */
     public function testPropertyImageSet()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new ImageMessageContent();
+        $imageSet = new ImageSet([
+            'id' => 'image_set_123',
+            'index' => 1,
+            'total' => 3
+        ]);
+        $content->setImageSet($imageSet);
+        $this->assertInstanceOf(ImageSet::class, $content->getImageSet());
     }
 
     /**
@@ -117,8 +132,10 @@ class ImageMessageContentTest extends TestCase
      */
     public function testPropertyQuoteToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new ImageMessageContent();
+        $quoteToken = 'quote_token_123';
+        $content->setQuoteToken($quoteToken);
+        $this->assertEquals($quoteToken, $content->getQuoteToken());
     }
 
     /**
@@ -126,7 +143,9 @@ class ImageMessageContentTest extends TestCase
      */
     public function testPropertyMarkAsReadToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new ImageMessageContent();
+        $markAsReadToken = 'mark_as_read_token_123';
+        $content->setMarkAsReadToken($markAsReadToken);
+        $this->assertEquals($markAsReadToken, $content->getMarkAsReadToken());
     }
 }

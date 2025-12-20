@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\VideoMessageContent;
+use LINE\Webhook\Model\ContentProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class VideoMessageContentTest extends TestCase
      */
     public function testVideoMessageContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new VideoMessageContent();
+        $this->assertInstanceOf(VideoMessageContent::class, $content);
     }
 
     /**
@@ -99,8 +101,10 @@ class VideoMessageContentTest extends TestCase
      */
     public function testPropertyDuration()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new VideoMessageContent();
+        $duration = 10000;
+        $content->setDuration($duration);
+        $this->assertEquals($duration, $content->getDuration());
     }
 
     /**
@@ -108,8 +112,14 @@ class VideoMessageContentTest extends TestCase
      */
     public function testPropertyContentProvider()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new VideoMessageContent();
+        $contentProvider = new ContentProvider([
+            'type' => 'line',
+            'originalContentUrl' => 'https://example.com/video.mp4',
+            'previewImageUrl' => 'https://example.com/preview.jpg'
+        ]);
+        $content->setContentProvider($contentProvider);
+        $this->assertInstanceOf(ContentProvider::class, $content->getContentProvider());
     }
 
     /**
@@ -117,8 +127,10 @@ class VideoMessageContentTest extends TestCase
      */
     public function testPropertyQuoteToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new VideoMessageContent();
+        $quoteToken = 'quote_token_123';
+        $content->setQuoteToken($quoteToken);
+        $this->assertEquals($quoteToken, $content->getQuoteToken());
     }
 
     /**
@@ -126,7 +138,9 @@ class VideoMessageContentTest extends TestCase
      */
     public function testPropertyMarkAsReadToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new VideoMessageContent();
+        $markAsReadToken = 'mark_as_read_token_123';
+        $content->setMarkAsReadToken($markAsReadToken);
+        $this->assertEquals($markAsReadToken, $content->getMarkAsReadToken());
     }
 }

@@ -43,6 +43,9 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\TextMessageContent;
+use LINE\Webhook\Model\Emoji;
+use LINE\Webhook\Model\Mention;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +93,8 @@ class TextMessageContentTest extends TestCase
      */
     public function testTextMessageContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new TextMessageContent();
+        $this->assertInstanceOf(TextMessageContent::class, $content);
     }
 
     /**
@@ -99,8 +102,10 @@ class TextMessageContentTest extends TestCase
      */
     public function testPropertyText()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new TextMessageContent();
+        $text = 'Hello, World!';
+        $content->setText($text);
+        $this->assertEquals($text, $content->getText());
     }
 
     /**
@@ -108,8 +113,18 @@ class TextMessageContentTest extends TestCase
      */
     public function testPropertyEmojis()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new TextMessageContent();
+        $emoji = new Emoji([
+            'index' => 0,
+            'length' => 5,
+            'productId' => 'product123',
+            'emojiId' => 'emoji456'
+        ]);
+        $content->setEmojis([$emoji]);
+        $emojis = $content->getEmojis();
+        $this->assertIsArray($emojis);
+        $this->assertCount(1, $emojis);
+        $this->assertInstanceOf(Emoji::class, $emojis[0]);
     }
 
     /**
@@ -117,8 +132,10 @@ class TextMessageContentTest extends TestCase
      */
     public function testPropertyMention()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new TextMessageContent();
+        $mention = new Mention(['mentionees' => []]);
+        $content->setMention($mention);
+        $this->assertInstanceOf(Mention::class, $content->getMention());
     }
 
     /**
@@ -126,8 +143,10 @@ class TextMessageContentTest extends TestCase
      */
     public function testPropertyQuoteToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new TextMessageContent();
+        $quoteToken = 'quote_token_123';
+        $content->setQuoteToken($quoteToken);
+        $this->assertEquals($quoteToken, $content->getQuoteToken());
     }
 
     /**
@@ -135,8 +154,10 @@ class TextMessageContentTest extends TestCase
      */
     public function testPropertyQuotedMessageId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new TextMessageContent();
+        $quotedMessageId = 'quoted_message_id_123';
+        $content->setQuotedMessageId($quotedMessageId);
+        $this->assertEquals($quotedMessageId, $content->getQuotedMessageId());
     }
 
     /**
@@ -144,7 +165,9 @@ class TextMessageContentTest extends TestCase
      */
     public function testPropertyMarkAsReadToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new TextMessageContent();
+        $markAsReadToken = 'mark_as_read_token_123';
+        $content->setMarkAsReadToken($markAsReadToken);
+        $this->assertEquals($markAsReadToken, $content->getMarkAsReadToken());
     }
 }

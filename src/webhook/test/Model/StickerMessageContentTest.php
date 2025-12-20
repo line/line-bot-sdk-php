@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\StickerMessageContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class StickerMessageContentTest extends TestCase
      */
     public function testStickerMessageContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new StickerMessageContent();
+        $this->assertInstanceOf(StickerMessageContent::class, $content);
     }
 
     /**
@@ -99,8 +100,10 @@ class StickerMessageContentTest extends TestCase
      */
     public function testPropertyPackageId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new StickerMessageContent();
+        $packageId = 'package_123';
+        $content->setPackageId($packageId);
+        $this->assertEquals($packageId, $content->getPackageId());
     }
 
     /**
@@ -108,8 +111,10 @@ class StickerMessageContentTest extends TestCase
      */
     public function testPropertyStickerId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new StickerMessageContent();
+        $stickerId = 'sticker_456';
+        $content->setStickerId($stickerId);
+        $this->assertEquals($stickerId, $content->getStickerId());
     }
 
     /**
@@ -117,8 +122,10 @@ class StickerMessageContentTest extends TestCase
      */
     public function testPropertyStickerResourceType()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new StickerMessageContent();
+        $stickerResourceType = 'STATIC';
+        $content->setStickerResourceType($stickerResourceType);
+        $this->assertEquals($stickerResourceType, $content->getStickerResourceType());
     }
 
     /**
@@ -126,8 +133,10 @@ class StickerMessageContentTest extends TestCase
      */
     public function testPropertyKeywords()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new StickerMessageContent();
+        $keywords = ['keyword1', 'keyword2'];
+        $content->setKeywords($keywords);
+        $this->assertEquals($keywords, $content->getKeywords());
     }
 
     /**
@@ -135,8 +144,10 @@ class StickerMessageContentTest extends TestCase
      */
     public function testPropertyText()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new StickerMessageContent();
+        $text = 'Sticker text';
+        $content->setText($text);
+        $this->assertEquals($text, $content->getText());
     }
 
     /**
@@ -144,8 +155,10 @@ class StickerMessageContentTest extends TestCase
      */
     public function testPropertyQuoteToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new StickerMessageContent();
+        $quoteToken = 'quote_token_123';
+        $content->setQuoteToken($quoteToken);
+        $this->assertEquals($quoteToken, $content->getQuoteToken());
     }
 
     /**
@@ -153,8 +166,10 @@ class StickerMessageContentTest extends TestCase
      */
     public function testPropertyQuotedMessageId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new StickerMessageContent();
+        $quotedMessageId = 'quoted_message_id_123';
+        $content->setQuotedMessageId($quotedMessageId);
+        $this->assertEquals($quotedMessageId, $content->getQuotedMessageId());
     }
 
     /**
@@ -162,7 +177,9 @@ class StickerMessageContentTest extends TestCase
      */
     public function testPropertyMarkAsReadToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new StickerMessageContent();
+        $markAsReadToken = 'mark_as_read_token_123';
+        $content->setMarkAsReadToken($markAsReadToken);
+        $this->assertEquals($markAsReadToken, $content->getMarkAsReadToken());
     }
 }

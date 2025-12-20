@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\LocationMessageContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class LocationMessageContentTest extends TestCase
      */
     public function testLocationMessageContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new LocationMessageContent();
+        $this->assertInstanceOf(LocationMessageContent::class, $content);
     }
 
     /**
@@ -99,8 +100,10 @@ class LocationMessageContentTest extends TestCase
      */
     public function testPropertyTitle()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new LocationMessageContent();
+        $title = 'Location Title';
+        $content->setTitle($title);
+        $this->assertEquals($title, $content->getTitle());
     }
 
     /**
@@ -108,8 +111,10 @@ class LocationMessageContentTest extends TestCase
      */
     public function testPropertyAddress()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new LocationMessageContent();
+        $address = '123 Main St, City';
+        $content->setAddress($address);
+        $this->assertEquals($address, $content->getAddress());
     }
 
     /**
@@ -117,8 +122,10 @@ class LocationMessageContentTest extends TestCase
      */
     public function testPropertyLatitude()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new LocationMessageContent();
+        $latitude = 35.6581;
+        $content->setLatitude($latitude);
+        $this->assertEquals($latitude, $content->getLatitude());
     }
 
     /**
@@ -126,8 +133,10 @@ class LocationMessageContentTest extends TestCase
      */
     public function testPropertyLongitude()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new LocationMessageContent();
+        $longitude = 139.7414;
+        $content->setLongitude($longitude);
+        $this->assertEquals($longitude, $content->getLongitude());
     }
 
     /**
@@ -135,7 +144,9 @@ class LocationMessageContentTest extends TestCase
      */
     public function testPropertyMarkAsReadToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new LocationMessageContent();
+        $markAsReadToken = 'mark_as_read_token_123';
+        $content->setMarkAsReadToken($markAsReadToken);
+        $this->assertEquals($markAsReadToken, $content->getMarkAsReadToken());
     }
 }

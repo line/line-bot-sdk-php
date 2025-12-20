@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\FileMessageContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class FileMessageContentTest extends TestCase
      */
     public function testFileMessageContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new FileMessageContent();
+        $this->assertInstanceOf(FileMessageContent::class, $content);
     }
 
     /**
@@ -99,8 +100,10 @@ class FileMessageContentTest extends TestCase
      */
     public function testPropertyFileName()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new FileMessageContent();
+        $fileName = 'document.pdf';
+        $content->setFileName($fileName);
+        $this->assertEquals($fileName, $content->getFileName());
     }
 
     /**
@@ -108,8 +111,10 @@ class FileMessageContentTest extends TestCase
      */
     public function testPropertyFileSize()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new FileMessageContent();
+        $fileSize = 1024;
+        $content->setFileSize($fileSize);
+        $this->assertEquals($fileSize, $content->getFileSize());
     }
 
     /**
@@ -117,7 +122,9 @@ class FileMessageContentTest extends TestCase
      */
     public function testPropertyMarkAsReadToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new FileMessageContent();
+        $markAsReadToken = 'mark_as_read_token_123';
+        $content->setMarkAsReadToken($markAsReadToken);
+        $this->assertEquals($markAsReadToken, $content->getMarkAsReadToken());
     }
 }
