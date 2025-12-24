@@ -19,6 +19,7 @@
 namespace LINE\Laravel;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
+use Illuminate\Contracts\Container\Container;
 
 class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -100,7 +101,7 @@ class LINEBotServiceProvider extends \Illuminate\Support\ServiceProvider
 
     private function bindApis(string $facadeName, string $clientClass, string $configClass): void
     {
-        $this->app->bind($facadeName, function ($app) use ($clientClass, $configClass) {
+        $this->app->bind($facadeName, function (Container $app) use ($clientClass, $configClass) {
             $httpClient = $app->make('line-bot-http-client');
             $config = new $configClass();   // @phpstan-ignore-next-line
             $config->setAccessToken(config('line-bot.channel_access_token'));
