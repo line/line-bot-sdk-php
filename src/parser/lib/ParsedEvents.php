@@ -22,10 +22,9 @@ use LINE\Webhook\Model\Event;
 
 class ParsedEvents
 {
-    /** @var string|null */
-    private $destination;
+    private ?string $destination;
     /** @var Event[] */
-    private $events;
+    private array $events;
 
     /**
      * @param string|null $destination

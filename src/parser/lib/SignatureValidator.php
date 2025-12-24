@@ -36,7 +36,7 @@ class SignatureValidator
      * @return bool Request is valid or not.
      * @throws InvalidSignatureException When empty signature is given.
      */
-    public static function validateSignature($body, $channelSecret, $signature)
+    public static function validateSignature(string $body, string $channelSecret, string $signature): bool
     {
         if (trim($signature) === '') {
             throw new InvalidSignatureException('Signature must not be empty');
