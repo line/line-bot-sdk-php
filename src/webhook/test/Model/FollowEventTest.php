@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\FollowEvent;
+use LINE\Webhook\Model\FollowDetail;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class FollowEventTest extends TestCase
      */
     public function testFollowEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new FollowEvent();
+        $this->assertInstanceOf(FollowEvent::class, $event);
     }
 
     /**
@@ -99,8 +101,10 @@ class FollowEventTest extends TestCase
      */
     public function testPropertyReplyToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new FollowEvent();
+        $replyToken = 'reply_token_123';
+        $event->setReplyToken($replyToken);
+        $this->assertEquals($replyToken, $event->getReplyToken());
     }
 
     /**
@@ -108,7 +112,9 @@ class FollowEventTest extends TestCase
      */
     public function testPropertyFollow()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new FollowEvent();
+        $follow = new FollowDetail(['isUnblocked' => false]);
+        $event->setFollow($follow);
+        $this->assertInstanceOf(FollowDetail::class, $event->getFollow());
     }
 }

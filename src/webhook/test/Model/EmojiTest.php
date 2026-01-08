@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\Emoji;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class EmojiTest extends TestCase
      */
     public function testEmoji()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $emoji = new Emoji();
+        $this->assertInstanceOf(Emoji::class, $emoji);
     }
 
     /**
@@ -99,8 +100,10 @@ class EmojiTest extends TestCase
      */
     public function testPropertyIndex()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $emoji = new Emoji();
+        $index = 0;
+        $emoji->setIndex($index);
+        $this->assertEquals($index, $emoji->getIndex());
     }
 
     /**
@@ -108,8 +111,10 @@ class EmojiTest extends TestCase
      */
     public function testPropertyLength()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $emoji = new Emoji();
+        $length = 5;
+        $emoji->setLength($length);
+        $this->assertEquals($length, $emoji->getLength());
     }
 
     /**
@@ -117,8 +122,10 @@ class EmojiTest extends TestCase
      */
     public function testPropertyProductId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $emoji = new Emoji();
+        $productId = 'product_123';
+        $emoji->setProductId($productId);
+        $this->assertEquals($productId, $emoji->getProductId());
     }
 
     /**
@@ -126,7 +133,9 @@ class EmojiTest extends TestCase
      */
     public function testPropertyEmojiId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $emoji = new Emoji();
+        $emojiId = 'emoji_456';
+        $emoji->setEmojiId($emojiId);
+        $this->assertEquals($emojiId, $emoji->getEmojiId());
     }
 }

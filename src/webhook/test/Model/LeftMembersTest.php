@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\LeftMembers;
+use LINE\Webhook\Model\UserSource;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class LeftMembersTest extends TestCase
      */
     public function testLeftMembers()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $left = new LeftMembers();
+        $this->assertInstanceOf(LeftMembers::class, $left);
     }
 
     /**
@@ -99,7 +101,10 @@ class LeftMembersTest extends TestCase
      */
     public function testPropertyMembers()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $left = new LeftMembers();
+        $members = [new UserSource(['userId' => 'U0123456789abcdef0123456789abcdef'])];
+        $left->setMembers($members);
+        $this->assertIsArray($left->getMembers());
+        $this->assertCount(1, $left->getMembers());
     }
 }

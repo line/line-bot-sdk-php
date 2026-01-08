@@ -43,6 +43,11 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\Event;
+use LINE\Webhook\Model\Source;
+use LINE\Webhook\Model\UserSource;
+use LINE\Webhook\Model\EventMode;
+use LINE\Webhook\Model\DeliveryContext;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +95,8 @@ class EventTest extends TestCase
      */
     public function testEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new Event();
+        $this->assertInstanceOf(Event::class, $event);
     }
 
     /**
@@ -99,8 +104,10 @@ class EventTest extends TestCase
      */
     public function testPropertyType()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new Event();
+        $type = 'message';
+        $event->setType($type);
+        $this->assertEquals($type, $event->getType());
     }
 
     /**
@@ -108,8 +115,10 @@ class EventTest extends TestCase
      */
     public function testPropertySource()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new Event();
+        $source = new UserSource(['userId' => 'U0123456789abcdef0123456789abcdef']);
+        $event->setSource($source);
+        $this->assertInstanceOf(Source::class, $event->getSource());
     }
 
     /**
@@ -117,8 +126,10 @@ class EventTest extends TestCase
      */
     public function testPropertyTimestamp()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new Event();
+        $timestamp = 1234567890;
+        $event->setTimestamp($timestamp);
+        $this->assertEquals($timestamp, $event->getTimestamp());
     }
 
     /**
@@ -126,8 +137,10 @@ class EventTest extends TestCase
      */
     public function testPropertyMode()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new Event();
+        $mode = new EventMode();
+        $event->setMode($mode);
+        $this->assertInstanceOf(EventMode::class, $event->getMode());
     }
 
     /**
@@ -135,8 +148,10 @@ class EventTest extends TestCase
      */
     public function testPropertyWebhookEventId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new Event();
+        $webhookEventId = 'webhook_event_id_123';
+        $event->setWebhookEventId($webhookEventId);
+        $this->assertEquals($webhookEventId, $event->getWebhookEventId());
     }
 
     /**
@@ -144,7 +159,9 @@ class EventTest extends TestCase
      */
     public function testPropertyDeliveryContext()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new Event();
+        $deliveryContext = new DeliveryContext(['isRedelivery' => false]);
+        $event->setDeliveryContext($deliveryContext);
+        $this->assertInstanceOf(DeliveryContext::class, $event->getDeliveryContext());
     }
 }

@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\JoinedMembershipContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class JoinedMembershipContentTest extends TestCase
      */
     public function testJoinedMembershipContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new JoinedMembershipContent();
+        $this->assertInstanceOf(JoinedMembershipContent::class, $content);
     }
 
     /**
@@ -99,7 +100,9 @@ class JoinedMembershipContentTest extends TestCase
      */
     public function testPropertyMembershipId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new JoinedMembershipContent();
+        $membershipId = 'membership_id_123';
+        $content->setMembershipId($membershipId);
+        $this->assertEquals($membershipId, $content->getMembershipId());
     }
 }

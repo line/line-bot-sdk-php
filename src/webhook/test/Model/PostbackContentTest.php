@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\PostbackContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class PostbackContentTest extends TestCase
      */
     public function testPostbackContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new PostbackContent();
+        $this->assertInstanceOf(PostbackContent::class, $content);
     }
 
     /**
@@ -99,8 +100,10 @@ class PostbackContentTest extends TestCase
      */
     public function testPropertyData()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new PostbackContent();
+        $data = 'action=test&value=123';
+        $content->setData($data);
+        $this->assertEquals($data, $content->getData());
     }
 
     /**
@@ -108,7 +111,9 @@ class PostbackContentTest extends TestCase
      */
     public function testPropertyParams()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new PostbackContent();
+        $params = ['date' => '2023-12-01'];
+        $content->setParams($params);
+        $this->assertEquals($params, $content->getParams());
     }
 }
