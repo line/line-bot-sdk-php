@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\AudioMessageContent;
+use LINE\Webhook\Model\ContentProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class AudioMessageContentTest extends TestCase
      */
     public function testAudioMessageContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new AudioMessageContent();
+        $this->assertInstanceOf(AudioMessageContent::class, $content);
     }
 
     /**
@@ -99,8 +101,14 @@ class AudioMessageContentTest extends TestCase
      */
     public function testPropertyContentProvider()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new AudioMessageContent();
+        $contentProvider = new ContentProvider([
+            'type' => 'line',
+            'originalContentUrl' => 'https://example.com/audio.m4a',
+            'previewImageUrl' => 'https://example.com/preview.jpg'
+        ]);
+        $content->setContentProvider($contentProvider);
+        $this->assertInstanceOf(ContentProvider::class, $content->getContentProvider());
     }
 
     /**
@@ -108,8 +116,10 @@ class AudioMessageContentTest extends TestCase
      */
     public function testPropertyDuration()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new AudioMessageContent();
+        $duration = 5000;
+        $content->setDuration($duration);
+        $this->assertEquals($duration, $content->getDuration());
     }
 
     /**
@@ -117,7 +127,9 @@ class AudioMessageContentTest extends TestCase
      */
     public function testPropertyMarkAsReadToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new AudioMessageContent();
+        $markAsReadToken = 'mark_as_read_token_123';
+        $content->setMarkAsReadToken($markAsReadToken);
+        $this->assertEquals($markAsReadToken, $content->getMarkAsReadToken());
     }
 }

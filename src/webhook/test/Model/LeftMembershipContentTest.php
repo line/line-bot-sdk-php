@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\LeftMembershipContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class LeftMembershipContentTest extends TestCase
      */
     public function testLeftMembershipContent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new LeftMembershipContent();
+        $this->assertInstanceOf(LeftMembershipContent::class, $content);
     }
 
     /**
@@ -99,7 +100,9 @@ class LeftMembershipContentTest extends TestCase
      */
     public function testPropertyMembershipId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $content = new LeftMembershipContent();
+        $membershipId = 'membership_id_123';
+        $content->setMembershipId($membershipId);
+        $this->assertEquals($membershipId, $content->getMembershipId());
     }
 }

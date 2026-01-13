@@ -43,6 +43,8 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\MessageEvent;
+use LINE\Webhook\Model\MessageContent;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +92,8 @@ class MessageEventTest extends TestCase
      */
     public function testMessageEvent()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MessageEvent();
+        $this->assertInstanceOf(MessageEvent::class, $event);
     }
 
     /**
@@ -99,8 +101,10 @@ class MessageEventTest extends TestCase
      */
     public function testPropertyReplyToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MessageEvent();
+        $replyToken = 'reply_token_123';
+        $event->setReplyToken($replyToken);
+        $this->assertEquals($replyToken, $event->getReplyToken());
     }
 
     /**
@@ -108,7 +112,9 @@ class MessageEventTest extends TestCase
      */
     public function testPropertyMessage()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $event = new MessageEvent();
+        $message = new MessageContent(['type' => 'text', 'id' => 'message_id_123']);
+        $event->setMessage($message);
+        $this->assertInstanceOf(MessageContent::class, $event->getMessage());
     }
 }

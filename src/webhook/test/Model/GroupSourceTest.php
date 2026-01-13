@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\GroupSource;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class GroupSourceTest extends TestCase
      */
     public function testGroupSource()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new GroupSource();
+        $this->assertInstanceOf(GroupSource::class, $source);
     }
 
     /**
@@ -99,8 +100,10 @@ class GroupSourceTest extends TestCase
      */
     public function testPropertyGroupId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new GroupSource();
+        $groupId = 'C0123456789abcdef0123456789abcdef';
+        $source->setGroupId($groupId);
+        $this->assertEquals($groupId, $source->getGroupId());
     }
 
     /**
@@ -108,7 +111,9 @@ class GroupSourceTest extends TestCase
      */
     public function testPropertyUserId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new GroupSource();
+        $userId = 'U0123456789abcdef0123456789abcdef';
+        $source->setUserId($userId);
+        $this->assertEquals($userId, $source->getUserId());
     }
 }

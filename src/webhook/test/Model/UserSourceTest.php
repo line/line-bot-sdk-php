@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\UserSource;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class UserSourceTest extends TestCase
      */
     public function testUserSource()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new UserSource();
+        $this->assertInstanceOf(UserSource::class, $source);
     }
 
     /**
@@ -99,7 +100,9 @@ class UserSourceTest extends TestCase
      */
     public function testPropertyUserId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $source = new UserSource();
+        $userId = 'U0123456789abcdef0123456789abcdef';
+        $source->setUserId($userId);
+        $this->assertEquals($userId, $source->getUserId());
     }
 }

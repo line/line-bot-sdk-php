@@ -43,6 +43,7 @@
 
 namespace LINE\Webhook\Test\Model;
 
+use LINE\Webhook\Model\ImageSet;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -90,8 +91,8 @@ class ImageSetTest extends TestCase
      */
     public function testImageSet()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $imageSet = new ImageSet();
+        $this->assertInstanceOf(ImageSet::class, $imageSet);
     }
 
     /**
@@ -99,8 +100,10 @@ class ImageSetTest extends TestCase
      */
     public function testPropertyId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $imageSet = new ImageSet();
+        $id = 'image_set_123';
+        $imageSet->setId($id);
+        $this->assertEquals($id, $imageSet->getId());
     }
 
     /**
@@ -108,8 +111,10 @@ class ImageSetTest extends TestCase
      */
     public function testPropertyIndex()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $imageSet = new ImageSet();
+        $index = 1;
+        $imageSet->setIndex($index);
+        $this->assertEquals($index, $imageSet->getIndex());
     }
 
     /**
@@ -117,7 +122,9 @@ class ImageSetTest extends TestCase
      */
     public function testPropertyTotal()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $imageSet = new ImageSet();
+        $total = 3;
+        $imageSet->setTotal($total);
+        $this->assertEquals($total, $imageSet->getTotal());
     }
 }
