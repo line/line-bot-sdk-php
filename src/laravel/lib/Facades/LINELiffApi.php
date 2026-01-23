@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Facade;
 
 class LINELiffApi extends Facade
 {
-    public static function getFacadeAccessor()
+    public static function getFacadeAccessor(): string
     {
         return 'line-bot-liff-api';
     }
