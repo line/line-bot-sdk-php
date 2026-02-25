@@ -1,6 +1,7 @@
 # LINE Messaging API SDK for PHP
 
 [![Build Status](https://github.com/line/line-bot-sdk-php/actions/workflows/php-checks.yml/badge.svg?branch=master)](https://github.com/line/line-bot-sdk-php/actions)
+[![Packagist Version](https://img.shields.io/packagist/v/linecorp/line-bot-sdk)](https://packagist.org/packages/linecorp/line-bot-sdk)
 
 
 ## Introduction
@@ -15,10 +16,12 @@ See the official API documentation for more information.
 - English: https://developers.line.biz/en/docs/messaging-api/overview/
 - Japanese: https://developers.line.biz/ja/docs/messaging-api/overview/
 
+PHPDoc
+- https://line.github.io/line-bot-sdk-php/
 
 ## Requirements
 
-- PHP 8.1 or later
+- PHP 8.2 or later
 
 
 ## Installation
@@ -54,7 +57,7 @@ You can call an API through the messagingApi instance.
 A very simple example:
 
 ```php
-$message = new TextMessage(['type' => 'text','text' => 'hello!']);
+$message = new TextMessage(['text' => 'hello!']);
 $request = new ReplyMessageRequest([
     'replyToken' => '<reply token>',
     'messages' => [$message],
@@ -68,7 +71,6 @@ We also support setter style.
 
 ```php
 $message = (new TextMessage())
-  ->setType(\LINE\Constants\MessageType::TEXT)
   ->setText('hello!');
 $request = (new ReplyMessageRequest)
   ->setReplyToken('<reply token>')
@@ -89,7 +91,7 @@ You may need to store the `x-line-request-id` header obtained as a response from
 ```php
 $request = new ReplyMessageRequest([
     'replyToken' => $replyToken,
-    'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info', 'type' => MessageType::TEXT]))],
+    'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info']))],
 ]);
 $response = $messagingApi->replyMessageWithHttpInfo($request);
 $this->logger->info('body:' . $response[0]);
@@ -162,7 +164,7 @@ https://line.github.io/line-bot-sdk-php/
 
 This library provides PHPDoc to describe how to use the methods. You can generate the documentation using phpDocumenter using the following command.
 
-$ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar
+$ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.8.1/phpDocumentor.phar
 $ php phpDocumentor.phar run -d src -t docs
 The HTML files are generated in docs/.
 
@@ -220,9 +222,9 @@ News: https://developers.line.biz/en/news/
 ## Versioning
 
 This project respects semantic versioning.
+- See https://semver.org/
 
-See http://semver.org/
-
+However, if a feature that was publicly released is discontinued for business reasons and becomes completely unusable, we will release changes as a patch release.
 
 ## Contributing
 

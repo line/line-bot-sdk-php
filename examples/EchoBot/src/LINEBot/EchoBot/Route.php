@@ -67,7 +67,7 @@ class Route
                 $bot->replyMessage(new ReplyMessageRequest([
                     'replyToken' => $event->getReplyToken(),
                     'messages' => [
-                        (new TextMessage(['text' => $replyText]))->setType('text'),
+                        (new TextMessage(['text' => $replyText])),
                     ],
                 ]));
             }

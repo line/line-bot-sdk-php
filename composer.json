@@ -9,39 +9,20 @@
   "type": "library",
   "homepage": "https://github.com/line/line-bot-sdk-php",
   "license": "Apache-2.0",
-  "authors": [
-    {
-      "name": "moznion",
-      "email": "moznion@gmail.com",
-      "role": "Retired"
-    },
-    {
-      "name": "Satoru Yoshihara",
-      "email": "vaduz0@gmail.com",
-      "role": "Retired"
-    },
-    {
-      "name": "Satoshi Shibuya",
-      "email": "satosby@gmail.com",
-      "role": "Maintainer"
-    },
-    {
-      "name": "Shunsuke Mori",
-      "email": "morimorim7180@gmail.com",
-      "role": "Maintainer"
-    }
-  ],
+  "support": {
+    "issues": "https://github.com/line/line-bot-sdk-php/issues",
+    "source": "https://github.com/line/line-bot-sdk-php",
+    "docs": "https://line.github.io/line-bot-sdk-php/"
+  },
   "require": {
-    "php": ">=8.1",
+    "php": "^8.2",
     "guzzlehttp/guzzle": "^7.3",
     "guzzlehttp/psr7": "^1.7 || ^2.0"
   },
   "require-dev": {
     "phpmd/phpmd": "2.15.0",
-    "squizlabs/php_codesniffer": "3.11.2",
+    "squizlabs/php_codesniffer": "4.0.1",
     "orchestra/testbench": "*",
-    "guzzlehttp/guzzle": "^7.3",
-    "guzzlehttp/psr7": "^1.7 || ^2.0",
     "phpstan/phpstan": "^2.0",
     "phpunit/phpunit": "^11.0"
   },
@@ -66,10 +47,18 @@
     }
   },
   "scripts": {
-    "test": "phpunit --debug --test-suffix=Test.php",
+    "test": "phpunit --test-suffix=Test.php --testdox",
     "cs": "phpcs",
     "md": "phpmd --ignore-violations-on-exit src/constants,src/laravel,src/parser,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
-    "stan": "phpstan analyse --memory-limit=-1"
+    "stan": "phpstan analyse",
+    "copyright": "tools/check_copyright.sh",
+    "check": [
+      "@test",
+      "@cs",
+      "@md",
+      "@stan",
+      "@copyright"
+    ]
   },
   "extra": {
     "laravel": {

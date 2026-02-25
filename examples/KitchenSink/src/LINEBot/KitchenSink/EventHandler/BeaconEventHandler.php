@@ -21,7 +21,6 @@ namespace LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
 use LINE\Clients\MessagingApi\Model\TextMessage;
-use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Webhook\Model\BeaconEvent;
 
@@ -55,7 +54,7 @@ class BeaconEventHandler implements EventHandler
         $request = new ReplyMessageRequest([
             'replyToken' => $this->beaconEvent->getReplyToken(),
             'messages' => [
-                new TextMessage(['type' => MessageType::TEXT, 'text' => 'Got beacon message ' . $this->beaconEvent->getHwid()]),
+                new TextMessage(['text' => 'Got beacon message ' . $this->beaconEvent->getHwid()]),
             ],
         ]);
         $this->bot->replyMessage($request);

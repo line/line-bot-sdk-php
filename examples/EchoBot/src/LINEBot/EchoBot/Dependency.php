@@ -38,7 +38,7 @@ class Dependency
             return $logger;
         });
 
-        $container->set('botMessagingApi', function ($c) {
+        $container->set(MessagingApiApi::class, function ($c) {
             $settings = $c->get('settings');
             $channelToken = $settings['bot']['channelToken'];
             $config = new Configuration();

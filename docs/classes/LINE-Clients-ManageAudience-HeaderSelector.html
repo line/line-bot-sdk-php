@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,8 +53,8 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/line.html" class="">LINE</a>
@@ -82,7 +83,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -108,21 +109,22 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line.html">LINE</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients.html">Clients</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/line-clients-manageaudience.html">ManageAudience</a></li>
@@ -145,6 +147,11 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
     :
@@ -156,9 +163,11 @@
 
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -186,8 +195,7 @@
                                                                                                         <a class="phpdocumentor-tag-link" href="https://openapi-generator.tech"> https://openapi-generator.tech </a>
                     
                                     </dd>
-                        </dl>
-
+                                            </dl>
 
 
 
@@ -195,74 +203,86 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
-                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getNextWeight">getNextWeight()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getNextWeight">getNextWeight()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Calculate the next weight, based on the current one.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_isJsonMime">isJsonMime()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_isJsonMime">isJsonMime()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Detects whether a string contains a valid JSON mime type</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectHeaders">selectHeaders()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectHeaders">selectHeaders()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_adjustWeight">adjustWeight()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_adjustWeight">adjustWeight()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_buildAcceptHeader">buildAcceptHeader()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_buildAcceptHeader">buildAcceptHeader()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getAcceptHeaderWithAdjustedWeight">getAcceptHeaderWithAdjustedWeight()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getAcceptHeaderWithAdjustedWeight">getAcceptHeaderWithAdjustedWeight()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Create an Accept header string from the given &quot;Accept&quot; headers array, recalculating all weights</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getHeaderAndWeight">getHeaderAndWeight()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getHeaderAndWeight">getHeaderAndWeight()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Given an Accept header, returns an associative array splitting the header and its weight</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectAcceptHeader">selectAcceptHeader()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectAcceptHeader">selectAcceptHeader()</a>
     <span>
                                 &nbsp;: null|string    </span>
 </dt>
 <dd>Return the header &#039;Accept&#039; based on an array of Accept provided.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectJsonMimeList">selectJsonMimeList()</a>
+    <a class="" href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectJsonMimeList">selectJsonMimeList()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Select all items from a list containing a JSON mime type</dd>
 
-        </dl>
+    </dl>
 
 
 
@@ -274,6 +294,7 @@
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -284,6 +305,7 @@
     <h4 class="phpdocumentor-element__name" id="method_getNextWeight">
         getNextWeight()
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getNextWeight" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
@@ -298,6 +320,9 @@
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNextWeight</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$currentWeight</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hasMoreThan28Headers</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <section class="phpdocumentor-description"><p>If there are less than 28 &quot;Accept&quot; headers, the weights will be decreased by 1 on its highest significant digit, using the
 following formula:</p>
 <p>next weight = current weight - 10 ^ (floor(log(current weight - 1)))</p>
@@ -331,11 +356,13 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -346,6 +373,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <h4 class="phpdocumentor-element__name" id="method_isJsonMime">
         isJsonMime()
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_isJsonMime" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
@@ -360,6 +388,9 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isJsonMime</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$searchString</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -374,11 +405,13 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -389,6 +422,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <h4 class="phpdocumentor-element__name" id="method_selectHeaders">
         selectHeaders()
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectHeaders" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
@@ -402,6 +436,9 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">selectHeaders</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$accept</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentType</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$isMultipart</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -430,11 +467,13 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -445,6 +484,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <h4 class="phpdocumentor-element__name" id="method_adjustWeight">
         adjustWeight()
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_adjustWeight" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
@@ -458,6 +498,9 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">adjustWeight</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">float&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$currentWeight</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hasMoreThan28Headers</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -486,13 +529,17 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>array of adjusted &quot;Accept&quot; headers</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>array of adjusted &quot;Accept&quot; headers</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -503,6 +550,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <h4 class="phpdocumentor-element__name" id="method_buildAcceptHeader">
         buildAcceptHeader()
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_buildAcceptHeader" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
@@ -516,6 +564,9 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">buildAcceptHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$header</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$weight</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -537,11 +588,13 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -552,6 +605,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <h4 class="phpdocumentor-element__name" id="method_getAcceptHeaderWithAdjustedWeight">
         getAcceptHeaderWithAdjustedWeight()
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getAcceptHeaderWithAdjustedWeight" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
@@ -566,6 +620,9 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">getAcceptHeaderWithAdjustedWeight</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$accept</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headersWithJson</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -591,13 +648,17 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>&quot;Accept&quot; Header (e.g. &quot;application/json, text/html; q=0.9&quot;)</p>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>&quot;Accept&quot; Header (e.g. &quot;application/json, text/html; q=0.9&quot;)</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -608,6 +669,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <h4 class="phpdocumentor-element__name" id="method_getHeaderAndWeight">
         getHeaderAndWeight()
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getHeaderAndWeight" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
@@ -622,6 +684,9 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">getHeaderAndWeight</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$header</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -638,13 +703,17 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>with the header and its weight</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>with the header and its weight</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -655,6 +724,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <h4 class="phpdocumentor-element__name" id="method_selectAcceptHeader">
         selectAcceptHeader()
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectAcceptHeader" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
@@ -669,6 +739,9 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">selectAcceptHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$accept</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -685,13 +758,17 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
     
 
+    
+
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">null|string</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>Accept (e.g. application/json)</p>
+        <span class="phpdocumentor-signature__response_type">null|string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Accept (e.g. application/json)</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -702,6 +779,7 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <h4 class="phpdocumentor-element__name" id="method_selectJsonMimeList">
         selectJsonMimeList()
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectJsonMimeList" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/manage-audience/lib/HeaderSelector.php"><a href="files/src-clients-manage-audience-lib-headerselector.html"><abbr title="src/clients/manage-audience/lib/HeaderSelector.php">HeaderSelector.php</abbr></a></abbr>
@@ -716,6 +794,9 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">selectJsonMimeList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mimeList</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -730,78 +811,146 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/clients/manage-audience/lib/HeaderSelector.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                                                <li><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+            
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getNextWeight">getNextWeight()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_isJsonMime">isJsonMime()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectHeaders">selectHeaders()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_adjustWeight">adjustWeight()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_buildAcceptHeader">buildAcceptHeader()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getAcceptHeaderWithAdjustedWeight">getAcceptHeaderWithAdjustedWeight()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_getHeaderAndWeight">getHeaderAndWeight()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectAcceptHeader">selectAcceptHeader()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#method_selectJsonMimeList">selectJsonMimeList()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -812,7 +961,6 @@ decrement rule, which will result in quality codes like &quot;q=0.999&quot;, &qu
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/LINE-Clients-ManageAudience-HeaderSelector.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

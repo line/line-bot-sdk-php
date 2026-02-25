@@ -21,7 +21,6 @@ namespace LINE\LINEBot\KitchenSink;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
 use LINE\Clients\MessagingApi\Model\TextMessage;
-use LINE\Constants\MessageType;
 use LINE\Webhook\Model\AccountLinkEvent;
 
 class AccountLinkEventHandler
@@ -56,7 +55,6 @@ class AccountLinkEventHandler
             'replyToken' => $this->accountLinkEvent->getReplyToken(),
             'messages' => [
                 new TextMessage([
-                    'type' => MessageType::TEXT,
                     'text' => 'Got account link event ' . $link->getNonce(),
                 ]),
             ],

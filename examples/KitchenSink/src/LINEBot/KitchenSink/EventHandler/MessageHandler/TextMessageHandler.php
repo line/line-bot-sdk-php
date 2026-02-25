@@ -48,9 +48,6 @@ use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleRestaurant;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Flex\FlexSampleShopping;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
-use LINE\Constants\ActionType;
-use LINE\Constants\MessageType;
-use LINE\Constants\TemplateType;
 use LINE\Webhook\Model\GroupSource;
 use LINE\Webhook\Model\MessageEvent;
 use LINE\Webhook\Model\RoomSource;
@@ -121,19 +118,15 @@ class TextMessageHandler implements EventHandler
                 break;
             case 'confirm':
                 $templateMessage = new TemplateMessage([
-                    'type' => MessageType::TEMPLATE,
                     'altText' => 'Confirm alt text',
                     'template' => new ConfirmTemplate([
-                        'type' => TemplateType::CONFIRM,
                         'text' => 'Do it?',
                         'actions' => [
                             new MessageAction([
-                                'type' => ActionType::MESSAGE,
                                 'label' => 'Yes',
                                 'text' => 'Yes!',
                             ]),
                             new MessageAction([
-                                'type' => ActionType::MESSAGE,
                                 'label' => 'No',
                                 'text' => 'No!',
                             ]),
@@ -146,31 +139,25 @@ class TextMessageHandler implements EventHandler
                 $imageUrl = UrlBuilder::buildUrl($this->req, ['static', 'buttons', '1040.jpg']);
                 $this->logger->info('imageUrl: ' . $imageUrl);
                 $templateMessage = new TemplateMessage([
-                    'type' => MessageType::TEMPLATE,
                     'altText' => 'Button alt text',
                     'template' => new ButtonsTemplate([
-                        'type' => TemplateType::BUTTONS,
                         'title' => 'My button sample',
                         'text' => 'Hello my button',
                         'thumbnailImageUrl' => $imageUrl,
                         'actions' => [
                             new URIAction([
-                                'type' => ActionType::URI,
                                 'label' => 'Go to line.me',
                                 'uri' => 'https://line.me',
                             ]),
                             new PostbackAction([
-                                'type' => ActionType::POSTBACK,
                                 'label' => 'Buy',
                                 'data' => 'action=buy&itemid=123',
                             ]),
                             new PostbackAction([
-                                'type' => ActionType::POSTBACK,
                                 'label' => 'Add to cart',
                                 'data' => 'action=add&itemid=123',
                             ]),
                             new MessageAction([
-                                'type' => ActionType::MESSAGE,
                                 'label' => 'Say message',
                                 'text' => 'hello hello',
                             ]),
@@ -182,10 +169,8 @@ class TextMessageHandler implements EventHandler
             case 'carousel':
                 $imageUrl = UrlBuilder::buildUrl($this->req, ['static', 'buttons', '1040.jpg']);
                 $templateMessage = new TemplateMessage([
-                    'type' => MessageType::TEMPLATE,
                     'altText' => 'Button alt text',
                     'template' => new CarouselTemplate([
-                        'type' => TemplateType::CAROUSEL,
                         'columns' => [
                             new CarouselColumn([
                                 'title' => 'foo',
@@ -193,12 +178,10 @@ class TextMessageHandler implements EventHandler
                                 'thumbnailImageUrl' => $imageUrl,
                                 'actions' => [
                                     new URIAction([
-                                        'type' => ActionType::URI,
                                         'label' => 'Go to line.me',
                                         'uri' => 'https://line.me',
                                     ]),
                                     new PostbackAction([
-                                        'type' => ActionType::POSTBACK,
                                         'label' => 'Buy',
                                         'data' => 'action=buy&itemid=123',
                                     ]),
@@ -210,12 +193,10 @@ class TextMessageHandler implements EventHandler
                                 'thumbnailImageUrl' => $imageUrl,
                                 'actions' => [
                                     new PostbackAction([
-                                        'type' => ActionType::POSTBACK,
                                         'label' => 'Add to cart',
                                         'data' => 'action=add&itemid=123',
                                     ]),
                                     new MessageAction([
-                                        'type' => ActionType::MESSAGE,
                                         'label' => 'Say message',
                                         'text' => 'hello hello',
                                     ]),
@@ -229,7 +210,6 @@ class TextMessageHandler implements EventHandler
             case 'imagemap':
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
                 $imagemapMessage = new ImagemapMessage([
-                    'type' => MessageType::IMAGEMAP,
                     'baseUrl' => $richMessageUrl,
                     'altText' => 'This is alt text',
                     'baseSize' => new ImagemapBaseSize([
@@ -238,7 +218,6 @@ class TextMessageHandler implements EventHandler
                     ]),
                     'actions' => [
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/manga/en',
                             'area' => new ImagemapArea([
                                 'x' => 0,
@@ -248,7 +227,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/music/en',
                             'area' => new ImagemapArea([
                                 'x' => 520,
@@ -258,7 +236,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/play/en',
                             'area' => new ImagemapArea([
                                 'x' => 0,
@@ -268,7 +245,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new MessageImagemapAction([
-                            'type' => ActionType::MESSAGE,
                             'text' => 'URANAI!',
                             'area' => new ImagemapArea([
                                 'x' => 520,
@@ -286,7 +262,6 @@ class TextMessageHandler implements EventHandler
                 $this->logger->info('static: ' . UrlBuilder::buildUrl($this->req, ['static', 'preview.jpg']));
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
                 $imagemapMessage = new ImagemapMessage([
-                    'type' => MessageType::IMAGEMAP,
                     'baseUrl' => $richMessageUrl,
                     'altText' => 'This is alt text',
                     'baseSize' => new ImagemapBaseSize([
@@ -295,7 +270,6 @@ class TextMessageHandler implements EventHandler
                     ]),
                     'actions' => [
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/manga/en',
                             'area' => new ImagemapArea([
                                 'x' => 0,
@@ -305,7 +279,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/music/en',
                             'area' => new ImagemapArea([
                                 'x' => 520,
@@ -315,7 +288,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new URIImagemapAction([
-                            'type' => ActionType::URI,
                             'linkUri' => 'https://store.line.me/family/play/en',
                             'area' => new ImagemapArea([
                                 'x' => 0,
@@ -325,7 +297,6 @@ class TextMessageHandler implements EventHandler
                             ]),
                         ]),
                         new MessageImagemapAction([
-                            'type' => ActionType::MESSAGE,
                             'text' => 'URANAI!',
                             'area' => new ImagemapArea([
                                 'x' => 520,
@@ -364,28 +335,24 @@ class TextMessageHandler implements EventHandler
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new LocationAction([
-                                'type' => ActionType::LOCATION,
                                 'label' => 'Location',
                             ]),
                         ]),
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new CameraAction([
-                                'type' => ActionType::CAMERA,
                                 'label' => 'Camera',
                             ]),
                         ]),
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new CameraRollAction([
-                                'type' => ActionType::CAMERA_ROLL,
                                 'label' => 'Camera roll',
                             ]),
                         ]),
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new PostbackAction([
-                                'type' => ActionType::POSTBACK,
                                 'label' => 'Buy',
                                 'text' => 'Buy',
                                 'data' => 'action=buy&itemid=123',
@@ -394,7 +361,6 @@ class TextMessageHandler implements EventHandler
                         new QuickReplyItem([
                             'type' => 'action',
                             'action' => new DatetimePickerAction([
-                                'type' => ActionType::DATETIME_PICKER,
                                 'label' => 'Select date',
                                 'data' => 'storeId=12345',
                                 'mode' => 'datetime',
@@ -408,7 +374,6 @@ class TextMessageHandler implements EventHandler
 
                 $message = new TextMessage([
                     'text' => '$ click button! $',
-                    'type' => MessageType::TEXT,
                     'emojis' => [
                         new Emoji([
                             'index' => 0,
@@ -480,7 +445,7 @@ class TextMessageHandler implements EventHandler
 
     private function replyText(string $replyToken, string $text)
     {
-        $textMessage = (new TextMessage(['text' => $text, 'type' => MessageType::TEXT]));
+        $textMessage = (new TextMessage(['text' => $text]));
         return $this->replyMessage($replyToken, $textMessage);
     }
 
@@ -520,7 +485,7 @@ class TextMessageHandler implements EventHandler
     {
         $request = new ReplyMessageRequest([
             'replyToken' => $replyToken,
-            'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info', 'type' => MessageType::TEXT]))],
+            'messages' => [$textMessage = (new TextMessage(['text' => 'reply with http info']))],
         ]);
         $response = $this->bot->replyMessageWithHttpInfo($request);
         $this->logger->info('body:' . $response[0]);

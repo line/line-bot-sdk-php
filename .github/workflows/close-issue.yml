@@ -11,14 +11,15 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
+    if: github.repository == 'line/line-bot-sdk-php'
     steps:
-      - uses: actions/stale@v9
+      - uses: actions/stale@b5d41d4e1d5dceea10e7104786b73624c18a190f # v10.2.0
         with:
           days-before-issue-stale: 14
           days-before-issue-close: 0
           stale-issue-label: "no-activity"
           close-issue-message: "This issue was closed because it has been inactive for 14 days."
-          exempt-issue-labels: "bug,enhancement,keep"
+          exempt-issue-labels: "bug,enhancement,keep,untriaged"
           days-before-pr-stale: -1
           days-before-pr-close: 14
           stale-pr-label: "no-activity"

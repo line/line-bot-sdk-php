@@ -30,7 +30,6 @@ use LINE\Clients\MessagingApi\Model\FlexSpacer;
 use LINE\Clients\MessagingApi\Model\FlexSpan;
 use LINE\Clients\MessagingApi\Model\FlexText;
 use LINE\Clients\MessagingApi\Model\URIAction;
-use LINE\Constants\ActionType;
 use LINE\Constants\Flex\BubbleContainerSize;
 use LINE\Constants\Flex\ComponentButtonHeight;
 use LINE\Constants\Flex\ComponentButtonStyle;
@@ -44,9 +43,6 @@ use LINE\Constants\Flex\ComponentLayout;
 use LINE\Constants\Flex\ComponentMargin;
 use LINE\Constants\Flex\ComponentSpaceSize;
 use LINE\Constants\Flex\ComponentSpacing;
-use LINE\Constants\Flex\ComponentType;
-use LINE\Constants\Flex\ContainerType;
-use LINE\Constants\MessageType;
 
 /**
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
@@ -61,10 +57,8 @@ class FlexSampleRestaurant
     public static function get(): FlexMessage
     {
         return new FlexMessage([
-            'type' => MessageType::FLEX,
             'altText' => 'Restaurant',
             'contents' => new FlexBubble([
-                'type' => ContainerType::BUBBLE,
                 'hero' => self::createHeroBlock(),
                 'body' => self::createBodyBlock(),
                 'footer' => self::createFooterBlock(),
@@ -76,13 +70,11 @@ class FlexSampleRestaurant
     private static function createHeroBlock(): FlexComponent
     {
         return new FlexImage([
-            'type' => ComponentType::IMAGE,
             'url' => 'https://example.com/cafe.png',
             'size' => ComponentImageSize::FULL,
             'aspectRatio' => ComponentImageAspectRatio::R20TO13,
             'aspectMode' => ComponentImageAspectMode::COVER,
             'action' => new URIAction([
-                'type' => ActionType::URI,
                 'label' => 'cafe hero',
                 'uri' => 'https://example.com',
                 'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
@@ -93,14 +85,12 @@ class FlexSampleRestaurant
     private static function createBodyBlock()
     {
         return new FlexBox([
-            'type' => ComponentType::BOX,
             'layout' => ComponentLayout::VERTICAL,
             'backgroundColor' => '#fafafa',
             'paddingAll' => '8%',
             'contents' => [
                 // Title
                 new FlexText([
-                    'type' => ComponentType::TEXT,
                     'text' => 'Brown Cafe',
                     'weight' => ComponentFontWeight::BOLD,
                     'size' => ComponentFontSize::XL,
@@ -114,17 +104,14 @@ class FlexSampleRestaurant
     private static function createBodyReview(): FlexBox
     {
         $goldStar = new FlexIcon([
-            'type' => ComponentType::ICON,
             'url' => 'https://example.com/gold_star.png',
             'size' => ComponentIconSize::SM,
         ]);
         $grayStar = new FlexIcon([
-            'type' => ComponentType::ICON,
             'url' => 'https://example.com/gray_star.png',
             'size' => ComponentIconSize::SM,
         ]);
         $point = new FlexText([
-            'type' => ComponentType::TEXT,
             'text' => '4.0',
             'size' => ComponentFontSize::SM,
             'color' => '#999999',
@@ -133,7 +120,6 @@ class FlexSampleRestaurant
         ]);
 
         return new FlexBox([
-            'type' => ComponentType::BOX,
             'layout' => ComponentLayout::BASELINE,
             'margin' => ComponentMargin::MD,
             'contents' => [$goldStar, $goldStar, $goldStar, $goldStar, $grayStar, $point],
@@ -143,19 +129,16 @@ class FlexSampleRestaurant
     private static function createBodyInfoBlock(): FlexBox
     {
         $place = new FlexBox([
-            'type' => ComponentType::BOX,
             'layout' => ComponentLayout::BASELINE,
             'spacing' => ComponentSpacing::SM,
             'contents' => [
                 new FlexText([
-                    'type' => ComponentType::TEXT,
                     'text' => 'Place',
                     'color' => '#aaaaaa',
                     'size' => ComponentFontSize::SM,
                     'flex' => 1,
                 ]),
                 new FlexText([
-                    'type' => ComponentType::TEXT,
                     'text' => 'Miraina Tower, 4-1-6 Shinjuku, Tokyo',
                     'wrap' => true,
                     'color' => '#666666',
@@ -165,19 +148,16 @@ class FlexSampleRestaurant
             ],
         ]);
         $time = new FlexBox([
-            'type' => ComponentType::BOX,
             'layout' => ComponentLayout::BASELINE,
             'spacing' => ComponentSpacing::SM,
             'contents' => [
                 new FlexText([
-                    'type' => ComponentType::TEXT,
                     'text' => 'Time',
                     'color' => '#aaaaaa',
                     'size' => ComponentFontSize::SM,
                     'flex' => 1,
                 ]),
                 new FlexText([
-                    'type' => ComponentType::TEXT,
                     'text' => '10:00 - 23:00',
                     'wrap' => true,
                     'color' => '#666666',
@@ -185,17 +165,14 @@ class FlexSampleRestaurant
                     'flex' => 5,
                     'contents' => [
                         new FlexSpan([
-                            'type' => ComponentType::SPAN,
                             'text' => '10:00',
                         ]),
                         new FlexSpan([
-                            'type' => ComponentType::SPAN,
                             'text' => '-',
                             'color' => '#a0a0a0',
                             'size' => ComponentFontSize::XS,
                         ]),
                         new FlexSpan([
-                            'type' => ComponentType::SPAN,
                             'text' => '23:00',
                         ]),
                     ],
@@ -204,7 +181,6 @@ class FlexSampleRestaurant
         ]);
 
         return new FlexBox([
-            'type' => ComponentType::BOX,
             'layout' => ComponentLayout::VERTICAL,
             'margin' => ComponentMargin::LG,
             'spacing' => ComponentSpacing::SM,
@@ -215,31 +191,26 @@ class FlexSampleRestaurant
     private static function createFooterBlock()
     {
         $callButton = new FlexButton([
-            'type' => ComponentType::BUTTON,
             'style' => ComponentButtonStyle::LINK,
             'height' => ComponentButtonHeight::SM,
             'action' => new URIAction([
-                'type' => ActionType::URI,
                 'label' => 'CALL',
                 'uri' => 'https://example.com',
                 'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
             ]),
         ]);
         $websiteButton = new FlexButton([
-            'type' => ComponentType::BUTTON,
             'style' => ComponentButtonStyle::LINK,
             'height' => ComponentButtonHeight::SM,
             'action' => new URIAction([
-                'type' => ActionType::URI,
                 'label' => 'WEBSITE',
                 'uri' => 'https://example.com',
                 'altUri' => new AltUri(['desktop' => 'https://example.com#desktop']),
             ]),
         ]);
-        $spacer = new FlexSpacer(['type' => ComponentType::SPACER, 'size' => ComponentSpaceSize::SM]);
+        $spacer = new FlexSpacer(['size' => ComponentSpaceSize::SM]);
 
         return new FlexBox([
-            'type' => ComponentType::BOX,
             'layout' => ComponentLayout::VERTICAL,
             'spacing' => ComponentSpacing::SM,
             'flex' => 0,

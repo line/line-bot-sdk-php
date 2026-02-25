@@ -20,17 +20,18 @@ namespace LINE\Parser\Tests;
 
 use LINE\Constants\MessageContentProviderType;
 use LINE\Constants\StickerResourceType;
-use LINE\Constants\ThingsEventType;
-use LINE\Constants\ThingsResultContentType;
+use LINE\Parser\EventRequestOptions;
 use LINE\Parser\EventRequestParser;
+use LINE\Webhook\Model\Event;
 use LINE\Webhook\Model\GroupSource;
 use LINE\Webhook\Model\RoomSource;
+use LINE\Webhook\Model\Source;
 use LINE\Webhook\Model\UserSource;
 use PHPUnit\Framework\TestCase;
 
 class EventRequestParserTest extends TestCase
 {
-    private static $json = <<<JSON
+    private static string $json = <<<JSON
     {
      "destination":"U0123456789abcdef0123456789abcd",
      "events":[
@@ -570,74 +571,6 @@ class EventRequestParserTest extends TestCase
        }
       },
       {
-       "type":"things",
-       "mode":"active",
-       "timestamp":12345678901234,
-       "source":{
-        "type":"user",
-        "userId":"userid"
-       },
-       "webhookEventId":"testwebhookeventid",
-       "deliveryContext":{
-        "isRedelivery":false
-       },
-       "replyToken":"replytoken",
-       "things":{
-        "deviceId":"t2c449c9d1",
-        "type": "link"
-       }
-      },
-      {
-       "type":"things",
-       "mode":"active",
-       "timestamp":12345678901234,
-       "source":{
-        "type":"user",
-        "userId":"userid"
-       },
-       "webhookEventId":"testwebhookeventid",
-       "deliveryContext":{
-        "isRedelivery":false
-       },
-       "replyToken":"replytoken",
-       "things":{
-        "deviceId":"t2c449c9d1",
-        "type": "unlink"
-       }
-      },
-      {
-       "type": "things",
-       "mode":"active",
-       "timestamp":12345678901234,
-       "source":{
-        "type":"user",
-        "userId":"userid"
-       },
-       "webhookEventId":"testwebhookeventid",
-       "deliveryContext":{
-        "isRedelivery":false
-       },
-       "replyToken":"replytoken",
-       "things": {
-        "type": "scenarioResult",
-        "deviceId": "t2c449c9d1",
-        "result": {
-         "scenarioId": "dummy_scenario_id",
-         "revision": 2,
-         "startTime": 1547817845950,
-         "endTime": 1547817845952,
-         "resultCode": "success",
-         "bleNotificationPayload": "AQ==",
-         "actionResults": [
-          {
-           "type": "binary",
-           "data": "/w=="
-          }
-         ]
-        }
-       }
-      },
-      {
        "type":"message",
        "mode":"active",
        "timestamp":12345678901234,
@@ -925,12 +858,66 @@ class EventRequestParserTest extends TestCase
         "module": {
           "type": "detached",
           "botId": "botid",
-          "reason": "bot deleted"
+          "reason": "bot_deleted"
         },
         "webhookEventId": "testwebhookeventid",
         "deliveryContext": {
           "isRedelivery": false
         }
+      },
+      {
+        "type": "membership",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "user",
+          "userId": "userid"
+        },
+        "membership": {
+          "type": "joined",
+          "membershipId": 1234567890
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        },
+        "replyToken": "replytoken"
+      },
+      {
+        "type": "membership",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "user",
+          "userId": "userid"
+        },
+        "membership": {
+          "type": "left",
+          "membershipId": 1234567890
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        },
+        "replyToken": "replytoken"
+      },
+      {
+        "type": "membership",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "user",
+          "userId": "userid"
+        },
+        "membership": {
+          "type": "renewed",
+          "membershipId": 1234567890
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        },
+        "replyToken": "replytoken"
       }
      ]
     }
@@ -940,15 +927,16 @@ class EventRequestParserTest extends TestCase
      * @throws \LINE\Parser\Exception\InvalidEventRequestException
      * @throws \LINE\Parser\Exception\InvalidEventSourceException
      * @throws \LINE\Parser\Exception\InvalidSignatureException
+     * @throws \JsonException
      */
-    public function testParseEventRequest()
+    public function testParseEventRequest(): void
     {
         $parsedEvents = EventRequestParser::parseEventRequest(
             body: self::$json,
             channelSecret: 'testsecret',
             signature: self::getSignature('testsecret'),
         );
-        $eventArrays = json_decode(self::$json, true)["events"];
+        $eventArrays = json_decode(self::$json, true, 512, JSON_THROW_ON_ERROR)["events"];
 
         $this->assertEquals($parsedEvents->getDestination(), 'U0123456789abcdef0123456789abcd');
 
@@ -961,18 +949,19 @@ class EventRequestParserTest extends TestCase
             $source = $event->getSource();
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[0]), $event->__toString());
+            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[0], JSON_THROW_ON_ERROR), $event->__toString());
             $this->assertInstanceOf(\LINE\Webhook\Model\MessageEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\TextMessageContent::class, $event->getMessage());
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('contentid', $event->getMessage()->getId());
             $this->assertEquals('text', $event->getMessage()->getType());
             $this->assertEquals('message (love)', $event->getMessage()->getText());
-            $emojiInfo = $event->getMessage()->getEmojis()[0];
+            $emojiInfo = $event->getMessage()->getEmojis()[0] ?? null;
+            $this->assertInstanceOf(\LINE\Webhook\Model\Emoji::class, $emojiInfo);
             $this->assertEquals(8, $emojiInfo->getIndex());
             $this->assertEquals(6, $emojiInfo->getLength());
             $this->assertEquals('5ac1bfd5040ab15980c9b435', $emojiInfo->getProductId());
@@ -983,12 +972,12 @@ class EventRequestParserTest extends TestCase
             // image
             $event = $events[1];
             $source = $event->getSource();
-            $this->assertTrue($source instanceof GroupSource);
+            $this->assertInstanceOf(GroupSource::class, $source);
             $this->assertEquals('groupid', $source->getGroupId());
             $this->assertEquals(null, $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[1]), $event->__toString());
+            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[1], JSON_THROW_ON_ERROR), $event->__toString());
             $this->assertInstanceOf(\LINE\Webhook\Model\MessageEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\ImageMessageContent::class, $event->getMessage());
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -1005,21 +994,21 @@ class EventRequestParserTest extends TestCase
             );
             $this->assertEquals(
                 'E005D41A7288F41B65593ED38FF6E9834B046AB36A37921A56BC236F13A91855',
-                $event->getMessage()->getImageSet()->getId()
+                $event->getMessage()->getImageSet()?->getId()
             );
-            $this->assertEquals(1, $event->getMessage()->getImageSet()->getIndex());
-            $this->assertEquals(1, $event->getMessage()->getImageSet()->getTotal());
+            $this->assertEquals(1, $event->getMessage()->getImageSet()?->getIndex());
+            $this->assertEquals(1, $event->getMessage()->getImageSet()?->getTotal());
         }
 
         {
             // audio (group event & it has user ID)
             $event = $events[2];
             $source = $event->getSource();
-            $this->assertTrue($source instanceof GroupSource);
+            $this->assertInstanceOf(GroupSource::class, $source);
             $this->assertEquals('groupid', $source->getGroupId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[2]), $event->__toString());
+            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[2], JSON_THROW_ON_ERROR), $event->__toString());
             $this->assertInstanceOf(\LINE\Webhook\Model\MessageEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\AudioMessageContent::class, $event->getMessage());
             $this->assertEquals('userid', $source->getUserId());
@@ -1038,12 +1027,12 @@ class EventRequestParserTest extends TestCase
             // video
             $event = $events[3];
             $source = $event->getSource();
-            $this->assertTrue($source instanceof RoomSource);
+            $this->assertInstanceOf(RoomSource::class, $source);
             $this->assertEquals('roomid', $source->getRoomId());
             $this->assertEquals(null, $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[3]), $event->__toString());
+            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[3], JSON_THROW_ON_ERROR), $event->__toString());
             $this->assertInstanceOf(\LINE\Webhook\Model\MessageEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\VideoMessageContent::class, $event->getMessage());
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -1064,7 +1053,7 @@ class EventRequestParserTest extends TestCase
             // audio
             $event = $events[4];
             $source = $event->getSource();
-            $this->assertTrue($source instanceof RoomSource);
+            $this->assertInstanceOf(RoomSource::class, $source);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1249,6 +1238,7 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('__unknown__', $event->jsonSerialize()->type); // with unprocessed event body
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(Source::class, $source);
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
         }
@@ -1354,8 +1344,13 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $members = $event->getJoined()->getMembers();
-            $this->assertEquals(["type" => "user", "userId" => "U4af4980629..."], $members[0]);
-            $this->assertEquals(["type" => "user", "userId" => "U91eeaf62d9..."], $members[1]);
+            $this->assertEquals(count($members), 2);
+            $this->assertInstanceOf(UserSource::class, $members[0]);
+            $this->assertEquals("user", $members[0]->getType());
+            $this->assertEquals("U4af4980629...", $members[0]->getUserId());
+            $this->assertInstanceOf(UserSource::class, $members[1]);
+            $this->assertEquals("user", $members[1]->getType());
+            $this->assertEquals("U91eeaf62d9...", $members[1]->getUserId());
         }
 
         {
@@ -1368,72 +1363,21 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $members = $event->getLeft()->getMembers();
-            $this->assertEquals(["type" => "user", "userId" => "U4af4980629..."], $members[0]);
-            $this->assertEquals(["type" => "user", "userId" => "U91eeaf62d9..."], $members[1]);
+            $this->assertInstanceOf(UserSource::class, $members[0]);
+            $this->assertEquals("user", $members[0]->getType());
+            $this->assertEquals("U4af4980629...", $members[0]->getUserId());
+            $this->assertInstanceOf(UserSource::class, $members[1]);
+            $this->assertEquals("user", $members[1]->getType());
+            $this->assertEquals("U91eeaf62d9...", $members[1]->getUserId());
         }
-
-        {
-            // things
-            $event = $events[27];
-            $source = $event->getSource();
-            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
-            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertInstanceOf(\LINE\Webhook\Model\ThingsEvent::class, $event);
-            $this->assertEquals('replytoken', $event->getReplyToken());
-            /** @var \LINE\Webhook\Model\LinkThingsContent $things */
-            $things = $event->getThings();
-            $this->assertInstanceOf(\LINE\Webhook\Model\LinkThingsContent::class, $things);
-            $this->assertEquals('t2c449c9d1', $things->getDeviceId());
-            $this->assertEquals(ThingsEventType::DEVICE_LINKED, $things->getType());
-        }
-
-        {
-            // things
-            $event = $events[28];
-            $source = $event->getSource();
-            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
-            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertInstanceOf(\LINE\Webhook\Model\ThingsEvent::class, $event);
-            $this->assertEquals('replytoken', $event->getReplyToken());
-            /** @var \LINE\Webhook\Model\UnlinkThingsContent $things */
-            $things = $event->getThings();
-            $this->assertInstanceOf(\LINE\Webhook\Model\UnlinkThingsContent::class, $things);
-            $this->assertEquals('t2c449c9d1', $things->getDeviceId());
-            $this->assertEquals(ThingsEventType::DEVICE_UNLINKED, $things->getType());
-        }
-
-        {
-            // things
-            $event = $events[29];
-            $source = $event->getSource();
-            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
-            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertInstanceOf(\LINE\Webhook\Model\ThingsEvent::class, $event);
-            $this->assertEquals('replytoken', $event->getReplyToken());
-            /** @var \LINE\Webhook\Model\ScenarioResultThingsContent $things */
-            $things = $event->getThings();
-            $this->assertInstanceOf(\LINE\Webhook\Model\ScenarioResultThingsContent::class, $things);
-            $this->assertEquals('t2c449c9d1', $things->getDeviceId());
-            $this->assertEquals(ThingsEventType::SCENARIO_RESULT, $things->getType());
-            $scenarioResult = $things->getResult();
-            $this->assertEquals('dummy_scenario_id', $scenarioResult->getScenarioId());
-            $this->assertEquals(2, $scenarioResult->getRevision());
-            $this->assertEquals(1547817845950, $scenarioResult->getStartTime());
-            $this->assertEquals(1547817845952, $scenarioResult->getEndTime());
-            $this->assertEquals('success', $scenarioResult->getResultCode());
-            $this->assertEquals('AQ==', $scenarioResult->getBleNotificationPayload());
-            $actionResults = $scenarioResult->getActionResults();
-            $this->assertEquals(ThingsResultContentType::TYPE_BINARY, $actionResults[0]->getType());
-            $this->assertEquals('/w==', $actionResults[0]->getData());
-        }
-
         {
             // text without emoji
-            $event = $events[30];
+            $event = $events[27];
+            $this->assertInstanceOf(Event::class, $event);
             $source = $event->getSource();
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1443,12 +1387,12 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('contentid', $event->getMessage()->getId());
             $this->assertEquals('text', $event->getMessage()->getType());
             $this->assertEquals('message without emoji', $event->getMessage()->getText());
-            $this->assertEquals([], $event->getMessage()->getEmojis());
+            $this->assertEquals(null, $event->getMessage()->getEmojis());
         }
 
         {
             // unsend event
-            $event = $events[31];
+            $event = $events[28];
             $source = $event->getSource();
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1458,7 +1402,7 @@ class EventRequestParserTest extends TestCase
 
         {
             // video play complete event
-            $event = $events[32];
+            $event = $events[29];
             $source = $event->getSource();
             $this->assertEquals(
                 'testwebhookeventid',
@@ -1470,11 +1414,11 @@ class EventRequestParserTest extends TestCase
 
         {
             // text
-            $event = $events[33];
+            $event = $events[30];
             $source = $event->getSource();
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('U4af4980629...', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1484,7 +1428,7 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('325708', $event->getMessage()->getId());
             $this->assertEquals('text', $event->getMessage()->getType());
             $this->assertEquals('@example Hello, world! (love)', $event->getMessage()->getText());
-            $mentioneeInfo = $event->getMessage()->getMention()->getMentionees()[0];
+            $mentioneeInfo = $event->getMessage()->getMention()?->getMentionees()[0];
             $this->assertInstanceOf(\LINE\Webhook\Model\UserMentionee::class, $mentioneeInfo);
             $this->assertEquals(0, $mentioneeInfo->getIndex());
             $this->assertEquals(8, $mentioneeInfo->getLength());
@@ -1493,11 +1437,11 @@ class EventRequestParserTest extends TestCase
 
         {
             // text without mentionee userId
-            $event = $events[34];
+            $event = $events[31];
             $source = $event->getSource();
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('U0123456789abcd0123456789abcdef', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1507,7 +1451,7 @@ class EventRequestParserTest extends TestCase
             $this->assertEquals('325708', $event->getMessage()->getId());
             $this->assertEquals('text', $event->getMessage()->getType());
             $this->assertEquals('@example message without mentionee userId', $event->getMessage()->getText());
-            $mentioneeInfo = $event->getMessage()->getMention()->getMentionees()[0];
+            $mentioneeInfo = $event->getMessage()->getMention()?->getMentionees()[0];
             $this->assertInstanceOf(\LINE\Webhook\Model\AllMentionee::class, $mentioneeInfo);
             $this->assertEquals(0, $mentioneeInfo->getIndex());
             $this->assertEquals(8, $mentioneeInfo->getLength());
@@ -1515,11 +1459,11 @@ class EventRequestParserTest extends TestCase
 
         {
             // text without mention
-            $event = $events[35];
+            $event = $events[32];
             $source = $event->getSource();
             $this->assertEquals(1462629479859, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('U0123456789abcd0123456789abcdef', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
@@ -1534,14 +1478,14 @@ class EventRequestParserTest extends TestCase
 
         {
             // Only included when multiple images are sent simultaneously.
-            $event = $events[36];
+            $event = $events[33];
             $source = $event->getSource();
-            $this->assertTrue($source instanceof GroupSource);
+            $this->assertInstanceOf(GroupSource::class, $source);
             $this->assertEquals('groupid', $source->getGroupId());
             $this->assertEquals(null, $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[36]), $event->__toString());
+            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[33], JSON_THROW_ON_ERROR), $event->__toString());
             $this->assertInstanceOf(\LINE\Webhook\Model\MessageEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\ImageMessageContent::class, $event->getMessage());
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -1561,14 +1505,14 @@ class EventRequestParserTest extends TestCase
 
         {
             // However, it won't be included if the sender is using LINE 11.15 or earlier for Android.
-            $event = $events[37];
+            $event = $events[34];
             $source = $event->getSource();
-            $this->assertTrue($source instanceof GroupSource);
+            $this->assertInstanceOf(GroupSource::class, $source);
             $this->assertEquals('groupid', $source->getGroupId());
             $this->assertEquals(null, $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[37]), $event->__toString());
+            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[34], JSON_THROW_ON_ERROR), $event->__toString());
             $this->assertInstanceOf(\LINE\Webhook\Model\MessageEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\ImageMessageContent::class, $event->getMessage());
             $this->assertEquals('replytoken', $event->getReplyToken());
@@ -1585,30 +1529,31 @@ class EventRequestParserTest extends TestCase
             );
             $this->assertEquals(
                 'E005D41A7288F41B65593ED38FF6E9834B046AB36A37921A56BC236F13A91855',
-                $event->getMessage()->getImageSet()->getId()
+                $event->getMessage()->getImageSet()?->getId()
             );
-            $this->assertNull($event->getMessage()->getImageSet()->getIndex());
-            $this->assertNull($event->getMessage()->getImageSet()->getTotal());
+            $this->assertNull($event->getMessage()->getImageSet()?->getIndex());
+            $this->assertNull($event->getMessage()->getImageSet()?->getTotal());
         }
 
         {
             // text (redelivered)
-            $event = $events[38];
+            $event = $events[35];
             $source = $event->getSource();
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertTrue($event->getDeliveryContext()->getIsRedelivery());
-            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[38]), $event->__toString());
+            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[35], JSON_THROW_ON_ERROR), $event->__toString());
             $this->assertInstanceOf(\LINE\Webhook\Model\MessageEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\TextMessageContent::class, $event->getMessage());
             $this->assertEquals('replytoken', $event->getReplyToken());
             $this->assertEquals('contentid', $event->getMessage()->getId());
             $this->assertEquals('text', $event->getMessage()->getType());
             $this->assertEquals('message (love)', $event->getMessage()->getText());
-            $emojiInfo = $event->getMessage()->getEmojis()[0];
+            $emojiInfo = $event->getMessage()->getEmojis()[0] ?? null;
+            $this->assertInstanceOf(\LINE\Webhook\Model\Emoji::class, $emojiInfo);
             $this->assertEquals(8, $emojiInfo->getIndex());
             $this->assertEquals(6, $emojiInfo->getLength());
             $this->assertEquals('5ac1bfd5040ab15980c9b435', $emojiInfo->getProductId());
@@ -1617,11 +1562,11 @@ class EventRequestParserTest extends TestCase
 
         {
             // activated
-            $event = $events[39];
+            $event = $events[36];
             $source = $event->getSource();
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertInstanceOf(\LINE\Webhook\Model\ActivatedEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\ChatControl::class, $event->getChatControl());
@@ -1632,11 +1577,11 @@ class EventRequestParserTest extends TestCase
 
         {
             // deactivated
-            $event = $events[40];
+            $event = $events[37];
             $source = $event->getSource();
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertInstanceOf(\LINE\Webhook\Model\DeactivatedEvent::class, $event);
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
@@ -1645,7 +1590,7 @@ class EventRequestParserTest extends TestCase
 
         {
             // botSuspended
-            $event = $events[41];
+            $event = $events[38];
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertInstanceOf(\LINE\Webhook\Model\BotSuspendedEvent::class, $event);
@@ -1655,7 +1600,7 @@ class EventRequestParserTest extends TestCase
 
         {
             // botResumed
-            $event = $events[42];
+            $event = $events[39];
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertInstanceOf(\LINE\Webhook\Model\BotResumedEvent::class, $event);
@@ -1665,11 +1610,11 @@ class EventRequestParserTest extends TestCase
 
         {
             // delivery
-            $event = $events[43];
+            $event = $events[40];
             $source = $event->getSource();
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
-            $this->assertTrue($source instanceof UserSource);
+            $this->assertInstanceOf(UserSource::class, $source);
             $this->assertEquals('userid', $source->getUserId());
             $this->assertInstanceOf(\LINE\Webhook\Model\PnpDeliveryCompletionEvent::class, $event);
             $this->assertInstanceOf(\LINE\Webhook\Model\PnpDelivery::class, $event->getDelivery());
@@ -1680,7 +1625,7 @@ class EventRequestParserTest extends TestCase
 
         {
             // module (attached)
-            $event = $events[44];
+            $event = $events[41];
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertInstanceOf(\LINE\Webhook\Model\ModuleEvent::class, $event);
@@ -1696,7 +1641,7 @@ class EventRequestParserTest extends TestCase
 
         {
             // module (detached)
-            $event = $events[45];
+            $event = $events[42];
             $this->assertEquals(12345678901234, $event->getTimestamp());
             $this->assertEquals('active', $event->getMode());
             $this->assertInstanceOf(\LINE\Webhook\Model\ModuleEvent::class, $event);
@@ -1705,14 +1650,99 @@ class EventRequestParserTest extends TestCase
 
             $this->assertInstanceOf(\LINE\Webhook\Model\DetachedModuleContent::class, $event->getModule());
             $this->assertEquals('botid', $module->getBotId());
-            $this->assertEquals('bot deleted', $module->getReason());
+            $this->assertEquals('bot_deleted', $module->getReason());
             $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+        }
+
+        {
+            // membership (joined)
+            $event = $events[43];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(UserSource::class, $source);
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertInstanceOf(\LINE\Webhook\Model\MembershipEvent::class, $event);
+            /** @var \LINE\Webhook\Model\JoinedMembershipContent $membership */
+            $membership = $event->getMembership();
+
+            $this->assertInstanceOf(\LINE\Webhook\Model\JoinedMembershipContent::class, $membership);
+            $this->assertEquals('joined', $membership->getType());
+            $this->assertEquals(1234567890, $membership->getMembershipId());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+            $this->assertEquals('replytoken', $event->getReplyToken());
+        }
+
+        {
+            // membership (left)
+            $event = $events[44];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(UserSource::class, $source);
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertInstanceOf(\LINE\Webhook\Model\MembershipEvent::class, $event);
+            /** @var \LINE\Webhook\Model\LeftMembershipContent $membership */
+            $membership = $event->getMembership();
+
+            $this->assertInstanceOf(\LINE\Webhook\Model\LeftMembershipContent::class, $membership);
+            $this->assertEquals('left', $membership->getType());
+            $this->assertEquals(1234567890, $membership->getMembershipId());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+            $this->assertEquals('replytoken', $event->getReplyToken());
+        }
+
+        {
+            // membership (renewed)
+            $event = $events[45];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(UserSource::class, $source);
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertInstanceOf(\LINE\Webhook\Model\MembershipEvent::class, $event);
+            /** @var \LINE\Webhook\Model\RenewedMembershipContent $membership */
+            $membership = $event->getMembership();
+
+            $this->assertInstanceOf(\LINE\Webhook\Model\RenewedMembershipContent::class, $membership);
+            $this->assertEquals('renewed', $membership->getType());
+            $this->assertEquals(1234567890, $membership->getMembershipId());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+            $this->assertEquals('replytoken', $event->getReplyToken());
         }
     }
 
     private static function getSignature(string $secret): string
     {
         return base64_encode(hash_hmac('sha256', self::$json, $secret, true));
+    }
+
+    /**
+     * @throws \LINE\Parser\Exception\InvalidEventRequestException
+     * @throws \LINE\Parser\Exception\InvalidEventSourceException
+     * @throws \LINE\Parser\Exception\InvalidSignatureException
+     * @throws \JsonException
+     */
+    public function testParseEventRequestWithSkipSignatureValidation(): void
+    {
+        $invalidSignature = 'invalid_signature';
+
+        $options = new EventRequestOptions(function () {
+            return true;
+        });
+
+        $parsedEvents = EventRequestParser::parseEventRequest(
+            body: self::$json,
+            channelSecret: 'testsecret',
+            signature: $invalidSignature,
+            options: $options
+        );
+
+        $this->assertEquals('U0123456789abcdef0123456789abcd', $parsedEvents->getDestination());
+        $this->assertEquals(46, count($parsedEvents->getEvents()));
     }
 }

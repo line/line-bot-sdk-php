@@ -26,6 +26,7 @@ use LINE\LINEBot\KitchenSink\EventHandler\BeaconEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\FollowEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\JoinEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\LeaveEventHandler;
+use LINE\LINEBot\KitchenSink\EventHandler\MemberJoinedEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\AudioMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\ImageMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\LocationMessageHandler;
@@ -33,11 +34,12 @@ use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\StickerMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\TextMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\VideoMessageHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\PostbackEventHandler;
-use LINE\LINEBot\KitchenSink\EventHandler\ThingsEventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\UnfollowEventHandler;
 use LINE\Constants\HTTPHeader;
 use LINE\Parser\Event\UnknownEvent;
 use LINE\Parser\EventRequestParser;
+use LINE\Webhook\Model\Event;
+use LINE\Webhook\Model\MemberJoinedEvent;
 use LINE\Webhook\Model\MessageEvent;
 use LINE\Parser\Exception\InvalidEventRequestException;
 use LINE\Parser\Exception\InvalidSignatureException;
@@ -52,7 +54,6 @@ use LINE\Webhook\Model\LocationMessageContent;
 use LINE\Webhook\Model\PostbackEvent;
 use LINE\Webhook\Model\StickerMessageContent;
 use LINE\Webhook\Model\TextMessageContent;
-use LINE\Webhook\Model\ThingsEvent;
 use LINE\Webhook\Model\UnfollowEvent;
 use LINE\Webhook\Model\VideoMessageContent;
 
@@ -121,14 +122,14 @@ class Route
                     $handler = new JoinEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof LeaveEvent) {
                     $handler = new LeaveEventHandler($bot, $logger, $event);
+                } elseif ($event instanceof MemberJoinedEvent) {
+                    $handler = new MemberJoinedEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof PostbackEvent) {
                     $handler = new PostbackEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof BeaconEvent) {
                     $handler = new BeaconEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof AccountLinkEvent) {
                     $handler = new AccountLinkEventHandler($bot, $logger, $event);
-                } elseif ($event instanceof ThingsEvent) {
-                    $handler = new ThingsEventHandler($bot, $logger, $event);
                 } elseif ($event instanceof UnknownEvent) {
                     $logger->info(sprintf('Unknown message type has come [type: %s]', $event->getType()));
                 } else {

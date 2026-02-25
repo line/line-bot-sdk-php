@@ -1,36 +1,38 @@
 name: Generate code and open pull request
 
 on:
-  workflow_dispatch:
   push:
     branches:
-      - master
+      - 'master'
   pull_request:
   merge_group:
+  workflow_dispatch:
 
 jobs:
   tests:
     name: Generate OpenAPI based code
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       # Setup
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           submodules: recursive
       - name: Update submodules
         run: git submodule update --remote --recursive
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         id: setup_node_id
         with:
-          node-version: 18
-      - uses: shivammathur/setup-php@v2
+          node-version: 24
+      - uses: shivammathur/setup-php@44454db4f0199b8b9685a5d763dc37cbf79108e1 # 2.36.0
         with:
           php-version: 8.2
 
       # Install openapi-generator-cli
-      - run: echo "OPENAPI_GENERATOR_VERSION=7.10.0" >> $GITHUB_ENV
-      - uses: actions/cache@v4
+      - run: echo "OPENAPI_GENERATOR_VERSION=7.11.0" >> $GITHUB_ENV
+      - uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
         id: openapi-generator-cache
         env:
           cache-name: openapi-generator-cache
@@ -51,21 +53,51 @@ jobs:
           bash tools/gen-oas-client.sh
       - name: Update document
         run: |
-          wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar
+          wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.8.1/phpDocumentor.phar
           php phpDocumentor.phar run -d src -t docs
       - run: |
-          diff=$(git --no-pager diff --name-only HEAD)
-          echo "DIFF_IS_EMPTY=$([[ -z "$diff" ]] && echo 'true' || echo 'false')" >> $GITHUB_ENV
+          diff_files=$(git --no-pager diff --name-only)
+          diff_excluding_submodule=$(echo "$diff_files" | grep -v '^line-openapi$' || true)
+
+          echo "diff files: $diff_files"
+          echo "diff excluding submodule: $diff_excluding_submodule"
+
+          echo "DIFF_IS_EMPTY=$([[ -z "$diff_excluding_submodule" ]] && echo 'true' || echo 'false')" >> $GITHUB_ENV
           echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
-      ## Run if diff exists and pull request, and make CI status failure (but allow renovate bot)
-      - if: ${{ github.event_name == 'pull_request' && env.DIFF_IS_EMPTY != 'true' && github.actor != 'renovate[bot]' }}
+
+      # Save full diff to file and upload artifact
+      - name: Save full diff to file
+        if: env.DIFF_IS_EMPTY != 'true'
+        run: |
+          git --no-pager diff HEAD > diff.patch
+          echo "Full diff saved to diff.patch"
+
+      - name: Upload diff artifact
+        if: env.DIFF_IS_EMPTY != 'true'
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: codegen-diff
+          path: diff.patch
+
+      ## Run if diff exists and pull request or merge queue, and make CI status failure (but allow renovate bot)
+      ## 29139614 is renovate bot's actor id
+      - if: >-
+          ${{
+            (github.event_name == 'pull_request' || github.event_name == 'merge_group')
+            && env.DIFF_IS_EMPTY != 'true'
+            && github.actor_id != '29139614'
+          }}
         run: |
           echo "There are changes in the generated codes. Please run 'generate-code.py' and commit the changes." >&2
           echo "The files with differences are as follows." >&2
           echo "$(git --no-pager diff --name-only HEAD)" >&2
           exit 1
-      ## Run if diff exists and event is not pull request, and make PR
-      - if: ${{ github.event_name != 'pull_request' && env.DIFF_IS_EMPTY != 'true' }}
+      ## Run if diff exists and event is push or workflow_dispatch, make PR
+      - if: >-
+          ${{
+              (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+              && env.DIFF_IS_EMPTY != 'true'
+          }}
         run: |
           # Determine Change Type via Submodule Script. This scripts read current uncommited changes.
           CHANGE_TYPE=$(npx zx ./line-openapi/tools/determine-change-type.mjs)

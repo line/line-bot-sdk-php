@@ -23,7 +23,6 @@ use LINE\Clients\MessagingApi\Api\MessagingApiBlobApi;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
 use LINE\Clients\MessagingApi\Model\VideoMessage;
 use LINE\Constants\MessageContentProviderType;
-use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
 use LINE\Webhook\Model\MessageEvent;
@@ -101,7 +100,6 @@ class VideoMessageHandler implements EventHandler
     private function replyVideoMessage(string $replyToken, string $original, string $preview)
     {
         $message = new VideoMessage([
-            'type' => MessageType::VIDEO,
             'originalContentUrl' => $original,
             'previewImageUrl' => $preview,
         ]);

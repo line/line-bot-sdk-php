@@ -21,7 +21,6 @@ namespace LINE\LINEBot\KitchenSink\EventHandler\MessageHandler;
 use LINE\Clients\MessagingApi\Api\MessagingApiApi;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
 use LINE\Clients\MessagingApi\Model\StickerMessage;
-use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\Webhook\Model\MessageEvent;
 use LINE\Webhook\Model\StickerMessageContent;
@@ -55,7 +54,6 @@ class StickerMessageHandler implements EventHandler
     {
         $replyToken = $this->event->getReplyToken();
         $message = new StickerMessage([
-            'type' => MessageType::STICKER,
             'packageId' => $this->stickerMessage->getPackageId(),
             'stickerId' => $this->stickerMessage->getStickerId(),
         ]);

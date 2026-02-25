@@ -23,12 +23,10 @@ use LINE\Clients\MessagingApi\Api\MessagingApiBlobApi;
 use LINE\Clients\MessagingApi\Model\AudioMessage;
 use LINE\Clients\MessagingApi\Model\ReplyMessageRequest;
 use LINE\Constants\MessageContentProviderType;
-use LINE\Constants\MessageType;
 use LINE\LINEBot\KitchenSink\EventHandler;
 use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
 use LINE\Webhook\Model\AudioMessageContent;
 use LINE\Webhook\Model\MessageEvent;
-use SplFileObject;
 
 class AudioMessageHandler implements EventHandler
 {
@@ -94,7 +92,6 @@ class AudioMessageHandler implements EventHandler
     private function replyAudioMessage(string $replyToken, string $url, int $duration)
     {
         $message = new AudioMessage([
-            'type' => MessageType::AUDIO,
             'originalContentUrl' => $url,
             'duration' => $duration,
         ]);
