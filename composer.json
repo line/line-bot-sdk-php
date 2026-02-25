@@ -15,7 +15,7 @@
     "docs": "https://line.github.io/line-bot-sdk-php/"
   },
   "require": {
-    "php": "^8.1",
+    "php": "^8.2",
     "guzzlehttp/guzzle": "^7.3",
     "guzzlehttp/psr7": "^1.7 || ^2.0"
   },
