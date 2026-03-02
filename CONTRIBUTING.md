@@ -68,11 +68,14 @@ We use [phpDocumentor](https://www.phpdoc.org/) to generate API documentation.
 **Please make sure your new or modified code is covered by proper PHPDoc comments.**
 Good documentation ensures that contributors and users can easily read and understand how the methods and classes work.
 
+**When to regenerate documentation:**
+Whenever you add or modify PHPDoc comments in your code, you must regenerate the documentation and commit the changes. The documentation files in the `docs/` directory are part of the repository and must be kept in sync with the code. If you don't regenerate and commit the docs, the CI check will fail.
+
 To generate documentation locally, make sure phpDocumentor is installed, then run:
 
 ```
 $ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.8.1/phpDocumentor.phar
-$ php phpDocumentor.phar run -d src -t docs
+$ composer docs
 ```
 
 ## Contributor license agreement
