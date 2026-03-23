@@ -75,7 +75,7 @@ jobs:
             ${{ runner.os }}-php-${{ matrix.php }}-
 
       - name: Install dependencies with Composer
-        uses: ramsey/composer-install@a35c6ebd3d08125aaf8852dff361e686a1a67947 # 3.2.0
+        uses: ramsey/composer-install@a8d0d959dab41457692a5e2041bd9b757a119e3f # 3.2.1
 
       - name: Check copyrights
         if: matrix.analysis
