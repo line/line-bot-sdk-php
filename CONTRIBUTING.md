@@ -55,7 +55,7 @@ You can use the [example projects](examples/) to test your changes locally befor
 Run `composer check` to check comprehensively. Following tests will run.
 
 - [PHPUnit](https://github.com/sebastianbergmann/phpunit) `composer test`
-- [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) `composer cs`
+- [PHP_CodeSniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer) `composer cs`
 - [PHPMD](https://phpmd.org/) `composer md`
 - [PHPStan](https://phpstan.org/) `composer stan`
 - Copyright check `composer copyright`
