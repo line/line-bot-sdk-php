@@ -22,6 +22,7 @@ The project structure is as follows:
 - `test`: Test code.
 - `examples`: Example projects that use the library.
 - `tools`: Development tools including code generation scripts.
+- `generator`: Helper project used to fetch the OpenAPI Generator CLI for local code generation.
 - `docs`: Auto-generated [Documentation](https://line.github.io/line-bot-sdk-php/) files by phpDocumentor.
 
 ### Edit OpenAPI templates
@@ -31,7 +32,7 @@ Thus, you cannot edit almost all code under `src/clients/` and `src/webhook/` di
 
 You need to edit the custom templates under [tools/custom-template](tools/custom-template) instead.
 
-After editing the templates, run `./tools/gen-oas-client.sh` to generate the code, and then commit all affected files.
+After editing the templates, run `python generate-code.py` to generate the code, and then commit all affected files.
 If not, CI status will fail.
 
 When you update code, be sure to check consistencies between generated code and your changes.
