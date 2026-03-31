@@ -40,27 +40,13 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
 
-      - name: Install openapi-generator-cli
-        run: echo "OPENAPI_GENERATOR_VERSION=7.11.0" >> $GITHUB_ENV
-      - uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
-        id: openapi-generator-cache
-        env:
-          cache-name: openapi-generator-cache
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
         with:
-          path: ~/bin/openapitools
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ env.OPENAPI_GENERATOR_VERSION }}
-      - if: steps.openapi-generator-cache.outputs.cache-hit != 'true'
-        run: |
-          mkdir -p ~/bin/openapitools
-          curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > ~/bin/openapitools/openapi-generator-cli
-          chmod u+x ~/bin/openapitools/openapi-generator-cli
-          export PATH=$PATH:~/bin/openapitools/
-          OPENAPI_GENERATOR_VERSION=${{ env.OPENAPI_GENERATOR_VERSION }} openapi-generator-cli version
+          distribution: 'temurin'
+          java-version: '17'
 
       - name: Generate code
-        run: |
-          export PATH=$PATH:~/bin/openapitools/
-          bash tools/gen-oas-client.sh
+        run: python generate-code.py
 
       - name: Get Composer Cache Directory
         id: composer-cache
