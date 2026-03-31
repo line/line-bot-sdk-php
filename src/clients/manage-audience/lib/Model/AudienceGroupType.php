@@ -84,6 +84,8 @@ class AudienceGroupType
 
     public const POP_AD_IMP = 'POP_AD_IMP';
 
+    public const TRACKINGTAG_WEBTRAFFIC = 'TRACKINGTAG_WEBTRAFFIC';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -103,7 +105,8 @@ class AudienceGroupType
             self::IMAGE_CLICK,
             self::RICHMENU_IMP,
             self::RICHMENU_CLICK,
-            self::POP_AD_IMP
+            self::POP_AD_IMP,
+            self::TRACKINGTAG_WEBTRAFFIC
         ];
     }
 }
