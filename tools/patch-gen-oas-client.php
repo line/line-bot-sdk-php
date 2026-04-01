@@ -42,9 +42,66 @@ function removeDiscriminatorType($filename)
     file_put_contents($filename, $content);
 }
 
+function addStatelessChannelTokenWrappers()
+{
+    $filename = __DIR__ . '/../src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php';
+    $content = file_get_contents($filename);
+    if (str_contains($content, 'issueStatelessChannelTokenByJWTAssertion')) {
+        return;
+    }
+
+    $wrappers = <<<'WRAPPERS'
+
+    /**
+     * Issue a stateless channel access token by JWT assertion.
+     *
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse
+     */
+    public function issueStatelessChannelTokenByJWTAssertion($clientAssertion, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelToken(
+            grantType: 'client_credentials',
+            clientAssertionType: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+            clientAssertion: $clientAssertion,
+            contentType: $contentType,
+        );
+    }
+
+    /**
+     * Issue a stateless channel access token by client secret.
+     *
+     * @param  string $clientId Channel ID.
+     * @param  string $clientSecret Channel secret.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse
+     */
+    public function issueStatelessChannelTokenByClientSecret($clientId, $clientSecret, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelToken(
+            grantType: 'client_credentials',
+            clientId: $clientId,
+            clientSecret: $clientSecret,
+            contentType: $contentType,
+        );
+    }
+WRAPPERS;
+
+    // Insert before the closing brace of the class
+    $content = preg_replace('/\n}\s*$/', $wrappers . "\n}\n", $content);
+    file_put_contents($filename, $content);
+}
+
 $recursive_directory_iterator = new \RecursiveDirectoryIterator(
     __DIR__ . '/../src/',
-    \FilesystemIterator::SKIP_DOTS 
+    \FilesystemIterator::SKIP_DOTS
     | \FilesystemIterator::KEY_AS_PATHNAME
     | \FilesystemIterator::CURRENT_AS_FILEINFO
 );
@@ -56,3 +113,5 @@ foreach ($iterator as $filename) {
     echo $filename;
     patchFile($filename);
 }
+
+addStatelessChannelTokenWrappers();

@@ -140,4 +140,68 @@ class ChannelAccessTokenApiTest extends TestCase
         $this->assertEquals(30, $response->getExpiresIn());
         $this->assertEquals('Bearer', $response->getTokenType());
     }
+
+    public function testIssueStatelessChannelTokenByJWTAssertion(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/oauth2/v3/token', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    $this->assertEquals('client_credentials', $params['grant_type']);
+                    $this->assertEquals('urn:ietf:params:oauth:client-assertion-type:jwt-bearer', $params['client_assertion_type']);
+                    $this->assertEquals('jwtAssertionToken', $params['client_assertion']);
+                    $this->assertArrayNotHasKey('client_id', $params);
+                    $this->assertArrayNotHasKey('client_secret', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['access_token' => 'accessToken', 'expires_in' => 30, 'token_type' => 'Bearer']),
+            ));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->issueStatelessChannelTokenByJWTAssertion(clientAssertion: "jwtAssertionToken");
+        $this->assertEquals('accessToken', $response->getAccessToken());
+        $this->assertEquals(30, $response->getExpiresIn());
+        $this->assertEquals('Bearer', $response->getTokenType());
+    }
+
+    public function testIssueStatelessChannelTokenByClientSecret(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/oauth2/v3/token', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    $this->assertEquals('client_credentials', $params['grant_type']);
+                    $this->assertEquals('1234', $params['client_id']);
+                    $this->assertEquals('clientSecret', $params['client_secret']);
+                    $this->assertArrayNotHasKey('client_assertion_type', $params);
+                    $this->assertArrayNotHasKey('client_assertion', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['access_token' => 'accessToken', 'expires_in' => 30, 'token_type' => 'Bearer']),
+            ));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->issueStatelessChannelTokenByClientSecret(clientId: "1234", clientSecret: "clientSecret");
+        $this->assertEquals('accessToken', $response->getAccessToken());
+        $this->assertEquals(30, $response->getExpiresIn());
+        $this->assertEquals('Bearer', $response->getTokenType());
+    }
 }

@@ -2558,4 +2558,44 @@ class ChannelAccessTokenApi
 
         return $options;
     }
+    /**
+     * Issue a stateless channel access token by JWT assertion.
+     *
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse
+     */
+    public function issueStatelessChannelTokenByJWTAssertion($clientAssertion, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelToken(
+            grantType: 'client_credentials',
+            clientAssertionType: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+            clientAssertion: $clientAssertion,
+            contentType: $contentType,
+        );
+    }
+
+    /**
+     * Issue a stateless channel access token by client secret.
+     *
+     * @param  string $clientId Channel ID.
+     * @param  string $clientSecret Channel secret.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\ChannelAccessToken\Model\IssueStatelessChannelAccessTokenResponse
+     */
+    public function issueStatelessChannelTokenByClientSecret($clientId, $clientSecret, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelToken(
+            grantType: 'client_credentials',
+            clientId: $clientId,
+            clientSecret: $clientSecret,
+            contentType: $contentType,
+        );
+    }
 }
