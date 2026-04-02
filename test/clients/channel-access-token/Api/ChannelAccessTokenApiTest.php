@@ -18,17 +18,101 @@
 namespace LINE\Tests\Clients\ChannelAccessToken\Api;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi;
+use LINE\Clients\ChannelAccessToken\Model\ChannelAccessTokenKeyIdsResponse;
+use LINE\Clients\ChannelAccessToken\Model\VerifyChannelAccessTokenResponse;
 use Mockery;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\UriInterface;
 
 class ChannelAccessTokenApiTest extends TestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+    }
+
+    private function assertQueryContains(array $expected, UriInterface $uri): void
+    {
+        $actual = Query::parse($uri->getQuery());
+        foreach ($expected as $key => $value) {
+            $this->assertArrayHasKey($key, $actual, "Query parameter '{$key}' is missing");
+            $this->assertSame($value, $actual[$key], "Query parameter '{$key}' has wrong value");
+        }
+    }
+
+    private function assertQueryNotContains(array $keys, UriInterface $uri): void
+    {
+        $actual = Query::parse($uri->getQuery());
+        foreach ($keys as $key) {
+            $this->assertArrayNotHasKey($key, $actual, "Query parameter '{$key}' should not be present (camelCase key used instead of snake_case)");
+        }
+    }
+
+    public function testVerifyChannelTokenByJWT(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('GET', $request->getMethod());
+                    $uri = $request->getUri();
+                    // Must use snake_case key from OpenAPI spec
+                    $this->assertQueryContains(['access_token' => 'myAccessToken'], $uri);
+                    // Must NOT use camelCase key
+                    $this->assertQueryNotContains(['accessToken'], $uri);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['client_id' => '1234', 'expires_in' => 2592000, 'scope' => 'profile']),
+            ));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->verifyChannelTokenByJWT(accessToken: 'myAccessToken');
+        $this->assertInstanceOf(VerifyChannelAccessTokenResponse::class, $response);
+        $this->assertEquals('1234', $response->getClientId());
+        $this->assertEquals(2592000, $response->getExpiresIn());
+    }
+
+    public function testGetsAllValidChannelAccessTokenKeyIds(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('GET', $request->getMethod());
+                    $uri = $request->getUri();
+                    // Must use snake_case keys from OpenAPI spec
+                    $this->assertQueryContains([
+                        'client_assertion_type' => 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+                        'client_assertion' => 'myJwt',
+                    ], $uri);
+                    // Must NOT use camelCase keys
+                    $this->assertQueryNotContains(['clientAssertionType', 'clientAssertion'], $uri);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['kids' => ['kid1', 'kid2']]),
+            ));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->getsAllValidChannelAccessTokenKeyIds(
+            clientAssertionType: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+            clientAssertion: 'myJwt',
+        );
+        $this->assertInstanceOf(ChannelAccessTokenKeyIdsResponse::class, $response);
+        $this->assertEquals(['kid1', 'kid2'], $response->getKids());
     }
 
     public function testIssueStatelessChannelToken(): void
