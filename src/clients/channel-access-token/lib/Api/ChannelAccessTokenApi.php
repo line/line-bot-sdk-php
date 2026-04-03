@@ -1325,6 +1325,8 @@ class ChannelAccessTokenApi
     /**
      * Operation issueStatelessChannelTokenAsync
      *
+     * @deprecated Use {@see \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::issueStatelessChannelTokenByJWTAssertionAsync()} or {@see \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::issueStatelessChannelTokenByClientSecretAsync()} instead.
+     *
      * @param  string|null $grantType &#x60;client_credentials&#x60; (optional)
      * @param  string|null $clientAssertionType URL-encoded value of &#x60;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&#x60; (optional)
      * @param  string|null $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
@@ -1347,6 +1349,8 @@ class ChannelAccessTokenApi
 
     /**
      * Operation issueStatelessChannelTokenAsyncWithHttpInfo
+     *
+     * @deprecated Use {@see \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::issueStatelessChannelTokenByJWTAssertionAsyncWithHttpInfo()} or {@see \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::issueStatelessChannelTokenByClientSecretAsyncWithHttpInfo()} instead.
      *
      * @param  string|null $grantType &#x60;client_credentials&#x60; (optional)
      * @param  string|null $clientAssertionType URL-encoded value of &#x60;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&#x60; (optional)
@@ -2637,6 +2641,84 @@ class ChannelAccessTokenApi
     public function issueStatelessChannelTokenByClientSecretWithHttpInfo($clientId, $clientSecret, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
     {
         return $this->issueStatelessChannelTokenWithHttpInfo(
+            grantType: 'client_credentials',
+            clientId: $clientId,
+            clientSecret: $clientSecret,
+            contentType: $contentType,
+        );
+    }
+
+    /**
+     * Issue a stateless channel access token by JWT assertion (async).
+     *
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenByJWTAssertionAsync($clientAssertion, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelTokenAsync(
+            grantType: 'client_credentials',
+            clientAssertionType: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+            clientAssertion: $clientAssertion,
+            contentType: $contentType,
+        );
+    }
+
+    /**
+     * Issue a stateless channel access token by client secret (async).
+     *
+     * @param  string $clientId Channel ID.
+     * @param  string $clientSecret Channel secret.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenByClientSecretAsync($clientId, $clientSecret, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelTokenAsync(
+            grantType: 'client_credentials',
+            clientId: $clientId,
+            clientSecret: $clientSecret,
+            contentType: $contentType,
+        );
+    }
+
+    /**
+     * Issue a stateless channel access token by JWT assertion (async, with HTTP info).
+     *
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenByJWTAssertionAsyncWithHttpInfo($clientAssertion, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelTokenAsyncWithHttpInfo(
+            grantType: 'client_credentials',
+            clientAssertionType: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+            clientAssertion: $clientAssertion,
+            contentType: $contentType,
+        );
+    }
+
+    /**
+     * Issue a stateless channel access token by client secret (async, with HTTP info).
+     *
+     * @param  string $clientId Channel ID.
+     * @param  string $clientSecret Channel secret.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenByClientSecretAsyncWithHttpInfo($clientId, $clientSecret, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelTokenAsyncWithHttpInfo(
             grantType: 'client_credentials',
             clientId: $clientId,
             clientSecret: $clientSecret,

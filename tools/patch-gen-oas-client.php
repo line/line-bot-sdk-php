@@ -133,6 +133,84 @@ function addStatelessChannelTokenWrappers()
             contentType: $contentType,
         );
     }
+
+    /**
+     * Issue a stateless channel access token by JWT assertion (async).
+     *
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenByJWTAssertionAsync($clientAssertion, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelTokenAsync(
+            grantType: 'client_credentials',
+            clientAssertionType: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+            clientAssertion: $clientAssertion,
+            contentType: $contentType,
+        );
+    }
+
+    /**
+     * Issue a stateless channel access token by client secret (async).
+     *
+     * @param  string $clientId Channel ID.
+     * @param  string $clientSecret Channel secret.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenByClientSecretAsync($clientId, $clientSecret, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelTokenAsync(
+            grantType: 'client_credentials',
+            clientId: $clientId,
+            clientSecret: $clientSecret,
+            contentType: $contentType,
+        );
+    }
+
+    /**
+     * Issue a stateless channel access token by JWT assertion (async, with HTTP info).
+     *
+     * @param  string $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenByJWTAssertionAsyncWithHttpInfo($clientAssertion, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelTokenAsyncWithHttpInfo(
+            grantType: 'client_credentials',
+            clientAssertionType: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+            clientAssertion: $clientAssertion,
+            contentType: $contentType,
+        );
+    }
+
+    /**
+     * Issue a stateless channel access token by client secret (async, with HTTP info).
+     *
+     * @param  string $clientId Channel ID.
+     * @param  string $clientSecret Channel secret.
+     * @param  string $contentType The value for the Content-Type header.
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function issueStatelessChannelTokenByClientSecretAsyncWithHttpInfo($clientId, $clientSecret, string $contentType = self::contentTypes['issueStatelessChannelToken'][0])
+    {
+        return $this->issueStatelessChannelTokenAsyncWithHttpInfo(
+            grantType: 'client_credentials',
+            clientId: $clientId,
+            clientSecret: $clientSecret,
+            contentType: $contentType,
+        );
+    }
 WRAPPERS;
 
     // Insert before the closing brace of the class
@@ -162,6 +240,24 @@ function deprecateStatelessChannelToken()
         "     * Operation issueStatelessChannelTokenWithHttpInfo\n"
         . "     *\n"
         . "     * @deprecated Use {@see ${fqcn}::issueStatelessChannelTokenByJWTAssertionWithHttpInfo()} or {@see ${fqcn}::issueStatelessChannelTokenByClientSecretWithHttpInfo()} instead.\n",
+        $content
+    );
+
+    // Deprecate issueStatelessChannelTokenAsync
+    $content = str_replace(
+        "     * Operation issueStatelessChannelTokenAsync\n",
+        "     * Operation issueStatelessChannelTokenAsync\n"
+        . "     *\n"
+        . "     * @deprecated Use {@see ${fqcn}::issueStatelessChannelTokenByJWTAssertionAsync()} or {@see ${fqcn}::issueStatelessChannelTokenByClientSecretAsync()} instead.\n",
+        $content
+    );
+
+    // Deprecate issueStatelessChannelTokenAsyncWithHttpInfo
+    $content = str_replace(
+        "     * Operation issueStatelessChannelTokenAsyncWithHttpInfo\n",
+        "     * Operation issueStatelessChannelTokenAsyncWithHttpInfo\n"
+        . "     *\n"
+        . "     * @deprecated Use {@see ${fqcn}::issueStatelessChannelTokenByJWTAssertionAsyncWithHttpInfo()} or {@see ${fqcn}::issueStatelessChannelTokenByClientSecretAsyncWithHttpInfo()} instead.\n",
         $content
     );
 
