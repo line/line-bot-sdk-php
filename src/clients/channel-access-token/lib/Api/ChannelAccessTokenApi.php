@@ -1174,6 +1174,8 @@ class ChannelAccessTokenApi
     /**
      * Operation issueStatelessChannelToken
      *
+     * @deprecated Use {@see \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::issueStatelessChannelTokenByJWTAssertion()} or {@see \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::issueStatelessChannelTokenByClientSecret()} instead.
+     *
      * @param  string|null $grantType &#x60;client_credentials&#x60; (optional)
      * @param  string|null $clientAssertionType URL-encoded value of &#x60;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&#x60; (optional)
      * @param  string|null $clientAssertion A JSON Web Token the client needs to create and sign with the private key of the Assertion Signing Key. (optional)
@@ -1193,6 +1195,8 @@ class ChannelAccessTokenApi
 
     /**
      * Operation issueStatelessChannelTokenWithHttpInfo
+     *
+     * @deprecated Use {@see \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::issueStatelessChannelTokenByJWTAssertionWithHttpInfo()} or {@see \LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi::issueStatelessChannelTokenByClientSecretWithHttpInfo()} instead.
      *
      * @param  string|null $grantType &#x60;client_credentials&#x60; (optional)
      * @param  string|null $clientAssertionType URL-encoded value of &#x60;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&#x60; (optional)

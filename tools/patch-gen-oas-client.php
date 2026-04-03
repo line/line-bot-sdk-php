@@ -140,6 +140,34 @@ WRAPPERS;
     file_put_contents($filename, $content);
 }
 
+function deprecateStatelessChannelToken()
+{
+    $filename = __DIR__ . '/../src/clients/channel-access-token/lib/Api/ChannelAccessTokenApi.php';
+    $content = file_get_contents($filename);
+
+    $fqcn = '\\LINE\\Clients\\ChannelAccessToken\\Api\\ChannelAccessTokenApi';
+
+    // Deprecate issueStatelessChannelToken
+    $content = str_replace(
+        "     * Operation issueStatelessChannelToken\n",
+        "     * Operation issueStatelessChannelToken\n"
+        . "     *\n"
+        . "     * @deprecated Use {@see ${fqcn}::issueStatelessChannelTokenByJWTAssertion()} or {@see ${fqcn}::issueStatelessChannelTokenByClientSecret()} instead.\n",
+        $content
+    );
+
+    // Deprecate issueStatelessChannelTokenWithHttpInfo
+    $content = str_replace(
+        "     * Operation issueStatelessChannelTokenWithHttpInfo\n",
+        "     * Operation issueStatelessChannelTokenWithHttpInfo\n"
+        . "     *\n"
+        . "     * @deprecated Use {@see ${fqcn}::issueStatelessChannelTokenByJWTAssertionWithHttpInfo()} or {@see ${fqcn}::issueStatelessChannelTokenByClientSecretWithHttpInfo()} instead.\n",
+        $content
+    );
+
+    file_put_contents($filename, $content);
+}
+
 $recursive_directory_iterator = new \RecursiveDirectoryIterator(
     __DIR__ . '/../src/',
     \FilesystemIterator::SKIP_DOTS
@@ -156,3 +184,4 @@ foreach ($iterator as $filename) {
 }
 
 addStatelessChannelTokenWrappers();
+deprecateStatelessChannelToken();
