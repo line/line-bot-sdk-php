@@ -68,9 +68,17 @@ We use [phpDocumentor](https://www.phpdoc.org/) to generate API documentation.
 **Please make sure your new or modified code is covered by proper PHPDoc comments.**
 Good documentation ensures that contributors and users can easily read and understand how the methods and classes work.
 
-To generate documentation locally, make sure phpDocumentor is installed, then run:
+**Important:** You **must** regenerate and commit the documentation after modifying code in `src/` or merging from `master`. The CI will fail if documentation is out of sync.
 
+To generate documentation locally, run:
+
+```bash
+$ composer docs
 ```
+
+Or manually:
+
+```bash
 $ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.8.1/phpDocumentor.phar
 $ php phpDocumentor.phar run -d src -t docs
 ```
