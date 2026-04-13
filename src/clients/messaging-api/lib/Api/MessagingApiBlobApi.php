@@ -1593,7 +1593,7 @@ class MessagingApiBlobApi
      * URL: https://api-data.line.me
      *
      * @param  string $richMenuId The ID of the rich menu to attach the image to (required)
-     * @param  \SplFileObject|null $body body (optional)
+     * @param  \SplFileObject $body body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setRichMenuImage'] to see the possible values for this operation
@@ -1602,7 +1602,7 @@ class MessagingApiBlobApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function setRichMenuImage($richMenuId, $body = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
+    public function setRichMenuImage($richMenuId, $body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
     {
         $this->setRichMenuImageWithHttpInfo($richMenuId, $body, $hostIndex, $variables, $contentType);
     }
@@ -1615,7 +1615,7 @@ class MessagingApiBlobApi
      * URL: https://api-data.line.me
      *
      * @param  string $richMenuId The ID of the rich menu to attach the image to (required)
-     * @param  \SplFileObject|null $body (optional)
+     * @param  \SplFileObject $body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setRichMenuImage'] to see the possible values for this operation
@@ -1624,7 +1624,7 @@ class MessagingApiBlobApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setRichMenuImageWithHttpInfo($richMenuId, $body = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
+    public function setRichMenuImageWithHttpInfo($richMenuId, $body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
     {
         $request = $this->setRichMenuImageRequest($richMenuId, $body, $hostIndex, $variables, $contentType);
 
@@ -1668,7 +1668,7 @@ class MessagingApiBlobApi
      * URL: https://api-data.line.me
      *
      * @param  string $richMenuId The ID of the rich menu to attach the image to (required)
-     * @param  \SplFileObject|null $body (optional)
+     * @param  \SplFileObject $body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setRichMenuImage'] to see the possible values for this operation
@@ -1676,7 +1676,7 @@ class MessagingApiBlobApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setRichMenuImageAsync($richMenuId, $body = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
+    public function setRichMenuImageAsync($richMenuId, $body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
     {
         return $this->setRichMenuImageAsyncWithHttpInfo($richMenuId, $body, $hostIndex, $variables, $contentType)
             ->then(
@@ -1694,7 +1694,7 @@ class MessagingApiBlobApi
      * URL: https://api-data.line.me
      *
      * @param  string $richMenuId The ID of the rich menu to attach the image to (required)
-     * @param  \SplFileObject|null $body (optional)
+     * @param  \SplFileObject $body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setRichMenuImage'] to see the possible values for this operation
@@ -1702,7 +1702,7 @@ class MessagingApiBlobApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setRichMenuImageAsyncWithHttpInfo($richMenuId, $body = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
+    public function setRichMenuImageAsyncWithHttpInfo($richMenuId, $body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
     {
         $returnType = '';
         $request = $this->setRichMenuImageRequest($richMenuId, $body, $hostIndex, $variables, $contentType);
@@ -1738,7 +1738,7 @@ class MessagingApiBlobApi
      * URL: https://api-data.line.me
      *
      * @param  string $richMenuId The ID of the rich menu to attach the image to (required)
-     * @param  \SplFileObject|null $body (optional)
+     * @param  \SplFileObject $body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setRichMenuImage'] to see the possible values for this operation
@@ -1746,7 +1746,7 @@ class MessagingApiBlobApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function setRichMenuImageRequest($richMenuId, $body = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
+    public function setRichMenuImageRequest($richMenuId, $body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['setRichMenuImage'][0])
     {
 
         // verify the required parameter 'richMenuId' is set
@@ -1756,6 +1756,12 @@ class MessagingApiBlobApi
             );
         }
 
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling setRichMenuImage'
+            );
+        }
 
 
         $resourcePath = '/v2/bot/richmenu/{richMenuId}/content';
