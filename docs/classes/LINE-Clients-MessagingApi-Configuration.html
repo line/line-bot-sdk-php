@@ -160,7 +160,7 @@
     </aside>
 
             <p class="phpdocumentor-summary">Configuration Class Doc Comment
-PHP version 7.4</p>
+PHP version 8.1</p>
 
 
 
@@ -270,6 +270,13 @@ PHP version 7.4</p>
 <dd>Boolean format for query string</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#property_certFile">$certFile</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>Path to a certificate file, for mTLS</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#property_debug">$debug</a>
     <span>
                         &nbsp;: bool            </span>
@@ -289,6 +296,13 @@ PHP version 7.4</p>
                         &nbsp;: string            </span>
 </dt>
 <dd>The host</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#property_keyFile">$keyFile</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>Path to a key file, for mTLS</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#property_password">$password</a>
@@ -375,6 +389,13 @@ PHP version 7.4</p>
 <dd>Gets boolean format for query string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getCertFile">getCertFile()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Gets the certificate file path, for mTLS</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getDebug">getDebug()</a>
     <span>
                                 &nbsp;: bool    </span>
@@ -422,6 +443,13 @@ PHP version 7.4</p>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns URL based on host settings, index and variables</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getKeyFile">getKeyFile()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Gets the certificate key path, for mTLS</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getPassword">getPassword()</a>
@@ -480,6 +508,13 @@ PHP version 7.4</p>
 <dd>Sets boolean format for query string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setCertFile">setCertFile()</a>
+    <span>
+                                &nbsp;: $this    </span>
+</dt>
+<dd>Sets the certificate file path, for mTLS</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setDebug">setDebug()</a>
     <span>
                                 &nbsp;: $this    </span>
@@ -506,6 +541,13 @@ PHP version 7.4</p>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the host</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setKeyFile">setKeyFile()</a>
+    <span>
+                                &nbsp;: $this    </span>
+</dt>
+<dd>Sets the certificate key path, for mTLS</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setPassword">setPassword()</a>
@@ -787,6 +829,45 @@ PHP version 7.4</p>
             -protected
                                                                     "
 >
+    <h4 class="phpdocumentor-element__name" id="property_certFile">
+        $certFile
+        <a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_certFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">146</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Path to a certificate file, for mTLS</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$certFile</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
     <h4 class="phpdocumentor-element__name" id="property_debug">
         $debug
         <a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_debug" class="headerlink"><i class="fas fa-link"></i></a>
@@ -887,6 +968,45 @@ PHP version 7.4</p>
             <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$host</span>
      = <span class="phpdocumentor-signature__default-value">&#039;https://api.line.me&#039;</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_keyFile">
+        $keyFile
+        <a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_keyFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">153</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Path to a key file, for mTLS</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$keyFile</span>
+    </code>
 
     
     
@@ -1113,7 +1233,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 
     </aside>
 
@@ -1148,7 +1268,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">219</span>
+    <span class="phpdocumentor-element-found-in__line">233</span>
 
     </aside>
 
@@ -1191,7 +1311,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">184</span>
 
     </aside>
 
@@ -1246,7 +1366,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">196</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 
     </aside>
 
@@ -1297,7 +1417,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">463</span>
+    <span class="phpdocumentor-element-found-in__line">520</span>
 
     </aside>
 
@@ -1352,7 +1472,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">243</span>
+    <span class="phpdocumentor-element-found-in__line">257</span>
 
     </aside>
 
@@ -1387,6 +1507,49 @@ PHP version 7.4</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getCertFile">
+        getCertFile()
+        <a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getCertFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">444</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the certificate file path, for mTLS</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getCertFile</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Certificate file path</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getDebug">
         getDebug()
         <a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getDebug" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1395,7 +1558,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">363</span>
+    <span class="phpdocumentor-element-found-in__line">377</span>
 
     </aside>
 
@@ -1434,7 +1597,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">386</span>
+    <span class="phpdocumentor-element-found-in__line">400</span>
 
     </aside>
 
@@ -1473,7 +1636,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">419</span>
+    <span class="phpdocumentor-element-found-in__line">476</span>
 
     </aside>
 
@@ -1512,7 +1675,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">312</span>
+    <span class="phpdocumentor-element-found-in__line">326</span>
 
     </aside>
 
@@ -1555,7 +1718,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">542</span>
+    <span class="phpdocumentor-element-found-in__line">599</span>
 
     </aside>
 
@@ -1619,7 +1782,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">486</span>
+    <span class="phpdocumentor-element-found-in__line">543</span>
 
     </aside>
 
@@ -1662,7 +1825,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">504</span>
+    <span class="phpdocumentor-element-found-in__line">561</span>
 
     </aside>
 
@@ -1727,6 +1890,49 @@ PHP version 7.4</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getKeyFile">
+        getKeyFile()
+        <a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getKeyFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">465</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the certificate key path, for mTLS</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getKeyFile</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Certificate key path</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getPassword">
         getPassword()
         <a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getPassword" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1735,7 +1941,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">289</span>
+    <span class="phpdocumentor-element-found-in__line">303</span>
 
     </aside>
 
@@ -1778,7 +1984,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">409</span>
+    <span class="phpdocumentor-element-found-in__line">423</span>
 
     </aside>
 
@@ -1821,7 +2027,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">340</span>
+    <span class="phpdocumentor-element-found-in__line">354</span>
 
     </aside>
 
@@ -1864,7 +2070,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">266</span>
+    <span class="phpdocumentor-element-found-in__line">280</span>
 
     </aside>
 
@@ -1907,7 +2113,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">222</span>
 
     </aside>
 
@@ -1958,7 +2164,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">157</span>
+    <span class="phpdocumentor-element-found-in__line">171</span>
 
     </aside>
 
@@ -2018,7 +2224,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">183</span>
+    <span class="phpdocumentor-element-found-in__line">197</span>
 
     </aside>
 
@@ -2078,7 +2284,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">231</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 
     </aside>
 
@@ -2121,6 +2327,55 @@ PHP version 7.4</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_setCertFile">
+        setCertFile()
+        <a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setCertFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">433</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Sets the certificate file path, for mTLS</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setCertFile</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$certFile</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$certFile</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_setDebug">
         setDebug()
         <a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setDebug" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2129,7 +2384,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">352</span>
+    <span class="phpdocumentor-element-found-in__line">366</span>
 
     </aside>
 
@@ -2180,7 +2435,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">375</span>
+    <span class="phpdocumentor-element-found-in__line">389</span>
 
     </aside>
 
@@ -2231,7 +2486,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">435</span>
+    <span class="phpdocumentor-element-found-in__line">492</span>
 
     </aside>
 
@@ -2278,7 +2533,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">301</span>
+    <span class="phpdocumentor-element-found-in__line">315</span>
 
     </aside>
 
@@ -2321,6 +2576,55 @@ PHP version 7.4</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_setKeyFile">
+        setKeyFile()
+        <a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setKeyFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">454</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Sets the certificate key path, for mTLS</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setKeyFile</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$keyFile</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$keyFile</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_setPassword">
         setPassword()
         <a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setPassword" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2329,7 +2633,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">278</span>
+    <span class="phpdocumentor-element-found-in__line">292</span>
 
     </aside>
 
@@ -2380,7 +2684,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">398</span>
+    <span class="phpdocumentor-element-found-in__line">412</span>
 
     </aside>
 
@@ -2431,7 +2735,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">325</span>
+    <span class="phpdocumentor-element-found-in__line">339</span>
 
     </aside>
 
@@ -2497,7 +2801,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">255</span>
+    <span class="phpdocumentor-element-found-in__line">269</span>
 
     </aside>
 
@@ -2548,7 +2852,7 @@ PHP version 7.4</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/clients/messaging-api/lib/Configuration.php"><a href="files/src-clients-messaging-api-lib-configuration.html"><abbr title="src/clients/messaging-api/lib/Configuration.php">Configuration.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">445</span>
+    <span class="phpdocumentor-element-found-in__line">502</span>
 
     </aside>
 
@@ -2704,9 +3008,11 @@ PHP version 7.4</p>
                                                     <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_apiKeyPrefixes">$apiKeyPrefixes</a></li>
                                                     <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_apiKeys">$apiKeys</a></li>
                                                     <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_booleanFormatForQueryString">$booleanFormatForQueryString</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_certFile">$certFile</a></li>
                                                     <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_debug">$debug</a></li>
                                                     <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_debugFile">$debugFile</a></li>
                                                     <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_host">$host</a></li>
+                                                    <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_keyFile">$keyFile</a></li>
                                                     <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_password">$password</a></li>
                                                     <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_tempFolderPath">$tempFolderPath</a></li>
                                                     <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#property_userAgent">$userAgent</a></li>
@@ -2724,6 +3030,7 @@ PHP version 7.4</p>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getApiKeyPrefix">getApiKeyPrefix()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getApiKeyWithPrefix">getApiKeyWithPrefix()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getBooleanFormatForQueryString">getBooleanFormatForQueryString()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getCertFile">getCertFile()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getDebug">getDebug()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getDebugFile">getDebugFile()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getDefaultConfiguration">getDefaultConfiguration()</a></li>
@@ -2731,6 +3038,7 @@ PHP version 7.4</p>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getHostFromSettings">getHostFromSettings()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getHostSettings">getHostSettings()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getHostString">getHostString()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getKeyFile">getKeyFile()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getPassword">getPassword()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getTempFolderPath">getTempFolderPath()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_getUserAgent">getUserAgent()</a></li>
@@ -2739,10 +3047,12 @@ PHP version 7.4</p>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setApiKey">setApiKey()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setApiKeyPrefix">setApiKeyPrefix()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setBooleanFormatForQueryString">setBooleanFormatForQueryString()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setCertFile">setCertFile()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setDebug">setDebug()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setDebugFile">setDebugFile()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setDefaultConfiguration">setDefaultConfiguration()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setHost">setHost()</a></li>
+                                            <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setKeyFile">setKeyFile()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setPassword">setPassword()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setTempFolderPath">setTempFolderPath()</a></li>
                                             <li class=""><a href="classes/LINE-Clients-MessagingApi-Configuration.html#method_setUserAgent">setUserAgent()</a></li>
