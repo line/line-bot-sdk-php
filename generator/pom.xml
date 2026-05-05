@@ -38,6 +38,6 @@
     </build>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <openapi-generator-version>7.11.0</openapi-generator-version>
+        <openapi-generator-version>7.22.0</openapi-generator-version>
     </properties>
 </project>
