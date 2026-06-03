@@ -195,6 +195,24 @@ class InsightApiTest extends TestCase
         $this->assertInstanceOf(GetStatisticsPerUnitResponse::class, $response);
     }
 
+    public function testThrowsApiExceptionOnMalformedJsonResponse(): void
+    {
+        // The 7.22.0 regeneration extracts response handling into
+        // handleResponseWithDataType(); this pins the invariant that a 2xx
+        // response with an undecodable body still surfaces as an ApiException.
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: 'this is not valid json {',
+            ));
+        $api = new InsightApi($client);
+        $this->expectException(\LINE\Clients\Insight\ApiException::class);
+        $api->getNumberOfFollowers(date: '20260601');
+    }
+
     public function testGetStatisticsPerUnitRejectsInvalidUnit(): void
     {
         $client = Mockery::mock(ClientInterface::class);

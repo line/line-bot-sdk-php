@@ -164,6 +164,23 @@ class ManageAudienceApiTest extends TestCase
         $api->updateAudienceGroupDescription(12345, $request);
     }
 
+    public function testThrowsApiExceptionOnMalformedJsonResponse(): void
+    {
+        // Pins the response-handling invariant that the 7.22.0 regeneration
+        // refactors into handleResponseWithDataType().
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: 'this is not valid json {',
+            ));
+        $api = new ManageAudienceApi($client);
+        $this->expectException(\LINE\Clients\ManageAudience\ApiException::class);
+        $api->getAudienceGroups(page: 1);
+    }
+
     protected function tearDown(): void
     {
         Mockery::close();

@@ -151,6 +151,23 @@ class LiffApiTest extends TestCase
         $api->deleteLIFFApp('1234567890-AbcdEfgh');
     }
 
+    public function testThrowsApiExceptionOnMalformedJsonResponse(): void
+    {
+        // Pins the response-handling invariant that the 7.22.0 regeneration
+        // refactors into handleResponseWithDataType().
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: 'this is not valid json {',
+            ));
+        $api = new LiffApi($client);
+        $this->expectException(\LINE\Clients\Liff\ApiException::class);
+        $api->getAllLIFFApps();
+    }
+
     protected function tearDown(): void
     {
         Mockery::close();
