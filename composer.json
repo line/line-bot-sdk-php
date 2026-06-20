@@ -51,6 +51,7 @@
     "cs": "phpcs",
     "md": "phpmd --ignore-violations-on-exit src/constants,src/laravel,src/parser,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
     "stan": "phpstan analyse",
+    "lint": "find src/clients examples -name '*.php' -print0 | xargs -0 -n1 php -l",
     "copyright": "tools/check_copyright.sh",
     "docs": "bash -c '[ -f phpDocumentor.phar ] || curl -L -o phpDocumentor.phar https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.8.1/phpDocumentor.phar; php phpDocumentor.phar run -d src -t docs'",
     "check": [
@@ -58,7 +59,8 @@
       "@cs",
       "@md",
       "@stan",
-      "@copyright"
+      "@copyright",
+      "@lint"
     ]
   },
   "extra": {

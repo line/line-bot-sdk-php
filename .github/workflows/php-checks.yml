@@ -48,40 +48,12 @@ jobs:
       - name: Generate code
         run: python generate-code.py
 
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: |
-          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-php-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-${{ matrix.php }}-
-
       - name: Install dependencies with Composer
         uses: ramsey/composer-install@65e4f84970763564f46a70b8a54b90d033b3bdda # 4.0.0
 
-      - name: Check copyrights
+      - name: Run all checks
         if: matrix.analysis
-        run: composer copyright
-
-      - name: Check code style with PHP_CodeSniffer
-        if: matrix.analysis
-        run: composer cs
-
-      - name: Check with PHP Mess Detector 
-        if: matrix.analysis
-        run: composer md
-
-      - name: Check with PHPStan
-        if: matrix.analysis
-        run: composer stan
-
-      - name: Run unit tests
-        if: matrix.analysis
-        run: composer test
+        run: composer check
 
   pinact:
     runs-on: ubuntu-latest
