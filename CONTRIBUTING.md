@@ -21,8 +21,8 @@ The project structure is as follows:
 - `src`: The main library code.
 - `test`: Test code.
 - `examples`: Example projects that use the library.
-- `tools`: Development tools including code generation scripts.
-- `generator`: Helper project used to fetch the OpenAPI Generator CLI for local code generation.
+- `tools`: Development tools including copyright checking scripts.
+- `generator`: Custom OpenAPI Generator codegen with Pebble templates for code generation.
 - `docs`: Auto-generated [Documentation](https://line.github.io/line-bot-sdk-php/) files by phpDocumentor.
 
 ### Edit OpenAPI templates
@@ -30,7 +30,7 @@ The project structure is as follows:
 Almost all code is generated with OpenAPI Generator based on [line-openapi](https://github.com/line/line-openapi)'s YAML files.
 Thus, you cannot edit almost all code under `src/clients/` and `src/webhook/` directly.
 
-You need to edit the custom templates under [tools/custom-template](tools/custom-template) instead.
+You need to edit the Pebble templates under [generator/src/main/resources/line-bot-sdk-php-generator](generator/src/main/resources/line-bot-sdk-php-generator) instead.
 
 After editing the templates, run `python generate-code.py` to generate the code, and then commit all affected files.
 If not, CI status will fail.

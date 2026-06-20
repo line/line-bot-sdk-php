@@ -1,0 +1,22 @@
+class {{ m.classname }}
+{
+    /**
+     * Possible values of this enum
+     */
+{% if m.allowableValues is not null %}{% for enumVar in m.allowableValues.get('enumVars') %}{% if enumVar.enumDescription %}    /**
+     * {{ enumVar.enumDescription }}
+     */
+{% endif %}    public const {{ enumVar.name }} = {{ enumVar.value }};
+
+{% endfor %}{% endif %}    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public static function getAllowableEnumValues()
+    {
+        return [
+{% if m.allowableValues is not null %}{% for enumVar in m.allowableValues.get('enumVars') %}            self::{{ enumVar.name }}{% if not loop.last %},{% endif %}
+{% endfor %}{% endif %}        ];
+    }
+}
+

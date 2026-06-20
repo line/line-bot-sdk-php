@@ -1,0 +1,635 @@
+class {{ m.classname }} {% if m.parentSchema %}extends {{ m.parent }}{% else %}implements ModelInterface, ArrayAccess, \JsonSerializable{% endif %}
+{
+    public const DISCRIMINATOR = {% if m.discriminator is not null %}'{{ m.discriminator.propertyName }}'{% else %}null{% endif %};
+
+    /**
+      * The original name of the model.
+      *
+      * @var string
+      */
+    protected static $openAPIModelName = '{{ m.name }}';
+
+    /**
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
+    protected static $openAPITypes = [
+{%- for v in m.vars %}
+        '{{ v.name }}' => '{{ v.dataType }}'{% if not loop.last %},{% endif %}
+{%- endfor %}{% if m.vars is empty %}
+        {% endif %}
+    ];
+
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
+    protected static $openAPIFormats = [
+{%- for v in m.vars %}
+        '{{ v.name }}' => {% if v.dataFormat %}'{{ v.dataFormat }}'{% else %}null{% endif %}{% if not loop.last %},{% endif %}
+{%- endfor %}{% if m.vars is empty %}
+        {% endif %}
+    ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+{%- for v in m.vars %}
+        '{{ v.name }}' => {% if v.isNullable %}true{% else %}false{% endif %}{% if not loop.last %},{% endif %}
+{%- endfor %}{% if m.vars is empty %}
+        {% endif %}
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
+
+    /**
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
+     */
+    public static function openAPITypes()
+    {
+        return self::$openAPITypes{% if m.parentSchema %} + parent::openAPITypes(){% endif %};
+    }
+
+    /**
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
+     */
+    public static function openAPIFormats()
+    {
+        return self::$openAPIFormats{% if m.parentSchema %} + parent::openAPIFormats(){% endif %};
+    }
+
+    /**
+     * Array of nullable properties
+     *
+     * @return array
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables{% if m.parentSchema %} + parent::openAPINullables(){% endif %};
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @var string[]
+     */
+    protected static $attributeMap = [
+{%- for v in m.vars %}
+        '{{ v.name }}' => '{{ v.baseName }}'{% if not loop.last %},{% endif %}
+{%- endfor %}{% if m.vars is empty %}
+        {% endif %}
+    ];
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @var string[]
+     */
+    protected static $setters = [
+{%- for v in m.vars %}
+        '{{ v.name }}' => '{{ v.setter }}'{% if not loop.last %},{% endif %}
+{%- endfor %}{% if m.vars is empty %}
+        {% endif %}
+    ];
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @var string[]
+     */
+    protected static $getters = [
+{%- for v in m.vars %}
+        '{{ v.name }}' => '{{ v.getter }}'{% if not loop.last %},{% endif %}
+{%- endfor %}{% if m.vars is empty %}
+        {% endif %}
+    ];
+
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
+    public static function attributeMap()
+    {
+        return {% if m.parentSchema %}parent::attributeMap() + {% endif %}self::$attributeMap;
+    }
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
+    public static function setters()
+    {
+        return {% if m.parentSchema %}parent::setters() + {% endif %}self::$setters;
+    }
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
+    public static function getters()
+    {
+        return {% if m.parentSchema %}parent::getters() + {% endif %}self::$getters;
+    }
+
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$openAPIModelName;
+    }
+{% if m.vendorExtensions.get('x-line-has-inline-enum-vars') %}
+{% endif %}{% for v in m.vars %}{% if v.isEnum %}{% if v.allowableValues is not null %}{% for enumVar in v.allowableValues.get('enumVars') %}    public const {{ v.enumName }}_{{ enumVar.name }} = {{ enumVar.value }};
+{% endfor %}{% endif %}{% endif %}{% endfor %}
+{% for v in m.vars %}{% if v.isEnum %}    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function {{ v.getter }}AllowableValues()
+    {
+        return [
+            {% if v.allowableValues is not null %}{% for enumVar in v.allowableValues.get('enumVars') %}self::{{ v.enumName }}_{{ enumVar.name }},{% if not loop.last %}
+            {% endif %}{% endfor %}{% endif %}
+        ];
+    }
+
+{% endif %}{% endfor %}{% if not m.vendorExtensions.get('x-line-has-inline-enum-vars') %}
+{% endif %}
+{%- if not m.parentSchema %}    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
+{% endif %}
+    /**
+     * Constructor
+     *
+     * @param mixed[]|null $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(?array $data = null)
+    {
+{%- if m.parentSchema %}
+        parent::__construct($data);
+{% endif %}
+{%- for v in m.vars %}
+        $this->setIfExists('{{ v.name }}', $data ?? [], {% if v.defaultValue %}{{ v.defaultValue }}{% else %}null{% endif %});
+{%- endfor %}
+{%- if m.discriminator is null %}
+{%- if m.parentSchema %}
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
+{%- endif %}
+{%- endif %}
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    }
+
+    /**
+     * Show all the invalid properties with reasons.
+     *
+     * @return array invalid properties with reasons
+     */
+    public function listInvalidProperties()
+    {
+{%- if m.parentSchema %}
+        $invalidProperties = parent::listInvalidProperties();
+{%- else %}
+        $invalidProperties = [];
+{%- endif %}
+{% for v in m.vars %}
+{%- if v.required %}
+        if ($this->container['{{ v.name }}'] === null) {
+            $invalidProperties[] = "'{{ v.name }}' can't be null";
+        }
+{%- endif %}
+{%- if v.isEnum and not v.isContainer %}
+        $allowedValues = $this->{{ v.getter }}AllowableValues();
+        if (!is_null($this->container['{{ v.name }}']) && !in_array($this->container['{{ v.name }}'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for '{{ v.name }}', must be one of '%s'",
+                $this->container['{{ v.name }}'],
+                implode("', '", $allowedValues)
+            );
+        }
+{% endif -%}
+{%- if v.hasValidation %}
+{%- if v.maxLength is not null %}
+        if ({% if not v.required %}!is_null($this->container['{{ v.name }}']) && {% endif %}(mb_strlen($this->container['{{ v.name }}']) > {{ v.maxLength }})) {
+            $invalidProperties[] = "invalid value for '{{ v.name }}', the character length must be smaller than or equal to {{ v.maxLength }}.";
+        }
+{% endif %}
+{%- if v.minLength is not null %}
+        if ({% if not v.required %}!is_null($this->container['{{ v.name }}']) && {% endif %}(mb_strlen($this->container['{{ v.name }}']) < {{ v.minLength }})) {
+            $invalidProperties[] = "invalid value for '{{ v.name }}', the character length must be bigger than or equal to {{ v.minLength }}.";
+        }
+{% endif %}
+{%- if v.maximum is not null %}
+        if ({% if not v.required %}!is_null($this->container['{{ v.name }}']) && {% endif %}($this->container['{{ v.name }}'] >{% if v.exclusiveMaximum %}={% endif %} {{ v.maximum }})) {
+            $invalidProperties[] = "invalid value for '{{ v.name }}', must be smaller than {% if not v.exclusiveMaximum %}or equal to {% endif %}{{ v.maximum }}.";
+        }
+{% endif %}
+{%- if v.minimum is not null %}
+        if ({% if not v.required %}!is_null($this->container['{{ v.name }}']) && {% endif %}($this->container['{{ v.name }}'] <{% if v.exclusiveMinimum %}={% endif %} {{ v.minimum }})) {
+            $invalidProperties[] = "invalid value for '{{ v.name }}', must be bigger than {% if not v.exclusiveMinimum %}or equal to {% endif %}{{ v.minimum }}.";
+        }
+{% endif %}
+{%- if v.pattern %}
+        if ({% if not v.required %}!is_null($this->container['{{ v.name }}']) && {% endif %}!preg_match("{{ v.pattern }}", $this->container['{{ v.name }}'])) {
+            $invalidProperties[] = "invalid value for '{{ v.name }}', must be conform to the pattern {{ v.pattern }}.";
+        }
+{% endif %}
+{%- if v.maxItems is not null %}
+        if ({% if not v.required %}!is_null($this->container['{{ v.name }}']) && {% endif %}(count($this->container['{{ v.name }}']) > {{ v.maxItems }})) {
+            $invalidProperties[] = "invalid value for '{{ v.name }}', number of items must be less than or equal to {{ v.maxItems }}.";
+        }
+{% endif %}
+{%- if v.minItems is not null %}
+        if ({% if not v.required %}!is_null($this->container['{{ v.name }}']) && {% endif %}(count($this->container['{{ v.name }}']) < {{ v.minItems }})) {
+            $invalidProperties[] = "invalid value for '{{ v.name }}', number of items must be greater than or equal to {{ v.minItems }}.";
+        }
+{% endif %}
+{%- endif %}
+{%- endfor %}
+        return $invalidProperties;
+    }
+
+    /**
+     * Validate all the properties in the model
+     * return true if all passed
+     *
+     * @return bool True if all properties are valid
+     */
+    public function valid()
+    {
+        return count($this->listInvalidProperties()) === 0;
+    }
+{% for v in m.vars %}
+
+    /**
+     * Gets {{ v.name }}
+     *
+     * @return {{ v.dataType }}{% if not v.required %}|null{% endif %}
+{%- if v.deprecated %}
+     * @deprecated
+{%- endif %}
+     */
+    public function {{ v.getter }}()
+    {
+        return $this->container['{{ v.name }}'];
+    }
+
+    /**
+     * Sets {{ v.name }}
+     *
+     * @param {{ v.dataType }}{% if not v.required %}|null{% endif %} ${{ v.name }}{% if v.description %} {{ v.description }}{% else %} {{ v.name }}{% endif %}
+     *
+     * @return self
+{%- if v.deprecated %}
+     * @deprecated
+{%- endif %}
+     */
+    public function {{ v.setter }}(${{ v.name }})
+    {
+{%- if v.isNullable %}
+        if (is_null(${{ v.name }})) {
+            array_push($this->openAPINullablesSetToNull, '{{ v.name }}');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('{{ v.name }}', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+{%- else %}
+        if (is_null(${{ v.name }})) {
+            throw new \InvalidArgumentException('non-nullable {{ v.name }} cannot be null');
+        }
+{%- endif %}
+{%- if v.isEnum %}
+        $allowedValues = $this->{{ v.getter }}AllowableValues();
+{%- if not v.isContainer %}
+        if ({% if v.isNullable %}!is_null(${{ v.name }}) && {% endif %}!in_array(${{ v.name }}, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for '{{ v.name }}', must be one of '%s'",
+                    ${{ v.name }},
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+{%- endif %}
+{%- if v.isContainer %}
+        if ({% if v.isNullable %}!is_null(${{ v.name }}) && {% endif %}array_diff(${{ v.name }}, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for '{{ v.name }}', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+{%- endif %}
+{%- endif %}
+{%- if v.hasValidation %}
+{%- if v.maxLength is not null %}
+        if ({% if v.isNullable %}!is_null(${{ v.name }}) && {% endif %}(mb_strlen(${{ v.name }}) > {{ v.maxLength }})) {
+            throw new \InvalidArgumentException('invalid length for ${{ v.name }} when calling {{ m.classname }}.{{ m.operationId }}, must be smaller than or equal to {{ v.maxLength }}.');
+        }
+{%- endif %}{%- if v.vendorExtensions.get('x-line-maxlength-newline') %}
+{% endif %}{%- if v.minLength is not null %}
+        if ({% if v.isNullable %}!is_null(${{ v.name }}) && {% endif %}(mb_strlen(${{ v.name }}) < {{ v.minLength }})) {
+            throw new \InvalidArgumentException('invalid length for ${{ v.name }} when calling {{ m.classname }}.{{ m.operationId }}, must be bigger than or equal to {{ v.minLength }}.');
+        }
+{%- endif %}
+{%- if v.maximum is not null %}
+        if ({% if v.isNullable %}!is_null(${{ v.name }}) && {% endif %}(${{ v.name }} >{% if v.exclusiveMaximum %}={% endif %} {{ v.maximum }})) {
+            throw new \InvalidArgumentException('invalid value for ${{ v.name }} when calling {{ m.classname }}.{{ m.operationId }}, must be smaller than {% if not v.exclusiveMaximum %}or equal to {% endif %}{{ v.maximum }}.');
+        }
+{%- endif %}
+{%- if v.minimum is not null %}
+        if ({% if v.isNullable %}!is_null(${{ v.name }}) && {% endif %}(${{ v.name }} <{% if v.exclusiveMinimum %}={% endif %} {{ v.minimum }})) {
+            throw new \InvalidArgumentException('invalid value for ${{ v.name }} when calling {{ m.classname }}.{{ m.operationId }}, must be bigger than {% if not v.exclusiveMinimum %}or equal to {% endif %}{{ v.minimum }}.');
+        }
+{%- endif %}
+{%- if v.pattern %}
+        if ({% if v.isNullable %}!is_null(${{ v.name }}) && {% endif %}(!preg_match("{{ v.pattern }}", ObjectSerializer::toString(${{ v.name }})))) {
+            throw new \InvalidArgumentException("invalid value for \${{ v.name }} when calling {{ m.classname }}.{{ m.operationId }}, must conform to the pattern {{ v.pattern }}.");
+        }
+{%- endif %}
+{%- if v.maxItems is not null %}
+        if ({% if v.isNullable %}!is_null(${{ v.name }}) && {% endif %}(count(${{ v.name }}) > {{ v.maxItems }})) {
+            throw new \InvalidArgumentException('invalid value for ${{ v.name }} when calling {{ m.classname }}.{{ m.operationId }}, number of items must be less than or equal to {{ v.maxItems }}.');
+        }
+{%- endif %}{%- if v.vendorExtensions.get('x-line-maxitems-newline') %}
+{% endif %}{%- if v.minItems is not null %}
+        if ({% if v.isNullable %}!is_null(${{ v.name }}) && {% endif %}(count(${{ v.name }}) < {{ v.minItems }})) {
+            throw new \InvalidArgumentException('invalid length for ${{ v.name }} when calling {{ m.classname }}.{{ m.operationId }}, number of items must be greater than or equal to {{ v.minItems }}.');
+        }
+{%- endif %}
+{%- endif %}
+        $this->container['{{ v.name }}'] = ${{ v.name }};
+
+        return $this;
+    }
+{%- endfor %}
+    /**
+     * Returns true if offset exists. False otherwise.
+     *
+     * @param integer $offset Offset
+     *
+     * @return boolean
+     */
+    public function offsetExists($offset): bool
+    {
+        return isset($this->container[$offset]);
+    }
+
+    /**
+     * Gets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return mixed|null
+     */
+    #[\ReturnTypeWillChange]
+    public function offsetGet($offset)
+    {
+        return $this->container[$offset] ?? null;
+    }
+
+    /**
+     * Sets value based on offset.
+     *
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
+     *
+     * @return void
+     */
+    public function offsetSet($offset, $value): void
+    {
+        if (is_null($offset)) {
+            $this->container[] = $value;
+        } else {
+            $this->container[$offset] = $value;
+        }
+    }
+
+    /**
+     * Unsets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return void
+     */
+    public function offsetUnset($offset): void
+    {
+        unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
+    }
+
+    /**
+     * Gets the string presentation of the object
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return json_encode(
+            ObjectSerializer::sanitizeForSerialization($this),
+            JSON_PRETTY_PRINT
+        );
+    }
+
+    /**
+     * Gets a header-safe presentation of the object
+     *
+     * @return string
+     */
+    public function toHeaderValue()
+    {
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+    }
+{%- if m.hasChildren and m.discriminator is not null %}
+
+    /**
+     * Gets discriminator value for a given class name
+     *
+     * @param string $className Fully qualified class name
+     * @return string|null Discriminator value or null if not found
+     */
+    protected static function getDiscriminatorValueForClass(string $className): ?string
+    {
+        $map = [
+{% for mappedModel in m.discriminator.mappedModels %}            {{ mappedModel.modelName }}::class => '{{ mappedModel.mappingName }}',
+{% endfor %}        ];
+
+        return $map[$className] ?? null;
+    }
+{%- endif %}
+
+    /**
+     * Create an instance of {{ m.classname }} from a dict (associative array)
+     *
+     * @internal This method is intended to be used internally only for now.
+     *
+     * @param array|null $data Associative array of property values
+     * @return {{ m.classname }}
+     */
+    public static function fromAssocArray(?array $data): self
+    {
+        if ($data === null) {
+            return new static();
+        }
+{% if m.hasChildren and m.discriminator is not null %}
+        $discriminatorValue = $data[self::DISCRIMINATOR] ?? null;
+        $discriminatorMap = [
+            {% for mappedModel in m.discriminator.mappedModels %}'{{ mappedModel.mappingName }}' => {{ mappedModel.modelName }}::class,
+{% endfor %}        ];
+
+        if (isset($discriminatorValue) && isset($discriminatorMap[$discriminatorValue])) {
+            $modelClass = $discriminatorMap[$discriminatorValue];
+            return $modelClass::fromAssocArray($data);
+        }
+{% endif %}
+        $instance = new static();
+{% for v in m.allVars %}
+        if (isset($data['{{ v.baseName }}'])) {
+{%- if v.isContainer %}
+{%- if v.isArray %}
+{%- if not v.items.isPrimitiveType and not v.items.isEnumOrRef %}
+            ${{ v.name }} = [];
+            foreach ($data['{{ v.baseName }}'] as $item) {
+                ${{ v.name }}[] = {{ v.items.dataType }}::fromAssocArray($item);
+            }
+            $instance->set{{ v.name }}(${{ v.name }});
+{%- elseif v.items.isEnumOrRef or v.items.isPrimitiveType %}
+            $instance->set{{ v.name }}($data['{{ v.baseName }}']);
+{%- endif %}
+{%- endif %}
+{%- if v.isMap %}
+{%- if not v.items.isPrimitiveType and not v.items.isEnumOrRef %}
+            ${{ v.name }} = [];
+            foreach ($data['{{ v.baseName }}'] as $key => $value) {
+                ${{ v.name }}[$key] = {{ v.items.dataType }}::fromAssocArray($value);
+            }
+            $instance->set{{ v.name }}(${{ v.name }});
+{%- elseif v.items.isEnumOrRef or v.items.isPrimitiveType %}
+            $instance->set{{ v.name }}($data['{{ v.baseName }}']);
+{%- endif %}
+{%- endif %}
+{%- else %}
+{%- if not v.isPrimitiveType and not v.isEnumOrRef %}
+            $instance->set{{ v.name }}({{ v.dataType }}::fromAssocArray($data['{{ v.baseName }}']));
+{%- elseif v.isEnumOrRef or v.isPrimitiveType %}
+            $instance->set{{ v.name }}($data['{{ v.baseName }}']);
+{%- endif %}
+{%- endif %}
+        }
+{%- endfor %}
+
+        return $instance;
+    }
+}
+
