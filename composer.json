@@ -49,17 +49,23 @@
   "scripts": {
     "test": "phpunit --test-suffix=Test.php --testdox",
     "cs": "phpcs",
-    "md": "phpmd --ignore-violations-on-exit src/constants,src/laravel,src/parser,examples/EchoBot/src,examples/EchoBot/public,examples/KitchenSink/src,examples/KitchenSink/public text phpmd.xml",
+    "md": "tools/phpmd.sh",
     "stan": "phpstan analyse",
-    "lint": "find src/clients examples -name '*.php' -print0 | xargs -0 -n1 php -l",
+    "lint": "tools/lint.sh",
     "copyright": "tools/check_copyright.sh",
-    "docs": "bash -c '[ -f phpDocumentor.phar ] || curl -L -o phpDocumentor.phar https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.8.1/phpDocumentor.phar; php phpDocumentor.phar run -d src -t docs'",
+    "docs": "tools/docs.sh",
     "check": [
+      "echo '\\n==== Test ===='",
       "@test",
+      "echo '\\n==== Code Style (phpcs) ===='",
       "@cs",
+      "echo '\\n==== Mess Detector (phpmd) ===='",
       "@md",
+      "echo '\\n==== Static Analysis (phpstan) ===='",
       "@stan",
+      "echo '\\n==== Copyright ===='",
       "@copyright",
+      "echo '\\n==== Lint ===='",
       "@lint"
     ]
   },
