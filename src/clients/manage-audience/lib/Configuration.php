@@ -115,7 +115,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'LINE-BotSDK-PHP/11';
+    protected $userAgent = 'LINE-BotSDK-PHP';
 
     /**
      * Debug switch (default set to false)
@@ -158,6 +158,7 @@ class Configuration
     public function __construct()
     {
         $this->tempFolderPath = sys_get_temp_dir();
+        $this->userAgent = \LINE\Constants\SdkUserAgent::create();
     }
 
     /**
