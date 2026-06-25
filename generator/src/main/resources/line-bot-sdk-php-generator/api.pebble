@@ -2,7 +2,7 @@
 {% include "line-bot-sdk-php-generator/partial_copyright.pebble" -%}
 /**
  * {{ operations.classname }}
- * PHP version 7.4
+ * PHP version 8.1
  *
  * @category Class
  * @package  {{ invokerPackage }}
@@ -26,8 +26,11 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use {{ invokerPackage }}\ApiException;
 use {{ invokerPackage }}\Configuration;
+use {{ invokerPackage }}\FormDataProcessor;
 use {{ invokerPackage }}\HeaderSelector;
 use {{ invokerPackage }}\ObjectSerializer;
 
@@ -256,37 +259,24 @@ class {{ operations.classname }}
 {%- else %}
                 default:
 {%- endif %}
-                    if ('{{ r.dataType }}' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('{{ r.dataType }}' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '{{ r.dataType }}', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return $this->handleResponseWithDataType(
+                        '{{ r.dataType }}',
+                        $request,
+                        $response,
+                    );
 {%- endif %}
 {%- if loop.last %}
             }
 {%- endif %}
 {%- endfor %}
+
+            {% for r in op.responses %}{% if r.dataType and r.isRange and not r.isWildcard %}if ($this->responseWithinRangeCode('{{ r.code }}', $statusCode)) {
+                return $this->handleResponseWithDataType(
+                    '{{ r.dataType }}',
+                    $request,
+                    $response,
+                );
+            }{% endif %}{% endfor %}
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -301,37 +291,14 @@ class {{ operations.classname }}
                 );
             }
 
-            $returnType = '{{ op.returnType }}';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return $this->handleResponseWithDataType(
+                '{{ op.returnType }}',
+                $request,
+                $response,
+            );
 {%- else %}
             return [null, $statusCode, $response->getHeaders()];
 {%- endif %}
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
 {%- for r in op.responses %}
@@ -347,10 +314,21 @@ class {{ operations.classname }}
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
-                    break;
+                    throw $e;
 {%- endif %}
 {%- endfor %}
             }
+        {% for r in op.responses %}{% if r.dataType and r.isRange and not r.isWildcard %}
+            if ($this->responseWithinRangeCode('{{ r.code }}', $e->getCode())) {
+                $data = ObjectSerializer::deserialize(
+                    $e->getResponseBody(),
+                    '{{ r.dataType }}',
+                    $e->getResponseHeaders()
+                );
+                $e->setResponseObject($data);
+                throw $e;
+            }{% endif %}{% endfor %}
+
             throw $e;
         }
     }
@@ -608,29 +586,26 @@ class {{ operations.classname }}
 {%- endif %}
         if (${{ p.paramName }} !== null) {
             $resourcePath = str_replace(
-                '{' . '{{ p.baseName }}' . '}',
+                '{{ "{" }}{{ p.baseName }}{{ "}" }}',
                 ObjectSerializer::toPathValue(${{ p.paramName }}),
                 $resourcePath
             );
         }
 {%- endfor %}
 {% for p in op.formParams %}
+{%- if loop.first %}
         // form params
-        if (${{ p.paramName }} !== null) {
-{%- if p.isFile %}
-            $multipart = true;
-            $formParams['{{ p.baseName }}'] = [];
-            $paramFiles = is_array(${{ p.paramName }}) ? ${{ p.paramName }} : [${{ p.paramName }}];
-            foreach ($paramFiles as $paramFile) {
-                $formParams['{{ p.baseName }}'][] = \GuzzleHttp\Psr7\Utils::tryFopen(
-                    ObjectSerializer::toFormValue($paramFile),
-                    'rb'
-                );
-            }
-{%- else %}
-            $formParams['{{ p.baseName }}'] = ObjectSerializer::toFormValue(${{ p.paramName }});
+        $formDataProcessor = new FormDataProcessor();
+
+        $formData = $formDataProcessor->prepare([
 {%- endif %}
-        }
+            '{{ p.baseName }}' => ${{ p.paramName }},
+{%- if loop.last %}
+        ]);
+
+        $formParams = $formDataProcessor->flatten($formData);
+        $multipart = $formDataProcessor->has_file;
+{%- endif %}
 {%- endfor %}
 {% if op.isMultipart %}
         $multipart = true;
@@ -773,7 +748,58 @@ class {{ operations.classname }}
             }
         }
 
+        if ($this->config->getCertFile()) {
+            $options[RequestOptions::CERT] = $this->config->getCertFile();
+        }
+
+        if ($this->config->getKeyFile()) {
+            $options[RequestOptions::SSL_KEY] = $this->config->getKeyFile();
+        }
+
         return $options;
+    }
+
+    private function handleResponseWithDataType(
+        string $dataType,
+        RequestInterface $request,
+        ResponseInterface $response
+    ): array {
+        if ($dataType === '\SplFileObject') {
+            $content = $response->getBody(); //stream goes to serializer
+        } else {
+            $content = (string) $response->getBody();
+            if ($dataType !== 'string') {
+                try {
+                    $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $exception) {
+                    throw new ApiException(
+                        sprintf(
+                            'Error JSON decoding server response (%s)',
+                            $request->getUri()
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                        $content
+                    );
+                }
+            }
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $dataType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    private function responseWithinRangeCode(
+        string $rangeCode,
+        int $statusCode
+    ): bool {
+        $left = (int) ($rangeCode[0].'00');
+        $right = (int) ($rangeCode[0].'99');
+
+        return $statusCode >= $left && $statusCode <= $right;
     }
 {%- if operations.classname == 'ChannelAccessTokenApi' %}
 {% include "line-bot-sdk-php-generator/partial_stateless_channel_token_wrappers.pebble" -%}

@@ -70,6 +70,7 @@ public class LineBotSdkPhpGenerator extends PhpClientCodegen implements CodegenC
         // the registrations so we can rebuild them with our Pebble templates.
         String invokerFolder = findSupportingFileFolder("ApiException.mustache");
         String configurationFolder = findSupportingFileFolder("Configuration.mustache");
+        String formDataProcessorFolder = findSupportingFileFolder("FormDataProcessor.mustache");
         String headerSelectorFolder = findSupportingFileFolder("HeaderSelector.mustache");
         String objectSerializerFolder = findSupportingFileFolder("ObjectSerializer.mustache");
         String modelInterfaceFolder = findSupportingFileFolder("ModelInterface.mustache");
@@ -78,6 +79,7 @@ public class LineBotSdkPhpGenerator extends PhpClientCodegen implements CodegenC
 
         supportingFiles.add(new SupportingFile(TEMPLATE_DIR_NAME + "/ApiException.pebble", invokerFolder, "ApiException.php"));
         supportingFiles.add(new SupportingFile(TEMPLATE_DIR_NAME + "/Configuration.pebble", configurationFolder, "Configuration.php"));
+        supportingFiles.add(new SupportingFile(TEMPLATE_DIR_NAME + "/FormDataProcessor.pebble", formDataProcessorFolder, "FormDataProcessor.php"));
         supportingFiles.add(new SupportingFile(TEMPLATE_DIR_NAME + "/HeaderSelector.pebble", headerSelectorFolder, "HeaderSelector.php"));
         supportingFiles.add(new SupportingFile(TEMPLATE_DIR_NAME + "/ObjectSerializer.pebble", objectSerializerFolder, "ObjectSerializer.php"));
         supportingFiles.add(new SupportingFile(TEMPLATE_DIR_NAME + "/ModelInterface.pebble", modelInterfaceFolder, "ModelInterface.php"));
