@@ -2,7 +2,6 @@ import os
 import subprocess
 import sys
 
-TEMPLATE_DIR = "tools/custom-template"
 COMPONENTS = [
     {"sourceYaml": "channel-access-token.yml", "invokerPackage": "LINE\\Clients\\ChannelAccessToken"},
     {"sourceYaml": "insight.yml", "invokerPackage": "LINE\\Clients\\Insight"},
@@ -10,6 +9,11 @@ COMPONENTS = [
     {"sourceYaml": "messaging-api.yml", "invokerPackage": "LINE\\Clients\\MessagingApi"},
     {"sourceYaml": "liff.yml", "invokerPackage": "LINE\\Clients\\Liff"},
 ]
+
+# Pin the copyright year so generated code is byte-for-byte reproducible across
+# runs. Bumping this is an explicit choice, not a side effect of running the
+# generator on a new year.
+COPYRIGHT_YEAR = "2026"
 
 
 def run_command(command):
@@ -36,16 +40,18 @@ def generate_clients(jar_path):
 
         run_command(f"rm -rf {output_path}")
         run_command(f"mkdir {output_path}")
-        run_command(f"cp tools/.openapi-generator-ignore {output_path}/")
 
-        command = f"""java -jar {jar_path} generate \
+        command = f"""java \
+            -cp {jar_path} \
+            org.openapitools.codegen.OpenAPIGenerator generate \
             -i line-openapi/{source_yaml} \
-            -g php \
+            -e pebble \
+            -g line-bot-sdk-php-generator \
             -o {output_path} \
-            --template-dir {TEMPLATE_DIR} \
             --http-user-agent LINE-BotSDK-PHP/11 \
             --additional-properties="invokerPackage={component['invokerPackage']}" \
-            --additional-properties="variableNamingConvention=camelCase"
+            --additional-properties="variableNamingConvention=camelCase" \
+            --additional-properties="copyrightYear={COPYRIGHT_YEAR}"
         """
         run_command(command)
 
@@ -53,21 +59,22 @@ def generate_clients(jar_path):
 def generate_webhook(jar_path):
     output_path = "src/webhook"
 
-    run_command(f"rm -rf {output_path}")
+    run_command(f"rm -rf {output_path}/lib")
+    run_command(f"rm -rf {output_path}/.openapi-generator")
+    run_command(f"rm -f {output_path}/.openapi-generator-ignore")
 
-    command = f"""java -jar {jar_path} generate \
+    command = f"""java \
+        -cp {jar_path} \
+        org.openapitools.codegen.OpenAPIGenerator generate \
         -i line-openapi/webhook.yml \
-        -g php \
+        -e pebble \
+        -g line-bot-sdk-php-generator \
         -o {output_path} \
-        --template-dir {TEMPLATE_DIR} \
         --additional-properties="invokerPackage=LINE\\Webhook" \
-        --additional-properties="variableNamingConvention=camelCase"
+        --additional-properties="variableNamingConvention=camelCase" \
+        --additional-properties="copyrightYear={COPYRIGHT_YEAR}"
     """
     run_command(command)
-
-
-def post_process():
-    run_command("php tools/patch-gen-oas-client.php")
 
 
 def main():
@@ -77,10 +84,9 @@ def main():
     run_command('mvn package -DskipTests=true')
     os.chdir("..")
 
-    jar_path = "generator/target/openapi-generator-cli.jar"
+    jar_path = "generator/target/line-bot-sdk-php-generator-1.0.0.jar"
     generate_clients(jar_path)
     generate_webhook(jar_path)
-    post_process()
 
 
 if __name__ == "__main__":
