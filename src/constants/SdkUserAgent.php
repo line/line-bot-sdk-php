@@ -64,7 +64,7 @@ class SdkUserAgent
     {
         try {
             $version = $versionResolver();
-        } catch (\OutOfBoundsException) {
+        } catch (\Throwable) {
             return self::FALLBACK;
         }
 

@@ -38,10 +38,10 @@ class SdkUserAgentTest extends TestCase
         self::assertSame('LINE-BotSDK-PHP/12.5.0', SdkUserAgent::create(fn () => 'v12.5.0'));
     }
 
-    public function testOutOfBoundsExceptionFallback(): void
+    public function testExceptionFallback(): void
     {
         $result = SdkUserAgent::create(function (): never {
-            throw new \OutOfBoundsException('Package not found');
+            throw new \RuntimeException('unexpected error');
         });
         self::assertSame('LINE-BotSDK-PHP/unknown', $result);
     }
