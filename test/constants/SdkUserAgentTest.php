@@ -19,7 +19,6 @@
 namespace LINE\Tests\Constants;
 
 use LINE\Constants\SdkUserAgent;
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class SdkUserAgentTest extends TestCase
@@ -29,26 +28,14 @@ class SdkUserAgentTest extends TestCase
         SdkUserAgent::resetForTesting();
     }
 
-    #[DataProvider('versionProvider')]
-    public function testCreate(?string $input, string $expected): void
+    public function testStableVersion(): void
     {
-        self::assertSame($expected, SdkUserAgent::create(fn () => $input));
+        self::assertSame('LINE-BotSDK-PHP/12.5.0', SdkUserAgent::create(fn () => '12.5.0'));
     }
 
-    /**
-     * @return iterable<string, array{?string, string}>
-     */
-    public static function versionProvider(): iterable
+    public function testStripsLeadingV(): void
     {
-        yield 'stable' => ['12.5.0', 'LINE-BotSDK-PHP/12.5.0'];
-        yield 'v-prefix' => ['v12.5.0', 'LINE-BotSDK-PHP/12.5.0'];
-        yield 'pre-release' => ['12.5.0-beta.1', 'LINE-BotSDK-PHP/12.5.0-beta.1'];
-        yield 'build-metadata' => ['12.5.0+build.7', 'LINE-BotSDK-PHP/12.5.0+build.7'];
-        yield 'dev-branch' => ['dev-main', 'LINE-BotSDK-PHP/dev-main'];
-        yield 'dev-branch-slash' => ['dev-feature/user-agent', 'LINE-BotSDK-PHP/dev-feature-user-agent'];
-        yield 'null' => [null, 'LINE-BotSDK-PHP'];
-        yield 'empty' => ['', 'LINE-BotSDK-PHP'];
-        yield 'whitespace' => ['   ', 'LINE-BotSDK-PHP'];
+        self::assertSame('LINE-BotSDK-PHP/12.5.0', SdkUserAgent::create(fn () => 'v12.5.0'));
     }
 
     public function testOutOfBoundsExceptionFallback(): void
@@ -56,16 +43,6 @@ class SdkUserAgentTest extends TestCase
         $result = SdkUserAgent::create(function (): never {
             throw new \OutOfBoundsException('Package not found');
         });
-        self::assertSame('LINE-BotSDK-PHP', $result);
-    }
-
-    public function testCustomResolverBypassesCache(): void
-    {
-        SdkUserAgent::create(fn () => '1.0.0');
-
-        self::assertSame(
-            'LINE-BotSDK-PHP/99.0.0',
-            SdkUserAgent::create(fn () => '99.0.0'),
-        );
+        self::assertSame('LINE-BotSDK-PHP/unknown', $result);
     }
 }

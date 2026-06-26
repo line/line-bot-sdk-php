@@ -26,12 +26,13 @@ use Composer\InstalledVersions;
 class SdkUserAgent
 {
     private const PRODUCT = 'LINE-BotSDK-PHP';
+    private const FALLBACK = self::PRODUCT . '/unknown';
     private const PACKAGE = 'linecorp/line-bot-sdk';
 
     private static ?string $cached = null;
 
     /**
-     * @param null|callable(): ?string $versionResolver
+     * @param null|callable(): string $versionResolver
      */
     public static function create(?callable $versionResolver = null): string
     {
@@ -40,7 +41,7 @@ class SdkUserAgent
         }
 
         if (self::$cached === null) {
-            self::$cached = self::build(static function (): ?string {
+            self::$cached = self::build(static function (): string {
                 return InstalledVersions::getPrettyVersion(self::PACKAGE);
             });
         }
@@ -57,27 +58,17 @@ class SdkUserAgent
     }
 
     /**
-     * @param callable(): ?string $versionResolver
+     * @param callable(): string $versionResolver
      */
     private static function build(callable $versionResolver): string
     {
         try {
             $version = $versionResolver();
         } catch (\OutOfBoundsException) {
-            return self::PRODUCT;
+            return self::FALLBACK;
         }
 
-        if ($version === null || trim($version) === '') {
-            return self::PRODUCT;
-        }
-
-        $version = trim($version);
         $version = preg_replace('/^v(?=\d)/', '', $version) ?? $version;
-        $version = preg_replace('/[^A-Za-z0-9!#$%&\'*+.^_`|~-]/', '-', $version) ?? '';
-
-        if ($version === '' || $version === '-') {
-            return self::PRODUCT;
-        }
 
         return self::PRODUCT . '/' . $version;
     }
