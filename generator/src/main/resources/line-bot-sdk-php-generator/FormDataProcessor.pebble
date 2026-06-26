@@ -2,7 +2,6 @@
 {% include "line-bot-sdk-php-generator/partial_copyright.pebble" -%}
 /**
  * FormDataProcessor
- * PHP version 7.4
  *
  * @category Class
  * @package  {{ invokerPackage }}

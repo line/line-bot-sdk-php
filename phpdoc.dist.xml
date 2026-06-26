@@ -13,10 +13,8 @@
         <folder>latest</folder>
         <api>
             <source dsn=".">
-                <path>src/parser/*</path>
+                <path>src</path>
             </source>
-        </api>
-        <api>
             <ignore hidden="true" symlinks="true">
                 <path>examples/**/*</path>
                 <path>vendor/**/*</path>

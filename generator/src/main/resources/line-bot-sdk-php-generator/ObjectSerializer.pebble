@@ -3,8 +3,6 @@
 /**
  * ObjectSerializer
  *
- * PHP version 7.4
- *
  * @category Class
  * @package  {{ invokerPackage }}
  * @author   OpenAPI Generator team

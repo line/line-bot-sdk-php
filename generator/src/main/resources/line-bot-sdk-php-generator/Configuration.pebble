@@ -2,7 +2,6 @@
 {% include "line-bot-sdk-php-generator/partial_copyright.pebble" -%}
 /**
  * Configuration
- * PHP version 8.1
  *
  * @category Class
  * @package  {{ invokerPackage }}
@@ -21,7 +20,6 @@ namespace {{ invokerPackage }};
 
 /**
  * Configuration Class Doc Comment
- * PHP version 8.1
  *
  * @category Class
  * @package  {{ invokerPackage }}
