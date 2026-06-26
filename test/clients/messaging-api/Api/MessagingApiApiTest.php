@@ -42,11 +42,14 @@ use LINE\Clients\MessagingApi\Model\RichMenuResponse;
 use LINE\Clients\MessagingApi\Model\RichMenuSize;
 use LINE\Clients\MessagingApi\Model\URIAction;
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
 
 class MessagingApiApiTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         parent::setUp();
