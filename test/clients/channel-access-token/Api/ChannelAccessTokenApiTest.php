@@ -25,11 +25,14 @@ use LINE\Clients\ChannelAccessToken\Api\ChannelAccessTokenApi;
 use LINE\Clients\ChannelAccessToken\Model\ChannelAccessTokenKeyIdsResponse;
 use LINE\Clients\ChannelAccessToken\Model\VerifyChannelAccessTokenResponse;
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
 
 class ChannelAccessTokenApiTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -333,5 +336,318 @@ class ChannelAccessTokenApiTest extends TestCase
         $this->assertEquals(30, $response->getExpiresIn());
         $this->assertEquals('Bearer', $response->getTokenType());
         $this->assertEquals(200, $statusCode);
+    }
+
+    public function testIssueChannelToken(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/v2/oauth/accessToken', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case keys from the OpenAPI spec
+                    $this->assertEquals('client_credentials', $params['grant_type']);
+                    $this->assertEquals('1234', $params['client_id']);
+                    $this->assertEquals('clientSecret', $params['client_secret']);
+                    // Must NOT use camelCase keys
+                    $this->assertArrayNotHasKey('grantType', $params);
+                    $this->assertArrayNotHasKey('clientId', $params);
+                    $this->assertArrayNotHasKey('clientSecret', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['access_token' => 'accessToken', 'expires_in' => 2592000, 'token_type' => 'Bearer']),
+            ));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->issueChannelToken(grantType: 'client_credentials', clientId: '1234', clientSecret: 'clientSecret');
+        $this->assertEquals('accessToken', $response->getAccessToken());
+        $this->assertEquals(2592000, $response->getExpiresIn());
+        $this->assertEquals('Bearer', $response->getTokenType());
+    }
+
+    public function testIssueChannelTokenByJWT(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/oauth2/v2.1/token', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case keys from the OpenAPI spec
+                    $this->assertEquals('client_credentials', $params['grant_type']);
+                    $this->assertEquals('urn:ietf:params:oauth:client-assertion-type:jwt-bearer', $params['client_assertion_type']);
+                    $this->assertEquals('jwtAssertionToken', $params['client_assertion']);
+                    // Must NOT use camelCase keys
+                    $this->assertArrayNotHasKey('grantType', $params);
+                    $this->assertArrayNotHasKey('clientAssertionType', $params);
+                    $this->assertArrayNotHasKey('clientAssertion', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['access_token' => 'accessToken', 'expires_in' => 2592000, 'token_type' => 'Bearer', 'key_id' => 'keyId']),
+            ));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->issueChannelTokenByJWT(
+            grantType: 'client_credentials',
+            clientAssertionType: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+            clientAssertion: 'jwtAssertionToken',
+        );
+        $this->assertEquals('accessToken', $response->getAccessToken());
+        $this->assertEquals(2592000, $response->getExpiresIn());
+        $this->assertEquals('Bearer', $response->getTokenType());
+    }
+
+    public function testRevokeChannelToken(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/v2/oauth/revoke', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case key from the OpenAPI spec
+                    $this->assertEquals('myAccessToken', $params['access_token']);
+                    // Must NOT use camelCase key
+                    $this->assertArrayNotHasKey('accessToken', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(status: 200, headers: [], body: ''));
+        $api = new ChannelAccessTokenApi($client);
+        $api->revokeChannelToken(accessToken: 'myAccessToken');
+    }
+
+    public function testRevokeChannelTokenByJWT(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/oauth2/v2.1/revoke', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case keys from the OpenAPI spec
+                    $this->assertEquals('1234', $params['client_id']);
+                    $this->assertEquals('clientSecret', $params['client_secret']);
+                    $this->assertEquals('myAccessToken', $params['access_token']);
+                    // Must NOT use camelCase keys
+                    $this->assertArrayNotHasKey('clientId', $params);
+                    $this->assertArrayNotHasKey('clientSecret', $params);
+                    $this->assertArrayNotHasKey('accessToken', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(status: 200, headers: [], body: ''));
+        $api = new ChannelAccessTokenApi($client);
+        $api->revokeChannelTokenByJWT(clientId: '1234', clientSecret: 'clientSecret', accessToken: 'myAccessToken');
+    }
+
+    public function testVerifyChannelToken(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('send')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/v2/oauth/verify', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case key from the OpenAPI spec
+                    $this->assertEquals('myAccessToken', $params['access_token']);
+                    // Must NOT use camelCase key
+                    $this->assertArrayNotHasKey('accessToken', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['client_id' => '1234', 'expires_in' => 2592000, 'scope' => 'profile']),
+            ));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->verifyChannelToken(accessToken: 'myAccessToken');
+        $this->assertInstanceOf(VerifyChannelAccessTokenResponse::class, $response);
+        $this->assertEquals('1234', $response->getClientId());
+        $this->assertEquals(2592000, $response->getExpiresIn());
+    }
+
+    public function testIssueChannelTokenAsync(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('sendAsync')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/v2/oauth/accessToken', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case keys from the OpenAPI spec
+                    $this->assertEquals('client_credentials', $params['grant_type']);
+                    $this->assertEquals('1234', $params['client_id']);
+                    $this->assertEquals('clientSecret', $params['client_secret']);
+                    // Must NOT use camelCase keys
+                    $this->assertArrayNotHasKey('grantType', $params);
+                    $this->assertArrayNotHasKey('clientId', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(\GuzzleHttp\Promise\Create::promiseFor(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['access_token' => 'accessToken', 'expires_in' => 2592000, 'token_type' => 'Bearer']),
+            )));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->issueChannelTokenAsync(grantType: 'client_credentials', clientId: '1234', clientSecret: 'clientSecret')->wait();
+        $this->assertEquals('accessToken', $response->getAccessToken());
+        $this->assertEquals(2592000, $response->getExpiresIn());
+        $this->assertEquals('Bearer', $response->getTokenType());
+    }
+
+    public function testIssueChannelTokenByJWTAsync(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('sendAsync')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/oauth2/v2.1/token', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case keys from the OpenAPI spec
+                    $this->assertEquals('client_credentials', $params['grant_type']);
+                    $this->assertEquals('urn:ietf:params:oauth:client-assertion-type:jwt-bearer', $params['client_assertion_type']);
+                    $this->assertEquals('jwtAssertionToken', $params['client_assertion']);
+                    // Must NOT use camelCase keys
+                    $this->assertArrayNotHasKey('grantType', $params);
+                    $this->assertArrayNotHasKey('clientAssertionType', $params);
+                    $this->assertArrayNotHasKey('clientAssertion', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(\GuzzleHttp\Promise\Create::promiseFor(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['access_token' => 'accessToken', 'expires_in' => 2592000, 'token_type' => 'Bearer', 'key_id' => 'keyId']),
+            )));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->issueChannelTokenByJWTAsync(
+            grantType: 'client_credentials',
+            clientAssertionType: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+            clientAssertion: 'jwtAssertionToken',
+        )->wait();
+        $this->assertEquals('accessToken', $response->getAccessToken());
+        $this->assertEquals(2592000, $response->getExpiresIn());
+        $this->assertEquals('Bearer', $response->getTokenType());
+    }
+
+    public function testRevokeChannelTokenAsync(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('sendAsync')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/v2/oauth/revoke', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case key from the OpenAPI spec
+                    $this->assertEquals('myAccessToken', $params['access_token']);
+                    // Must NOT use camelCase key
+                    $this->assertArrayNotHasKey('accessToken', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(\GuzzleHttp\Promise\Create::promiseFor(new Response(status: 200, headers: [], body: '')));
+        $api = new ChannelAccessTokenApi($client);
+        $api->revokeChannelTokenAsync(accessToken: 'myAccessToken')->wait();
+    }
+
+    public function testRevokeChannelTokenByJWTAsync(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('sendAsync')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/oauth2/v2.1/revoke', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case keys from the OpenAPI spec
+                    $this->assertEquals('1234', $params['client_id']);
+                    $this->assertEquals('clientSecret', $params['client_secret']);
+                    $this->assertEquals('myAccessToken', $params['access_token']);
+                    // Must NOT use camelCase keys
+                    $this->assertArrayNotHasKey('clientId', $params);
+                    $this->assertArrayNotHasKey('clientSecret', $params);
+                    $this->assertArrayNotHasKey('accessToken', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(\GuzzleHttp\Promise\Create::promiseFor(new Response(status: 200, headers: [], body: '')));
+        $api = new ChannelAccessTokenApi($client);
+        $api->revokeChannelTokenByJWTAsync(clientId: '1234', clientSecret: 'clientSecret', accessToken: 'myAccessToken')->wait();
+    }
+
+    public function testVerifyChannelTokenAsync(): void
+    {
+        $client = Mockery::mock(ClientInterface::class);
+        $client->shouldReceive('sendAsync')
+            ->with(
+                Mockery::on(function (Request $request) {
+                    $this->assertEquals('POST', $request->getMethod());
+                    $this->assertEquals('https://api.line.me/v2/oauth/verify', (string)$request->getUri());
+                    $body = (string)$request->getBody();
+                    parse_str($body, $params);
+                    // Must use snake_case key from the OpenAPI spec
+                    $this->assertEquals('myAccessToken', $params['access_token']);
+                    // Must NOT use camelCase key
+                    $this->assertArrayNotHasKey('accessToken', $params);
+                    return true;
+                }),
+                []
+            )
+            ->once()
+            ->andReturn(\GuzzleHttp\Promise\Create::promiseFor(new Response(
+                status: 200,
+                headers: [],
+                body: json_encode(['client_id' => '1234', 'expires_in' => 2592000, 'scope' => 'profile']),
+            )));
+        $api = new ChannelAccessTokenApi($client);
+        $response = $api->verifyChannelTokenAsync(accessToken: 'myAccessToken')->wait();
+        $this->assertInstanceOf(VerifyChannelAccessTokenResponse::class, $response);
+        $this->assertEquals('1234', $response->getClientId());
+        $this->assertEquals(2592000, $response->getExpiresIn());
     }
 }
