@@ -111,7 +111,7 @@ class Configuration
     protected $host = 'https://example.com';
 
     /**
-     * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
+     * User agent of the HTTP request
      *
      * @var string
      */

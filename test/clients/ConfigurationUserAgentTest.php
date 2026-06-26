@@ -24,6 +24,11 @@ use PHPUnit\Framework\TestCase;
 
 class ConfigurationUserAgentTest extends TestCase
 {
+    protected function tearDown(): void
+    {
+        SdkUserAgent::resetForTesting();
+    }
+
     /**
      * @param class-string $configurationClass
      */
