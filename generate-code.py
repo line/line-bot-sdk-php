@@ -48,7 +48,6 @@ def generate_clients(jar_path):
             -e pebble \
             -g line-bot-sdk-php-generator \
             -o {output_path} \
-            --http-user-agent LINE-BotSDK-PHP/11 \
             --additional-properties="invokerPackage={component['invokerPackage']}" \
             --additional-properties="variableNamingConvention=camelCase" \
             --additional-properties="copyrightYear={COPYRIGHT_YEAR}"
