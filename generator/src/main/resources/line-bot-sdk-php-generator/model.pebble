@@ -5,8 +5,6 @@
 /**
  * {{ m.classname }}
  *
- * PHP version 8.1
- *
  * @category Class
  * @package  {{ invokerPackage }}
  * @author   OpenAPI Generator team
