@@ -107,11 +107,11 @@ class Configuration
     protected $host = 'https://api.line.me';
 
     /**
-     * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
+     * User agent of the HTTP request
      *
      * @var string
      */
-    protected $userAgent = 'LINE-BotSDK-PHP/11';
+    protected $userAgent = 'LINE-BotSDK-PHP';
 
     /**
      * Debug switch (default set to false)
@@ -154,6 +154,7 @@ class Configuration
     public function __construct()
     {
         $this->tempFolderPath = sys_get_temp_dir();
+        $this->userAgent = \LINE\Constants\SdkUserAgent::create();
     }
 
     /**
