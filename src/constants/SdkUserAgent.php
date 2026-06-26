@@ -32,7 +32,7 @@ class SdkUserAgent
     private static ?string $cached = null;
 
     /**
-     * @param null|callable(): string $versionResolver
+     * @param null|callable(): ?string $versionResolver
      */
     public static function create(?callable $versionResolver = null): string
     {
@@ -41,7 +41,7 @@ class SdkUserAgent
         }
 
         if (self::$cached === null) {
-            self::$cached = self::build(static function (): string {
+            self::$cached = self::build(static function (): ?string {
                 return InstalledVersions::getPrettyVersion(self::PACKAGE);
             });
         }
@@ -58,13 +58,17 @@ class SdkUserAgent
     }
 
     /**
-     * @param callable(): string $versionResolver
+     * @param callable(): ?string $versionResolver
      */
     private static function build(callable $versionResolver): string
     {
         try {
             $version = $versionResolver();
         } catch (\Throwable) {
+            return self::FALLBACK;
+        }
+
+        if ($version === null) {
             return self::FALLBACK;
         }
 
