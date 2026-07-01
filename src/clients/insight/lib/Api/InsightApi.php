@@ -98,6 +98,12 @@ class InsightApi
         'getNumberOfMessageDeliveries' => [
             'application/json',
         ],
+        'getRichMenuInsightDaily' => [
+            'application/json',
+        ],
+        'getRichMenuInsightSummary' => [
+            'application/json',
+        ],
         'getStatisticsPerUnit' => [
             'application/json',
         ],
@@ -1168,6 +1174,726 @@ class InsightApi
         ) ?? []);
 
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getRichMenuInsightDaily
+     *
+     * Get rich menu insight daily
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 99 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightDaily'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\Insight\Model\GetRichMenuInsightDailyResponse|\LINE\Clients\Insight\Model\ErrorResponse|\LINE\Clients\Insight\Model\ErrorResponse
+     */
+    public function getRichMenuInsightDaily($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightDaily'][0])
+    {
+        list($response) = $this->getRichMenuInsightDailyWithHttpInfo($richMenuId, $from, $to, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getRichMenuInsightDailyWithHttpInfo
+     *
+     * Get rich menu insight daily
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 99 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightDaily'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \LINE\Clients\Insight\Model\GetRichMenuInsightDailyResponse|\LINE\Clients\Insight\Model\ErrorResponse|\LINE\Clients\Insight\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRichMenuInsightDailyWithHttpInfo($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightDaily'][0])
+    {
+        $request = $this->getRichMenuInsightDailyRequest($richMenuId, $from, $to, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\LINE\Clients\Insight\Model\GetRichMenuInsightDailyResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\LINE\Clients\Insight\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\LINE\Clients\Insight\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\LINE\Clients\Insight\Model\GetRichMenuInsightDailyResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\Insight\Model\GetRichMenuInsightDailyResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\Insight\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\Insight\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getRichMenuInsightDailyAsync
+     *
+     * Get rich menu insight daily
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 99 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightDaily'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRichMenuInsightDailyAsync($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightDaily'][0])
+    {
+        return $this->getRichMenuInsightDailyAsyncWithHttpInfo($richMenuId, $from, $to, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getRichMenuInsightDailyAsyncWithHttpInfo
+     *
+     * Get rich menu insight daily
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 99 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightDaily'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRichMenuInsightDailyAsyncWithHttpInfo($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightDaily'][0])
+    {
+        $returnType = '\LINE\Clients\Insight\Model\GetRichMenuInsightDailyResponse';
+        $request = $this->getRichMenuInsightDailyRequest($richMenuId, $from, $to, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getRichMenuInsightDaily'
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 99 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightDaily'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRichMenuInsightDailyRequest($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightDaily'][0])
+    {
+
+        // verify the required parameter 'richMenuId' is set
+        if ($richMenuId === null || (is_array($richMenuId) && count($richMenuId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $richMenuId when calling getRichMenuInsightDaily'
+            );
+        }
+
+        // verify the required parameter 'from' is set
+        if ($from === null || (is_array($from) && count($from) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $from when calling getRichMenuInsightDaily'
+            );
+        }
+        if (strlen($from) > 8) {
+            throw new \InvalidArgumentException('invalid length for "$from" when calling InsightApi.getRichMenuInsightDaily, must be smaller than or equal to 8.');
+        }
+        if (strlen($from) < 8) {
+            throw new \InvalidArgumentException('invalid length for "$from" when calling InsightApi.getRichMenuInsightDaily, must be bigger than or equal to 8.');
+        }
+        if (!preg_match("/^[0-9]{8}$/", $from)) {
+            throw new \InvalidArgumentException("invalid value for \"from\" when calling InsightApi.getRichMenuInsightDaily, must conform to the pattern /^[0-9]{8}$/.");
+        }
+        
+        // verify the required parameter 'to' is set
+        if ($to === null || (is_array($to) && count($to) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $to when calling getRichMenuInsightDaily'
+            );
+        }
+        if (strlen($to) > 8) {
+            throw new \InvalidArgumentException('invalid length for "$to" when calling InsightApi.getRichMenuInsightDaily, must be smaller than or equal to 8.');
+        }
+        if (strlen($to) < 8) {
+            throw new \InvalidArgumentException('invalid length for "$to" when calling InsightApi.getRichMenuInsightDaily, must be bigger than or equal to 8.');
+        }
+        if (!preg_match("/^[0-9]{8}$/", $to)) {
+            throw new \InvalidArgumentException("invalid value for \"to\" when calling InsightApi.getRichMenuInsightDaily, must conform to the pattern /^[0-9]{8}$/.");
+        }
+        
+
+        $resourcePath = '/v2/bot/insight/richmenu/{richMenuId}/daily';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $from,
+            'from', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $to,
+            'to', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($richMenuId !== null) {
+            $resourcePath = str_replace(
+                '{richMenuId}',
+                ObjectSerializer::toPathValue($richMenuId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getRichMenuInsightSummary
+     *
+     * Get rich menu insight summary
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 396 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightSummary'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\Insight\Model\GetRichMenuInsightSummaryResponse|\LINE\Clients\Insight\Model\ErrorResponse|\LINE\Clients\Insight\Model\ErrorResponse
+     */
+    public function getRichMenuInsightSummary($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightSummary'][0])
+    {
+        list($response) = $this->getRichMenuInsightSummaryWithHttpInfo($richMenuId, $from, $to, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getRichMenuInsightSummaryWithHttpInfo
+     *
+     * Get rich menu insight summary
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 396 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightSummary'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\Insight\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \LINE\Clients\Insight\Model\GetRichMenuInsightSummaryResponse|\LINE\Clients\Insight\Model\ErrorResponse|\LINE\Clients\Insight\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRichMenuInsightSummaryWithHttpInfo($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightSummary'][0])
+    {
+        $request = $this->getRichMenuInsightSummaryRequest($richMenuId, $from, $to, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\LINE\Clients\Insight\Model\GetRichMenuInsightSummaryResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\LINE\Clients\Insight\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\LINE\Clients\Insight\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\LINE\Clients\Insight\Model\GetRichMenuInsightSummaryResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\Insight\Model\GetRichMenuInsightSummaryResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\Insight\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\Insight\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getRichMenuInsightSummaryAsync
+     *
+     * Get rich menu insight summary
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 396 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightSummary'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRichMenuInsightSummaryAsync($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightSummary'][0])
+    {
+        return $this->getRichMenuInsightSummaryAsyncWithHttpInfo($richMenuId, $from, $to, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getRichMenuInsightSummaryAsyncWithHttpInfo
+     *
+     * Get rich menu insight summary
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 396 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightSummary'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRichMenuInsightSummaryAsyncWithHttpInfo($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightSummary'][0])
+    {
+        $returnType = '\LINE\Clients\Insight\Model\GetRichMenuInsightSummaryResponse';
+        $request = $this->getRichMenuInsightSummaryRequest($richMenuId, $from, $to, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getRichMenuInsightSummary'
+     *
+     * @param  string $richMenuId ID of the rich menu created via the Messaging API. (required)
+     * @param  string $from Start date of the aggregation period (inclusive). Must be within the most recent 3 years.  Format: yyyyMMdd (e.g. 20260213) Time zone: UTC+9 (required)
+     * @param  string $to End date of the aggregation period (inclusive). The end date can be specified for up to 396 days after the start date.  Format: yyyyMMdd (e.g. 20260215) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRichMenuInsightSummary'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRichMenuInsightSummaryRequest($richMenuId, $from, $to, string $contentType = self::contentTypes['getRichMenuInsightSummary'][0])
+    {
+
+        // verify the required parameter 'richMenuId' is set
+        if ($richMenuId === null || (is_array($richMenuId) && count($richMenuId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $richMenuId when calling getRichMenuInsightSummary'
+            );
+        }
+
+        // verify the required parameter 'from' is set
+        if ($from === null || (is_array($from) && count($from) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $from when calling getRichMenuInsightSummary'
+            );
+        }
+        if (strlen($from) > 8) {
+            throw new \InvalidArgumentException('invalid length for "$from" when calling InsightApi.getRichMenuInsightSummary, must be smaller than or equal to 8.');
+        }
+        if (strlen($from) < 8) {
+            throw new \InvalidArgumentException('invalid length for "$from" when calling InsightApi.getRichMenuInsightSummary, must be bigger than or equal to 8.');
+        }
+        if (!preg_match("/^[0-9]{8}$/", $from)) {
+            throw new \InvalidArgumentException("invalid value for \"from\" when calling InsightApi.getRichMenuInsightSummary, must conform to the pattern /^[0-9]{8}$/.");
+        }
+        
+        // verify the required parameter 'to' is set
+        if ($to === null || (is_array($to) && count($to) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $to when calling getRichMenuInsightSummary'
+            );
+        }
+        if (strlen($to) > 8) {
+            throw new \InvalidArgumentException('invalid length for "$to" when calling InsightApi.getRichMenuInsightSummary, must be smaller than or equal to 8.');
+        }
+        if (strlen($to) < 8) {
+            throw new \InvalidArgumentException('invalid length for "$to" when calling InsightApi.getRichMenuInsightSummary, must be bigger than or equal to 8.');
+        }
+        if (!preg_match("/^[0-9]{8}$/", $to)) {
+            throw new \InvalidArgumentException("invalid value for \"to\" when calling InsightApi.getRichMenuInsightSummary, must conform to the pattern /^[0-9]{8}$/.");
+        }
+        
+
+        $resourcePath = '/v2/bot/insight/richmenu/{richMenuId}/summary';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $from,
+            'from', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $to,
+            'to', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($richMenuId !== null) {
+            $resourcePath = str_replace(
+                '{richMenuId}',
+                ObjectSerializer::toPathValue($richMenuId),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
