@@ -36,6 +36,8 @@ jobs:
 
       - name: Generate codes
         run: python generate-code.py
+      - name: Install dependencies
+        uses: ramsey/composer-install@65e4f84970763564f46a70b8a54b90d033b3bdda # 4.0.0
       - name: Update document
         run: composer docs
       - run: |
@@ -112,7 +114,7 @@ jobs:
           
           git add docs/**
           git commit --allow-empty -m "Update document"
-          
+
           git push origin $BRANCH_NAME
 
           gh pr create -B ${{ github.ref_name }} -H $BRANCH_NAME -t "$TITLE" -b "$BODY" --label "line-openapi-update"

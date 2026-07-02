@@ -5,6 +5,7 @@ composer.phar
 *.iml
 vendor/
 /.phpdoc/
+/build/
 phpDocumentor.phar
 .phpunit.result.cache
 

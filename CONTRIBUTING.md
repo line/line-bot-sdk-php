@@ -23,7 +23,9 @@ The project structure is as follows:
 - `examples`: Example projects that use the library.
 - `tools`: Development tools including copyright checking scripts.
 - `generator`: Custom OpenAPI Generator codegen with Pebble templates for code generation.
-- `docs`: Auto-generated [Documentation](https://line.github.io/line-bot-sdk-php/) files by phpDocumentor.
+- `support/docs`: Hand-written guide sources (reStructuredText) for phpDocumentor Guides.
+- `build/site`: Auto-generated documentation output (not committed).
+- `.github/workflows/deploy-docs.yml`: Documentation deploy workflow (GitHub Pages).
 
 ### Edit OpenAPI templates
 
@@ -65,24 +67,32 @@ Run `composer check` to check comprehensively. Following tests will run.
 
 https://line.github.io/line-bot-sdk-php/
 
-We use [phpDocumentor](https://www.phpdoc.org/) to generate API documentation.
+We use [phpDocumentor](https://www.phpdoc.org/) to generate API documentation and hand-written guides.
 **Please make sure your new or modified code is covered by proper PHPDoc comments.**
-Good documentation ensures that contributors and users can easily read and understand how the methods and classes work.
 
-**Important:** You **must** regenerate and commit the documentation after modifying code in `src/` or merging from `master`. The CI will fail if documentation is out of sync.
-
-To generate documentation locally, run:
+To generate documentation locally:
 
 ```bash
-$ composer docs
+composer docs
 ```
 
-Or manually:
+This generates the site under `build/site/`. To preview in a browser:
 
 ```bash
-$ wget https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.8.1/phpDocumentor.phar
-$ php phpDocumentor.phar run -d src -t docs
+php -S 127.0.0.1:8000 -t build/site
 ```
+
+Then open http://127.0.0.1:8000/.
+
+#### Documentation structure
+
+| Path | Content |
+|---|---|
+| `support/docs/` | Hand-written guide sources (reStructuredText) |
+| `phpdoc.dist.xml` | phpDocumentor configuration |
+| `build/site/` | Generated output (not committed) |
+
+The generated site contains API docs at the root (`/classes/`, `/namespaces/`, etc.) and hand-written guides under `/docs/`.
 
 ## Contributor license agreement
 
