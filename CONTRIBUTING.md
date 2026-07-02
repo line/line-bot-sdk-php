@@ -25,7 +25,6 @@ The project structure is as follows:
 - `generator`: Custom OpenAPI Generator codegen with Pebble templates for code generation.
 - `support/docs`: Hand-written guide sources (reStructuredText) for phpDocumentor Guides.
 - `build/site`: Auto-generated documentation output (not committed).
-- `.github/workflows/deploy-docs.yml`: Documentation deploy workflow (GitHub Pages).
 
 ### Edit OpenAPI templates
 

@@ -14,13 +14,13 @@ Handling webhooks
 
    use LINE\Parser\EventRequestParser;
 
-   $events = EventRequestParser::parseEventRequest(
+   $parsedEvents = EventRequestParser::parseEventRequest(
        $body,
        $channelSecret,
        $signature,
    );
 
-   foreach ($events as $event) {
+   foreach ($parsedEvents->getEvents() as $event) {
        // Handle event
    }
 
