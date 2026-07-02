@@ -28,7 +28,7 @@
 
         <guide format="rst">
             <source dsn=".">
-                <path>support/docs</path>
+                <path>docs</path>
             </source>
             <output>docs</output>
         </guide>
