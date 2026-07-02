@@ -23,9 +23,8 @@ The project structure is as follows:
 - `examples`: Example projects that use the library.
 - `tools`: Development tools including copyright checking scripts.
 - `generator`: Custom OpenAPI Generator codegen with Pebble templates for code generation.
-- `support/docs`: Hand-written guide sources (reStructuredText) for phpDocumentor Guides.
+- `docs`: Hand-written guide sources (reStructuredText) for phpDocumentor Guides.
 - `build/site`: Auto-generated documentation output (not committed).
-- `.github/workflows/deploy-docs.yml`: Documentation deploy workflow (GitHub Pages).
 
 ### Edit OpenAPI templates
 
@@ -88,7 +87,7 @@ Then open http://127.0.0.1:8000/.
 
 | Path | Content |
 |---|---|
-| `support/docs/` | Hand-written guide sources (reStructuredText) |
+| `docs/` | Hand-written guide sources (reStructuredText) |
 | `phpdoc.dist.xml` | phpDocumentor configuration |
 | `build/site/` | Generated output (not committed) |
 
