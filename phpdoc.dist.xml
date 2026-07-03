@@ -3,14 +3,16 @@
         configVersion="3"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="https://www.phpdoc.org"
-        xsi:noNamespaceSchemaLocation="data/xsd/phpdoc.xsd"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/phpDocumentor/phpDocumentor/master/data/xsd/phpdoc.xsd"
 >
     <title>LINE Messaging API SDK for PHP</title>
+
     <paths>
-        <output>docs</output>
+        <output>build/site</output>
+        <cache>build/cache</cache>
     </paths>
+
     <version number="latest">
-        <folder>latest</folder>
         <api>
             <source dsn=".">
                 <path>src</path>
@@ -23,6 +25,14 @@
                 <extension>php</extension>
             </extensions>
         </api>
+
+        <guide format="rst">
+            <source dsn=".">
+                <path>support/docs</path>
+            </source>
+            <output>docs</output>
+        </guide>
     </version>
+
     <template name="default"/>
 </phpdocumentor>
