@@ -10,3 +10,6 @@ Hand-written documentation for the LINE Messaging API SDK for PHP.
    webhook
    error-handling
    laravel
+
+.. When adding a new page here, also update tools/docs.sh to include it in the
+   top-page Table of Contents.
