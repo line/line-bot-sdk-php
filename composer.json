@@ -26,7 +26,7 @@
     "orchestra/testbench": "*",
     "phpstan/phpstan": "^2.0",
     "phpdocumentor/shim": "3.10.0",
-    "phpunit/phpunit": "^11.0"
+    "phpunit/phpunit": "^13.0"
   },
   "autoload": {
     "psr-4": {
