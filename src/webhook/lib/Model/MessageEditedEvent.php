@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * Event
+ * MessageEditedEvent
  *
  * @category Class
  * @package  LINE\Webhook
@@ -38,30 +38,28 @@
  */
 
 namespace LINE\Webhook\Model;
-
-use \ArrayAccess;
 use \LINE\Webhook\ObjectSerializer;
 
 /**
- * Event Class Doc Comment
+ * MessageEditedEvent Class Doc Comment
  *
  * @category Class
- * @description Webhook event
+ * @description Webhook event object which contains the edited message. This event is triggered when a user edits a text message. Currently, message editing is not available in one-on-one chats with LINE Official Accounts, so this event is only triggered in group chats. Multiple messageEdited webhook events may arrive out of order. The event with the largest timestamp represents the latest edit state.
  * @package  LINE\Webhook
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Event implements ModelInterface, ArrayAccess, \JsonSerializable
+class MessageEditedEvent extends Event
 {
-    public const DISCRIMINATOR = 'type';
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Event';
+    protected static $openAPIModelName = 'MessageEditedEvent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -69,12 +67,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'source' => '\LINE\Webhook\Model\Source',
-        'timestamp' => 'int',
-        'mode' => '\LINE\Webhook\Model\EventMode',
-        'webhookEventId' => 'string',
-        'deliveryContext' => '\LINE\Webhook\Model\DeliveryContext'
+        'replyToken' => 'string',
+        'message' => '\LINE\Webhook\Model\MessageContent'
     ];
 
     /**
@@ -85,12 +79,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'source' => null,
-        'timestamp' => 'int64',
-        'mode' => null,
-        'webhookEventId' => null,
-        'deliveryContext' => null
+        'replyToken' => null,
+        'message' => null
     ];
 
     /**
@@ -99,12 +89,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'source' => false,
-        'timestamp' => false,
-        'mode' => false,
-        'webhookEventId' => false,
-        'deliveryContext' => false
+        'replyToken' => false,
+        'message' => false
     ];
 
     /**
@@ -121,7 +107,7 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -131,7 +117,7 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -141,7 +127,7 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static function openAPINullables(): array
     {
-        return self::$openAPINullables;
+        return self::$openAPINullables + parent::openAPINullables();
     }
 
     /**
@@ -193,12 +179,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'source' => 'source',
-        'timestamp' => 'timestamp',
-        'mode' => 'mode',
-        'webhookEventId' => 'webhookEventId',
-        'deliveryContext' => 'deliveryContext'
+        'replyToken' => 'replyToken',
+        'message' => 'message'
     ];
 
     /**
@@ -207,12 +189,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'source' => 'setSource',
-        'timestamp' => 'setTimestamp',
-        'mode' => 'setMode',
-        'webhookEventId' => 'setWebhookEventId',
-        'deliveryContext' => 'setDeliveryContext'
+        'replyToken' => 'setReplyToken',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -221,12 +199,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'source' => 'getSource',
-        'timestamp' => 'getTimestamp',
-        'mode' => 'getMode',
-        'webhookEventId' => 'getWebhookEventId',
-        'deliveryContext' => 'getDeliveryContext'
+        'replyToken' => 'getReplyToken',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -237,7 +211,7 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -247,7 +221,7 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -257,7 +231,7 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -271,12 +245,6 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -286,12 +254,18 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('mode', $data ?? [], null);
-        $this->setIfExists('webhookEventId', $data ?? [], null);
-        $this->setIfExists('deliveryContext', $data ?? [], null);
+        parent::__construct($data);
+
+        $this->setIfExists('replyToken', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+
+        // Set discriminator value automatically for child class
+        if (method_exists(get_parent_class($this), 'getDiscriminatorValueForClass')) {
+            $discriminatorValue = parent::getDiscriminatorValueForClass(static::class);
+            if ($discriminatorValue !== null && defined('parent::DISCRIMINATOR')) {
+                $this->container[parent::DISCRIMINATOR] = $discriminatorValue;
+            }
+        }
     }
 
     /**
@@ -319,22 +293,10 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['timestamp'] === null) {
-            $invalidProperties[] = "'timestamp' can't be null";
-        }
-        if ($this->container['mode'] === null) {
-            $invalidProperties[] = "'mode' can't be null";
-        }
-        if ($this->container['webhookEventId'] === null) {
-            $invalidProperties[] = "'webhookEventId' can't be null";
-        }
-        if ($this->container['deliveryContext'] === null) {
-            $invalidProperties[] = "'deliveryContext' can't be null";
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -352,163 +314,55 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets replyToken
      *
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getReplyToken()
     {
-        return $this->container['type'];
+        return $this->container['replyToken'];
     }
 
     /**
-     * Sets type
+     * Sets replyToken
      *
-     * @param string $type Type of the event
+     * @param string|null $replyToken replyToken
      *
      * @return self
      */
-    public function setType($type)
+    public function setReplyToken($replyToken)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($replyToken)) {
+            throw new \InvalidArgumentException('non-nullable replyToken cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['replyToken'] = $replyToken;
 
         return $this;
     }
 
     /**
-     * Gets source
+     * Gets message
      *
-     * @return \LINE\Webhook\Model\Source|null
+     * @return \LINE\Webhook\Model\MessageContent
      */
-    public function getSource()
+    public function getMessage()
     {
-        return $this->container['source'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets source
+     * Sets message
      *
-     * @param \LINE\Webhook\Model\Source|null $source source
+     * @param \LINE\Webhook\Model\MessageContent $message message
      *
      * @return self
      */
-    public function setSource($source)
+    public function setMessage($message)
     {
-        if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets timestamp
-     *
-     * @return int
-     */
-    public function getTimestamp()
-    {
-        return $this->container['timestamp'];
-    }
-
-    /**
-     * Sets timestamp
-     *
-     * @param int $timestamp Time of the event in milliseconds.
-     *
-     * @return self
-     */
-    public function setTimestamp($timestamp)
-    {
-        if (is_null($timestamp)) {
-            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
-        }
-        $this->container['timestamp'] = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
-     *
-     * @return \LINE\Webhook\Model\EventMode
-     */
-    public function getMode()
-    {
-        return $this->container['mode'];
-    }
-
-    /**
-     * Sets mode
-     *
-     * @param \LINE\Webhook\Model\EventMode $mode mode
-     *
-     * @return self
-     */
-    public function setMode($mode)
-    {
-        if (is_null($mode)) {
-            throw new \InvalidArgumentException('non-nullable mode cannot be null');
-        }
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets webhookEventId
-     *
-     * @return string
-     */
-    public function getWebhookEventId()
-    {
-        return $this->container['webhookEventId'];
-    }
-
-    /**
-     * Sets webhookEventId
-     *
-     * @param string $webhookEventId Webhook Event ID. An ID that uniquely identifies a webhook event. This is a string in ULID format.
-     *
-     * @return self
-     */
-    public function setWebhookEventId($webhookEventId)
-    {
-        if (is_null($webhookEventId)) {
-            throw new \InvalidArgumentException('non-nullable webhookEventId cannot be null');
-        }
-        $this->container['webhookEventId'] = $webhookEventId;
-
-        return $this;
-    }
-
-    /**
-     * Gets deliveryContext
-     *
-     * @return \LINE\Webhook\Model\DeliveryContext
-     */
-    public function getDeliveryContext()
-    {
-        return $this->container['deliveryContext'];
-    }
-
-    /**
-     * Sets deliveryContext
-     *
-     * @param \LINE\Webhook\Model\DeliveryContext $deliveryContext deliveryContext
-     *
-     * @return self
-     */
-    public function setDeliveryContext($deliveryContext)
-    {
-        if (is_null($deliveryContext)) {
-            throw new \InvalidArgumentException('non-nullable deliveryContext cannot be null');
-        }
-        $this->container['deliveryContext'] = $deliveryContext;
+        $this->container['message'] = $message;
 
         return $this;
     }
@@ -603,80 +457,17 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets discriminator value for a given class name
-     *
-     * @param string $className Fully qualified class name
-     * @return string|null Discriminator value or null if not found
-     */
-    protected static function getDiscriminatorValueForClass(string $className): ?string
-    {
-        $map = [
-            AccountLinkEvent::class => 'accountLink',
-            ActivatedEvent::class => 'activated',
-            BeaconEvent::class => 'beacon',
-            BotResumedEvent::class => 'botResumed',
-            BotSuspendedEvent::class => 'botSuspended',
-            DeactivatedEvent::class => 'deactivated',
-            PnpDeliveryCompletionEvent::class => 'delivery',
-            FollowEvent::class => 'follow',
-            JoinEvent::class => 'join',
-            LeaveEvent::class => 'leave',
-            MemberJoinedEvent::class => 'memberJoined',
-            MemberLeftEvent::class => 'memberLeft',
-            MembershipEvent::class => 'membership',
-            MessageEvent::class => 'message',
-            MessageEditedEvent::class => 'messageEdited',
-            ModuleEvent::class => 'module',
-            PostbackEvent::class => 'postback',
-            UnfollowEvent::class => 'unfollow',
-            UnsendEvent::class => 'unsend',
-            VideoPlayCompleteEvent::class => 'videoPlayComplete',
-        ];
-
-        return $map[$className] ?? null;
-    }
-
-    /**
-     * Create an instance of Event from a dict (associative array)
+     * Create an instance of MessageEditedEvent from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.
      *
      * @param array|null $data Associative array of property values
-     * @return Event
+     * @return MessageEditedEvent
      */
     public static function fromAssocArray(?array $data): self
     {
         if ($data === null) {
             return new static();
-        }
-
-        $discriminatorValue = $data[self::DISCRIMINATOR] ?? null;
-        $discriminatorMap = [
-            'accountLink' => AccountLinkEvent::class,
-'activated' => ActivatedEvent::class,
-'beacon' => BeaconEvent::class,
-'botResumed' => BotResumedEvent::class,
-'botSuspended' => BotSuspendedEvent::class,
-'deactivated' => DeactivatedEvent::class,
-'delivery' => PnpDeliveryCompletionEvent::class,
-'follow' => FollowEvent::class,
-'join' => JoinEvent::class,
-'leave' => LeaveEvent::class,
-'memberJoined' => MemberJoinedEvent::class,
-'memberLeft' => MemberLeftEvent::class,
-'membership' => MembershipEvent::class,
-'message' => MessageEvent::class,
-'messageEdited' => MessageEditedEvent::class,
-'module' => ModuleEvent::class,
-'postback' => PostbackEvent::class,
-'unfollow' => UnfollowEvent::class,
-'unsend' => UnsendEvent::class,
-'videoPlayComplete' => VideoPlayCompleteEvent::class,
-        ];
-
-        if (isset($discriminatorValue) && isset($discriminatorMap[$discriminatorValue])) {
-            $modelClass = $discriminatorMap[$discriminatorValue];
-            return $modelClass::fromAssocArray($data);
         }
 
         $instance = new static();
@@ -698,6 +489,12 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (isset($data['deliveryContext'])) {
             $instance->setdeliveryContext(\LINE\Webhook\Model\DeliveryContext::fromAssocArray($data['deliveryContext']));
+        }
+        if (isset($data['replyToken'])) {
+            $instance->setreplyToken($data['replyToken']);
+        }
+        if (isset($data['message'])) {
+            $instance->setmessage(\LINE\Webhook\Model\MessageContent::fromAssocArray($data['message']));
         }
 
         return $instance;
