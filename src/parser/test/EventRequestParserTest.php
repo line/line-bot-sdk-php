@@ -918,6 +918,26 @@ class EventRequestParserTest extends TestCase
           "isRedelivery": false
         },
         "replyToken": "replytoken"
+      },
+      {
+        "type": "messageEdited",
+        "timestamp": 12345678901234,
+        "mode": "active",
+        "source": {
+          "type": "group",
+          "groupId": "groupid",
+          "userId": "userid"
+        },
+        "webhookEventId": "testwebhookeventid",
+        "deliveryContext": {
+          "isRedelivery": false
+        },
+        "replyToken": "replytoken",
+        "message": {
+          "id": "contentid",
+          "type": "text",
+          "text": "edited message"
+        }
       }
      ]
     }
@@ -941,7 +961,7 @@ class EventRequestParserTest extends TestCase
         $this->assertEquals($parsedEvents->getDestination(), 'U0123456789abcdef0123456789abcd');
 
         $events = $parsedEvents->getEvents();
-        $this->assertEquals(count($events), 46);
+        $this->assertEquals(count($events), 47);
 
         {
             // text
@@ -1714,6 +1734,26 @@ class EventRequestParserTest extends TestCase
             $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
             $this->assertEquals('replytoken', $event->getReplyToken());
         }
+
+        {
+            // messageEdited
+            $event = $events[46];
+            $source = $event->getSource();
+            $this->assertEquals(12345678901234, $event->getTimestamp());
+            $this->assertEquals('active', $event->getMode());
+            $this->assertInstanceOf(GroupSource::class, $source);
+            $this->assertEquals('groupid', $source->getGroupId());
+            $this->assertEquals('userid', $source->getUserId());
+            $this->assertEquals('testwebhookeventid', $event->getWebhookEventId());
+            $this->assertFalse($event->getDeliveryContext()->getIsRedelivery());
+            $this->assertJsonStringEqualsJsonString(json_encode($eventArrays[46], JSON_THROW_ON_ERROR), $event->__toString());
+            $this->assertInstanceOf(\LINE\Webhook\Model\MessageEditedEvent::class, $event);
+            $this->assertInstanceOf(\LINE\Webhook\Model\TextMessageContent::class, $event->getMessage());
+            $this->assertEquals('replytoken', $event->getReplyToken());
+            $this->assertEquals('contentid', $event->getMessage()->getId());
+            $this->assertEquals('text', $event->getMessage()->getType());
+            $this->assertEquals('edited message', $event->getMessage()->getText());
+        }
     }
 
     private static function getSignature(string $secret): string
@@ -1743,6 +1783,6 @@ class EventRequestParserTest extends TestCase
         );
 
         $this->assertEquals('U0123456789abcdef0123456789abcd', $parsedEvents->getDestination());
-        $this->assertEquals(46, count($parsedEvents->getEvents()));
+        $this->assertEquals(47, count($parsedEvents->getEvents()));
     }
 }
