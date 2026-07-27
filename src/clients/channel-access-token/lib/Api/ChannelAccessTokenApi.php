@@ -1322,7 +1322,7 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelToken
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1337,7 +1337,7 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenWithHttpInfo
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\ChannelAccessToken\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1384,7 +1384,7 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenAsync
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1403,7 +1403,7 @@ class ChannelAccessTokenApi
     /**
      * Operation revokeChannelTokenAsyncWithHttpInfo
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1440,7 +1440,7 @@ class ChannelAccessTokenApi
     /**
      * Create request for operation 'revokeChannelToken'
      *
-     * @param  string $accessToken A short-lived or long-lived channel access token. (required)
+     * @param  string $accessToken Channel access token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeChannelToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
