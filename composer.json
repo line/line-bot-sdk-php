@@ -18,7 +18,7 @@
     "php": "^8.2",
     "composer-runtime-api": "^2.0",
     "guzzlehttp/guzzle": "^7.3",
-    "guzzlehttp/psr7": "^1.7 || ^2.0"
+    "guzzlehttp/psr7": "^1.7 || ^2.0 || ^3.0"
   },
   "require-dev": {
     "phpmd/phpmd": "2.15.0",
