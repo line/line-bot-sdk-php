@@ -41,8 +41,8 @@ namespace LINE\Webhook\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
@@ -171,14 +171,15 @@ class DummyApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
+            } catch (BadResponseException $e) {
+                $response = $e->getResponse();
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response->getHeaders(),
+                    (string) $response->getBody()
                 );
-            } catch (ConnectException $e) {
+            } catch (TransferException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
@@ -289,17 +290,25 @@ class DummyApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
+                    if ($exception instanceof BadResponseException) {
+                        $response = $exception->getResponse();
+                        $statusCode = $response->getStatusCode();
+                        throw new ApiException(
+                            sprintf(
+                                '[%d] Error connecting to the API (%s)',
+                                $statusCode,
+                                $exception->getRequest()->getUri()
+                            ),
                             $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
+                            $response->getHeaders(),
+                            (string) $response->getBody()
+                        );
+                    }
+                    throw new ApiException(
+                        "[{$exception->getCode()}] {$exception->getMessage()}",
+                        (int) $exception->getCode(),
+                        null,
+                        null
                     );
                 }
             );
@@ -346,7 +355,7 @@ class DummyApi
         if (isset($callbackRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($callbackRequest));
+                $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($callbackRequest), JSON_THROW_ON_ERROR);
             } else {
                 $httpBody = $callbackRequest;
             }
@@ -367,7 +376,7 @@ class DummyApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
