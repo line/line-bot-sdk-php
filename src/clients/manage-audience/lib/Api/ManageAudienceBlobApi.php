@@ -41,8 +41,8 @@ namespace LINE\Clients\ManageAudience\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Exception\TransferException;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
@@ -189,15 +189,15 @@ class ManageAudienceBlobApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
-            } catch (BadResponseException $e) {
-                $response = $e->getResponse();
+            } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $response->getHeaders(),
-                    (string) $response->getBody()
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
-            } catch (TransferException $e) {
+            } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
@@ -275,25 +275,27 @@ class ManageAudienceBlobApi
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
-                    if ($exception instanceof BadResponseException) {
-                        $response = $exception->getResponse();
-                        $statusCode = $response->getStatusCode();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
                         throw new ApiException(
-                            sprintf(
-                                '[%d] Error connecting to the API (%s)',
-                                $statusCode,
-                                $exception->getRequest()->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            (string) $response->getBody()
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
                         );
                     }
+                    $statusCode = $response->getStatusCode();
                     throw new ApiException(
-                        "[{$exception->getCode()}] {$exception->getMessage()}",
-                        (int) $exception->getCode(),
-                        null,
-                        null
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -486,15 +488,15 @@ class ManageAudienceBlobApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
-            } catch (BadResponseException $e) {
-                $response = $e->getResponse();
+            } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $response->getHeaders(),
-                    (string) $response->getBody()
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
-            } catch (TransferException $e) {
+            } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
@@ -623,25 +625,27 @@ class ManageAudienceBlobApi
                     ];
                 },
                 function ($exception) {
-                    if ($exception instanceof BadResponseException) {
-                        $response = $exception->getResponse();
-                        $statusCode = $response->getStatusCode();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
                         throw new ApiException(
-                            sprintf(
-                                '[%d] Error connecting to the API (%s)',
-                                $statusCode,
-                                $exception->getRequest()->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            (string) $response->getBody()
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
                         );
                     }
+                    $statusCode = $response->getStatusCode();
                     throw new ApiException(
-                        "[{$exception->getCode()}] {$exception->getMessage()}",
-                        (int) $exception->getCode(),
-                        null,
-                        null
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
                     );
                 }
             );
