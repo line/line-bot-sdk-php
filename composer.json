@@ -22,7 +22,7 @@
   },
   "require-dev": {
     "phpmd/phpmd": "2.15.0",
-    "squizlabs/php_codesniffer": "4.0.1",
+    "squizlabs/php_codesniffer": "4.0.2",
     "orchestra/testbench": "*",
     "phpstan/phpstan": "^2.0",
     "phpdocumentor/shim": "3.10.0",
