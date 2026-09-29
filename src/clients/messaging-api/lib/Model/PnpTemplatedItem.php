@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * PnpMessagesRequest
+ * PnpTemplatedItem
  *
  * @category Class
  * @package  LINE\Clients\MessagingApi
@@ -43,7 +43,7 @@ use \ArrayAccess;
 use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
- * PnpMessagesRequest Class Doc Comment
+ * PnpTemplatedItem Class Doc Comment
  *
  * @category Class
  * @package  LINE\Clients\MessagingApi
@@ -51,7 +51,7 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PnpTemplatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,7 +60,7 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PnpMessagesRequest';
+    protected static $openAPIModelName = 'PnpTemplatedItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -68,10 +68,8 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'messages' => '\LINE\Clients\MessagingApi\Model\Message[]',
-        'to' => 'string',
-        'notificationDisabled' => 'bool',
-        'customAggregationUnits' => 'string[]'
+        'itemKey' => 'string',
+        'content' => 'string'
     ];
 
     /**
@@ -82,10 +80,8 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'messages' => null,
-        'to' => null,
-        'notificationDisabled' => null,
-        'customAggregationUnits' => null
+        'itemKey' => null,
+        'content' => null
     ];
 
     /**
@@ -94,10 +90,8 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'messages' => false,
-        'to' => false,
-        'notificationDisabled' => false,
-        'customAggregationUnits' => false
+        'itemKey' => false,
+        'content' => false
     ];
 
     /**
@@ -186,10 +180,8 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'messages' => 'messages',
-        'to' => 'to',
-        'notificationDisabled' => 'notificationDisabled',
-        'customAggregationUnits' => 'customAggregationUnits'
+        'itemKey' => 'itemKey',
+        'content' => 'content'
     ];
 
     /**
@@ -198,10 +190,8 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'messages' => 'setMessages',
-        'to' => 'setTo',
-        'notificationDisabled' => 'setNotificationDisabled',
-        'customAggregationUnits' => 'setCustomAggregationUnits'
+        'itemKey' => 'setItemKey',
+        'content' => 'setContent'
     ];
 
     /**
@@ -210,10 +200,8 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'messages' => 'getMessages',
-        'to' => 'getTo',
-        'notificationDisabled' => 'getNotificationDisabled',
-        'customAggregationUnits' => 'getCustomAggregationUnits'
+        'itemKey' => 'getItemKey',
+        'content' => 'getContent'
     ];
 
     /**
@@ -273,10 +261,8 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('messages', $data ?? [], null);
-        $this->setIfExists('to', $data ?? [], null);
-        $this->setIfExists('notificationDisabled', $data ?? [], false);
-        $this->setIfExists('customAggregationUnits', $data ?? [], null);
+        $this->setIfExists('itemKey', $data ?? [], null);
+        $this->setIfExists('content', $data ?? [], null);
     }
 
     /**
@@ -306,22 +292,14 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['messages'] === null) {
-            $invalidProperties[] = "'messages' can't be null";
+        if ($this->container['itemKey'] === null) {
+            $invalidProperties[] = "'itemKey' can't be null";
         }
-        if ((count($this->container['messages']) > 5)) {
-            $invalidProperties[] = "invalid value for 'messages', number of items must be less than or equal to 5.";
+        if ($this->container['content'] === null) {
+            $invalidProperties[] = "'content' can't be null";
         }
-
-        if ((count($this->container['messages']) < 1)) {
-            $invalidProperties[] = "invalid value for 'messages', number of items must be greater than or equal to 1.";
-        }
-
-        if ($this->container['to'] === null) {
-            $invalidProperties[] = "'to' can't be null";
-        }
-        if (!is_null($this->container['customAggregationUnits']) && (count($this->container['customAggregationUnits']) > 1)) {
-            $invalidProperties[] = "invalid value for 'customAggregationUnits', number of items must be less than or equal to 1.";
+        if ((mb_strlen($this->container['content']) > 300)) {
+            $invalidProperties[] = "invalid value for 'content', the character length must be smaller than or equal to 300.";
         }
 
         return $invalidProperties;
@@ -340,120 +318,59 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets messages
-     *
-     * @return \LINE\Clients\MessagingApi\Model\Message[]
-     */
-    public function getMessages()
-    {
-        return $this->container['messages'];
-    }
-
-    /**
-     * Sets messages
-     *
-     * @param \LINE\Clients\MessagingApi\Model\Message[] $messages Message to be sent.
-     *
-     * @return self
-     */
-    public function setMessages($messages)
-    {
-        if (is_null($messages)) {
-            throw new \InvalidArgumentException('non-nullable messages cannot be null');
-        }
-
-        if ((count($messages) > 5)) {
-            throw new \InvalidArgumentException('invalid value for $messages when calling PnpMessagesRequest., number of items must be less than or equal to 5.');
-        }
-        if ((count($messages) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $messages when calling PnpMessagesRequest., number of items must be greater than or equal to 1.');
-        }
-        $this->container['messages'] = $messages;
-
-        return $this;
-    }
-
-    /**
-     * Gets to
+     * Gets itemKey
      *
      * @return string
      */
-    public function getTo()
+    public function getItemKey()
     {
-        return $this->container['to'];
+        return $this->container['itemKey'];
     }
 
     /**
-     * Sets to
+     * Sets itemKey
      *
-     * @param string $to Message destination. Specify a phone number that has been normalized to E.164 format and hashed with SHA256.
+     * @param string $itemKey Specify the key of the item you want to include. For available keys, see https://developers.line.biz/en/docs/partner-docs/line-notification-messages/template/#items
      *
      * @return self
      */
-    public function setTo($to)
+    public function setItemKey($itemKey)
     {
-        if (is_null($to)) {
-            throw new \InvalidArgumentException('non-nullable to cannot be null');
+        if (is_null($itemKey)) {
+            throw new \InvalidArgumentException('non-nullable itemKey cannot be null');
         }
-        $this->container['to'] = $to;
+        $this->container['itemKey'] = $itemKey;
 
         return $this;
     }
 
     /**
-     * Gets notificationDisabled
+     * Gets content
      *
-     * @return bool|null
+     * @return string
      */
-    public function getNotificationDisabled()
+    public function getContent()
     {
-        return $this->container['notificationDisabled'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets notificationDisabled
+     * Sets content
      *
-     * @param bool|null $notificationDisabled `true`: The user doesn’t receive a push notification when a message is sent. `false`: The user receives a push notification when the message is sent (unless they have disabled push notifications in LINE and/or their device). The default value is false.
+     * @param string $content String to be displayed as the value of the item.
      *
      * @return self
      */
-    public function setNotificationDisabled($notificationDisabled)
+    public function setContent($content)
     {
-        if (is_null($notificationDisabled)) {
-            throw new \InvalidArgumentException('non-nullable notificationDisabled cannot be null');
+        if (is_null($content)) {
+            throw new \InvalidArgumentException('non-nullable content cannot be null');
         }
-        $this->container['notificationDisabled'] = $notificationDisabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets customAggregationUnits
-     *
-     * @return string[]|null
-     */
-    public function getCustomAggregationUnits()
-    {
-        return $this->container['customAggregationUnits'];
-    }
-
-    /**
-     * Sets customAggregationUnits
-     *
-     * @param string[]|null $customAggregationUnits Name of aggregation unit. Case-sensitive.
-     *
-     * @return self
-     */
-    public function setCustomAggregationUnits($customAggregationUnits)
-    {
-        if (is_null($customAggregationUnits)) {
-            throw new \InvalidArgumentException('non-nullable customAggregationUnits cannot be null');
+        if ((mb_strlen($content) > 300)) {
+            throw new \InvalidArgumentException('invalid length for $content when calling PnpTemplatedItem., must be smaller than or equal to 300.');
         }
 
-        if ((count($customAggregationUnits) > 1)) {
-            throw new \InvalidArgumentException('invalid value for $customAggregationUnits when calling PnpMessagesRequest., number of items must be less than or equal to 1.');
-        }
-        $this->container['customAggregationUnits'] = $customAggregationUnits;
+        $this->container['content'] = $content;
 
         return $this;
     }
@@ -548,12 +465,12 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Create an instance of PnpMessagesRequest from a dict (associative array)
+     * Create an instance of PnpTemplatedItem from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.
      *
      * @param array|null $data Associative array of property values
-     * @return PnpMessagesRequest
+     * @return PnpTemplatedItem
      */
     public static function fromAssocArray(?array $data): self
     {
@@ -563,21 +480,11 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
         $instance = new static();
 
-        if (isset($data['messages'])) {
-            $messages = [];
-            foreach ($data['messages'] as $item) {
-                $messages[] = \LINE\Clients\MessagingApi\Model\Message::fromAssocArray($item);
-            }
-            $instance->setmessages($messages);
+        if (isset($data['itemKey'])) {
+            $instance->setitemKey($data['itemKey']);
         }
-        if (isset($data['to'])) {
-            $instance->setto($data['to']);
-        }
-        if (isset($data['notificationDisabled'])) {
-            $instance->setnotificationDisabled($data['notificationDisabled']);
-        }
-        if (isset($data['customAggregationUnits'])) {
-            $instance->setcustomAggregationUnits($data['customAggregationUnits']);
+        if (isset($data['content'])) {
+            $instance->setcontent($data['content']);
         }
 
         return $instance;

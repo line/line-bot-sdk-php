@@ -15,7 +15,7 @@
  * under the License.
  */
 /**
- * PnpMessagesRequest
+ * PnpTemplatedMessageRequest
  *
  * @category Class
  * @package  LINE\Clients\MessagingApi
@@ -43,7 +43,7 @@ use \ArrayAccess;
 use \LINE\Clients\MessagingApi\ObjectSerializer;
 
 /**
- * PnpMessagesRequest Class Doc Comment
+ * PnpTemplatedMessageRequest Class Doc Comment
  *
  * @category Class
  * @package  LINE\Clients\MessagingApi
@@ -51,7 +51,7 @@ use \LINE\Clients\MessagingApi\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PnpTemplatedMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,7 +60,7 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PnpMessagesRequest';
+    protected static $openAPIModelName = 'PnpTemplatedMessageRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -68,9 +68,9 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'messages' => '\LINE\Clients\MessagingApi\Model\Message[]',
         'to' => 'string',
-        'notificationDisabled' => 'bool',
+        'templateKey' => 'string',
+        'body' => '\LINE\Clients\MessagingApi\Model\PnpTemplatedMessageBody',
         'customAggregationUnits' => 'string[]'
     ];
 
@@ -82,9 +82,9 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'messages' => null,
         'to' => null,
-        'notificationDisabled' => null,
+        'templateKey' => null,
+        'body' => null,
         'customAggregationUnits' => null
     ];
 
@@ -94,9 +94,9 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'messages' => false,
         'to' => false,
-        'notificationDisabled' => false,
+        'templateKey' => false,
+        'body' => false,
         'customAggregationUnits' => false
     ];
 
@@ -186,9 +186,9 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'messages' => 'messages',
         'to' => 'to',
-        'notificationDisabled' => 'notificationDisabled',
+        'templateKey' => 'templateKey',
+        'body' => 'body',
         'customAggregationUnits' => 'customAggregationUnits'
     ];
 
@@ -198,9 +198,9 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'messages' => 'setMessages',
         'to' => 'setTo',
-        'notificationDisabled' => 'setNotificationDisabled',
+        'templateKey' => 'setTemplateKey',
+        'body' => 'setBody',
         'customAggregationUnits' => 'setCustomAggregationUnits'
     ];
 
@@ -210,9 +210,9 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'messages' => 'getMessages',
         'to' => 'getTo',
-        'notificationDisabled' => 'getNotificationDisabled',
+        'templateKey' => 'getTemplateKey',
+        'body' => 'getBody',
         'customAggregationUnits' => 'getCustomAggregationUnits'
     ];
 
@@ -273,9 +273,9 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('messages', $data ?? [], null);
         $this->setIfExists('to', $data ?? [], null);
-        $this->setIfExists('notificationDisabled', $data ?? [], false);
+        $this->setIfExists('templateKey', $data ?? [], null);
+        $this->setIfExists('body', $data ?? [], null);
         $this->setIfExists('customAggregationUnits', $data ?? [], null);
     }
 
@@ -306,19 +306,11 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['messages'] === null) {
-            $invalidProperties[] = "'messages' can't be null";
-        }
-        if ((count($this->container['messages']) > 5)) {
-            $invalidProperties[] = "invalid value for 'messages', number of items must be less than or equal to 5.";
-        }
-
-        if ((count($this->container['messages']) < 1)) {
-            $invalidProperties[] = "invalid value for 'messages', number of items must be greater than or equal to 1.";
-        }
-
         if ($this->container['to'] === null) {
             $invalidProperties[] = "'to' can't be null";
+        }
+        if ($this->container['templateKey'] === null) {
+            $invalidProperties[] = "'templateKey' can't be null";
         }
         if (!is_null($this->container['customAggregationUnits']) && (count($this->container['customAggregationUnits']) > 1)) {
             $invalidProperties[] = "invalid value for 'customAggregationUnits', number of items must be less than or equal to 1.";
@@ -338,40 +330,6 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets messages
-     *
-     * @return \LINE\Clients\MessagingApi\Model\Message[]
-     */
-    public function getMessages()
-    {
-        return $this->container['messages'];
-    }
-
-    /**
-     * Sets messages
-     *
-     * @param \LINE\Clients\MessagingApi\Model\Message[] $messages Message to be sent.
-     *
-     * @return self
-     */
-    public function setMessages($messages)
-    {
-        if (is_null($messages)) {
-            throw new \InvalidArgumentException('non-nullable messages cannot be null');
-        }
-
-        if ((count($messages) > 5)) {
-            throw new \InvalidArgumentException('invalid value for $messages when calling PnpMessagesRequest., number of items must be less than or equal to 5.');
-        }
-        if ((count($messages) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $messages when calling PnpMessagesRequest., number of items must be greater than or equal to 1.');
-        }
-        $this->container['messages'] = $messages;
-
-        return $this;
-    }
 
     /**
      * Gets to
@@ -401,28 +359,55 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets notificationDisabled
+     * Gets templateKey
      *
-     * @return bool|null
+     * @return string
      */
-    public function getNotificationDisabled()
+    public function getTemplateKey()
     {
-        return $this->container['notificationDisabled'];
+        return $this->container['templateKey'];
     }
 
     /**
-     * Sets notificationDisabled
+     * Sets templateKey
      *
-     * @param bool|null $notificationDisabled `true`: The user doesn’t receive a push notification when a message is sent. `false`: The user receives a push notification when the message is sent (unless they have disabled push notifications in LINE and/or their device). The default value is false.
+     * @param string $templateKey Specify the key of the template you want to send. For available keys, see https://developers.line.biz/en/docs/partner-docs/line-notification-messages/template/#templates
      *
      * @return self
      */
-    public function setNotificationDisabled($notificationDisabled)
+    public function setTemplateKey($templateKey)
     {
-        if (is_null($notificationDisabled)) {
-            throw new \InvalidArgumentException('non-nullable notificationDisabled cannot be null');
+        if (is_null($templateKey)) {
+            throw new \InvalidArgumentException('non-nullable templateKey cannot be null');
         }
-        $this->container['notificationDisabled'] = $notificationDisabled;
+        $this->container['templateKey'] = $templateKey;
+
+        return $this;
+    }
+
+    /**
+     * Gets body
+     *
+     * @return \LINE\Clients\MessagingApi\Model\PnpTemplatedMessageBody|null
+     */
+    public function getBody()
+    {
+        return $this->container['body'];
+    }
+
+    /**
+     * Sets body
+     *
+     * @param \LINE\Clients\MessagingApi\Model\PnpTemplatedMessageBody|null $body body
+     *
+     * @return self
+     */
+    public function setBody($body)
+    {
+        if (is_null($body)) {
+            throw new \InvalidArgumentException('non-nullable body cannot be null');
+        }
+        $this->container['body'] = $body;
 
         return $this;
     }
@@ -440,7 +425,7 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets customAggregationUnits
      *
-     * @param string[]|null $customAggregationUnits Name of aggregation unit. Case-sensitive.
+     * @param string[]|null $customAggregationUnits Name of aggregation unit. Case-sensitive. For more information about assigning a unit name, see https://developers.line.biz/en/docs/messaging-api/unit-based-statistics-aggregation/#assign-names-to-units-when-sending-messages
      *
      * @return self
      */
@@ -451,7 +436,7 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         if ((count($customAggregationUnits) > 1)) {
-            throw new \InvalidArgumentException('invalid value for $customAggregationUnits when calling PnpMessagesRequest., number of items must be less than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for $customAggregationUnits when calling PnpTemplatedMessageRequest., number of items must be less than or equal to 1.');
         }
         $this->container['customAggregationUnits'] = $customAggregationUnits;
 
@@ -548,12 +533,12 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Create an instance of PnpMessagesRequest from a dict (associative array)
+     * Create an instance of PnpTemplatedMessageRequest from a dict (associative array)
      *
      * @internal This method is intended to be used internally only for now.
      *
      * @param array|null $data Associative array of property values
-     * @return PnpMessagesRequest
+     * @return PnpTemplatedMessageRequest
      */
     public static function fromAssocArray(?array $data): self
     {
@@ -563,18 +548,14 @@ class PnpMessagesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
         $instance = new static();
 
-        if (isset($data['messages'])) {
-            $messages = [];
-            foreach ($data['messages'] as $item) {
-                $messages[] = \LINE\Clients\MessagingApi\Model\Message::fromAssocArray($item);
-            }
-            $instance->setmessages($messages);
-        }
         if (isset($data['to'])) {
             $instance->setto($data['to']);
         }
-        if (isset($data['notificationDisabled'])) {
-            $instance->setnotificationDisabled($data['notificationDisabled']);
+        if (isset($data['templateKey'])) {
+            $instance->settemplateKey($data['templateKey']);
+        }
+        if (isset($data['body'])) {
+            $instance->setbody(\LINE\Clients\MessagingApi\Model\PnpTemplatedMessageBody::fromAssocArray($data['body']));
         }
         if (isset($data['customAggregationUnits'])) {
             $instance->setcustomAggregationUnits($data['customAggregationUnits']);

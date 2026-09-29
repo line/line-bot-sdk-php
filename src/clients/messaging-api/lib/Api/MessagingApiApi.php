@@ -173,6 +173,9 @@ class MessagingApiApi
         'getPNPMessageStatistics' => [
             'application/json',
         ],
+        'getPNPTemplatedMessageStatistics' => [
+            'application/json',
+        ],
         'getProfile' => [
             'application/json',
         ],
@@ -240,6 +243,9 @@ class MessagingApiApi
             'application/json',
         ],
         'pushMessagesByPhone' => [
+            'application/json',
+        ],
+        'pushTemplatedMessagesByPhone' => [
             'application/json',
         ],
         'replyMessage' => [
@@ -7916,6 +7922,274 @@ class MessagingApiApi
     }
 
     /**
+     * Operation getPNPTemplatedMessageStatistics
+     *
+     * @param  string $date Date the message was sent  Format: &#x60;yyyyMMdd&#x60; (Example:&#x60;20211231&#x60;) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPNPTemplatedMessageStatistics'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \LINE\Clients\MessagingApi\Model\NumberOfMessagesResponse
+     */
+    public function getPNPTemplatedMessageStatistics($date, string $contentType = self::contentTypes['getPNPTemplatedMessageStatistics'][0])
+    {
+        list($response) = $this->getPNPTemplatedMessageStatisticsWithHttpInfo($date, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getPNPTemplatedMessageStatisticsWithHttpInfo
+     *
+     * @param  string $date Date the message was sent  Format: &#x60;yyyyMMdd&#x60; (Example:&#x60;20211231&#x60;) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPNPTemplatedMessageStatistics'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \LINE\Clients\MessagingApi\Model\NumberOfMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPNPTemplatedMessageStatisticsWithHttpInfo($date, string $contentType = self::contentTypes['getPNPTemplatedMessageStatistics'][0])
+    {
+        $request = $this->getPNPTemplatedMessageStatisticsRequest($date, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\LINE\Clients\MessagingApi\Model\NumberOfMessagesResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\LINE\Clients\MessagingApi\Model\NumberOfMessagesResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\NumberOfMessagesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPNPTemplatedMessageStatisticsAsync
+     *
+     * @param  string $date Date the message was sent  Format: &#x60;yyyyMMdd&#x60; (Example:&#x60;20211231&#x60;) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPNPTemplatedMessageStatistics'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPNPTemplatedMessageStatisticsAsync($date, string $contentType = self::contentTypes['getPNPTemplatedMessageStatistics'][0])
+    {
+        return $this->getPNPTemplatedMessageStatisticsAsyncWithHttpInfo($date, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPNPTemplatedMessageStatisticsAsyncWithHttpInfo
+     *
+     * @param  string $date Date the message was sent  Format: &#x60;yyyyMMdd&#x60; (Example:&#x60;20211231&#x60;) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPNPTemplatedMessageStatistics'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPNPTemplatedMessageStatisticsAsyncWithHttpInfo($date, string $contentType = self::contentTypes['getPNPTemplatedMessageStatistics'][0])
+    {
+        $returnType = '\LINE\Clients\MessagingApi\Model\NumberOfMessagesResponse';
+        $request = $this->getPNPTemplatedMessageStatisticsRequest($date, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPNPTemplatedMessageStatistics'
+     *
+     * @param  string $date Date the message was sent  Format: &#x60;yyyyMMdd&#x60; (Example:&#x60;20211231&#x60;) Time zone: UTC+9 (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPNPTemplatedMessageStatistics'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPNPTemplatedMessageStatisticsRequest($date, string $contentType = self::contentTypes['getPNPTemplatedMessageStatistics'][0])
+    {
+
+        // verify the required parameter 'date' is set
+        if ($date === null || (is_array($date) && count($date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $date when calling getPNPTemplatedMessageStatistics'
+            );
+        }
+        if (!preg_match("/^[0-9]{8}$/", $date)) {
+            throw new \InvalidArgumentException("invalid value for \"date\" when calling MessagingApiApi.getPNPTemplatedMessageStatistics, must conform to the pattern /^[0-9]{8}$/.");
+        }
+        
+
+        $resourcePath = '/v2/bot/message/delivery/pnp/templated';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $date,
+            'date', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getProfile
      *
      * @param  string $userId User ID (required)
@@ -13866,6 +14140,243 @@ class MessagingApiApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($pnpMessagesRequest));
             } else {
                 $httpBody = $pnpMessagesRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation pushTemplatedMessagesByPhone
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\PnpTemplatedMessageRequest $pnpTemplatedMessageRequest pnpTemplatedMessageRequest (required)
+     * @param  string|null $xLineDeliveryTag String returned in the delivery.data property of the delivery completion event via Webhook. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pushTemplatedMessagesByPhone'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function pushTemplatedMessagesByPhone($pnpTemplatedMessageRequest, $xLineDeliveryTag = null, string $contentType = self::contentTypes['pushTemplatedMessagesByPhone'][0])
+    {
+        $this->pushTemplatedMessagesByPhoneWithHttpInfo($pnpTemplatedMessageRequest, $xLineDeliveryTag, $contentType);
+    }
+
+    /**
+     * Operation pushTemplatedMessagesByPhoneWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\PnpTemplatedMessageRequest $pnpTemplatedMessageRequest (required)
+     * @param  string|null $xLineDeliveryTag String returned in the delivery.data property of the delivery completion event via Webhook. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pushTemplatedMessagesByPhone'] to see the possible values for this operation
+     *
+     * @throws \LINE\Clients\MessagingApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function pushTemplatedMessagesByPhoneWithHttpInfo($pnpTemplatedMessageRequest, $xLineDeliveryTag = null, string $contentType = self::contentTypes['pushTemplatedMessagesByPhone'][0])
+    {
+        $request = $this->pushTemplatedMessagesByPhoneRequest($pnpTemplatedMessageRequest, $xLineDeliveryTag, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LINE\Clients\MessagingApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation pushTemplatedMessagesByPhoneAsync
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\PnpTemplatedMessageRequest $pnpTemplatedMessageRequest (required)
+     * @param  string|null $xLineDeliveryTag String returned in the delivery.data property of the delivery completion event via Webhook. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pushTemplatedMessagesByPhone'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function pushTemplatedMessagesByPhoneAsync($pnpTemplatedMessageRequest, $xLineDeliveryTag = null, string $contentType = self::contentTypes['pushTemplatedMessagesByPhone'][0])
+    {
+        return $this->pushTemplatedMessagesByPhoneAsyncWithHttpInfo($pnpTemplatedMessageRequest, $xLineDeliveryTag, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation pushTemplatedMessagesByPhoneAsyncWithHttpInfo
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\PnpTemplatedMessageRequest $pnpTemplatedMessageRequest (required)
+     * @param  string|null $xLineDeliveryTag String returned in the delivery.data property of the delivery completion event via Webhook. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pushTemplatedMessagesByPhone'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function pushTemplatedMessagesByPhoneAsyncWithHttpInfo($pnpTemplatedMessageRequest, $xLineDeliveryTag = null, string $contentType = self::contentTypes['pushTemplatedMessagesByPhone'][0])
+    {
+        $returnType = '';
+        $request = $this->pushTemplatedMessagesByPhoneRequest($pnpTemplatedMessageRequest, $xLineDeliveryTag, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'pushTemplatedMessagesByPhone'
+     *
+     * @param  \LINE\Clients\MessagingApi\Model\PnpTemplatedMessageRequest $pnpTemplatedMessageRequest (required)
+     * @param  string|null $xLineDeliveryTag String returned in the delivery.data property of the delivery completion event via Webhook. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pushTemplatedMessagesByPhone'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function pushTemplatedMessagesByPhoneRequest($pnpTemplatedMessageRequest, $xLineDeliveryTag = null, string $contentType = self::contentTypes['pushTemplatedMessagesByPhone'][0])
+    {
+
+        // verify the required parameter 'pnpTemplatedMessageRequest' is set
+        if ($pnpTemplatedMessageRequest === null || (is_array($pnpTemplatedMessageRequest) && count($pnpTemplatedMessageRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pnpTemplatedMessageRequest when calling pushTemplatedMessagesByPhone'
+            );
+        }
+
+        if ($xLineDeliveryTag !== null && strlen($xLineDeliveryTag) > 100) {
+            throw new \InvalidArgumentException('invalid length for "$xLineDeliveryTag" when calling MessagingApiApi.pushTemplatedMessagesByPhone, must be smaller than or equal to 100.');
+        }
+        if ($xLineDeliveryTag !== null && strlen($xLineDeliveryTag) < 16) {
+            throw new \InvalidArgumentException('invalid length for "$xLineDeliveryTag" when calling MessagingApiApi.pushTemplatedMessagesByPhone, must be bigger than or equal to 16.');
+        }
+        
+
+        $resourcePath = '/v2/bot/message/pnp/templated/push';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($xLineDeliveryTag !== null) {
+            $headerParams['X-Line-Delivery-Tag'] = ObjectSerializer::toHeaderValue($xLineDeliveryTag);
+        }
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($pnpTemplatedMessageRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($pnpTemplatedMessageRequest));
+            } else {
+                $httpBody = $pnpTemplatedMessageRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
