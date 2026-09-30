@@ -198,11 +198,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -266,7 +267,17 @@ class ManageAudienceApi
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -323,7 +334,7 @@ class ManageAudienceApi
         if (isset($addAudienceToAudienceGroupRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($addAudienceToAudienceGroupRequest));
+                $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($addAudienceToAudienceGroupRequest), JSON_THROW_ON_ERROR);
             } else {
                 $httpBody = $addAudienceToAudienceGroupRequest;
             }
@@ -344,7 +355,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -412,11 +423,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -529,7 +541,17 @@ class ManageAudienceApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -586,7 +608,7 @@ class ManageAudienceApi
         if (isset($createAudienceGroupRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($createAudienceGroupRequest));
+                $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($createAudienceGroupRequest), JSON_THROW_ON_ERROR);
             } else {
                 $httpBody = $createAudienceGroupRequest;
             }
@@ -607,7 +629,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -675,11 +697,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -792,7 +815,17 @@ class ManageAudienceApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -849,7 +882,7 @@ class ManageAudienceApi
         if (isset($createClickBasedAudienceGroupRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($createClickBasedAudienceGroupRequest));
+                $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($createClickBasedAudienceGroupRequest), JSON_THROW_ON_ERROR);
             } else {
                 $httpBody = $createClickBasedAudienceGroupRequest;
             }
@@ -870,7 +903,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -938,11 +971,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1055,7 +1089,17 @@ class ManageAudienceApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -1112,7 +1156,7 @@ class ManageAudienceApi
         if (isset($createImpBasedAudienceGroupRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($createImpBasedAudienceGroupRequest));
+                $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($createImpBasedAudienceGroupRequest), JSON_THROW_ON_ERROR);
             } else {
                 $httpBody = $createImpBasedAudienceGroupRequest;
             }
@@ -1133,7 +1177,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1200,11 +1244,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1268,7 +1313,17 @@ class ManageAudienceApi
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -1347,7 +1402,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1415,11 +1470,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1546,7 +1602,17 @@ class ManageAudienceApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -1625,7 +1691,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1703,11 +1769,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1830,7 +1897,17 @@ class ManageAudienceApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -1971,7 +2048,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2039,11 +2116,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -2170,7 +2248,17 @@ class ManageAudienceApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -2249,7 +2337,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2327,11 +2415,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -2454,7 +2543,17 @@ class ManageAudienceApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -2595,7 +2694,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2664,11 +2763,12 @@ class ManageAudienceApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -2734,7 +2834,17 @@ class ManageAudienceApi
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -2807,7 +2917,7 @@ class ManageAudienceApi
         if (isset($updateAudienceGroupDescriptionRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($updateAudienceGroupDescriptionRequest));
+                $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($updateAudienceGroupDescriptionRequest), JSON_THROW_ON_ERROR);
             } else {
                 $httpBody = $updateAudienceGroupDescriptionRequest;
             }
@@ -2828,7 +2938,7 @@ class ManageAudienceApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);

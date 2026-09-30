@@ -195,11 +195,12 @@ class ChannelAccessTokenApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -314,7 +315,17 @@ class ChannelAccessTokenApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -411,7 +422,7 @@ class ChannelAccessTokenApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -479,11 +490,12 @@ class ChannelAccessTokenApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -614,7 +626,17 @@ class ChannelAccessTokenApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -712,7 +734,7 @@ class ChannelAccessTokenApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -780,11 +802,12 @@ class ChannelAccessTokenApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -901,7 +924,17 @@ class ChannelAccessTokenApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -999,7 +1032,7 @@ class ChannelAccessTokenApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1075,11 +1108,12 @@ class ChannelAccessTokenApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1204,7 +1238,17 @@ class ChannelAccessTokenApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -1290,7 +1334,7 @@ class ChannelAccessTokenApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1353,11 +1397,12 @@ class ChannelAccessTokenApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1421,7 +1466,17 @@ class ChannelAccessTokenApi
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -1501,7 +1556,7 @@ class ChannelAccessTokenApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1568,11 +1623,12 @@ class ChannelAccessTokenApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1640,7 +1696,17 @@ class ChannelAccessTokenApi
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -1738,7 +1804,7 @@ class ChannelAccessTokenApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1802,11 +1868,12 @@ class ChannelAccessTokenApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1919,7 +1986,17 @@ class ChannelAccessTokenApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -1999,7 +2076,7 @@ class ChannelAccessTokenApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2063,11 +2140,12 @@ class ChannelAccessTokenApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+                $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $response ? $response->getHeaders() : null,
+                    $response ? (string) $response->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -2180,7 +2258,17 @@ class ChannelAccessTokenApi
                     ];
                 },
                 function ($exception) {
-                    $response = $exception->getResponse();
+                    $response = $exception instanceof RequestException && method_exists($exception, 'getResponse')
+                        ? $exception->getResponse()
+                        : null;
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(
                         sprintf(
@@ -2260,7 +2348,7 @@ class ChannelAccessTokenApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
