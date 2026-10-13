@@ -507,6 +507,9 @@ class CouponCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             $invalidProperties[] = "invalid value for 'usageCondition', the character length must be bigger than or equal to 0.";
         }
 
+        if ($this->container['reward'] === null) {
+            $invalidProperties[] = "'reward' can't be null";
+        }
         if ($this->container['visibility'] === null) {
             $invalidProperties[] = "'visibility' can't be null";
         }
@@ -845,7 +848,7 @@ class CouponCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets reward
      *
-     * @return \LINE\Clients\MessagingApi\Model\CouponRewardRequest|null
+     * @return \LINE\Clients\MessagingApi\Model\CouponRewardRequest
      */
     public function getReward()
     {
@@ -855,7 +858,7 @@ class CouponCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets reward
      *
-     * @param \LINE\Clients\MessagingApi\Model\CouponRewardRequest|null $reward reward
+     * @param \LINE\Clients\MessagingApi\Model\CouponRewardRequest $reward reward
      *
      * @return self
      */

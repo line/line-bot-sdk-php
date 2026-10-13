@@ -286,11 +286,14 @@ class UpdateAudienceGroupDescriptionRequest implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 120)) {
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ((mb_strlen($this->container['description']) > 120)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 120.";
         }
 
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 1)) {
+        if ((mb_strlen($this->container['description']) < 1)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 1.";
         }
 
@@ -312,7 +315,7 @@ class UpdateAudienceGroupDescriptionRequest implements ModelInterface, ArrayAcce
     /**
      * Gets description
      *
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -322,7 +325,7 @@ class UpdateAudienceGroupDescriptionRequest implements ModelInterface, ArrayAcce
     /**
      * Sets description
      *
-     * @param string|null $description The audience's name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120
+     * @param string $description The audience's name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120
      *
      * @return self
      */

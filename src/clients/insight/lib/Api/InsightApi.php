@@ -680,14 +680,14 @@ class InsightApi
      *
      * Get number of followers
      *
-     * @param  string|null $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (optional)
+     * @param  string $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberOfFollowers'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\Insight\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \LINE\Clients\Insight\Model\GetNumberOfFollowersResponse
      */
-    public function getNumberOfFollowers($date = null, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
+    public function getNumberOfFollowers($date, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
     {
         list($response) = $this->getNumberOfFollowersWithHttpInfo($date, $contentType);
         return $response;
@@ -698,14 +698,14 @@ class InsightApi
      *
      * Get number of followers
      *
-     * @param  string|null $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (optional)
+     * @param  string $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberOfFollowers'] to see the possible values for this operation
      *
      * @throws \LINE\Clients\Insight\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \LINE\Clients\Insight\Model\GetNumberOfFollowersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNumberOfFollowersWithHttpInfo($date = null, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
+    public function getNumberOfFollowersWithHttpInfo($date, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
     {
         $request = $this->getNumberOfFollowersRequest($date, $contentType);
 
@@ -783,13 +783,13 @@ class InsightApi
      *
      * Get number of followers
      *
-     * @param  string|null $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (optional)
+     * @param  string $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberOfFollowers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNumberOfFollowersAsync($date = null, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
+    public function getNumberOfFollowersAsync($date, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
     {
         return $this->getNumberOfFollowersAsyncWithHttpInfo($date, $contentType)
             ->then(
@@ -804,13 +804,13 @@ class InsightApi
      *
      * Get number of followers
      *
-     * @param  string|null $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (optional)
+     * @param  string $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberOfFollowers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNumberOfFollowersAsyncWithHttpInfo($date = null, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
+    public function getNumberOfFollowersAsyncWithHttpInfo($date, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
     {
         $returnType = '\LINE\Clients\Insight\Model\GetNumberOfFollowersResponse';
         $request = $this->getNumberOfFollowersRequest($date, $contentType);
@@ -854,22 +854,28 @@ class InsightApi
     /**
      * Create request for operation 'getNumberOfFollowers'
      *
-     * @param  string|null $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (optional)
+     * @param  string $date Date for which to retrieve the number of followers.  Format: yyyyMMdd (e.g. 20191231) Timezone: UTC+9 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberOfFollowers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNumberOfFollowersRequest($date = null, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
+    public function getNumberOfFollowersRequest($date, string $contentType = self::contentTypes['getNumberOfFollowers'][0])
     {
 
-        if ($date !== null && strlen($date) > 8) {
+        // verify the required parameter 'date' is set
+        if ($date === null || (is_array($date) && count($date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $date when calling getNumberOfFollowers'
+            );
+        }
+        if (strlen($date) > 8) {
             throw new \InvalidArgumentException('invalid length for "$date" when calling InsightApi.getNumberOfFollowers, must be smaller than or equal to 8.');
         }
-        if ($date !== null && strlen($date) < 8) {
+        if (strlen($date) < 8) {
             throw new \InvalidArgumentException('invalid length for "$date" when calling InsightApi.getNumberOfFollowers, must be bigger than or equal to 8.');
         }
-        if ($date !== null && !preg_match("/^[0-9]{8}$/", $date)) {
+        if (!preg_match("/^[0-9]{8}$/", $date)) {
             throw new \InvalidArgumentException("invalid value for \"date\" when calling InsightApi.getNumberOfFollowers, must conform to the pattern /^[0-9]{8}$/.");
         }
         
@@ -888,7 +894,7 @@ class InsightApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
 
 

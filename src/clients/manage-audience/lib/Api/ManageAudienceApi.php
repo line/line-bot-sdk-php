@@ -2285,7 +2285,7 @@ class ManageAudienceApi
     /**
      * Operation getSharedAudienceGroups
      *
-     * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
+     * @param  int|null $page The page to return when getting (paginated) results. Must be 1 or higher. (optional)
      * @param  string|null $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
@@ -2297,7 +2297,7 @@ class ManageAudienceApi
      * @throws \InvalidArgumentException
      * @return \LINE\Clients\ManageAudience\Model\GetSharedAudienceGroupsResponse
      */
-    public function getSharedAudienceGroups($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroups($page = null, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
         list($response) = $this->getSharedAudienceGroupsWithHttpInfo($page, $description, $status, $size, $createRoute, $includesOwnedAudienceGroups, $contentType);
         return $response;
@@ -2306,7 +2306,7 @@ class ManageAudienceApi
     /**
      * Operation getSharedAudienceGroupsWithHttpInfo
      *
-     * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
+     * @param  int|null $page The page to return when getting (paginated) results. Must be 1 or higher. (optional)
      * @param  string|null $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
@@ -2318,7 +2318,7 @@ class ManageAudienceApi
      * @throws \InvalidArgumentException
      * @return array of \LINE\Clients\ManageAudience\Model\GetSharedAudienceGroupsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSharedAudienceGroupsWithHttpInfo($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroupsWithHttpInfo($page = null, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
         $request = $this->getSharedAudienceGroupsRequest($page, $description, $status, $size, $createRoute, $includesOwnedAudienceGroups, $contentType);
 
@@ -2394,7 +2394,7 @@ class ManageAudienceApi
     /**
      * Operation getSharedAudienceGroupsAsync
      *
-     * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
+     * @param  int|null $page The page to return when getting (paginated) results. Must be 1 or higher. (optional)
      * @param  string|null $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
@@ -2405,7 +2405,7 @@ class ManageAudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSharedAudienceGroupsAsync($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroupsAsync($page = null, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
         return $this->getSharedAudienceGroupsAsyncWithHttpInfo($page, $description, $status, $size, $createRoute, $includesOwnedAudienceGroups, $contentType)
             ->then(
@@ -2418,7 +2418,7 @@ class ManageAudienceApi
     /**
      * Operation getSharedAudienceGroupsAsyncWithHttpInfo
      *
-     * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
+     * @param  int|null $page The page to return when getting (paginated) results. Must be 1 or higher. (optional)
      * @param  string|null $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
@@ -2429,7 +2429,7 @@ class ManageAudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSharedAudienceGroupsAsyncWithHttpInfo($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroupsAsyncWithHttpInfo($page = null, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
         $returnType = '\LINE\Clients\ManageAudience\Model\GetSharedAudienceGroupsResponse';
         $request = $this->getSharedAudienceGroupsRequest($page, $description, $status, $size, $createRoute, $includesOwnedAudienceGroups, $contentType);
@@ -2473,7 +2473,7 @@ class ManageAudienceApi
     /**
      * Create request for operation 'getSharedAudienceGroups'
      *
-     * @param  int $page The page to return when getting (paginated) results. Must be 1 or higher. (required)
+     * @param  int|null $page The page to return when getting (paginated) results. Must be 1 or higher. (optional)
      * @param  string|null $description The name of the audience(s) to return. You can search for partial matches. This is case-insensitive, meaning AUDIENCE and audience are considered identical. If omitted, the name of the audience(s) will not be used as a search criterion. (optional)
      * @param  \LINE\Clients\ManageAudience\Model\AudienceGroupStatus|null $status The status of the audience(s) to return. If omitted, the status of the audience(s) will not be used as a search criterion. (optional)
      * @param  int|null $size The number of audiences per page. Default: 20 Max: 40 (optional)
@@ -2484,16 +2484,10 @@ class ManageAudienceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSharedAudienceGroupsRequest($page, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
+    public function getSharedAudienceGroupsRequest($page = null, $description = null, $status = null, $size = null, $createRoute = null, $includesOwnedAudienceGroups = false, string $contentType = self::contentTypes['getSharedAudienceGroups'][0])
     {
 
-        // verify the required parameter 'page' is set
-        if ($page === null || (is_array($page) && count($page) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $page when calling getSharedAudienceGroups'
-            );
-        }
-        if ($page < 1) {
+        if ($page !== null && $page < 1) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling ManageAudienceApi.getSharedAudienceGroups, must be bigger than or equal to 1.');
         }
         
@@ -2520,7 +2514,7 @@ class ManageAudienceApi
             'integer', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(

@@ -300,7 +300,13 @@ class AddAudienceToAudienceGroupRequest implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['audiences']) && (count($this->container['audiences']) > 10000)) {
+        if ($this->container['audienceGroupId'] === null) {
+            $invalidProperties[] = "'audienceGroupId' can't be null";
+        }
+        if ($this->container['audiences'] === null) {
+            $invalidProperties[] = "'audiences' can't be null";
+        }
+        if ((count($this->container['audiences']) > 10000)) {
             $invalidProperties[] = "invalid value for 'audiences', number of items must be less than or equal to 10000.";
         }
 
@@ -322,7 +328,7 @@ class AddAudienceToAudienceGroupRequest implements ModelInterface, ArrayAccess, 
     /**
      * Gets audienceGroupId
      *
-     * @return int|null
+     * @return int
      */
     public function getAudienceGroupId()
     {
@@ -332,7 +338,7 @@ class AddAudienceToAudienceGroupRequest implements ModelInterface, ArrayAccess, 
     /**
      * Sets audienceGroupId
      *
-     * @param int|null $audienceGroupId The audience ID.
+     * @param int $audienceGroupId The audience ID.
      *
      * @return self
      */
@@ -376,7 +382,7 @@ class AddAudienceToAudienceGroupRequest implements ModelInterface, ArrayAccess, 
     /**
      * Gets audiences
      *
-     * @return \LINE\Clients\ManageAudience\Model\Audience[]|null
+     * @return \LINE\Clients\ManageAudience\Model\Audience[]
      */
     public function getAudiences()
     {
@@ -386,7 +392,7 @@ class AddAudienceToAudienceGroupRequest implements ModelInterface, ArrayAccess, 
     /**
      * Sets audiences
      *
-     * @param \LINE\Clients\ManageAudience\Model\Audience[]|null $audiences An array of up to 10,000 user IDs or IFAs.
+     * @param \LINE\Clients\ManageAudience\Model\Audience[] $audiences An array of up to 10,000 user IDs or IFAs.
      *
      * @return self
      */

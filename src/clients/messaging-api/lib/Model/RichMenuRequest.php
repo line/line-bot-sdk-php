@@ -313,14 +313,29 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 300)) {
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
+        if ($this->container['selected'] === null) {
+            $invalidProperties[] = "'selected' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) > 300)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 300.";
         }
 
-        if (!is_null($this->container['chatBarText']) && (mb_strlen($this->container['chatBarText']) > 14)) {
+        if ($this->container['chatBarText'] === null) {
+            $invalidProperties[] = "'chatBarText' can't be null";
+        }
+        if ((mb_strlen($this->container['chatBarText']) > 14)) {
             $invalidProperties[] = "invalid value for 'chatBarText', the character length must be smaller than or equal to 14.";
         }
 
+        if ($this->container['areas'] === null) {
+            $invalidProperties[] = "'areas' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -339,7 +354,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets size
      *
-     * @return \LINE\Clients\MessagingApi\Model\RichMenuSize|null
+     * @return \LINE\Clients\MessagingApi\Model\RichMenuSize
      */
     public function getSize()
     {
@@ -349,7 +364,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets size
      *
-     * @param \LINE\Clients\MessagingApi\Model\RichMenuSize|null $size size
+     * @param \LINE\Clients\MessagingApi\Model\RichMenuSize $size size
      *
      * @return self
      */
@@ -366,7 +381,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets selected
      *
-     * @return bool|null
+     * @return bool
      */
     public function getSelected()
     {
@@ -376,7 +391,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets selected
      *
-     * @param bool|null $selected `true` to display the rich menu by default. Otherwise, `false`.
+     * @param bool $selected `true` to display the rich menu by default. Otherwise, `false`.
      *
      * @return self
      */
@@ -393,7 +408,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -403,7 +418,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Name of the rich menu. This value can be used to help manage your rich menus and is not displayed to users.
+     * @param string $name Name of the rich menu. This value can be used to help manage your rich menus and is not displayed to users.
      *
      * @return self
      */
@@ -424,7 +439,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets chatBarText
      *
-     * @return string|null
+     * @return string
      */
     public function getChatBarText()
     {
@@ -434,7 +449,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets chatBarText
      *
-     * @param string|null $chatBarText Text displayed in the chat bar
+     * @param string $chatBarText Text displayed in the chat bar
      *
      * @return self
      */
@@ -455,7 +470,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets areas
      *
-     * @return \LINE\Clients\MessagingApi\Model\RichMenuArea[]|null
+     * @return \LINE\Clients\MessagingApi\Model\RichMenuArea[]
      */
     public function getAreas()
     {
@@ -465,7 +480,7 @@ class RichMenuRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets areas
      *
-     * @param \LINE\Clients\MessagingApi\Model\RichMenuArea[]|null $areas Array of area objects which define the coordinates and size of tappable areas
+     * @param \LINE\Clients\MessagingApi\Model\RichMenuArea[] $areas Array of area objects which define the coordinates and size of tappable areas
      *
      * @return self
      */

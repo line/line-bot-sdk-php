@@ -147,8 +147,8 @@ class ManageAudienceBlobApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  int $audienceGroupId The audience ID. (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  int|null $audienceGroupId The audience ID. (optional)
      * @param  string|null $uploadDescription The description to register with the job (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -158,9 +158,9 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addUserIdsToAudience($file, $audienceGroupId = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
+    public function addUserIdsToAudience($audienceGroupId, $file, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
     {
-        $this->addUserIdsToAudienceWithHttpInfo($file, $audienceGroupId, $uploadDescription, $hostIndex, $variables, $contentType);
+        $this->addUserIdsToAudienceWithHttpInfo($audienceGroupId, $file, $uploadDescription, $hostIndex, $variables, $contentType);
     }
 
     /**
@@ -170,8 +170,8 @@ class ManageAudienceBlobApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  int $audienceGroupId The audience ID. (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  int|null $audienceGroupId The audience ID. (optional)
      * @param  string|null $uploadDescription The description to register with the job (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -181,9 +181,9 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addUserIdsToAudienceWithHttpInfo($file, $audienceGroupId = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
+    public function addUserIdsToAudienceWithHttpInfo($audienceGroupId, $file, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
     {
-        $request = $this->addUserIdsToAudienceRequest($file, $audienceGroupId, $uploadDescription, $hostIndex, $variables, $contentType);
+        $request = $this->addUserIdsToAudienceRequest($audienceGroupId, $file, $uploadDescription, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -225,8 +225,8 @@ class ManageAudienceBlobApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  int $audienceGroupId The audience ID. (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  int|null $audienceGroupId The audience ID. (optional)
      * @param  string|null $uploadDescription The description to register with the job (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -235,9 +235,9 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addUserIdsToAudienceAsync($file, $audienceGroupId = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
+    public function addUserIdsToAudienceAsync($audienceGroupId, $file, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
     {
-        return $this->addUserIdsToAudienceAsyncWithHttpInfo($file, $audienceGroupId, $uploadDescription, $hostIndex, $variables, $contentType)
+        return $this->addUserIdsToAudienceAsyncWithHttpInfo($audienceGroupId, $file, $uploadDescription, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -252,8 +252,8 @@ class ManageAudienceBlobApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  int $audienceGroupId The audience ID. (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  int|null $audienceGroupId The audience ID. (optional)
      * @param  string|null $uploadDescription The description to register with the job (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -262,10 +262,10 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addUserIdsToAudienceAsyncWithHttpInfo($file, $audienceGroupId = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
+    public function addUserIdsToAudienceAsyncWithHttpInfo($audienceGroupId, $file, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
     {
         $returnType = '';
-        $request = $this->addUserIdsToAudienceRequest($file, $audienceGroupId, $uploadDescription, $hostIndex, $variables, $contentType);
+        $request = $this->addUserIdsToAudienceRequest($audienceGroupId, $file, $uploadDescription, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -297,8 +297,8 @@ class ManageAudienceBlobApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  int $audienceGroupId The audience ID. (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  int|null $audienceGroupId The audience ID. (optional)
      * @param  string|null $uploadDescription The description to register with the job (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -307,8 +307,15 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addUserIdsToAudienceRequest($file, $audienceGroupId = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
+    public function addUserIdsToAudienceRequest($audienceGroupId, $file, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['addUserIdsToAudience'][0])
     {
+
+        // verify the required parameter 'audienceGroupId' is set
+        if ($audienceGroupId === null || (is_array($audienceGroupId) && count($audienceGroupId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $audienceGroupId when calling addUserIdsToAudience'
+            );
+        }
 
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
@@ -316,7 +323,6 @@ class ManageAudienceBlobApi
                 'Missing the required parameter $file when calling addUserIdsToAudience'
             );
         }
-
 
 
 
@@ -432,8 +438,8 @@ class ManageAudienceBlobApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  string $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  string|null $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (optional)
      * @param  bool|null $isIfaAudience To specify recipients by IFAs: set &#x60;true&#x60;. To specify recipients by user IDs: set &#x60;false&#x60; or omit isIfaAudience property. (optional)
      * @param  string|null $uploadDescription The description to register for the job (in &#x60;jobs[].description&#x60;). (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -444,9 +450,9 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return \LINE\Clients\ManageAudience\Model\CreateAudienceGroupResponse
      */
-    public function createAudienceForUploadingUserIds($file, $description = null, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
+    public function createAudienceForUploadingUserIds($description, $file, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
     {
-        list($response) = $this->createAudienceForUploadingUserIdsWithHttpInfo($file, $description, $isIfaAudience, $uploadDescription, $hostIndex, $variables, $contentType);
+        list($response) = $this->createAudienceForUploadingUserIdsWithHttpInfo($description, $file, $isIfaAudience, $uploadDescription, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -457,8 +463,8 @@ class ManageAudienceBlobApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  string $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  string|null $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (optional)
      * @param  bool|null $isIfaAudience To specify recipients by IFAs: set &#x60;true&#x60;. To specify recipients by user IDs: set &#x60;false&#x60; or omit isIfaAudience property. (optional)
      * @param  string|null $uploadDescription The description to register for the job (in &#x60;jobs[].description&#x60;). (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -469,9 +475,9 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return array of \LINE\Clients\ManageAudience\Model\CreateAudienceGroupResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAudienceForUploadingUserIdsWithHttpInfo($file, $description = null, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
+    public function createAudienceForUploadingUserIdsWithHttpInfo($description, $file, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
     {
-        $request = $this->createAudienceForUploadingUserIdsRequest($file, $description, $isIfaAudience, $uploadDescription, $hostIndex, $variables, $contentType);
+        $request = $this->createAudienceForUploadingUserIdsRequest($description, $file, $isIfaAudience, $uploadDescription, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -549,8 +555,8 @@ class ManageAudienceBlobApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  string $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  string|null $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (optional)
      * @param  bool|null $isIfaAudience To specify recipients by IFAs: set &#x60;true&#x60;. To specify recipients by user IDs: set &#x60;false&#x60; or omit isIfaAudience property. (optional)
      * @param  string|null $uploadDescription The description to register for the job (in &#x60;jobs[].description&#x60;). (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -560,9 +566,9 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAudienceForUploadingUserIdsAsync($file, $description = null, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
+    public function createAudienceForUploadingUserIdsAsync($description, $file, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
     {
-        return $this->createAudienceForUploadingUserIdsAsyncWithHttpInfo($file, $description, $isIfaAudience, $uploadDescription, $hostIndex, $variables, $contentType)
+        return $this->createAudienceForUploadingUserIdsAsyncWithHttpInfo($description, $file, $isIfaAudience, $uploadDescription, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -577,8 +583,8 @@ class ManageAudienceBlobApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  string $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  string|null $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (optional)
      * @param  bool|null $isIfaAudience To specify recipients by IFAs: set &#x60;true&#x60;. To specify recipients by user IDs: set &#x60;false&#x60; or omit isIfaAudience property. (optional)
      * @param  string|null $uploadDescription The description to register for the job (in &#x60;jobs[].description&#x60;). (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -588,10 +594,10 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAudienceForUploadingUserIdsAsyncWithHttpInfo($file, $description = null, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
+    public function createAudienceForUploadingUserIdsAsyncWithHttpInfo($description, $file, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
     {
         $returnType = '\LINE\Clients\ManageAudience\Model\CreateAudienceGroupResponse';
-        $request = $this->createAudienceForUploadingUserIdsRequest($file, $description, $isIfaAudience, $uploadDescription, $hostIndex, $variables, $contentType);
+        $request = $this->createAudienceForUploadingUserIdsRequest($description, $file, $isIfaAudience, $uploadDescription, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -636,8 +642,8 @@ class ManageAudienceBlobApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api-data.line.me
      *
+     * @param  string $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (required)
      * @param  \SplFileObject $file A text file with one user ID or IFA entered per line. Specify text/plain as Content-Type. Max file number: 1 Max number: 1,500,000 (required)
-     * @param  string|null $description The audience&#39;s name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120 (optional)
      * @param  bool|null $isIfaAudience To specify recipients by IFAs: set &#x60;true&#x60;. To specify recipients by user IDs: set &#x60;false&#x60; or omit isIfaAudience property. (optional)
      * @param  string|null $uploadDescription The description to register for the job (in &#x60;jobs[].description&#x60;). (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -647,9 +653,19 @@ class ManageAudienceBlobApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createAudienceForUploadingUserIdsRequest($file, $description = null, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
+    public function createAudienceForUploadingUserIdsRequest($description, $file, $isIfaAudience = null, $uploadDescription = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createAudienceForUploadingUserIds'][0])
     {
 
+        // verify the required parameter 'description' is set
+        if ($description === null || (is_array($description) && count($description) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $description when calling createAudienceForUploadingUserIds'
+            );
+        }
+        if (strlen($description) > 120) {
+            throw new \InvalidArgumentException('invalid length for "$description" when calling ManageAudienceBlobApi.createAudienceForUploadingUserIds, must be smaller than or equal to 120.');
+        }
+        
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
             throw new \InvalidArgumentException(
@@ -657,10 +673,6 @@ class ManageAudienceBlobApi
             );
         }
 
-        if ($description !== null && strlen($description) > 120) {
-            throw new \InvalidArgumentException('invalid length for "$description" when calling ManageAudienceBlobApi.createAudienceForUploadingUserIds, must be smaller than or equal to 120.');
-        }
-        
 
 
 

@@ -300,10 +300,16 @@ class CreateClickBasedAudienceGroupRequest implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 120)) {
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ((mb_strlen($this->container['description']) > 120)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 120.";
         }
 
+        if ($this->container['requestId'] === null) {
+            $invalidProperties[] = "'requestId' can't be null";
+        }
         if (!is_null($this->container['clickUrl']) && (mb_strlen($this->container['clickUrl']) > 2000)) {
             $invalidProperties[] = "invalid value for 'clickUrl', the character length must be smaller than or equal to 2000.";
         }
@@ -326,7 +332,7 @@ class CreateClickBasedAudienceGroupRequest implements ModelInterface, ArrayAcces
     /**
      * Gets description
      *
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -336,7 +342,7 @@ class CreateClickBasedAudienceGroupRequest implements ModelInterface, ArrayAcces
     /**
      * Sets description
      *
-     * @param string|null $description The audience's name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120
+     * @param string $description The audience's name. This is case-insensitive, meaning AUDIENCE and audience are considered identical. Max character limit: 120
      *
      * @return self
      */
@@ -357,7 +363,7 @@ class CreateClickBasedAudienceGroupRequest implements ModelInterface, ArrayAcces
     /**
      * Gets requestId
      *
-     * @return string|null
+     * @return string
      */
     public function getRequestId()
     {
@@ -367,7 +373,7 @@ class CreateClickBasedAudienceGroupRequest implements ModelInterface, ArrayAcces
     /**
      * Sets requestId
      *
-     * @param string|null $requestId The request ID of a broadcast or narrowcast message sent in the past 60 days. Each Messaging API request has a request ID.
+     * @param string $requestId The request ID of a broadcast or narrowcast message sent in the past 60 days. Each Messaging API request has a request ID.
      *
      * @return self
      */
