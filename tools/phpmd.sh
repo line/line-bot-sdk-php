@@ -10,4 +10,8 @@ DIRS=(
   examples/KitchenSink/public
 )
 
-phpmd --ignore-violations-on-exit "$(IFS=,; echo "${DIRS[*]}")" text phpmd.xml
+phpmd analyze \
+  --ignore-violations-on-exit \
+  --format text \
+  --ruleset phpmd.xml \
+  "${DIRS[@]}"
