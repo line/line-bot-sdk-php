@@ -285,8 +285,8 @@ class AltUri implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['desktop']) && (mb_strlen($this->container['desktop']) > 1000)) {
-            $invalidProperties[] = "invalid value for 'desktop', the character length must be smaller than or equal to 1000.";
+        if (!is_null($this->container['desktop']) && (mb_strlen($this->container['desktop']) > 10000)) {
+            $invalidProperties[] = "invalid value for 'desktop', the character length must be smaller than or equal to 10000.";
         }
 
         if (!is_null($this->container['desktop']) && (mb_strlen($this->container['desktop']) < 0)) {
@@ -330,8 +330,8 @@ class AltUri implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($desktop)) {
             throw new \InvalidArgumentException('non-nullable desktop cannot be null');
         }
-        if ((mb_strlen($desktop) > 1000)) {
-            throw new \InvalidArgumentException('invalid length for $desktop when calling AltUri., must be smaller than or equal to 1000.');
+        if ((mb_strlen($desktop) > 10000)) {
+            throw new \InvalidArgumentException('invalid length for $desktop when calling AltUri., must be smaller than or equal to 10000.');
         }
         if ((mb_strlen($desktop) < 0)) {
             throw new \InvalidArgumentException('invalid length for $desktop when calling AltUri., must be bigger than or equal to 0.');

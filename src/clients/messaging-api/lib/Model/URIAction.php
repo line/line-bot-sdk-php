@@ -294,6 +294,10 @@ class URIAction extends Action
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if (!is_null($this->container['uri']) && (mb_strlen($this->container['uri']) > 10000)) {
+            $invalidProperties[] = "invalid value for 'uri', the character length must be smaller than or equal to 10000.";
+        }
+
         return $invalidProperties;
     }
 
@@ -331,6 +335,10 @@ class URIAction extends Action
         if (is_null($uri)) {
             throw new \InvalidArgumentException('non-nullable uri cannot be null');
         }
+        if ((mb_strlen($uri) > 10000)) {
+            throw new \InvalidArgumentException('invalid length for $uri when calling URIAction., must be smaller than or equal to 10000.');
+        }
+
         $this->container['uri'] = $uri;
 
         return $this;
